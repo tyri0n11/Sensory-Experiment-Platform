@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <stylesheets>
+      <URL value="@/css/Profile_CSS.css" />
+   </stylesheets>
+   <children>
+      <BorderPane prefHeight="667.0" prefWidth="1100.0" stylesheets="@../css/Profile_CSS.css">
+         <top>
+            <AnchorPane prefHeight="35.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane id="topbar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="labelSenseXP" layoutX="32.0" stylesheets="@../css/Profile_CSS.css" text="SENSE XP" textFill="#141414">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="avatarLabel" layoutX="908.0" layoutY="15.0" />
+                        <ImageView id="strokeIcon" fitHeight="55.0" fitWidth="39.0" layoutX="1056.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../css/images/Stroke.png" />
+                           </image></ImageView>
+                        <MenuButton id="userMenuBtn" layoutX="1155.0" layoutY="16.0" mnemonicParsing="false" text="Vi Chi Thanh">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Action 1" />
+                            <MenuItem mnemonicParsing="false" text="Action 2" />
+                          </items>
+                        </MenuButton>
+                        
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane id="sidebar" layoutX="-1.0" maxHeight="783.0" minHeight="702.0" prefHeight="783.0" prefWidth="265.0" stylesheets="@../css/Profile_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Pane layoutX="3.9000000953674316" layoutY="35.900001525878906">
+                           <children>
+                              <Button id="dashboardBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.0999984741210938" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" stylesheets="@../css/Profile_CSS.css" text="Dashboard" />
+                              <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="34.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../css/images/dashboard.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="3.9000000953674316" layoutY="87.9000015258789">
+                           <children>
+                              <Button id="generalBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.0999984741210938" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" stylesheets="@../css/Profile_CSS.css" text="General experiment" />
+                              <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="34.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../css/images/generalExp.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="3.9000000953674316" layoutY="139.89999389648438">
+                           <children>
+                              <Button id="importBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.100006103515625" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" stylesheets="@../css/Profile_CSS.css" text="Import experiment" />
+                              <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="34.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../css/images/lucide_import.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="3.9000000953674316" layoutY="191.89999389648438">
+                           <children>
+                              <Button id="exportBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.100006103515625" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" stylesheets="@../css/Profile_CSS.css" text="Export experiment" />
+                              <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="34.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../css/images/uil_export.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="3.9000000953674316" layoutY="243.89999389648438">
+                           <children>
+                              <Button id="configureBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.100006103515625" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" stylesheets="@../css/Profile_CSS.css" text="Configure" />
+                              <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="34.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../css/images/grommet-icons_configure.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="12.899999618530273" layoutY="603.9000244140625">
+                           <children>
+                              <Button id="logOutBtn" layoutX="4.100000381469727" layoutY="3.0999755859375" mnemonicParsing="false" prefHeight="56.0" prefWidth="216.0" stylesheets="@../css/Profile_CSS.css" text="Log Out" />
+                              <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="34.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../css/images/ic_outline-logout.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children></AnchorPane>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <StackPane maxHeight="702.0" minHeight="689.0" prefHeight="702.0" prefWidth="1019.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="712.0" prefWidth="1030.0">
+                     <children>
+                        <BorderPane layoutX="6.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="236.0">
+                           <top>
+                              <AnchorPane prefHeight="83.0" prefWidth="236.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <ImageView id="menuIcon" fitHeight="39.0" fitWidth="39.0" layoutX="40.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../css/images/mingcute_menu-fill.png" />
+                                       </image></ImageView>
+                                    <Label fx:id="labelEditProfile" layoutX="95.0" layoutY="-2.0" prefHeight="53.0" prefWidth="198.0" text="Edit Profile">
+                                       <font>
+                                          <Font size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </top>
+                           <right>
+                              <AnchorPane prefHeight="630.0" prefWidth="236.0" stylesheets="@../css/Profile_CSS.css" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Pane layoutX="5.900000095367432" layoutY="10.899999618530273" AnchorPane.leftAnchor="10.0">
+                                       <children>
+                                          <Button id="editProfileBtn" graphicTextGap="8.0" layoutX="7.0" layoutY="1.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets="@../css/Profile_CSS.css" text="Edit Profile" />
+                                          <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../css/images/pen.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </Pane>
+                                    <Pane layoutX="6.0" layoutY="70.0">
+                                       <children>
+                                          <Button id="NotificationBtn" graphicTextGap="8.0" layoutX="12.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets="@../css/Profile_CSS.css" text="Notification" />
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../css/images/Notifications.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </Pane>
+                                    <Pane layoutX="6.0" layoutY="132.0">
+                                       <children>
+                                          <Button id="SecurityBtn" graphicTextGap="8.0" layoutX="12.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets="@../css/Profile_CSS.css" text="Security" />
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../css/images/Lock.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </Pane>
+                                    <Pane layoutX="8.0" layoutY="196.0">
+                                       <children>
+                                          <Button id="appearanceBtn" graphicTextGap="8.0" layoutX="12.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets="@../css/Profile_CSS.css" text="Appearance" />
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../css/images/Vector.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </Pane>
+                                    <Pane layoutX="8.0" layoutY="260.0">
+                                       <children>
+                                          <Button id="helpBtn" graphicTextGap="8.0" layoutX="12.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets="@../css/Profile_CSS.css" text="Help" />
+                                          <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../css/images/Help_outline.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </AnchorPane>
+                           </right>
+                        </BorderPane>
+                        <AnchorPane layoutX="270.0" layoutY="52.0" prefHeight="644.0" prefWidth="735.0" stylesheets="@../css/Profile_CSS.css">
+                           <children>
+                              <Label layoutX="18.0" layoutY="169.0" text="First Name">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="firstNametxt" layoutX="18.0" layoutY="199.0" prefHeight="40.0" prefWidth="350.0" stylesheets="@../css/Profile_CSS.css" text="Thanh" />
+                              <Label layoutX="386.0" layoutY="170.0" text="Last Name">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="lastNametxt" layoutX="386.0" layoutY="200.0" prefHeight="40.0" prefWidth="350.0" text="Vi Chi" />
+                              <Label layoutX="18.0" layoutY="261.0" text="Email">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="emailtxt" layoutX="18.0" layoutY="291.0" prefHeight="40.0" prefWidth="350.0" text="vichithanh@gmail.com" />
+                              <Label layoutX="386.0" layoutY="262.0" text="Contact-number">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="contactNotxt" layoutX="386.0" layoutY="292.0" prefHeight="40.0" prefWidth="350.0" text="+84 911843721" />
+                              <Pane layoutX="314.0" layoutY="114.0" prefHeight="30.0" prefWidth="149.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="152.0" text="Change avatar" />
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../css/images/changeAvaIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </Pane>
+                              <Label layoutX="18.0" layoutY="360.0" text="Address">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <TextField id="addresstxt" layoutX="18.0" layoutY="390.0" prefHeight="40.0" prefWidth="715.0" text="Landmark 81, Binh Thanh District, Ho Chi Minh City" />
+                              <Label layoutX="18.0" layoutY="446.0" text="Password">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <PasswordField id="passwordField" layoutX="18.0" layoutY="480.0" prefHeight="40.0" prefWidth="716.0" text="passcode" />
+                              <CheckBox id="viewPassCheckBox" layoutX="18.0" layoutY="531.0" mnemonicParsing="false" text="View password" />
+                              <Button id="saveBtn" layoutX="444.0" layoutY="557.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="117.0" text="Save" />
+                              <Button id="cancelBtn" layoutX="570.0" layoutY="557.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="117.0" text="Cancel" />
+                              <Circle fx:id="circle" fill="WHITE" layoutX="383.0" layoutY="46.0" radius="57.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>

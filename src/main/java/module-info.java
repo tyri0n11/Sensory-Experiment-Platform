@@ -9,4 +9,6 @@ module main.sensoryexpeirmentplatform {
 
     opens main.sensoryexpeirmentplatform to javafx.fxml;
     exports main.sensoryexpeirmentplatform;
+    exports main.sensoryexpeirmentplatform.controllers;
+    opens main.sensoryexpeirmentplatform.controllers to javafx.fxml;
 }

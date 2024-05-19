@@ -4,14 +4,119 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/hello-view.fxml" afterDir="false" />
+    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="initialization: first touch">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/ManyExperiments" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/SIBG_Screener_2019_20" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/Saving" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Data/user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/ViewModel/dashBoard_VM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/ViewModel/editEx_VM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/ViewModel/general_VM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/ViewModel/glmsStage_VM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/ViewModel/inputStage_VM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/ViewModel/noticeStage_VM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/ViewModel/profile_VM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/ViewModel/timerStage_VM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/ViewModel/vasStage_VM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/controllers/DashBoardController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/controllers/EditExperimentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/controllers/GLMSController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/controllers/GeneralController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/controllers/InputStageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/controllers/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/controllers/NoticeStageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/controllers/ProfileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/controllers/ScenseSwitch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/controllers/TimerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/controllers/VasController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/controllers/addFoodController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/Data.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/DataAccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/Experiment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/Food.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/Input.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/Notice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/Pair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/Periodic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/Question.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/RatingContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/Stage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/TasteTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/Timer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/UserManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/Vas.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/gLMS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/models/main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/AddFood.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/AddFood2.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/AddSound.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/AddTasteTest.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/AddTasteTest2.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/DashBoard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/EditExperiment_UI.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/GLMS.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/InputStage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/NewExperiment.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/NoticeStage_1.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/Profile_UI.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/QuestionStage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/TimerStage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/VasStage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/general.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/Frame 13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/Frame 14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/Vector.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/Vector1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/downward.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/grommet-icons_configure.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/ic_outline-logout.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/lucide_import.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/mingcute_down-fill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/mingcute_menu-fill.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/uil_export.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/picture/upward.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/AddFood2_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/AddFood_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/AddSound_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/AddTasteTest2_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/AddTasteTest_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/DashBoard_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/EditExp_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/GLMS_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/General.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Input_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/NewExperiment_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Notice1_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Profile_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Question_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Timer_CSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Vas_CSS.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/SensoryExperimentPlatform.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexpeirmentplatform/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexpeirmentplatform/hello-view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/style1.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,14 +139,65 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.SensoryExperimentPlatform.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/USER/OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY/Desktop/SceneBuilder.lnk",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\Desktop\Respositories\Sensory Expeirment Platform\src\main\java\main\sensoryexpeirmentplatform" />
+      <recent name="C:\Users\USER\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\Desktop\Respositories\Sensory Expeirment Platform\src\main\java\main\sensoryexpeirmentplatform\controllers" />
+      <recent name="C:\Users\USER\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\Desktop\Respositories\Sensory Expeirment Platform\src\main\resources\main\sensoryexpeirmentplatform" />
+      <recent name="C:\Users\USER\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\Desktop\Respositories\Sensory Expeirment Platform\src\main\resources\static\stylesheets" />
+      <recent name="C:\Users\USER\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\Desktop\Respositories\Sensory Expeirment Platform\src\main\java\main\sensoryexpeirmentplatform\models" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\USER\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\Desktop\Respositories\Sensory Expeirment Platform\src\main\resources\static\stylesheets" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SensoryExperimentPlatform" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.sensoryexpeirmentplatform.SensoryExperimentPlatform" />
+      <module name="Sensory-Expeirment-Platform" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.sensoryexpeirmentplatform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.SensoryExperimentPlatform" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -50,11 +206,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716084363027</updated>
-      <workItem from="1716084364098" duration="2000" />
+      <workItem from="1716084364098" duration="2164000" />
     </task>
+    <task id="LOCAL-00001" summary="initialization: first touch">
+      <option name="closed" value="true" />
+      <created>1716084629913</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716084629913</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="initialization: first touch" />
+    <option name="LAST_COMMIT_MESSAGE" value="initialization: first touch" />
   </component>
 </project>
