@@ -1,13 +1,4 @@
-#SideBar{
-    -fx-background-color: #F7F6FE
-}
-#SideBar2{
-    -fx-background-color: #FFFF
-}
-.root {
-    -fx-font-family: 'Inter';
-    -fx-font-size: 14;
-}
+
 .button{
     -fx-background-color: transparent;
 }
@@ -23,63 +14,56 @@
     -fx-text-fill: #624DE3;
 }
 #lbl_SenseXP{
-    -fx-text-fill: #624DE3;
+    -fx-font-family: "Baloo Bhaina 2";
+    -fx-text-fill: #397E82;
     -fx-font-weight: bold;
     -fx-font-size: 40;
 }
-#lbl_EditExperiment{
-    -fx-text-fill: #624DE3;
+.lbl_EditExperiment{
+    -fx-font-family: "Baloo Bhaina 2";
+    -fx-text-fill: #397E82;
     -fx-font-size: 36;
+    -fx-font-weight: 700;
 }
 
 
-#btn_noticeStage, #btn_addAudibleInstruction, #btn_assignSound, #btn_addInput, #btn_addTimer, #btn_addTasteTest, #btn_addFoodAndTaste,
-#btn_addRatingContainer,
-#btn_addVasStage,
-#btn_AddGLMS,
-#btn_AddCourse,
-#btn_AddPeriodicStage,
-#btn_AddConditionalStatement, #btn_AddQuestionStage {
-    -fx-background-color: #624DE3;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-min-width: 250px;
-    -fx-max-width: 250px;
-    -fx-min-height: 30px;
-    -fx-max-height: 30px;
-    -fx-padding: 4px 33px, 4px 33px;
-    -fx-background-radius: 40px 40px 40px 40px;
-    -fx-opacity: 10;
-    -fx-gap: 10;
-}
-#btn_up{
+.btn_up{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
-    -fx-background-image: url('images/upward.png');
+    -fx-background-image: url('/static/images/btn_up.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
 }
-#btn_down{
+.btn_down{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
-    -fx-background-image: url('images/downward.png');
+    -fx-background-image: url('/static/images/btn_down.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
 }
-#btn_cross{
-    -fx-pref-height: 55;
-    -fx-pref-width: 55;
-    -fx-background-image: url('images/cross.png');
+.btn_cross {
+    -fx-pref-height: 50;
+    -fx-pref-width: 50;
+    -fx-background-image: url('/static/images/cross.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
-    -fx-background-size: cover; /* or contain depending on your preference */
+}
+.btn_copy{
+    /* gg:copy */
+
+    -fx-pref-width: 50px;
+    -fx-pref-height: 50px;
+    -fx-background-image: url('/static/images/btn_copy.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: cover;
 }
 #btn_menu{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
-    -fx-background-image: url('images/menu.png');
+    -fx-background-image: url('/static/images/menu.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -139,41 +123,7 @@
 
 
 }
-#showLabel,#entriesLabel{
-    /* Show */
 
-    -fx-pref-width: 40px;
-    -fx-pref-height: 15px;
-
-    -fx-font-family: 'Montserrat';
-    -fx-font-style: normal;
-    -fx-font-weight: 500;
-    -fx-font-size: 12px;
-    -fx-line-height: 15px;
-    /* identical to box height */
-
-    -fx-text-fill: #000000;
-
-
-
-
-}
-#btn_AddExperiment{
-    /* Frame 17 */
-
-    /* Auto layout */
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-
-    -fx-pref-width: 151px;
-    -fx-pref-height: 32px;
-
-    -fx-background-color: #624DE3;
-    -fx-border-radius: 8px;
-
-
-
-}
 .stackpane{
     -fx-background-color: white;
 
@@ -219,7 +169,43 @@
     flex-grow: 0;
 
 }
+#lbl_backgroundColor,#lbl_textColor,#lbl_font,#lbl_startDelay, #lbl_endDelay, #lbl_disable,#lbl_instruction,#lbl_instruction,#lbl_timeToWait,
+#lbl_soundDisplay,#lbl_question,#lbl_storeResponse,#lbl_ButtonText,#lbl_help,#lbl_playSound, #propertiesLabel, #radioButtonAvailable,#lbl_containStage,#lbl_minimumTime,#lbl_lowAnchor{
 
+
+    -fx-pref-width: 375px;
+    -fx-pref-height: 21px;
+
+    -fx-font-family: 'Poppins';
+    -fx-font-style: normal;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    line-height: 24px;
+    -fx-letter-spacing: 0.03em;
+
+    -fx-text-color: #181818;
+
+}
+#btn_changeBackGroudcolor,#btn_ChangeTextColor,#btn_changeFont,#btn_disable{
+    -fx-padding: 0px 27px 0px 0px;
+    -fx-alignment: center; /* Aligns both text and node content */
+    -fx-max-width: 110px;
+    -fx-max-height: 30px;
+    -fx-min-width: 110px;
+    -fx-min-height: 30px;
+    -fx-border-color: #494949CC;
+    -fx-border-radius: 5px;
+    -fx-font-family: 'Poppins';
+    -fx-font-style: normal;
+    -fx-font-weight: 500;
+    -fx-font-size: 16px;
+    -fx-text-fill: #636364;
+
+
+
+
+
+}
 
 #timeField,#timeField2
 {
@@ -243,41 +229,15 @@
     -fx-background-color: #FFFF;
 
 }
-#DashBoardButton1{
-    -fx-font-family: 'Montserrat';
-    -fx-font-weight: normal;
-    -fx-align-items: center;
-    -fx-padding: 16px;
-    -fx-gap: 16px;
-    -fx-text-alignment: center;
-    -fx-font-size: 16px;
 
 
-    -fx-text-fill: #000;
-
-
-
-    -fx-background-color: #FFFFFF;
-    -fx-border-radius: 5px;
-}
-#DashBoardButton2,#DashBoardButton3,#DashBoardButton4,#DashBoardButton5,#DashBoardButton6{
-    -fx-font-family: 'Montserrat';
-    -fx-font-weight: normal;
-    -fx-align-items: center;
-    -fx-padding: 16px;
-    -fx-gap: 16px;
-    -fx-text-alignment: center;
-    -fx-font-size: 16px;
-
-
-    -fx-text-fill: #000;
-    -fx-background-color: #F7F6FE
-}
 
 .scroll-pane{
     -fx-background-color: transparent;
-    -fx-border-color: derive(gray,100%);
+
     -fx-padding: 0px;
+    -fx-background-radius:0px 5px 0px 0px ;
+
 }
 .scroll-pane .scroll-bar:vertical{
     -fx-background-color: transparent;
@@ -289,9 +249,10 @@
 }
 .scroll-pane .scroll-bar:vertical .track{
     -fx-background-color: transparent;
-    -fx-background-radius:0em;
+    -fx-background-radius:2em;
     -fx-border-radius: 2em;
     -fx-border-color: transparent
+
 
 
 }
@@ -311,8 +272,9 @@
 }
 .scroll-pane .scroll-bar:vertical .increment-arrow,
 .scroll-pane .scroll-bar:vertical .decrement-arrow{
-
     -fx-padding: -2;
+
+
 
 }
 .scroll-pane .scroll-bar:vertical .thumb {
@@ -321,99 +283,244 @@
     -fx-background-radius: 2em;
 }
 
-    #lbl_TasteTestItemLable,#SoundSelectTionLabel {
-        /* Taste Test Item Selection */
+#lbl_TasteTestItemLable,#SoundSelectTionLabel {
+    /* Taste Test Item Selection */
 
 
-        -fx-font-family: 'Inter';
-        -fx-font-style: normal;
-        -fx-font-weight: bold;
-        -fx-font-size: 32px;
+    -fx-font-family: 'Inter';
+    -fx-font-style: normal;
+    -fx-font-weight: bold;
+    -fx-font-size: 32px;
 
-        align-items: center;
+    align-items: center;
 
-        -fx-text-fill: #624DE3;
-
-
-    }
+    -fx-text-fill: #624DE3;
 
 
+}
 
-    .check-box {
-        -fx-max-width: 28px;
-        -fx-max-height: 28px;
-        -fx-background-color: white;
+#AddButton,#SelectAllButton,#SelectNoneButton,#CloseButton,#SaveButton2,#RefreshButton,#StopButton,#RemoveButton,#PlayButton{
+    /* Button 6 */
 
-        /* Inside auto layout */
-        flex: none;
-        order: 1;
-        flex-grow: 0;
 
-    }
-
-    .check-box .box {
-        -fx-background-color: white;
-        -fx-border-color: grey;
-        -fx-border-radius: 3px;
-    }
-
-    .text-field {
-        -fx-border-color: black;
-        -fx-border-radius: 5px 5px 5px 5px;
-        -fx-alignment: center;
-    }
-    #AddFoodPane,#NewExPane,#AddsoundPane,#ImportSoundPane{
+    -fx-background-color: #624DE3;
 
 
 
-        -fx-background-color: #FFFFFF;
 
-        -fx-box-shadow: inset 0px -20px 0px rgba(0, 0, 0, 0.25);
-        -fx-border-radius: 14px 14px 14px 14px;
-        -fx-border-color: #000;
+    -fx-border-radius: 20px 20px 20px 20px;
+    /* Add */
 
 
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 13px;
+    -fx-line-height: 16px;
+    -fx-display: flex;
+    -fx-align-items: center;
 
-    }
-    #AddFoodLabel{
-        /* Add Food */
-
-
-        -fx-font-family: 'Montserrat';
-        -fx-font-style: normal;
-        -fx-font-weight: 400;
-        -fx-font-size: 30px;
-        line-height: 41px;
-        /* identical to box height */
-        -fx-text-align: center;
-
-        -fx-text-fill: #1E1E1E;
-
-
-    }
-    #please1Label{
-        /* Please type the name of the new food below: */
+    -fx-text-fill: #F7F6FE;
+    -fx-padding: 4px 23px, 4px 23px;
+    -fx-background-radius: 10px 10px 10px 10px;
 
 
 
-        -fx-font-family: 'Montserrat';
-        -fx-font-style: normal;
-        -fx-font-weight: 400;
-        -fx-font-size: 15px;
-        line-height: 41px;
-        /* identical to box height */
-        -fx-text-align: center;
 
-        -fx-text-fill: #1E1E1E;
+}
 
-    }
+.check-box {
+    -fx-max-width: 28px;
+    -fx-max-height: 28px;
+    -fx-background-color: white;
 
-    .body{
-        -fx-background-size: contain;
-        -fx-background-repeat: no-repeat;
-        -fx-background-position: center;
-        -fx-background-size: 100%, 100%;
-    }
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: grey;
+    -fx-border-radius: 3px;
+}
+
+.text-field {
+    -fx-border-color: black;
+    -fx-border-radius: 5px 5px 5px 5px;
+    -fx-alignment: center;
+}
+#AddFoodPane,#NewExPane,#AddsoundPane,#ImportSoundPane{
+
+
+
+    -fx-background-color: #FFFFFF;
+
+    -fx-box-shadow: inset 0px -20px 0px rgba(0, 0, 0, 0.25);
+    -fx-border-radius: 14px 14px 14px 14px;
+    -fx-border-color: #000;
+
+
+
+}
+#AddFoodLabel{
+    /* Add Food */
+
+
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 30px;
+    line-height: 41px;
+    /* identical to box height */
+    -fx-text-align: center;
+
+    -fx-text-fill: #1E1E1E;
+
+
+}
+#please1Label{
+    /* Please type the name of the new food below: */
+
+
+
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 15px;
+    line-height: 41px;
+    /* identical to box height */
+    -fx-text-align: center;
+
+    -fx-text-fill: #1E1E1E;
+
+}
+#SaveButton1,#CancelButton1{
+    /* Button 15 */
+
+
+
+    -fx-background-color: #624DE3;
+
+
+
+
+    -fx-border-radius: 20px 20px 20px 20px;
+    /* Add */
+
+
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 13px;
+    -fx-line-height: 16px;
+    -fx-display: flex;
+    -fx-align-items: center;
+
+    -fx-text-fill: #F7F6FE;
+    -fx-padding: 4px 23px, 4px 23px;
+    -fx-background-radius: 20px 20px 20px 20px;
+
+
+}
+
+#ImportSoundLabel{
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 30px;
+    line-height: 41px;
+    /* identical to box height */
+    -fx-text-align: center;
+
+    -fx-text-fill: #655E95;
+}
+#Browsebutton{
+    -fx-text-fill: #624DE3;
+
+    -fx-padding: 4px 23px, 4px 23px;
+    -fx-background-radius: 10px 10px 10px 10px;
+    -fx-background-color: derive(#85858540,90%);
+
+}
+.body{
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 100%, 100%;
+}
+.menuButton{
+    -fx-max-width: 250px;
+    -fx-max-height: 30px;
+    -fx-background-color: #D5E9EA;
+    -fx-background-radius: 20px 20px 20px 20px;
+    /* Add Notice Stage */
+
+
+
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 700;
+    -fx-font-size: 14px;
+
+    -fx-align-items: center;
+    -fx-text-align: center;
+
+    -fx-color-fill: #1E1E1E;
+
+
+
+}
+.btn_bell{
+    -fx-pref-height: 39;
+    -fx-pref-width: 39;
+    -fx-background-image: url('/static/images/bell.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: cover;
+}
+.Name{
+    /* Nguyễn */
+
+
+    -fx-font-family: "Baloo Bhaina 2";
+    -fx-font-style: normal;
+    -fx-font-weight: 700;
+    -fx-font-size: 11px;
+    -fx-line-height: 22px;
+    -fx-text-fill:#0E0E0E;
+
+
+
+
+}
+.Nickname{
+    /* mymia */
+
+
+
+    -fx-font-family: 'Inter';
+    -fx-font-style: normal;
+    -fx-font-weight: 500;
+    -fx-font-size: 14px;
+    -fx-text-fill: #397E82;
+
+
+
+
+}
+.btn_copy{
+    /* gg:copy */
+
+    -fx-pref-width: 50px;
+    -fx-pref-height: 50px;
+    -fx-background-image: url('/static/images/btn_copy.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: cover;
+}
 
 
 
