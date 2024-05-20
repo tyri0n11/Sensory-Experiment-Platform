@@ -15,14 +15,7 @@
     -fx-background-color: #CCCCCC;
     -fx-text-fill: white;
 }
-#btn_dashboard{
-    -fx-background-color: transparent;
-    -fx-font-size: 32;
-    -fx-font-weight: normal;
-    -fx-text-alignment: left;
-    -fx-text-fill: #624DE3;
 
-}
 #lbl_SenseXP{
     -fx-font-family: "Baloo Bhaina 2";
     -fx-text-fill: #397E82;
@@ -102,8 +95,6 @@
     -fx-border-radius: 20px 20px 20px 20px;
     -fx-border-color:#0E0E0E ;
 
-
-
 }
 #headPanel{
 
@@ -117,13 +108,8 @@
     -fx-font-family: 'Inter';
     -fx-font-size: 14;
 }
-#lbl_DashBoard{
-    -fx-text-fill: #624DE3;
-    -fx-font-size: 36;
-}
+
 #txt_searchBar{
-
-
     -fx-pref-width: 441px;
     -fx-pref-height: 32px;
     -fx-border-color: #9E9E9E;
@@ -131,8 +117,6 @@
 
 
     -fx-border-radius: 8px;
-
-
 
 }
 #btn_dropDown{
@@ -160,14 +144,8 @@
 
     -fx-text-fill: #000000;
 
-
-
-
 }
 #btn_AddExperiment{
-    /* Frame 17 */
-
-    /* Auto layout */
     -fx-text-fill: white;
     -fx-font-weight: bold;
 
@@ -176,7 +154,6 @@
 
     -fx-background-color: #624DE3;
     -fx-border-radius: 8px;
-
 
 
 }
@@ -226,8 +203,6 @@
 
 }
 .propertiesText{
-
-
     -fx-pref-width: 375px;
     -fx-pref-height: 21px;
 
@@ -235,23 +210,18 @@
     -fx-font-style: normal;
     -fx-font-weight: bold;
     -fx-font-size: 16px;
-    line-height: 24px;
+    -fx-line-height: 24px;
     -fx-letter-spacing: 0.03em;
 
     -fx-text-color: #181818;
 
 }
 #ChangeButton,#ChangeButton1,#ChangeButton2,#ChangeButton3{
-    /* Frame 26919 */
-    /* Change */
-
-
-
     -fx-font-family: 'Poppins';
     -fx-font-style: normal;
     -fx-font-weight: 500;
     -fx-font-size: 16px;
-    line-height: 24px;
+    -fx-line-height: 24px;
     -fx-text-alignment: center;
 
 
@@ -281,14 +251,7 @@
     -fx-alignment: center;
 
 }
-#textField1{
 
-
-
-
-
-
-}
 #timeField,#timeField2
 {
     -fx-border-color: #696969;
@@ -317,8 +280,6 @@
 
 
     -fx-text-fill: #000;
-
-
 
     -fx-background-color: #FFFFFF;
     -fx-border-radius: 5px;
