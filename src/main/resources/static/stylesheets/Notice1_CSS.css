@@ -6,13 +6,7 @@
     -fx-background-color: #CCCCCC;
     -fx-text-fill: white;
 }
-#btn_dashboard{
-    -fx-background-color: transparent;
-    -fx-font-size: 32;
-    -fx-font-weight: normal;
-    -fx-text-alignment: left;
-    -fx-text-fill: #624DE3;
-}
+
 #lbl_SenseXP{
     -fx-font-family: "Baloo Bhaina 2";
     -fx-text-fill: #397E82;

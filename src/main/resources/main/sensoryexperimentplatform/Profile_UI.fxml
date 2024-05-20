@@ -19,16 +19,16 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <stylesheets>
-      <URL value="@/css/Profile_CSS.css" />
+      <URL value="@../../static/stylesheets/EditExp_CSS.css" />
    </stylesheets>
    <children>
-      <BorderPane prefHeight="667.0" prefWidth="1100.0" stylesheets="@../css/Profile_CSS.css">
+      <BorderPane prefHeight="667.0" prefWidth="1100.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css">
          <top>
             <AnchorPane prefHeight="35.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
                <children>
                   <AnchorPane id="topbar" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="57.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label fx:id="labelSenseXP" layoutX="32.0" stylesheets="@../css/Profile_CSS.css" text="SENSE XP" textFill="#141414">
+                        <Label fx:id="lbl_SenseXP" layoutX="14.0" layoutY="3.0"  text="Sense XP" textFill="#141414">
                            <font>
                               <Font size="40.0" />
                            </font>
@@ -39,78 +39,76 @@
                               <Image url="@../css/images/Stroke.png" />
                            </image></ImageView>
                         <MenuButton id="userMenuBtn" layoutX="1155.0" layoutY="16.0" mnemonicParsing="false" text="Vi Chi Thanh">
-                          <items>
-                            <MenuItem mnemonicParsing="false" text="Action 1" />
-                            <MenuItem mnemonicParsing="false" text="Action 2" />
-                          </items>
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="Action 1" />
+                              <MenuItem mnemonicParsing="false" text="Action 2" />
+                           </items>
                         </MenuButton>
-                        
+
                      </children>
                   </AnchorPane>
-               </children>
             </AnchorPane>
-         </top>
          <left>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="783.0" prefWidth="250.0" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane id="sidebar" layoutX="-1.0" maxHeight="783.0" minHeight="702.0" prefHeight="783.0" prefWidth="265.0" stylesheets="@../css/Profile_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane id="sidebar" layoutX="-1.0" maxHeight="783.0" minHeight="702.0" prefHeight="783.0" prefWidth="265.0"  AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-14.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Pane layoutX="3.9000000953674316" layoutY="35.900001525878906">
                            <children>
-                              <Button id="dashboardBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.0999984741210938" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" stylesheets="@../css/Profile_CSS.css" text="Dashboard" />
+                              <Button graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.0999984741210938" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" styleClass="sideBarButton" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="Dashboard" />
                               <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="34.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../css/images/dashboard.png" />
+                                    <Image url="@../css/images/dash_btn.png" />
                                  </image>
                               </ImageView>
                            </children>
                         </Pane>
                         <Pane layoutX="3.9000000953674316" layoutY="87.9000015258789">
                            <children>
-                              <Button id="generalBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.0999984741210938" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" stylesheets="@../css/Profile_CSS.css" text="General experiment" />
+                              <Button id="generalBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.0999984741210938" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" styleClass="sideBarButton" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="General experiment" />
                               <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="34.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../css/images/generalExp.png" />
+                                    <Image url="@../css/images/btn_share.png" />
                                  </image>
                               </ImageView>
                            </children>
                         </Pane>
                         <Pane layoutX="3.9000000953674316" layoutY="139.89999389648438">
                            <children>
-                              <Button id="importBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.100006103515625" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" stylesheets="@../css/Profile_CSS.css" text="Import experiment" />
+                              <Button id="importBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.100006103515625" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" styleClass="sideBarButton" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="Import experiment" />
                               <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="34.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../css/images/lucide_import.png" />
+                                    <Image url="@../css/images/btn_import.png" />
                                  </image>
                               </ImageView>
                            </children>
                         </Pane>
                         <Pane layoutX="3.9000000953674316" layoutY="191.89999389648438">
                            <children>
-                              <Button id="exportBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.100006103515625" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" stylesheets="@../css/Profile_CSS.css" text="Export experiment" />
+                              <Button id="exportBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.100006103515625" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" styleClass="sideBarButton" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="Export experiment" />
                               <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="34.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../css/images/uil_export.png" />
+                                    <Image url="@../css/images/btn_export.png" />
                                  </image>
                               </ImageView>
                            </children>
                         </Pane>
                         <Pane layoutX="3.9000000953674316" layoutY="243.89999389648438">
                            <children>
-                              <Button id="configureBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.100006103515625" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" stylesheets="@../css/Profile_CSS.css" text="Configure" />
+                              <Button id="configureBtn" graphicTextGap="8.0" layoutX="4.099999904632568" layoutY="3.100006103515625" mnemonicParsing="false" prefHeight="52.0" prefWidth="250.0" styleClass="sideBarButton" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="Configure" />
                               <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="34.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../css/images/grommet-icons_configure.png" />
+                                    <Image url="@../css/images/btn_configure.png" />
                                  </image>
                               </ImageView>
                            </children>
                         </Pane>
                         <Pane layoutX="12.899999618530273" layoutY="603.9000244140625">
                            <children>
-                              <Button id="logOutBtn" layoutX="4.100000381469727" layoutY="3.0999755859375" mnemonicParsing="false" prefHeight="56.0" prefWidth="216.0" stylesheets="@../css/Profile_CSS.css" text="Log Out" />
+                              <Button id="logOutBtn" layoutX="4.100000381469727" layoutY="3.0999755859375" mnemonicParsing="false" prefHeight="56.0" prefWidth="216.0" styleClass="sideBarButton" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="Log Out" />
                               <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="34.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../css/images/ic_outline-logout.png" />
+                                    <Image url="@../css/images/btn_logOut.png" />
                                  </image>
                               </ImageView>
                            </children>
@@ -128,11 +126,11 @@
                            <top>
                               <AnchorPane prefHeight="83.0" prefWidth="236.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <ImageView id="menuIcon" fitHeight="39.0" fitWidth="39.0" layoutX="40.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="40.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../css/images/mingcute_menu-fill.png" />
+                                          <Image url="@../css/images/ExitExp.png" />
                                        </image></ImageView>
-                                    <Label fx:id="labelEditProfile" layoutX="95.0" layoutY="-2.0" prefHeight="53.0" prefWidth="198.0" text="Edit Profile">
+                                    <Label layoutX="95.0" layoutY="-2.0" prefHeight="53.0" prefWidth="198.0" styleClass="lbl_EditExperiment"  text="Edit Profile">
                                        <font>
                                           <Font size="36.0" />
                                        </font>
@@ -141,11 +139,11 @@
                               </AnchorPane>
                            </top>
                            <right>
-                              <AnchorPane prefHeight="630.0" prefWidth="236.0" stylesheets="@../css/Profile_CSS.css" BorderPane.alignment="CENTER">
+                              <AnchorPane prefHeight="630.0" prefWidth="236.0" stylesheets=@../../static/stylesheets/EditExp_CSS.css BorderPane.alignment="CENTER">
                                  <children>
                                     <Pane layoutX="5.900000095367432" layoutY="10.899999618530273" AnchorPane.leftAnchor="10.0">
                                        <children>
-                                          <Button id="editProfileBtn" graphicTextGap="8.0" layoutX="7.0" layoutY="1.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets="@../css/Profile_CSS.css" text="Edit Profile" />
+                                          <Button id="editProfileBtn" graphicTextGap="8.0" layoutX="7.0" layoutY="1.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="Edit Profile" />
                                           <ImageView fitHeight="38.0" fitWidth="40.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../css/images/pen.png" />
@@ -155,7 +153,7 @@
                                     </Pane>
                                     <Pane layoutX="6.0" layoutY="70.0">
                                        <children>
-                                          <Button id="NotificationBtn" graphicTextGap="8.0" layoutX="12.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets="@../css/Profile_CSS.css" text="Notification" />
+                                          <Button id="NotificationBtn" graphicTextGap="8.0" layoutX="12.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="Notification" />
                                           <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../css/images/Notifications.png" />
@@ -165,7 +163,7 @@
                                     </Pane>
                                     <Pane layoutX="6.0" layoutY="132.0">
                                        <children>
-                                          <Button id="SecurityBtn" graphicTextGap="8.0" layoutX="12.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets="@../css/Profile_CSS.css" text="Security" />
+                                          <Button id="SecurityBtn" graphicTextGap="8.0" layoutX="12.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="Security" />
                                           <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../css/images/Lock.png" />
@@ -175,7 +173,7 @@
                                     </Pane>
                                     <Pane layoutX="8.0" layoutY="196.0">
                                        <children>
-                                          <Button id="appearanceBtn" graphicTextGap="8.0" layoutX="12.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets="@../css/Profile_CSS.css" text="Appearance" />
+                                          <Button id="appearanceBtn" graphicTextGap="8.0" layoutX="12.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="Appearance" />
                                           <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../css/images/Vector.png" />
@@ -185,7 +183,7 @@
                                     </Pane>
                                     <Pane layoutX="8.0" layoutY="260.0">
                                        <children>
-                                          <Button id="helpBtn" graphicTextGap="8.0" layoutX="12.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets="@../css/Profile_CSS.css" text="Help" />
+                                          <Button id="helpBtn" graphicTextGap="8.0" layoutX="12.0" layoutY="4.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="204.0" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="Help" />
                                           <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="14.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../css/images/Help_outline.png" />
@@ -197,14 +195,14 @@
                               </AnchorPane>
                            </right>
                         </BorderPane>
-                        <AnchorPane layoutX="270.0" layoutY="52.0" prefHeight="644.0" prefWidth="735.0" stylesheets="@../css/Profile_CSS.css">
+                        <AnchorPane fx:id="btn_changeAva" layoutX="270.0" layoutY="52.0" prefHeight="644.0" prefWidth="735.0" stylesheets=@../../static/stylesheets/EditExp_CSS.css>
                            <children>
                               <Label layoutX="18.0" layoutY="169.0" text="First Name">
                                  <font>
                                     <Font size="23.0" />
                                  </font>
                               </Label>
-                              <TextField id="firstNametxt" layoutX="18.0" layoutY="199.0" prefHeight="40.0" prefWidth="350.0" stylesheets="@../css/Profile_CSS.css" text="Thanh" />
+                              <TextField id="firstNametxt" layoutX="18.0" layoutY="199.0" prefHeight="40.0" prefWidth="350.0" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="Thanh" />
                               <Label layoutX="386.0" layoutY="170.0" text="Last Name">
                                  <font>
                                     <Font size="23.0" />
@@ -225,7 +223,7 @@
                               <TextField id="contactNotxt" layoutX="386.0" layoutY="292.0" prefHeight="40.0" prefWidth="350.0" text="+84 911843721" />
                               <Pane layoutX="314.0" layoutY="114.0" prefHeight="30.0" prefWidth="149.0">
                                  <children>
-                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="152.0" text="Change avatar" />
+                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="152.0" style="-fx-background-color: transparent;" text="Change avatar" />
                                     <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../css/images/changeAvaIcon.png" />
@@ -246,12 +244,12 @@
                               </Label>
                               <PasswordField id="passwordField" layoutX="18.0" layoutY="480.0" prefHeight="40.0" prefWidth="716.0" text="passcode" />
                               <CheckBox id="viewPassCheckBox" layoutX="18.0" layoutY="531.0" mnemonicParsing="false" text="View password" />
-                              <Button id="saveBtn" layoutX="444.0" layoutY="557.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="117.0" text="Save" />
-                              <Button id="cancelBtn" layoutX="570.0" layoutY="557.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="117.0" text="Cancel" />
+                              <Button id="cancelBtn" layoutX="570.0" layoutY="557.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="117.0" styleClass="saveCancelBtn" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="Cancel" />
                               <Circle fx:id="circle" fill="WHITE" layoutX="383.0" layoutY="46.0" radius="57.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" strokeWidth="0.0" />
+                              <Button layoutX="434.0" layoutY="557.0" mnemonicParsing="false" styleClass="saveCancelBtn" stylesheets=@../../static/stylesheets/EditExp_CSS.css text="Save" />
                            </children>
-                        </AnchorPane>
-                     </children>
+                        </children>
+                     </StackPane>
                   </AnchorPane>
                </children>
             </StackPane>

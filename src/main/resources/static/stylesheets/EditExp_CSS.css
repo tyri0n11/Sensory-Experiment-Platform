@@ -83,7 +83,7 @@
 #btn_menu{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
-    -fx-background-image: url('images/img_1.png');
+    -fx-background-image: url('static/images/btn_menu.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -585,9 +585,6 @@
     -fx-max-height: 30px;
     -fx-background-color: #D5E9EA;
     -fx-background-radius: 20px 20px 20px 20px;
-    /* Add Notice Stage */
-
-
 
     -fx-font-family: 'Montserrat';
     -fx-font-style: normal;
