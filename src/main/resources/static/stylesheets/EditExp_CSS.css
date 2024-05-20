@@ -117,10 +117,7 @@
     -fx-font-family: 'Inter';
     -fx-font-size: 14;
 }
-#lbl_DashBoard{
-    -fx-text-fill: #624DE3;
-    -fx-font-size: 36;
-}
+
 #txt_searchBar{
 
 
@@ -164,22 +161,7 @@
 
 
 }
-#btn_AddExperiment{
-    /* Frame 17 */
 
-    /* Auto layout */
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-
-    -fx-pref-width: 151px;
-    -fx-pref-height: 32px;
-
-    -fx-background-color: #624DE3;
-    -fx-border-radius: 8px;
-
-
-
-}
 .stackpane{
     -fx-background-color: white;
 
