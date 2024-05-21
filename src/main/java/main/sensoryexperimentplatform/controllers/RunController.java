@@ -95,7 +95,8 @@ public class RunController {
 
     private void showDetailView(String item) {
         // Implementation to show detail view
-        System.out.println("Selected item: " + item);
+        System.out.println("Selected key: " + item);
     }
 
 }
+
