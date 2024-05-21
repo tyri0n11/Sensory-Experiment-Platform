@@ -36,10 +36,10 @@ public class RunExperiment_VM {
                 if (o instanceof RatingContainer) {
                     for (Object subO : ((RatingContainer) o).container) {
                         if (subO instanceof Vas) {
-                            stringSet.add("Vas_rc");
+                            stringSet.add(subO.toString());
                         }
                         if (subO instanceof gLMS) {
-                            stringSet.add("GLMS_rc");
+                            stringSet.add(subO.toString());
                         }
                     }
                 } else {
