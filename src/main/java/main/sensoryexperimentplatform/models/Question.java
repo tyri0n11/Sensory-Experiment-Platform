@@ -63,6 +63,9 @@ public class Question extends Stage{
     public void setContent(String content) {
         this.content = content;
     }
+    public String getType(){
+        return "Question";
+    }
     @Override
     public String toString() {
         return "questionStage(\"" + question + "\",\"" + buttonText +

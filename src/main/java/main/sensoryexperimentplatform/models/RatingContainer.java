@@ -86,6 +86,9 @@ public class RatingContainer extends Test{
         }
         return  sb.toString();
     }
+    public String getType(){
+        return "Rating Container";
+    }
     public String toString(){
         return "ratingsContainer(\"" + isRandomize + "\",\"" + minTime +"\")\n" +
                 stageToString()+"endRatingsContainer()";

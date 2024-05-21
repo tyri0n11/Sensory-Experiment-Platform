@@ -81,6 +81,9 @@ public class gLMS extends Stage{
     public void setContent(String content) {
         this.content = content;
     }
+    public String getType(){
+        return "GLMS";
+    }
     @Override
     public String toString() {
         return "glmsStage(\"" + title + "\",\"" + buttonText + "\",\"" +
