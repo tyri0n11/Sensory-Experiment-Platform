@@ -13,7 +13,7 @@
    <children>
       <StackPane prefHeight="1306.0" prefWidth="1278.0">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="1306.0" prefWidth="1278.0">
                <children>
                   <AnchorPane prefWidth="1230.0">
                      <children>
