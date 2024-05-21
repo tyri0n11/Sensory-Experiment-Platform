@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="structure: add images">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/LogIn.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/LogIn2.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/LogIn_CSS.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Input_CSS.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Input_CSS.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -156,7 +159,9 @@
       <workItem from="1716084364098" duration="2984000" />
       <workItem from="1716215905167" duration="5908000" />
       <workItem from="1716228742909" duration="716000" />
-      <workItem from="1716245405292" duration="1707000" />
+      <workItem from="1716245405292" duration="2446000" />
+      <workItem from="1716256712960" duration="4526000" />
+      <workItem from="1716262820771" duration="127000" />
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />

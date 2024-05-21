@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1306.0" prefWidth="1280.0" stylesheets="@../../static/stylesheets/LogIn_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane prefHeight="1306.0" prefWidth="1278.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <AnchorPane prefWidth="1230.0">
+                     <children>
+                        <Label fx:id="lbl_SenseXP" layoutX="14.0" layoutY="-6.0" prefHeight="91.0" prefWidth="168.0" stylesheets="@../../static/stylesheets/LogIn_CSS.css" text="SenseXP" />
+                        <AnchorPane layoutX="-1.0" layoutY="70.0" maxWidth="1286.0" prefHeight="6.0" prefWidth="1278.0" styleClass="line" />
+                        <AnchorPane layoutX="-2.0" layoutY="77.0" prefHeight="83.0" prefWidth="1278.0">
+                           <children>
+                              <Button fx:id="btn_createAccount" layoutX="1098.0" layoutY="26.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="155.0" text="Create an account " />
+                              <Label layoutX="38.0" layoutY="-4.0" text="Login In" textFill="#397e82">
+                                 <font>
+                                    <Font name="Baloo Bhaina 2 Bold" size="40.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <HBox layoutY="164.0" prefHeight="356.0" prefWidth="1278.0">
+                           <children>
+                              <AnchorPane prefHeight="356.0" prefWidth="1281.0">
+                                 <children>
+                                    <AnchorPane layoutX="52.0" layoutY="86.0" prefHeight="200.0" prefWidth="200.0" styleClass="AvatarView" />
+                                    <AnchorPane layoutX="356.0" layoutY="86.0" prefHeight="200.0" prefWidth="200.0" styleClass="AvatarView" />
+                                    <SplitMenuButton layoutX="62.0" layoutY="14.0" mnemonicParsing="false" text="View">
+                                      <items>
+                                        <MenuItem mnemonicParsing="false" text="Action 1" />
+                                        <MenuItem mnemonicParsing="false" text="Action 2" />
+                                      </items>
+                                    </SplitMenuButton>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="-2.0" layoutY="520.0" prefHeight="785.0" prefWidth="1280.0">
+                           <children>
+                              <AnchorPane prefHeight="786.0" prefWidth="1283.0">
+                                 <children>
+                                    <AnchorPane layoutX="62.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" styleClass="AvatarView" />
+                                    <AnchorPane layoutX="366.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" styleClass="AvatarView" />
+                                    <AnchorPane layoutX="669.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" styleClass="AvatarView" />
+                                    <AnchorPane layoutX="973.0" layoutY="70.0" prefHeight="200.0" prefWidth="200.0" styleClass="AvatarView" />
+                                    <AnchorPane layoutX="62.0" layoutY="377.0" prefHeight="200.0" prefWidth="200.0" styleClass="AvatarView" />
+                                    <SplitMenuButton layoutX="69.0" layoutY="14.0" mnemonicParsing="false" text="User">
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" text="Action 1" />
+                                          <MenuItem mnemonicParsing="false" text="Action 2" />
+                                       </items>
+                                    </SplitMenuButton>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </StackPane>
+   </children>
+</StackPane>
