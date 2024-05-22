@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import main.sensoryexperimentplatform.controllers.GeneralController;
 import main.sensoryexperimentplatform.controllers.addFoodController2;
 import main.sensoryexperimentplatform.controllers.addSound;
+import main.sensoryexperimentplatform.controllers.addTasteController2;
 
 import java.io.IOException;
 
@@ -45,6 +46,20 @@ public class ViewHandler {
             Parent root = (Parent) loader.load();
             addFoodController2 addFood =  loader.getController();
             addFood.init(vmf.getAddfood2(), this);
+            Scene general = new Scene(root);
+            mainStage.setScene(general);
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    public void openAddTaste2(){
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("AddTasteTest2.fxml"));
+        try{
+            Parent root = (Parent) loader.load();
+            addTasteController2 addFood =  loader.getController();
+            addFood.init(vmf.getAddTaste2VM(), this);
             Scene general = new Scene(root);
             mainStage.setScene(general);
         }
