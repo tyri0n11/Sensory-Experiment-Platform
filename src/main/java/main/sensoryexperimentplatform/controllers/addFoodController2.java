@@ -7,9 +7,6 @@ import javafx.scene.control.TextField;
 import main.sensoryexperimentplatform.View.ViewHandler;
 import main.sensoryexperimentplatform.ViewModel.addFood2VM;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 public class addFoodController2 {
     private addFood2VM addVM;
     @FXML

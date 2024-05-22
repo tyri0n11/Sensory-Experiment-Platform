@@ -1,21 +1,31 @@
 package main.sensoryexperimentplatform.View;
 
-import main.sensoryexperimentplatform.ViewModel.addFood2VM;
-import main.sensoryexperimentplatform.ViewModel.addFoodVM;
-import main.sensoryexperimentplatform.ViewModel.addSoundVM;
-import main.sensoryexperimentplatform.ViewModel.general_VM;
+import main.sensoryexperimentplatform.ViewModel.*;
 
 public class ViewFactory {
     private addFood2VM addfood2;
     private addFoodVM addfood;
     private addSoundVM addsound;
     private general_VM general;
+    private AddTasteVM addTasteVM;
+    public AddTasteVM getAddTasteVM(){
+        if (addTasteVM == null){
+            addTasteVM = new AddTasteVM();
+        }
+        return addTasteVM;
+    }
 
     public addFoodVM getAddfood() {
         if (addfood == null){
             addfood= new addFoodVM();
         }
         return addfood;
+    }
+    public addSoundVM addSound(){
+        if (addsound == null){
+            addsound= new addSoundVM();
+        }
+        return addsound;
     }
     public addFood2VM getAddfood2() {
         if (addfood2 == null){
@@ -24,7 +34,7 @@ public class ViewFactory {
         return addfood2;
     }
 
-    public Object getGeneralVM() {
+    public general_VM getGeneralVM() {
         if (general == null){
             general= new general_VM();
         }

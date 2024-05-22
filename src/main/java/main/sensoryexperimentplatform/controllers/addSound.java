@@ -4,17 +4,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import main.sensoryexperimentplatform.View.ViewHandler;
+import main.sensoryexperimentplatform.ViewModel.addFood2VM;
 import main.sensoryexperimentplatform.ViewModel.addSoundVM;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class addSound implements Initializable {
+public class addSound{
     private addSoundVM addSound;
     @FXML
     public TextField txt_file;
     @FXML
     public TextField txt_name;
+    private ViewHandler viewHandler;
+    private addSoundVM addSoundVM;
 
     public void btn_AddQuestionStage(){
         
@@ -59,9 +63,9 @@ public class addSound implements Initializable {
     public void btn_noticeStage(ActionEvent event) {
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        addSound = new addSoundVM();
+    public void init(addSoundVM addSoundVM, ViewHandler viewHandler) {
+        this.viewHandler = viewHandler;
+        this.addSoundVM = addSoundVM;
         txt_file.textProperty().bindBidirectional(addSound.fileProperty());
         txt_name.textProperty().bindBidirectional(addSound.nameProperty());
     }
