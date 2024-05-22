@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
-
 <?import javafx.scene.text.Font?>
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1279.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1279.0" stylesheets="@../../static/stylesheets/AddFood2_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.addFoodController2">
     <children>
         <BorderPane prefHeight="839.0" prefWidth="1279.0">
             <top>
@@ -68,7 +68,7 @@
                                         </Label>
                                         <Button fx:id="btn_AddQuestionStage" layoutX="36.0" layoutY="636.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddQuestionStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Question Stage" />
                               <Label fx:id="lbl_EditExperiment1" layoutX="21.0" layoutY="23.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="experiment" />
-                              <Button fx:id="btn_edit" layoutX="104.0" layoutY="3.0" mnemonicParsing="false" stylesheets="@../css/AddFood2_CSS.css" />
+                              <Button fx:id="btn_edit" layoutX="104.0" layoutY="3.0" mnemonicParsing="false" stylesheets="@../../static/stylesheets/AddFood2_CSS.css" />
 
                                     </children>
                                 </AnchorPane>
@@ -88,12 +88,12 @@
                                             <children>
                                                 <Label fx:id="AddFoodLabel" layoutX="27.0" layoutY="14.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="ADD FOOD" />
                                                 <Label fx:id="please1Label" layoutX="29.0" layoutY="60.0" text="Please type the name of the new food below:" />
-                                                <TextField layoutX="31.0" layoutY="108.0" prefHeight="30.0" prefWidth="344.0" />
-                                                <Button fx:id="SaveButton1" layoutX="149.0" layoutY="178.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="106.0" stylesheets="@../css/AddFood2_CSS.css" text="Save" />
-                                                <Button fx:id="CancelButton1" layoutX="276.0" layoutY="178.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="102.0" stylesheets="@../css/AddFood2_CSS.css" text="Cancel" />
+                                                <TextField fx:id="txt_nameFood" layoutX="31.0" layoutY="108.0" prefHeight="30.0" prefWidth="344.0" />
+                                                <Button fx:id="SaveButton1" layoutX="149.0" layoutY="178.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="106.0" stylesheets="@../../static/stylesheets/AddFood2_CSS.css" text="Save" />
+                                                <Button fx:id="CancelButton1" layoutX="276.0" layoutY="178.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="102.0" stylesheets="@../../static/stylesheets/AddFood2_CSS.css" text="Cancel" />
                                             </children>
                                         </AnchorPane>
-                                        <Label fx:id="lbl_TasteTestItemLable" layoutX="41.0" layoutY="28.0" stylesheets="@../css/AddFood2_CSS.css" text="Taste test item selection" />
+                                        <Label fx:id="lbl_TasteTestItemLable" layoutX="41.0" layoutY="28.0" stylesheets="@../../static/stylesheets/AddFood2_CSS.css" text="Taste test item selection" />
                                     </children>
                                 </AnchorPane>
                             </children>

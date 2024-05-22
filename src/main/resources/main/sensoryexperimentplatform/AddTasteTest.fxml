@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 
 <?import javafx.scene.text.Font?>
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1279.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1279.0" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css"  xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.addTasteController">
    <children>
       <BorderPane prefHeight="839.0" prefWidth="1279.0">
          <top>
@@ -162,7 +162,7 @@
                               <Label fx:id="lbl_EditExperiment" layoutX="29.0" layoutY="-3.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Edit ">
                               </Label>
                               <Label fx:id="lbl_EditExperiment1" layoutX="22.0" layoutY="39.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="experiment" />
-                              <Button fx:id="btn_edit" layoutX="98.0" layoutY="19.0" mnemonicParsing="false" stylesheets="@../css/AddFood_CSS.css" />
+                              <Button fx:id="btn_edit" layoutX="98.0" layoutY="19.0" mnemonicParsing="false" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css" />
                            </children>
                         </Pane>
                      </children>

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.StackPane?>
 
 <?import javafx.scene.text.Font?>
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1279.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1279.0" stylesheets="@/static/stylesheets/AddTasteTest2_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.addTasteController2">
     <children>
         <BorderPane prefHeight="839.0" prefWidth="1279.0">
             <top>
@@ -67,7 +67,7 @@
                                         </Label>
                                         <Button fx:id="btn_AddQuestionStage" layoutX="36.0" layoutY="636.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddQuestionStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Question Stage" />
                                         <Label fx:id="lbl_EditExperiment1" layoutX="21.0" layoutY="23.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="experiment" />
-                                        <Button fx:id="btn_edit" layoutX="104.0" layoutY="3.0" mnemonicParsing="false" stylesheets="@../css/AddFood2_CSS.css" />
+                                        <Button fx:id="btn_edit" layoutX="104.0" layoutY="3.0" mnemonicParsing="false" stylesheets="@/static/stylesheets/AddTasteTest2_CSS.css" />
 
                                     </children>
                                 </AnchorPane>
@@ -79,7 +79,7 @@
             <center>
                 <StackPane prefHeight="774.0" prefWidth="1036.0" BorderPane.alignment="CENTER">
                     <children>
-                        <AnchorPane fx:id="mainBar" prefHeight="766.0" prefWidth="1070.0" stylesheets="@../css/AddTasteTest2_CSS.css">
+                        <AnchorPane fx:id="mainBar" prefHeight="766.0" prefWidth="1070.0" stylesheets="@/static/stylesheets/AddTasteTest2_CSS.css">
                             <children>
                                 <AnchorPane layoutX="264.0" layoutY="76.0" prefHeight="774.4" prefWidth="1034.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <children>
@@ -89,7 +89,7 @@
                                         <Button fx:id="btn_add" layoutX="147.0" layoutY="653.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="103.0" text="Add" />
                                     </children>
                                 </AnchorPane>
-                                <Label fx:id="lbl_TasteTestItemLable" layoutX="27.0" layoutY="28.0" stylesheets="@../css/AddTasteTest2_CSS.css" text="Taste test item selection" />
+                                <Label fx:id="lbl_TasteTestItemLable" layoutX="27.0" layoutY="28.0" stylesheets="@/static/stylesheets/AddTasteTest2_CSS.css" text="Taste test item selection" />
                             </children>
                         </AnchorPane>
                     </children>
