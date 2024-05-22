@@ -13,73 +13,50 @@ import static java.awt.font.TextAttribute.FONT;
 public class RunVasController {
 
     @FXML
-    private Button btnBack;
+    private Label highAnchor_label;
 
     @FXML
-    private Button btnText;
+    private Label lowAnchor_label;
 
     @FXML
-    private Label highAnchorLbl1;
+    private TextArea questionTxt;
 
     @FXML
-    private ListView<?> list;
-
-    @FXML
-    private Label lowAnchorLbl;
-
-    @FXML
-    private ProgressBar progressBar;
-
-    @FXML
-    private Label resultLbl;
-
-    @FXML
-    private Label runLbl;
-
-    @FXML
-    private Label senseXPlbl;
-
-    @FXML
-    private Slider slider;
+    private Label result_label;
+    @FXML Slider mySlider;
     @FXML
     public void initialize() throws Exception {
-        Font customFont = Font.loadFont(getClass().getResourceAsStream("/static/fonts/CustomFont.ttf"), 32);
-        senseXPlbl.setFont(customFont);
 
-        sliderHandler();
-
-        Experiment experiment = DataAccess.getExperimentIndividually();
-
+    sliderHandler();
 
 
 
     }
     private void sliderHandler(){
         // Set initial label text
-        resultLbl.setText((int) slider.getValue() + "%");
+        result_label.setText((int) mySlider.getValue() + "%");
 
         // Add listener to slider value changes
-        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+        mySlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             double value = newValue.doubleValue();
             int percentValue = (int) value;
-            String color = "#397E82";
 
             // Update the label text
-            resultLbl.setText(percentValue + "%");
+            result_label.setText(percentValue + "%");
 
             // Access the thumb and set the label's position
-            slider.applyCss(); // Ensure CSS is applied
-            var thumb = slider.lookup(".thumb");
+            mySlider.applyCss(); // Ensure CSS is applied
+            var thumb = mySlider.lookup(".thumb");
             if (thumb != null) {
-                resultLbl.setLayoutX(thumb.getLayoutX() + slider.getLayoutX() - resultLbl.getWidth() / 2);
+                result_label.setLayoutX(thumb.getLayoutX() + mySlider.getLayoutX() - mySlider.getWidth() / 2);
             }
         });
 
         // Initial position of the label
-        slider.applyCss();
-        var thumb = slider.lookup(".thumb");
+        mySlider.applyCss();
+        var thumb = mySlider.lookup(".thumb");
         if (thumb != null) {
-            resultLbl.setLayoutX((thumb.getLayoutX() + slider.getLayoutX()) / 2);
+            result_label.setLayoutX((thumb.getLayoutX() + mySlider.getLayoutX()) / 2);
         }
     }
 }
