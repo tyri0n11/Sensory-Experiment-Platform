@@ -31,7 +31,7 @@ public class Login_VM {
         return password.get();
 
     }
-    public String getUsername() {g
+    public String getUsername() {
         return userName.get();
 
     }
