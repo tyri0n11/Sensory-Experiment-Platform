@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
-
 <?import javafx.scene.text.Font?>
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1279.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.addFoodController">
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1279.0" stylesheets="@../../static/stylesheets/AddFood_CSS.css"  xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.addFoodController">
     <children>
         <BorderPane prefHeight="839.0" prefWidth="1279.0">
             <top>
@@ -155,7 +155,7 @@
                                  <children>
                                     <Label fx:id="AddFoodLabel" layoutX="27.0" layoutY="14.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="ADD FOOD" />
                                     <Label fx:id="please1Label" layoutX="29.0" layoutY="60.0" text="Please type the name of the new food below:" />
-                                    <TextField layoutX="31.0" layoutY="108.0" prefHeight="30.0" prefWidth="344.0" />
+                                    <TextField fx:id="txt_nameFood" layoutX="31.0" layoutY="108.0" prefHeight="30.0" prefWidth="344.0" />
                                     <Button fx:id="SaveButton1" layoutX="149.0" layoutY="178.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="106.0" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Save" />
                                     <Button fx:id="CancelButton1" layoutX="276.0" layoutY="178.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="102.0" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Cancel" />
                                  </children>
