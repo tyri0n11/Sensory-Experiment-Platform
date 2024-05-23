@@ -43,12 +43,12 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btn_back" layoutX="600.0" layoutY="516.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="132.0" text="Back">
+                  <Button fx:id="btn_back" layoutX="600.0" layoutY="516.0" mnemonicParsing="false" onMouseClicked="#handleBtnBack" prefHeight="57.0" prefWidth="132.0" text="Back">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btn_Next" layoutX="768.0" layoutY="516.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="132.0" text="Next">
+                  <Button fx:id="btn_Next" layoutX="768.0" layoutY="516.0" mnemonicParsing="false" onMouseClicked="#handleBtnNext" prefHeight="57.0" prefWidth="132.0" text="Next">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -57,6 +57,7 @@
                      <children>
                         <Label fx:id="labelView" layoutX="14.0" layoutY="14.0" stylesheets="@../../static/stylesheets/RunEx.css" text="Label" wrapText="true" />
                      </children></AnchorPane>
+
                </children>
             </Pane>
          </center>

@@ -1,4 +1,5 @@
 .label{
+    -fx-font-family: Baloo2;
     -fx-font-weight: Bold;
     -fx-text-fill: #397E82;
 }
