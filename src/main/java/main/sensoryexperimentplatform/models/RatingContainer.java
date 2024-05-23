@@ -3,7 +3,7 @@ package main.sensoryexperimentplatform.models;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class RatingContainer extends Test{
+public class RatingContainer {
     private boolean isRandomize;
     private long minTime;
     public ArrayList<Stage> container;
@@ -85,6 +85,9 @@ public class RatingContainer extends Test{
             sb.append(s.toString()).append("\n");
         }
         return  sb.toString();
+    }
+    public String getType(){
+        return "Rating Container";
     }
     public String toString(){
         return "ratingsContainer(\"" + isRandomize + "\",\"" + minTime +"\")\n" +

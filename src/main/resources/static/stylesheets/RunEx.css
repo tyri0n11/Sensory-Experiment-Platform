@@ -1,0 +1,28 @@
+.label{
+    -fx-font-weight: Bold;
+    -fx-text-fill: #397E82;
+}
+.button {
+    -fx-background-radius: 30px;
+    -fx-background-color: #F1F6FB;
+    -fx-effect: innershadow(three-pass-box, rgba(85, 91, 110, 0.15), 5, 0, 0, 5);
+}
+
+.button:hover{
+    -fx-background-color: #397E82;
+    -fx-text-fill: #F0F0F0;
+    -fx-effect: dropshadow(three-pass-box, rgba(85, 91, 110, 0.15), 5, 0, 0, 5);
+}
+
+#labelView{
+    -fx-font-family: 'Baloo 2';
+    -fx-font-style: normal;
+    -fx-font-weight: 700;
+    -fx-font-size: 36px;
+    -fx-line-height: 58px;
+    -fx-display: flex;
+    -fx-align-items: center;
+
+    -fx-text-fill: #397E82;
+}
+

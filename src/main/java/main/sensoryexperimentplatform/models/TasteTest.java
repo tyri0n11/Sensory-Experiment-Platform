@@ -97,6 +97,9 @@ public class TasteTest{
                 sampleVas.getLowAnchorValue(), sampleVas.getHighAnchorValue(), sampleVas.getButtonText(),
                 sampleVas.getContent(),sampleVas.getHelpText(), sampleVas.getIsSwap(), sampleVas.getAlert());
     }
+    public String getType(){
+        return "Taste Test";
+    }
 
     public String toString(){
             StringBuilder stringBuilder = new StringBuilder();

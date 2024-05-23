@@ -1,0 +1,70 @@
+/* styles.css */
+
+@font-face {
+    font-family: 'Baloo2 SemiBold';
+    src: url('static/fonts/Baloo2-SemiBold.ttf');
+}
+
+.root {
+    -fx-font-family: 'Baloo2 SemiBold';
+}
+
+.slider .track {
+    -fx-pref-height: 28px;
+    -fx-background-radius: 40px;
+    -fx-control-inner-background: #D5E9EA;
+    -fx-border-color: transparent;
+}
+#slider .range-bar{
+    -fx-background-color: #397E82 ;
+}
+
+#slider .thumb {
+    -fx-pref-height: 28px;
+    -fx-pref-width: 28px;
+    -fx-border-radius: 19px;
+    -fx-background-image: url("/static/images/slider_thumb.png");
+}
+
+
+.progress-bar{
+    -fx-progress-color: #397E82;
+}
+
+.button-bar .button {
+    -fx-background-radius: 30px;
+    -fx-background-color: #F1F6FB;
+    -fx-effect: innershadow(three-pass-box, rgba(85, 91, 110, 0.15), 5, 0, 0, 5);
+}
+
+.button :hover{
+    -fx-background-color: #397E82;
+    -fx-effect: dropshadow(three-pass-box, rgba(85, 91, 110, 0.15), 5, 0, 0, 5);
+}
+
+#resultLbl {
+    -fx-pref-height: 43px;
+    -fx-pref-width: 51px;
+    -fx-alignment: center;
+    -fx-font-family: 'Baloo2 SemiBold';
+    -fx-background-image: url("/static/images/popup.png");
+}
+#senseXPlbl{
+    -fx-font-family: 'Baloo2 SemiBold';
+    -fx-font-weight: bold;
+    -fx-text-fill: #397E82;
+    -fx-font-size: 40px;
+}
+#runLbl{
+    -fx-font-family: 'Baloo2 SemiBold';
+    -fx-text-fill: #397E82;
+    -fx-font-size: 36px;
+}
+
+#lowAnchorLbl, #highAnchorLbl1 {
+    -fx-alignment: center;
+    -fx-font-family: 'Baloo2 SemiBold';
+    -fx-font-weight: Bold;
+    -fx-text-fill: #397E82;
+    -fx-font-size: 20px;
+}

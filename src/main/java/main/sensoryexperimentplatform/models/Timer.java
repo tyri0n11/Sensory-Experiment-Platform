@@ -42,6 +42,9 @@ public class Timer extends Stage {
     public String getFormattedElapsed() {
         return String.format(String.valueOf(timeToWait));
     }
+    public String getType(){
+        return "Wait";
+    }
 
     @Override
     public String toString() {

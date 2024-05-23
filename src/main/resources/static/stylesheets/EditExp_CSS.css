@@ -15,14 +15,7 @@
     -fx-background-color: #CCCCCC;
     -fx-text-fill: white;
 }
-#btn_dashboard{
-    -fx-background-color: transparent;
-    -fx-font-size: 32;
-    -fx-font-weight: normal;
-    -fx-text-alignment: left;
-    -fx-text-fill: #624DE3;
 
-}
 #lbl_SenseXP{
     -fx-font-family: "Baloo Bhaina 2";
     -fx-text-fill: #397E82;
@@ -36,26 +29,13 @@
     -fx-font-weight: 700;
 }
 
+.tree-view{
+    -fx-background-radius: 15px;
+    -fx-padding: 5px 5px 5px 5px;
+    -fx-border-color:#0E0E0E ;
+    -fx-border-radius: 15px;
+}
 
-/*#btn_addAudibleInstruction, #btn_assignSound, #btn_addInput, #btn_addTimer, #btn_addTasteTest, #btn_addFoodAndTaste,
-#btn_addRatingContainer,
-#btn_addVasStage,
-#btn_AddGLMS,
-#btn_AddCourse,
-#btn_AddPeriodicStage,
-#btn_AddConditionalStatement, #btn_AddQuestionStage {
-    -fx-background-color: #624DE3;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-min-width: 250px;
-    -fx-max-width: 250px;
-    -fx-min-height: 30px;
-    -fx-max-height: 30px;
-    -fx-padding: 4px 33px, 4px 33px;
-    -fx-background-radius: 40px 40px 40px 40px;
-    -fx-opacity: 10;
-    -fx-gap: 10;
-}*/
 .btn_up{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
@@ -83,7 +63,11 @@
 #btn_menu{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
+<<<<<<< HEAD
     -fx-background-image: url('/static/images/img_1.png');
+=======
+    -fx-background-image: url('/static/images/btn_menu.png');
+>>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -93,18 +77,7 @@
     -fx-pref-width: 48;
 }
 
-.textResult{
-    -fx-min-width: 812px;
-    -fx-max-width: 812px;
-    -fx-min-height: 644px;
-    -fx-max-height: 644px;
-    -fx-padding: 5px 5px 5px 5px;
-    -fx-border-radius: 20px 20px 20px 20px;
-    -fx-border-color:#0E0E0E ;
 
-
-
-}
 #headPanel{
 
     -fx-background-color: #CAD1D040;
@@ -119,8 +92,6 @@
 }
 
 #txt_searchBar{
-
-
     -fx-pref-width: 441px;
     -fx-pref-height: 32px;
     -fx-border-color: #9E9E9E;
@@ -128,8 +99,6 @@
 
 
     -fx-border-radius: 8px;
-
-
 
 }
 #btn_dropDown{
@@ -156,11 +125,22 @@
     /* identical to box height */
 
     -fx-text-fill: #000000;
-
-
-
-
 }
+#btn_SAVE{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    -fx-align-items: center;
+    -fx-padding: 18px 20px;
+    -fx-gap: 20px;
+
+    -fx-pref-width: 103px;
+    -fx-pref-height: 36px;
+
+    -fx-background-color: #397E82;
+    -fx-border-radius: 9px;
+}
+
 
 .stackpane{
     -fx-background-color: white;
@@ -208,8 +188,6 @@
 
 }
 .propertiesText{
-
-
     -fx-pref-width: 375px;
     -fx-pref-height: 21px;
 
@@ -217,23 +195,18 @@
     -fx-font-style: normal;
     -fx-font-weight: bold;
     -fx-font-size: 16px;
-    line-height: 24px;
+    -fx-line-height: 24px;
     -fx-letter-spacing: 0.03em;
 
     -fx-text-color: #181818;
 
 }
 #ChangeButton,#ChangeButton1,#ChangeButton2,#ChangeButton3{
-    /* Frame 26919 */
-    /* Change */
-
-
-
     -fx-font-family: 'Poppins';
     -fx-font-style: normal;
     -fx-font-weight: 500;
     -fx-font-size: 16px;
-    line-height: 24px;
+    -fx-line-height: 24px;
     -fx-text-alignment: center;
 
 
@@ -263,14 +236,7 @@
     -fx-alignment: center;
 
 }
-#textField1{
 
-
-
-
-
-
-}
 #timeField,#timeField2
 {
     -fx-border-color: #696969;
@@ -299,8 +265,6 @@
 
 
     -fx-text-fill: #000;
-
-
 
     -fx-background-color: #FFFFFF;
     -fx-border-radius: 5px;
@@ -397,18 +361,8 @@
     }
 
     #AddButton,#SelectAllButton,#SelectNoneButton,#CloseButton,#SaveButton2,#RefreshButton,#StopButton,#RemoveButton,#PlayButton{
-        /* Button 6 */
-
-
         -fx-background-color: #624DE3;
-
-
-
-
         -fx-border-radius: 20px 20px 20px 20px;
-        /* Add */
-
-
         -fx-font-family: 'Montserrat';
         -fx-font-style: normal;
         -fx-font-weight: 400;
@@ -420,10 +374,6 @@
         -fx-text-fill: #F7F6FE;
         -fx-padding: 4px 23px, 4px 23px;
         -fx-background-radius: 10px 10px 10px 10px;
-
-
-
-
     }
 
     .check-box {
@@ -563,13 +513,15 @@
 
     }
 .menuButton{
+    -fx-alignment: center;
+    -fx-padding: 4px 33px;
+    -fx-gap: 10px;
+
     -fx-max-width: 250px;
     -fx-max-height: 30px;
-    -fx-background-color: #D5E9EA;
+
+    -fx-background-color: #397E82;
     -fx-background-radius: 20px 20px 20px 20px;
-    /* Add Notice Stage */
-
-
 
     -fx-font-family: 'Montserrat';
     -fx-font-style: normal;
@@ -579,8 +531,10 @@
     -fx-align-items: center;
     -fx-text-align: center;
 
-    -fx-color-fill: #1E1E1E;
-
+    -fx-text-fill: white;
+}
+#btn_assignSound, #btn_addFoodAndTaste, #btn_AddPeriodicStage{
+    -fx-background-color: #C1D7D8;
 
 
 }
