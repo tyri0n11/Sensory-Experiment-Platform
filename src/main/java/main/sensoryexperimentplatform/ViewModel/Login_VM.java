@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import main.sensoryexperimentplatform.models.User;
 import main.sensoryexperimentplatform.models.UserManager;
-import org.controlsfx.control.tableview2.filter.filtereditor.SouthFilter;
+
 
 public class Login_VM {
     private StringProperty userName;
