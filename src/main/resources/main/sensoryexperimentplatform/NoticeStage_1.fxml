@@ -75,8 +75,7 @@
                                         <Label fx:id="lbl_EditExperiment" layoutX="66.0" layoutY="-28.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" text="Edit Experiment" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="-51.60000000000002">
                                         </Label>
                               <Button fx:id="btn_AddQuestionStage" layoutX="36.0" layoutY="636.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddQuestionStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add Question Stage" />
-      
-                                                                                          </children>
+                                    </children>
                                 </AnchorPane>
                      </children>
                   </AnchorPane>

@@ -43,6 +43,9 @@ public class Input extends Stage {
     public void setContent(String content) {
         this.content = content;
     }
+    public String getType(){
+        return "Input";
+    }
 
     @Override
     public String toString() {

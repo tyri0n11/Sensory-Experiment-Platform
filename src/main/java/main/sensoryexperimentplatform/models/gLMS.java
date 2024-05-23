@@ -1,6 +1,7 @@
 package main.sensoryexperimentplatform.models;
 
 public class gLMS extends Stage{
+    private String title;
     private String questionText;
     private String buttonText;
     private boolean response;
@@ -18,6 +19,7 @@ public class gLMS extends Stage{
     }
     public gLMS(String title, String buttonText, String content, String helpText, boolean alert){
         super(title,content);
+        this.title = title;
         this.questionText = title;
         this.buttonText = buttonText;
         this.helpText = helpText;
@@ -80,6 +82,9 @@ public class gLMS extends Stage{
 
     public void setContent(String content) {
         this.content = content;
+    }
+    public String getType(){
+        return "GLMS";
     }
     @Override
     public String toString() {

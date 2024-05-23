@@ -59,7 +59,9 @@ public class Notice extends Stage{
         this.content = content;
     }
 
-
+    public String getType(){
+        return "Notice";
+    }
     @Override
     public String toString() {
         return "noticeStage(\"" + title + "\",\"" + content + "\",\"" +

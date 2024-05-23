@@ -29,26 +29,13 @@
     -fx-font-weight: 700;
 }
 
+.tree-view{
+    -fx-background-radius: 15px;
+    -fx-padding: 5px 5px 5px 5px;
+    -fx-border-color:#0E0E0E ;
+    -fx-border-radius: 15px;
+}
 
-/*#btn_addAudibleInstruction, #btn_assignSound, #btn_addInput, #btn_addTimer, #btn_addTasteTest, #btn_addFoodAndTaste,
-#btn_addRatingContainer,
-#btn_addVasStage,
-#btn_AddGLMS,
-#btn_AddCourse,
-#btn_AddPeriodicStage,
-#btn_AddConditionalStatement, #btn_AddQuestionStage {
-    -fx-background-color: #624DE3;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-min-width: 250px;
-    -fx-max-width: 250px;
-    -fx-min-height: 30px;
-    -fx-max-height: 30px;
-    -fx-padding: 4px 33px, 4px 33px;
-    -fx-background-radius: 40px 40px 40px 40px;
-    -fx-opacity: 10;
-    -fx-gap: 10;
-}*/
 .btn_up{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
@@ -86,16 +73,7 @@
     -fx-pref-width: 48;
 }
 
-.textResult{
-    -fx-min-width: 812px;
-    -fx-max-width: 812px;
-    -fx-min-height: 644px;
-    -fx-max-height: 644px;
-    -fx-padding: 5px 5px 5px 5px;
-    -fx-border-radius: 20px 20px 20px 20px;
-    -fx-border-color:#0E0E0E ;
 
-}
 #headPanel{
 
     -fx-background-color: #CAD1D040;
@@ -143,20 +121,23 @@
     /* identical to box height */
 
     -fx-text-fill: #000000;
-
 }
-#btn_AddExperiment{
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
 
-    -fx-pref-width: 151px;
-    -fx-pref-height: 32px;
+#btn_SAVE{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    -fx-align-items: center;
+    -fx-padding: 18px 20px;
+    -fx-gap: 20px;
 
-    -fx-background-color: #624DE3;
-    -fx-border-radius: 8px;
+    -fx-pref-width: 103px;
+    -fx-pref-height: 36px;
 
-
+    -fx-background-color: #397E82;
+    -fx-border-radius: 9px;
 }
+
 .stackpane{
     -fx-background-color: white;
 
@@ -376,18 +357,8 @@
     }
 
     #AddButton,#SelectAllButton,#SelectNoneButton,#CloseButton,#SaveButton2,#RefreshButton,#StopButton,#RemoveButton,#PlayButton{
-        /* Button 6 */
-
-
         -fx-background-color: #624DE3;
-
-
-
-
         -fx-border-radius: 20px 20px 20px 20px;
-        /* Add */
-
-
         -fx-font-family: 'Montserrat';
         -fx-font-style: normal;
         -fx-font-weight: 400;
@@ -399,10 +370,6 @@
         -fx-text-fill: #F7F6FE;
         -fx-padding: 4px 23px, 4px 23px;
         -fx-background-radius: 10px 10px 10px 10px;
-
-
-
-
     }
 
     .check-box {
@@ -542,9 +509,14 @@
 
     }
 .menuButton{
+    -fx-alignment: center;
+    -fx-padding: 4px 33px;
+    -fx-gap: 10px;
+
     -fx-max-width: 250px;
     -fx-max-height: 30px;
-    -fx-background-color: #D5E9EA;
+
+    -fx-background-color: #397E82;
     -fx-background-radius: 20px 20px 20px 20px;
 
     -fx-font-family: 'Montserrat';
@@ -555,8 +527,10 @@
     -fx-align-items: center;
     -fx-text-align: center;
 
-    -fx-color-fill: #1E1E1E;
-
+    -fx-text-fill: white;
+}
+#btn_assignSound, #btn_addFoodAndTaste, #btn_AddPeriodicStage{
+    -fx-background-color: #C1D7D8;
 
 
 }
