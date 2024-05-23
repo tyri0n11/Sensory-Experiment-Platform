@@ -185,6 +185,12 @@ public class TestController {
                propertiesPane.getChildren().setAll(newContent);
                AddNoticeStage controller = fxmlLoader.getController();
            }
+           else if (value.equals("[Audio] Default Notice Stage")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddNoticeStage.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+               AddNoticeStage controller = fxmlLoader.getController();
+           }
        }
 
     }
