@@ -12,10 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.RunExperiment_VM;
-import main.sensoryexperimentplatform.ViewModel.RunGLMS_VM;
-import main.sensoryexperimentplatform.ViewModel.RunNotice_VM;
-import main.sensoryexperimentplatform.ViewModel.RunVas_VM;
+import main.sensoryexperimentplatform.ViewModel.*;
 import main.sensoryexperimentplatform.models.*;
 
 import java.io.IOException;
@@ -25,24 +22,20 @@ public class RunController {
     private AnchorPane content;
 
     @FXML
-    private Button btn_Next;
-
-    @FXML
-    private Button btn_back;
+    private Button btn_Next,btn_back;
 
     @FXML
     private ProgressBar progress_bar;
 
     @FXML
-    private Label runelbl;
-
-    @FXML
-    private Label senseXPlbl;
+    private Label runelbl,senseXPlbl;
 
     @FXML
     private ListView<String> showList;
 
     private RunExperiment_VM viewModel;
+
+    private ProgressListItemsTrackerVM progressListItemsTrackerVM;
 
     @FXML
     public void initialize() {
@@ -54,27 +47,16 @@ public class RunController {
             e.printStackTrace();
         }
     }
+    private void bindProgressListItemsTracker() {
+        progress_bar.progressProperty().bind(
+                progressListItemsTrackerVM.currentItemIndexProperty().divide(progressListItemsTrackerVM.getTotalItems())
+        );
+    }
 
     private void bindViewModel() {
         // Bind ListView items to ViewModel items
         showList.itemsProperty().bind(viewModel.itemsProperty());
 
-/*        showList.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
-            @Override
-            public ListCell<String> call(ListView<String> listView) {
-                return new ListCell<>() {
-                    @Override
-                    protected void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (item != null && !empty) {
-                            setText(item);
-                        } else {
-                            setText(null);
-                        }
-                    }
-                };
-            }
-        });*/
 
         // Add selection listener
         showList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -136,6 +118,15 @@ public class RunController {
                     RunNotice_VM vm = new RunNotice_VM((Notice) selectedObject);
                     controller.setViewModel(vm);
 
+                }
+                if (selectedObject instanceof Timer){
+                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunTimer.fxml"));
+                    AnchorPane newContent = loader.load();
+                    content.getChildren().setAll(newContent);
+
+                    RunTimerController controller = loader.getController();
+                    RunTimer_VM viewModel = new RunTimer_VM((Timer) selectedObject);
+                    controller.setViewModel(viewModel);
 
                 }
                 // Add more conditions here for other types of objects

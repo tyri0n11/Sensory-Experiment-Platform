@@ -4,3 +4,7 @@
     -fx-text-fill: #397E82;
     -fx-alignment: CENTER;
 }
+.progress-bar{
+    -fx-accent: #397E82;
+    -fx-pref-height: 28px;
+}

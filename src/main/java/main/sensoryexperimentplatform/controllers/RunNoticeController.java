@@ -1,11 +1,11 @@
 package main.sensoryexperimentplatform.controllers;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import main.sensoryexperimentplatform.ViewModel.RunNotice_VM;
 
-import java.awt.*;
 
 public class RunNoticeController {
     @FXML

@@ -31,6 +31,10 @@ public class Timer extends Stage {
         }
     }
 
+    public String getInstruction() {
+        return instruction;
+    }
+
     public boolean isAlert() {
         return alert;
     }
