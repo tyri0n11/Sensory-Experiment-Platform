@@ -1,0 +1,162 @@
+
+.root {
+    -fx-font-family: 'Inter';
+    -fx-font-size: 14;
+    -fx-background-color: #FFFFFF;
+}
+.menu-button {
+    -fx-background-color: transparent; /* Set background color */
+    -fx-text-fill: black; /* Set text color */
+    -fx-background-radius: 20px; /* Set background radius for rounded corners */
+}
+
+.menu-button:hover {
+    -fx-background-color: #666666;
+    -fx-text-fill: white;
+}
+
+.menu-button .arrow {
+    -fx-background-image: url('images/mingcute_menu-fill.png'); /* Remove arrow background */
+}
+
+.menu-button .arrow-button {
+    -fx-background-color: transparent; /* Remove arrow button background */
+    -fx-shape: ""; /* Remove arrow shape */
+}
+
+.text-field{
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-border-color: #858585;
+    -fx-border-radius: 5px;
+    -fx-font-family: Roboto;
+    -fx-font-weight: 500;
+    -fx-font-size: 16px;
+    -fx-text-fill: #858585;
+
+}
+.button{
+    -fx-background-color: transparent;
+}
+.button:hover{
+    -fx-background-color: #CCCCCC;
+    -fx-text-fill: white;
+}
+
+#labelSenseXP{
+    -fx-text-fill: #624DE3;
+    -fx-font-weight: normal;
+    -fx-font-size: 40px;
+    -fx-font-family: Lexend;
+}
+#labelEditProfile{
+    -fx-text-fill: #624DE3;
+    -fx-font-weight: lighter;
+    -fx-font-size: 36px;
+}
+#sidebar{
+    -fx-background-color: #F7F6FE;
+}
+#topbar {
+    -fx-background-color: #CAD1D040;
+}
+
+#avatarImage {
+    -fx-background-color: transparent; /* Set background color */
+    -fx-background-radius: 50%; /* Set background radius to 50% for circular shape */
+    -fx-border-color: black; /* Set border color */
+    -fx-border-width: 2px; /* Set border width */
+    -fx-border-radius: 50%; /* Set border radius to 50% for circular shape */
+    -fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);
+}
+
+#strokeIcon {
+}
+
+/* Sidebar styling */
+#sidebar {
+    -fx-background-color: #F7F6FE;
+    -fx-text-fill: black;
+}
+
+#dashboardBtn{
+    -fx-text-fill: black;
+    -fx-graphic-text-gap: 10;
+    -fx-width: 27px; /* Corrected property */
+    -fx-height: 24px; /* Corrected property */
+    -fx-gap: 8px; /* Corrected property */
+
+}
+#generalBtn,
+#importBtn,
+#exportBtn,
+#configureBtn,
+#logOutBtn {
+    -fx-background-color: #F7F6FE;
+    -fx-graphic-text-gap: 10;
+    -fx-text-fill: black;
+}
+#dashboardBtn,
+#generalBtn,
+#importBtn,
+#exportBtn,
+#configureBtn,
+#logOutBtn {
+    -fx-background-color: #F7F6FE;
+    -fx-text-fill: black;
+    -fx-font-family: Montserrat;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-line-height: 17.07px;
+    -fx-text-align: left;
+
+}
+
+#dashboardBtn:hover,
+#generalBtn:hover,
+#importBtn:hover,
+#exportBtn:hover,
+#configureBtn:hover,
+#logOutBtn:hover {
+    -fx-background-color: #CCCCCC;
+    -fx-text-fill: white;
+    -fx-font-family: Montserrat;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-line-height: 17.07px;
+    -fx-text-align: left;
+}
+
+/* Edit Profile section styling */
+#editProfileBtn,
+#NotificationBtn,
+#SecurityBtn,
+#appearanceBtn,
+#helpBtn {
+    -fx-background-color: #FFFFFF;
+    -fx-font-size: 20px;
+    -fx-text-fill: #858585;
+}
+
+#editProfileBtn:hover,
+#NotificationBtn:hover,
+#SecurityBtn:hover,
+#appearanceBtn:hover,
+#helpBtn:hover{
+    -fx-background-color: #FFFFFF;
+    -fx-font-size: 20px;
+    -fx-text-fill: Black;
+}
+
+
+
+#saveBtn,
+#cancelBtn{
+    -fx-background-color: #624DE3;
+    -fx-text-fill: white;
+}
+#saveBtn:hover,
+#cancelBtn:hover {
+    -fx-background-color: #CCCCCC;
+    -fx-text-fill: white;
+}
