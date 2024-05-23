@@ -23,7 +23,7 @@
 #btn_menu{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
-    -fx-background-image: url('images/menu.png');
+    -fx-background-image: url('/static/images/menu.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */

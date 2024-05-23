@@ -63,7 +63,11 @@
 #btn_menu{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
+<<<<<<< HEAD
     -fx-background-image: url('/static/images/btn_menu.png');
+=======
+    -fx-background-image: url('/static/images/img_1.png');
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -123,6 +127,7 @@
     -fx-text-fill: #000000;
 }
 
+<<<<<<< HEAD
 #btn_SAVE{
     display: flex;
     flex-direction: row;
@@ -138,6 +143,8 @@
     -fx-border-radius: 9px;
 }
 
+=======
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
 .stackpane{
     -fx-background-color: white;
 

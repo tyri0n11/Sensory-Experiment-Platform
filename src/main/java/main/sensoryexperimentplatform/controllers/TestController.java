@@ -1,11 +1,17 @@
 package main.sensoryexperimentplatform.controllers;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TreeView;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+
+import java.io.IOException;
 
 public class TestController {
     @FXML
@@ -13,7 +19,7 @@ public class TestController {
     private TestVM testVM;
     private boolean isSidebarVisible = true;
     @FXML
-    private TreeView<?> listObject;
+    private TreeView<String> listObject;
 
     @FXML
     private HBox mainBox;
@@ -50,14 +56,28 @@ public class TestController {
 
     @FXML
     private AnchorPane mainPane;
+    TreeItem<String> start;
 
     public void initialize(){
         testVM = new TestVM();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
+        start = new TreeItem<>("Start Experiment");
+        listObject.setRoot(start);
+        EventHandler<MouseEvent> mouseEventHandler = (MouseEvent event)->{
+            try {
+                handleMouseClicked(event);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        };
+        listObject.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEventHandler);
     }
     @FXML
     void addAudibleInstruction(ActionEvent event) {
-
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("[Audio] Default Notice Stage"));
     }
 
     @FXML
@@ -90,43 +110,58 @@ public class TestController {
     }
 
     @FXML
-    void addNoticeStage(ActionEvent event) {
+    void addNoticeStage(ActionEvent event){
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("[Instruction] Default Notice Stage"));
     }
 
     @FXML
     void addPeriodicStage(ActionEvent event) {
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
 
     }
 
     @FXML
     void addQuestionStage(ActionEvent event) {
-
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
     }
 
     @FXML
     void addRatingContainer(ActionEvent event) {
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
 
     }
 
     @FXML
     void addTasteTest(ActionEvent event) {
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
 
     }
 
     @FXML
     void addTimer(ActionEvent event) {
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
 
     }
 
     @FXML
     void addVasStage(ActionEvent event) {
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
 
     }
 
     @FXML
     void assignSound(ActionEvent event) {
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
 
     }
 
@@ -139,5 +174,18 @@ public class TestController {
             mainBox.getChildren().add(0, sideMenu);
         }
         isSidebarVisible = !isSidebarVisible;
+    }
+    private void handleMouseClicked(MouseEvent event) throws IOException {
+       Node node = event.getPickResult().getIntersectedNode();
+       if (node instanceof Text || (node instanceof TreeCell &&((TreeCell) node).getText() != null)){
+           String value = (String)((TreeItem)listObject.getSelectionModel().getSelectedItem()).getValue();
+           if (value.equals("[Instruction] Default Notice Stage")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddNoticeStage.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+               AddNoticeStage controller = fxmlLoader.getController();
+           }
+       }
+
     }
 }

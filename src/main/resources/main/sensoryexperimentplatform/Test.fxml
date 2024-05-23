@@ -103,7 +103,7 @@
                               <Button fx:id="btn_cross" layoutX="-4.0" layoutY="196.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="68.0" styleClass="btn_cross" text=" " AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.599999999999994" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="propertiesPane" layoutX="347.0" layoutY="421.0" maxHeight="311.0" maxWidth="540.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" styleClass="tree-view" stylesheets="@../../static/stylesheets/AddFood_CSS.css" visible="false" />
+                        <AnchorPane fx:id="propertiesPane" layoutX="347.0" layoutY="421.0" maxHeight="253.0" maxWidth="540.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" styleClass="tree-view" stylesheets="@../../static/stylesheets/AddFood_CSS.css" visible="false" />
                      </children>
                   </AnchorPane>
                </children>

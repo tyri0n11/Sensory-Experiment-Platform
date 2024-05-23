@@ -23,7 +23,11 @@
 #btn_up{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
+<<<<<<< HEAD
     -fx-background-image: url('/static/images/btn_up.png');
+=======
+    -fx-background-image: url('/static/images/upward.png');
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -31,7 +35,11 @@
 #btn_down{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
+<<<<<<< HEAD
     -fx-background-image: url('/static/images/btn_down.png');
+=======
+    -fx-background-image: url('/static/images/downward.png');
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -47,7 +55,7 @@
 #btn_menu{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
-    -fx-background-image: url('images/menu.png');
+    -fx-background-image: url('/static/images/menu.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
