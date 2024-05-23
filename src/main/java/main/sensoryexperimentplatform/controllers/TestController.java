@@ -8,6 +8,9 @@ import javafx.scene.control.TreeView;
 import javafx.scene.layout.*;
 
 public class TestController {
+    @FXML
+    private AnchorPane propertiesPane;
+    private TestVM testVM;
     private boolean isSidebarVisible = true;
     @FXML
     private TreeView<?> listObject;
@@ -40,12 +43,16 @@ public class TestController {
     private Label lbl_SenseXP;
 
     @FXML
+    private Button btn_noticeStage;
+
+    @FXML
     private VBox sideMenu;
 
     @FXML
     private AnchorPane mainPane;
 
     public void initialize(){
+        testVM = new TestVM();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
     }
     @FXML
@@ -60,27 +67,32 @@ public class TestController {
 
     @FXML
     void addCourse(ActionEvent event) {
-
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
     }
 
     @FXML
     void addFoodAndTaste(ActionEvent event) {
-
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
     }
 
     @FXML
     void addGLMSStage(ActionEvent event) {
-
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
     }
 
     @FXML
     void addInput(ActionEvent event) {
-
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
     }
 
     @FXML
     void addNoticeStage(ActionEvent event) {
-
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
     }
 
     @FXML
