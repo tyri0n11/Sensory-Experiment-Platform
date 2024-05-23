@@ -32,35 +32,38 @@ public class RunExperiment_VM {
             int index = 1;
             for (Object o : stages) {
                 if (o instanceof Stage){
-                    String key = index + ", "+ ((Stage) o).getTitle();
+                    String key = index + " "+ ((Stage) o).getTitle();
                     objectsMap.put(key,o);
                     stringSet.add(key);
                     index++;
                 }
                 if (o instanceof RatingContainer) {
                     int i = 1;
-                    String key = index + ","+ ((RatingContainer) o).getType();
+                    String key = index + " "+ ((RatingContainer) o).getType();
                     objectsMap.put(key,o);
                     stringSet.add(key);
-                    index++;
                     for (Object subO : ((RatingContainer) o).container) {
                         if (subO instanceof Vas) {
-                            String subKey = index + "." + i + ", "+((Vas) subO).getTitle();
+                            String subKey = index + "." + i + " "+((Vas) subO).getTitle();
                             objectsMap.put(subKey,subO);
                             stringSet.add(subKey);
                             i++;
                         }
                         if (subO instanceof gLMS) {
-                            String subKey = index + "." + i + ", "+((gLMS) subO).getTitle();
+                            String subKey = index + "." + i + " "+((gLMS) subO).getTitle();
                             objectsMap.put(subKey,subO);
                             stringSet.add(subKey);
                             i++;
                         }
                     }
+                    index++;
                 }
             }
             items.setAll(stringSet);
         }
+    }
+    public Object getObjectByKey(String key) {
+        return objectsMap.get(key);
     }
 }
 

@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
@@ -13,30 +12,25 @@
       <StackPane layoutX="113.0" layoutY="230.0" prefHeight="78.0" prefWidth="678.0">
          <children>
             <BorderPane prefHeight="78.0" prefWidth="683.0">
-               <center>
-                  <Slider fx:id="mySlider" prefHeight="28.0" prefWidth="692.0" BorderPane.alignment="CENTER" />
-               </center>
                <top>
-                  <Label fx:id="result_label" prefHeight="43.0" prefWidth="51.0" text="Label" textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                  <Label fx:id="result_label" text="0%" prefHeight="43.0" prefWidth="51.0" textAlignment="CENTER" wrapText="true" BorderPane.alignment="CENTER" />
                </top>
+               <bottom>
+                  <Slider fx:id="mySlider" prefHeight="28.0" prefWidth="692.0" BorderPane.alignment="CENTER" />
+               </bottom>
             </BorderPane>
          </children>
       </StackPane>
-      <TextArea fx:id="questionTxt" layoutX="112.0" layoutY="73.0" prefHeight="108.0" prefWidth="678.0" />
-      <Label layoutX="56.0" layoutY="14.0" prefHeight="26.0" prefWidth="100.0" text="VAS">
-         <font>
-            <Font name="Baloo 2 Regular" size="40.0" />
-         </font>
-      </Label>
-      <Label fx:id="lowAnchor_label" layoutX="106.0" layoutY="309.0" prefHeight="38.0" prefWidth="86.0" text="Not at all" textAlignment="CENTER">
+      <Label fx:id="lowAnchor_label" layoutX="68.0" layoutY="309.0" prefHeight="58.0" prefWidth="117.0" text="Not at all" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="highAnchor_label" layoutX="747.0" layoutY="309.0" prefHeight="38.0" prefWidth="86.0" text="Extremely" textAlignment="CENTER">
+      <Label fx:id="highAnchor_label" layoutX="731.0" layoutY="309.0" prefHeight="58.0" prefWidth="118.0" text="Extremely" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
+      <Label fx:id="questionlbl" layoutX="112.0" layoutY="73.0" prefHeight="108.0" prefWidth="678.0"  wrapText="true" />
    </children>
 </AnchorPane>
