@@ -1,146 +1,88 @@
 package main.sensoryexperimentplatform.controllers;
 
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.util.converter.NumberStringConverter;
+import main.sensoryexperimentplatform.ViewModel.vasStage_VM;
 
 import java.io.IOException;
 
 public class VasController {
-
-    @FXML
-    private AnchorPane Properties;
+    private vasStage_VM vasStageVM;
 
     @FXML
     private StackPane VasStackPane;
 
-    @FXML
-    private Button addInputButton;
 
     @FXML
-    private Label avatarLabel;
-
-    @FXML
-    private Button btn_AddConditionalStatement;
-
-    @FXML
-    private Button btn_AddCourse;
-
-    @FXML
-    private Button btn_AddGLMS;
-
-    @FXML
-    private Button btn_AddPeriodicStage;
-
-    @FXML
-    private Button btn_AddQuestionStage;
-
-    @FXML
-    private Button btn_addAudibleInstruction;
-
-    @FXML
-    private Button btn_addFoodAndTaste;
-
-    @FXML
-    private Button btn_addRatingContainer;
-
-    @FXML
-    private Button btn_addTasteTest;
-
-    @FXML
-    private Button btn_addTimer;
-
-    @FXML
-    private Button btn_addVasStage;
-
-    @FXML
-    private Button btn_assignSound;
+    private Button btn_menu;
 
     @FXML
     private Button btn_noticeStage;
 
     @FXML
-    private TextArea buttonTxtField;
+    private CheckBox checkB_sound;
 
     @FXML
-    private CheckBox checkBoxSwap;
+    private CheckBox checkB_swap;
 
     @FXML
-    private ChoiceBox<?> choiceBoxAvail;
+    private ChoiceBox<?> choiceB_avail;
+
 
     @FXML
-    private Button crossButton;
+    private RadioButton radioBtn_Yes;
 
     @FXML
-    private Button downButton;
-
-    @FXML
-    private TextArea highAncTxtField;
-
-    @FXML
-    private TextArea highAncValField;
-
-    @FXML
-    private Label lbl_EditExperiment;
-
-    @FXML
-    private Label lbl_SenseXP;
-
-    @FXML
-    private Label lbl_buttonText;
-
-    @FXML
-    private Label lbl_help;
-
-    @FXML
-    private Label lbl_highAnchorText;
-
-    @FXML
-    private Label lbl_highAnchorValue;
-
-    @FXML
-    private Label lbl_highAnchortext;
-
-    @FXML
-    private Label lbl_lowAnchorValue;
-
-    @FXML
-    private Label lbl_playSound;
-
-    @FXML
-    private Label lbl_storeResponse;
-
-    @FXML
-    private Label lbl_swapPole;
-
-    @FXML
-    private TextArea lowAncTxtField;
-
-    @FXML
-    private TextArea lowAncValField;
-
-    @FXML
-    private Button menuButton;
-
-    @FXML
-    private TextArea questionField;
-
-    @FXML
-    private RadioButton radioButtonAvailable;
-
-    @FXML
-    private RadioButton radioButtonYes;
+    private RadioButton radioBtn_available;
 
     @FXML
     private TextArea textFrame;
 
     @FXML
-    private Button upButton;
+    private TextField txt_BtnTxt;
 
     @FXML
-    private TextArea yesField;
+    private TextField txt_HighAncTxt;
+
+    @FXML
+    private TextField txt_HighAncVal;
+
+    @FXML
+    private TextField txt_LowAncTxt;
+
+    @FXML
+    private TextField txt_LowAncVal;
+
+    @FXML
+    private TextField txt_help;
+
+    @FXML
+    private TextField txt_question;
+
+    @FXML
+    private TextField txt_yes;
+
+    @FXML
+    private Button upButton;
+
+    public void initialize(vasStage_VM vasStageVM){
+        this.vasStageVM = vasStageVM;
+        NumberStringConverter converter = new NumberStringConverter();
+        txt_question.textProperty().bindBidirectional(vasStageVM.questionTextProperty());
+        txt_LowAncTxt.textProperty().bindBidirectional(vasStageVM.lowAnchorTextProperty());
+        txt_HighAncTxt.textProperty().bindBidirectional(vasStageVM.highAnchorTextProperty());
+        txt_LowAncTxt.textProperty().bindBidirectional(vasStageVM.lowAnchorTextProperty());
+        txt_LowAncVal.textProperty().bindBidirectional(vasStageVM.lowAnchorValueProperty(), converter);
+        txt_HighAncVal.textProperty().bindBidirectional(vasStageVM.highAnchorValueProperty(), converter);
+        txt_BtnTxt.textProperty().bindBidirectional(vasStageVM.buttonTextProperty());
+
+    }
 
     @FXML
     void AddGLMSButton(ActionEvent event) throws IOException {
@@ -162,8 +104,6 @@ public class VasController {
     @FXML
     void AddTimerButton(ActionEvent event) throws IOException {
         new ScenseSwitch(VasStackPane,"/fxml/TimerStage.fxml");
-
-
 
     }
 

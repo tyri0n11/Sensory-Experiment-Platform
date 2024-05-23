@@ -1,6 +1,7 @@
 package main.sensoryexperimentplatform.controllers;
 
-
+import javafx.beans.binding.Bindings;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -9,6 +10,10 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Callback;
+import main.sensoryexperimentplatform.ViewModel.RunExperiment_VM;
+import main.sensoryexperimentplatform.models.Notice;
+import org.controlsfx.control.PropertySheet;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
@@ -33,11 +38,6 @@ public class RunController {
     @FXML
     private ProgressBar progress_bar;
 
-    @FXML
-    private Label runelbl;
-
-    @FXML
-    private Label senseXPlbl;
 
     @FXML
     private ListView<String> showList;
@@ -58,7 +58,6 @@ public class RunController {
     private void bindViewModel() {
         // Bind ListView items to ViewModel items
         showList.itemsProperty().bind(viewModel.itemsProperty());
-
 /*        showList.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
             public ListCell<String> call(ListView<String> listView) {
@@ -103,6 +102,10 @@ public class RunController {
     }
 
     private void showDetailView(String item) {
+
+
+
+}
         Object selectedObject = viewModel.getObjectByKey(item);
         if (selectedObject != null) {
             content.getChildren().clear();
