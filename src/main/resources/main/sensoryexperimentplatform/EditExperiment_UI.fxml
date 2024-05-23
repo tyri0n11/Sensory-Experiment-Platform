@@ -11,11 +11,7 @@
 
 <StackPane fx:id="EditStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.EditExperimentController">
    <stylesheets>
-<<<<<<< HEAD
-      <URL value="@/static/stylesheets/EditExp_CSS.css" />
-=======
       <URL value="@../../static/stylesheets/EditExp_CSS.css" />
->>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
    </stylesheets>
    <children>
       <BorderPane prefHeight="667.0" prefWidth="1100.0">
@@ -24,24 +20,14 @@
                <children>
                   <AnchorPane maxHeight="92.0" maxWidth="1280.0" minHeight="92.0" minWidth="1280.0" prefHeight="92.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-<<<<<<< HEAD
-                        <Label fx:id="lbl_SenseXP" layoutX="14.0" layoutY="-8.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Sense XP" textFill="#141414" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1084.4">
-=======
                         <Label fx:id="lbl_SenseXP" layoutX="14.0" layoutY="-8.0" text="Sense XP" textFill="#141414" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1084.4">
->>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
                            <font>
                               <Font size="40.0" />
                            </font>
                         </Label>
-<<<<<<< HEAD
-                        <Button layoutX="1212.0" layoutY="13.0" mnemonicParsing="false" styleClass="btn_bell" stylesheets="@/static/stylesheets/EditExp_CSS.css" />
-                        <Label layoutX="1160.0" layoutY="15.0" styleClass="Name" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Nguyễn" />
-                        <Label layoutX="1158.0" layoutY="37.0" styleClass="Nickname" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Mymia" />
-=======
                         <Button layoutX="1212.0" layoutY="13.0" mnemonicParsing="false" styleClass="btn_bell" />
                         <Label layoutX="1160.0" layoutY="15.0" styleClass="Name" text="Nguyễn" />
                         <Label layoutX="1158.0" layoutY="37.0" styleClass="Nickname" text="Mymia" />
->>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
 
                      </children>
                   </AnchorPane>
@@ -56,38 +42,6 @@
                         <AnchorPane maxHeight="688.0" minHeight="634.0" prefHeight="688.0" prefWidth="306.0">
                            <children>
 
-<<<<<<< HEAD
-                              <Button fx:id="btn_noticeStage" layoutX="36.0" layoutY="91.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_noticeStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Notice Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.200000000000017">
-                              </Button>
-                              <Button fx:id="btn_addAudibleInstruction" layoutX="36.0" layoutY="133.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addAudibleInstruction" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Audible Instruction" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_assignSound" layoutX="36.0" layoutY="175.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_assignSound" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Assign Sound" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_addInput" layoutX="36.0" layoutY="217.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addInput" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Input Stage">
-                              </Button>
-                              <Button fx:id="btn_addTimer" layoutX="36.0" layoutY="259.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addTimer" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Timer Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_addTasteTest" layoutX="36.0" layoutY="301.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addTasteTest" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Taste Test" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_addFoodAndTaste" layoutX="36.0" layoutY="343.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addFoodAndTaste" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Food &amp; Taste" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_addRatingContainer" layoutX="36.0" layoutY="385.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addRatingContainer" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Ratings Container" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_addVasStage" layoutX="36.0" layoutY="427.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addVasStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add VAS Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddGLMS" layoutX="36.0" layoutY="469.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddGLMS" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add GLMS Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddCourse" layoutX="36.0" layoutY="511.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddCourse" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Course" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddPeriodicStage" layoutX="36.0" layoutY="553.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddPeriodicStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Periodic Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddConditionalStatement" layoutX="36.0" layoutY="595.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddConditionalStatement" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Conditional Statement" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_menu" layoutX="18.0" layoutY="-6.0" mnemonicParsing="false" onAction="#btn_menu" prefHeight="39.0" prefWidth="39.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" text=" " AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="251.59999999999997" />
-                              <Label fx:id="lbl_EditExperiment" layoutX="66.0" layoutY="-28.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Edit Experiment" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="-51.60000000000002">
-                              </Label>
-                              <Button fx:id="btn_AddQuestionStage" layoutX="36.0" layoutY="636.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddQuestionStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Question Stage" />
-=======
                               <Button fx:id="btn_noticeStage" layoutX="36.0" layoutY="91.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_noticeStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Notice Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.200000000000017">
                               </Button>
                               <Button fx:id="btn_addAudibleInstruction" layoutX="36.0" layoutY="133.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addAudibleInstruction" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add Audible Instruction" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
@@ -118,7 +72,6 @@
                               <Label fx:id="lbl_EditExperiment" layoutX="66.0" layoutY="-28.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" text="Edit Experiment" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="-51.60000000000002">
                               </Label>
                               <Button fx:id="btn_AddQuestionStage" layoutX="36.0" layoutY="636.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddQuestionStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add Question Stage" />
->>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
 
                            </children>
                         </AnchorPane>
@@ -132,17 +85,10 @@
                <center>
                   <AnchorPane maxHeight="513.0" maxWidth="79.0" minHeight="513.0" minWidth="79.0" prefHeight="513.0" prefWidth="79.0">
                      <children>
-<<<<<<< HEAD
-                        <Button fx:id="btn_up" layoutX="9.600000381469727" layoutY="115.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="59.0" styleClass="btn_up" stylesheets="@/static/stylesheets/EditExp_CSS.css" text=" " AnchorPane.leftAnchor="9.599999999999994" AnchorPane.rightAnchor="10.400000000000006" />
-                        <Button fx:id="btn_down" layoutX="10.399999618530273" layoutY="271.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="59.0" styleClass="btn_down" stylesheets="@/static/stylesheets/EditExp_CSS.css" text=" " AnchorPane.leftAnchor="10.4" AnchorPane.rightAnchor="9.600000000000001" />
-                        <Button fx:id="btn_cross" layoutX="-4.0" layoutY="196.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="68.0" styleClass="btn_cross" stylesheets="@/static/stylesheets/EditExp_CSS.css" text=" " AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.599999999999994" />
-                        <Button layoutX="11.0" layoutY="350.0" mnemonicParsing="false" styleClass="btn_copy" stylesheets="@/static/stylesheets/EditExp_CSS.css" />
-=======
                         <Button fx:id="btn_up" layoutX="9.600000381469727" layoutY="115.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="59.0" styleClass="btn_up" text=" " AnchorPane.leftAnchor="9.599999999999994" AnchorPane.rightAnchor="10.400000000000006" />
                         <Button fx:id="btn_down" layoutX="10.399999618530273" layoutY="271.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="59.0" styleClass="btn_down" text=" " AnchorPane.leftAnchor="10.4" AnchorPane.rightAnchor="9.600000000000001" />
                         <Button fx:id="btn_cross" layoutX="-4.0" layoutY="196.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="68.0" styleClass="btn_cross" text=" " AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.599999999999994" />
                         <Button layoutX="11.0" layoutY="350.0" mnemonicParsing="false" styleClass="btn_copy" />
->>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
                      </children>
                   </AnchorPane>
                </center>
@@ -153,11 +99,7 @@
                <children>
                   <AnchorPane maxHeight="664.0" maxWidth="812.0" minHeight="664.0" minWidth="812.0" prefHeight="644.0" prefWidth="812.0">
                      <children>
-<<<<<<< HEAD
-                        <TreeView fx:id="testResult" prefHeight="664.0" prefWidth="812.0" styleClass="textResult" stylesheets="@/static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-=======
                         <TreeView fx:id="testResult" prefHeight="664.0" prefWidth="812.0" styleClass="textResult" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
->>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
                      </children>
                   </AnchorPane>
                </children>
