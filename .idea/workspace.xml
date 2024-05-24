@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="build: Run exp" />
+=======
+    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="build: select obj from list view - feat: Run Experiment">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Notics_CSS.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddNoticeStage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddNoticeStage.fxml" afterDir="false" />
+    </list>
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -35,8 +44,8 @@
     </option>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
-}</component>
+        &quot;associatedIndex&quot;: 7
+        }</component>
   <component name="ProjectId" id="2gfMpE8hYQXVyt7Njo1xE7lNGtc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -47,13 +56,22 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "Application.RunExperiment.executor": "Run",
     "Application.SensoryExperimentPlatform.executor": "Run",
     "Application.TasteTest.executor": "Run",
+<<<<<<< HEAD
+=======
+    "Application.Test.executor": "Run",
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "extract.method.default.visibility": "private",
+<<<<<<< HEAD
+=======
+    "git-widget-placeholder": "jennynew",
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/USER/OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY/Desktop/Respositories/Sensory Expeirment Platform/src/main/resources/static/images",
     "list.type.of.created.stylesheet": "CSS",
@@ -154,6 +172,11 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+<<<<<<< HEAD
+=======
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.Test (1)" />
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
         <item itemvalue="Application.SensoryExperimentPlatform" />
         <item itemvalue="Application.Test (1)" />
         <item itemvalue="Application.Test" />
@@ -180,13 +203,24 @@
       <workItem from="1716257085079" duration="4227000" />
       <workItem from="1716273124655" duration="3523000" />
       <workItem from="1716276679530" duration="1777000" />
+<<<<<<< HEAD
+=======
+      <workItem from="1716289889033" duration="17757000" />
+      <workItem from="1716343344310" duration="2217000" />
+      <workItem from="1716366067260" duration="9018000" />
+      <workItem from="1716443919507" duration="11568000" />
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
       <workItem from="1716289889033" duration="22994000" />
       <workItem from="1716341816877" duration="4721000" />
       <workItem from="1716364512653" duration="68000" />
       <workItem from="1716382762774" duration="9101000" />
       <workItem from="1716434905694" duration="5802000" />
+<<<<<<< HEAD
       <workItem from="1716443943499" duration="5181000" />
       <workItem from="1716517961840" duration="288000" />
+=======
+      <workItem from="1716443943499" duration="4589000" />
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />
@@ -252,6 +286,7 @@
       <option name="project" value="LOCAL" />
       <updated>1716382813979</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00009" summary="build: Run exp">
       <option name="closed" value="true" />
       <created>1716449872087</created>
@@ -261,6 +296,9 @@
       <updated>1716449872087</updated>
     </task>
     <option name="localTasksCounter" value="10" />
+=======
+    <option name="localTasksCounter" value="9" />
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,8 +312,12 @@
     <MESSAGE value="feat: build Run feature (UI, Controller)" />
     <MESSAGE value="update: add controller" />
     <MESSAGE value="build: select obj from list view - feat: Run Experiment" />
+<<<<<<< HEAD
     <MESSAGE value="build: Run exp" />
     <option name="LAST_COMMIT_MESSAGE" value="build: Run exp" />
+=======
+    <option name="LAST_COMMIT_MESSAGE" value="build: select obj from list view - feat: Run Experiment" />
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
