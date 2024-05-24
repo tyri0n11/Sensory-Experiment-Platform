@@ -135,7 +135,7 @@ public class GLMSController {
 
     @FXML
     void AssignSoundButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(GLMSStackPane,"/fxml/AddSound.fxml");
+        new ScenseSwitch(GLMSStackPane,"/fxml/AssignSound.fxml");
 
 
     }

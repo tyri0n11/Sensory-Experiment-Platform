@@ -64,10 +64,14 @@
     -fx-pref-height: 39;
     -fx-pref-width: 39;
 <<<<<<< HEAD
+<<<<<<< HEAD
     -fx-background-image: url('/static/images/btn_menu.png');
 =======
     -fx-background-image: url('/static/images/menu.png');
 >>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+    -fx-background-image: url('/static/images/btn_menu.png');
+>>>>>>> cc93f056b7ac71657dd87ccfd6663dd185e6a460
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */

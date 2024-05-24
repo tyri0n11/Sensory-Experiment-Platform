@@ -63,18 +63,7 @@
 #btn_menu{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    -fx-background-image: url('/static/images/img_1.png');
-=======
     -fx-background-image: url('/static/images/btn_menu.png');
->>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
-=======
-    -fx-background-image: url('/static/images/btn_menu.png');
-=======
-    -fx-background-image: url('/static/images/img_1.png');
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
->>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -133,7 +122,6 @@
 
     -fx-text-fill: #000000;
 }
-
 #btn_SAVE{
     display: flex;
     flex-direction: row;
@@ -148,8 +136,6 @@
     -fx-background-color: #397E82;
     -fx-border-radius: 9px;
 }
-
-
 .stackpane{
     -fx-background-color: white;
 
@@ -352,174 +338,174 @@
     -fx-background-radius: 2em;
 }
 
-    #lbl_TasteTestItemLable,#SoundSelectTionLabel {
-        /* Taste Test Item Selection */
+#lbl_TasteTestItemLable,#SoundSelectTionLabel {
+    /* Taste Test Item Selection */
 
 
-        -fx-font-family: 'Inter';
-        -fx-font-style: normal;
-        -fx-font-weight: bold;
-        -fx-font-size: 32px;
+    -fx-font-family: 'Inter';
+    -fx-font-style: normal;
+    -fx-font-weight: bold;
+    -fx-font-size: 32px;
 
-        align-items: center;
+    align-items: center;
 
-        -fx-text-fill: #624DE3;
-
-
-    }
-
-    #AddButton,#SelectAllButton,#SelectNoneButton,#CloseButton,#SaveButton2,#RefreshButton,#StopButton,#RemoveButton,#PlayButton{
-        -fx-background-color: #624DE3;
-        -fx-border-radius: 20px 20px 20px 20px;
-        -fx-font-family: 'Montserrat';
-        -fx-font-style: normal;
-        -fx-font-weight: 400;
-        -fx-font-size: 13px;
-        -fx-line-height: 16px;
-        -fx-display: flex;
-        -fx-align-items: center;
-
-        -fx-text-fill: #F7F6FE;
-        -fx-padding: 4px 23px, 4px 23px;
-        -fx-background-radius: 10px 10px 10px 10px;
-    }
-
-    .check-box {
-        -fx-max-width: 28px;
-        -fx-max-height: 28px;
-        -fx-background-color: white;
-
-        /* Inside auto layout */
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-
-    }
-
-    .check-box .box {
-        -fx-background-color: white;
-        -fx-border-color: grey;
-        -fx-border-radius: 3px;
-    }
-
-    .text-field {
-        -fx-border-color: black;
-        -fx-border-radius: 5px 5px 5px 5px;
-        -fx-alignment: center;
-    }
-    #AddFoodPane,#NewExPane,#AddsoundPane,#ImportSoundPane{
+    -fx-text-fill: #624DE3;
 
 
+}
 
-        -fx-background-color: #FFFFFF;
+#AddButton,#SelectAllButton,#SelectNoneButton,#CloseButton,#SaveButton2,#RefreshButton,#StopButton,#RemoveButton,#PlayButton{
+    -fx-background-color: #624DE3;
+    -fx-border-radius: 20px 20px 20px 20px;
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 13px;
+    -fx-line-height: 16px;
+    -fx-display: flex;
+    -fx-align-items: center;
 
-        -fx-box-shadow: inset 0px -20px 0px rgba(0, 0, 0, 0.25);
-        -fx-border-radius: 14px 14px 14px 14px;
-        -fx-border-color: #000;
+    -fx-text-fill: #F7F6FE;
+    -fx-padding: 4px 23px, 4px 23px;
+    -fx-background-radius: 10px 10px 10px 10px;
+}
+
+.check-box {
+    -fx-max-width: 28px;
+    -fx-max-height: 28px;
+    -fx-background-color: white;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: grey;
+    -fx-border-radius: 3px;
+}
+
+.text-field {
+    -fx-border-color: black;
+    -fx-border-radius: 5px 5px 5px 5px;
+    -fx-alignment: center;
+}
+#AddFoodPane,#NewExPane,#AddsoundPane,#ImportSoundPane{
 
 
 
-    }
-    #AddFoodLabel{
-        /* Add Food */
+    -fx-background-color: #FFFFFF;
 
-
-        -fx-font-family: 'Montserrat';
-        -fx-font-style: normal;
-        -fx-font-weight: 400;
-        -fx-font-size: 30px;
-        line-height: 41px;
-        /* identical to box height */
-        -fx-text-align: center;
-
-        -fx-text-fill: #1E1E1E;
-
-
-    }
-    #please1Label{
-        /* Please type the name of the new food below: */
+    -fx-box-shadow: inset 0px -20px 0px rgba(0, 0, 0, 0.25);
+    -fx-border-radius: 14px 14px 14px 14px;
+    -fx-border-color: #000;
 
 
 
-        -fx-font-family: 'Montserrat';
-        -fx-font-style: normal;
-        -fx-font-weight: 400;
-        -fx-font-size: 15px;
-        line-height: 41px;
-        /* identical to box height */
-        -fx-text-align: center;
-
-        -fx-text-fill: #1E1E1E;
-
-    }
-    #SaveButton1,#CancelButton1{
-        /* Button 15 */
+}
+#AddFoodLabel{
+    /* Add Food */
 
 
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 30px;
+    line-height: 41px;
+    /* identical to box height */
+    -fx-text-align: center;
 
-        -fx-background-color: #624DE3;
-
-
-
-
-        -fx-border-radius: 20px 20px 20px 20px;
-        /* Add */
-
-
-        -fx-font-family: 'Montserrat';
-        -fx-font-style: normal;
-        -fx-font-weight: 400;
-        -fx-font-size: 13px;
-        -fx-line-height: 16px;
-        -fx-display: flex;
-        -fx-align-items: center;
-
-        -fx-text-fill: #F7F6FE;
-        -fx-padding: 4px 23px, 4px 23px;
-        -fx-background-radius: 20px 20px 20px 20px;
+    -fx-text-fill: #1E1E1E;
 
 
-    }
-    #NewExLabel{
-        /* New experiment */
+}
+#please1Label{
+    /* Please type the name of the new food below: */
 
 
 
-        -fx-font-family: 'Poppins';
-        -fx-font-style: normal;
-        -fx-font-weight: 700;
-        -fx-font-size: 32px;
-        line-height: 48px;
-        letter-spacing: 0.03em;
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 15px;
+    line-height: 41px;
+    /* identical to box height */
+    -fx-text-align: center;
 
-      -fx-text-fill: #655E95;
+    -fx-text-fill: #1E1E1E;
+
+}
+#SaveButton1,#CancelButton1{
+    /* Button 15 */
 
 
-        /* Inside auto layout */
-        flex: none;
-        order: 0;
-        flex-grow: 0;
 
-    }
-    #ImportSoundLabel{
-        -fx-font-family: 'Montserrat';
-        -fx-font-style: normal;
-        -fx-font-weight: 400;
-        -fx-font-size: 30px;
-        line-height: 41px;
-        /* identical to box height */
-        -fx-text-align: center;
+    -fx-background-color: #624DE3;
 
-        -fx-text-fill: #655E95;
-    }
-    #Browsebutton{
-        -fx-text-fill: #624DE3;
 
-        -fx-padding: 4px 23px, 4px 23px;
-        -fx-background-radius: 10px 10px 10px 10px;
-        -fx-background-color: derive(#85858540,90%);
 
-    }
+
+    -fx-border-radius: 20px 20px 20px 20px;
+    /* Add */
+
+
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 13px;
+    -fx-line-height: 16px;
+    -fx-display: flex;
+    -fx-align-items: center;
+
+    -fx-text-fill: #F7F6FE;
+    -fx-padding: 4px 23px, 4px 23px;
+    -fx-background-radius: 20px 20px 20px 20px;
+
+
+}
+#NewExLabel{
+    /* New experiment */
+
+
+
+    -fx-font-family: 'Poppins';
+    -fx-font-style: normal;
+    -fx-font-weight: 700;
+    -fx-font-size: 32px;
+    line-height: 48px;
+    letter-spacing: 0.03em;
+
+    -fx-text-fill: #655E95;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+#ImportSoundLabel{
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 30px;
+    line-height: 41px;
+    /* identical to box height */
+    -fx-text-align: center;
+
+    -fx-text-fill: #655E95;
+}
+#Browsebutton{
+    -fx-text-fill: #624DE3;
+
+    -fx-padding: 4px 23px, 4px 23px;
+    -fx-background-radius: 10px 10px 10px 10px;
+    -fx-background-color: derive(#85858540,90%);
+
+}
 .menuButton{
     -fx-alignment: center;
     -fx-padding: 4px 33px;
@@ -615,7 +601,6 @@
     -fx-border-color:#0E0E0E ;
 
 }
-
 
 
 
