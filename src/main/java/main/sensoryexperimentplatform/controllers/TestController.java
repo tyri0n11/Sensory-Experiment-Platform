@@ -143,6 +143,8 @@ public class TestController {
     void addRatingContainer(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("Ratings container"));
 
     }
 
@@ -212,10 +214,15 @@ public class TestController {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddAudibleSound.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
-               AddNoticeStage controller = fxmlLoader.getController();
+//               AddNoticeStage controller = fxmlLoader.getController();
                btn_assignSound.setDisable(false);
 
-
+           }
+           else if (value.equals("Ratings container")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddRatingsContainer.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+//               AddNoticeStage controller = fxmlLoader.getController();
 
 
            }
