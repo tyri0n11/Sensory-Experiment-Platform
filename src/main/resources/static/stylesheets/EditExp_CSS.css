@@ -527,11 +527,9 @@
 
     -fx-text-fill: white;
 }
-#btn_assignSound, #btn_addFoodAndTaste, #btn_AddPeriodicStage{
-    -fx-background-color: #C1D7D8;
 
 
-}
+
 .btn_bell{
     -fx-pref-height: 39;
     -fx-pref-width: 39;

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="253.0" maxWidth="563.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="563.0" stylesheets="@../../static/stylesheets/Notics_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.AddNoticeStage">
+    <children>
+        <ScrollPane layoutX="-7.0" layoutY="10.0" prefHeight="254.0" prefWidth="571.0" stylesheets="@../../static/stylesheets/Notics_CSS.css">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="540.0" style="-fx-background-color: white;">
+                    <children>
+                        <Label layoutX="28.0" layoutY="14.0" styleClass="property" stylesheets="@../../static/stylesheets/Notics_CSS.css" text="Properties" />
+                        <Label layoutX="28.0" layoutY="64.0" styleClass="normallabel" stylesheets="@../../static/stylesheets/Notics_CSS.css" text="Title Text" />
+                        <TextField layoutX="242.0" layoutY="64.0" prefHeight="25.0" prefWidth="274.0" />
+                        <Label layoutX="28.0" layoutY="114.0" styleClass="normallabel" text="Content text" />
+                  <TextField layoutX="242.0" layoutY="114.0" prefHeight="25.0" prefWidth="274.0" />
+                  <Label layoutX="28.0" layoutY="164.0" styleClass="normallabel" text="Button text" />
+                  <TextField layoutX="242.0" layoutY="164.0" prefHeight="25.0" prefWidth="274.0" />
+                  <Label layoutX="28.0" layoutY="214.0" styleClass="normallabel" text="Refill weight" />
+                  <TextField layoutX="242.0" layoutY="214.0" prefHeight="25.0" prefWidth="274.0" />
+                  <Label layoutX="28.0" layoutY="264.0" styleClass="normallabel" text="Refill weight" />
+                  <TextField layoutX="242.0" layoutY="264.0" prefHeight="25.0" prefWidth="274.0" />
+                  <Label layoutX="28.0" layoutY="314.0" styleClass="normallabel" text="Quantity to consume before auto-finish " />
+                  <TextField layoutX="252.0" layoutY="314.0" prefHeight="25.0" prefWidth="274.0" />
+                  <Label layoutX="28.0" layoutY="364.0" styleClass="normallabel" text="Help text" />
+                  <TextArea layoutX="242.0" layoutY="364.0" prefHeight="200.0" prefWidth="274.0" />
+                  <Label layoutX="28.0" layoutY="614.0" styleClass="normallabel" text="Stop eating statement" />
+                  <TextField layoutX="242.0" layoutY="614.0" prefHeight="25.0" prefWidth="274.0" />
+                  <Label layoutX="28.0" layoutY="664.0" styleClass="normallabel" text="Play alert sound on the screen play " />
+                  <CheckBox layoutX="252.0" layoutY="664.0" mnemonicParsing="false" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

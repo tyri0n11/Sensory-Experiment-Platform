@@ -28,6 +28,9 @@ public class TestController {
     private HBox mainBox;
 
     @FXML
+    private Button btn_AddPeriodicStage;
+
+    @FXML
     private BorderPane borderPane;
 
     @FXML
@@ -64,6 +67,8 @@ public class TestController {
     @FXML
     private Button btn_assignSound;
     private AnchorPane rootPane;
+    @FXML
+    private Button btn_AddCourse;
 
     public void initialize(){
         testVM = new TestVM();
@@ -71,6 +76,7 @@ public class TestController {
         start = new TreeItem<>("Start Experiment");
         listObject.setRoot(start);
         btn_assignSound.setDisable(true);
+        btn_AddPeriodicStage.setDisable(true);
 
         EventHandler<MouseEvent> mouseEventHandler = (MouseEvent event)->{
             try {
@@ -98,6 +104,11 @@ public class TestController {
     void addCourse(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("Start Eating stage"));
+
+
+
     }
 
     @FXML
@@ -180,16 +191,12 @@ public class TestController {
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AssignSound.fxml"));
         Parent root = fxmlLoader.load();
 
-        // Create a new stage
         Stage stage = new Stage();
         stage.setTitle("Add Sound");
 
-
-        // Set the scene for the new stage
         Scene scene = new Scene(root);
         stage.setScene(scene);
 
-        // Show the new stage
         stage.show();
 
 
@@ -248,7 +255,17 @@ public class TestController {
                propertiesPane.getChildren().setAll(newContent);
 //               AddNoticeStage controller = fxmlLoader.getController();
            }
-           
+           else if (value.equals("Start Eating stage")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddCourse.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+//               AddNoticeStage controller = fxmlLoader.getController();
+               btn_AddPeriodicStage.setDisable(false);
+               btn_AddCourse.setDisable(true);
+
+           }
+
+
 
 
        }
