@@ -8,7 +8,15 @@
       <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddRatingsContainer.fxml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/AddRatingsContainer_CSS.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/TestController.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/View/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/View/ViewHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddNoticeStage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddNoticeStage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddTasteTest.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddTasteTest.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddTasteTest2.fxml" beforeDir="false" />
+>>>>>>> 51852f813c6da9f816717fa5f66a8f5ba99ea963
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +29,7 @@
         <option value="Class" />
         <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -58,7 +67,11 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+<<<<<<< HEAD
     &quot;git-widget-placeholder&quot;: &quot;qanh&quot;,
+=======
+    &quot;git-widget-placeholder&quot;: &quot;jennynew2&quot;,
+>>>>>>> 51852f813c6da9f816717fa5f66a8f5ba99ea963
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/SSProject&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
@@ -197,9 +210,14 @@
       <workItem from="1716434905694" duration="5802000" />
       <workItem from="1716443943499" duration="4589000" />
       <workItem from="1716525524548" duration="463000" />
+<<<<<<< HEAD
       <workItem from="1716526136007" duration="1664000" />
       <workItem from="1716531547275" duration="6994000" />
       <workItem from="1716558067109" duration="334000" />
+=======
+      <workItem from="1716526136007" duration="7459000" />
+      <workItem from="1716539147745" duration="1270000" />
+>>>>>>> 51852f813c6da9f816717fa5f66a8f5ba99ea963
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />
@@ -297,6 +315,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/TestController.java</url>
+          <line>188</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

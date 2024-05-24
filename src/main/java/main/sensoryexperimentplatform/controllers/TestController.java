@@ -116,6 +116,8 @@ public class TestController {
     void addInput(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("[User Input] Input Stage"));
     }
 
     @FXML
@@ -152,13 +154,16 @@ public class TestController {
     void addTasteTest(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
-
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("Taste test"));
     }
 
     @FXML
     void addTimer(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("[Waiting] Please wait"));
 
     }
 
@@ -210,12 +215,31 @@ public class TestController {
                propertiesPane.getChildren().setAll(newContent);
                AddNoticeStage controller = fxmlLoader.getController();
            }
-           else if (value.equals("[Audio] Default Notice Stage")){
+           else if (value.equals("[Audio] Default Notice Stage")) {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddAudibleSound.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
 //               AddNoticeStage controller = fxmlLoader.getController();
                btn_assignSound.setDisable(false);
+
+           }
+           else if (value.equals("[User Input] Input Stage")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("InputStage.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+               InputStageController controller = fxmlLoader.getController();
+           }
+           else if (value.equals("[Waiting] Please wait")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("TimerStage.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+               TimerController controller = fxmlLoader.getController();
+           }
+           else if (value.equals("Taste test")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddTasteTest.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+               addTasteController controller = fxmlLoader.getController();
 
            }
            else if (value.equals("Ratings container")){
