@@ -23,7 +23,21 @@
 #btn_up{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
+<<<<<<< HEAD
+<<<<<<< HEAD
+
     -fx-background-image: url('/static/images/btn_up.png');
+
+=======
+<<<<<<< HEAD
+    -fx-background-image: url('/static/images/btn_up.png');
+=======
+    -fx-background-image: url('/static/images/upward.png');
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+    -fx-background-image: url('/static/images/btn_up.png');
+>>>>>>> cc93f056b7ac71657dd87ccfd6663dd185e6a460
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -31,7 +45,21 @@
 #btn_down{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
+<<<<<<< HEAD
+<<<<<<< HEAD
+
     -fx-background-image: url('/static/images/btn_down.png');
+
+=======
+<<<<<<< HEAD
+    -fx-background-image: url('/static/images/btn_down.png');
+=======
+    -fx-background-image: url('/static/images/downward.png');
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+    -fx-background-image: url('/static/images/btn_down.png');
+>>>>>>> cc93f056b7ac71657dd87ccfd6663dd185e6a460
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -47,7 +75,15 @@
 #btn_menu{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
+<<<<<<< HEAD
+<<<<<<< HEAD
     -fx-background-image: url('/static/images/btn_menu.png');
+=======
+    -fx-background-image: url('/static/images/menu.png');
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+    -fx-background-image: url('/static/images/btn_menu.png');
+>>>>>>> cc93f056b7ac71657dd87ccfd6663dd185e6a460
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -133,8 +169,6 @@
 
     -fx-background-color: #397E82;
     -fx-border-radius: 8px;
-
-
 
 }
 .stackpane{
@@ -348,8 +382,8 @@
 
     -fx-border-radius: 5px 5px 5px 5px;
 
-
 }
+
 
 
 

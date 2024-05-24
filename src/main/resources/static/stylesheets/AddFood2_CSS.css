@@ -12,14 +12,17 @@
 
 
 
+
+
 #btn_menu{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
-    -fx-background-image: url('/static/images/menu.png');
+    -fx-background-image: url('/static/images/btn_menu.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
 }
+
 #btn_edit{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
@@ -152,46 +155,7 @@
     -fx-text-color: #181818;
 
 }
-#ChangeButton,#ChangeButton1,#ChangeButton2,#ChangeButton3{
-    /* Frame 26919 */
-    /* Change */
 
-
-
-    -fx-font-family: 'Poppins';
-    -fx-font-style: normal;
-    -fx-font-weight: 500;
-    -fx-font-size: 16px;
-    line-height: 24px;
-    -fx-text-alignment: center;
-
-
-    -fx-text-fill: #636364;
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-
-
-    box-sizing: border-box;
-
-    /* Auto layout */
-    display: flex;
-    flex-direction: column;
-    -fx-align-items: flex-start;
-    -fx-padding: 0px 27px 0px 0px;
-
-    -fx-pref-width: 110px;
-    -fx-pref-height: 30px;
-    -fx-border:  1px 0px 0px 0px;
-
-    -fx-border-color: #696969;
-    -fx-border-radius: 5px 5px 5px 5px;
-    -fx-alignment: center;
-
-}
 #textField1{
 
 
@@ -500,7 +464,7 @@
     -fx-background-size: contain;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
-    -fx-background-size: 100%, 100%;
+
 }
 .btn_dashboardButton{
 

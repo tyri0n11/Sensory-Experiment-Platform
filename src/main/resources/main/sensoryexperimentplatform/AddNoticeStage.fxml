@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
@@ -19,11 +18,9 @@
                   <Label layoutX="28.0" layoutY="114.0" styleClass="normallabel" text="Content text" />
                   <TextArea layoutX="222.0" layoutY="114.0" prefHeight="160.0" prefWidth="274.0" />
                   <Label layoutX="28.0" layoutY="290.0" styleClass="normallabel" text="Button text" />
-                  <CheckBox layoutX="300.0" layoutY="516.0" mnemonicParsing="false" />
                   <TextField layoutX="222.0" layoutY="290.0" prefHeight="25.0" prefWidth="274.0" />
                   <Label layoutX="28.0" layoutY="340.0" styleClass="normallabel" text="Help text" />
                   <TextArea layoutX="222.0" layoutY="340.0" prefHeight="160.0" prefWidth="274.0" />
-                  <Label layoutX="28.0" layoutY="516.0" styleClass="normallabel" text="Play alert sound on screen display?" />
                </children>
             </AnchorPane>
         </content>

@@ -116,7 +116,7 @@ public class VasController {
     }
     @FXML
     void AssignSoundButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(VasStackPane,"/fxml/AddSound.fxml");
+        new ScenseSwitch(VasStackPane,"/fxml/AssignSound.fxml");
 
 
     }
