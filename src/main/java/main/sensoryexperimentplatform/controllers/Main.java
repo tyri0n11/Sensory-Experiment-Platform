@@ -16,14 +16,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-<<<<<<< HEAD
-
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/DashBoard.fxml"));
-
-=======
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/Test.fxml"));
         //FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/sensoryexperimentplatform/LogIn2.fxml"));
->>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
 //        ProfileController controller = new ProfileController();
 //        loader.setController(controller);*/
         Parent root = loader.load();

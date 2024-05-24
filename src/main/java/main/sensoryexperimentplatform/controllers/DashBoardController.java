@@ -51,8 +51,8 @@ public class DashBoardController {
     private HBox senseXPane;
 
     public void initialize(){
-        HBox.setHgrow(mainPane, Priority.ALWAYS);
-        HBox.setHgrow(senseXPane, Priority.ALWAYS);
+//        HBox.setHgrow(mainPane, Priority.ALWAYS);
+//        HBox.setHgrow(senseXPane, Priority.ALWAYS);
 
     }
 
@@ -64,7 +64,7 @@ public class DashBoardController {
     @FXML
     void btn_DashBoard(ActionEvent event) throws IOException {
         AnchorPane view = FXMLLoader.load(getClass().getResource("/main/sensoryexperimentplatform/ViewAllExperiment.fxml"));
-        contentPane.getChildren().setAll(view);
+        contentPane.getChildren().add(view);
 
     }
 
@@ -86,7 +86,6 @@ public class DashBoardController {
     @FXML
     void toggleDashboard(ActionEvent event) {
         if (isSidebarVisible) {
-
             mainBox.getChildren().remove(sideMenu);
 
         } else {

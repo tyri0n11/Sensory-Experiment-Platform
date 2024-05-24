@@ -10,31 +10,19 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<<<<<<< HEAD
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1280.0" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.DashBoardController">
     <children>
         <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0">
             <top>
-                <HBox fx:id="senseXPane" prefWidth="200.0" prefHeight="50.0">
-                    <children>
-                  <AnchorPane>
-=======
-<<<<<<< HEAD
-<StackPane fx:id="DashBoardStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.DashBoardController">
-   <children>
-      <BorderPane prefHeight="839.0" prefWidth="1279.0">
-         <top>
-            <AnchorPane fx:id="SenseXPBar" prefHeight="57.0" prefWidth="1279.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" BorderPane.alignment="CENTER">
+            <HBox>
                <children>
-                  <AnchorPane layoutX="88.0" prefHeight="85.0" prefWidth="171.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="1020.0" AnchorPane.topAnchor="0.0">
->>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
-                     <children>
+                        <AnchorPane>
+                            <children>
                                 <Label fx:id="lbl_SenseXP" layoutX="17.0" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="SenseXP" />
-                     </children>
-                  </AnchorPane>
-<<<<<<< HEAD
-                    </children>
-                </HBox>
+                            </children>
+                        </AnchorPane>
+               </children>
+            </HBox>
             </top>
             <left>
                 <HBox fx:id="mainBox" BorderPane.alignment="CENTER">
@@ -91,12 +79,12 @@
                             <children>
                                 <AnchorPane fx:id="mainPane" prefHeight="100.0" prefWidth="800.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css">
                                     <children>
-                                        <Label layoutX="55.0" layoutY="-7.0" prefHeight="62.0" prefWidth="282.0" styleClass="lbl_EditExperiment" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Dashboard" />
-                                        <Button fx:id="btn_menu" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#toggleDashboard" prefHeight="22.0" prefWidth="47.0" text=" " />
-                                    </children>
-                                </AnchorPane>
-                                <AnchorPane fx:id="contentPane" prefHeight="580.0" prefWidth="800.0">
+                                        <Label layoutX="69.0" layoutY="-7.0" prefHeight="62.0" prefWidth="282.0" styleClass="lbl_EditExperiment" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Dashboard" />
+                                        <Button fx:id="btn_menu" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#toggleDashboard" prefHeight="22.0" prefWidth="47.0" text=" " />
+                                      <AnchorPane fx:id="contentPane" layoutY="70.0" prefHeight="526.0" prefWidth="960.0">
                                     <!-- Add your content here -->
+                                </AnchorPane>
+                                    </children>
                                 </AnchorPane>
                             </children>
                         </VBox>
@@ -105,191 +93,4 @@
             </left>
         </BorderPane>
     </children>
-=======
-                  <Button layoutX="1213.0" layoutY="51.0" mnemonicParsing="false" styleClass="btn_bell" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
-=======
-<StackPane fx:id="DashBoardStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1279.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.DashBoardController">
-   <children>
-      <BorderPane prefHeight="839.0" prefWidth="1279.0">
-         <top>
-            <AnchorPane fx:id="SenseXPBar" prefHeight="57.0" prefWidth="1279.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane layoutX="88.0" prefHeight="85.0" prefWidth="171.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="81.0" AnchorPane.rightAnchor="1020.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Label fx:id="lbl_SenseXP" layoutX="-61.0" layoutY="27.0" stylesheets="@/static/stylesheets/DashBoard_CSS.css" text="SenseXP" />
-                     </children>
-                  </AnchorPane>
-                  <Button layoutX="1213.0" layoutY="51.0" mnemonicParsing="false" styleClass="btn_bell" stylesheets="@/static/stylesheets/EditExp_CSS.css" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-               </children>
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-            </AnchorPane>
-         </top>
-         <left>
-<<<<<<< HEAD
-            <AnchorPane fx:id="SideBar" prefHeight="783.0" prefWidth="250.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" BorderPane.alignment="CENTER">
-=======
-            <AnchorPane fx:id="SideBar" prefHeight="783.0" prefWidth="250.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" BorderPane.alignment="CENTER">
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-               <children>
-<<<<<<< HEAD
-                  <AnchorPane fx:id="sidebar_left" prefHeight="783.0" prefWidth="250.0" styleClass="sidebar_left" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.8000000000000114" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Pane layoutX="14.0" layoutY="37.0">
-                           <children>
-                              <Button fx:id="btn_dashboard_left" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Dashboard" />
-=======
-                  <AnchorPane fx:id="sidebar_left" prefHeight="783.0" prefWidth="250.0" styleClass="sidebar_left" stylesheets="@/static/stylesheets/DashBoard_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.8000000000000114" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Pane layoutX="14.0" layoutY="37.0">
-                           <children>
-                              <Button fx:id="btn_dashboard_left" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/DashBoard_CSS.css" text="Dashboard" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                              <ImageView fitHeight="31.0" fitWidth="35.0" layoutX="14.0" layoutY="13.0">
-                                 <image>
-                                    <Image url="@/static/images/dash_btn.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="16.0" layoutY="112.0">
-                           <children>
-<<<<<<< HEAD
-                              <Button fx:id="btn_share_experiment" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Share Experiment " />
-=======
-                              <Button fx:id="btn_share_experiment" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/DashBoard_CSS.css" text="Share Experiment " />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                              <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="10.0" layoutY="10.0">
-                                 <image>
-                                    <Image url="@/static/images/btn_share.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="16.0" layoutY="192.0">
-                           <children>
-<<<<<<< HEAD
-                              <Button fx:id="btn_import" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Import Experiment" />
-=======
-                              <Button fx:id="btn_import" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/DashBoard_CSS.css" text="Import Experiment" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                              <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="10.0" layoutY="10.0">
-                                 <image>
-                                    <Image url="@/static/images/btn_import.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="16.0" layoutY="266.0">
-                           <children>
-<<<<<<< HEAD
-                              <Button fx:id="btn_export" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Export Experiment" />
-=======
-                              <Button fx:id="btn_export" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/DashBoard_CSS.css" text="Export Experiment" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                              <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="10.0" layoutY="10.0">
-                                 <image>
-                                    <Image url="@/static/images/btn_export.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="16.0" layoutY="343.0">
-                           <children>
-<<<<<<< HEAD
-                              <Button fx:id="btn_config" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Configure" />
-=======
-                              <Button fx:id="btn_config" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/DashBoard_CSS.css" text="Configure" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                              <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="10.0" layoutY="10.0">
-                                 <image>
-                                    <Image url="@/static/images/btn_configure.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="16.0" layoutY="711.0">
-                           <children>
-<<<<<<< HEAD
-                              <Button fx:id="btn_Logout" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Logout" />
-=======
-                              <Button fx:id="btn_Logout" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/DashBoard_CSS.css" text="Logout" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                              <ImageView fitHeight="32.0" fitWidth="36.0" layoutX="10.0" layoutY="10.0">
-                                 <image>
-                                    <Image url="@/static/images/btn_logOut.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </left>
-         <center>
-            <StackPane prefHeight="783.0" prefWidth="1038.0" BorderPane.alignment="CENTER">
-               <children>
-                  <AnchorPane minHeight="783.0" prefHeight="783.0" prefWidth="1038.0">
-                     <children>
-<<<<<<< HEAD
-                        <AnchorPane fx:id="DashBoard1" layoutX="1.0" prefHeight="83.0" prefWidth="1029.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0">
-                           <children>
-                              <Pane layoutX="29.0" layoutY="15.0" prefHeight="54.0" prefWidth="221.0">
-                                 <children>
-                                    <Button fx:id="btn_DashBoard" layoutY="-8.0" mnemonicParsing="false" onAction="#btn_dashboard" prefHeight="77.0" prefWidth="261.0" styleClass="btn_DashBoard" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Dashboard" />
-=======
-                        <AnchorPane fx:id="DashBoard1" layoutX="1.0" prefHeight="83.0" prefWidth="1029.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="1.0">
-                           <children>
-                              <Pane layoutX="29.0" layoutY="15.0" prefHeight="54.0" prefWidth="221.0">
-                                 <children>
-                                    <Button fx:id="btn_DashBoard" layoutY="-8.0" mnemonicParsing="false" onAction="#btn_dashboard" prefHeight="77.0" prefWidth="261.0" styleClass="btn_DashBoard" stylesheets="@/static/stylesheets/DashBoard_CSS.css" text="Dashboard" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                                    <Button fx:id="btn_menu" layoutY="11.0" mnemonicParsing="false" />
-                                 </children>
-                              </Pane>
-                           </children>
-                        </AnchorPane>
-<<<<<<< HEAD
-                        <AnchorPane fx:id="DashBoard" layoutY="83.0" prefHeight="783.0" prefWidth="1027.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="2.3999999999998636" AnchorPane.topAnchor="83.0">
-=======
-                        <AnchorPane fx:id="DashBoard" layoutY="83.0" prefHeight="783.0" prefWidth="1027.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="2.3999999999998636" AnchorPane.topAnchor="83.0">
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                           <children>
-                              <ComboBox fx:id="DropDown" layoutX="103.0" layoutY="12.0" prefHeight="31.0" prefWidth="63.0" />
-                              <Label fx:id="ShowLabel" layoutX="53.0" layoutY="19.0" text="Show" />
-                              <Label fx:id="EntriesLabel" layoutX="194.0" layoutY="19.0" text="entries" />
-                              <TextField fx:id="searchBar" layoutX="256.0" layoutY="12.0" prefHeight="32.0" prefWidth="441.0" />
-<<<<<<< HEAD
-                              <Button fx:id="btn_AddExperiment" layoutX="843.0" layoutY="12.0" mnemonicParsing="false" onAction="#btn_addEx" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="+ Add Experiment" />
-=======
-                              <Button fx:id="btn_AddExperiment" layoutX="843.0" layoutY="12.0" mnemonicParsing="false" onAction="#btn_addEx" stylesheets="@/static/stylesheets/DashBoard_CSS.css" text="+ Add Experiment" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                              <TableView layoutX="33.0" layoutY="78.0" prefHeight="526.0" prefWidth="960.0">
-                                <columns>
-                                  <TableColumn fx:id="lbl_iD" prefWidth="75.0" text="ID" />
-                                  <TableColumn fx:id="lbl_creator" prefWidth="128.00000762939453" text="Creator " />
-                                    <TableColumn fx:id="lbl_experimentName" prefWidth="187.20001220703125" text="Experiment Name" />
-                                    <TableColumn fx:id="lbl_currentVersion" prefWidth="167.99993896484375" text="Current Version " />
-                                    <TableColumn fx:id="lbl_result" prefWidth="123.99993896484375" text="Result" />
-                                    <TableColumn fx:id="lbl_createDate" prefWidth="160.0" text="Create Date" />
-                                    <TableColumn fx:id="lbl_Option" prefWidth="118.39990234375" text="Option" />
-                                </columns>
-                              </TableView>
-
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </StackPane>
-         </center>
-      </BorderPane>
-   </children>
->>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
 </StackPane>

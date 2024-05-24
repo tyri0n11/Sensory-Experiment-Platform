@@ -94,14 +94,8 @@
                               <Button fx:id="btn_AddQuestionStage" layoutX="25.0" layoutY="567.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#addQuestionStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add Question Stage" />
                            </children>
                         </AnchorPane>
-<<<<<<< HEAD
-                        <Button fx:id="btn_menu" layoutX="2.0" layoutY="27.0" mnemonicParsing="false" onAction="#toggleDashboard" prefHeight="22.0" prefWidth="47.0" text=" " />
-                        <TreeView fx:id="listObject" layoutX="345.0" layoutY="95.0" maxHeight="578.0" minHeight="310.0" minWidth="543.0" prefHeight="578.0" prefWidth="543.0" />
-                        <AnchorPane fx:id="propertiesPane" layoutX="345.0" layoutY="421.0" prefHeight="252.0" prefWidth="537.0" />
-=======
                         <Button fx:id="btn_menu" layoutX="8.0" layoutY="11.0" mnemonicParsing="false" onAction="#toggleDashboard" prefHeight="22.0" prefWidth="47.0" text=" " />
                         <TreeView fx:id="listObject" layoutX="345.0" layoutY="95.0" maxHeight="578.0" minHeight="212.0" minWidth="543.0" prefHeight="578.0" prefWidth="543.0" />
->>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
                         <AnchorPane layoutX="936.0" layoutY="164.0" maxHeight="513.0" maxWidth="79.0" minHeight="513.0" minWidth="79.0" prefHeight="513.0" prefWidth="79.0">
                            <children>
                               <Button fx:id="btn_up" layoutX="9.600000381469727" layoutY="115.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="59.0" styleClass="btn_up" text=" " AnchorPane.leftAnchor="9.599999999999994" AnchorPane.rightAnchor="10.400000000000006" />
