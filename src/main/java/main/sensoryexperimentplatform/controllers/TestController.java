@@ -107,6 +107,8 @@ public class TestController {
     void addInput(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("[User Input] Input Stage"));
     }
 
     @FXML
@@ -148,6 +150,8 @@ public class TestController {
     void addTimer(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("[Waiting] Please wait"));
 
     }
 
@@ -186,10 +190,22 @@ public class TestController {
                AddNoticeStage controller = fxmlLoader.getController();
            }
            else if (value.equals("[Audio] Default Notice Stage")){
-               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddNoticeStage.fxml"));
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("InputStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
-               AddNoticeStage controller = fxmlLoader.getController();
+               InputStageController controller = fxmlLoader.getController();
+           }
+           else if (value.equals("[User Input] Input Stage")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("InputStage.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+               InputStageController controller = fxmlLoader.getController();
+           }
+           else if (value.equals("[Waiting] Please wait")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("TimerStage.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+               TimerController controller = fxmlLoader.getController();
            }
        }
 
