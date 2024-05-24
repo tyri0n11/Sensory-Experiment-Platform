@@ -39,34 +39,8 @@ public class ViewHandler {
             e.printStackTrace();
         }
     }
-    public void openAddFood2(){
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("AddFood2.fxml"));
-        try{
-            Parent root = (Parent) loader.load();
-            addFoodController2 addFood =  loader.getController();
-            addFood.init(vmf.getAddfood2(), this);
-            Scene general = new Scene(root);
-            mainStage.setScene(general);
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-    public void openAddTaste2(){
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("AddTasteTest2.fxml"));
-        try{
-            Parent root = (Parent) loader.load();
-            addTasteController2 addFood =  loader.getController();
-            addFood.init(vmf.getAddTaste2VM(), this);
-            Scene general = new Scene(root);
-            mainStage.setScene(general);
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-    }
+
+
     public void openSound(){
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("AddSound.fxml"));

@@ -143,7 +143,8 @@ public class TestController {
     void addTasteTest(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
-
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("Taste test"));
     }
 
     @FXML
@@ -206,6 +207,12 @@ public class TestController {
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
                TimerController controller = fxmlLoader.getController();
+           }
+           else if (value.equals("Taste test")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddTasteTest.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+               addTasteController controller = fxmlLoader.getController();
            }
        }
 

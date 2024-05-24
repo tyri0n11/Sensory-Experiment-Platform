@@ -1,270 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
 
-<?import javafx.scene.text.Font?>
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1279.0" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css"  xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.addTasteController">
-   <children>
-      <BorderPane prefHeight="839.0" prefWidth="1279.0">
-         <top>
-            <AnchorPane prefHeight="56.0" prefWidth="1278.0" BorderPane.alignment="CENTER">
-               <children>
-<<<<<<< HEAD
-                  <AnchorPane fx:id="SenseXPBar" prefHeight="200.0" prefWidth="1279.2" stylesheets="@../../static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Label fx:id="lbl_SenseXP" layoutX="14.0" layoutY="-8.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Sense XP" textFill="#141414" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1084.4">
-=======
-                  <AnchorPane fx:id="SenseXPBar" prefHeight="200.0" prefWidth="1279.2" stylesheets="@/static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Label fx:id="lbl_SenseXP" layoutX="14.0" layoutY="-8.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Sense XP" textFill="#141414" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1084.4">
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-<<<<<<< HEAD
-                        <Button layoutX="1212.0" layoutY="13.0" mnemonicParsing="false" styleClass="btn_bell" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
-                        <Label layoutX="1160.0" layoutY="15.0" styleClass="Name" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Nguyễn" />
-                        <Label layoutX="1158.0" layoutY="37.0" styleClass="Nickname" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Mymia" />
-=======
-                        <Button layoutX="1212.0" layoutY="13.0" mnemonicParsing="false" styleClass="btn_bell" stylesheets="@/static/stylesheets/EditExp_CSS.css" />
-                        <Label layoutX="1160.0" layoutY="15.0" styleClass="Name" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Nguyễn" />
-                        <Label layoutX="1158.0" layoutY="37.0" styleClass="Nickname" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Mymia" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </top>
-         <left>
-<<<<<<< HEAD
-            <AnchorPane fx:id="SideBar" prefHeight="783.0" prefWidth="250.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" BorderPane.alignment="CENTER">
-=======
-            <AnchorPane fx:id="SideBar" prefHeight="783.0" prefWidth="250.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" BorderPane.alignment="CENTER">
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-               <BorderPane.margin>
-                  <Insets />
-               </BorderPane.margin>
-               <children>
-<<<<<<< HEAD
-                  <AnchorPane fx:id="sidebar_left" prefHeight="783.0" prefWidth="250.0" styleClass="sidebar_left" stylesheets="@../../static/stylesheets/AddTasteTest_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.8000000000000114" AnchorPane.topAnchor="0.0">
-=======
-                  <AnchorPane fx:id="sidebar_left" prefHeight="783.0" prefWidth="250.0" styleClass="sidebar_left" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.8000000000000114" AnchorPane.topAnchor="0.0">
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                     <children>
-                        <Pane layoutX="14.0" layoutY="37.0">
-                           <children>
-                              <Button fx:id="btn_dashboard_left" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" text="Dashboard">
-                                 <stylesheets>
-<<<<<<< HEAD
-                                    <URL value="@../../static/stylesheets/AddTasteTest_CSS.css" />
-                                    <URL value="@../../static/stylesheets/AddTasteTest_CSS.css" />
-=======
-                                    <URL value="@/static/stylesheets/AddTasteTest_CSS.css" />
-                                    <URL value="@/static/stylesheets/AddTasteTest_CSS.css" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                                 </stylesheets></Button>
-                              <ImageView fitHeight="31.0" fitWidth="35.0" layoutX="14.0" layoutY="13.0">
-                                 <image>
-                                    <Image url="@/static/images/dash_btn.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="16.0" layoutY="112.0">
-                           <children>
-<<<<<<< HEAD
-                              <Button fx:id="btn_share_experiment" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/AddTasteTest_CSS.css" text="Share Experiment " />
-=======
-                              <Button fx:id="btn_share_experiment" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css" text="Share Experiment " />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                              <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="10.0" layoutY="10.0">
-                                 <image>
-                                    <Image url="@/static/images/btn_share.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="16.0" layoutY="192.0">
-                           <children>
-<<<<<<< HEAD
-                              <Button fx:id="btn_import" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/AddTasteTest_CSS.css" text="Import Experiment" />
-=======
-                              <Button fx:id="btn_import" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css" text="Import Experiment" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                              <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="10.0" layoutY="10.0">
-                                 <image>
-                                    <Image url="@/static/images/btn_import.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="16.0" layoutY="266.0">
-                           <children>
-<<<<<<< HEAD
-                              <Button fx:id="btn_export" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/AddTasteTest_CSS.css" text="Export Experiment" />
-=======
-                              <Button fx:id="btn_export" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css" text="Export Experiment" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                              <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="10.0" layoutY="10.0">
-                                 <image>
-                                    <Image url="@/static/images/btn_export.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="16.0" layoutY="343.0">
-                           <children>
-<<<<<<< HEAD
-                              <Button fx:id="btn_config" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/AddTasteTest_CSS.css" text="Configure" />
-=======
-                              <Button fx:id="btn_config" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css" text="Configure" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                              <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="10.0" layoutY="10.0">
-                                 <image>
-                                    <Image url="@/static/images/btn_configure.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                        <Pane layoutX="16.0" layoutY="711.0">
-                           <children>
-<<<<<<< HEAD
-                              <Button fx:id="btn_Logout" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/AddTasteTest_CSS.css" text="Logout" />
-=======
-                              <Button fx:id="btn_Logout" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css" text="Logout" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                              <ImageView fitHeight="32.0" fitWidth="36.0" layoutX="10.0" layoutY="10.0">
-                                 <image>
-                                    <Image url="@/static/images/btn_logOut.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
-         </left>
-         <center>
-            <StackPane prefHeight="774.0" prefWidth="1036.0" BorderPane.alignment="CENTER">
-               <children>
-<<<<<<< HEAD
-                  <AnchorPane fx:id="mainBar" prefHeight="766.0" prefWidth="1070.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css">
-                     <children>
-                        <AnchorPane layoutX="-13.0" layoutY="45.0" prefHeight="668.0" prefWidth="292.0">
-                           <children>
-                              <Button fx:id="btn_noticeStage" layoutX="36.0" layoutY="91.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_noticeStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Notice Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.200000000000017">
-                              </Button>
-                              <Button fx:id="btn_addAudibleInstruction" layoutX="36.0" layoutY="133.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addAudibleInstruction" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Audible Instruction" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_assignSound" layoutX="36.0" layoutY="175.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_assignSound" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Assign Sound" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_addInput" layoutX="36.0" layoutY="217.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addInput" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Input Stage">
-                              </Button>
-                              <Button fx:id="btn_addTimer" layoutX="36.0" layoutY="259.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addTimer" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Timer Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddTasteTest_CSS" layoutX="36.0" layoutY="301.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddTasteTest_CSS" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Taste Test" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_addFoodAndTaste" layoutX="36.0" layoutY="343.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addFoodAndTaste" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Food &amp; Taste" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_addRatingContainer" layoutX="36.0" layoutY="385.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addRatingContainer" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Ratings Container" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_addVasStage" layoutX="36.0" layoutY="427.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addVasStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add VAS Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddGLMS" layoutX="36.0" layoutY="469.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddGLMS" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add GLMS Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddCourse" layoutX="36.0" layoutY="511.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddCourse" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Course" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddPeriodicStage" layoutX="36.0" layoutY="553.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddPeriodicStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Periodic Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddConditionalStatement" layoutX="36.0" layoutY="595.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddConditionalStatement" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Conditional Statement" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddQuestionStage" layoutX="36.0" layoutY="636.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddQuestionStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Question Stage" />
-=======
-                  <AnchorPane fx:id="mainBar" prefHeight="766.0" prefWidth="1070.0" stylesheets="@/static/stylesheets/EditExp_CSS.css">
-                     <children>
-                        <AnchorPane layoutX="-13.0" layoutY="45.0" prefHeight="668.0" prefWidth="292.0">
-                           <children>
-                              <Button fx:id="btn_noticeStage" layoutX="36.0" layoutY="91.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_noticeStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Notice Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.200000000000017">
-                              </Button>
-                              <Button fx:id="btn_addAudibleInstruction" layoutX="36.0" layoutY="133.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addAudibleInstruction" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Audible Instruction" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_assignSound" layoutX="36.0" layoutY="175.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_assignSound" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Assign Sound" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_addInput" layoutX="36.0" layoutY="217.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addInput" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Input Stage">
-                              </Button>
-                              <Button fx:id="btn_addTimer" layoutX="36.0" layoutY="259.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addTimer" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Timer Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddTasteTest_CSS" layoutX="36.0" layoutY="301.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddTasteTest_CSS" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Taste Test" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_addFoodAndTaste" layoutX="36.0" layoutY="343.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addFoodAndTaste" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Food &amp; Taste" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_addRatingContainer" layoutX="36.0" layoutY="385.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addRatingContainer" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Ratings Container" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_addVasStage" layoutX="36.0" layoutY="427.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_addVasStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add VAS Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddGLMS" layoutX="36.0" layoutY="469.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddGLMS" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add GLMS Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddCourse" layoutX="36.0" layoutY="511.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddCourse" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Course" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddPeriodicStage" layoutX="36.0" layoutY="553.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddPeriodicStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Periodic Stage" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddConditionalStatement" layoutX="36.0" layoutY="595.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddConditionalStatement" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Conditional Statement" AnchorPane.leftAnchor="36.0" AnchorPane.rightAnchor="19.19999999999999">
-                              </Button>
-                              <Button fx:id="btn_AddQuestionStage" layoutX="36.0" layoutY="636.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#btn_AddQuestionStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Add Question Stage" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="264.0" layoutY="76.0" prefHeight="698.0" prefWidth="770.0">
-                           <children>
-<<<<<<< HEAD
-                              <Button fx:id="btn_add" layoutX="116.0" layoutY="617.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="103.0" stylesheets="@../../static/stylesheets/AddTasteTest_CSS.css" text="Add" />
-                              <Button fx:id="btn_selectAll" layoutX="262.0" layoutY="617.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="103.0" stylesheets="@../../static/stylesheets/AddTasteTest_CSS.css" text="Select All" />
-                              <Button fx:id="btn_selectNone" layoutX="393.0" layoutY="617.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="122.0" stylesheets="@../../static/stylesheets/AddTasteTest_CSS.css" text="Select None" />
-                              <Button fx:id="btn_close" layoutX="553.0" layoutY="617.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="103.0" stylesheets="@../../static/stylesheets/AddTasteTest_CSS.css" text="Close" />
-                           </children>
-                        </AnchorPane>
-                        <Label fx:id="lbl_TasteTestItemLable" layoutX="311.0" layoutY="49.0" stylesheets="@../../static/stylesheets/AddTasteTest_CSS.css" text="Taste test item selection" />
-                        <Pane layoutX="14.0" layoutY="4.0">
-                           <children>
-                              <Label fx:id="lbl_EditExperiment" layoutX="29.0" layoutY="-3.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Edit ">
-                              </Label>
-                              <Label fx:id="lbl_EditExperiment1" layoutX="22.0" layoutY="39.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="experiment" />
-                              <Button fx:id="btn_edit" layoutX="98.0" layoutY="19.0" mnemonicParsing="false" stylesheets="@../css/AddFood_CSS.css" />
-=======
-                              <Button fx:id="btn_add" layoutX="116.0" layoutY="617.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="103.0" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css" text="Add" />
-                              <Button fx:id="btn_selectAll" layoutX="262.0" layoutY="617.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="103.0" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css" text="Select All" />
-                              <Button fx:id="btn_selectNone" layoutX="393.0" layoutY="617.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="122.0" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css" text="Select None" />
-                              <Button fx:id="btn_close" layoutX="553.0" layoutY="617.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="103.0" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css" text="Close" />
-                           </children>
-                        </AnchorPane>
-                        <Label fx:id="lbl_TasteTestItemLable" layoutX="311.0" layoutY="49.0" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css" text="Taste test item selection" />
-                        <Pane layoutX="14.0" layoutY="4.0">
-                           <children>
-                              <Label fx:id="lbl_EditExperiment" layoutX="29.0" layoutY="-3.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Edit ">
-                              </Label>
-                              <Label fx:id="lbl_EditExperiment1" layoutX="22.0" layoutY="39.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="experiment" />
-                              <Button fx:id="btn_edit" layoutX="98.0" layoutY="19.0" mnemonicParsing="false" stylesheets="@/static/stylesheets/AddTasteTest_CSS.css" />
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
-                           </children>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </StackPane>
-         </center>
-      </BorderPane>
-   </children>
-</StackPane>
+<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Notics_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.addTasteController">
+    <children>
+        <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="253.0" prefWidth="520.0" stylesheets="@../../static/stylesheets/Notics_CSS.css">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="900.0" prefWidth="520.0" style="-fx-background-color: white;">
+                    <children>
+                        <Label layoutX="28.0" layoutY="14.0" styleClass="property" stylesheets="@../../static/stylesheets/Notics_CSS.css" text="Properties" />
+                        <Label layoutX="28.0" layoutY="64.0" styleClass="normallabel" stylesheets="@../../static/stylesheets/Notics_CSS.css" text="Initial notice stage text" />
+                        <TextField layoutX="222.0" layoutY="64.0" prefHeight="25.0" prefWidth="274.0" promptText="Please call the experimenter for the sample" />
+                        <Label layoutX="28.0" layoutY="114.0" styleClass="normallabel" text="Consumption Instruction" />
+                        <Label layoutX="28.0" layoutY="164.0" styleClass="normallabel" text="Question" />
+                        <CheckBox layoutX="300.0" layoutY="516.0" mnemonicParsing="false" />
+                        <Label layoutX="28.0" layoutY="364.0" styleClass="normallabel" text="High Anchor Value" />
+                        <TextArea layoutX="222.0" layoutY="504.0" prefHeight="160.0" prefWidth="274.0" />
+                        <TextField layoutX="222.0" layoutY="684.0" prefHeight="25.0" prefWidth="274.0" promptText="End Instruction"/>
+                        <Label layoutX="28.0" layoutY="684.0" styleClass="normallabel" text="End Instruction" />
+                        <TextField layoutX="222.0" layoutY="734.0" prefHeight="25.0" prefWidth="274.0" promptText="0"/>
+                        <Label layoutX="28.0" layoutY="734.0" styleClass="normallabel" text="Time to wait in minutes" />
+                        <Label layoutX="28.0" layoutY="784.0" styleClass="normallabel" text="Randomised Foods?" />
+                        <CheckBox layoutX="222.0" layoutY="784.0" mnemonicParsing="false" />
+                        <Label layoutX="28.0" layoutY="834.0" styleClass="normallabel" text="Randomised Ratings?" />
+                        <CheckBox layoutX="222.0" layoutY="834.0" mnemonicParsing="false" />
+                        <Label layoutX="28.0" layoutY="884.0" styleClass="normallabel" text="Play alert sound on screen display?" />
+                        <CheckBox layoutX="300.0" layoutY="884.0" mnemonicParsing="false" />
+                  <TextField layoutX="222.0" layoutY="114.0" prefHeight="25.0" prefWidth="274.0" promptText="Consumption Instruction" />
+                  <TextField layoutX="222.0" layoutY="164.0" prefHeight="25.0" prefWidth="274.0" promptText="How &lt;taste&gt; is the &lt;food&gt;" />
+                  <Label layoutX="28.0" layoutY="214.0" styleClass="normallabel" text="Low Anchor Text" />
+                  <TextField layoutX="222.0" layoutY="214.0" prefHeight="25.0" prefWidth="274.0" promptText="Low Anchor Text" />
+                  <Label layoutX="28.0" layoutY="264.0" styleClass="normallabel" text="High Anchor Text" />
+                  <TextField layoutX="222.0" layoutY="264.0" prefHeight="25.0" prefWidth="274.0" promptText="High Anchor Text" />
+                  <Label layoutX="28.0" layoutY="314.0" styleClass="normallabel" text="Low Anchor Value" />
+                  <TextField layoutX="222.0" layoutY="314.0" prefHeight="25.0" prefWidth="274.0" />
+                  <TextField layoutX="222.0" layoutY="364.0" prefHeight="25.0" prefWidth="274.0" />
+                        <Label layoutX="28.0" layoutY="414.0" styleClass="normallabel" text="Button Text" />
+                        <TextField layoutX="222.0" layoutY="414.0" prefHeight="25.0" prefWidth="274.0" />
+                        <Label layoutX="28.0" layoutY="464.0" styleClass="normallabel" text="Swap Poles (ticked for yes)" />
+                  <CheckBox layoutX="222.0" layoutY="464.0" mnemonicParsing="false" />
+                        <Label layoutX="28.0" layoutY="504.0" styleClass="normallabel" text="Help Text" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>
