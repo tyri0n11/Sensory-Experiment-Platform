@@ -127,7 +127,7 @@
     -fx-text-fill: #000000;
 }
 
-<<<<<<< HEAD
+
 #btn_SAVE{
     display: flex;
     flex-direction: row;
@@ -143,8 +143,6 @@
     -fx-border-radius: 9px;
 }
 
-=======
->>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
 .stackpane{
     -fx-background-color: white;
 
