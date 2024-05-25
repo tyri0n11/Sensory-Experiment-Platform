@@ -304,7 +304,13 @@ public class TestController {
 //               AddNoticeStage controller = fxmlLoader.getController();
            }
            else if (value.equals("If Something less than something else then")){
-               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("QuestionStage.fxml"));
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddConditionalStatement.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+//               AddNoticeStage controller = fxmlLoader.getController();
+           }
+           else if (value.equals("Else")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddConditionalStatement.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
 //               AddNoticeStage controller = fxmlLoader.getController();
