@@ -8,12 +8,12 @@ public class ViewFactory {
     private addSoundVM addsound;
     private general_VM general;
     private AddTasteVM addTasteVM;
-    private addTasteVM2 addTaste2VM;
-    public addTasteVM2 getAddTaste2VM(){
-        if (addTaste2VM == null){
-            addTaste2VM = new addTasteVM2();
+    private glmsStage_VM glmsStageVm;
+    public glmsStage_VM getGlmsStageVm(){
+        if (glmsStageVm == null){
+            glmsStageVm = new glmsStage_VM();
         }
-        return addTaste2VM;
+        return glmsStageVm;
     }
     public AddTasteVM getAddTasteVM(){
         if (addTasteVM == null){

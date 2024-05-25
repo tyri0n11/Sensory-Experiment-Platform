@@ -4,7 +4,6 @@ import javafx.beans.property.*;
 import main.sensoryexperimentplatform.models.Vas;
 
 public class vasStage_VM {
-    private Vas vasModel;
     private StringProperty questionText;
     private final StringProperty lowAnchorText = new SimpleStringProperty();
     private final StringProperty highAnchorText = new SimpleStringProperty();
@@ -12,12 +11,12 @@ public class vasStage_VM {
     private final StringProperty buttonText = new SimpleStringProperty();
     private final IntegerProperty lowAnchorValue = new SimpleIntegerProperty();
     private final IntegerProperty highAnchorValue = new SimpleIntegerProperty();
+    private StringProperty txt_BtnTxt;
 
     private final BooleanProperty isSwap = new SimpleBooleanProperty(true);
     private final BooleanProperty alert = new SimpleBooleanProperty(true);
 
-    public vasStage_VM(Vas vasModel) {
-        this.vasModel = vasModel;
+    public vasStage_VM() {
         questionText = new SimpleStringProperty();
         questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange());
     }

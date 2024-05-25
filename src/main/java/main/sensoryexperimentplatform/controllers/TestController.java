@@ -323,12 +323,14 @@ public class TestController {
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
                VasController controller = fxmlLoader.getController();
+               controller.initialize ();
            }
            else if (value.equals("[GLMS] Question?")) {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("GLMS.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
                GLMSController controller = fxmlLoader.getController();
+               controller.init ();
            }
 
 
