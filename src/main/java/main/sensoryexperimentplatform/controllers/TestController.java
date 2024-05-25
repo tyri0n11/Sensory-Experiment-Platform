@@ -270,6 +270,8 @@ public class TestController {
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
                InputStageController controller = fxmlLoader.getController();
+               controller.setInputStageViewModel();
+
            } else if (value.equals("[Waiting] Please wait")) {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("TimerStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();

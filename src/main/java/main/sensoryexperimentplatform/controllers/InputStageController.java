@@ -24,35 +24,42 @@ public class InputStageController {
     @FXML
     private TextField txt_question;
     
-    public void setInputStageViewModel(inputStage_VM viewModel) {
-        Experiment experiment = new Experiment();
-        this.inputStage_vm = viewModel;
+    public void setInputStageViewModel() {
+//        Experiment experiment;
+//        inputStage_vm = new inputStage_VM(experiment);
         txt_buttonText.textProperty().bindBidirectional(inputStage_vm.buttonTextProperty());
         txt_helptext.textProperty().bindBidirectional(inputStage_vm.contentProperty());
         txt_question.textProperty().bindBidirectional(inputStage_vm.titleProperty());
         cbx_playsound.selectedProperty().bindBidirectional(inputStage_vm.alertProperty());
+
     }
 
+
     @FXML
-    void cbx_playsound(ActionEvent event) {
+    void cbx_playsound(MouseEvent event) {
+        inputStage_vm.addInputStage();
 
     }
 
     @FXML
     void txt_buttonText(ActionEvent event) {
+        inputStage_vm.addInputStage();
+
 
     }
 
     @FXML
     void txt_helptext(MouseEvent event) {
-
+        inputStage_vm.addInputStage();
 
     }
 
     @FXML
-    void txt_question(ActionEvent event) {
+    void txt_question(MouseEvent event) {
+        inputStage_vm.addInputStage();
 
     }
+
 
 
 }

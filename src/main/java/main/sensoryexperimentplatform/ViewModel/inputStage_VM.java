@@ -20,9 +20,11 @@ public class inputStage_VM {
         content = new SimpleStringProperty();
         buttonText = new SimpleStringProperty();
         alert = new SimpleBooleanProperty();
+
     }
 
     public void addInputStage() {
+
         String title = this.title.get();
         String content = this.content.get();
         String buttonText = this.buttonText.get();
@@ -30,6 +32,7 @@ public class inputStage_VM {
         Input stage = new Input(title, content, buttonText, alert);
         experiment.addInputStage(title, content, buttonText, alert);
         stages.add(stage);
+
     }
 
     public ObservableList<Object> getStages() {
