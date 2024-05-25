@@ -1,27 +1,40 @@
 package main.sensoryexperimentplatform.ViewModel;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import main.sensoryexperimentplatform.models.gLMS;
 
 public class RunGLMS_VM {
     private gLMS stage;
-    private StringProperty question;
-    private StringProperty result;
+    private StringProperty question, result, help;
+    private DoubleProperty sliderValue;
     private StringProperty button;
 
     public RunGLMS_VM(gLMS stage){
         this.stage = stage;
+        help = new SimpleStringProperty(stage.getHelpText());
+        result = new SimpleStringProperty(String.format("%.2f",stage.getResult()));
         question = new SimpleStringProperty(stage.getQuestionText());
         button = new SimpleStringProperty(stage.getButtonText());
-        result = new SimpleStringProperty(null);
+        sliderValue = new SimpleDoubleProperty(stage.getResult());
+
+        sliderValue.addListener(((observableValue, oldValue, newValue) ->{
+            setResult(newValue.doubleValue());
+            result.set(String.format("%.2f",newValue.doubleValue()));
+        } ));
+
+    }
+    public void setResult(double result){
+        stage.setResult(result);
     }
 
+    public StringProperty helpProperty(){
+        return help;
+    }
     public StringProperty questionProperty() {
         return question;
     }
 
-    public StringProperty resultProperty() {
+    public StringProperty resultTextProperty() {
         return result;
     }
 
@@ -30,31 +43,7 @@ public class RunGLMS_VM {
         return button;
     }
 
-    //0 : barely detectable
-    //<10 : weak
-    //<30: moderate
-    //<70: strong
-    //>90: very strong
-    public void setResult(int value){
-        if(value>=90) {
-            stage.setResult("VeryStrong");
-            result = new SimpleStringProperty("Very Strong");
-        }
-        else if (value >= 70) {
-            stage.setResult("Strong");
-            result = new SimpleStringProperty("Strong");
-        }
-        else if (value >= 30) {
-            stage.setResult("Moderate");
-            result = new SimpleStringProperty("Moderate");
-        }
-        else if (value >= 10) {
-            stage.setResult("Weak");
-            result = new SimpleStringProperty("Weak");
-        }
-        else {
-            stage.setResult("Barely Detectable");
-            result = new SimpleStringProperty("Barely Detectable");
-        }
+    public DoubleProperty sliderValueProperty() {
+        return sliderValue;
     }
 }

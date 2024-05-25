@@ -6,10 +6,11 @@ import main.sensoryexperimentplatform.models.Notice;
 
 public class RunNotice_VM {
     private Notice notice;
-    private StringProperty title, content;
+    private StringProperty title, content, button;
 
     public RunNotice_VM(Notice notice){
         this.notice = notice;
+        button = new SimpleStringProperty(notice.getButtonText());
         title = new SimpleStringProperty(notice.getTitle());
         content = new SimpleStringProperty(notice.getContent());
     }
@@ -21,5 +22,9 @@ public class RunNotice_VM {
     }
     public void setNotice(Notice notice) {
         this.notice = notice;
+    }
+
+    public StringProperty buttonProperty() {
+        return button;
     }
 }

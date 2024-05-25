@@ -1,5 +1,6 @@
 package main.sensoryexperimentplatform.controllers;
 
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -22,6 +23,7 @@ public class RunVasController {
 
     public void setViewModel(RunVas_VM viewModel) {
         this.viewModel = viewModel;
+        result_label.setLayoutX(mySlider.getLayoutX()+result_label.getWidth());
         bindViewModel();
     }
 
@@ -31,17 +33,17 @@ public class RunVasController {
         questionlbl.textProperty().bind(viewModel.questionTextProperty());
 
 
+        // Binding hai chiều giữa mySlider.valueProperty() và viewModel.sliderValueProperty()
+        Bindings.bindBidirectional(mySlider.valueProperty(),viewModel.sliderValueProperty());
+
         mySlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            double value = newValue.doubleValue();
-            int percentValue = (int) value;
-            result_label.setText(percentValue + "%");
-            viewModel.setResult((int) value);
-            mySlider.applyCss();
-            var thumb = mySlider.lookup(".thumb");
-            if (thumb != null) {
-                result_label.setLayoutX(thumb.getLayoutX() + mySlider.getLayoutX() - mySlider.getWidth() / 2);
-            }
+            result_label.textProperty().bind(viewModel.resultTextProperty());
+            result_label.setLayoutX(mySlider.getLayoutX() + (newValue.intValue()*mySlider.getPrefWidth())/100);
         });
+
+
+        // Binding một chiều từ viewModel.resultTextProperty() đến result_label.textProperty()
+        result_label.textProperty().bind(viewModel.resultTextProperty());
 
         mySlider.applyCss();
         var thumb = mySlider.lookup(".thumb");

@@ -17,8 +17,8 @@ public class TasteTest{
     private final Vas sampleVas;
     private final gLMS sampleGLMS;
     public TasteTest(String noticeStageContent, String consumptionInstruction, String question,
-            String lowAnchorText, String highAnchorText, int lowAnchorValue,
-                     int highAnchorValue, String buttonText,
+            String lowAnchorText, String highAnchorText, double lowAnchorValue,
+                     double highAnchorValue, String buttonText,
             boolean isSwap, String helpText, String endInstruction,
                      int timeWait, boolean randomizeFood, boolean randomizeRatingVas, boolean randomizeRatingGLMS){
 

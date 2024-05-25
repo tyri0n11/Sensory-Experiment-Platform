@@ -6,7 +6,7 @@ public class gLMS extends Stage{
     private String buttonText;
     private boolean response;
     private String helpText;
-    private String result;
+    private double result;
     private boolean alert;
 
     public gLMS(String title, String content){
@@ -25,11 +25,11 @@ public class gLMS extends Stage{
         this.helpText = helpText;
         this.alert = alert;
     }
-    public void setResult(String s){
-        this.result = s;
+    public void setResult(double result){
+        this.result = result;
     }
 
-    public String getResult() {
+    public double getResult() {
         return result;
     }
 

@@ -3,12 +3,60 @@
     -fx-font-weight: Bold;
     -fx-text-fill: #397E82;
 }
+
+
+/* Style cho ListView */
+.list-view {
+    -fx-background-color: transparent; /* Màu nền của ListView */
+}
+
+.list-view .scroll-bar:vertical {
+    -fx-background-color: transparent; /* Đặt màu nền của thanh cuộn thành trong suốt */
+    -fx-pref-width: 3px;
+}
+
+.list-view .scroll-bar:vertical .track {
+    -fx-background-color: #397E82; /* Đặt màu nền của track (đường dẫn) thành trong suốt */
+}
+
+.list-view .scroll-bar:vertical .thumb {
+    -fx-background-color: white; /* Đặt màu nền của thumb (nút cuộn) */
+    -fx-background-insets: 0; /* Loại bỏ phần inset (khoảng cách viền trong) */
+    -fx-border-radius: 50%; /* Bo tròn các góc của thumb thành hình tròn */
+    -fx-pref-width: 20px; /* Đặt chiều rộng của thumb */
+    -fx-pref-height: 20px; /* Đặt chiều cao của thumb */
+}
+
+.list-view .scroll-bar:vertical .increment-button,
+.list-view .scroll-bar:vertical .decrement-button {
+    -fx-background-color: transparent; /* Đặt màu nền của các nút tăng giảm thành trong suốt */
+    -fx-padding: 0; /* Loại bỏ phần padding */
+    -fx-shape: null; /* Loại bỏ hình dạng mặc định của các nút */
+    -fx-pref-height: 0; /* Đặt chiều cao của các nút thành 0 */
+}
+
+.list-cell{
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #397E82;
+    -fx-wrap-text: true;
+}
+.progress-bar{
+    -fx-border-radius: 40%;
+    -fx-border-color: transparent;
+}
+.progress-bar .bar{
+    -fx-background-color: #397E82;
+}
+
 .button {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
     -fx-background-radius: 30px;
+    -fx-text-fill: #397E82;
     -fx-background-color: #F1F6FB;
     -fx-effect: innershadow(three-pass-box, rgba(85, 91, 110, 0.15), 5, 0, 0, 5);
 }
-
 .button:hover{
     -fx-background-color: #397E82;
     -fx-text-fill: #F0F0F0;
