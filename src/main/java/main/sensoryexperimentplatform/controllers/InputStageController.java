@@ -12,8 +12,9 @@ import main.sensoryexperimentplatform.models.Experiment;
 public class InputStageController {
     private inputStage_VM inputStage_vm;
 
+
     @FXML
-    private CheckBox cbx_playsound;
+    private CheckBox cbx_alert;
 
     @FXML
     private TextField txt_buttonText;
@@ -30,14 +31,13 @@ public class InputStageController {
         txt_buttonText.textProperty().bindBidirectional(inputStage_vm.buttonTextProperty());
         txt_helptext.textProperty().bindBidirectional(inputStage_vm.contentProperty());
         txt_question.textProperty().bindBidirectional(inputStage_vm.titleProperty());
-        cbx_playsound.selectedProperty().bindBidirectional(inputStage_vm.alertProperty());
+        cbx_alert.selectedProperty().bindBidirectional(inputStage_vm.alertProperty());
 
     }
 
 
     @FXML
-    void cbx_playsound(MouseEvent event) {
-
+    void cbx_alert(ActionEvent event) {
 
     }
 

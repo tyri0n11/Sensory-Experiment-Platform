@@ -26,7 +26,6 @@ public class noticeStage_VM {
         this.alert = new SimpleBooleanProperty();
     }
     public void addNoticeStage() {
-
         String title = this.title.get();
         String content = this.content.get();
         String buttonText = this.buttonText.get();
