@@ -12,122 +12,32 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane fx:id="GLMSStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SenseXP.GLMSController">
-    <stylesheets>
-        <URL value="@../../static/stylesheets/EditExp_CSS.css" />
-    </stylesheets>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ChoiceBox?>
+<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Notics_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.GLMSController">
     <children>
-        <BorderPane prefHeight="667.0" prefWidth="1100.0">
-            <top>
-                <AnchorPane prefHeight="35.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+        <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="253.0" prefWidth="520.0">
+            <content>
+                <AnchorPane minWidth="0.0" prefWidth="520.0" style="-fx-background-color: white;">
                     <children>
-                        <AnchorPane layoutX="97.0" layoutY="-77.0" maxHeight="92.0" maxWidth="1280.0" minHeight="92.0" minWidth="1280.0" prefHeight="92.0" prefWidth="1280.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                            <children>
-                                <Label fx:id="lbl_SenseXP" layoutX="7.0" layoutY="1.0" text="SENSE XP" textFill="#141414">
-                                    <font>
-                                        <Font size="40.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="961.0" layoutY="3.0" text="Last Name" />
-                                <Label layoutX="960.0" layoutY="20.0" text="First Name" />
-                                <Label fx:id="avatarLabel" layoutX="908.0" layoutY="15.0" />
-
-                            </children>
-                        </AnchorPane>
+                        <Label layoutX="14.0" layoutY="13.0" prefHeight="26.0" prefWidth="188.0" styleClass="normallabel" text="Question" />
+                        <Label id="propertiesLabel" fx:id="lbl_buttonText" layoutX="14.0" layoutY="63.0" styleClass="normallabel" text="Button Text" />
+                        <Label id="propertiesLabel" fx:id="lbl_storeResponse" layoutX="14.0" layoutY="113.0" styleClass="normallabel" text="Store Response In A Variable?" />
+                        <RadioButton fx:id="radioBtn_available" layoutX="100.0" layoutY="143.0" mnemonicParsing="false" styleClass="propertiesText" text="Available" />
+                        <ChoiceBox fx:id="choiceB_avail" layoutX="222.0" layoutY="143.0" prefHeight="25.0" prefWidth="274.0" styleClass="propertiesTextField" />
+                        <RadioButton fx:id="radioBtn_Yes" layoutX="100.0" layoutY="183.0" mnemonicParsing="false" styleClass="propertiesText" text="Yes" />
+                        <TextField fx:id="txt_yes" layoutX="222.0" layoutY="183.0" maxWidth="410.0" minHeight="25.0" prefHeight="25.0" prefWidth="274.0" styleClass="propertiesTextField" />
+                        <Label fx:id="lbl_swapPole" layoutX="14.0" layoutY="233.0" styleClass="normallabel" text="Swap Poles (ticked for yes) " />
+                        <CheckBox fx:id="checkB_swap" layoutX="222.0" layoutY="233.0" mnemonicParsing="false" styleClass="propertiesTextField" />
+                        <Label fx:id="lbl_help" layoutX="14.0" layoutY="283.0" styleClass="normallabel" text="Help Text" />
+                        <TextField fx:id="txt_help" layoutX="222.0" layoutY="283.0" minWidth="274.0" prefHeight="160.0" prefWidth="274.0" styleClass="propertiesTextField" />
+                        <Label fx:id="lbl_playSound" layoutX="14.0" layoutY="460.0" styleClass="normallabel" text="Play alert sound on screen display ?" />
+                        <CheckBox fx:id="checkB_sound" layoutX="280.0" layoutY="460.0" mnemonicParsing="false" styleClass="propertiesTextField" />
+                        <TextField fx:id="txt_question" layoutX="222.0" layoutY="10.0" prefHeight="25.0" prefWidth="274.0" />
+                        <TextField fx:id="txt_LowAncTxt" layoutX="222.0" layoutY="63.0" prefHeight="25.0" prefWidth="274.0" />
                     </children>
                 </AnchorPane>
-            </top>
-            <left>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <AnchorPane layoutY="155.0" maxHeight="702.0" minHeight="702.0" prefHeight="702.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                            <children>
-                                <AnchorPane layoutY="9.0" maxHeight="634.0" maxWidth="305.0" minHeight="634.0" minWidth="305.0" prefHeight="634.0" prefWidth="305.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="9.0">
-                                    <children>
-
-                                        <Button fx:id="btn_noticeStage" layoutX="36.0" layoutY="91.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#AddNoticeButton" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Notice Stage">
-                                        </Button>
-                                        <Button fx:id="btn_addAudibleInstruction" layoutX="36.0" layoutY="133.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Audible Instruction">
-                                        </Button>
-                                        <Button fx:id="btn_assignSound" layoutX="36.0" layoutY="175.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#AssignSoundButton" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Assign Sound">
-                                        </Button>
-                                        <Button fx:id="btn_addInput" layoutX="36.0" layoutY="217.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#AddInputButton" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Input Stage">
-                                        </Button>
-                                        <Button fx:id="btn_addTimer" layoutX="36.0" layoutY="259.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#AddTimerButton" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add Timer Stage">
-                                        </Button>
-                                        <Button fx:id="btn_addTasteTest" layoutX="36.0" layoutY="301.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#AddTasteButton" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add Taste Test">
-                                        </Button>
-                                        <Button fx:id="btn_addFoodAndTaste" layoutX="36.0" layoutY="343.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add Food &amp; Taste">
-                                        </Button>
-                                        <Button fx:id="btn_addRatingContainer" layoutX="36.0" layoutY="385.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add Ratings Container">
-                                        </Button>
-                                        <Button fx:id="btn_addVasStage" layoutX="36.0" layoutY="427.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#AddVasButton" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add VAS Stage">
-                                        </Button>
-                                        <Button fx:id="btn_AddGLMS" layoutX="36.0" layoutY="469.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#AddGLMSbutton" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add GLMS Stage">
-                                        </Button>
-                                        <Button fx:id="btn_AddCourse" layoutX="36.0" layoutY="511.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add Course">
-                                        </Button>
-                                        <Button fx:id="btn_AddPeriodicStage" layoutX="36.0" layoutY="553.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add Periodic Stage">
-                                        </Button>
-                                        <Button fx:id="btn_AddConditionalStatement" layoutX="36.0" layoutY="595.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add Conditional Statement">
-                                        </Button>
-                                        <Label fx:id="lbl_EditExperiment" layoutX="115.0" layoutY="-17.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Edit Experiment">
-                                        </Label>
-                                        <Button fx:id="btn_menu" layoutX="61.0" layoutY="-10.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="39.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text=" " />
-                              <Button fx:id="btn_AddQuestionStage" layoutX="36.0" layoutY="637.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#AddQuestionButton" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Add Question Stage" />
-
-                                    </children>
-                                </AnchorPane>
-                            </children>
-                        </AnchorPane>
-                    </children>
-                </AnchorPane>
-            </left>
-            <right>
-                <BorderPane prefHeight="561.0" prefWidth="73.0" BorderPane.alignment="CENTER">
-                    <center>
-                        <AnchorPane maxHeight="513.0" maxWidth="79.0" minHeight="513.0" minWidth="79.0" prefHeight="513.0" prefWidth="79.0" BorderPane.alignment="CENTER">
-                            <children>
-                                <Button fx:id="btn_up" layoutX="10.0" layoutY="91.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="59.0" text=" " />
-                                <Button fx:id="btn_down" layoutX="10.0" layoutY="247.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="59.0" text=" " />
-                                <Button fx:id="btn_cross" layoutX="10.0" layoutY="172.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="59.0" text=" " />
-                            </children>
-                        </AnchorPane>
-                    </center>
-                </BorderPane>
-            </right>
-            <center>
-                <StackPane maxHeight="702.0" minHeight="702.0" prefHeight="702.0" prefWidth="896.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <AnchorPane maxHeight="664.0" maxWidth="812.0" minHeight="418.0" minWidth="812.0" prefHeight="418.0" prefWidth="812.0">
-                            <children>
-                                <TextArea fx:id="textFrame" layoutX="3.0" layoutY="56.0" maxHeight="311.0" maxWidth="806.0" minHeight="311.0" minWidth="806.0" prefHeight="644.0" prefWidth="667.0" promptText="demo" stylesheets="@/css/EditExp_CSS.css" />
-                                <AnchorPane layoutX="14.0" layoutY="380.0" prefHeight="288.0" prefWidth="798.0" stylesheets="@/css/EditExp_CSS.css">
-                                    <children>
-                                        <ScrollPane layoutX="-6.0" layoutY="15.0" prefHeight="289.0" prefWidth="810.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css">
-                                            <content>
-                                                <ScrollPane prefHeight="571.0" prefWidth="811.0">
-                                                    <content>
-                                                        <AnchorPane minHeight="30.0" minWidth="0.0" prefHeight="228.0" prefWidth="792.0">
-                                                            <children>
-                                                                <Label fx:id="lbl_containStage" layoutX="14.0" layoutY="14.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Contained stages appear in a random order ? " />
-                                                                <Label fx:id="lbl_minimumTime" layoutX="14.0" layoutY="51.0" prefHeight="25.0" prefWidth="347.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Minimum time for stage to run (in minutes) :" />
-                                                <CheckBox layoutX="380.0" layoutY="14.0" mnemonicParsing="false" />
-                                                <TextField layoutX="380.0" layoutY="51.0" prefHeight="31.0" prefWidth="284.0" />
-                                                            </children>
-                                                        </AnchorPane>
-                                                    </content>
-                                                </ScrollPane>
-                                            </content>
-                                        </ScrollPane>
-                                    </children>
-                                </AnchorPane>
-                                <AnchorPane fx:id="Properties" layoutX="8.0" layoutY="74.0" maxHeight="397.0" maxWidth="898.0" minHeight="144.0" minWidth="518.0" prefHeight="311.0" prefWidth="806.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
-                            </children>
-                        </AnchorPane>
-                    </children>
-                </StackPane>
-            </center>
-        </BorderPane>
+            </content>
+        </ScrollPane>
     </children>
-</StackPane>
+</AnchorPane>
