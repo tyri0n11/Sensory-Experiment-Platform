@@ -274,6 +274,7 @@ public class TestController {
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
                addTasteController controller = fxmlLoader.getController();
+               controller.init();
 
            }
            else if (value.equals("Ratings container")){
