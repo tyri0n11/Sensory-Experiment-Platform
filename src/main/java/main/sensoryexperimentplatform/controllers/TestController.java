@@ -19,6 +19,7 @@ import java.io.IOException;
 public class TestController {
     @FXML
     private AnchorPane propertiesPane;
+    private TreeItem<String> courseItem;
     private TestVM testVM;
     private boolean isSidebarVisible = true;
     @FXML
@@ -97,7 +98,11 @@ public class TestController {
 
     @FXML
     void addConditionalStatement(ActionEvent event) {
-
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("If Something less than something else then"));
+        start.getChildren().add(new TreeItem<>("Else"));
     }
 
     @FXML
@@ -105,7 +110,11 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        start.getChildren().add(new TreeItem<>("Start Eating stage"));
+        courseItem = new TreeItem<>("Start Eating stage");
+        start.getChildren().add(courseItem);
+
+        start.setExpanded(true);
+
 
 
 
@@ -143,6 +152,19 @@ public class TestController {
     void addPeriodicStage(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
+        start.setExpanded(true);
+
+        if (courseItem != null) {
+
+            TreeItem<String> periodicStage = new TreeItem<>("Every -1 grams");
+            courseItem.getChildren().add(periodicStage);
+
+            // Optionally expand the course item to show the newly added child
+            courseItem.setExpanded(true);
+        } else {
+
+        }
+
 
     }
 
@@ -150,6 +172,8 @@ public class TestController {
     void addQuestionStage(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("[Question] Question"));
     }
 
     @FXML
@@ -264,6 +288,28 @@ public class TestController {
                btn_AddCourse.setDisable(true);
 
            }
+           else if (value.equals("Every -1 grams")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddPeriodicStage.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+//               AddNoticeStage controller = fxmlLoader.getController();
+               btn_AddPeriodicStage.setDisable(false);
+               btn_AddCourse.setDisable(true);
+
+           }
+           else if (value.equals("[Question] Question")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("QuestionStage.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+//               AddNoticeStage controller = fxmlLoader.getController();
+           }
+           else if (value.equals("If Something less than something else then")){
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("QuestionStage.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+//               AddNoticeStage controller = fxmlLoader.getController();
+           }
+
 
 
 

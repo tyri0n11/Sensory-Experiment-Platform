@@ -27,3 +27,20 @@
     -fx-line-height: 25px;
     -fx-text-fill:#0E0E0E;
 }
+.combo-box{
+    -fx-background-color: #F0F0F0;
+
+}
+.combo-box-popup .list-view {
+    -fx-background: #FFFFFF;
+
+}
+.combo-box .arrow-button {
+    -fx-background-color: #FFFFFF;
+
+}
+.combo-box .text-field {
+    -fx-background-color: #FFFFFF;
+
+}
+

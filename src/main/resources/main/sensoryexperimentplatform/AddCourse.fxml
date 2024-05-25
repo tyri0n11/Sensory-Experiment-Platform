@@ -31,7 +31,7 @@
                   <Label layoutX="10.0" layoutY="614.0" styleClass="normallabel" text="Stop eating statement" />
                   <TextField layoutX="210.0" layoutY="610.0" prefHeight="25.0" prefWidth="274.0" />
                   <Label layoutX="10.0" layoutY="664.0" styleClass="normallabel" text="Play alert sound on the screen play " />
-                  <CheckBox layoutX="250.0" layoutY="664.0" mnemonicParsing="false" />
+                  <CheckBox layoutX="250.0" layoutY="674.0" mnemonicParsing="false" />
                     </children>
                 </AnchorPane>
             </content>
