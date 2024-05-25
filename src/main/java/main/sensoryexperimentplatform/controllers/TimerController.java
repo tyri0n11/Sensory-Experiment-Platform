@@ -66,7 +66,7 @@ public class TimerController {
 
     @FXML
     void AssignSoundButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(TimerStackPane,"/fxml/AddSound.fxml");
+        new ScenseSwitch(TimerStackPane,"/fxml/AssignSound.fxml");
 
 
 

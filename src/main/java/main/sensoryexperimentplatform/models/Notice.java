@@ -5,7 +5,6 @@ public class Notice extends Stage {
     private String content;
     private String helpText;
     private boolean alert;
-    //private Boolean balance = false;
 
     public Notice(String title, String content) {
         super(title,content);

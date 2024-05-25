@@ -29,7 +29,6 @@
                         <Button layoutX="1212.0" layoutY="13.0" mnemonicParsing="false" styleClass="btn_bell" />
                         <Label layoutX="1160.0" layoutY="15.0" styleClass="Name" text="Nguyễn" />
                         <Label layoutX="1158.0" layoutY="37.0" styleClass="Nickname" text="Mymia" />
-
                      </children>
                   </AnchorPane>
                </children>
@@ -100,8 +99,7 @@
                <children>
                   <AnchorPane maxHeight="664.0" maxWidth="812.0" minHeight="664.0" minWidth="812.0" prefHeight="644.0" prefWidth="812.0">
                      <children>
-                        <TreeView fx:id="testResult" maxHeight="666.0" minHeight="598.0" prefHeight="666.0" prefWidth="812.0" styleClass="textResult" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <ListView fx:id="showList" layoutX="91.0" layoutY="38.0" prefHeight="518.0" prefWidth="664.0" />
+                        <TreeView fx:id="testResult" prefHeight="664.0" prefWidth="812.0" styleClass="textResult" stylesheets="@/static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </children>

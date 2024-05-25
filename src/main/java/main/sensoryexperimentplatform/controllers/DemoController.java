@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class TestController {
+public class DemoController {
     private boolean isSidebarVisible = true;
     @FXML
     private TreeView<String> listObject;

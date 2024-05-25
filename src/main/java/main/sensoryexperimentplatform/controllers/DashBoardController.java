@@ -2,105 +2,97 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 
 import java.io.IOException;
 
 public class DashBoardController {
 
-    @FXML
-    private AnchorPane DashBoard;
+    private boolean isSidebarVisible = true;
 
     @FXML
-    private AnchorPane DashBoard1;
+    private BorderPane borderPane;
 
     @FXML
-    private StackPane DashBoardStackPane;
-
-    @FXML
-    private ComboBox<?> DropDown;
-
-    @FXML
-    private Label EntriesLabel;
-
-    @FXML
-    private AnchorPane SenseXPBar;
-
-    @FXML
-    private Label ShowLabel;
-
-    @FXML
-    private AnchorPane SideBar;
-
-    @FXML
-    private Button btn_AddExperiment;
+    private Button btn_Config;
 
     @FXML
     private Button btn_DashBoard;
 
     @FXML
-    private Button btn_Logout;
+    private Button btn_ImportExp;
 
     @FXML
-    private Button btn_config;
+    private Button btn_ShareExp;
 
     @FXML
-    private Button btn_dashboard_left;
-
-    @FXML
-    private Button btn_export;
-
-    @FXML
-    private Button btn_import;
+    private Button btn_exportExp;
 
     @FXML
     private Button btn_menu;
 
     @FXML
-    private Button btn_share_experiment;
-
-    @FXML
-    private TableColumn<?, ?> lbl_Option;
+    private AnchorPane contentPane;
 
     @FXML
     private Label lbl_SenseXP;
 
     @FXML
-    private TableColumn<?, ?> lbl_createDate;
+    private HBox mainBox;
 
     @FXML
-    private TableColumn<?, ?> lbl_creator;
+    private AnchorPane mainPane;
 
     @FXML
-    private TableColumn<?, ?> lbl_currentVersion;
-
+    private VBox sideMenu;
     @FXML
-    private TableColumn<?, ?> lbl_experimentName;
+    private HBox senseXPane;
 
-    @FXML
-    private TableColumn<?, ?> lbl_iD;
-
-    @FXML
-    private TableColumn<?, ?> lbl_result;
-
-    @FXML
-    private TextField searchBar;
-
-    @FXML
-    private AnchorPane sidebar_left;
-
-    @FXML
-    void btn_addEx(ActionEvent event) {
+    public void initialize(){
+//        HBox.setHgrow(mainPane, Priority.ALWAYS);
+//        HBox.setHgrow(senseXPane, Priority.ALWAYS);
 
     }
 
     @FXML
-    void btn_dashboard(ActionEvent event) throws IOException {
-        new ScenseSwitch(DashBoardStackPane,"/fxml/general.fxml");
+    void btn_Config(ActionEvent event) {
 
+    }
+
+    @FXML
+    void btn_DashBoard(ActionEvent event) throws IOException {
+        AnchorPane view = FXMLLoader.load(getClass().getResource("/main/sensoryexperimentplatform/ViewAllExperiment.fxml"));
+        contentPane.getChildren().add(view);
+
+    }
+
+    @FXML
+    void btn_ImportExp(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btn_ShareExp(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btn_exportExp(ActionEvent event) {
+
+    }
+
+    @FXML
+    void toggleDashboard(ActionEvent event) {
+        if (isSidebarVisible) {
+            mainBox.getChildren().remove(sideMenu);
+
+        } else {
+            mainBox.getChildren().add(0, sideMenu);
         }
+        isSidebarVisible = !isSidebarVisible;
+    }
 
     }
 

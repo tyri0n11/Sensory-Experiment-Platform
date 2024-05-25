@@ -1,0 +1,121 @@
+
+#lbl_DashBoard {
+    -fx-font-family: 'Inter';
+    -fx-font-style: normal;
+    -fx-font-weight: 600;
+    -fx-font-size: 36px;
+    -fx-alignment: center;
+
+    -fx-text-fill: #397E82;
+}
+#lbl_SenseXP{
+    -fx-font-family: "Baloo Bhaina 2";
+    -fx-text-fill: #397E82;
+    -fx-font-weight: bold;
+    -fx-font-size: 40;
+}
+.line{
+
+
+    -fx-border-radius: 5px 5px 5px 5px;
+    -fx-background-color: #397E82;
+    -fx-max-width:1278;
+    -fx-max-height: 84;
+
+}
+#btn_createAccount {
+
+    -fx-background-color: #397E82;
+    -fx-border-radius: 8px 8px 8px 8px;
+
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 700;
+    -fx-font-size: 15px;
+    -fx-line-height: 29px;
+
+    -fx-text-fill: #FFFFFF;
+
+}
+.LoginPane{
+
+    -fx-max-width: 765px;
+    -fx-max-height: 610px;
+    -fx-background-color: #FFFF;
+
+
+    -fx-border-color:#397E82;
+    -fx-border-radius: 18px 18px 18px 18px;
+
+
+
+}
+.split-menu-button {
+    /* Apply similar styles to ensure consistency */
+
+
+    -fx-font-family: 'Baloo Bhaina 2';
+    -fx-font-style: normal;
+    -fx-font-weight: 400;
+    -fx-font-size: 13;
+
+    -fx-text-fill: #397E82;
+    -fx-background-color: #F0F0F0;
+    /* Optional: Customize the button's background and border */
+
+
+
+
+    -fx-alignment: CENTER;
+}
+
+/* Styling the menu items in the split menu */
+.split-menu-button .menu-item {
+    -fx-font-family: 'Baloo Bhaina 2';
+    -fx-font-size: 13px; /* Slightly smaller font size for menu items */
+    -fx-text-fill: #397E82;
+}
+
+/* Optional: Styling for hover and pressed states */
+.split-menu-button:hover {
+    -fx-background-color: #E0F7FA; /* Light teal for hover effect */
+}
+
+.split-menu-button:pressed {
+    -fx-background-color: #B2EBF2; /* Slightly darker teal for pressed effect */
+}
+.split-menu-button > .label {
+    -fx-text-fill: #397E82;
+}
+#btn_login,#btn_cancel{
+    /* Button 15 */
+
+    /* Auto layout */
+
+    -fx-max-width: 132px;
+    -fx-max-height: 57px;
+
+    -fx-background-color: #F1F6FB;
+    -fx-border-radius: 30px 30px 30px 30px;
+<<<<<<< HEAD
+    -fx-background-radius: 30px 30px 30px 30px ;
+=======
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+
+    /* Log in */
+
+
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 700;
+    -fx-font-size: 20px;
+
+
+    -fx-text-fill: #0E0E0E;
+
+
+
+}
+.main{
+    -fx-background-color: #FFFFFF;
+}

@@ -5,6 +5,8 @@ import javafx.beans.property.SimpleStringProperty;
 import main.sensoryexperimentplatform.models.Notice;
 
 public class noticeStage_VM {
+    private String titleText;
+    private String contentText;
     private SimpleStringProperty buttonText = new SimpleStringProperty();
 
     private SimpleStringProperty helpText = new SimpleStringProperty();
@@ -13,6 +15,8 @@ public class noticeStage_VM {
     private Notice noticeStage;
 
     public noticeStage_VM(Notice noticeStage) {
+        this.titleText = "Default title text";
+        this.contentText = "Default content text";
         this.noticeStage = noticeStage;
         this.buttonText = new SimpleStringProperty();
         this.helpText = new SimpleStringProperty();
