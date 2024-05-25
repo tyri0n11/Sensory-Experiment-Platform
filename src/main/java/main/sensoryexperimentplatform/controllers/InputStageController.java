@@ -24,7 +24,7 @@ public class InputStageController {
     @FXML
     private TextField txt_question;
     
-    public void setInputStageViewModel() {
+    public void initialize() {
 //        Experiment experiment;
 //        inputStage_vm = new inputStage_VM(experiment);
         txt_buttonText.textProperty().bindBidirectional(inputStage_vm.buttonTextProperty());
@@ -37,26 +37,26 @@ public class InputStageController {
 
     @FXML
     void cbx_playsound(MouseEvent event) {
-        inputStage_vm.addInputStage();
+
 
     }
 
     @FXML
     void txt_buttonText(ActionEvent event) {
-        inputStage_vm.addInputStage();
+
 
 
     }
 
     @FXML
     void txt_helptext(MouseEvent event) {
-        inputStage_vm.addInputStage();
+
 
     }
 
     @FXML
     void txt_question(MouseEvent event) {
-        inputStage_vm.addInputStage();
+
 
     }
 

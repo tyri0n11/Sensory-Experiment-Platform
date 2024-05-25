@@ -8,7 +8,7 @@ import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
 
 public class NoticeStageController {
 
-    public void setNoticeStageViewModel(){
+    public void initialize(){
         txt_buttonText.textProperty().bindBidirectional(noticeStage_vm.buttonTextProperty());
         txt_content.textProperty().bindBidirectional(noticeStage_vm.contentProperty());
         txt_title.textProperty().bindBidirectional(noticeStage_vm.titleProperty());
