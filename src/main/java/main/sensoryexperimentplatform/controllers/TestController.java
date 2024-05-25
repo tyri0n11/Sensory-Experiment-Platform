@@ -248,7 +248,8 @@ public class TestController {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddNoticeStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
-               AddNoticeStage controller = fxmlLoader.getController();
+               NoticeStageController controller = fxmlLoader.getController();
+               controller.setNoticeStageViewModel();
 
            }
            else if (value.equals("[Audio] Default Notice Stage")) {
@@ -259,12 +260,7 @@ public class TestController {
                btn_assignSound.setDisable(false);
 
            }
-     else if (value.equals("[Audio] Default Notice Stage")) {
-               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("InputStage.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-               propertiesPane.getChildren().setAll(newContent);
-               InputStageController controller = fxmlLoader.getController();
-           } else if (value.equals("[User Input] Input Stage")) {
+             else if (value.equals("[User Input] Input Stage")) {
 
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("InputStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();

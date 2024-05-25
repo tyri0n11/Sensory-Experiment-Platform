@@ -8,7 +8,7 @@ import main.sensoryexperimentplatform.models.Input;
 
 public class inputStage_VM {
     private Experiment experiment;
-    private final ListProperty<Object> stages = new SimpleListProperty<>(FXCollections.observableArrayList());
+//    private final ListProperty<Object> stages = new SimpleListProperty<>(FXCollections.observableArrayList());
     private StringProperty title;
     private StringProperty content;
     private StringProperty buttonText;
@@ -31,17 +31,17 @@ public class inputStage_VM {
         boolean alert = this.alert.get();
         Input stage = new Input(title, content, buttonText, alert);
         experiment.addInputStage(title, content, buttonText, alert);
-        stages.add(stage);
+//        stages.add(stage);
 
     }
 
-    public ObservableList<Object> getStages() {
-        return stages.get();
-    }
-
-    public ListProperty<Object> stagesProperty() {
-        return stages;
-    }
+//    public ObservableList<Object> getStages() {
+//        return stages.get();
+//    }
+//
+//    public ListProperty<Object> stagesProperty() {
+//        return stages;
+//    }
     public StringProperty titleProperty() {
         return title;
     }
