@@ -11,14 +11,14 @@ public class inputStage_VM {
 //    private final ListProperty<Object> stages = new SimpleListProperty<>(FXCollections.observableArrayList());
     private StringProperty title;
     private StringProperty content;
-    private StringProperty buttonText;
+    private StringProperty button;
     private BooleanProperty alert;
 
     public inputStage_VM(Experiment experiment){
         this.experiment = experiment;
         title = new SimpleStringProperty();
         content = new SimpleStringProperty();
-        buttonText = new SimpleStringProperty();
+        button = new SimpleStringProperty();
         alert = new SimpleBooleanProperty();
 
     }
@@ -27,7 +27,7 @@ public class inputStage_VM {
 
         String title = this.title.get();
         String content = this.content.get();
-        String buttonText = this.buttonText.get();
+        String buttonText = this.button.get();
         boolean alert = this.alert.get();
         Input stage = new Input(title, content, buttonText, alert);
         experiment.addInputStage(title, content, buttonText, alert);
@@ -51,11 +51,24 @@ public class inputStage_VM {
     }
 
     public StringProperty buttonTextProperty() {
-        return buttonText;
+        return button;
     }
 
     public BooleanProperty alertProperty() {
         return alert;
+    }
+
+    public String getTitle(){
+        return title.get();
+    }
+    public String getContent(){
+        return content.get();
+    }
+    public String getButton(){
+        return button.get();
+    }
+    public boolean getAlert(){
+        return alert.get();
     }
 
 }

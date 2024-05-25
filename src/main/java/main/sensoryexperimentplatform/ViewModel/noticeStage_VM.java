@@ -38,49 +38,34 @@ public class noticeStage_VM {
 
     }
 
-//    public String getButtonText() {
-//        return buttonText.get();
-//    }
+    public String getButtonText() {
+        return buttonText.get();
+    }
+    public String getHelpText() {
+        return helpText.get();
+    }
+    public boolean getAlert(){
+        return alert.get();
+    }
 
     public StringProperty buttonTextProperty() {
         return buttonText;
     }
 
-    public void setButtonText(String buttonText) {
-        this.buttonText.set(buttonText);
-    }
-
-//    public String getHelpText() {
-//        return helpText.get();
-//    }
 //
     public StringProperty helpTextProperty() {
         return helpText;
-    }
-//
-//    public void setHelpText(String helpText) {
-//        this.helpText.set(helpText);
-//    }
-
-    public boolean isAlert() {
-        return alert.get();
     }
 
     public BooleanProperty alertProperty() {
         return alert;
     }
 
-//    public void setAlert(boolean alert) {
-//        this.alert.set(alert);
-//    }
-//
-//    public Notice getNoticeStage() {
-//        return noticeStage;
-//    }
 
-//    public void setNoticeStage(Notice noticeStage) {
-//        this.noticeStage = noticeStage;
-//    }
+    public Notice getNoticeStage() {
+        return noticeStage;
+    }
+
     public StringProperty titleProperty() {
         return title;
     }
