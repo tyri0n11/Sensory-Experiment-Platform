@@ -1,5 +1,5 @@
-#dashboardBar{
-    -fx-background-color: #F1F6FB;
+.sidebar_left{
+    -fx-background-color: F1F6FB;
 }
 .root {
     -fx-font-family: 'Inter';
@@ -13,17 +13,24 @@
     -fx-text-fill: white;
 }
 
-#lbl_SenseXP{
+
+    #lbl_SenseXP{
     -fx-font-family: "Baloo Bhaina 2";
     -fx-text-fill: #397E82;
     -fx-font-weight: bold;
     -fx-font-size: 40;
 }
+#lbl_EditExperiment{
+    -fx-text-fill: #624DE3;
+    -fx-font-size: 36;
+}
+
+
 
 #btn_up{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
-    -fx-background-image: url('/static/images/btn_up.png');
+    -fx-background-image: url('/static/images/upward.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -31,7 +38,7 @@
 #btn_down{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
-    -fx-background-image: url('/static/images/btn_down.png');
+    -fx-background-image: url('/static/images/downward.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -47,7 +54,7 @@
 #btn_menu{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
-    -fx-background-image: url('images/menu.png');
+    -fx-background-image: url('/static/images/menu.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -79,7 +86,16 @@
     -fx-font-family: 'Inter';
     -fx-font-size: 14;
 }
+#btn_DashBoard{
+    -fx-font-family: 'Inter';
+    -fx-font-style: normal;
+    -fx-font-weight: 600;
+    -fx-font-size: 36px;
+    -fx-alignment: center;
 
+    -fx-text-fill: #397E82;
+
+}
 #txt_searchBar{
 
 
@@ -223,6 +239,19 @@
 
 }
 
+#DashBoardButton2,#DashBoardButton3,#DashBoardButton4,#DashBoardButton5,#DashBoardButton6{
+    -fx-font-family: 'Montserrat';
+    -fx-font-weight: normal;
+    -fx-align-items: center;
+    -fx-padding: 16px;
+    -fx-gap: 16px;
+    -fx-text-alignment: center;
+    -fx-font-size: 16px;
+
+
+    -fx-text-fill: #000;
+    -fx-background-color: #F7F6FE
+}
 #lbl_iD,#lbl_creator,#lbl_experimentName,#lbl_currentVersion,#lbl_result,#lbl_lastM,#lbl_createDate,#lbl_Option
 ,#ExperimentdesLabel,#AdditionNoteLabel,#FileLabel,#NameLabel{
     -fx-font-family: 'Montserrat';
@@ -338,19 +367,22 @@
         -fx-background-position: center;
 
     }
-.btn_dashboardButton{
-    -fx-font-family: "Montserrat";
-    -fx-font-style: normal;
-    -fx-font-weight: 500;
-    -fx-font-size: 14px;
-    -fx-text-fill: #000000;
-    -fx-line-height: 17px;
+    .btn_dashboardButton{
 
-    -fx-border-radius: 5px 5px 5px 5px;
+        -fx-font-family: 'Montserrat';
+        -fx-font-style: normal;
+        -fx-font-weight: 500;
+        -fx-font-size: 14px;
+        -fx-text-fill: #000000;
 
+        -fx-max-width: 217px;
+        -fx-max-height: 56px;
+        -fx-min-width: 217px;
+        -fx-min-height: 56px;
 
-}
+        -fx-border-radius: 5px 5px 5px 5px;
 
+    }
 
 
 

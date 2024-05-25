@@ -2,11 +2,19 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.ViewModel.addFoodVM;
 
-public class addFoodController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class addFoodController implements Initializable {
+    @FXML
+    private TextField txt_nameFood;
 
     @FXML
     private Label AddFoodLabel;
@@ -109,6 +117,7 @@ public class addFoodController {
 
     @FXML
     private AnchorPane sidebar_left;
+    private addFoodVM addVM;
 
     @FXML
     void btn_AddConditionalStatement(ActionEvent event) {
@@ -180,4 +189,9 @@ public class addFoodController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        addVM = new addFoodVM();
+        txt_nameFood.textProperty().bindBidirectional(addVM.nameProperty());
+    }
 }

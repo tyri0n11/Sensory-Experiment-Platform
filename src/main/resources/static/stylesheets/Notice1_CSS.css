@@ -24,7 +24,7 @@
 .btn_up{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
-    -fx-background-image: url('images/btn_up.png');
+    -fx-background-image: url('/static/images/btn_up.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -32,7 +32,7 @@
 .btn_down{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
-    -fx-background-image: url('images/btn_down.png');
+    -fx-background-image: url('/static/images/btn_down.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -40,7 +40,7 @@
 .btn_cross {
     -fx-pref-height: 50;
     -fx-pref-width: 50;
-    -fx-background-image: url('images/cross.png');
+    -fx-background-image: url('/static/images/cross.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
@@ -49,7 +49,7 @@
 
     -fx-pref-width: 50px;
     -fx-pref-height: 50px;
-    -fx-background-image: url('images/btn_copy.png');
+    -fx-background-image: url('/static/images/btn_copy.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover;
@@ -57,7 +57,7 @@
     #btn_menu{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
-    -fx-background-image: url('images/menu.png');
+    -fx-background-image: url('/static/images/menu.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -470,7 +470,7 @@
 .btn_bell{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
-    -fx-background-image: url('images/bell.png');
+    -fx-background-image: url('/static/images/bell.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover;
@@ -510,7 +510,7 @@
 
     -fx-pref-width: 50px;
     -fx-pref-height: 50px;
-    -fx-background-image: url('images/btn_copy.png');
+    -fx-background-image: url('/static/images/btn_copy.png');
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover;
