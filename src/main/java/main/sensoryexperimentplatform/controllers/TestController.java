@@ -263,11 +263,12 @@ public class TestController {
                propertiesPane.getChildren().setAll(newContent);
                InputStageController controller = fxmlLoader.getController();
            }
-           else if (value.equals("[Waiting] Please wait")){
+           else if (value.equals("[Waiting] Please wait")) {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("TimerStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
                TimerController controller = fxmlLoader.getController();
+               controller.init();
            }
            else if (value.equals("Taste test")){
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddTasteTest.fxml"));
