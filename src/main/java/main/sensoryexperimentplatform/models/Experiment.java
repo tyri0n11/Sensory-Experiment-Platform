@@ -51,7 +51,7 @@ public class Experiment {
         pairs = new ArrayList<>();
         timers = new ArrayList<>();
         notices = new ArrayList<>();
-        inputs=new ArrayList<>();
+        inputs = new ArrayList<>();
         vass = new ArrayList<>();
         glmss = new ArrayList<>();
         quess = new ArrayList<>();

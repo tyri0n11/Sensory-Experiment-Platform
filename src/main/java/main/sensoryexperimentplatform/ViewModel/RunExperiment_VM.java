@@ -13,6 +13,7 @@ public class RunExperiment_VM {
 
     private ListProperty<String> items = new SimpleListProperty<>(FXCollections.observableArrayList());
     private Map<String, Object> objectsMap = new HashMap<>();
+    private RunExperiment_VM viewModel;
 
     public ObservableList<String> getItems() {
         return items.get();

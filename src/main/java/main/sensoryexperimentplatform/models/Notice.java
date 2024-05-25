@@ -1,6 +1,6 @@
 package main.sensoryexperimentplatform.models;
 
-public class Notice extends Stage{
+public class Notice extends Stage {
     private String buttonText;
     private String content;
     private String helpText;

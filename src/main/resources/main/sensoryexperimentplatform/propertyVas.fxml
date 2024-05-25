@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="propertyTimer" minHeight="30.0" minWidth="0.0" prefHeight="228.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@../../static/stylesheets/EditExp_CSS.css" />
+    </stylesheets>
+   <children>
+      <Label fx:id="lbl_instruction" layoutX="31.0" layoutY="13.0" prefHeight="26.0" prefWidth="352.0" styleClass="propertiesText" text="Instruction to whilst waiting" />
+      <Label fx:id="lbl_timeToWait" layoutX="31.0" layoutY="64.0" styleClass="propertiesText" text="Time to wait in minutes" />
+      <Label fx:id="lbl_soundDisplay" layoutX="31.0" layoutY="114.0" prefHeight="26.0" prefWidth="375.0" styleClass="propertiesText" text="Play alert sound on screen display?" />
+      <CheckBox fx:id="cb_alertSound" layoutX="310.0" layoutY="114.0" mnemonicParsing="false" styleClass="propertiesText" />
+      <TextField fx:id="txt_instruction" layoutX="260.0" layoutY="10.0" prefHeight="31.0" prefWidth="261.0" />
+      <TextField fx:id="txt_time" layoutX="260.0" layoutY="61.0" prefHeight="31.0" prefWidth="262.0" />
+   </children>
+</AnchorPane>

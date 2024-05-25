@@ -103,9 +103,6 @@ public class RunController {
 
     private void showDetailView(String item) {
 
-
-
-}
         Object selectedObject = viewModel.getObjectByKey(item);
         if (selectedObject != null) {
             content.getChildren().clear();
@@ -138,8 +135,6 @@ public class RunController {
                     RunNoticeController controller = loader.getController();
                     RunNotice_VM vm = new RunNotice_VM((Notice) selectedObject);
                     controller.setViewModel(vm);
-
-
                 }
                 // Add more conditions here for other types of objects
 

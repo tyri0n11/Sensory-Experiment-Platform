@@ -21,6 +21,7 @@ public class TimerController {
 
     @FXML
     private StackPane TimerStackPane;
+
     @FXML
     void AddGLMSbutton(ActionEvent event) throws IOException {
         new ScenseSwitch(TimerStackPane,"/fxml/GLMS.fxml");
