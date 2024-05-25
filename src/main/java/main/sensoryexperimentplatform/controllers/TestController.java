@@ -130,6 +130,8 @@ public class TestController {
     void addGLMSStage(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("[GLMS] Question?"));
     }
 
     @FXML
@@ -206,7 +208,8 @@ public class TestController {
     void addVasStage(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
-
+        start.setExpanded(true);
+        start.getChildren().add(new TreeItem<>("[Vas] Question?"));
     }
 
     @FXML
@@ -314,6 +317,18 @@ public class TestController {
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
 //               AddNoticeStage controller = fxmlLoader.getController();
+           }
+           else if (value.equals("[Vas] Question?")) {
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("VasStage.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+               VasController controller = fxmlLoader.getController();
+           }
+           else if (value.equals("[GLMS] Question?")) {
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("GLMS.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+               GLMSController controller = fxmlLoader.getController();
            }
 
 
