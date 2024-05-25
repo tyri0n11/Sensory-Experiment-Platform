@@ -83,15 +83,17 @@ public class VasController {
 
     public void initialize(){
         this.vasStageVM = new vasStage_VM();
-        NumberStringConverter converter = new NumberStringConverter();
         txt_question.textProperty().bindBidirectional(vasStageVM.questionTextProperty());
         txt_LowAncTxt.textProperty().bindBidirectional(vasStageVM.lowAnchorTextProperty());
         txt_HighAncTxt.textProperty().bindBidirectional(vasStageVM.highAnchorTextProperty());
         txt_LowAncTxt.textProperty().bindBidirectional(vasStageVM.lowAnchorTextProperty());
-        txt_LowAncVal.textProperty().bindBidirectional(vasStageVM.lowAnchorValueProperty(), converter);
-        txt_HighAncVal.textProperty().bindBidirectional(vasStageVM.highAnchorValueProperty(), converter);
+        txt_LowAncVal.textProperty().bindBidirectional(vasStageVM.lowAnchorValueProperty());
+        txt_HighAncVal.textProperty().bindBidirectional(vasStageVM.highAnchorValueProperty());
         txt_BtnTxt.textProperty().bindBidirectional(vasStageVM.buttonTextProperty());
-
+        txt_help.textProperty().bindBidirectional(vasStageVM.helpTextProperty());
+        txt_yes.textProperty().bindBidirectional(vasStageVM.txt_yesProperty());
+        checkB_sound.selectedProperty().bindBidirectional(vasStageVM.checkB_soundProperty());
+        checkB_swap.selectedProperty().bindBidirectional(vasStageVM.checkB_swapProperty());
     }
 
 }

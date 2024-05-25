@@ -5,21 +5,81 @@ import main.sensoryexperimentplatform.models.Vas;
 
 public class vasStage_VM {
     private StringProperty questionText;
-    private final StringProperty lowAnchorText = new SimpleStringProperty();
-    private final StringProperty highAnchorText = new SimpleStringProperty();
-    private final StringProperty helpText = new SimpleStringProperty();
-    private final StringProperty buttonText = new SimpleStringProperty();
-    private final IntegerProperty lowAnchorValue = new SimpleIntegerProperty();
-    private final IntegerProperty highAnchorValue = new SimpleIntegerProperty();
+    private StringProperty lowAnchorText;
+    private StringProperty highAnchorText;
+    private StringProperty helpText;
+    private StringProperty buttonText;
+    private StringProperty lowAnchorValue ;
+    private StringProperty highAnchorValue;
     private StringProperty txt_BtnTxt;
-
-    private final BooleanProperty isSwap = new SimpleBooleanProperty(true);
+    private StringProperty  txt_yes;
+    private BooleanProperty checkB_sound;
+    private BooleanProperty checkB_swap;
     private final BooleanProperty alert = new SimpleBooleanProperty(true);
 
     public vasStage_VM() {
+        lowAnchorText = new SimpleStringProperty();
+        highAnchorText = new SimpleStringProperty();
+        buttonText = new SimpleStringProperty();
+        helpText = new SimpleStringProperty();
+        lowAnchorValue = new SimpleStringProperty();
+        highAnchorValue= new SimpleStringProperty();
         questionText = new SimpleStringProperty();
+        txt_BtnTxt = new SimpleStringProperty();
+        txt_yes= new SimpleStringProperty();
+        checkB_sound = new SimpleBooleanProperty(false);
+        checkB_swap = new SimpleBooleanProperty(false);
         questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange());
     }
+
+    public boolean isCheckB_swap() {
+        return checkB_swap.get();
+    }
+
+    public BooleanProperty checkB_swapProperty() {
+        return checkB_swap;
+    }
+
+    public boolean isCheckB_sound() {
+        return checkB_sound.get();
+    }
+
+    public BooleanProperty checkB_soundProperty() {
+        return checkB_sound;
+    }
+
+    public String getHighAnchorValue() {
+        return highAnchorValue.get();
+    }
+
+    public StringProperty highAnchorValueProperty() {
+        return highAnchorValue;
+    }
+
+    public String getLowAnchorValue() {
+        return lowAnchorValue.get();
+    }
+
+    public StringProperty lowAnchorValueProperty() {
+        return lowAnchorValue;
+    }
+
+    public String getTxt_yes() {
+        return txt_yes.get();
+    }
+
+    public StringProperty txt_yesProperty() {
+        return txt_yes;
+    }
+
+    public String getTxt_BtnTxt() {
+        return txt_BtnTxt.get();
+    }
+
+    public StringProperty txt_BtnTxtProperty() {
+        return txt_BtnTxt;
+    }
+
     private void onQuestionTextChange(){
         System.out.println(questionTextProperty());
     }
@@ -85,41 +145,6 @@ public class vasStage_VM {
         this.buttonText.set(buttonText);
     }
 
-    public int getLowAnchorValue() {
-        return lowAnchorValue.get();
-    }
-
-    public IntegerProperty lowAnchorValueProperty() {
-        return lowAnchorValue;
-    }
-
-    public void setLowAnchorValue(int lowAnchorValue) {
-        this.lowAnchorValue.set(lowAnchorValue);
-    }
-
-    public int getHighAnchorValue() {
-        return highAnchorValue.get();
-    }
-
-    public IntegerProperty highAnchorValueProperty() {
-        return highAnchorValue;
-    }
-
-    public void setHighAnchorValue(int highAnchorValue) {
-        this.highAnchorValue.set(highAnchorValue);
-    }
-
-    public boolean isIsSwap() {
-        return isSwap.get();
-    }
-
-    public BooleanProperty isSwapProperty() {
-        return isSwap;
-    }
-
-    public void setIsSwap(boolean isSwap) {
-        this.isSwap.set(isSwap);
-    }
 
     public boolean isAlert() {
         return alert.get();

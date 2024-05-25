@@ -16,8 +16,8 @@ public class glmsStage_VM {
         txt_help = new SimpleStringProperty();
         txt_LowAncTxt = new SimpleStringProperty();
         txt_question = new SimpleStringProperty();
-        checkB_sound = new SimpleBooleanProperty();
-        checkB_swap  = new SimpleBooleanProperty();
+        checkB_sound = new SimpleBooleanProperty(false);
+        checkB_swap  = new SimpleBooleanProperty(false);
         txt_yes= new SimpleStringProperty();
     }
 
