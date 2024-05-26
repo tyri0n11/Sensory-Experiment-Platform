@@ -7,6 +7,7 @@ import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Input;
 
 public class inputStage_VM {
+    private Input input;
     private Experiment experiment;
 //    private final ListProperty<Object> stages = new SimpleListProperty<>(FXCollections.observableArrayList());
     private StringProperty title;
@@ -14,14 +15,16 @@ public class inputStage_VM {
     private StringProperty button;
     private BooleanProperty alert;
 
-    public inputStage_VM(Experiment experiment){
-        this.experiment = experiment;
-        title = new SimpleStringProperty();
-        content = new SimpleStringProperty();
-        button = new SimpleStringProperty();
-        alert = new SimpleBooleanProperty();
+    public inputStage_VM(){
+        this.input = new Input("User input", "This is question","this is button", false);
+        title = new SimpleStringProperty(input.getTitle());
+        content = new SimpleStringProperty(input.getContent());
+        button = new SimpleStringProperty(input.getButtonText());
+        alert = new SimpleBooleanProperty(input.isAlert());
 
     }
+
+
 
     public void addInputStage() {
 
@@ -71,4 +74,19 @@ public class inputStage_VM {
         return alert.get();
     }
 
+    public void setHelpText(String newValue) {
+        input.setContent(newValue);
+    }
+    public void setQuestion(String newValue) {
+        input.setTitle(newValue);
+    }
+    public void setButtonText(String newValue) {
+        input.setButtonText(newValue);
+    }
+    public void setAlert(Boolean newValue) {
+        input.setAlert(newValue);
+    }
+    public Input getInput(){
+        return input;
+    }
 }
