@@ -14,10 +14,16 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.ViewModel.TestVM;
+import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
+import main.sensoryexperimentplatform.models.Experiment;
+import main.sensoryexperimentplatform.models.Input;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class TestController {
+    private Experiment experiment;
+
     @FXML
     private AnchorPane propertiesPane;
     private TreeItem<String> courseItem;
@@ -73,6 +79,7 @@ public class TestController {
     private Button btn_AddCourse;
 
     public void initialize(){
+        this.experiment = new Experiment("Prof Tung`","Toi di test dao","khong co gi ca","ko","1");
         testVM = new TestVM();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
         start = new TreeItem<>("Start Experiment");
@@ -261,11 +268,14 @@ public class TestController {
 
            }
              else if (value.equals("[User Input] Input Stage")) {
-
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("InputStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
-               InputStageController controller = fxmlLoader.getController();
+
+               InputStageController controller = new InputStageController();
+               inputStage_VM viewModel = new inputStage_VM();
+               controller.setViewModel(viewModel);
+
 
 
            } else if (value.equals("[Waiting] Please wait")) {
@@ -273,6 +283,7 @@ public class TestController {
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
                TimerController controller = fxmlLoader.getController();
+
            } else if (value.equals("Taste test")) {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddTasteTest.fxml"));
                AnchorPane newContent = fxmlLoader.load();
