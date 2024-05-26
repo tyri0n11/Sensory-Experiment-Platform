@@ -26,8 +26,7 @@ public class RunGLMSController {
         helpText.textProperty().bind(viewModel.helpProperty());
 
         mySlider.setShowTickLabels(true);
-        mySlider.setMajorTickUnit(1); // Hiển thị nhãn tại các điểm chính
-        mySlider.setMinorTickCount(-1);
+        mySlider.setMajorTickUnit(5); // Hiển thị nhãn tại các điểm chính
 
         mySlider.valueProperty().addListener((observable, oldValue, newValue) -> {
             result.textProperty().bind(viewModel.resultTextProperty());

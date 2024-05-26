@@ -1,6 +1,7 @@
 package main.sensoryexperimentplatform.controllers;
 
 import javafx.application.Platform;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -64,9 +65,6 @@ public class RunController {
         // Bind ListView items to ViewModel items
         showList.itemsProperty().bind(viewModel.itemsProperty());
 
-        showList.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
-            event.consume(); // Ngăn sự kiện click lan truyền
-        });
         showList.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
             public ListCell<String> call(ListView<String> listView) {

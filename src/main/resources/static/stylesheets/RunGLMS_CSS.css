@@ -14,6 +14,14 @@
     -fx-background-radius: 14px;
 
 }
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #FF5733; /* Set your desired background color */
+}
+input[type="range"]::-moz-range-track {
+    background-color: #FF5733; /* Set your desired background color */
+}
+
+
 .slider .axis{
     -fx-tick-label-fill: #397E82 ;
     -fx-font-size: 16px;

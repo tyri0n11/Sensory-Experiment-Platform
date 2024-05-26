@@ -31,7 +31,6 @@ public class RunExperiment_VM {
     public void loadItems() throws IOException {
         Experiment experiment = DataAccess.getExperimentIndividually();
         stages = experiment.getStages();
-        if (experiment != null) {
 
             Set<String> stringSet = new LinkedHashSet<>();
             ArrayList<Object> stages = experiment.getStages();
@@ -58,7 +57,7 @@ public class RunExperiment_VM {
                         String key = index + " " + temp;
                         objectsMap.put(key, o);
                         stringSet.add(key);
-                        objectList.add(o); // Thêm đối tượng vào objectList
+                        objectList.add(o);
                         index++;
                         count++;
                     }
@@ -92,7 +91,7 @@ public class RunExperiment_VM {
                 }
             }
             items.setAll(stringSet);
-        }
+
     }
 
     public Object getObjectByKey(String key) {
