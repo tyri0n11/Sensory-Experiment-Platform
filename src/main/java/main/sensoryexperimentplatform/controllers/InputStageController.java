@@ -26,8 +26,8 @@ public class InputStageController {
     private TextField txt_question;
     
     public void initialize() {
-//        Experiment experiment;
-//        inputStage_vm = new inputStage_VM(experiment);
+        Experiment experiment =new Experiment();
+        inputStage_vm = new inputStage_VM(experiment);
         txt_buttonText.textProperty().bindBidirectional(inputStage_vm.buttonTextProperty());
         txt_helptext.textProperty().bindBidirectional(inputStage_vm.contentProperty());
         txt_question.textProperty().bindBidirectional(inputStage_vm.titleProperty());
