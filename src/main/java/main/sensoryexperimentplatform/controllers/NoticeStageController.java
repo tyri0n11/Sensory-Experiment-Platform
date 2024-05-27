@@ -67,12 +67,14 @@ public class NoticeStageController {
 
         txt_helptext.textProperty().addListener((observable, oldValue, newValue) -> {
             viewModel.setHelpText(newValue);
+//            System.out.println(viewModel.getHelpText());
         });
+
         txt_content.textProperty().addListener((observable, oldValue, newValue) -> {
-            viewModel.setHelpText(newValue);
+            viewModel.setContent(newValue);
         });
         txt_title.textProperty().addListener((observable, oldValue, newValue) -> {
-            viewModel.setHelpText(newValue);
+            viewModel.setTitle(newValue);
         });
 
 

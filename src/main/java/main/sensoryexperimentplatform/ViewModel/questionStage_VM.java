@@ -4,6 +4,7 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import main.sensoryexperimentplatform.models.Question;
 
 public class questionStage_VM {
     //Notice can chinh lai
@@ -14,20 +15,21 @@ public class questionStage_VM {
     private StringProperty rightValue;
     private StringProperty helpText;
     private BooleanProperty alert;
+    private Question questionStage;
+
 
     public questionStage_VM(){
-        this.question = new SimpleStringProperty();
+        this.questionStage = new Question("hell0 ","hi","hello",false);
+        this.question = new SimpleStringProperty(questionStage.getQuestion());
         this.leftText = new SimpleStringProperty();
         this.rightText = new SimpleStringProperty();
         this.leftValue = new SimpleStringProperty();
         this.rightValue = new SimpleStringProperty();
        this.helpText = new SimpleStringProperty();
-       this.alert= new SimpleBooleanProperty();
+       this.alert= new SimpleBooleanProperty(questionStage.isAlert());
     }
-    public String getQuestion(){
-        return question.get();
 
-    }
+
     public String getLeftText(){
         return leftText.get();
 
@@ -73,15 +75,34 @@ public class questionStage_VM {
     public BooleanProperty alertProperty() {
         return alert;
     }
-
-
-
-
-
-
+    public void setQuestion(String newValue){
+        questionStage.setQuestion(newValue);
+    }
+    public void setAlert(Boolean newValue) {
+        questionStage.setAlert(newValue);
+    }
+    public void setHelpText(String newValue) {
+        questionStage.setContent(newValue);
+    }
+    public Question getQuestionStage(){
+        return questionStage;
+    }
 
 
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

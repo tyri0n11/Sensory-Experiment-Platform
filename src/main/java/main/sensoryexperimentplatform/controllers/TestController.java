@@ -16,6 +16,7 @@ import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.ViewModel.TestVM;
 import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
 import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
+import main.sensoryexperimentplatform.ViewModel.questionStage_VM;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Input;
 
@@ -335,7 +336,9 @@ public class TestController {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("QuestionStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
-//               AddNoticeStage controller = fxmlLoader.getController();
+               questionStageController controller = fxmlLoader.getController();
+               questionStage_VM viewModel = new questionStage_VM();
+               controller.setQuestionStage_vm(viewModel);
            }
            else if (value.equals("If Something less than something else then")){
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddConditionalStatement.fxml"));

@@ -22,11 +22,11 @@ public class noticeStage_VM {
 
     public noticeStage_VM() {
         this.notice = new Notice("User input", "This is question","this is button", "hell00",false);
-        this.buttonText = new SimpleStringProperty();
-        this.helpText = new SimpleStringProperty();
-        this.alert = new SimpleBooleanProperty();
-        this.title = new SimpleStringProperty();
-        this.content = new SimpleStringProperty();
+        this.buttonText = new SimpleStringProperty(notice.getButtonText());
+        this.helpText = new SimpleStringProperty(notice.getHelpText());
+        this.alert = new SimpleBooleanProperty(notice.isAlert());
+        this.title = new SimpleStringProperty(notice.getTitle());
+        this.content = new SimpleStringProperty(notice.getContent());
 
     }
     public void addNoticeStage() {
@@ -40,9 +40,7 @@ public class noticeStage_VM {
 //        stages.add(stage);
 
     }
-    public Notice getNotice(){
-        return notice;
-    }
+
 
     public String getButtonText() {
         return buttonText.get();
@@ -101,6 +99,9 @@ public class noticeStage_VM {
     }
     public void setAlert(Boolean newValue) {
         notice.setAlert(newValue);
+    }
+    public Notice getNotice(){
+        return notice;
     }
 
 

@@ -5,9 +5,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.ViewModel.questionStage_VM;
+import main.sensoryexperimentplatform.models.Question;
 
 public class questionStageController {
-    private questionStage_VM questionStage_vm;
+    private questionStage_VM viewModel;
 
     @FXML
     private Label fontLabel;
@@ -53,6 +54,8 @@ public class questionStageController {
 
     @FXML
     private CheckBox cbx_alert;
+    private Question question;
+
 
     @FXML
     void txt_question(ActionEvent event) {
@@ -63,17 +66,35 @@ public class questionStageController {
     void txt_rightvalue(ActionEvent event) {
 
     }
+
+
     public void initialize(){
-        txt_helpText.textProperty().bindBidirectional(questionStage_vm.helpTextProperty());
-        txt_leftText.textProperty().bindBidirectional(questionStage_vm.leftTextProperty());
-        txt_rightText.textProperty().bindBidirectional(questionStage_vm.rightTextProperty());
-        txt_question.textProperty().bindBidirectional(questionStage_vm.questionProperty());
-        txt_leftValue.textProperty().bindBidirectional(questionStage_vm.leftValueProperty());
-        txt_rightvalue.textProperty().bindBidirectional(questionStage_vm.rightValueProperty());
-        cbx_alert.selectedProperty().bindBidirectional(questionStage_vm.alertProperty());
+        viewModel = new questionStage_VM();
+        bindViewModel();
 
+    }
+    public void setQuestionStage_vm( questionStage_VM viewModel){
+        this.viewModel = viewModel;
+    }
+    public void bindViewModel(){
+        txt_helpText.textProperty().bindBidirectional(viewModel.helpTextProperty());
+        txt_leftText.textProperty().bindBidirectional(viewModel.leftTextProperty());
+        txt_rightText.textProperty().bindBidirectional(viewModel.rightTextProperty());
+        txt_question.textProperty().bindBidirectional(viewModel.questionProperty());
+        txt_leftValue.textProperty().bindBidirectional(viewModel.leftValueProperty());
+        txt_rightvalue.textProperty().bindBidirectional(viewModel.rightValueProperty());
+        cbx_alert.selectedProperty().bindBidirectional(viewModel.alertProperty());
 
+        txt_helpText.textProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setHelpText(newValue);
+            System.out.println(viewModel.getHelpText());
+//
+//
+        });
+        cbx_alert.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setAlert(newValue);
 
+        });
 
     }
 
