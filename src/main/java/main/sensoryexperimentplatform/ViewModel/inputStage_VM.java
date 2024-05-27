@@ -70,6 +70,7 @@ public class inputStage_VM {
     public String getButton(){
         return button.get();
     }
+
     public boolean getAlert(){
         return alert.get();
     }

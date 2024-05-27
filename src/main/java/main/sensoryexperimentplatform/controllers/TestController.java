@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.ViewModel.TestVM;
 import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
+import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Input;
 
@@ -255,7 +256,9 @@ public class TestController {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddNoticeStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
-               NoticeStageController controller = fxmlLoader.getController();
+               NoticeStageController controller = new NoticeStageController();
+               noticeStage_VM viewModel = new noticeStage_VM();
+               controller.setNoticeStage_vm(viewModel);
 
 
            }
@@ -265,6 +268,7 @@ public class TestController {
                propertiesPane.getChildren().setAll(newContent);
 //               AddNoticeStage controller = fxmlLoader.getController();
                btn_assignSound.setDisable(false);
+
 
            }
              else if (value.equals("[User Input] Input Stage")) {
