@@ -24,21 +24,57 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class TestController {
+    @FXML
+    private Button btn_AddConditionalStatement;
     private Experiment experiment;
+    @FXML
+    private Button btn_AddCourse;
+
+    @FXML
+    private Button btn_AddGLMS;
+
+    @FXML
+    private Button btn_AddPeriodicStage;
+
+    @FXML
+    private Button btn_AddQuestionStage;
+    @FXML
+    private Button btn_addAudibleInstruction;
+
+    @FXML
+    private Button btn_addFoodAndTaste;
+
+    @FXML
+    private Button btn_addInput;
+
+    @FXML
+    private Button btn_addRatingContainer;
+
+    @FXML
+    private Button btn_addTasteTest;
+
+    @FXML
+    private Button btn_addTimer;
+
+    @FXML
+    private Button btn_addVasStage;
+
+    @FXML
+    private Button btn_assignSound;
 
     @FXML
     private AnchorPane propertiesPane;
     private TreeItem<String> courseItem;
+    private TreeItem<String> Randomnies;
     private TestVM testVM;
     private boolean isSidebarVisible = true;
     @FXML
     private TreeView<String> listObject;
 
+
     @FXML
     private HBox mainBox;
 
-    @FXML
-    private Button btn_AddPeriodicStage;
 
     @FXML
     private BorderPane borderPane;
@@ -74,11 +110,9 @@ public class TestController {
     private AnchorPane mainPane;
     TreeItem<String> start;
 
-    @FXML
-    private Button btn_assignSound;
+
     private AnchorPane rootPane;
-    @FXML
-    private Button btn_AddCourse;
+
 
     public void initialize(){
         this.experiment = new Experiment("Prof Tung`","Toi di test dao","khong co gi ca","ko","1");
@@ -122,7 +156,6 @@ public class TestController {
         start.setExpanded(true);
         courseItem = new TreeItem<>("Start Eating stage");
         start.getChildren().add(courseItem);
-
         start.setExpanded(true);
 
 
@@ -141,7 +174,13 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        start.getChildren().add(new TreeItem<>("[GLMS] Question?"));
+        TreeItem<String> glmsQuestionItem = new TreeItem<>("[GLMS] Question?");
+        if (Randomnies != null && listObject.getSelectionModel().getSelectedItem() == Randomnies) {
+            Randomnies.getChildren().add(glmsQuestionItem);
+            Randomnies.setExpanded(true);
+        } else {
+            start.getChildren().add( glmsQuestionItem);
+        }
     }
 
     @FXML
@@ -166,16 +205,7 @@ public class TestController {
         propertiesPane.setVisible(true);
         start.setExpanded(true);
 
-        if (courseItem != null) {
 
-            TreeItem<String> periodicStage = new TreeItem<>("Every -1 grams");
-            courseItem.getChildren().add(periodicStage);
-
-            // Optionally expand the course item to show the newly added child
-            courseItem.setExpanded(true);
-        } else {
-
-        }
 
 
     }
@@ -193,7 +223,10 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        start.getChildren().add(new TreeItem<>("Ratings container"));
+        Randomnies = new TreeItem<>("Ratings container");
+        start.getChildren().add(Randomnies);
+
+
 
     }
 
@@ -219,7 +252,15 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        start.getChildren().add(new TreeItem<>("[Vas] Question?"));
+
+        TreeItem<String> vasQuestionItem = new TreeItem<>("[Vas] Question?");
+
+        if (Randomnies != null && listObject.getSelectionModel().getSelectedItem() == Randomnies) {
+            Randomnies.getChildren().add(vasQuestionItem);
+            Randomnies.setExpanded(true);
+        } else {
+            start.getChildren().add(vasQuestionItem);
+        }
     }
 
     @FXML
@@ -253,7 +294,10 @@ public class TestController {
        Node node = event.getPickResult().getIntersectedNode();
        if (node instanceof Text || (node instanceof TreeCell &&((TreeCell) node).getText() != null)) {
            String value = (String) ((TreeItem) listObject.getSelectionModel().getSelectedItem()).getValue();
-           if (value.equals("[Instruction] Default Notice Stage")) {
+           if (value.equals("Start Experiment")) {
+
+               }
+           else if (value.equals("[Instruction] Default Notice Stage")) {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddNoticeStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
@@ -312,6 +356,24 @@ public class TestController {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddRatingsContainer.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
+               btn_AddPeriodicStage.setDisable(true);
+               btn_AddCourse.setDisable(true);
+               btn_assignSound.setDisable(true);
+               btn_addFoodAndTaste.setDisable(true);
+               btn_addAudibleInstruction.setDisable(true);
+            btn_addInput.setDisable(true);
+               btn_addInput.setDisable(true);
+               btn_noticeStage.setDisable(true);
+               btn_addTimer.setDisable(true);
+               btn_AddQuestionStage.setDisable(true);
+               btn_addRatingContainer.setDisable(true);
+               btn_addTasteTest.setDisable(true);
+               btn_addFoodAndTaste.setDisable(true);
+               btn_AddConditionalStatement.setDisable(true);
+
+
+
+
 //               AddNoticeStage controller = fxmlLoader.getController();
            }
            else if (value.equals("Start Eating stage")){
@@ -321,6 +383,9 @@ public class TestController {
 //               AddNoticeStage controller = fxmlLoader.getController();
                btn_AddPeriodicStage.setDisable(false);
                btn_AddCourse.setDisable(true);
+               btn_noticeStage.setDisable(true);
+               btn_addAudibleInstruction.setDisable(true);
+
 
            }
            else if (value.equals("Every -1 grams")){
