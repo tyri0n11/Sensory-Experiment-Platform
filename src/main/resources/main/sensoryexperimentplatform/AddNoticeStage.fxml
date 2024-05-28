@@ -6,24 +6,24 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Notics_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.AddNoticeStage">
+<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Notics_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.NoticeStageController">
    <children>
-      <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="253.0" prefWidth="520.0" stylesheets="@../../static/stylesheets/Notics_CSS.css">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="570.0" prefWidth="520.0" style="-fx-background-color: white;">
+      <ScrollPane layoutY="-1.0" prefHeight="254.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Notics_CSS.css">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="632.0" prefWidth="538.0" style="-fx-background-color: white;">
                <children>
                   <Label layoutX="28.0" layoutY="14.0" styleClass="property" stylesheets="@../../static/stylesheets/Notics_CSS.css" text="Properties" />
                   <Label layoutX="28.0" layoutY="64.0" styleClass="normallabel" stylesheets="@../../static/stylesheets/Notics_CSS.css" text="Title Text" />
-                  <TextField layoutX="222.0" layoutY="64.0" prefHeight="25.0" prefWidth="274.0" />
+                  <TextField fx:id="txt_title" layoutX="222.0" layoutY="64.0" onMouseClicked="#txt_title" prefHeight="25.0" prefWidth="274.0" />
                   <Label layoutX="28.0" layoutY="114.0" styleClass="normallabel" text="Content text" />
-                  <TextArea layoutX="222.0" layoutY="114.0" prefHeight="160.0" prefWidth="274.0" />
+                  <TextArea fx:id="txt_content" layoutX="222.0" layoutY="114.0" onMouseClicked="#txt_content" prefHeight="160.0" prefWidth="274.0" />
                   <Label layoutX="28.0" layoutY="290.0" styleClass="normallabel" text="Button text" />
-                  <TextField layoutX="222.0" layoutY="290.0" prefHeight="25.0" prefWidth="274.0" />
+                  <TextField fx:id="txt_buttonText" layoutX="222.0" layoutY="290.0" onMouseClicked="#txt_buttonText" prefHeight="25.0" prefWidth="274.0" />
                   <Label layoutX="28.0" layoutY="340.0" styleClass="normallabel" text="Help text" />
-                  <TextArea layoutX="222.0" layoutY="340.0" prefHeight="160.0" prefWidth="274.0" />
+                  <TextArea fx:id="txt_helptext" layoutX="222.0" layoutY="340.0" onMouseClicked="#txt_helptext" prefHeight="160.0" prefWidth="274.0" />
                </children>
             </AnchorPane>
-        </content>
+         </content>
       </ScrollPane>
    </children>
 </AnchorPane>
