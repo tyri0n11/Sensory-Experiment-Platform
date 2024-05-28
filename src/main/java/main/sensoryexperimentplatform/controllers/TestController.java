@@ -219,9 +219,6 @@ public class TestController {
         }
 
 
-
-
-
     }
 
     @FXML
@@ -462,10 +459,6 @@ public class TestController {
                glmsStage_VM view = new glmsStage_VM(glms);
                controller.setViewModel(view);
            }
-
-
-
-
 
        }
 
