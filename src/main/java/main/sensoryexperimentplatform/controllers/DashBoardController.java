@@ -20,6 +20,8 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
+
 public class DashBoardController {
     private dashBoard_VM viewModel;
 
@@ -120,6 +122,8 @@ public class DashBoardController {
         // Bind the TableView items to the ViewModel items
         contentTable.setItems(viewModel.itemsProperty());
 
+
+
         // Add listener for row selection
         contentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, selectedExperiment) -> {
             if (selectedExperiment != null) {
@@ -131,6 +135,7 @@ public class DashBoardController {
 
             }
         });
+
 
     }
 

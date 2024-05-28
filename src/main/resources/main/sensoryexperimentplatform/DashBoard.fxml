@@ -132,8 +132,8 @@
                                   <TableColumn fx:id="lbl_iD" prefWidth="75.0" text="ID" />
                                   <TableColumn fx:id="lbl_creator" prefWidth="128.00000762939453" text="Creator " />
                                     <TableColumn fx:id="lbl_experimentName" prefWidth="187.20001220703125" text="Experiment Name" />
-                                    <TableColumn fx:id="lbl_currentVersion" prefWidth="167.99993896484375" text="Current Version " />
-                                    <TableColumn fx:id="lbl_result" prefWidth="123.99993896484375" text="Result" />
+                                    <TableColumn fx:id="lbl_currentVersion" prefWidth="179.0" text="Current Version " />
+                                    <TableColumn fx:id="lbl_result" prefWidth="113.0" text="Result" />
                                     <TableColumn fx:id="lbl_createDate" prefWidth="160.0" text="Create Date" />
                                     <TableColumn fx:id="lbl_Option" prefWidth="118.39990234375" text="Option" />
                                 </columns>
