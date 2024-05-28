@@ -189,7 +189,7 @@ public class TestController {
             start.getChildren().add( glmsQuestionItem);
         }
 
-        start.getChildren().add(new TreeItem<>("[GLMS] Question?"));
+
 
     }
 
@@ -365,19 +365,7 @@ public class TestController {
            addTasteController controller = fxmlLoader.getController();
            controller.init();
 
-       } else if (value.equals("[Vas] Question?")) {
-               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("VasStage.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-               propertiesPane.getChildren().setAll(newContent);
-               VasController controller = fxmlLoader.getController();
-           }
-           else if (value.equals("[GLMS] Question?")) {
-               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("GLMS.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-               propertiesPane.getChildren().setAll(newContent);
-               GLMSController controller = fxmlLoader.getController();
-
-           }
+       }
            else if (value.equals("Ratings container")){
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddRatingsContainer.fxml"));
                AnchorPane newContent = fxmlLoader.load();
