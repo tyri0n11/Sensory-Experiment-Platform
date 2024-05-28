@@ -43,16 +43,9 @@ public class RunController {
 
     private RunExperiment_VM viewModel;
 
-    @FXML
-    public void initialize() {
-        viewModel = new RunExperiment_VM();
+    public void setViewModel(RunExperiment_VM viewModel){
+        this.viewModel = viewModel;
         bindViewModel();
-
-        try {
-            viewModel.loadItems();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     private void updateProgress(double processed){
         if(processed > pivot){

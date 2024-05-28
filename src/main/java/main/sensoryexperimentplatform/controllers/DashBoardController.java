@@ -2,13 +2,20 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.RunExperiment_VM;
 import main.sensoryexperimentplatform.ViewModel.dashBoard_VM;
 import main.sensoryexperimentplatform.models.Experiment;
 
+import javax.swing.text.View;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
@@ -114,25 +121,31 @@ public class DashBoardController {
         contentTable.setItems(viewModel.itemsProperty());
 
         // Add listener for row selection
-        contentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            if (newSelection != null) {
-                updateSelectedExperimentDetails(newSelection);
+        contentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, selectedExperiment) -> {
+            if (selectedExperiment != null) {
+                try {
+                    runExperiment(selectedExperiment);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
             }
         });
 
-        // Debugging: Print items to verify they are loaded
-        System.out.println("Items loaded: " + viewModel.itemsProperty().size());
-        for (Experiment experiment : viewModel.itemsProperty()) {
-            System.out.println(experiment.getExperimentName());
-        }
     }
 
-    private void updateSelectedExperimentDetails(Experiment experiment) {
-        Map<String, Object> objectsMap = viewModel.getObjectsMap();
-        objectsMap.put("id", experiment.getId());
-        objectsMap.put("creator", experiment.getCreatorName());
-        objectsMap.put("name", experiment.getExperimentName());
-        objectsMap.put("version", experiment.getVersion());
+    private void runExperiment(Experiment experiment) throws IOException {
+        FXMLLoader loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunExperiment.fxml"));
+        Parent root = loader.load();
+
+        RunController controller = loader.getController(); // Get the controller from the loader
+        RunExperiment_VM viewModel = new RunExperiment_VM(experiment);
+        controller.setViewModel(viewModel);
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
     }
 
     @FXML

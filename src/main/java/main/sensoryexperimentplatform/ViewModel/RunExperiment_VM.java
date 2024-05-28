@@ -11,11 +11,17 @@ import java.io.IOException;
 import java.util.*;
 
 public class RunExperiment_VM {
+    private Experiment experiment;
     public double count = 0.0;
     private final ListProperty<String> items = new SimpleListProperty<>(FXCollections.observableArrayList());
     private final Map<String, Object> objectsMap = new HashMap<>();
     private final List<Object> objectList = new ArrayList<>();
     private ArrayList<Object> stages = new ArrayList<>();
+
+    public RunExperiment_VM(Experiment experiment) {
+        this.experiment = experiment;
+        loadItems();
+    }
 
     public ObservableList<String> getItems() {
         return items.get();
@@ -28,8 +34,7 @@ public class RunExperiment_VM {
         return stages;
     }
 
-    public void loadItems() throws IOException {
-        Experiment experiment = DataAccess.getExperimentIndividually();
+    public void loadItems() {
         stages = experiment.getStages();
 
             Set<String> stringSet = new LinkedHashSet<>();

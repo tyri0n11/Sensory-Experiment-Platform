@@ -23,7 +23,6 @@ public class RunVasController {
 
     public void setViewModel(RunVas_VM viewModel) {
         this.viewModel = viewModel;
-        result_label.setLayoutX(mySlider.getLayoutX()+result_label.getWidth());
         bindViewModel();
     }
 
