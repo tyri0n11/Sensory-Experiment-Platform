@@ -9,12 +9,6 @@ public class ViewFactory {
     private general_VM general;
     private AddTasteVM addTasteVM;
     private glmsStage_VM glmsStageVm;
-    public glmsStage_VM getGlmsStageVm(){
-        if (glmsStageVm == null){
-            glmsStageVm = new glmsStage_VM();
-        }
-        return glmsStageVm;
-    }
     public AddTasteVM getAddTasteVM(){
         if (addTasteVM == null){
             addTasteVM = new AddTasteVM();

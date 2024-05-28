@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import main.sensoryexperimentplatform.ViewModel.glmsStage_VM;
+import main.sensoryexperimentplatform.models.gLMS;
 
 import java.io.IOException;
 
@@ -55,13 +56,17 @@ public class GLMSController {
     private TextField txt_yes;
 
 
-    public void init() {
-        glmsStageVm = new glmsStage_VM();
+    private void bind() {
         txt_LowAncTxt.textProperty().bindBidirectional(glmsStageVm.txt_LowAncTxtProperty());
         txt_help.textProperty().bindBidirectional(glmsStageVm.txt_helpProperty());
         txt_question.textProperty().bindBidirectional(glmsStageVm.txt_questionProperty());
         txt_yes.textProperty().bindBidirectional(glmsStageVm.txt_yesProperty());
         checkB_sound.selectedProperty().bindBidirectional(glmsStageVm.checkB_soundProperty());
         checkB_swap.selectedProperty().bindBidirectional(glmsStageVm.checkB_swapProperty());
+    }
+
+    public void setViewModel(glmsStage_VM glms) {
+        this.glmsStageVm = glms;
+        bind();
     }
 }

@@ -16,20 +16,20 @@ public class vasStage_VM {
     private BooleanProperty checkB_sound;
     private BooleanProperty checkB_swap;
     private final BooleanProperty alert = new SimpleBooleanProperty(true);
+    private Vas vas;
 
-    public vasStage_VM() {
-        lowAnchorText = new SimpleStringProperty();
-        highAnchorText = new SimpleStringProperty();
-        buttonText = new SimpleStringProperty();
-        helpText = new SimpleStringProperty();
-        lowAnchorValue = new SimpleStringProperty();
-        highAnchorValue= new SimpleStringProperty();
-        questionText = new SimpleStringProperty();
-        txt_BtnTxt = new SimpleStringProperty();
-        txt_yes= new SimpleStringProperty();
-        checkB_sound = new SimpleBooleanProperty(false);
-        checkB_swap = new SimpleBooleanProperty(false);
-        questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange());
+    public vasStage_VM(Vas stage) {
+        this.vas = stage;
+        lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
+        highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
+        buttonText = new SimpleStringProperty(vas.getButtonText());
+        helpText = new SimpleStringProperty(vas.getHelpText());
+        lowAnchorValue = new SimpleStringProperty(String.valueOf(vas.getLowAnchorValue()));
+        highAnchorValue= new SimpleStringProperty(String.valueOf(vas.getHighAnchorValue()));
+        questionText = new SimpleStringProperty(vas.getTitle());
+        checkB_sound = new SimpleBooleanProperty(vas.getAlert());
+        checkB_swap = new SimpleBooleanProperty(vas.getIsSwap());
+        questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
     }
 
     public boolean isCheckB_swap() {
@@ -80,8 +80,8 @@ public class vasStage_VM {
         return txt_BtnTxt;
     }
 
-    private void onQuestionTextChange(){
-        System.out.println(questionTextProperty());
+    private void onQuestionTextChange(String s){
+        vas.setTitle(s);
     }
 
     public String getQuestionText() {

@@ -13,6 +13,10 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.glmsStage_VM;
+import main.sensoryexperimentplatform.ViewModel.vasStage_VM;
+import main.sensoryexperimentplatform.models.Vas;
+import main.sensoryexperimentplatform.models.gLMS;
 
 import java.io.IOException;
 
@@ -324,15 +328,21 @@ public class TestController {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("VasStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
+               Vas stage = new Vas(null,null,null,
+                       0,100,null,null,
+                       null,false,false);
                VasController controller = fxmlLoader.getController();
-               controller.initialize ();
+               vasStage_VM viewModel = new vasStage_VM(stage);
+               controller.setViewModel(viewModel);
            }
            else if (value.equals("[GLMS] Question?")) {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("GLMS.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
+               gLMS glms = new gLMS(null,null,null,null, false);
                GLMSController controller = fxmlLoader.getController();
-               controller.init ();
+               glmsStage_VM view = new glmsStage_VM(glms);
+               controller.setViewModel(view);
            }
 
 

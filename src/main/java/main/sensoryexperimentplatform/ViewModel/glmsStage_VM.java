@@ -4,6 +4,7 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import main.sensoryexperimentplatform.models.gLMS;
 
 public class glmsStage_VM {
     private StringProperty txt_question;
@@ -12,13 +13,20 @@ public class glmsStage_VM {
     private BooleanProperty checkB_swap;
     private StringProperty txt_help;
     private BooleanProperty checkB_sound;
-    public glmsStage_VM(){
-        txt_help = new SimpleStringProperty();
-        txt_LowAncTxt = new SimpleStringProperty();
-        txt_question = new SimpleStringProperty();
-        checkB_sound = new SimpleBooleanProperty(false);
-        checkB_swap  = new SimpleBooleanProperty(false);
+    private gLMS glms;
+    public glmsStage_VM(gLMS glms){
+        this.glms = glms;
+        txt_help = new SimpleStringProperty(glms.getHelpText());
+        txt_LowAncTxt = new SimpleStringProperty(glms.getButtonText());
+        txt_question = new SimpleStringProperty(glms.getTitle());
+        checkB_sound = new SimpleBooleanProperty(glms.getAlert());
+        checkB_swap  = new SimpleBooleanProperty(glms.isResponse());
         txt_yes= new SimpleStringProperty();
+        txt_question.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
+    }
+
+    private void onQuestionTextChange(String s) {
+        glms.setTitle(s);
     }
 
     public String getTxt_question() {

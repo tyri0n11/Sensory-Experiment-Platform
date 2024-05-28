@@ -81,8 +81,8 @@ public class VasController {
     @FXML
     private TextField txt_yes;
 
-    public void initialize(){
-        this.vasStageVM = new vasStage_VM();
+    private void bind(){
+
         txt_question.textProperty().bindBidirectional(vasStageVM.questionTextProperty());
         txt_LowAncTxt.textProperty().bindBidirectional(vasStageVM.lowAnchorTextProperty());
         txt_HighAncTxt.textProperty().bindBidirectional(vasStageVM.highAnchorTextProperty());
@@ -94,6 +94,11 @@ public class VasController {
         txt_yes.textProperty().bindBidirectional(vasStageVM.txt_yesProperty());
         checkB_sound.selectedProperty().bindBidirectional(vasStageVM.checkB_soundProperty());
         checkB_swap.selectedProperty().bindBidirectional(vasStageVM.checkB_swapProperty());
+    }
+    public void setViewModel(vasStage_VM vas){
+        this.vasStageVM = vas;
+        bind();
+
     }
 
 }
