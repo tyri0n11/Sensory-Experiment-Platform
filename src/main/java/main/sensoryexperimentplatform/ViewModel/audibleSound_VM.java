@@ -6,5 +6,5 @@ public class audibleSound_VM {
     private StringProperty title;
     private StringProperty content;
     private StringProperty helpText;
-    private StringProperty buttonText;gi
+    private StringProperty buttonText;
 }
