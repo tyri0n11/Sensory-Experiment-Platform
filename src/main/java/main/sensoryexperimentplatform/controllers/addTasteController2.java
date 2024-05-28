@@ -2,7 +2,6 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.event.ActionEvent;
 import main.sensoryexperimentplatform.View.ViewHandler;
-import main.sensoryexperimentplatform.ViewModel.addTasteVM2;
 
 public class addTasteController2 {
     public void btn_noticeStage(ActionEvent event) {
@@ -47,6 +46,4 @@ public class addTasteController2 {
     public void btn_AddQuestionStage(ActionEvent event) {
     }
 
-    public void init(addTasteVM2 addTaste2VM, ViewHandler viewHandler) {
-    }
 }

@@ -21,17 +21,8 @@ public class NoticeStageController {
     @FXML
     private TextField txt_title;
 
-    public NoticeStageController(noticeStage_VM viewmodel){
-        this.noticeStage_vm = viewmodel;
-        setNoticeStageViewModel(viewmodel);
-    }
 
-    public void setNoticeStageViewModel(noticeStage_VM viewmodel){
-        txt_buttonText.textProperty().bindBidirectional(noticeStage_vm.buttonTextProperty());
-        txt_content.textProperty().bindBidirectional(noticeStage_vm.contentProperty());
-        txt_title.textProperty().bindBidirectional(noticeStage_vm.titleProperty());
-        txt_helptext.textProperty().bindBidirectional(noticeStage_vm.helpTextProperty());
-    }
+
     @FXML
     void txt_buttonText(MouseEvent event) {
 
@@ -47,12 +38,45 @@ public class NoticeStageController {
 
     }
 
+
+    public void setViewModel(noticeStage_VM vm) {
+        this.noticeStage_vm = vm;
+    }
+    private noticeStage_VM viewModel;
+    public void initialize(){
+        viewModel = new noticeStage_VM();
+        bindViewModel();
+
+    }
+
+    public void bindViewModel(){
+        txt_helptext.textProperty().bindBidirectional(viewModel.helpTextProperty());
+        txt_buttonText.textProperty().bindBidirectional(viewModel.buttonTextProperty());
+        txt_title.textProperty().bindBidirectional(viewModel.titleProperty());
+        txt_content.textProperty().bindBidirectional(viewModel.contentProperty());
+
+        txt_buttonText.textProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setButtonText(newValue);
+        });
+
+        txt_helptext.textProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setHelpText(newValue);
+//            System.out.println(viewModel.getHelpText());
+        });
+
+        txt_content.textProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setContent(newValue);
+        });
+        txt_title.textProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setTitle(newValue);
+        });
+
+
+
+    }
     @FXML
     void txt_title(MouseEvent event) {
 
     }
 
-    public void setViewModel(noticeStage_VM vm) {
-        this.noticeStage_vm = vm;
-    }
 }

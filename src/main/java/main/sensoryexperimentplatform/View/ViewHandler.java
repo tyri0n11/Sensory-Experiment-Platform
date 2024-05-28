@@ -20,6 +20,7 @@ public class ViewHandler {
         mainStage = new Stage();
         this.vmf = vmf;
     }
+
 //    public void start(){
 //        openGeneral();
 //        mainStage.show();
@@ -41,7 +42,8 @@ public class ViewHandler {
 //    }
 
 
-    public void openSound(){
+
+    public void openGLMS(){
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("AssignSound.fxml"));
         try{

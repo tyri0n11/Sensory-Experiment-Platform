@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class RatingContainer {
     private boolean isRandomize;
-    private long minTime;
+    private int minTime;
     public ArrayList<Stage> container;
     public RatingContainer(boolean isRandomize,int minTime){
         this.minTime = minTime;
@@ -68,7 +68,7 @@ public class RatingContainer {
         isRandomize = randomize;
     }
 
-    public long getMinTime() {
+    public int getMinTime() {
         return minTime;
     }
 

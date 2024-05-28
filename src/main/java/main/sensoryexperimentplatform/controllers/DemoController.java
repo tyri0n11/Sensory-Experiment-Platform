@@ -9,8 +9,6 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
-import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.ViewModel.*;
 import main.sensoryexperimentplatform.models.*;
 
@@ -32,14 +30,17 @@ public class DemoController {
 
     @FXML
     private VBox sideMenu;
-
-    @FXML
-    private AnchorPane mainPane;
     @FXML
     private AnchorPane propertiesPane;
 
     @FXML
-    private ListView<String> showList;
+    private Button btnCancel;
+
+    @FXML
+    private Button btnSave;
+
+    @FXML
+    private Button btnSaveAll;
 
     private editEx_VM viewModel;
 
@@ -49,16 +50,22 @@ public class DemoController {
     private void showDetailView(String item)  {
         Object selectedObject = viewModel.getObjectByKey(item);
         if (selectedObject != null) {
+            listObject.setPrefHeight(listObject.getPrefHeight() - 300);
             try {
-                if (selectedObject instanceof Notice){
-                    System.out.println(((Notice) selectedObject).title);
-                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/AddNoticeStage.fxml"));
+                if (selectedObject instanceof Vas){
+                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/VasStage.fxml"));
                     AnchorPane newContent = loader.load();
                     propertiesPane.getChildren().setAll(newContent);
-
-
-                    NoticeStageController controller = loader.getController();
-                    noticeStage_VM vm = new noticeStage_VM((Notice) selectedObject);
+                    VasController controller = loader.getController();
+                    vasStage_VM vm = new vasStage_VM((Vas) selectedObject);
+                    controller.setViewModel(vm);
+                }
+                else if (selectedObject instanceof gLMS){
+                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/GLMS.fxml"));
+                    AnchorPane newContent = loader.load();
+                    propertiesPane.getChildren().setAll(newContent);
+                    GLMSController controller = loader.getController();
+                    glmsStage_VM vm = new glmsStage_VM((gLMS) selectedObject);
                     controller.setViewModel(vm);
                 }
 
@@ -81,21 +88,6 @@ public class DemoController {
             rcr.getChildren().add(new TreeItem<>(item));
         }
 
-
-//        Experiment experiment = DataAccess.getExperimentIndividually();
-//        if (experiment != null) {
-//            ArrayList<Object> stages = experiment.getStages();
-//            ArrayList<String> str = new ArrayList<>();
-//            for (Object o : stages) {
-//                if (o instanceof Stage) {
-//                    str.add("[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle());
-//                }
-//                //handleView(o.getClass().getSimpleName());
-//            }
-//            for (int i = 0; i < 5; i++) {
-//                rcr.getChildren().add(new TreeItem<>(str.get(random.nextInt(str.size()))));
-//            }
-//        }
         listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 showDetailView(newValue.getValue());
@@ -103,19 +95,6 @@ public class DemoController {
         });
     }
 
-    private void handleView(String s){
-        if (s.equals("Timer")){
-            String filePath = "/main/sensoryexperimentplatform/propertyVas.fxml";
-            try {
-                AnchorPane view = FXMLLoader.load((Objects.requireNonNull(Main.class.getResource(filePath))));
-                listObject.setPrefHeight(listObject.getPrefHeight() - 200);
-                propertiesPane.getChildren().add(view);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
-    }
 
     @FXML
     void addAudibleInstruction(ActionEvent event) {
@@ -200,4 +179,26 @@ public class DemoController {
         isSidebarVisible = !isSidebarVisible;
 
     }
+    @FXML
+    void cancel(ActionEvent event) {
+        propertiesPane.lookupAll(".text-field").forEach(node -> {
+            if (node instanceof TextField) {
+                ((TextField) node).setText(null);
+            }
+            if (node instanceof TextArea){
+                ((TextArea) node).setText(null);
+            }
+        });
+    }
+
+    @FXML
+    void saveAllInfo(ActionEvent event) {
+
+    }
+
+    @FXML
+    void saveInfo(ActionEvent event) {
+
+    }
+
 }

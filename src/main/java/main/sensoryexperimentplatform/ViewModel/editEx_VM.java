@@ -32,7 +32,7 @@ public class editEx_VM {
             Set<String> str = new LinkedHashSet<>();
             ArrayList<Object> stages = experiment.getStages();
             for (Object o : stages) {
-                if (o instanceof Vas || o instanceof Notice) {
+                if (o instanceof Vas || o instanceof gLMS) {
                     String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
                     System.out.println(key);
                     displayedItems.put(key, o);

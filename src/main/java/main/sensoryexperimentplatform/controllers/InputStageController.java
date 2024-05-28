@@ -14,6 +14,10 @@ public class InputStageController {
 
     @FXML
     private CheckBox cbx_playsound;
+    private inputStage_VM viewModel;
+
+    @FXML
+    private CheckBox cbx_alert;
 
     @FXML
     private TextField txt_buttonText;
@@ -38,6 +42,50 @@ public class InputStageController {
     @FXML
     void cbx_playsound(MouseEvent event) {
         inputStage_vm.addInputStage();
+    }
+    public void initialize(){
+        viewModel = new inputStage_VM();
+        bindViewModel();
+
+    }
+    public void setViewModel(inputStage_VM viewModel){
+        this.viewModel = viewModel;
+    }
+
+    public void bindViewModel(){
+        txt_buttonText.textProperty().bindBidirectional(viewModel.buttonTextProperty());
+        txt_helptext.textProperty().bindBidirectional(viewModel.contentProperty());
+        txt_question.textProperty().bindBidirectional(viewModel.titleProperty());
+        cbx_alert.selectedProperty().bindBidirectional(viewModel.alertProperty());
+
+        // Add listeners for immediate update
+        txt_buttonText.textProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setButtonText(newValue);
+        });
+
+        txt_helptext.textProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setHelpText(newValue);
+        });
+
+        txt_question.textProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setQuestion(newValue);
+        });
+
+        cbx_alert.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setAlert(newValue);
+        });
+    }
+    /*public void initialize() {
+        txt_buttonText.textProperty().bindBidirectional(inputStage_vm.buttonTextProperty());
+        txt_helptext.textProperty().bindBidirectional(inputStage_vm.contentProperty());
+        txt_question.textProperty().bindBidirectional(inputStage_vm.titleProperty());
+        cbx_alert.selectedProperty().bindBidirectional(inputStage_vm.alertProperty());
+
+    }*/
+
+
+    @FXML
+    void cbx_alert(ActionEvent event) {
 
     }
 
@@ -48,18 +96,20 @@ public class InputStageController {
 
     }
 
+
+
+
     @FXML
     void txt_helptext(MouseEvent event) {
-        inputStage_vm.addInputStage();
+
 
     }
 
     @FXML
     void txt_question(MouseEvent event) {
-        inputStage_vm.addInputStage();
+
 
     }
-
 
 
 }
