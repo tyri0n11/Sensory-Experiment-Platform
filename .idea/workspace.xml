@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="edit binding for notice stage">
+    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="edit binding question stage and create class view">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/audibleSound_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/audibleSound_VM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/questionStage_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/questionStage_VM.java" afterDir="false" />
@@ -213,6 +213,7 @@
       <workItem from="1716870960067" duration="636000" />
       <workItem from="1716886908434" duration="778000" />
       <workItem from="1716887793695" duration="33000" />
+      <workItem from="1716895397544" duration="365000" />
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />
@@ -294,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716824082171</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="edit binding question stage and create class view">
+      <option name="closed" value="true" />
+      <created>1716895764216</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716895764217</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +329,8 @@
     <MESSAGE value="update: add controller" />
     <MESSAGE value="build: select obj from list view - feat: Run Experiment" />
     <MESSAGE value="edit binding for notice stage" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit binding for notice stage" />
+    <MESSAGE value="edit binding question stage and create class view" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit binding question stage and create class view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
