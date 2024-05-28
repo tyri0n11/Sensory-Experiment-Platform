@@ -14,16 +14,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 
-import main.sensoryexperimentplatform.ViewModel.TestVM;
-import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
-import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
-import main.sensoryexperimentplatform.ViewModel.questionStage_VM;
-import main.sensoryexperimentplatform.models.Experiment;
-import main.sensoryexperimentplatform.models.Input;
-import main.sensoryexperimentplatform.ViewModel.glmsStage_VM;
-import main.sensoryexperimentplatform.ViewModel.vasStage_VM;
-import main.sensoryexperimentplatform.models.Vas;
-import main.sensoryexperimentplatform.models.gLMS;
+import main.sensoryexperimentplatform.ViewModel.*;
+import main.sensoryexperimentplatform.models.*;
 
 
 import java.io.IOException;
@@ -167,6 +159,7 @@ public class TestController {
 
 
 
+
     }
 
     @FXML
@@ -214,6 +207,17 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
+        if (courseItem != null) {
+
+            TreeItem<String> periodicStage = new TreeItem<>("Every -1 grams");
+            courseItem.getChildren().add(periodicStage);
+
+            // Optionally expand the course item to show the newly added child
+            courseItem.setExpanded(true);
+        } else {
+
+        }
+
 
 
 
@@ -272,6 +276,7 @@ public class TestController {
         } else {
             start.getChildren().add(vasQuestionItem);
         }
+
 
 
     }
@@ -385,8 +390,13 @@ public class TestController {
                btn_addFoodAndTaste.setDisable(true);
                btn_AddConditionalStatement.setDisable(true);
 
-
-
+               addRatingContainerController controller = new addRatingContainerController();
+               ratingContainer_VM viewModel = new ratingContainer_VM();
+               viewModel.addVasStage(null,null,null,
+                       0,100,null,null,
+                       null,false,false);
+               viewModel.addGlmsStage(null,null,null,null, false);
+               controller.setViewModel(viewModel);
 
 //               AddNoticeStage controller = fxmlLoader.getController();
            }
@@ -415,6 +425,7 @@ public class TestController {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("QuestionStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
+//               Question question = new Question("NULL","NULL","NULL",false);
                questionStageController controller = fxmlLoader.getController();
                questionStage_VM viewModel = new questionStage_VM();
                controller.setQuestionStage_vm(viewModel);
