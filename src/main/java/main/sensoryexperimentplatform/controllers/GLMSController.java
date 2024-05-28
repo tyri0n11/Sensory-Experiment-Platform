@@ -2,154 +2,71 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import main.sensoryexperimentplatform.ViewModel.glmsStage_VM;
+import main.sensoryexperimentplatform.models.gLMS;
 
 import java.io.IOException;
 
 public class GLMSController {
 
+    private glmsStage_VM glmsStageVm;
+    @FXML
+    private CheckBox checkB_sound;
 
     @FXML
-    private StackPane GLMSStackPane;
+    private CheckBox checkB_swap;
 
     @FXML
-    private AnchorPane Properties;
+    private ChoiceBox<?> choiceB_avail;
 
     @FXML
-    private Label avatarLabel;
+    private Label lbl_buttonText;
 
     @FXML
-    private Button btn_AddConditionalStatement;
+    private Label lbl_help;
 
     @FXML
-    private Button btn_AddCourse;
+    private Label lbl_playSound;
 
     @FXML
-    private Button btn_AddGLMS;
+    private Label lbl_storeResponse;
 
     @FXML
-    private Button btn_AddPeriodicStage;
+    private Label lbl_swapPole;
 
     @FXML
-    private Button btn_AddQuestionStage;
+    private RadioButton radioBtn_Yes;
 
     @FXML
-    private Button btn_addAudibleInstruction;
+    private RadioButton radioBtn_available;
 
     @FXML
-    private Button btn_addFoodAndTaste;
+    private TextField txt_LowAncTxt;
 
     @FXML
-    private Button btn_addInput;
+    private TextField txt_help;
 
     @FXML
-    private Button btn_addRatingContainer;
+    private TextField txt_question;
 
     @FXML
-    private Button btn_addTasteTest;
-
-    @FXML
-    private Button btn_addTimer;
-
-    @FXML
-    private Button btn_addVasStage;
-
-    @FXML
-    private Button btn_assignSound;
-
-    @FXML
-    private Button btn_cross;
-
-    @FXML
-    private Button btn_down;
-
-    @FXML
-    private Button btn_noticeStage;
-
-    @FXML
-    private Button btn_up;
-
-    @FXML
-    private Label lbl_EditExperiment;
-
-    @FXML
-    private Label lbl_SenseXP;
-
-    @FXML
-    private Label lbl_containStage;
-
-    @FXML
-    private Label lbl_minimumTime;
+    private TextField txt_yes;
 
 
-    @FXML
-    private Button btn_menu;
-
-    @FXML
-    private TextArea textFrame;
-
-    @FXML
-    private TextArea timeField;
-
-    @FXML
-    void AddGLMSbutton(ActionEvent event) {
-
+    private void bind() {
+        txt_LowAncTxt.textProperty().bindBidirectional(glmsStageVm.txt_LowAncTxtProperty());
+        txt_help.textProperty().bindBidirectional(glmsStageVm.txt_helpProperty());
+        txt_question.textProperty().bindBidirectional(glmsStageVm.txt_questionProperty());
+        txt_yes.textProperty().bindBidirectional(glmsStageVm.txt_yesProperty());
+        checkB_sound.selectedProperty().bindBidirectional(glmsStageVm.checkB_soundProperty());
+        checkB_swap.selectedProperty().bindBidirectional(glmsStageVm.checkB_swapProperty());
     }
 
-    @FXML
-    void AddInputButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(GLMSStackPane,"/fxml/InputStage.fxml");
+    public void setViewModel(glmsStage_VM glms) {
+        this.glmsStageVm = glms;
+        bind();
     }
-
-    @FXML
-    void AddNoticeButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(GLMSStackPane,"/fxml/NoticeStage_1.fxml");
-
-    }
-
-    @FXML
-    void AddTimerButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(GLMSStackPane,"/fxml/TimerStage.fxml");
-
-
-
-    }
-    @FXML
-    void AddTasteButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(GLMSStackPane,"/fxml/AddTasteTest.fxml");
-
-
-
-    }
-
-    @FXML
-    void AddVasButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(GLMSStackPane,"/fxml/VasStage.fxml");
-
-
-    }
-
-    @FXML
-    void AssignSoundButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(GLMSStackPane,"/fxml/AssignSound.fxml");
-
-
-    }
-
-    @FXML
-    void AddQuestionButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(GLMSStackPane,"/fxml/QuestionStage.fxml");
-
-    }
-    @FXML
-    void btn_menu(ActionEvent event) throws IOException {
-        new ScenseSwitch(GLMSStackPane,"/fxml/EditExperiment_UI.fxml");
-
-    }
-
-
 }

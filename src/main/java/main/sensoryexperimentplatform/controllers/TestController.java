@@ -13,12 +13,18 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+
 import main.sensoryexperimentplatform.ViewModel.TestVM;
 import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
 import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
 import main.sensoryexperimentplatform.ViewModel.questionStage_VM;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Input;
+import main.sensoryexperimentplatform.ViewModel.glmsStage_VM;
+import main.sensoryexperimentplatform.ViewModel.vasStage_VM;
+import main.sensoryexperimentplatform.models.Vas;
+import main.sensoryexperimentplatform.models.gLMS;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -174,6 +180,7 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
+
         TreeItem<String> glmsQuestionItem = new TreeItem<>("[GLMS] Question?");
         if (Randomnies != null && listObject.getSelectionModel().getSelectedItem() == Randomnies) {
             Randomnies.getChildren().add(glmsQuestionItem);
@@ -181,6 +188,9 @@ public class TestController {
         } else {
             start.getChildren().add( glmsQuestionItem);
         }
+
+        start.getChildren().add(new TreeItem<>("[GLMS] Question?"));
+
     }
 
     @FXML
@@ -253,6 +263,7 @@ public class TestController {
         propertiesPane.setVisible(true);
         start.setExpanded(true);
 
+
         TreeItem<String> vasQuestionItem = new TreeItem<>("[Vas] Question?");
 
         if (Randomnies != null && listObject.getSelectionModel().getSelectedItem() == Randomnies) {
@@ -261,6 +272,9 @@ public class TestController {
         } else {
             start.getChildren().add(vasQuestionItem);
         }
+
+        start.getChildren().add(new TreeItem<>("[Vas] Question?"));
+
     }
 
     @FXML
@@ -337,19 +351,22 @@ public class TestController {
 
 
 
-           } else if (value.equals("[Waiting] Please wait")) {
+           }   else if (value.equals("[Waiting] Please wait")) {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("TimerStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
                TimerController controller = fxmlLoader.getController();
+               controller.init();
+           }
 
-           } else if (value.equals("Taste test")) {
-               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddTasteTest.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-               propertiesPane.getChildren().setAll(newContent);
-               addTasteController controller = fxmlLoader.getController();
+              else if (value.equals("Taste test")){
+           FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddTasteTest.fxml"));
+           AnchorPane newContent = fxmlLoader.load();
+           propertiesPane.getChildren().setAll(newContent);
+           addTasteController controller = fxmlLoader.getController();
+           controller.init();
 
-           } else if (value.equals("[Vas] Question?")) {
+       } else if (value.equals("[Vas] Question?")) {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("VasStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
@@ -426,6 +443,26 @@ public class TestController {
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
 //               AddNoticeStage controller = fxmlLoader.getController();
+           }
+           else if (value.equals("[Vas] Question?")) {
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("VasStage.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+               Vas stage = new Vas(null,null,null,
+                       0,100,null,null,
+                       null,false,false);
+               VasController controller = fxmlLoader.getController();
+               vasStage_VM viewModel = new vasStage_VM(stage);
+               controller.setViewModel(viewModel);
+           }
+           else if (value.equals("[GLMS] Question?")) {
+               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("GLMS.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+               propertiesPane.getChildren().setAll(newContent);
+               gLMS glms = new gLMS(null,null,null,null, false);
+               GLMSController controller = fxmlLoader.getController();
+               glmsStage_VM view = new glmsStage_VM(glms);
+               controller.setViewModel(view);
            }
 
 
