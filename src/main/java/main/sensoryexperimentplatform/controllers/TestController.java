@@ -273,7 +273,6 @@ public class TestController {
             start.getChildren().add(vasQuestionItem);
         }
 
-        start.getChildren().add(new TreeItem<>("[Vas] Question?"));
 
     }
 
