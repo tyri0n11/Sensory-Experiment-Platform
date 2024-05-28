@@ -1,110 +1,89 @@
 package main.sensoryexperimentplatform.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-
-import java.io.IOException;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
 
 public class NoticeStageController {
 
+//    public void initialize(){
+//        txt_buttonText.textProperty().bindBidirectional(noticeStage_vm.buttonTextProperty());
+//        txt_content.textProperty().bindBidirectional(noticeStage_vm.contentProperty());
+//        txt_title.textProperty().bindBidirectional(noticeStage_vm.titleProperty());
+//        txt_helptext.textProperty().bindBidirectional(noticeStage_vm.helpTextProperty());
+//    }
+    private noticeStage_VM noticeStage_vm;
+
     @FXML
-    private StackPane NoticeStagePane;
-
-
+    private TextField txt_buttonText;
 
     @FXML
-    void btn_AddConditionalStatement(ActionEvent event) {
+    private TextArea txt_content;
+
+    @FXML
+    private TextArea txt_helptext;
+
+    @FXML
+    private TextField txt_title;
+
+    @FXML
+    void txt_buttonText(MouseEvent event) {
 
     }
 
     @FXML
-    void btn_AddCourse(ActionEvent event) {
+    void txt_content(MouseEvent event) {
 
     }
 
     @FXML
-    void btn_AddGLMS(ActionEvent event) throws IOException {
-        new ScenseSwitch(NoticeStagePane,"/fxml/GLMS.fxml");
-
+    void txt_helptext(MouseEvent event) {
 
     }
 
-    @FXML
-    void btn_AddPeriodicStage(ActionEvent event) {
+    private noticeStage_VM viewModel;
+    public void initialize(){
+        viewModel = new noticeStage_VM();
+        bindViewModel();
 
     }
-
-    @FXML
-    void btn_AddQuestionStage(ActionEvent event) throws IOException {
-        new ScenseSwitch(NoticeStagePane,"/fxml/QuestionStage.fxml");
-
-
+    public void setNoticeStage_vm( noticeStage_VM viewModel){
+        this.viewModel = viewModel;
     }
 
-    @FXML
-    void btn_addAudibleInstruction(ActionEvent event) {
+    public void bindViewModel(){
+        txt_helptext.textProperty().bindBidirectional(viewModel.helpTextProperty());
+        txt_buttonText.textProperty().bindBidirectional(viewModel.buttonTextProperty());
+        txt_title.textProperty().bindBidirectional(viewModel.titleProperty());
+        txt_content.textProperty().bindBidirectional(viewModel.contentProperty());
 
-    }
-
-    @FXML
-    void btn_addFoodAndTaste(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_addInput(ActionEvent event) throws IOException {
-        new ScenseSwitch(NoticeStagePane,"/fxml/InputStage.fxml");
+        txt_buttonText.textProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setButtonText(newValue);
 
 
-    }
+        });
 
-    @FXML
-    void btn_addRatingContainer(ActionEvent event) {
+        txt_helptext.textProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setHelpText(newValue);
+//            System.out.println(viewModel.getHelpText());
+        });
 
-    }
+        txt_content.textProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setContent(newValue);
+        });
+        txt_title.textProperty().addListener((observable, oldValue, newValue) -> {
+            viewModel.setTitle(newValue);
+        });
 
-    @FXML
-    void btn_addTasteTest(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_addTimer(ActionEvent event) throws IOException {
-        new ScenseSwitch(NoticeStagePane,"/fxml/TimerStage.fxml");
-
-
-    }
-
-    @FXML
-    void btn_assignSound(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_changeBackGroudcolor(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_menu(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_noticeStage(ActionEvent event) throws IOException {
-        new ScenseSwitch(NoticeStagePane,"/fxml/NoticeStage_1.fxml");
 
 
     }
     @FXML
-    void btn_addVasStage(ActionEvent event) throws IOException {
-        new ScenseSwitch(NoticeStagePane,"/fxml/NoticeStage_1.fxml");
-
+    void txt_title(MouseEvent event) {
 
     }
+
 
 }

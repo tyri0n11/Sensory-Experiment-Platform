@@ -1,4 +1,4 @@
-package main.sensoryexperimentplatform.controllers;
+package main.sensoryexperimentplatform.ViewModel;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
