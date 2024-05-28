@@ -296,6 +296,16 @@ public class TestController {
            String value = (String) ((TreeItem) listObject.getSelectionModel().getSelectedItem()).getValue();
            if (value.equals("Start Experiment")) {
 
+               btn_AddCourse.setDisable(false);
+               btn_addAudibleInstruction.setDisable(false);
+               btn_addInput.setDisable(false);
+               btn_addRatingContainer.setDisable(false);
+               btn_addTasteTest.setDisable(false);
+               btn_addTimer.setDisable(false);
+               btn_AddQuestionStage.setDisable(false);
+               btn_noticeStage.setDisable(false);
+               btn_AddConditionalStatement.setDisable(false);
+
                }
            else if (value.equals("[Instruction] Default Notice Stage")) {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddNoticeStage.fxml"));
@@ -311,7 +321,7 @@ public class TestController {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddAudibleSound.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
-//               AddNoticeStage controller = fxmlLoader.getController();
+                addAudibleSoundController controller = new addAudibleSoundController();
                btn_assignSound.setDisable(false);
 
 
@@ -361,7 +371,7 @@ public class TestController {
                btn_assignSound.setDisable(true);
                btn_addFoodAndTaste.setDisable(true);
                btn_addAudibleInstruction.setDisable(true);
-            btn_addInput.setDisable(true);
+                btn_addInput.setDisable(true);
                btn_addInput.setDisable(true);
                btn_noticeStage.setDisable(true);
                btn_addTimer.setDisable(true);
