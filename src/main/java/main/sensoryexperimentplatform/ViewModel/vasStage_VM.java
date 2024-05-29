@@ -32,6 +32,8 @@ public class vasStage_VM {
         questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
     }
 
+
+
     public boolean isCheckB_swap() {
         return checkB_swap.get();
     }
@@ -119,6 +121,7 @@ public class vasStage_VM {
 
     public void setHighAnchorText(String highAnchorText) {
         this.highAnchorText.set(highAnchorText);
+        System.out.println(vas.getHighAnchorText());
     }
 
     public String getHelpText() {
@@ -156,5 +159,17 @@ public class vasStage_VM {
 
     public void setAlert(boolean alert) {
         this.alert.set(alert);
+    }
+
+    public void setLowAnchorValue(String lowAnchorValue) {
+        this.lowAnchorValue.set(lowAnchorValue);
+    }
+
+    public void setHighAnchorValue(String highAnchorValue) {
+        this.highAnchorValue.set(highAnchorValue);
+    }
+
+    public void save(){
+        //vas.setValue();
     }
 }

@@ -82,11 +82,9 @@ public class VasController {
     private TextField txt_yes;
 
     private void bind(){
-
         txt_question.textProperty().bindBidirectional(vasStageVM.questionTextProperty());
         txt_LowAncTxt.textProperty().bindBidirectional(vasStageVM.lowAnchorTextProperty());
         txt_HighAncTxt.textProperty().bindBidirectional(vasStageVM.highAnchorTextProperty());
-        txt_LowAncTxt.textProperty().bindBidirectional(vasStageVM.lowAnchorTextProperty());
         txt_LowAncVal.textProperty().bindBidirectional(vasStageVM.lowAnchorValueProperty());
         txt_HighAncVal.textProperty().bindBidirectional(vasStageVM.highAnchorValueProperty());
         txt_BtnTxt.textProperty().bindBidirectional(vasStageVM.buttonTextProperty());
@@ -94,11 +92,29 @@ public class VasController {
 //        txt_yes.textProperty().bindBidirectional(vasStageVM.txt_yesProperty());
         checkB_sound.selectedProperty().bindBidirectional(vasStageVM.checkB_soundProperty());
         checkB_swap.selectedProperty().bindBidirectional(vasStageVM.checkB_swapProperty());
+
+        txt_question.textProperty().addListener((observable, oldValue, newValue) -> {
+            vasStageVM.setQuestionText(newValue);
+        });
+
+        txt_LowAncTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            vasStageVM.setLowAnchorText(newValue);
+        });
+
+        txt_HighAncTxt.textProperty().addListener((observable, oldValue, newValue) -> {
+            vasStageVM.setHighAnchorText(newValue);
+        });
+        txt_LowAncVal.textProperty().addListener((observable, oldValue, newValue) -> {
+            vasStageVM.setLowAnchorValue(newValue);
+        });
+        txt_HighAncVal.textProperty().addListener((observable, oldValue, newValue) -> {
+            vasStageVM.setHighAnchorValue(newValue);
+        });
+
     }
     public void setViewModel(vasStage_VM vas){
         this.vasStageVM = vas;
         bind();
-
     }
 
 

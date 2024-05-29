@@ -43,7 +43,7 @@ public class DemoController {
     private Button btnSaveAll;
 
     private editEx_VM viewModel;
-
+    private TreeItem<String> root;
     public DemoController() throws IOException {
         viewModel = new editEx_VM();
     }
@@ -77,27 +77,12 @@ public class DemoController {
     }
 
     public void initialize() throws IOException {
-
-        TreeItem<String> root = new TreeItem<>("TASTE TEST");
-        TreeItem<String> rcr = new TreeItem<>("Rating container - Randomised");
-
-        ObservableList<String> displayedItem = viewModel.getItems();
-        listObject.setRoot(root);
-        root.getChildren().add(rcr);
-        for(String item : displayedItem){
-            rcr.getChildren().add(new TreeItem<>(item));
-        }
-
-        listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                showDetailView(newValue.getValue());
-            }
-        });
+        root = new TreeItem<>("TASTE TEST");
     }
 
 
     @FXML
-    void addAudibleInstruction(ActionEvent event) {
+    void addAudibleIngstruction(ActionEvent event) {
 
     }
 
@@ -143,7 +128,20 @@ public class DemoController {
 
     @FXML
     void addRatingContainer(ActionEvent event) {
+        TreeItem<String> rcr = new TreeItem<>("Rating container - Randomised");
 
+        ObservableList<String> displayedItem = viewModel.getItems();
+        listObject.setRoot(root);
+        root.getChildren().add(rcr);
+        for(String item : displayedItem){
+            rcr.getChildren().add(new TreeItem<>(item));
+        }
+
+        listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                showDetailView(newValue.getValue());
+            }
+        });
     }
 
     @FXML
