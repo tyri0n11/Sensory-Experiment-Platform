@@ -1,6 +1,5 @@
 package main.sensoryexperimentplatform.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -26,7 +25,7 @@ public class addTasteController {
     private AddTasteVM addVM;
 
     public void init() {
-        addVM = new AddTasteVM();
+        //addVM = new AddTasteVM(tasteTest);
         txt_inital.textProperty().bindBidirectional(addVM.txt_initalProperty());
         txt_buttontext.textProperty().bindBidirectional(addVM.txt_buttontextProperty());
         txt_consumpins.textProperty().bindBidirectional(addVM.txt_consumpinsProperty());
@@ -43,5 +42,8 @@ public class addTasteController {
         checkbox_randomrate.selectedProperty().bindBidirectional(addVM.checkbox_randomrateProperty());
         txt_lowanchortext.textProperty().bindBidirectional(addVM.txt_lowanchortextProperty());
         txt_highanchortext.textProperty().bindBidirectional(addVM.txt_highanchortextProperty());
+    }
+
+    public void setViewModel(AddTasteVM view) {
     }
 }

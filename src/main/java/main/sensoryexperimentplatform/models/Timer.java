@@ -17,6 +17,10 @@ public class Timer extends Stage {
         timeToWait = Long.parseLong(time);
     }
 
+    public String getInstruction() {
+        return instruction;
+    }
+
     public void start(){
         if (isRunning){
             System.out.println(instruction +" Please wait for"+ timeToWait);

@@ -4,8 +4,10 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import main.sensoryexperimentplatform.models.TasteTest;
 
 public class AddTasteVM {
+    private TasteTest tasteTest;
     private StringProperty txt_inital;
     private BooleanProperty cbox;
     private StringProperty txt_help;
@@ -22,7 +24,8 @@ public class AddTasteVM {
     private StringProperty txt_highacnhorvalue;
     private StringProperty txt_buttontext;
     private  BooleanProperty checkbox_swappole;
-    public AddTasteVM(){
+    public AddTasteVM(TasteTest tasteTest){
+        this.tasteTest = tasteTest;
         txt_buttontext = new SimpleStringProperty();
         txt_consumpins = new SimpleStringProperty();
         txt_inital = new SimpleStringProperty();

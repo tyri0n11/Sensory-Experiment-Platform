@@ -14,16 +14,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 
-import main.sensoryexperimentplatform.ViewModel.TestVM;
-import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
-import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
-import main.sensoryexperimentplatform.ViewModel.questionStage_VM;
-import main.sensoryexperimentplatform.models.Experiment;
-import main.sensoryexperimentplatform.models.Input;
-import main.sensoryexperimentplatform.ViewModel.glmsStage_VM;
-import main.sensoryexperimentplatform.ViewModel.vasStage_VM;
-import main.sensoryexperimentplatform.models.Vas;
-import main.sensoryexperimentplatform.models.gLMS;
+import main.sensoryexperimentplatform.ViewModel.*;
+import main.sensoryexperimentplatform.models.*;
 
 
 import java.io.IOException;
@@ -215,9 +207,6 @@ public class TestController {
         propertiesPane.setVisible(true);
         start.setExpanded(true);
 
-
-
-
     }
 
     @FXML
@@ -355,30 +344,22 @@ public class TestController {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("TimerStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
+               Timer timer = new Timer("13031321", null, false);
                TimerController controller = fxmlLoader.getController();
-               controller.init();
+               timerStage_VM view = new timerStage_VM(timer);
+               controller.setViewModel (view);
            }
 
               else if (value.equals("Taste test")){
-           FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddTasteTest.fxml"));
-           AnchorPane newContent = fxmlLoader.load();
-           propertiesPane.getChildren().setAll(newContent);
-           addTasteController controller = fxmlLoader.getController();
-           controller.init();
+                    FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddTasteTest.fxml"));
+                    AnchorPane newContent = fxmlLoader.load();
+                    propertiesPane.getChildren().setAll(newContent);
+                    TasteTest tasteTest = new TasteTest(null, null, null, null, null, 0, 100,null,false, null, null, 0, false, false, false);
+                    addTasteController controller = fxmlLoader.getController();
+                    AddTasteVM view = new AddTasteVM(tasteTest);
+                    controller.setViewModel(view);
 
-       } else if (value.equals("[Vas] Question?")) {
-               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("VasStage.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-               propertiesPane.getChildren().setAll(newContent);
-               VasController controller = fxmlLoader.getController();
-           }
-           else if (value.equals("[GLMS] Question?")) {
-               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("GLMS.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-               propertiesPane.getChildren().setAll(newContent);
-               GLMSController controller = fxmlLoader.getController();
-
-           }
+       }
            else if (value.equals("Ratings container")){
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddRatingsContainer.fxml"));
                AnchorPane newContent = fxmlLoader.load();
@@ -436,7 +417,7 @@ public class TestController {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddConditionalStatement.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
-//               AddNoticeStage controller = fxmlLoader.getController();
+
            }
            else if (value.equals("Else")){
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddConditionalStatement.fxml"));
@@ -464,10 +445,6 @@ public class TestController {
                glmsStage_VM view = new glmsStage_VM(glms);
                controller.setViewModel(view);
            }
-
-
-
-
 
        }
 
