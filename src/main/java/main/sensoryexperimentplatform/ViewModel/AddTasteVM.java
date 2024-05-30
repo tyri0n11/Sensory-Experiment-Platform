@@ -34,15 +34,70 @@ public class AddTasteVM {
         txt_highanchortext = new SimpleStringProperty(String.valueOf(model.returnsampleVas().getHighAnchorText()));
         txt_endInstruction = new SimpleStringProperty();
         txt_lowacnhorvalue = new SimpleStringProperty(String.valueOf(model.returnsampleVas().getLowAnchorValue()));
-        txt_howtaste = new SimpleStringProperty();
-        txt_timetowait = new SimpleStringProperty();
+        txt_howtaste = new SimpleStringProperty(model.returnsampleVas().getTitle());
+        txt_timetowait = new SimpleStringProperty(String.valueOf(model.getTimeWait()));
         txt_help = new SimpleStringProperty(model.getSampleGLMS().getHelpText());
         txt_lowanchortext = new SimpleStringProperty(model.returnsampleVas().getLowAnchorText());
         checkbox_playalert = new SimpleBooleanProperty(model.getSampleGLMS().getAlert());
-        checkbox_randomfood = new SimpleBooleanProperty();
+        checkbox_randomfood = new SimpleBooleanProperty(model.isRandomizeFood());
         checkbox_swappole = new SimpleBooleanProperty(model.returnsampleVas().getIsSwap());
-        checkbox_randomrate = new SimpleBooleanProperty(false);
+        checkbox_randomrate = new SimpleBooleanProperty(model.isRandomizeRatingGLMS());
         cbox = new SimpleBooleanProperty(false);
+        txt_howtaste.addListener((observableValue, oldValue, newValue) -> onHowTaste(newValue));
+        txt_highacnhorvalue.addListener((observableValue, oldValue, newValue) -> onHighVal(newValue));
+        txt_highanchortext.addListener((observableValue, oldValue, newValue) -> onHighText(newValue));
+        txt_help.addListener((observableValue, oldValue, newValue) -> onHelp(newValue));
+        txt_lowacnhorvalue.addListener((observableValue, oldValue, newValue) -> onLowVal(newValue));
+        txt_lowanchortext.addListener((observableValue, oldValue, newValue) -> onLowText(newValue));
+        checkbox_playalert.addListener((observableValue, oldValue, newValue) -> onPlayAlert(newValue));
+        checkbox_randomrate.addListener((observableValue, oldValue, newValue) -> onRandomrate(newValue));
+        checkbox_randomfood.addListener((observableValue, oldValue, newValue) -> onRandomFood(newValue));
+        txt_timetowait.addListener((observableValue, oldValue, newValue) -> onTime(newValue));
+    }
+
+    private void onTime(String newValue) {
+        model.setTime(Integer.parseInt(newValue));
+    }
+
+    private void onRandomFood(Boolean newValue) {
+        model.setRandomizeFood(newValue);
+    }
+
+    private void onRandomrate(Boolean newValue) {
+        model.setRandomizeRatingGLMS(newValue);
+        model.setRandomizeRatingGLMS(newValue);
+    }
+
+    private void onPlayAlert(Boolean newValue) {
+        model.getSampleGLMS().setAlert(newValue);
+        model.returnsampleVas().setAlert(newValue);
+    }
+
+    private void onLowText(String newValue) {
+        model.returnsampleVas().setLowAnchorText(newValue);
+    }
+
+    private void onLowVal(String newValue) {
+        model.returnsampleVas().setHighAnchorValue(Integer.parseInt(newValue));
+    }
+
+    private void onHelp(String newValue) {
+        model.getSampleGLMS().setHelpText(newValue);
+        model.returnsampleVas().setHelpText(newValue);
+    }
+
+
+    private void onHighText(String newValue) {
+        model.returnsampleVas().setHighAnchorText(newValue);
+    }
+
+    private void onHighVal(String newValue) {
+        model.returnsampleVas().setHighAnchorValue(Integer.parseInt(newValue));
+    }
+
+    private void onHowTaste(String newValue) {
+        model.getSampleGLMS().setTitle(newValue);
+        model.returnsampleVas().setTitle(newValue);
     }
 
     public String getTxt_inital() {

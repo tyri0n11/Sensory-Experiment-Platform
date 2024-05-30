@@ -10,7 +10,7 @@ public class TasteTest{
     private final ArrayList<String> foods;
     private final ArrayList<Object> list;
     private final Notice initialNotice;
-    private final int timeWait;
+    private int timeWait;
     boolean randomizeFood, randomizeRatingVas, randomizeRatingGLMS;
     private final ArrayList<String> vasList;
     private final ArrayList<String> glmsList;
@@ -22,10 +22,35 @@ public class TasteTest{
     public gLMS getSampleGLMS(){
         return sampleGLMS;
     }
+
+    public boolean isRandomizeFood() {
+        return randomizeFood;
+    }
+
+    public boolean isRandomizeRatingVas() {
+        return randomizeRatingVas;
+    }
+
+    public boolean isRandomizeRatingGLMS() {
+        return randomizeRatingGLMS;
+    }
+
+    public void setRandomizeRatingGLMS(boolean randomizeRatingGLMS) {
+        this.randomizeRatingGLMS = randomizeRatingGLMS;
+    }
+
+    public void setRandomizeRatingVas(boolean randomizeRatingVas) {
+        this.randomizeRatingVas = randomizeRatingVas;
+    }
+
+    public void setRandomizeFood(boolean randomizeFood) {
+        this.randomizeFood = randomizeFood;
+    }
+
     public TasteTest(String noticeStageContent, String consumptionInstruction, String question,
-            String lowAnchorText, String highAnchorText, int lowAnchorValue,
+                     String lowAnchorText, String highAnchorText, int lowAnchorValue,
                      int highAnchorValue, String buttonText,
-            boolean isSwap, String helpText, String endInstruction,
+                     boolean isSwap, String helpText, String endInstruction,
                      int timeWait, boolean randomizeFood, boolean randomizeRatingVas, boolean randomizeRatingGLMS){
 
         this.initialNotice = new Notice("Taste Test",noticeStageContent, buttonText, "", false);
@@ -56,6 +81,13 @@ public class TasteTest{
 
     public void addFood(String[] foods){
         this.foods.addAll(Arrays.asList(foods));
+    }
+
+    public int getTimeWait() {
+        return timeWait;
+    }
+    public void setTime(int time){
+        this.timeWait = time;
     }
     public void generator(){
         for(String foodName : foods){
