@@ -2,12 +2,12 @@ package main.sensoryexperimentplatform.models;
 
 public class Vas extends Stage {
     private String lowAnchorText, highAnchorText, helpText, buttonText ;
-    private double lowAnchorValue, highAnchorValue;
-    private double result;
+    private int lowAnchorValue, highAnchorValue;
+    private int result;
     private boolean alert, isSwap;
 
     public Vas(String title, String lowAnchorText, String highAnchorText,
-               double lowAnchorValue, double highAnchorValue, String buttonText,
+               int lowAnchorValue, int highAnchorValue, String buttonText,
                String content, String helpText, boolean isSwap, boolean alert) {
 
         super(title,content);
@@ -35,12 +35,12 @@ public class Vas extends Stage {
         initialize();
     }
     private void initialize(){
-        this.result = 0;
+        this.result = (lowAnchorValue+highAnchorValue)/2;
     }
     public void swapPolarities(){
         //swap values
         while(isSwap){
-            double temp = getLowAnchorValue();
+            int temp = getLowAnchorValue();
             setLowAnchorValue(getHighAnchorValue());
             setHighAnchorValue(temp);
             //swap text
@@ -82,19 +82,19 @@ public class Vas extends Stage {
         isSwap = swap;
     }
 
-    public void setLowAnchorValue(double lowAnchorValue) {
+    public void setLowAnchorValue(int lowAnchorValue) {
         this.lowAnchorValue = lowAnchorValue;
     }
 
-    public void setHighAnchorValue(double highAnchorValue) {
+    public void setHighAnchorValue(int highAnchorValue) {
         this.highAnchorValue = highAnchorValue;
     }
 
-    public double getLowAnchorValue() {
+    public int getLowAnchorValue() {
         return lowAnchorValue;
     }
 
-    public double getHighAnchorValue() {
+    public int getHighAnchorValue() {
         return highAnchorValue;
     }
 
@@ -113,8 +113,8 @@ public class Vas extends Stage {
     public void setHighAnchorText(String string) {
         this.highAnchorText = string;
     }
-    public void setResult(double result){this.result = result;}
-    public double getResult(){return result;}
+    public void setResult(int result){this.result = result;}
+    public int getResult(){return result;}
 
     public String getTitle() {
         return title;

@@ -2,78 +2,77 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.scene.control.*;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.scene.control.Slider;
 import javafx.util.StringConverter;
 import main.sensoryexperimentplatform.ViewModel.RunGLMS_VM;
 
-import java.awt.*;
-
 public class RunGLMSController {
+
     @FXML
     private Slider mySlider;
     @FXML
-    private Label questionlbl, result, helpText;
+    private Label questionlbl, helpText;
+
     private RunGLMS_VM viewModel;
-    public void setViewModel(RunGLMS_VM viewModel){
+
+    public void setViewModel(RunGLMS_VM viewModel) {
         this.viewModel = viewModel;
         bindViewModel();
     }
-    private void bindViewModel(){
+
+    private void bindViewModel() {
+        // Bind viewModel properties to the labels
         questionlbl.textProperty().bind(viewModel.questionProperty());
         helpText.textProperty().bind(viewModel.helpProperty());
 
+        // Slider configuration
         mySlider.setShowTickLabels(true);
-        mySlider.setMajorTickUnit(5); // Hiển thị nhãn tại các điểm chính
+        mySlider.setShowTickMarks(true);
+        mySlider.setMin(0);
+        mySlider.setMax(100); // We have 7 specific labels, indexed 0 to 6
 
-        mySlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            result.textProperty().bind(viewModel.resultTextProperty());
-            result.setLayoutY(mySlider.getLayoutY()+ mySlider.getHeight()- result.getHeight() - (newValue.intValue()*mySlider.getPrefHeight())/100);
-        });
+        // Custom tick labels and value conversion
         mySlider.setLabelFormatter(new StringConverter<Double>() {
             @Override
             public String toString(Double n) {
-                if (n >= 95.499) return "Strongest imaginable";
-                else if (n >= 50.119) return "Very Strong";
-                else if (n >= 33.13) return "Strong";
-                else if (n >= 16.218) return "Moderate";
-                else if (n >= 5.754) return "Weak";
-                else if (n >= 1.380) return "Barely detectable";
-                else if (n >= 0.00) return   "No Sensation";
-                else return "Unknown";
-
+                return getLabelForValue(n.intValue());
             }
 
             @Override
             public Double fromString(String s) {
-                switch (s){
-                    case "No Sensation":
-                        return 0d;
-                    case "Barely detectable":
-                        return 1d;
-                    case "Weak":
-                        return 2d;
-                    case "Moderate":
-                        return 3d;
-                    case "Strong":
-                        return 4d;
-                    case "Very Strong":
-                        return 5d;
-                    case "Strongest imaginable":
-                        return 6d;
-
-                    default:
-                        return 6d;
-                }
+                return getValueForLabel(s);
             }
         });
-        // Binding hai chiều giữa mySlider.valueProperty() và viewModel.sliderValueProperty()
+
+        // Two-way binding between slider value and viewModel.sliderValueProperty()
         Bindings.bindBidirectional(mySlider.valueProperty(), viewModel.sliderValueProperty());
 
-        // Binding một chiều từ viewModel.resultTextProperty() đến result_label.textProperty()
-        result.textProperty().bind(viewModel.resultTextProperty());
+    }
 
+    private String getLabelForValue(int index) {
+        switch (index) {
+            case 0: return "No Sensation";
+            case 1: return "Barely detectable";
+            case 10: return "Weak";
+            case 20: return "Moderate";
+            case 30: return "Strong";
+            case 50: return "Very Strong";
+            case 90: return "Strongest imaginable";
+            default: return "";
+        }
+    }
+
+    private double getValueForLabel(String label) {
+        switch (label) {
+            case "No Sensation": return 0;
+            case "Barely detectable": return 1;
+            case "Weak": return 5;
+            case "Moderate": return 16;
+            case "Strong": return 33;
+            case "Very Strong": return 50;
+            case "Strongest imaginable": return 95;
+            default: return 0;
+        }
     }
 }

@@ -19,6 +19,5 @@
       </Label>
       <Label fx:id="questionlbl" layoutX="146.0" layoutY="29.0" prefHeight="108.0" prefWidth="678.0" wrapText="true" />
       <Slider fx:id="mySlider" layoutX="122.0" layoutY="265.0" prefHeight="28.0" prefWidth="727.0" />
-      <Label fx:id="result_label" layoutX="461.0" layoutY="212.0" prefHeight="43.0" prefWidth="48.0" text="0%" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>

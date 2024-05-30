@@ -8,7 +8,6 @@
    <children>
       <Slider fx:id="mySlider" layoutX="331.0" layoutY="85.0" majorTickUnit="10.0" orientation="VERTICAL" prefHeight="434.0" prefWidth="14.0" />
       <Label fx:id="questionlbl" layoutX="14.0" layoutY="10.0" prefHeight="59.0" prefWidth="662.0" text="Question" wrapText="true" />
-      <Label fx:id="result" layoutX="223.0" layoutY="473.0" prefHeight="33.0" prefWidth="61.0" text="Label" />
       <Label fx:id="helpText" layoutX="576.0" layoutY="97.0" prefHeight="361.0" prefWidth="287.0" text="Label" wrapText="true" />
    </children>
 </AnchorPane>

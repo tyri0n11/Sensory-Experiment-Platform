@@ -1,9 +1,6 @@
 package main.sensoryexperimentplatform.ViewModel;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import main.sensoryexperimentplatform.models.Timer;
 
 public class RunTimer_VM {
@@ -11,12 +8,14 @@ public class RunTimer_VM {
     private StringProperty instruction;
     private StringProperty time;
     private DoubleProperty progress;
+    private BooleanProperty timerComplete;
 
     public RunTimer_VM(Timer timer) {
         this.timer = timer;
         instruction = new SimpleStringProperty(timer.getInstruction());
         time = new SimpleStringProperty(timer.getTitle());
         progress = new SimpleDoubleProperty(0);  // Initial progress set to 0
+        timerComplete = new SimpleBooleanProperty(false); // Timer starts as incomplete
     }
     public int getDuration(){
         return Integer.parseInt(timer.getTitle());
@@ -35,5 +34,14 @@ public class RunTimer_VM {
 
     public void updateProgress(double progressValue) {
         progress.set(progressValue);
+    }
+
+    public BooleanProperty isTimerCompleteProperty() {
+        return timerComplete;
+    }
+
+    // Method to mark the timer as complete
+    public void markTimerComplete() {
+        timerComplete.set(true);
     }
 }

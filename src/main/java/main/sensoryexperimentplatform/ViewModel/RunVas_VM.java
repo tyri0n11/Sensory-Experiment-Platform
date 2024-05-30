@@ -1,43 +1,42 @@
 package main.sensoryexperimentplatform.ViewModel;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import javafx.beans.value.ObservableValue;
 import main.sensoryexperimentplatform.models.Vas;
 
 public class RunVas_VM {
     private Vas vas;
-    private StringProperty result;
-    private DoubleProperty sliderValue;
+    private IntegerProperty sliderValue;
     private final StringProperty questionText;
     private StringProperty lowAnchorText, button;
     private StringProperty highAnchorText;
+    private IntegerProperty lowAnchorValue, highAnchorValue;
 
     public RunVas_VM(Vas vas) {
         this.vas = vas;
-        result = new SimpleStringProperty(String.format("%.1f", vas.getResult()));
-        sliderValue = new SimpleDoubleProperty(vas.getResult()); // Khởi tạo giá trị của sliderValue từ kết quả hiện tại
+        sliderValue = new SimpleIntegerProperty(vas.getResult()); // Khởi tạo giá trị của sliderValue từ kết quả hiện tại
         button = new SimpleStringProperty(vas.getButtonText());
         questionText = new SimpleStringProperty(vas.getTitle());
         lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
         highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
 
         sliderValue.addListener((observable, oldValue, newValue) -> {
-            setResult(newValue.doubleValue());
-            result.set(String.format("%.1f", newValue.doubleValue()));
+            setResult(newValue.intValue());
+            System.out.println(vas.getResult());
         });
     }
 
-    public StringProperty resultTextProperty() {
-        return result;
+    public int getHighAnchorValue() {
+        return vas.getHighAnchorValue();
+    }
+    public int getLowAnchorValue() {
+        return vas.getLowAnchorValue();
     }
 
-    public void setResult(double result) {
+    public void setResult(int result) {
         vas.setResult(result);
     }
-    public DoubleProperty sliderValueProperty() {
+    public IntegerProperty sliderValueProperty() {
         return sliderValue;
     }
     public StringProperty questionTextProperty() {

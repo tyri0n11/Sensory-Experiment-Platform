@@ -55,25 +55,9 @@ public class RunController {
     }
 
     private void bindViewModel() {
-        // Bind ListView items to ViewModel items
-        showList.itemsProperty().bind(viewModel.itemsProperty());
 
-        showList.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
-            @Override
-            public ListCell<String> call(ListView<String> listView) {
-                return new ListCell<>() {
-                    @Override
-                    protected void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (item != null && !empty) {
-                            setText(item);
-                        } else {
-                            setText(null);
-                        }
-                    }
-                };
-            }
-        });
+        showList.itemsProperty().bind(viewModel.itemsProperty());
+        showList.setVisible(false);
 
         // Add selection listener
         showList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -161,11 +145,15 @@ public class RunController {
                     RunTimerController controller = loader.getController();
                     RunTimer_VM viewModel = new RunTimer_VM((Timer) selectedObject);
                     controller.setViewModel(viewModel);
+
+
                 }
                 if (selectedObject instanceof RatingContainer) {
-                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunRating.fxml"));
-                    AnchorPane newContent = loader.load();
-                    content.getChildren().setAll(newContent);
+                    int selectedIndex = showList.getSelectionModel().getSelectedIndex();
+                    if (selectedIndex >= 0 && selectedIndex < showList.getItems().size() - 1) {
+                        showList.getSelectionModel().select(selectedIndex + 1);
+                    }
+                    return;
                 }
                 if (currentIndex == viewModel.count - 1) {
                     btn_Next.setOnAction(event -> handleFinalNext());
