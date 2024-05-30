@@ -125,6 +125,18 @@ public class TestController {
     }
     @FXML
     void down(ActionEvent event) {
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            TreeItem<String> parent = selectedItem.getParent();
+            if (parent != null) {
+                int currentIndex = parent.getChildren().indexOf(selectedItem);
+                if (currentIndex < parent.getChildren().size() - 1) {
+                    TreeItem<String> nextItem = parent.getChildren().get(currentIndex + 1);
+                    // Select the next sibling item
+                    listObject.getSelectionModel().select(nextItem);
+                }
+            }
+        }
 
     }
     @FXML
