@@ -110,6 +110,19 @@ public class TestController {
 
 
     private AnchorPane rootPane;
+    @FXML
+    void delete(ActionEvent event) {
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            TreeItem<String> parent = selectedItem.getParent();
+            if (parent != null) {
+                parent.getChildren().remove(selectedItem);
+            } else {
+                // If it's a root item, remove it from the TreeView directly
+                listObject.getRoot().getChildren().remove(selectedItem);
+            }
+        }
+    }
 
 
     public void initialize(){

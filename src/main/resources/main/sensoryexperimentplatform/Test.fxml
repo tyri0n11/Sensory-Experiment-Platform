@@ -100,7 +100,7 @@
                            <children>
                               <Button fx:id="btn_up" layoutX="9.600000381469727" layoutY="115.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="59.0" styleClass="btn_up" text=" " AnchorPane.leftAnchor="9.599999999999994" AnchorPane.rightAnchor="10.400000000000006" />
                               <Button fx:id="btn_down" layoutX="10.399999618530273" layoutY="271.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="59.0" styleClass="btn_down" text=" " AnchorPane.leftAnchor="10.4" AnchorPane.rightAnchor="9.600000000000001" />
-                              <Button fx:id="btn_cross" layoutX="-4.0" layoutY="196.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="68.0" styleClass="btn_cross" text=" " AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.599999999999994" />
+                              <Button fx:id="btn_cross" layoutX="-4.0" layoutY="196.0" mnemonicParsing="false" onAction="#delete" prefHeight="54.0" prefWidth="68.0" styleClass="btn_cross" text=" " AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.599999999999994" />
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="propertiesPane" layoutX="347.0" layoutY="421.0" maxHeight="253.0" maxWidth="540.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" styleClass="tree-view" stylesheets="@../../static/stylesheets/AddFood_CSS.css" visible="false" />
