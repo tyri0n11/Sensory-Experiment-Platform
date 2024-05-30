@@ -25,6 +25,9 @@ public class gLMS extends Stage{
         this.helpText = helpText;
         this.alert = alert;
     }
+    public void setAlert(boolean s){
+        this.alert =s;
+    }
     public void setResult(String s){
         this.result = s;
     }
