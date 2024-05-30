@@ -19,6 +19,21 @@ public class timerStage_VM {
         txt_instruction = new SimpleStringProperty(timer.getInstruction());
         txt_timewait = new SimpleStringProperty(timer.getFormattedElapsed());
         cb_alertSound = new SimpleBooleanProperty(timer.isAlert());
+        cb_alertSound.addListener((observableValue, oldValue, newValue) -> onAlert(newValue));
+        txt_timewait.addListener((observableValue, oldValue, newValue) -> onTimeWait(newValue));
+        txt_instruction.addListener((observableValue, oldValue, newValue) -> onInstruction(newValue));
+    }
+
+    private void onAlert(Boolean newValue) {
+        timer.setAlert(newValue);
+    }
+
+    private void onInstruction(String newValue) {
+        timer.setInstruction(newValue);
+    }
+
+    private void onTimeWait(String newValue) {
+        timer.setTime(newValue);
     }
 
     public String getTxt_instruction() {
