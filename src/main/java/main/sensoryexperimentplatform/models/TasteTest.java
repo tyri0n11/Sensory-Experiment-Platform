@@ -16,6 +16,12 @@ public class TasteTest{
     private final ArrayList<String> glmsList;
     private final Vas sampleVas;
     private final gLMS sampleGLMS;
+    public Vas returnsampleVas(){
+        return sampleVas;
+    }
+    public gLMS getSampleGLMS(){
+        return sampleGLMS;
+    }
     public TasteTest(String noticeStageContent, String consumptionInstruction, String question,
             String lowAnchorText, String highAnchorText, int lowAnchorValue,
                      int highAnchorValue, String buttonText,

@@ -24,22 +24,23 @@ public class AddTasteVM {
     private StringProperty txt_highacnhorvalue;
     private StringProperty txt_buttontext;
     private  BooleanProperty checkbox_swappole;
-    public AddTasteVM(TasteTest tasteTest){
-        this.tasteTest = tasteTest;
-        txt_buttontext = new SimpleStringProperty();
+    private TasteTest model;
+    public AddTasteVM(TasteTest model){
+        this.model= model;
+        txt_buttontext = new SimpleStringProperty(model.returnsampleVas().getButtonText());
         txt_consumpins = new SimpleStringProperty();
         txt_inital = new SimpleStringProperty();
-        txt_highacnhorvalue = new SimpleStringProperty();
-        txt_highanchortext = new SimpleStringProperty();
+        txt_highacnhorvalue = new SimpleStringProperty(String.valueOf(model.returnsampleVas().getHighAnchorValue()));
+        txt_highanchortext = new SimpleStringProperty(String.valueOf(model.returnsampleVas().getHighAnchorText()));
         txt_endInstruction = new SimpleStringProperty();
-        txt_lowacnhorvalue = new SimpleStringProperty();
+        txt_lowacnhorvalue = new SimpleStringProperty(String.valueOf(model.returnsampleVas().getLowAnchorValue()));
         txt_howtaste = new SimpleStringProperty();
         txt_timetowait = new SimpleStringProperty();
-        txt_help = new SimpleStringProperty();
-        txt_lowanchortext = new SimpleStringProperty();
-        checkbox_playalert = new SimpleBooleanProperty(false);
-        checkbox_randomfood = new SimpleBooleanProperty(false);
-        checkbox_swappole = new SimpleBooleanProperty(false);
+        txt_help = new SimpleStringProperty(model.getSampleGLMS().getHelpText());
+        txt_lowanchortext = new SimpleStringProperty(model.returnsampleVas().getLowAnchorText());
+        checkbox_playalert = new SimpleBooleanProperty(model.getSampleGLMS().getAlert());
+        checkbox_randomfood = new SimpleBooleanProperty();
+        checkbox_swappole = new SimpleBooleanProperty(model.returnsampleVas().getIsSwap());
         checkbox_randomrate = new SimpleBooleanProperty(false);
         cbox = new SimpleBooleanProperty(false);
     }

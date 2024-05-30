@@ -4,10 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import main.sensoryexperimentplatform.controllers.GeneralController;
-import main.sensoryexperimentplatform.controllers.addFoodController2;
 import main.sensoryexperimentplatform.controllers.assignSoundController;
-import main.sensoryexperimentplatform.controllers.addTasteController2;
 
 import java.io.IOException;
 
