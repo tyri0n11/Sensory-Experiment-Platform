@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import main.sensoryexperimentplatform.ViewModel.timerStage_VM;
+import main.sensoryexperimentplatform.ViewModel.vasStage_VM;
 
 import java.io.IOException;
 
@@ -30,9 +31,13 @@ public class TimerController {
     @FXML
     private TextField txt_timewait;
 
+    public void setViewModel(timerStage_VM timer) {
+        this.timerVM = timer;
+        bindd();
 
-    public void init() {
-        timerVM = new timerStage_VM();
+    }
+
+    private void bindd() {
         txt_instruction.textProperty().bindBidirectional(timerVM.txt_instructionProperty());
         txt_timewait.textProperty().bindBidirectional(timerVM.txt_timewaitProperty());
         cb_alertSound.selectedProperty().bindBidirectional(timerVM.cb_alertSoundProperty());

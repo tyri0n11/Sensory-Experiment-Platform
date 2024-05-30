@@ -120,6 +120,7 @@ public class TestController {
         listObject.setRoot(start);
         btn_assignSound.setDisable(true);
         btn_AddPeriodicStage.setDisable(true);
+        btn_addFoodAndTaste.setDisable(true);
 
         EventHandler<MouseEvent> mouseEventHandler = (MouseEvent event)->{
             try {
@@ -163,9 +164,20 @@ public class TestController {
     }
 
     @FXML
-    void addFoodAndTaste(ActionEvent event) {
+    void addFoodAndTaste(ActionEvent event) throws IOException {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
+        listObject.setMaxHeight(311);
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AssignSound.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Stage stage = new Stage();
+        stage.setTitle("Add Sound");
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+
+        stage.show();
     }
 
     @FXML
@@ -217,8 +229,6 @@ public class TestController {
         } else {
 
         }
-
-
     }
 
     @FXML
@@ -246,6 +256,7 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
+        btn_addFoodAndTaste.setDisable(false);
         start.getChildren().add(new TreeItem<>("Taste test"));
     }
 
@@ -329,8 +340,6 @@ public class TestController {
                NoticeStageController controller = new NoticeStageController();
                noticeStage_VM viewModel = new noticeStage_VM();
                controller.setNoticeStage_vm(viewModel);
-
-
            }
            else if (value.equals("[Audio] Default Notice Stage")) {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddAudibleSound.fxml"));
@@ -356,16 +365,20 @@ public class TestController {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("TimerStage.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
+               Timer timer = new Timer("13031321", null, false);
                TimerController controller = fxmlLoader.getController();
-               controller.init();
+               timerStage_VM view = new timerStage_VM(timer);
+               controller.setViewModel (view);
            }
 
               else if (value.equals("Taste test")){
-           FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddTasteTest.fxml"));
-           AnchorPane newContent = fxmlLoader.load();
-           propertiesPane.getChildren().setAll(newContent);
-           addTasteController controller = fxmlLoader.getController();
-           controller.init();
+                    FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddTasteTest.fxml"));
+                    AnchorPane newContent = fxmlLoader.load();
+                    propertiesPane.getChildren().setAll(newContent);
+                    TasteTest model = new TasteTest("hjd", "df", "kh", "d","da", 0, 100, "as", false,"áds", "ád", 0, false, false, false);
+                    addTasteController controller = fxmlLoader.getController();
+                    AddTasteVM view = new AddTasteVM(model);
+                    controller.setViewModel(view);
 
        }
            else if (value.equals("Ratings container")){
@@ -401,7 +414,7 @@ public class TestController {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddCourse.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
-//               AddNoticeStage controller = fxmlLoader.getController();
+               AddCourseController controller = fxmlLoader.getController();
                btn_AddPeriodicStage.setDisable(false);
                btn_AddCourse.setDisable(true);
                btn_noticeStage.setDisable(true);
@@ -431,7 +444,7 @@ public class TestController {
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddConditionalStatement.fxml"));
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
-//               AddNoticeStage controller = fxmlLoader.getController();
+
            }
            else if (value.equals("Else")){
                FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddConditionalStatement.fxml"));

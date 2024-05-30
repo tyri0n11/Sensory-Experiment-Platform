@@ -22,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="qanh" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,12 +30,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="autoscrollToSource" value="true" />
-  </component>
   <component name="ProjectColorInfo">{
-        &quot;associatedIndex&quot;: 7
-        }</component>
+    &quot;associatedIndex&quot;: 7
+    }</component>
   <component name="ProjectId" id="2gfMpE8hYQXVyt7Njo1xE7lNGtc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -45,7 +42,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
+    &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;Application.RunExperiment.executor&quot;: &quot;Run&quot;,
     &quot;Application.SensoryExperimentPlatform.executor&quot;: &quot;Run&quot;,
@@ -56,7 +53,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;qanh&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;jenny&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;F:/Scale&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
@@ -70,8 +67,8 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
+    }
+    }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\USER\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\Desktop\Respositories\Sensory Expeirment Platform\src\main\resources\static\images" />
@@ -202,7 +199,11 @@
       <workItem from="1716655886503" duration="2196000" />
       <workItem from="1716729741332" duration="596000" />
       <workItem from="1716742033330" duration="602000" />
-      <workItem from="1716913185361" duration="2484000" />
+      <workItem from="1716903308498" duration="5922000" />
+      <workItem from="1716946439507" duration="1933000" />
+      <workItem from="1716959471232" duration="121000" />
+      <workItem from="1717057212434" duration="4265000" />
+      <workItem from="1717074404975" duration="4395000" />
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />
@@ -274,6 +275,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initialization: first touch" />
     <MESSAGE value="structure: define structure" />
@@ -281,9 +293,9 @@
     <MESSAGE value="structure: rename application" />
     <MESSAGE value="feat: build Run feature (UI, Controller)" />
     <MESSAGE value="update: add controller" />
-    <MESSAGE value="edit binding question stage and create class view" />
     <MESSAGE value="build: select obj from list view - feat: Run Experiment" />
-    <option name="LAST_COMMIT_MESSAGE" value="build: select obj from list view - feat: Run Experiment" />
+    <MESSAGE value="edit binding question stage and create class view" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit binding question stage and create class view" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -22,7 +22,28 @@ public class glmsStage_VM {
         checkB_sound = new SimpleBooleanProperty(glms.getAlert());
         checkB_swap  = new SimpleBooleanProperty(glms.isResponse());
         txt_yes= new SimpleStringProperty();
+        txt_help.addListener((observableValue, oldValue, newValue) -> onHelp(newValue));
+        txt_LowAncTxt.addListener((observableValue, oldValue, newValue) -> onLowAnc(newValue));
+        checkB_swap.addListener((observableValue, oldValue, newValue) -> onSwapChange(newValue));
         txt_question.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
+        checkB_sound.addListener((observableValue, oldValue, newValue) -> onSoundChange(newValue));
+    }
+
+    private void onHelp(String newValue) {
+        glms.setHelpText(newValue);
+    }
+
+    private void onLowAnc(String newValue) {
+        glms.setButtonText(newValue);
+    }
+    
+
+    private void onSwapChange(Boolean newValue) {
+        glms.setResponse(newValue);
+    }
+
+    private void onSoundChange(Boolean newValue) {
+        glms.setAlert(newValue);
     }
 
     private void onQuestionTextChange(String s) {

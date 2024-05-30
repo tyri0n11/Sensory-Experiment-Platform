@@ -7,27 +7,27 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Notics_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.AddNoticeStage">
+<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Notics_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.AddCourseController">
     <children>
-        <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="254.0" prefWidth="520.0" stylesheets="@../../static/stylesheets/Notics_CSS.css">
+        <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="250.0" prefWidth="520.0" stylesheets="@../../static/stylesheets/Notics_CSS.css">
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="520.0" style="-fx-background-color: white;">
                     <children>
                         <Label layoutX="28.0" layoutY="14.0" styleClass="property" stylesheets="@../../static/stylesheets/Notics_CSS.css" text="Properties" />
                         <Label layoutX="10.0" layoutY="64.0" styleClass="normallabel" stylesheets="@../../static/stylesheets/Notics_CSS.css" text="Title Text" />
-                        <TextField layoutX="210.0" layoutY="69.0" prefHeight="25.0" prefWidth="274.0" />
+                        <TextField fx:id="txt_title" layoutX="210.0" layoutY="69.0" prefHeight="25.0" prefWidth="274.0" />
                         <Label layoutX="10.0" layoutY="114.0" styleClass="normallabel" text="Content text" />
-                  <TextField layoutX="210.0" layoutY="114.0" prefHeight="25.0" prefWidth="274.0" />
+                  <TextField fx:id="txt_content" layoutX="210.0" layoutY="114.0" prefHeight="25.0" prefWidth="274.0" />
                   <Label layoutX="10.0" layoutY="164.0" styleClass="normallabel" text="Button text" />
-                  <TextField layoutX="210.0" layoutY="164.0" prefHeight="25.0" prefWidth="274.0" />
+                  <TextField fx:id="txt_button" layoutX="210.0" layoutY="164.0" prefHeight="25.0" prefWidth="274.0" />
                   <Label layoutX="10.0" layoutY="214.0" styleClass="normallabel" text="Refill weight" />
-                  <TextField layoutX="210.0" layoutY="214.0" prefHeight="25.0" prefWidth="274.0" />
-                  <Label layoutX="10.0" layoutY="264.0" styleClass="normallabel" text="Refill weight" />
+                  <TextField fx:id="txt_refill" layoutX="210.0" layoutY="214.0" prefHeight="25.0" prefWidth="274.0" />
+                  <Label fx:id="txt_courseDuration" layoutX="10.0" layoutY="264.0" styleClass="normallabel" text="Course duration" />
                   <TextField layoutX="210.0" layoutY="264.0" prefHeight="25.0" prefWidth="274.0" />
                   <Label layoutX="10.0" layoutY="314.0" styleClass="normallabel" text="Quantity to consume before auto-finish " />
-                  <TextField layoutX="210.0" layoutY="344.0" prefHeight="25.0" prefWidth="274.0" />
-                  <Label layoutX="10.0" layoutY="364.0" styleClass="normallabel" text="Help text" />
-                  <TextArea layoutX="210.0" layoutY="394.0" prefHeight="200.0" prefWidth="274.0" />
+                  <TextField fx:id="txt_quantity" layoutX="210.0" layoutY="344.0" prefHeight="25.0" prefWidth="274.0" />
+                  <Label layoutX="10.0" layoutY="394.0" styleClass="normallabel" text="Help text" />
+                  <TextArea fx:id="txt_help" layoutX="210.0" layoutY="394.0" prefHeight="200.0" prefWidth="274.0" />
                   <Label layoutX="10.0" layoutY="614.0" styleClass="normallabel" text="Stop eating statement" />
                   <TextField layoutX="210.0" layoutY="610.0" prefHeight="25.0" prefWidth="274.0" />
                   <Label layoutX="10.0" layoutY="664.0" styleClass="normallabel" text="Play alert sound on the screen play " />

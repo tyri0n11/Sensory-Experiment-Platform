@@ -29,7 +29,47 @@ public class vasStage_VM {
         questionText = new SimpleStringProperty(vas.getTitle());
         checkB_sound = new SimpleBooleanProperty(vas.getAlert());
         checkB_swap = new SimpleBooleanProperty(vas.getIsSwap());
+        checkB_swap.addListener((observableValue, oldValue, newValue) -> onCheckSwap(newValue));
+        checkB_sound.addListener((observableValue, oldValue, newValue) -> onCheckSound(newValue));
+        highAnchorValue.addListener((observableValue, oldValue, newValue) -> onhighAnchorValue(newValue));
+        lowAnchorValue.addListener((observableValue, oldValue, newValue) -> onlowAnchorValue(newValue));
+        helpText.addListener((observableValue, oldValue, newValue) -> onHelpText(newValue));
+        buttonText.addListener((observableValue, oldValue, newValue) -> onButtonText(newValue));
+        highAnchorText.addListener((observableValue, oldValue, newValue) -> onhighAnchorText(newValue));
+        lowAnchorText.addListener((observableValue, oldValue, newValue) -> onlowAnchorText(newValue));
         questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
+    }
+
+    private void onCheckSwap(Boolean newValue) {
+        vas.setSwap(newValue);
+    }
+
+    private void onCheckSound(Boolean newValue) {
+        vas.setAlert(newValue);
+    }
+
+    private void onhighAnchorValue(String newValue) {
+        vas.setHighAnchorValue(Integer.parseInt(newValue));
+    }
+
+    private void onlowAnchorValue(String newValue) {
+        vas.setLowAnchorValue(Integer.parseInt(newValue));
+    }
+
+    private void onHelpText(String newValue) {
+        vas.setHelpText(newValue);
+    }
+
+    private void onButtonText(String newValue) {
+        vas.setButtonText(newValue);
+    }
+
+    private void onhighAnchorText(String newValue) {
+        vas.setHighAnchorText(newValue);
+    }
+
+    private void onlowAnchorText(String newValue) {
+        vas.setLowAnchorText(newValue);
     }
 
     public boolean isCheckB_swap() {
