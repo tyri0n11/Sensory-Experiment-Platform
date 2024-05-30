@@ -123,6 +123,25 @@ public class TestController {
             }
         }
     }
+    @FXML
+    void down(ActionEvent event) {
+
+    }
+    @FXML
+    void up(ActionEvent event) {
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            TreeItem<String> parent = selectedItem.getParent();
+            if (parent != null) {
+                int currentIndex = parent.getChildren().indexOf(selectedItem);
+                if (currentIndex > 0) {
+                    TreeItem<String> previousItem = parent.getChildren().get(currentIndex - 1);
+                    // Select the previous sibling item
+                    listObject.getSelectionModel().select(previousItem);
+                }
+            }
+        }
+    }
 
 
     public void initialize(){
