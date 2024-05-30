@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class TasteTest{
     private final String question;
-    private final String consumptionInstruction;
+    private String consumptionInstruction;
     private final String endInStruction;
     private final ArrayList<String> foods;
     private final ArrayList<Object> list;
@@ -137,6 +137,14 @@ public class TasteTest{
     }
     public String getType(){
         return "Taste Test";
+    }
+
+    public String getConsumptionInstruction() {
+        return consumptionInstruction;
+    }
+
+    public void setConsumptionInstruction(String consumptionInstruction) {
+        this.consumptionInstruction = consumptionInstruction;
     }
 
     public String toString(){

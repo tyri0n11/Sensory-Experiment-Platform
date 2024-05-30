@@ -8,7 +8,6 @@ import main.sensoryexperimentplatform.models.TasteTest;
 
 public class addTasteController {
     public TextField txt_inital;
-    public CheckBox cbox;
     public TextArea txt_help;
     public TextField txt_endInstruction;
     public TextField txt_timetowait;
@@ -29,7 +28,6 @@ public class addTasteController {
         txt_inital.textProperty().bindBidirectional(addVM.txt_initalProperty());
         txt_buttontext.textProperty().bindBidirectional(addVM.txt_buttontextProperty());
         txt_consumpins.textProperty().bindBidirectional(addVM.txt_consumpinsProperty());
-        cbox.selectedProperty().bindBidirectional(addVM.cboxProperty());
         txt_help.textProperty().bindBidirectional(addVM.txt_helpProperty());
         txt_endInstruction.textProperty().bindBidirectional(addVM.txt_endInstructionProperty());
         txt_howtaste.textProperty().bindBidirectional(addVM.txt_howtasteProperty());

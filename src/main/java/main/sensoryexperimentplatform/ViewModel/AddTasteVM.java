@@ -28,7 +28,7 @@ public class AddTasteVM {
     public AddTasteVM(TasteTest model){
         this.model= model;
         txt_buttontext = new SimpleStringProperty(model.returnsampleVas().getButtonText());
-        txt_consumpins = new SimpleStringProperty();
+        txt_consumpins = new SimpleStringProperty(model.getConsumptionInstruction());
         txt_inital = new SimpleStringProperty();
         txt_highacnhorvalue = new SimpleStringProperty(String.valueOf(model.returnsampleVas().getHighAnchorValue()));
         txt_highanchortext = new SimpleStringProperty(String.valueOf(model.returnsampleVas().getHighAnchorText()));
@@ -43,6 +43,8 @@ public class AddTasteVM {
         checkbox_swappole = new SimpleBooleanProperty(model.returnsampleVas().getIsSwap());
         checkbox_randomrate = new SimpleBooleanProperty(model.isRandomizeRatingGLMS());
         cbox = new SimpleBooleanProperty(false);
+        txt_consumpins.addListener((observableValue, oldValue, newValue) -> onCon(newValue));
+        txt_buttontext.addListener((observableValue, oldValue, newValue) -> onButton(newValue));
         txt_howtaste.addListener((observableValue, oldValue, newValue) -> onHowTaste(newValue));
         txt_highacnhorvalue.addListener((observableValue, oldValue, newValue) -> onHighVal(newValue));
         txt_highanchortext.addListener((observableValue, oldValue, newValue) -> onHighText(newValue));
@@ -53,6 +55,14 @@ public class AddTasteVM {
         checkbox_randomrate.addListener((observableValue, oldValue, newValue) -> onRandomrate(newValue));
         checkbox_randomfood.addListener((observableValue, oldValue, newValue) -> onRandomFood(newValue));
         txt_timetowait.addListener((observableValue, oldValue, newValue) -> onTime(newValue));
+    }
+
+    private void onCon(String newValue) {
+        model.setConsumptionInstruction(newValue);
+    }
+
+    private void onButton(String newValue) {
+        model.returnsampleVas().setButtonText(newValue);
     }
 
     private void onTime(String newValue) {
