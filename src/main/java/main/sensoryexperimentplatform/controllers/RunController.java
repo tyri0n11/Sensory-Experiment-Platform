@@ -151,6 +151,7 @@ public class RunController {
                     controller.timelineFullProperty().addListener(((observableValue, oldValue, newValue) ->{
                         btn_back.setVisible(newValue);
                         btn_Next.setVisible(newValue);
+                        showList.getSelectionModel().select(showList.getSelectionModel().getSelectedIndex() + 1);
                     } ));
 
                 }
