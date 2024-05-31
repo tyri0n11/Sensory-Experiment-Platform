@@ -1,6 +1,7 @@
 package main.sensoryexperimentplatform.controllers;
 
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -145,7 +146,12 @@ public class RunController {
                     RunTimerController controller = loader.getController();
                     RunTimer_VM viewModel = new RunTimer_VM((Timer) selectedObject);
                     controller.setViewModel(viewModel);
-
+                    btn_back.setVisible(controller.getTimeLineCheck());
+                    btn_Next.setVisible(controller.getTimeLineCheck());
+                    controller.timelineFullProperty().addListener(((observableValue, oldValue, newValue) ->{
+                        btn_back.setVisible(newValue);
+                        btn_Next.setVisible(newValue);
+                    } ));
 
                 }
                 if (selectedObject instanceof RatingContainer) {
