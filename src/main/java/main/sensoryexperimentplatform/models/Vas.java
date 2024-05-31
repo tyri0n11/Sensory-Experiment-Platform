@@ -35,7 +35,7 @@ public class Vas extends Stage {
         initialize();
     }
     private void initialize(){
-        this.result = Math.round((float) (lowAnchorValue + highAnchorValue) /2);
+        this.result = (lowAnchorValue+highAnchorValue)/2;
     }
     public void swapPolarities(){
         //swap values

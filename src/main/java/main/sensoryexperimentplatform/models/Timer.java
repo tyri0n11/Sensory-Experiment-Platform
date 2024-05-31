@@ -40,6 +40,8 @@ public class Timer extends Stage {
         }
     }
 
+
+
     public boolean isAlert() {
         return alert;
     }

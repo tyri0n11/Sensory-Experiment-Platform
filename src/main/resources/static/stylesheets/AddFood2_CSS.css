@@ -1,3 +1,4 @@
+
 .root {
     -fx-font-family: 'Inter';
     -fx-font-size: 14;
@@ -9,7 +10,22 @@
     -fx-background-color: #CCCCCC;
     -fx-text-fill: white;
 }
-
+#btn_dashboard{
+    -fx-background-color: transparent;
+    -fx-font-size: 32;
+    -fx-font-weight: normal;
+    -fx-text-alignment: left;
+    -fx-text-fill: #624DE3;
+}
+#lbl_SenseXP{
+    -fx-text-fill: #624DE3;
+    -fx-font-weight: bold;
+    -fx-font-size: 40;
+}
+#lbl_EditExperiment{
+    -fx-text-fill: #624DE3;
+    -fx-font-size: 36;
+}
 
 
 
@@ -60,12 +76,18 @@
     -fx-font-family: 'Inter';
     -fx-font-size: 14;
 }
-
+#lbl_DashBoard{
+    -fx-text-fill: #624DE3;
+    -fx-font-size: 36;
+}
 #txt_searchBar{
+
+
     -fx-pref-width: 441px;
     -fx-pref-height: 32px;
     -fx-border-color: #9E9E9E;
     -fx-border-style: solid ;
+
 
     -fx-border-radius: 8px;
 
@@ -83,6 +105,7 @@
 
 }
 #showLabel,#entriesLabel{
+    /* Show */
 
     -fx-pref-width: 40px;
     -fx-pref-height: 15px;
@@ -95,8 +118,27 @@
     /* identical to box height */
 
     -fx-text-fill: #000000;
-}
 
+
+
+
+}
+#btn_AddExperiment{
+    /* Frame 17 */
+
+    /* Auto layout */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+
+    -fx-pref-width: 151px;
+    -fx-pref-height: 32px;
+
+    -fx-background-color: #624DE3;
+    -fx-border-radius: 8px;
+
+
+
+}
 .stackpane{
     -fx-background-color: white;
 
@@ -133,6 +175,10 @@
     -fx-min-height: 275px;
     -fx-max-height: 275px;
 
+
+
+
+    /* Inside auto layout */
     flex: none;
     order: 1;
     flex-grow: 0;
@@ -429,8 +475,8 @@
     -fx-font-style: normal;
     -fx-font-weight: 700;
     -fx-font-size: 32px;
-    -fx-line-height: 48px;
-    -fx-letter-spacing: 0.03em;
+    line-height: 48px;
+    letter-spacing: 0.03em;
 
     -fx-text-fill: #655E95;
 

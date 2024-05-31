@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="530.0" prefWidth="970.0" stylesheets="/static/stylesheets/RunNotice_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunNoticeController">
+   <children>
+      <Label fx:id="titleTxt" layoutX="129.0" layoutY="73.0" prefHeight="100.0" prefWidth="713.0" wrapText="true" />
+      <Label fx:id="contentTxt" layoutX="92.0" layoutY="189.0" prefHeight="304.0" prefWidth="787.0" wrapText="true" />
+   </children>
+</AnchorPane>

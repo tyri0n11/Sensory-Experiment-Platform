@@ -9,6 +9,7 @@ module main.sensoryexpeirmentplatform {
     requires java.desktop;
 
     opens main.sensoryexperimentplatform to javafx.fxml;
+    opens main.sensoryexperimentplatform.models to javafx.base;
     exports main.sensoryexperimentplatform;
     exports main.sensoryexperimentplatform.controllers;
     opens main.sensoryexperimentplatform.controllers to javafx.fxml;

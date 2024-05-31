@@ -3,97 +3,163 @@ package main.sensoryexperimentplatform.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.RunExperiment_VM;
+import main.sensoryexperimentplatform.ViewModel.dashBoard_VM;
+import main.sensoryexperimentplatform.models.Experiment;
 
+import javax.swing.text.View;
 import java.io.IOException;
+import java.util.Date;
+import java.util.Map;
+
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class DashBoardController {
-
-    private boolean isSidebarVisible = true;
-
-    @FXML
-    private BorderPane borderPane;
+    private dashBoard_VM viewModel;
 
     @FXML
-    private Button btn_Config;
+    private AnchorPane DashBoard;
+
+    @FXML
+    private AnchorPane DashBoard1;
+
+    @FXML
+    private StackPane DashBoardStackPane;
+
+    @FXML
+    private ComboBox<?> DropDown;
+
+    @FXML
+    private Label EntriesLabel;
+
+    @FXML
+    private AnchorPane SenseXPBar;
+
+    @FXML
+    private Label ShowLabel;
+
+    @FXML
+    private AnchorPane SideBar;
+
+    @FXML
+    private Button btn_AddExperiment;
 
     @FXML
     private Button btn_DashBoard;
 
     @FXML
-    private Button btn_ImportExp;
+    private Button btn_Logout;
 
     @FXML
-    private Button btn_ShareExp;
+    private Button btn_config;
 
     @FXML
-    private Button btn_exportExp;
+    private Button btn_dashboard_left;
+
+    @FXML
+    private Button btn_export;
+
+    @FXML
+    private Button btn_import;
 
     @FXML
     private Button btn_menu;
 
     @FXML
-    private AnchorPane contentPane;
+    private Button btn_share_experiment;
 
     @FXML
-    private Label lbl_SenseXP;
+    private TableView<Experiment> contentTable;
 
     @FXML
-    private HBox mainBox;
+    private TableColumn<Experiment, String> lbl_createDate;
 
     @FXML
-    private AnchorPane mainPane;
+    private TableColumn<Experiment, String> lbl_creator;
 
     @FXML
-    private VBox sideMenu;
-    @FXML
-    private HBox senseXPane;
+    private TableColumn<Experiment, String> lbl_currentVersion;
 
-    public void initialize(){
-//        HBox.setHgrow(mainPane, Priority.ALWAYS);
-//        HBox.setHgrow(senseXPane, Priority.ALWAYS);
+    @FXML
+    private TableColumn<Experiment, String> lbl_experimentName;
+
+    @FXML
+    private TableColumn<Experiment, String> lbl_iD;
+
+    @FXML
+    private TableColumn<Experiment, String> lbl_result;
+
+    @FXML
+    private TextField searchBar;
+
+    @FXML
+    private AnchorPane sidebar_left;
+
+    public void initialize() {
+        viewModel = new dashBoard_VM();
+        bindViewModel();
+    }
+
+    public void bindViewModel() {
+
+        lbl_iD.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+        lbl_creator.setCellValueFactory(new PropertyValueFactory<>("creatorName"));
+
+        lbl_experimentName.setCellValueFactory(new PropertyValueFactory<>("experimentName"));
+
+        lbl_currentVersion.setCellValueFactory(new PropertyValueFactory<>("version"));
+
+
+        // Bind the TableView items to the ViewModel items
+        contentTable.setItems(viewModel.itemsProperty());
+
+
+
+        // Add listener for row selection
+        contentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, selectedExperiment) -> {
+            if (selectedExperiment != null) {
+                try {
+                    runExperiment(selectedExperiment);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+        });
+
+
+    }
+
+    private void runExperiment(Experiment experiment) throws IOException {
+        FXMLLoader loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunExperiment.fxml"));
+        Parent root = loader.load();
+
+        RunController controller = loader.getController(); // Get the controller from the loader
+        RunExperiment_VM viewModel = new RunExperiment_VM(experiment);
+        controller.setViewModel(viewModel);
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 
     @FXML
-    void btn_Config(ActionEvent event) {
-
+    void btn_addEx(ActionEvent event) {
+        // Implement action for adding an experiment
     }
 
     @FXML
-    void btn_DashBoard(ActionEvent event) throws IOException {
-        AnchorPane view = FXMLLoader.load(getClass().getResource("/main/sensoryexperimentplatform/ViewAllExperiment.fxml"));
-        contentPane.getChildren().add(view);
-
+    void btn_dashboard(ActionEvent event) throws IOException {
+        new ScenseSwitch(DashBoardStackPane, "/fxml/general.fxml");
     }
-
-    @FXML
-    void btn_ImportExp(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_ShareExp(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_exportExp(ActionEvent event) {
-
-    }
-
-    @FXML
-    void toggleDashboard(ActionEvent event) {
-        if (isSidebarVisible) {
-            mainBox.getChildren().remove(sideMenu);
-
-        } else {
-            mainBox.getChildren().add(0, sideMenu);
-        }
-        isSidebarVisible = !isSidebarVisible;
-    }
-
-    }
-
-
+}

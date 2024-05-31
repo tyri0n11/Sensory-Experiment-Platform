@@ -245,6 +245,15 @@ public class Experiment {
     public void setId(String id){
         this.id = id;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
     public String stagesToString(){
         StringBuilder sb = new StringBuilder();
         for(Object o : stages){
