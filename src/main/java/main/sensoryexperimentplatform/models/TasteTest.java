@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class TasteTest{
     private final String question;
     private String consumptionInstruction;
-    private final String endInStruction;
+    private String endInStruction;
     private final ArrayList<String> foods;
     private final ArrayList<Object> list;
     private final Notice initialNotice;
@@ -72,6 +72,15 @@ public class TasteTest{
         list.add(initialNotice);
 
     }
+
+    public void setEndInStruction(String endInStruction) {
+        this.endInStruction = endInStruction;
+    }
+
+    public String getEndInStruction() {
+        return endInStruction;
+    }
+
     public void selectVas(String[] selectedVas){
         vasList.addAll(Arrays.asList(selectedVas));
     }
