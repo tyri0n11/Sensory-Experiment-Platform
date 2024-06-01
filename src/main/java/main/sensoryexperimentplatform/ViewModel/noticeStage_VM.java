@@ -16,8 +16,6 @@ public class noticeStage_VM {
     private StringProperty helpText ;
 
     private BooleanProperty alert;
-    private StringProperty title;
-    private StringProperty content;
     private Notice notice;
     private Experiment experiment;
     public noticeStage_VM(Notice noticeStage) {
@@ -28,26 +26,9 @@ public class noticeStage_VM {
         this.helpText = new SimpleStringProperty(noticeStage.getHelpText());
         this.alert = new SimpleBooleanProperty(noticeStage.isAlert());
     }
-    public noticeStage_VM() {
-        this.notice = new Notice("User input", "This is question","this is button", "hell00",false);
-        this.buttonText = new SimpleStringProperty(notice.getButtonText());
-        this.helpText = new SimpleStringProperty(notice.getHelpText());
-        this.alert = new SimpleBooleanProperty(notice.isAlert());
-        this.title = new SimpleStringProperty(notice.getTitle());
-        this.content = new SimpleStringProperty(notice.getContent());
 
-
-    }
-    public void addNoticeStage() {
-        String title = this.title.get();
-        String content = this.content.get();
-        String buttonText = this.buttonText.get();
-        String helpText = this.helpText.get();
-        boolean alert = this.alert.get();
-        Notice stage = new Notice(title, content, buttonText,helpText, alert);
-        experiment.addInputStage(title, content, buttonText, alert);
-//        stages.add(stage);
-
+    public void setNotice(Notice notice) {
+        this.notice = notice;
     }
 
     public String getButtonText() {
@@ -55,12 +36,6 @@ public class noticeStage_VM {
     }
     public String getHelpText() {
         return helpText.get();
-    }
-    public String getContentText() {
-        return content.get();
-    }
-    public String getTitleText() {
-        return title.get();
     }
     public boolean getAlert(){
         return alert.get();
@@ -78,20 +53,20 @@ public class noticeStage_VM {
     }
 
     public StringProperty titleProperty() {
-        return title;
+        return titleText;
     }
 
     public StringProperty contentProperty() {
-        return content;
+        return contentText;
     }
     public void setHelpText(String newValue) {
-        notice.setContent(newValue);
+        notice.setHelpText(newValue);
     }
     public void setTitle(String newValue) {
         notice.setTitle(newValue);
     }
     public void setContent(String newValue) {
-        notice.setTitle(newValue);
+        notice.setContent(newValue);
     }
 
 

@@ -8,6 +8,7 @@ import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
 
 public class NoticeStageController {
     private noticeStage_VM noticeStage_vm;
+    private noticeStage_VM viewModel;
 
     @FXML
     private TextField txt_buttonText;
@@ -41,27 +42,21 @@ public class NoticeStageController {
 
     public void setViewModel(noticeStage_VM vm) {
         this.noticeStage_vm = vm;
-    }
-    private noticeStage_VM viewModel;
-    public void initialize(){
-        viewModel = new noticeStage_VM();
-        bindViewModel();
-
+        bindViewModel(vm);
     }
 
-    public void bindViewModel(){
+
+    public void bindViewModel(noticeStage_VM viewModel){
         txt_helptext.textProperty().bindBidirectional(viewModel.helpTextProperty());
         txt_buttonText.textProperty().bindBidirectional(viewModel.buttonTextProperty());
         txt_title.textProperty().bindBidirectional(viewModel.titleProperty());
         txt_content.textProperty().bindBidirectional(viewModel.contentProperty());
-
         txt_buttonText.textProperty().addListener((observable, oldValue, newValue) -> {
             viewModel.setButtonText(newValue);
         });
 
         txt_helptext.textProperty().addListener((observable, oldValue, newValue) -> {
             viewModel.setHelpText(newValue);
-//            System.out.println(viewModel.getHelpText());
         });
 
         txt_content.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -70,6 +65,7 @@ public class NoticeStageController {
         txt_title.textProperty().addListener((observable, oldValue, newValue) -> {
             viewModel.setTitle(newValue);
         });
+
 
 
 

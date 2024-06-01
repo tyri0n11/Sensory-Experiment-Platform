@@ -18,15 +18,15 @@ public class questionStage_VM {
     private Question questionStage;
 
 
-    public questionStage_VM(){
-        this.questionStage = new Question("hell0 ","hi","hello",false);
-        this.question = new SimpleStringProperty(questionStage.getQuestion());
+    public questionStage_VM(Question question){
+        this.questionStage = question;
+        this.question = new SimpleStringProperty(question.getQuestion());
         this.leftText = new SimpleStringProperty();
         this.rightText = new SimpleStringProperty();
         this.leftValue = new SimpleStringProperty();
         this.rightValue = new SimpleStringProperty();
        this.helpText = new SimpleStringProperty();
-       this.alert= new SimpleBooleanProperty(questionStage.isAlert());
+       this.alert = new SimpleBooleanProperty(questionStage.isAlert());
     }
 
 

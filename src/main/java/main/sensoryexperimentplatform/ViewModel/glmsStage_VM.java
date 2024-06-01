@@ -21,7 +21,7 @@ public class glmsStage_VM {
         txt_question = new SimpleStringProperty(glms.getTitle());
         checkB_sound = new SimpleBooleanProperty(glms.getAlert());
         checkB_swap  = new SimpleBooleanProperty(glms.isResponse());
-        txt_yes= new SimpleStringProperty();
+        txt_yes = new SimpleStringProperty();
         txt_question.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
     }
 

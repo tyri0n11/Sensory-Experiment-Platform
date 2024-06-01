@@ -2,22 +2,19 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import main.sensoryexperimentplatform.ViewModel.*;
 import main.sensoryexperimentplatform.models.*;
+import main.sensoryexperimentplatform.models.Timer;
 
 import java.io.IOException;
 import java.util.*;
 
 public class DemoController {
     private boolean isSidebarVisible = true;
-    private Random random = new Random();
     @FXML
     private TreeView<String> listObject;
     private Map<String, Object> objectsMap = new HashMap<>();
@@ -26,22 +23,11 @@ public class DemoController {
     private HBox mainBox;
 
     @FXML
-    private AnchorPane contentPane;
-
-    @FXML
     private VBox sideMenu;
     @FXML
     private AnchorPane propertiesPane;
-
     @FXML
-    private Button btnCancel;
-
-    @FXML
-    private Button btnSave;
-
-    @FXML
-    private Button btnSaveAll;
-
+    private AnchorPane contentPane;
     private editEx_VM viewModel;
     private TreeItem<String> root;
     public DemoController() throws IOException {
@@ -52,15 +38,29 @@ public class DemoController {
         if (selectedObject != null) {
             listObject.setPrefHeight(listObject.getPrefHeight() - 300);
             try {
-                if (selectedObject instanceof Vas){
+                if (selectedObject instanceof Notice){
+                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/AddNoticeStage.fxml"));
+                    AnchorPane newContent = loader.load();
+                    propertiesPane.getChildren().setAll(newContent);
+                    NoticeStageController controller = loader.getController();
+                    noticeStage_VM vm = new noticeStage_VM((Notice) selectedObject);
+                    controller.setViewModel(vm);
+                }
+                else if (selectedObject instanceof Timer){
+                    FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/TimerStage.fxml"));
+                    AnchorPane newContent = loader.load();
+                    propertiesPane.getChildren().setAll(newContent);
+                    TimerController controller = loader.getController();
+                    timerStage_VM vm = new timerStage_VM((Timer) selectedObject);
+                    controller.setViewModel(vm);
+                } else if (selectedObject instanceof Vas) {
                     FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/VasStage.fxml"));
                     AnchorPane newContent = loader.load();
                     propertiesPane.getChildren().setAll(newContent);
                     VasController controller = loader.getController();
                     vasStage_VM vm = new vasStage_VM((Vas) selectedObject);
                     controller.setViewModel(vm);
-                }
-                else if (selectedObject instanceof gLMS){
+                } else if (selectedObject instanceof gLMS) {
                     FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/GLMS.fxml"));
                     AnchorPane newContent = loader.load();
                     propertiesPane.getChildren().setAll(newContent);
@@ -68,8 +68,6 @@ public class DemoController {
                     glmsStage_VM vm = new glmsStage_VM((gLMS) selectedObject);
                     controller.setViewModel(vm);
                 }
-
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -78,11 +76,29 @@ public class DemoController {
 
     public void initialize() throws IOException {
         root = new TreeItem<>("TASTE TEST");
+        listObject.setRoot(root);
+
+        Experiment experiment = DataAccess.getExperimentIndividually();
+        if (experiment != null) {
+            ArrayList<Object> stages = experiment.getStages();
+            for(Object o : stages){
+                if(o instanceof Stage){
+                    root.getChildren().add(new TreeItem<>("[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle()));
+                }
+            }
+
+        }
+        listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                showDetailView(newValue.getValue());
+            }
+        });
+
     }
 
 
     @FXML
-    void addAudibleIngstruction(ActionEvent event) {
+    void addAudibleInstruction(ActionEvent event) {
 
     }
 
@@ -129,9 +145,7 @@ public class DemoController {
     @FXML
     void addRatingContainer(ActionEvent event) {
         TreeItem<String> rcr = new TreeItem<>("Rating container - Randomised");
-
-        ObservableList<String> displayedItem = viewModel.getItems();
-        listObject.setRoot(root);
+        ObservableList<String> displayedItem = viewModel.getScales();
         root.getChildren().add(rcr);
         for(String item : displayedItem){
             rcr.getChildren().add(new TreeItem<>(item));
@@ -178,25 +192,22 @@ public class DemoController {
 
     }
     @FXML
-    void cancel(ActionEvent event) {
-        propertiesPane.lookupAll(".text-field").forEach(node -> {
-            if (node instanceof TextField) {
-                ((TextField) node).setText(null);
-            }
-            if (node instanceof TextArea){
-                ((TextArea) node).setText(null);
-            }
-        });
+    void cancel(ActionEvent event) throws IOException {
+        viewModel = new editEx_VM();
     }
 
     @FXML
-    void saveAllInfo(ActionEvent event) {
-
+    void saveAllInfo(ActionEvent event) throws IOException {
+        ArrayList<Experiment> arr = new ArrayList<>();
+        arr.add(viewModel.getCurrentExperiment());
+        DataAccess.saveData(arr);
     }
 
     @FXML
-    void saveInfo(ActionEvent event) {
-
+    void saveInfo(ActionEvent event) throws IOException {
+//        ArrayList<Experiment> arr = new ArrayList<>();
+//        arr.add(viewModel.getCurrentExperiment());
+//        DataAccess.saveData(arr);
     }
 
 }

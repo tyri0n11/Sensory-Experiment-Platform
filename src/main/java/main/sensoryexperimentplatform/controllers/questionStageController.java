@@ -68,13 +68,9 @@ public class questionStageController {
     }
 
 
-    public void initialize(){
-        viewModel = new questionStage_VM();
-        bindViewModel();
-
-    }
     public void setQuestionStage_vm( questionStage_VM viewModel){
         this.viewModel = viewModel;
+        bindViewModel();
     }
     public void bindViewModel(){
         txt_helpText.textProperty().bindBidirectional(viewModel.helpTextProperty());

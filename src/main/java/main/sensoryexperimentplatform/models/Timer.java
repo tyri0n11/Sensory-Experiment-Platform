@@ -31,6 +31,22 @@ public class Timer extends Stage {
         }
     }
 
+    public long getTimeToWait() {
+        return timeToWait;
+    }
+
+    public void setTimeToWait(long timeToWait) {
+        this.timeToWait = timeToWait;
+    }
+
+    public String getInstruction() {
+        return instruction;
+    }
+
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
+    }
+
     public boolean isAlert() {
         return alert;
     }

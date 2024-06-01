@@ -349,7 +349,8 @@ public class TestController {
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
                TimerController controller = fxmlLoader.getController();
-               controller.init();
+               timerStage_VM timerModel = new timerStage_VM(new Timer(null, null, false));
+               controller.setViewModel(timerModel);
            }
 
               else if (value.equals("Taste test")){
@@ -425,7 +426,7 @@ public class TestController {
 
 //               Question question = new Question("NULL","NULL","NULL",false);
                questionStageController controller = fxmlLoader.getController();
-               questionStage_VM viewModel = new questionStage_VM();
+               questionStage_VM viewModel = new questionStage_VM(new Question(null, null));
                controller.setQuestionStage_vm(viewModel);
            }
            else if (value.equals("If Something less than something else then")){

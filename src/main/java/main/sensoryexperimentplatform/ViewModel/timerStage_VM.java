@@ -1,21 +1,18 @@
 package main.sensoryexperimentplatform.ViewModel;
 
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextField;
+import javafx.beans.property.*;
+import main.sensoryexperimentplatform.models.Timer;
 
 public class timerStage_VM {
+    private Timer timer;
     private StringProperty txt_instruction;
     private StringProperty txt_timewait;
     private BooleanProperty cb_alertSound;
-    public timerStage_VM(){
-        txt_instruction = new SimpleStringProperty();
-        txt_timewait = new SimpleStringProperty();
-        cb_alertSound = new SimpleBooleanProperty(false);
+    public timerStage_VM(Timer timer){
+        this.timer = timer;
+        txt_instruction = new SimpleStringProperty(timer.getInstruction());
+        txt_timewait = new SimpleStringProperty(String.valueOf(timer.getTimeToWait()));
+        cb_alertSound = new SimpleBooleanProperty(timer.isAlert());
     }
 
     public String getTxt_instruction() {
@@ -34,11 +31,16 @@ public class timerStage_VM {
         return cb_alertSound;
     }
 
+
+    public Property<String> txt_timewaitProperty() {
+        return txt_timewait;
+    }
+
     public String getTxt_timewait() {
         return txt_timewait.get();
     }
 
-    public StringProperty txt_timewaitProperty() {
-        return txt_timewait;
+    public void setTxt_timewait(String txt_timewait) {
+        this.txt_timewait.set(txt_timewait);
     }
 }

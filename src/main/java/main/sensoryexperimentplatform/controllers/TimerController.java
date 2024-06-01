@@ -15,14 +15,6 @@ public class TimerController {
     @FXML
     private CheckBox cb_alertSound;
 
-    @FXML
-    private Label lbl_instruction;
-
-    @FXML
-    private Label lbl_soundDisplay;
-
-    @FXML
-    private Label lbl_timeToWait;
 
     @FXML
     private TextField txt_instruction;
@@ -38,8 +30,11 @@ public class TimerController {
         new ScenseSwitch(TimerStackPane, "/fxml/GLMS.fxml");
     }
 
-    public void init() {
-        timerVM = new timerStage_VM();
+    public void setViewModel(timerStage_VM timerVM){
+        this.timerVM = timerVM;
+        bind();
+    }
+    public void bind() {
         txt_instruction.textProperty().bindBidirectional(timerVM.txt_instructionProperty());
         txt_timewait.textProperty().bindBidirectional(timerVM.txt_timewaitProperty());
         cb_alertSound.selectedProperty().bindBidirectional(timerVM.cb_alertSoundProperty());
