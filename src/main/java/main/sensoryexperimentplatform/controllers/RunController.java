@@ -107,6 +107,7 @@ public class RunController {
             content.getChildren().clear();
             try {
                 FXMLLoader loader;
+                // Vas view display
                 if (selectedObject instanceof Vas) {
                     loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunVas.fxml"));
                     AnchorPane newContent = loader.load();
@@ -117,6 +118,7 @@ public class RunController {
                     controller.setViewModel(vm);
                     btn_Next.textProperty().bind(vm.buttonProperty());
                 }
+                // glms view display
                 if (selectedObject instanceof gLMS) {
                     loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunGLMS.fxml"));
                     AnchorPane newContent = loader.load();
