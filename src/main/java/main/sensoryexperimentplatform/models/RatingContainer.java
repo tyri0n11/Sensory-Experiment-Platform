@@ -21,6 +21,12 @@ public class RatingContainer {
     public void addStage(Stage s){
         container.add(s);
     }
+    public void addVasStageTest_newExperiment(Vas stage){
+        container.add(stage);
+    }
+    public void addGlms_newExperiment(gLMS glms){
+        container.add(glms);
+    }
     public void addVasStageContainer(String title, String lowAnchorText, String highAnchorText,
                             int lowAnchorValue, int highAnchorValue, String buttonText,
                             String content, String helpText, boolean isSwap, boolean alert){

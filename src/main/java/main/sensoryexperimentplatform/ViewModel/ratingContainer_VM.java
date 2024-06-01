@@ -5,11 +5,15 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import main.sensoryexperimentplatform.models.RatingContainer;
+import main.sensoryexperimentplatform.models.Vas;
+import main.sensoryexperimentplatform.models.gLMS;
 
 public class ratingContainer_VM {
     private RatingContainer ratingContainer;
     private IntegerProperty minTime;
     private BooleanProperty isRandomize;
+    private Vas vas;
+    private gLMS glms;
     public ratingContainer_VM(){
         this.ratingContainer = new RatingContainer(false,5);
         minTime = new SimpleIntegerProperty(ratingContainer.getMinTime());
@@ -43,8 +47,12 @@ public class ratingContainer_VM {
     public void addGlmsStage(String question, String buttonText, String content, String helpText, boolean alert) {
         ratingContainer.addGlmsStageContainer(question, buttonText, content, helpText, alert);
     }
-
-    public RatingContainer getRatingContainer() {
-        return ratingContainer;
+    public void addVasStage_newExperiment(){
+        ratingContainer.addVasStageTest_newExperiment(vas);
     }
+    public void addGlmsStage_newExperiment(){
+        ratingContainer.addGlms_newExperiment(glms);
+    }
+
+
 }

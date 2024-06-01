@@ -34,7 +34,10 @@ public class vasStage_VM {
         highAnchorValue.addListener((observableValue, oldValue, newValue) -> onhighAnchorValue(newValue));
         lowAnchorValue.addListener((observableValue, oldValue, newValue) -> onlowAnchorValue(newValue));
         helpText.addListener((observableValue, oldValue, newValue) -> onHelpText(newValue));
-        buttonText.addListener((observableValue, oldValue, newValue) -> onButtonText(newValue));
+        buttonText.addListener((observableValue, oldValue, newValue) -> {onButtonText(newValue);
+            System.out.println(vas);
+        });
+
         highAnchorText.addListener((observableValue, oldValue, newValue) -> onhighAnchorText(newValue));
         lowAnchorText.addListener((observableValue, oldValue, newValue) -> onlowAnchorText(newValue));
         questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
