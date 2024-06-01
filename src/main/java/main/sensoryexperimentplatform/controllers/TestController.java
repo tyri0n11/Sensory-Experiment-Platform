@@ -64,6 +64,8 @@ public class TestController {
     private AnchorPane propertiesPane;
     private TreeItem<String> courseItem;
     private TreeItem<String> Randomnies;
+    private TreeItem<String> ifConditional;
+    private TreeItem<String> elseConditional;
     private TestVM testVM;
     private boolean isSidebarVisible = true;
     @FXML
@@ -180,16 +182,34 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        start.getChildren().add(new TreeItem<>("[Audio] Default Notice Stage"));
+        TreeItem<String> audibleSound = new TreeItem<>("[Audio] Default Notice Stage");
+
+        // Add to Randomnies if selected item matches ifConditional
+        if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
+            ifConditional.getChildren().add(audibleSound);
+            ifConditional.setExpanded(true);
+        }
+        // Add to Randomnies if selected item matches elseConditional
+        else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
+            elseConditional.getChildren().add(audibleSound);
+            elseConditional.setExpanded(true);
+        }
+        // Add to start if no conditions match
+        else {
+            start.getChildren().add(audibleSound);
+        }
     }
+
 
     @FXML
     void addConditionalStatement(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        start.getChildren().add(new TreeItem<>("If Something less than something else then"));
-        start.getChildren().add(new TreeItem<>("Else"));
+        ifConditional = new TreeItem<>("If Something less than something else then");
+        elseConditional = new TreeItem<>("Else");
+        start.getChildren().add( ifConditional);
+        start.getChildren().add(elseConditional);
     }
 
     @FXML
@@ -198,8 +218,21 @@ public class TestController {
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         courseItem = new TreeItem<>("Start Eating stage");
-        start.getChildren().add(courseItem);
         start.setExpanded(true);
+
+        if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
+            ifConditional.getChildren().add(courseItem);
+            ifConditional.setExpanded(true);
+        }
+        // Add to Randomnies if selected item matches elseConditional
+        else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
+            elseConditional.getChildren().add(courseItem);
+            elseConditional.setExpanded(true);
+        }
+        // Add to start if no conditions match
+        else {
+            start.getChildren().add(courseItem);
+        }
 
 
 
@@ -211,7 +244,6 @@ public class TestController {
     void addFoodAndTaste(ActionEvent event) throws IOException {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
-        listObject.setMaxHeight(311);
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AssignSound.fxml"));
         Parent root = fxmlLoader.load();
 
@@ -234,8 +266,20 @@ public class TestController {
         if (Randomnies != null && listObject.getSelectionModel().getSelectedItem() == Randomnies) {
             Randomnies.getChildren().add(glmsQuestionItem);
             Randomnies.setExpanded(true);
-        } else {
-            start.getChildren().add( glmsQuestionItem);
+        }
+        // Add to Randomnies if selected item matches ifConditional
+        else if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
+            ifConditional.getChildren().add(glmsQuestionItem);
+            ifConditional.setExpanded(true);
+        }
+        // Add to Randomnies if selected item matches elseConditional
+        else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
+            elseConditional.getChildren().add(glmsQuestionItem);
+            elseConditional.setExpanded(true);
+        }
+        // Add to start if no conditions match
+        else {
+            start.getChildren().add(glmsQuestionItem);
         }
 
 
@@ -247,7 +291,23 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        start.getChildren().add(new TreeItem<>("[User Input] Input Stage"));
+        TreeItem<String> inputStage = new TreeItem<>("[User Input] Input Stage");
+        if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
+            ifConditional.getChildren().add(inputStage );
+            ifConditional.setExpanded(true);
+        }
+        // Add to Randomnies if selected item matches elseConditional
+        else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
+            elseConditional.getChildren().add(inputStage );
+            elseConditional.setExpanded(true);
+        }
+        // Add to start if no conditions match
+        else {
+            start.getChildren().add(inputStage);
+        }
+
+
+
     }
 
     @FXML
@@ -255,7 +315,21 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        start.getChildren().add(new TreeItem<>("[Instruction] Default Notice Stage"));
+        TreeItem<String> noticeStage = new TreeItem<>("[Instruction] Default Notice Stage");
+        if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
+            ifConditional.getChildren().add(noticeStage);
+            ifConditional.setExpanded(true);
+        }
+        // Add to Randomnies if selected item matches elseConditional
+        else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
+            elseConditional.getChildren().add(noticeStage);
+            elseConditional.setExpanded(true);
+        }
+        // Add to start if no conditions match
+        else {
+            start.getChildren().add(noticeStage);
+        }
+
     }
 
     @FXML
@@ -280,7 +354,20 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        start.getChildren().add(new TreeItem<>("[Question] Question"));
+        TreeItem<String> QuestionStage = new TreeItem<>("[Question] Question");
+        if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
+            ifConditional.getChildren().add(QuestionStage);
+            ifConditional.setExpanded(true);
+        }
+        // Add to Randomnies if selected item matches elseConditional
+        else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
+            elseConditional.getChildren().add(QuestionStage);
+            elseConditional.setExpanded(true);
+        }
+        // Add to start if no conditions match
+        else {
+            start.getChildren().add(QuestionStage);
+        }
     }
 
     @FXML
@@ -289,7 +376,20 @@ public class TestController {
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         Randomnies = new TreeItem<>("Ratings container");
-        start.getChildren().add(Randomnies);
+
+        if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
+            ifConditional.getChildren().add( Randomnies);
+            ifConditional.setExpanded(true);
+        }
+        // Add to Randomnies if selected item matches elseConditional
+        else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
+            elseConditional.getChildren().add( Randomnies);
+            elseConditional.setExpanded(true);
+        }
+        // Add to start if no conditions match
+        else {
+            start.getChildren().add( Randomnies);
+        }
 
 
 
@@ -301,7 +401,20 @@ public class TestController {
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         btn_addFoodAndTaste.setDisable(false);
-        start.getChildren().add(new TreeItem<>("Taste test"));
+        TreeItem<String> tasteTest = new TreeItem<>("Taste test");
+        if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
+            ifConditional.getChildren().add(tasteTest);
+            ifConditional.setExpanded(true);
+        }
+        // Add to Randomnies if selected item matches elseConditional
+        else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
+            elseConditional.getChildren().add(tasteTest);
+            elseConditional.setExpanded(true);
+        }
+        // Add to start if no conditions match
+        else {
+            start.getChildren().add(tasteTest);
+        }
     }
 
     @FXML
@@ -309,7 +422,20 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        start.getChildren().add(new TreeItem<>("[Waiting] Please wait"));
+        TreeItem<String> TimerStage = new TreeItem<>("[Waiting] Please wait");
+        if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
+            ifConditional.getChildren().add(TimerStage);
+            ifConditional.setExpanded(true);
+        }
+        // Add to Randomnies if selected item matches elseConditional
+        else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
+            elseConditional.getChildren().add(TimerStage);
+            elseConditional.setExpanded(true);
+        }
+        // Add to start if no conditions match
+        else {
+            start.getChildren().add(TimerStage);
+        }
 
     }
 
@@ -323,12 +449,23 @@ public class TestController {
         TreeItem<String> vasQuestionItem = new TreeItem<>("[Vas] Question?");
 
         if (Randomnies != null && listObject.getSelectionModel().getSelectedItem() == Randomnies) {
-            Randomnies.getChildren().add(vasQuestionItem);
+            Randomnies.getChildren().add(vasQuestionItem );
             Randomnies.setExpanded(true);
-        } else {
-            start.getChildren().add(vasQuestionItem);
         }
-
+        // Add to Randomnies if selected item matches ifConditional
+        else if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
+            ifConditional.getChildren().add(vasQuestionItem );
+            ifConditional.setExpanded(true);
+        }
+        // Add to Randomnies if selected item matches elseConditional
+        else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
+            elseConditional.getChildren().add(vasQuestionItem );
+            elseConditional.setExpanded(true);
+        }
+        // Add to start if no conditions match
+        else {
+            start.getChildren().add(vasQuestionItem );
+        }
 
 
     }
