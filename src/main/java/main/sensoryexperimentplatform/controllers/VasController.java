@@ -16,16 +16,6 @@ public class VasController {
     private vasStage_VM vasStageVM;
 
     @FXML
-    private StackPane VasStackPane;
-
-
-    @FXML
-    private Button btn_menu;
-
-    @FXML
-    private Button btn_noticeStage;
-
-    @FXML
     private CheckBox checkB_sound;
 
     @FXML
@@ -34,15 +24,38 @@ public class VasController {
     @FXML
     private ChoiceBox<?> choiceB_avail;
 
+    @FXML
+    private Label lbl_buttonText;
+
+    @FXML
+    private Label lbl_help;
+
+    @FXML
+    private Label lbl_highAnchorText;
+
+    @FXML
+    private Label lbl_highAnchorValue;
+
+    @FXML
+    private Label lbl_highAnchortext;
+
+    @FXML
+    private Label lbl_lowAnchorValue;
+
+    @FXML
+    private Label lbl_playSound;
+
+    @FXML
+    private Label lbl_storeResponse;
+
+    @FXML
+    private Label lbl_swapPole;
 
     @FXML
     private RadioButton radioBtn_Yes;
 
     @FXML
     private RadioButton radioBtn_available;
-
-    @FXML
-    private TextArea textFrame;
 
     @FXML
     private TextField txt_BtnTxt;
@@ -68,69 +81,23 @@ public class VasController {
     @FXML
     private TextField txt_yes;
 
-    @FXML
-    private Button upButton;
+    private void bind(){
 
-    public void initialize(vasStage_VM vasStageVM){
-        this.vasStageVM = vasStageVM;
-        NumberStringConverter converter = new NumberStringConverter();
         txt_question.textProperty().bindBidirectional(vasStageVM.questionTextProperty());
         txt_LowAncTxt.textProperty().bindBidirectional(vasStageVM.lowAnchorTextProperty());
         txt_HighAncTxt.textProperty().bindBidirectional(vasStageVM.highAnchorTextProperty());
         txt_LowAncTxt.textProperty().bindBidirectional(vasStageVM.lowAnchorTextProperty());
-        txt_LowAncVal.textProperty().bindBidirectional(vasStageVM.lowAnchorValueProperty(), converter);
-        txt_HighAncVal.textProperty().bindBidirectional(vasStageVM.highAnchorValueProperty(), converter);
+        txt_LowAncVal.textProperty().bindBidirectional(vasStageVM.lowAnchorValueProperty());
+        txt_HighAncVal.textProperty().bindBidirectional(vasStageVM.highAnchorValueProperty());
         txt_BtnTxt.textProperty().bindBidirectional(vasStageVM.buttonTextProperty());
-
+        txt_help.textProperty().bindBidirectional(vasStageVM.helpTextProperty());
+        //txt_yes.textProperty().bindBidirectional(vasStageVM.txt_yesProperty());
+        checkB_sound.selectedProperty().bindBidirectional(vasStageVM.checkB_soundProperty());
+        checkB_swap.selectedProperty().bindBidirectional(vasStageVM.checkB_swapProperty());
     }
-
-    @FXML
-    void AddGLMSButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(VasStackPane,"/fxml/GLMS.fxml");
-    }
-
-    @FXML
-    void AddInputButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(VasStackPane,"/fxml/InputStage.fxml");
-    }
-
-    @FXML
-    void AddNoticeButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(VasStackPane,"/fxml/NoticeStage_1.fxml");
-
-
-    }
-
-    @FXML
-    void AddTimerButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(VasStackPane,"/fxml/TimerStage.fxml");
-
-    }
-
-
-    @FXML
-    void AddTastTestButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(VasStackPane,"/fxml/AddTasteTest.fxml");
-
-
-    }
-    @FXML
-    void AssignSoundButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(VasStackPane,"/fxml/AddSound.fxml");
-
-
-    }
-
-    @FXML
-    void AddQuestionStage(ActionEvent event) throws IOException {
-        new ScenseSwitch(VasStackPane,"/fxml/QuestionStage.fxml");
-
-
-
-    }
-    @FXML
-    void btn_menu(ActionEvent event) throws IOException {
-        new ScenseSwitch(VasStackPane,"/fxml/EditExperiment_UI.fxml");
+    public void setViewModel(vasStage_VM vas){
+        this.vasStageVM = vas;
+        bind();
 
     }
 

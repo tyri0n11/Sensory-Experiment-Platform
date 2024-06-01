@@ -50,4 +50,5 @@ public class Login_VM {
         user = userManager.login(getUsername(), getPassword());
         return user != null;
     }
+
 }

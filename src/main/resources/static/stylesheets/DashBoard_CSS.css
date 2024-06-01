@@ -31,7 +31,17 @@
 #btn_up{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
+<<<<<<< HEAD
+
+
     -fx-background-image: url('/static/images/btn_up.png');
+
+
+
+
+=======
+    -fx-background-image: url('/static/images/btn_up.png');
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -39,7 +49,16 @@
 #btn_down{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
+<<<<<<< HEAD
+
+
     -fx-background-image: url('/static/images/btn_down.png');
+
+
+
+=======
+    -fx-background-image: url('/static/images/btn_down.png');
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -55,7 +74,13 @@
 #btn_menu{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
+<<<<<<< HEAD
+
     -fx-background-image: url('/static/images/btn_menu.png');
+
+=======
+    -fx-background-image: url('/static/images/btn_menu.png');
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
@@ -147,8 +172,6 @@
 
     -fx-background-color: #397E82;
     -fx-border-radius: 8px;
-
-
 
 }
 .stackpane{
@@ -373,6 +396,10 @@
         -fx-font-size: 14px;
         -fx-text-fill: #000000;
 
+
+
+
+
         -fx-max-width: 217px;
         -fx-max-height: 56px;
         -fx-min-width: 217px;
@@ -381,6 +408,8 @@
         -fx-border-radius: 5px 5px 5px 5px;
 
     }
+
+
 
 
 

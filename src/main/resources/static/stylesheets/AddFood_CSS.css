@@ -169,8 +169,8 @@
 
     -fx-box-sizing: border-box;
 
-    -fx-min-width: 810px;
-    -fx-max-width: 810px;
+    -fx-min-width: 300px;
+    -fx-max-width: 300px;
     -fx-min-height: 275px;
     -fx-max-height: 275px;
 
@@ -566,6 +566,8 @@
     -fx-border-radius: 5px 5px 5px 5px;
 
 }
-
+#Properties{
+    
+}
 
 

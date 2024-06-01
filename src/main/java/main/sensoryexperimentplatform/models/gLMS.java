@@ -25,6 +25,9 @@ public class gLMS extends Stage{
         this.helpText = helpText;
         this.alert = alert;
     }
+    public void setAlert(boolean s){
+        this.alert =s;
+    }
     public void setResult(double result){
         this.result = result;
     }
@@ -92,7 +95,6 @@ public class gLMS extends Stage{
                 content + "\",\""+ helpText + "\",\"" + alert + "\")";
     }
 }
-
 
 
 

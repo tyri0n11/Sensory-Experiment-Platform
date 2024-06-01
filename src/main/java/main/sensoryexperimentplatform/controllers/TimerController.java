@@ -2,87 +2,44 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import main.sensoryexperimentplatform.ViewModel.timerStage_VM;
+import main.sensoryexperimentplatform.ViewModel.vasStage_VM;
 
 import java.io.IOException;
 
 public class TimerController {
+    private timerStage_VM timerVM;
+
+    @FXML
+    private CheckBox cb_alertSound;
+
+    @FXML
+    private Label lbl_instruction;
+
+    @FXML
+    private Label lbl_soundDisplay;
+
+    @FXML
+    private Label lbl_timeToWait;
 
     @FXML
     private TextField txt_instruction;
 
     @FXML
-    private TextField txt_time;
+    private TextField txt_timewait;
 
-    @FXML
-    private StackPane TimerStackPane;
-    @FXML
-    void AddGLMSbutton(ActionEvent event) throws IOException {
-        new ScenseSwitch(TimerStackPane,"/fxml/GLMS.fxml");
-    }
-
-    @FXML
-    void AddInputStageButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(TimerStackPane,"/fxml/InputStage.fxml");
-
-
+    public void setViewModel(timerStage_VM timer) {
+        this.timerVM = timer;
+        bindd();
 
     }
 
-    @FXML
-    void AddNoticeButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(TimerStackPane,"/fxml/NoticeStage_1.fxml");
-
-
-
+    private void bindd() {
+        txt_instruction.textProperty().bindBidirectional(timerVM.txt_instructionProperty());
+        txt_timewait.textProperty().bindBidirectional(timerVM.txt_timewaitProperty());
+        cb_alertSound.selectedProperty().bindBidirectional(timerVM.cb_alertSoundProperty());
     }
-
-    @FXML
-    void AddTasteTestButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(TimerStackPane,"/fxml/AddTasteTest.fxml");
-
-
-
-    }
-
-    @FXML
-    void AddTimerStageButton(ActionEvent event) {
-
-
-    }
-
-    @FXML
-    void AddVasButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(TimerStackPane,"/fxml/VasStage.fxml");
-
-
-    }
-
-    @FXML
-    void AssignSoundButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(TimerStackPane,"/fxml/AddSound.fxml");
-
-
-
-    }
-
-    @FXML
-    void AddQuestionButton(ActionEvent event) throws IOException {
-        new ScenseSwitch(TimerStackPane,"/fxml/QuestionStage.fxml");
-
-
-
-    }
-    @FXML
-    void btn_menu(ActionEvent event) throws IOException {
-        new ScenseSwitch(TimerStackPane,"/fxml/EditExperiment_UI.fxml");
-
-    }
-
-
 }

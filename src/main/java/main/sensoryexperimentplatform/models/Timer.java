@@ -12,9 +12,18 @@ public class Timer extends Stage {
         timeToWait = Long.parseLong(time);
         this.alert = alert;
     }
+
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
+    }
+
     public Timer(String instruction, String time) {
         super(instruction, time);
         timeToWait = Long.parseLong(time);
+    }
+
+    public String getInstruction() {
+        return instruction;
     }
 
     public void start(){
@@ -31,9 +40,7 @@ public class Timer extends Stage {
         }
     }
 
-    public String getInstruction() {
-        return instruction;
-    }
+
 
     public boolean isAlert() {
         return alert;
@@ -41,6 +48,9 @@ public class Timer extends Stage {
 
     public void setAlert(boolean alert) {
         this.alert = alert;
+    }
+    public void setTime(String time){
+        timeToWait = Long.parseLong(time);
     }
 
     public String getFormattedElapsed() {

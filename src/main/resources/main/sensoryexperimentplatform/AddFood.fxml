@@ -13,22 +13,75 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
+
+
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1279.0" stylesheets="@../../static/stylesheets/AddFood_CSS.css"  xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.addFoodController">
+
+=======
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1279.0" stylesheets="@../../static/stylesheets/AddFood_CSS.css"  xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.addFoodController">
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
     <children>
         <BorderPane prefHeight="839.0" prefWidth="1279.0">
             <top>
                 <AnchorPane prefHeight="56.0" prefWidth="1278.0" BorderPane.alignment="CENTER">
                     <children>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                         <AnchorPane fx:id="SenseXPBar" prefHeight="200.0" prefWidth="1279.2" stylesheets="@/static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
                                 <Label fx:id="lbl_SenseXP" layoutX="14.0" layoutY="-8.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Sense XP" textFill="#141414" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1084.4">
+=======
+                        <AnchorPane fx:id="SenseXPBar" prefHeight="200.0" prefWidth="1279.2" stylesheets="@../../static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Label fx:id="lbl_SenseXP" layoutX="14.0" layoutY="-8.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Sense XP" textFill="#141414" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1084.4">
+>>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
+=======
+                        <AnchorPane fx:id="SenseXPBar" prefHeight="200.0" prefWidth="1279.2" stylesheets="@../../static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Label fx:id="lbl_SenseXP" layoutX="14.0" layoutY="-8.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Sense XP" textFill="#141414" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1084.4">
+=======
+                        <AnchorPane fx:id="SenseXPBar" prefHeight="200.0" prefWidth="1279.2" stylesheets="@/static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Label fx:id="lbl_SenseXP" layoutX="14.0" layoutY="-8.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Sense XP" textFill="#141414" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1084.4">
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+                        <AnchorPane fx:id="SenseXPBar" prefHeight="200.0" prefWidth="1279.2" stylesheets="@/static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children>
+                                <Label fx:id="lbl_SenseXP" layoutX="14.0" layoutY="-8.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Sense XP" textFill="#141414" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="1084.4">
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                                     <font>
                                         <Font size="40.0" />
                                     </font>
                                 </Label>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                                 <Button layoutX="1212.0" layoutY="13.0" mnemonicParsing="false" styleClass="btn_bell" stylesheets="@/static/stylesheets/EditExp_CSS.css" />
                                 <Label layoutX="1160.0" layoutY="15.0" styleClass="Name" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Nguyễn" />
                                 <Label layoutX="1158.0" layoutY="37.0" styleClass="Nickname" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Mymia" />
+=======
+                                <Button layoutX="1212.0" layoutY="13.0" mnemonicParsing="false" styleClass="btn_bell" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
+                                <Label layoutX="1160.0" layoutY="15.0" styleClass="Name" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Nguyễn" />
+                                <Label layoutX="1158.0" layoutY="37.0" styleClass="Nickname" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Mymia" />
+>>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
+=======
+                                <Button layoutX="1212.0" layoutY="13.0" mnemonicParsing="false" styleClass="btn_bell" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
+                                <Label layoutX="1160.0" layoutY="15.0" styleClass="Name" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Nguyễn" />
+                                <Label layoutX="1158.0" layoutY="37.0" styleClass="Nickname" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Mymia" />
+=======
+                                <Button layoutX="1212.0" layoutY="13.0" mnemonicParsing="false" styleClass="btn_bell" stylesheets="@/static/stylesheets/EditExp_CSS.css" />
+                                <Label layoutX="1160.0" layoutY="15.0" styleClass="Name" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Nguyễn" />
+                                <Label layoutX="1158.0" layoutY="37.0" styleClass="Nickname" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Mymia" />
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+                                <Button layoutX="1212.0" layoutY="13.0" mnemonicParsing="false" styleClass="btn_bell" stylesheets="@/static/stylesheets/EditExp_CSS.css" />
+                                <Label layoutX="1160.0" layoutY="15.0" styleClass="Name" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Nguyễn" />
+                                <Label layoutX="1158.0" layoutY="37.0" styleClass="Nickname" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Mymia" />
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
 
                             </children>
                         </AnchorPane>
@@ -36,19 +89,66 @@
                 </AnchorPane>
             </top>
             <left>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                 <AnchorPane fx:id="SideBar" prefHeight="783.0" prefWidth="250.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" BorderPane.alignment="CENTER">
+=======
+                <AnchorPane fx:id="SideBar" prefHeight="783.0" prefWidth="250.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" BorderPane.alignment="CENTER">
+>>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
+=======
+                <AnchorPane fx:id="SideBar" prefHeight="783.0" prefWidth="250.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" BorderPane.alignment="CENTER">
+=======
+                <AnchorPane fx:id="SideBar" prefHeight="783.0" prefWidth="250.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" BorderPane.alignment="CENTER">
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+                <AnchorPane fx:id="SideBar" prefHeight="783.0" prefWidth="250.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" BorderPane.alignment="CENTER">
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                     <BorderPane.margin>
                         <Insets />
                     </BorderPane.margin>
                     <children>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                         <AnchorPane fx:id="sidebar_left" prefHeight="783.0" prefWidth="250.0" styleClass="sidebar_left" stylesheets="@/static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.8000000000000114" AnchorPane.topAnchor="0.0">
+=======
+                        <AnchorPane fx:id="sidebar_left" prefHeight="783.0" prefWidth="250.0" styleClass="sidebar_left" stylesheets="@../../static/stylesheets/AddFood_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.8000000000000114" AnchorPane.topAnchor="0.0">
+>>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
+=======
+                        <AnchorPane fx:id="sidebar_left" prefHeight="783.0" prefWidth="250.0" styleClass="sidebar_left" stylesheets="@../../static/stylesheets/AddFood_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.8000000000000114" AnchorPane.topAnchor="0.0">
+=======
+                        <AnchorPane fx:id="sidebar_left" prefHeight="783.0" prefWidth="250.0" styleClass="sidebar_left" stylesheets="@/static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.8000000000000114" AnchorPane.topAnchor="0.0">
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+                        <AnchorPane fx:id="sidebar_left" prefHeight="783.0" prefWidth="250.0" styleClass="sidebar_left" stylesheets="@/static/stylesheets/EditExp_CSS.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.8000000000000114" AnchorPane.topAnchor="0.0">
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                             <children>
                                 <Pane layoutX="14.0" layoutY="37.0">
                                     <children>
                                         <Button fx:id="btn_dashboard_left" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" text="Dashboard">
                                  <stylesheets>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                                     <URL value="@/static/stylesheets/AddFood_CSS.css" />
                                     <URL value="@/static/stylesheets/AddFood_CSS.css" />
+=======
+                                    <URL value="@../../static/stylesheets/AddFood_CSS.css" />
+>>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
+=======
+                                    <URL value="@../../static/stylesheets/AddFood_CSS.css" />
+=======
+                                    <URL value="@/static/stylesheets/AddFood_CSS.css" />
+                                    <URL value="@/static/stylesheets/AddFood_CSS.css" />
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+                                    <URL value="@/static/stylesheets/AddFood_CSS.css" />
+                                    <URL value="@/static/stylesheets/AddFood_CSS.css" />
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                                  </stylesheets></Button>
                                         <ImageView fitHeight="31.0" fitWidth="35.0" layoutX="14.0" layoutY="13.0">
                                             <image>
@@ -59,7 +159,22 @@
                                 </Pane>
                                 <Pane layoutX="16.0" layoutY="112.0">
                                     <children>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                                         <Button fx:id="btn_share_experiment" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Share Experiment " />
+=======
+                                        <Button fx:id="btn_share_experiment" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/AddFood_CSS.css" text="Share Experiment " />
+>>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
+=======
+                                        <Button fx:id="btn_share_experiment" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/AddFood_CSS.css" text="Share Experiment " />
+=======
+                                        <Button fx:id="btn_share_experiment" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Share Experiment " />
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+                                        <Button fx:id="btn_share_experiment" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Share Experiment " />
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                                         <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="10.0" layoutY="10.0">
                                             <image>
                                                 <Image url="@/static/images/btn_share.png" />
@@ -69,7 +184,16 @@
                                 </Pane>
                                 <Pane layoutX="16.0" layoutY="192.0">
                                     <children>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+                        =======
                                         <Button fx:id="btn_import" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Import Experiment" />
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+                                        <Button fx:id="btn_import" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Import Experiment" />
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                                         <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="10.0" layoutY="10.0">
                                             <image>
                                                 <Image url="@/static/images/btn_import.png" />
@@ -79,7 +203,22 @@
                                 </Pane>
                                 <Pane layoutX="16.0" layoutY="266.0">
                                     <children>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                                         <Button fx:id="btn_export" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Export Experiment" />
+=======
+                                        <Button fx:id="btn_export" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/AddFood_CSS.css" text="Export Experiment" />
+>>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
+=======
+                                        <Button fx:id="btn_export" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/AddFood_CSS.css" text="Export Experiment" />
+=======
+                                        <Button fx:id="btn_export" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Export Experiment" />
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+                                        <Button fx:id="btn_export" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Export Experiment" />
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                                         <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="10.0" layoutY="10.0">
                                             <image>
                                                 <Image url="@/static/images/btn_export.png" />
@@ -89,7 +228,22 @@
                                 </Pane>
                                 <Pane layoutX="16.0" layoutY="343.0">
                                     <children>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                                         <Button fx:id="btn_config" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Configure" />
+=======
+                                        <Button fx:id="btn_config" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/AddFood_CSS.css" text="Configure" />
+>>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
+=======
+                                        <Button fx:id="btn_config" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/AddFood_CSS.css" text="Configure" />
+=======
+                                        <Button fx:id="btn_config" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Configure" />
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+                                        <Button fx:id="btn_config" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Configure" />
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                                         <ImageView fitHeight="30.0" fitWidth="33.0" layoutX="10.0" layoutY="10.0">
                                             <image>
                                                 <Image url="@/static/images/btn_configure.png" />
@@ -99,7 +253,22 @@
                                 </Pane>
                                 <Pane layoutX="16.0" layoutY="711.0">
                                     <children>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
                                         <Button fx:id="btn_Logout" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Logout" />
+=======
+                                        <Button fx:id="btn_Logout" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/AddFood_CSS.css" text="Logout" />
+>>>>>>> f7e0441cb809fe1eeae0c3ce17ea7d6b26fe18ac
+=======
+                                        <Button fx:id="btn_Logout" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/AddFood_CSS.css" text="Logout" />
+=======
+                                        <Button fx:id="btn_Logout" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Logout" />
+>>>>>>> 38313848b3b1e283a7947f0f8276d23fed2669dd
+>>>>>>> 0afe28e26e406ed8f8d264d666f1ebee668c229c
+=======
+                                        <Button fx:id="btn_Logout" mnemonicParsing="false" prefHeight="57.0" prefWidth="217.0" styleClass="btn_dashboardButton" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Logout" />
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                                         <ImageView fitHeight="32.0" fitWidth="36.0" layoutX="10.0" layoutY="10.0">
                                             <image>
                                                 <Image url="@/static/images/btn_logOut.png" />
@@ -115,6 +284,11 @@
             <center>
                 <StackPane prefHeight="774.0" prefWidth="1036.0" BorderPane.alignment="CENTER">
                     <children>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                         <AnchorPane fx:id="mainBar" prefHeight="766.0" prefWidth="1070.0" stylesheets="@/static/stylesheets/EditExp_CSS.css">
                             <children>
                                 <AnchorPane layoutX="-13.0" layoutY="45.0" prefHeight="668.0" prefWidth="292.0">
@@ -153,22 +327,39 @@
                            <children>
                               <AnchorPane fx:id="AddFoodPane" layoutX="182.0" layoutY="226.0" prefHeight="246.0" prefWidth="405.0">
                                  <children>
+<<<<<<< HEAD
+
+=======
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                                     <Label fx:id="AddFoodLabel" layoutX="27.0" layoutY="14.0" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="ADD FOOD" />
                                     <Label fx:id="please1Label" layoutX="29.0" layoutY="60.0" text="Please type the name of the new food below:" />
                                     <TextField fx:id="txt_nameFood" layoutX="31.0" layoutY="108.0" prefHeight="30.0" prefWidth="344.0" />
                                     <Button fx:id="SaveButton1" layoutX="149.0" layoutY="178.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="106.0" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Save" />
                                     <Button fx:id="CancelButton1" layoutX="276.0" layoutY="178.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="102.0" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Cancel" />
+<<<<<<< HEAD
+
+=======
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                                  </children>
                               </AnchorPane>
                            </children>
                                 </AnchorPane>
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                                 <Label fx:id="lbl_TasteTestItemLable" layoutX="335.0" layoutY="53.0" stylesheets="@/static/stylesheets/AddFood_CSS.css" text="Taste test item selection" />
                         <Pane layoutX="14.0" layoutY="4.0">
                            <children>
                                         <Label fx:id="lbl_EditExperiment" layoutX="29.0" layoutY="-3.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="Edit ">
                                         </Label>
                               <Label fx:id="lbl_EditExperiment1" layoutX="22.0" layoutY="39.0" prefHeight="53.0" prefWidth="292.0" styleClass="lbl_EditExperiment" stylesheets="@/static/stylesheets/EditExp_CSS.css" text="experiment" />
+<<<<<<< HEAD
+
+=======
                               <Button fx:id="btn_edit" layoutX="98.0" layoutY="19.0" mnemonicParsing="false" stylesheets="@/static/stylesheets/AddFood_CSS.css" />
+>>>>>>> 116741758ad1b76b0768e52279a60aa0cc80ce31
                            </children>
                         </Pane>
                             </children>

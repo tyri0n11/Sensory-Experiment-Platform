@@ -4,25 +4,124 @@ import javafx.beans.property.*;
 import main.sensoryexperimentplatform.models.Vas;
 
 public class vasStage_VM {
-    private Vas vasModel;
     private StringProperty questionText;
-    private final StringProperty lowAnchorText = new SimpleStringProperty();
-    private final StringProperty highAnchorText = new SimpleStringProperty();
-    private final StringProperty helpText = new SimpleStringProperty();
-    private final StringProperty buttonText = new SimpleStringProperty();
-    private final IntegerProperty lowAnchorValue = new SimpleIntegerProperty();
-    private final IntegerProperty highAnchorValue = new SimpleIntegerProperty();
-
-    private final BooleanProperty isSwap = new SimpleBooleanProperty(true);
+    private StringProperty lowAnchorText;
+    private StringProperty highAnchorText;
+    private StringProperty helpText;
+    private StringProperty buttonText;
+    private StringProperty lowAnchorValue ;
+    private StringProperty highAnchorValue;
+    private StringProperty txt_BtnTxt;
+    private StringProperty  txt_yes;
+    private BooleanProperty checkB_sound;
+    private BooleanProperty checkB_swap;
     private final BooleanProperty alert = new SimpleBooleanProperty(true);
+    private Vas vas;
 
-    public vasStage_VM(Vas vasModel) {
-        this.vasModel = vasModel;
-        questionText = new SimpleStringProperty();
-        questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange());
+    public vasStage_VM(Vas stage) {
+        this.vas = stage;
+        lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
+        highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
+        buttonText = new SimpleStringProperty(vas.getButtonText());
+        helpText = new SimpleStringProperty(vas.getHelpText());
+        lowAnchorValue = new SimpleStringProperty(String.valueOf(vas.getLowAnchorValue()));
+        highAnchorValue= new SimpleStringProperty(String.valueOf(vas.getHighAnchorValue()));
+        questionText = new SimpleStringProperty(vas.getTitle());
+        checkB_sound = new SimpleBooleanProperty(vas.getAlert());
+        checkB_swap = new SimpleBooleanProperty(vas.getIsSwap());
+        checkB_swap.addListener((observableValue, oldValue, newValue) -> onCheckSwap(newValue));
+        checkB_sound.addListener((observableValue, oldValue, newValue) -> onCheckSound(newValue));
+        highAnchorValue.addListener((observableValue, oldValue, newValue) -> onhighAnchorValue(newValue));
+        lowAnchorValue.addListener((observableValue, oldValue, newValue) -> onlowAnchorValue(newValue));
+        helpText.addListener((observableValue, oldValue, newValue) -> onHelpText(newValue));
+        buttonText.addListener((observableValue, oldValue, newValue) -> onButtonText(newValue));
+        highAnchorText.addListener((observableValue, oldValue, newValue) -> onhighAnchorText(newValue));
+        lowAnchorText.addListener((observableValue, oldValue, newValue) -> onlowAnchorText(newValue));
+        questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
     }
-    private void onQuestionTextChange(){
-        System.out.println(questionTextProperty());
+
+    private void onCheckSwap(Boolean newValue) {
+        vas.setSwap(newValue);
+    }
+
+    private void onCheckSound(Boolean newValue) {
+        vas.setAlert(newValue);
+    }
+
+    private void onhighAnchorValue(String newValue) {
+        vas.setHighAnchorValue(Integer.parseInt(newValue));
+    }
+
+    private void onlowAnchorValue(String newValue) {
+        vas.setLowAnchorValue(Integer.parseInt(newValue));
+    }
+
+    private void onHelpText(String newValue) {
+        vas.setHelpText(newValue);
+    }
+
+    private void onButtonText(String newValue) {
+        vas.setButtonText(newValue);
+    }
+
+    private void onhighAnchorText(String newValue) {
+        vas.setHighAnchorText(newValue);
+    }
+
+    private void onlowAnchorText(String newValue) {
+        vas.setLowAnchorText(newValue);
+    }
+
+    public boolean isCheckB_swap() {
+        return checkB_swap.get();
+    }
+
+    public BooleanProperty checkB_swapProperty() {
+        return checkB_swap;
+    }
+
+    public boolean isCheckB_sound() {
+        return checkB_sound.get();
+    }
+
+    public BooleanProperty checkB_soundProperty() {
+        return checkB_sound;
+    }
+
+    public String getHighAnchorValue() {
+        return highAnchorValue.get();
+    }
+
+    public StringProperty highAnchorValueProperty() {
+        return highAnchorValue;
+    }
+
+    public String getLowAnchorValue() {
+        return lowAnchorValue.get();
+    }
+
+    public StringProperty lowAnchorValueProperty() {
+        return lowAnchorValue;
+    }
+
+    public String getTxt_yes() {
+        return txt_yes.get();
+    }
+
+    public StringProperty txt_yesProperty() {
+        return txt_yes;
+    }
+
+    public String getTxt_BtnTxt() {
+        return txt_BtnTxt.get();
+    }
+
+    public StringProperty txt_BtnTxtProperty() {
+        return txt_BtnTxt;
+    }
+
+    private void onQuestionTextChange(String s){
+        vas.setTitle(s);
     }
 
     public String getQuestionText() {
@@ -86,41 +185,6 @@ public class vasStage_VM {
         this.buttonText.set(buttonText);
     }
 
-    public int getLowAnchorValue() {
-        return lowAnchorValue.get();
-    }
-
-    public IntegerProperty lowAnchorValueProperty() {
-        return lowAnchorValue;
-    }
-
-    public void setLowAnchorValue(int lowAnchorValue) {
-        this.lowAnchorValue.set(lowAnchorValue);
-    }
-
-    public int getHighAnchorValue() {
-        return highAnchorValue.get();
-    }
-
-    public IntegerProperty highAnchorValueProperty() {
-        return highAnchorValue;
-    }
-
-    public void setHighAnchorValue(int highAnchorValue) {
-        this.highAnchorValue.set(highAnchorValue);
-    }
-
-    public boolean isIsSwap() {
-        return isSwap.get();
-    }
-
-    public BooleanProperty isSwapProperty() {
-        return isSwap;
-    }
-
-    public void setIsSwap(boolean isSwap) {
-        this.isSwap.set(isSwap);
-    }
 
     public boolean isAlert() {
         return alert.get();

@@ -8,19 +8,7 @@ public class ViewFactory {
     private addSoundVM addsound;
     private general_VM general;
     private AddTasteVM addTasteVM;
-    private addTasteVM2 addTaste2VM;
-    public addTasteVM2 getAddTaste2VM(){
-        if (addTaste2VM == null){
-            addTaste2VM = new addTasteVM2();
-        }
-        return addTaste2VM;
-    }
-    public AddTasteVM getAddTasteVM(){
-        if (addTasteVM == null){
-            addTasteVM = new AddTasteVM();
-        }
-        return addTasteVM;
-    }
+    private glmsStage_VM glmsStageVm;
 
     public addFoodVM getAddfood() {
         if (addfood == null){
