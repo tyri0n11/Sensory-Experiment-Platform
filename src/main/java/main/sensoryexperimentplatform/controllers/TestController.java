@@ -583,7 +583,8 @@ public class TestController {
 
                addRatingContainerController controller = new addRatingContainerController();
                ratingContainer_VM viewModel = new ratingContainer_VM();
-              viewModel.addGlmsStage_newExperiment();
+               viewModel.addVasStage_newExperiment();
+               viewModel.addGlmsStage_newExperiment();
                controller.setViewModel(viewModel);
 
 //               AddNoticeStage controller = fxmlLoader.getController();
