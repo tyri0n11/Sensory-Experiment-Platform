@@ -1,24 +1,26 @@
 package main.sensoryexperimentplatform.controllers;
 
-import javafx.application.Platform;
-import javafx.beans.binding.Bindings;
-import javafx.event.Event;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Callback;
+import javafx.stage.Stage; // Explicit import for JavaFX Stage
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.ViewModel.*;
 import main.sensoryexperimentplatform.models.*;
+import main.sensoryexperimentplatform.models.Timer;
+
+import javax.swing.*;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Random;
+
 
 
 public class RunController {
+    private static String FILE_NAME;
     double pivot = 0.0;
     double processed = 0.0;
     @FXML
@@ -34,18 +36,15 @@ public class RunController {
     private ProgressBar progress_bar;
 
     @FXML
-    private Label runelbl;
-
-    @FXML
-    private Label senseXPlbl;
-
-    @FXML
     private ListView<String> showList;
 
     private RunExperiment_VM viewModel;
 
+
+
     public void setViewModel(RunExperiment_VM viewModel){
         this.viewModel = viewModel;
+        FILE_NAME = JOptionPane.showInputDialog("Enter your name, please!");
         bindViewModel();
     }
     private void updateProgress(double processed){
@@ -81,18 +80,21 @@ public class RunController {
     }
 
     @FXML
-    void handleBtnNext(MouseEvent event) {
+    void handleBtnNext(MouseEvent event) throws IOException {
+
         int selectedIndex = showList.getSelectionModel().getSelectedIndex();
         if (selectedIndex == -1){
             showList.getSelectionModel().select(0);
         }
         if (selectedIndex >= 0 && selectedIndex < showList.getItems().size() - 1) {
             showList.getSelectionModel().select(selectedIndex + 1);
+            quickSave();
         }
     }
 
     private void showDetailView(String item) {
         Object selectedObject = viewModel.getObjectByKey(item);
+
         if (selectedObject != null) {
             int currentIndex = viewModel.getIndexOfObject(selectedObject);
             if (currentIndex >= 0) {
@@ -105,6 +107,7 @@ public class RunController {
                 updateProgress(processed);
             }
             content.getChildren().clear();
+
             try {
                 FXMLLoader loader;
                 // Vas view display
@@ -117,6 +120,7 @@ public class RunController {
                     RunVas_VM vm = new RunVas_VM((Vas) selectedObject);
                     controller.setViewModel(vm);
                     btn_Next.textProperty().bind(vm.buttonProperty());
+
                 }
                 // glms view display
                 if (selectedObject instanceof gLMS) {
@@ -165,42 +169,52 @@ public class RunController {
                     return;
                 }
                 if (currentIndex == viewModel.count - 1) {
-                    btn_Next.setOnAction(event -> handleFinalNext());
+                    btn_Next.setOnAction(event -> {
+                        try {
+                            handleFinalNext();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
+    private void handleFinalNext() throws IOException {
+        quickSave();
+        autoClose();
+    }
 
-    private void handleFinalNext() {
-        try {
-            Random random = new Random();
-            String save = String.valueOf(random.nextInt(1000));
-            FileWriter writer = new FileWriter(save+"_results.csv");
-            writer.append("Heading,Vas/GLMS Result,Question,Low Anchor, High Anchor, Low Value, High Value\n");
+    private void autoClose() {
+        // Get a handle to the stage
+        Stage stage = (Stage) content.getScene().getWindow();
+        // Close the stage
+        stage.close();
+    }
+    private void quickSave() throws IOException {
 
-            for (Object o : viewModel.getStages()) {
-                if(o instanceof RatingContainer){
-                    for(Object subO : ((RatingContainer) o).getContainer()){
-                        saveResult(writer,subO);
-                    }
+        FileWriter writer = new FileWriter(FILE_NAME +".csv",false);
+        writer.write("Heading,Time,Vas/GLMS Result,Question,Low Anchor, High Anchor, Low Value, High Value\n");
+
+        for (Object o : viewModel.getStages()) {
+            if(o instanceof RatingContainer){
+                for(Object subO : ((RatingContainer) o).getContainer()){
+                    saveResult(writer,subO);
                 }
-                saveResult(writer,o);
             }
-
-            writer.flush();
-            writer.close();
-
-            System.out.println("Result was stored at " + save + "_results.csv");
-            Platform.exit();
-        } catch (IOException e) {
-            e.printStackTrace();
+            saveResult(writer,o);
         }
+
+        writer.flush();
+        writer.close();
     }
     private void saveResult(Writer writer, Object subO) throws IOException {
         if( subO instanceof Vas){
             writer.append("Vas,")
+                    .append(((Vas) subO).getConducted())
+                    .append(",")
                     .append(String.valueOf(((Vas) subO).getResult()).trim())
                     .append(",")
                     .append(((Vas) subO).getTitle())
@@ -216,7 +230,9 @@ public class RunController {
         }
         if( subO instanceof gLMS){
             writer.append("GLMS ,")
-                    .append(String.valueOf(((gLMS) subO).getResult()))
+                    .append(((gLMS) subO).getConducted())
+                    .append(",")
+                    .append(String.format("%.4f",((gLMS) subO).getResult()))
                     .append(",")
                     .append(((gLMS) subO).getTitle());
             writer.append("\n");

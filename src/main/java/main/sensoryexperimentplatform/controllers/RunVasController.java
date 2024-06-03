@@ -1,6 +1,7 @@
 package main.sensoryexperimentplatform.controllers;
 
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.IntegerProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -18,11 +19,13 @@ public class RunVasController {
     private Slider mySlider;
 
     private RunVas_VM viewModel;
+    private IntegerProperty time;
 
     public void setViewModel(RunVas_VM viewModel) {
         this.viewModel = viewModel;
         bindViewModel();
     }
+
 
     private void bindViewModel() {
         highAnchor_label.textProperty().bind(viewModel.highAnchorTextProperty());
@@ -34,6 +37,7 @@ public class RunVasController {
         // Binding hai chiều giữa mySlider.valueProperty() và viewModel.sliderValueProperty()
         Bindings.bindBidirectional(mySlider.valueProperty(),viewModel.sliderValueProperty());
 
-
     }
+
+
 }

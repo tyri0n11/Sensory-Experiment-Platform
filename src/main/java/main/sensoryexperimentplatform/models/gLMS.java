@@ -5,7 +5,7 @@ public class gLMS extends Stage{
     private String questionText;
     private String buttonText;
     private boolean response;
-    private String helpText;
+    private String helpText, conducted;
     private double result;
     private boolean alert;
 
@@ -93,6 +93,13 @@ public class gLMS extends Stage{
     public String toString() {
         return "glmsStage(\"" + title + "\",\"" + buttonText + "\",\"" +
                 content + "\",\""+ helpText + "\",\"" + alert + "\")";
+    }
+
+    public void setConducted(String currentFormattedTime) {
+        this.conducted = currentFormattedTime;
+    }
+    public String getConducted(){
+        return conducted;
     }
 }
 

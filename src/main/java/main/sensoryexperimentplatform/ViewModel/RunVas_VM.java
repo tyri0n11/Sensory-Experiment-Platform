@@ -1,17 +1,18 @@
 package main.sensoryexperimentplatform.ViewModel;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javafx.beans.property.*;
-import javafx.beans.value.ObservableValue;
 import main.sensoryexperimentplatform.models.Vas;
 
 public class RunVas_VM {
     private Vas vas;
     private IntegerProperty sliderValue;
     private final StringProperty questionText;
-    private StringProperty lowAnchorText, button;
+    private StringProperty lowAnchorText, button, conducted;
     private StringProperty highAnchorText;
-    private IntegerProperty lowAnchorValue, highAnchorValue;
-
+    private IntegerProperty time;
     public RunVas_VM(Vas vas) {
         this.vas = vas;
         sliderValue = new SimpleIntegerProperty(vas.getResult()); // Khởi tạo giá trị của sliderValue từ kết quả hiện tại
@@ -19,11 +20,21 @@ public class RunVas_VM {
         questionText = new SimpleStringProperty(vas.getTitle());
         lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
         highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
+        conducted = new SimpleStringProperty("Not finish");
 
         sliderValue.addListener((observable, oldValue, newValue) -> {
             setResult(newValue.intValue());
-            System.out.println(vas.getResult());
+            System.out.println("Vas recording: "+ newValue);
+            setDate();
         });
+    }
+    public String getCurrentFormattedTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS");
+        Date now = new Date();
+        return sdf.format(now);
+    }
+    public void setDate(){
+        vas.setConducted(getCurrentFormattedTime());
     }
 
     public int getHighAnchorValue() {
@@ -38,6 +49,9 @@ public class RunVas_VM {
     }
     public IntegerProperty sliderValueProperty() {
         return sliderValue;
+    }
+    public StringProperty conductedTextProperty() {
+        return conducted;
     }
     public StringProperty questionTextProperty() {
         return questionText;
