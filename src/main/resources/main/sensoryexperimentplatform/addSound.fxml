@@ -5,8 +5,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-        <AnchorPane prefHeight="246.0" prefWidth="489.0" stylesheets="@../../static/stylesheets/AddSound_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane prefHeight="246.0" prefWidth="489.0" stylesheets="@../../static/stylesheets/AddSound_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.addSoundController">
             <children>
                   <AnchorPane fx:id="ImportSoundPane" prefHeight="246.0" prefWidth="489.0">
                       <children>

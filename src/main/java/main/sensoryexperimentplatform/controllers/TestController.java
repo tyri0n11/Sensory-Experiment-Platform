@@ -527,6 +527,8 @@ public class TestController {
                AnchorPane newContent = fxmlLoader.load();
                propertiesPane.getChildren().setAll(newContent);
                 addAudibleSoundController controller = new addAudibleSoundController();
+                audibleSound_VM viewModel = new audibleSound_VM();
+                controller.setViewModel(viewModel);
                btn_assignSound.setDisable(false);
 
 
