@@ -2,13 +2,22 @@ package main.sensoryexperimentplatform.ViewModel;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import main.sensoryexperimentplatform.models.Sound;
 
 public class addSoundVM {
+    private Sound sound;
     private StringProperty file;
     private StringProperty name;
+
     public addSoundVM(){
-        file = new SimpleStringProperty();
-        name = new SimpleStringProperty();
+        // Initialize the sound object with default values
+        sound = new Sound();
+        sound.setSoundFilePath(""); // Default file path
+        sound.setName(""); // Default name
+
+        // Initialize properties with sound values
+        file = new SimpleStringProperty(sound.getSoundFilePath());
+        name = new SimpleStringProperty(sound.getName());
     }
 
     public String getFile() {
@@ -25,5 +34,19 @@ public class addSoundVM {
 
     public StringProperty nameProperty() {
         return name;
+    }
+
+    public void setFile(String newValue) {
+        file.set(newValue);
+        sound.setSoundFilePath(newValue);
+    }
+
+    public void setName(String newValue) {
+        name.set(newValue);
+        sound.setName(newValue);
+    }
+
+    public Sound getSound() {
+        return sound;
     }
 }

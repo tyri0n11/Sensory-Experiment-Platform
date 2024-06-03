@@ -11,6 +11,12 @@ public class Sound {
     public String getSoundFilePath() {
         return soundFilePath;
     }
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
 
     public void setSoundFilePath(String soundFilePath) {
         this.soundFilePath = soundFilePath;
