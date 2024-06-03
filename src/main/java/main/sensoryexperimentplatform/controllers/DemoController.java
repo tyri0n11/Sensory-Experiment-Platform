@@ -25,6 +25,8 @@ public class DemoController {
     @FXML
     private VBox sideMenu;
     @FXML
+    private Button btnCancel;
+    @FXML
     private AnchorPane propertiesPane;
     @FXML
     private AnchorPane contentPane;
@@ -73,7 +75,31 @@ public class DemoController {
             }
         }
     }
-
+    private void showScaleByKey(String item) throws IOException {
+        Object selectedObject = viewModel.getScaleByKey(item);
+        if (selectedObject != null) {
+            listObject.setPrefHeight(listObject.getPrefHeight() - 300);
+            if (selectedObject instanceof RatingContainer) {
+                for (Object subO : ((RatingContainer) selectedObject).container) {
+                    if (subO instanceof Vas) {
+                        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/VasStage.fxml"));
+                        AnchorPane newContent = loader.load();
+                        propertiesPane.getChildren().setAll(newContent);
+                        VasController controller = loader.getController();
+                        vasStage_VM vm = new vasStage_VM((Vas) subO);
+                        controller.setViewModel(vm);
+                    } else if (subO instanceof gLMS) {
+                        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/GLMS.fxml"));
+                        AnchorPane newContent = loader.load();
+                        propertiesPane.getChildren().setAll(newContent);
+                        GLMSController controller = loader.getController();
+                        glmsStage_VM vm = new glmsStage_VM((gLMS) subO);
+                        controller.setViewModel(vm);
+                    }
+                }
+            }
+        }
+    }
     public void initialize() throws IOException {
         root = new TreeItem<>("TASTE TEST");
         listObject.setRoot(root);
@@ -86,13 +112,18 @@ public class DemoController {
                     root.getChildren().add(new TreeItem<>("[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle()));
                 }
             }
-
         }
         listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
+                System.out.println(newValue.getValue());
                 showDetailView(newValue.getValue());
             }
+            btnCancel.setOnAction((ActionEvent event) -> {
+                showDetailView(newValue.getValue());
+            });
         });
+
+
 
     }
 
@@ -153,9 +184,15 @@ public class DemoController {
 
         listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                showDetailView(newValue.getValue());
+                try {
+                    showScaleByKey(newValue.getValue());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
+
+
     }
 
     @FXML
@@ -191,10 +228,15 @@ public class DemoController {
         isSidebarVisible = !isSidebarVisible;
 
     }
-    @FXML
-    void cancel(ActionEvent event) throws IOException {
-        viewModel = new editEx_VM();
-    }
+//    @FXML
+//    void cancel(ActionEvent event) throws IOException {
+//        listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//            if (newValue != null) {
+//                System.out.println(newValue.getValue());
+//                showDetailView(newValue.getValue());
+//            }
+//        });
+//    }
 
     @FXML
     void saveAllInfo(ActionEvent event) throws IOException {

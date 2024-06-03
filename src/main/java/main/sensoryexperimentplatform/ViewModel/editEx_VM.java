@@ -49,6 +49,10 @@ public class editEx_VM {
                            str.add(key);
                            items.setAll(str);
                    } else if (o instanceof RatingContainer) {
+//                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
+//                       System.out.println(key);
+//                       displayedItems.put(key, o);
+//                       str.add(key);
                        for (Object subO : ((RatingContainer) o).container) {
                            if (subO instanceof Vas) {
                                String key = "[VAS]" + ((Vas) subO).getTitle();
