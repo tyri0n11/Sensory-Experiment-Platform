@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="edit binding question stage and create class view">
+      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/AudibleInstruction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -147,11 +148,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.main" />
-      <item itemvalue="Application.main1" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Test (1)" />
       <item itemvalue="Application.SensoryExperimentPlatform" />
+      <item itemvalue="Application.Test (1)" />
+      <item itemvalue="Application.main1" />
+      <item itemvalue="Application.main" />
     </list>
     <recent_temporary>
       <list>
@@ -207,6 +208,11 @@
       <workItem from="1717057212434" duration="4265000" />
       <workItem from="1717074404975" duration="11193000" />
       <workItem from="1717216580415" duration="984000" />
+      <workItem from="1717219514993" duration="904000" />
+      <workItem from="1717332365879" duration="8000" />
+      <workItem from="1717333326552" duration="2229000" />
+      <workItem from="1717391594041" duration="673000" />
+      <workItem from="1717396801581" duration="2205000" />
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />
