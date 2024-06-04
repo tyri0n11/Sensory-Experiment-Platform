@@ -1,9 +1,12 @@
 package main.sensoryexperimentplatform.models;
 
+import java.util.Date;
+
 public class Vas extends Stage {
     private String lowAnchorText, highAnchorText, helpText, buttonText ;
     private int lowAnchorValue, highAnchorValue;
     private int result;
+    private String conducted;
     private boolean alert, isSwap;
 
     public Vas(String title, String lowAnchorText, String highAnchorText,
@@ -35,7 +38,7 @@ public class Vas extends Stage {
         initialize();
     }
     private void initialize(){
-        this.result = Math.round((float) (lowAnchorValue + highAnchorValue) /2);
+        this.result = (lowAnchorValue+highAnchorValue)/2;
     }
     public void swapPolarities(){
         //swap values
@@ -48,6 +51,12 @@ public class Vas extends Stage {
             setLowAnchorText(getHighAnchorText());
             setHighAnchorText(tempStr);
         }
+    }
+    public void setConducted(String conduct_day){
+        this.conducted = conduct_day;
+    }
+    public String getConducted(){
+        return conducted;
     }
 
     public boolean getAlert() {

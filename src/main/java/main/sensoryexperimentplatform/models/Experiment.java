@@ -116,6 +116,10 @@ public class Experiment {
          timeWait,  randomizeFood,  randomizeRatingVas,  randomizeRatingGLMS);
         stages.add(tasteTest);
     }
+    public void addAudibleInstruction(String title, String content){
+        AudibleInstruction temp = new AudibleInstruction(title,content);
+        stages.add(temp);
+    }
 
     public void addAnyStage(Object o){
         stages.addLast(o);
@@ -164,18 +168,7 @@ public class Experiment {
         pairs.add(new Pair<>(temp, ++num));
         System.out.println("Add Models.Question is done");
     }
-    /*public void addRatingContainer(String title, String content, boolean isRandomize, ArrayList<Vas> vass) {
-        RatingContainer temp = new RatingContainer(title,content, isRandomize, vass);
-        this.quess.add(temp);
-        pairs.add(new Pair<>(temp, ++num));
-        System.out.println("Add Models.Question is done");
-    }*//*
-    public void addTasteTest(String title, String content) {
-        Question temp = new Question(title,content);
-        this.quess.add(temp);
-        pairs.add(new Pair<>(temp, ++num));
-        System.out.println("Add Models.Question is done");
-    }*/
+
     public void show(){
         System.out.println("\n-----------------------The Experiment-----------------------");
         System.out.println("Creator:" + creatorName + "\n Experiment Name: " + experimentName);
@@ -245,6 +238,15 @@ public class Experiment {
     public void setId(String id){
         this.id = id;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
     public String stagesToString(){
         StringBuilder sb = new StringBuilder();
         for(Object o : stages){

@@ -5,8 +5,8 @@ public class gLMS extends Stage{
     private String questionText;
     private String buttonText;
     private boolean response;
-    private String helpText;
-    private String result;
+    private String helpText, conducted;
+    private double result;
     private boolean alert;
 
     public gLMS(String title, String content){
@@ -28,11 +28,11 @@ public class gLMS extends Stage{
     public void setAlert(boolean s){
         this.alert =s;
     }
-    public void setResult(String s){
-        this.result = s;
+    public void setResult(double result){
+        this.result = result;
     }
 
-    public String getResult() {
+    public double getResult() {
         return result;
     }
 
@@ -94,8 +94,14 @@ public class gLMS extends Stage{
         return "glmsStage(\"" + title + "\",\"" + buttonText + "\",\"" +
                 content + "\",\""+ helpText + "\",\"" + alert + "\")";
     }
-}
 
+    public void setConducted(String currentFormattedTime) {
+        this.conducted = currentFormattedTime;
+    }
+    public String getConducted(){
+        return conducted;
+    }
+}
 
 
 

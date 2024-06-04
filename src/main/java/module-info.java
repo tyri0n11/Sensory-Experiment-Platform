@@ -7,8 +7,10 @@ module main.sensoryexpeirmentplatform {
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
     requires java.desktop;
+    requires javafx.media;
 
     opens main.sensoryexperimentplatform to javafx.fxml;
+    opens main.sensoryexperimentplatform.models to javafx.base;
     exports main.sensoryexperimentplatform;
     exports main.sensoryexperimentplatform.controllers;
     opens main.sensoryexperimentplatform.controllers to javafx.fxml;

@@ -58,3 +58,13 @@ public class AudibleInstruction {
 
 
 
+//=======
+//public class AudibleInstruction extends Stage{
+//    private String title, content;
+//    public AudibleInstruction(String title, String content){
+//        super(title,content);
+//        this.title = title;
+//        this.content = content;
+//    }
+//}
+//>>>>>>> b8828f0cd3a06a5502e2c2f6763efb2aef9a577c

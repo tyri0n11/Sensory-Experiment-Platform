@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="530.0" prefWidth="970.0" stylesheets="/static/stylesheets/RunGLMS_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunGLMSController">
+   <children>
+      <Slider fx:id="mySlider" layoutX="331.0" layoutY="85.0" majorTickUnit="10.0" orientation="VERTICAL" prefHeight="434.0" prefWidth="14.0" />
+      <Label fx:id="questionlbl" layoutX="14.0" layoutY="10.0" prefHeight="59.0" prefWidth="662.0" text="Question" wrapText="true" />
+      <Label fx:id="helpText" layoutX="576.0" layoutY="97.0" prefHeight="361.0" prefWidth="287.0" text="Label" wrapText="true" />
+   </children>
+</AnchorPane>

@@ -1,22 +1,30 @@
 package main.sensoryexperimentplatform.controllers;
 
-import javafx.beans.binding.Bindings;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.input.MouseEvent;
-import javafx.util.Callback;
-import main.sensoryexperimentplatform.ViewModel.RunExperiment_VM;
-import main.sensoryexperimentplatform.models.Notice;
-import org.controlsfx.control.PropertySheet;
 
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage; // Explicit import for JavaFX Stage
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.*;
+import main.sensoryexperimentplatform.models.*;
+import main.sensoryexperimentplatform.models.Timer;
+
+import javax.swing.*;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
+
+
 
 public class RunController {
+    private static String FILE_NAME;
+    double pivot = 0.0;
+    double processed = 0.0;
+    @FXML
+    private AnchorPane content;
 
     @FXML
     private Button btn_Next;
@@ -26,64 +34,43 @@ public class RunController {
 
     @FXML
     private ProgressBar progress_bar;
-    @FXML
-    private Label labelView;
-
-    @FXML
-    private Label runelbl;
-
-    @FXML
-    private Label senseXPlbl;
 
     @FXML
     private ListView<String> showList;
 
     private RunExperiment_VM viewModel;
 
-    @FXML
-    public void initialize() {
-        viewModel = new RunExperiment_VM();
+
+
+    public void setViewModel(RunExperiment_VM viewModel){
+        this.viewModel = viewModel;
+        FILE_NAME = JOptionPane.showInputDialog("Enter your name, please!");
         bindViewModel();
-        try {
-            viewModel.loadItems();
-        } catch (IOException e) {
-            e.printStackTrace();
+    }
+    private void updateProgress(double processed){
+        if(processed > pivot){
+            pivot = processed;
+            progress_bar.setProgress(pivot/(viewModel.count - 1));
         }
     }
 
     private void bindViewModel() {
-        // Bind ListView items to ViewModel items
-        showList.itemsProperty().bind(viewModel.itemsProperty());
 
-        showList.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
-            @Override
-            public ListCell<String> call(ListView<String> listView) {
-                return new ListCell<>() {
-                    @Override
-                    protected void updateItem(String item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (item != null && !empty) {
-                            setText(item);
-                        } else {
-                            setText(null);
-                        }
-                    }
-                };
-            }
-        });
+        showList.itemsProperty().bind(viewModel.itemsProperty());
+        showList.setVisible(false);
 
         // Add selection listener
-        System.out.println(showList.getSelectionModel().selectedItemProperty().getValue());;
-        displayView(showList.getSelectionModel().getSelectedIndex());
-    }
-
-    private void displayView(Object o){
-        if(o instanceof Notice){
-            labelView.setText(((Notice) o).getContent());
-        }
+        showList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                // Handle item selection (e.g., show detail view)
+                showDetailView(newValue);
+            }
+        });
     }
     @FXML
     void handleBtnBack(MouseEvent event) {
+        processed-=2;
+        updateProgress(processed);
         int selectedIndex = showList.getSelectionModel().getSelectedIndex();
         if (selectedIndex > 0) {
             showList.getSelectionModel().select(selectedIndex - 1);
@@ -93,19 +80,163 @@ public class RunController {
     }
 
     @FXML
-    void handleBtnNext(MouseEvent event) {
+    void handleBtnNext(MouseEvent event) throws IOException {
+
         int selectedIndex = showList.getSelectionModel().getSelectedIndex();
+        if (selectedIndex == -1){
+            showList.getSelectionModel().select(0);
+        }
         if (selectedIndex >= 0 && selectedIndex < showList.getItems().size() - 1) {
             showList.getSelectionModel().select(selectedIndex + 1);
+            quickSave();
         }
     }
 
     private void showDetailView(String item) {
-        // Implementation to show detail view
-        System.out.println("Selected item: " + item);
+        Object selectedObject = viewModel.getObjectByKey(item);
 
+        if (selectedObject != null) {
+            int currentIndex = viewModel.getIndexOfObject(selectedObject);
+            if (currentIndex >= 0) {
+                if (currentIndex > processed) {
+                    processed = currentIndex;
+                    updateProgress(currentIndex);
+                }
+            } else {
+                processed++;
+                updateProgress(processed);
+            }
+            content.getChildren().clear();
+
+            try {
+                FXMLLoader loader;
+                // Vas view display
+                if (selectedObject instanceof Vas) {
+                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunVas.fxml"));
+                    AnchorPane newContent = loader.load();
+                    content.getChildren().setAll(newContent);
+
+                    RunVasController controller = loader.getController();
+                    RunVas_VM vm = new RunVas_VM((Vas) selectedObject);
+                    controller.setViewModel(vm);
+                    btn_Next.textProperty().bind(vm.buttonProperty());
+
+                }
+                // glms view display
+                if (selectedObject instanceof gLMS) {
+                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunGLMS.fxml"));
+                    AnchorPane newContent = loader.load();
+                    content.getChildren().setAll(newContent);
+
+                    RunGLMSController controller = loader.getController();
+                    RunGLMS_VM vm = new RunGLMS_VM((gLMS) selectedObject);
+                    controller.setViewModel(vm);
+                    btn_Next.textProperty().bind(vm.buttonProperty());
+
+                }
+                if (selectedObject instanceof Notice) {
+                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunNotice.fxml"));
+                    AnchorPane newContent = loader.load();
+                    content.getChildren().setAll(newContent);
+
+                    RunNoticeController controller = loader.getController();
+                    RunNotice_VM vm = new RunNotice_VM((Notice) selectedObject);
+                    controller.setViewModel(vm);
+                    btn_Next.textProperty().bind(vm.buttonProperty());
+                }
+                if (selectedObject instanceof Timer) {
+                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunTimer.fxml"));
+                    AnchorPane newContent = loader.load();
+                    content.getChildren().setAll(newContent);
+
+                    RunTimerController controller = loader.getController();
+                    RunTimer_VM viewModel = new RunTimer_VM((Timer) selectedObject);
+                    controller.setViewModel(viewModel);
+                    btn_back.setVisible(controller.getTimeLineCheck());
+                    btn_Next.setVisible(controller.getTimeLineCheck());
+                    controller.timelineFullProperty().addListener(((observableValue, oldValue, newValue) ->{
+                        btn_back.setVisible(newValue);
+                        btn_Next.setVisible(newValue);
+                        showList.getSelectionModel().select(showList.getSelectionModel().getSelectedIndex() + 1);
+                    } ));
+
+                }
+                if (selectedObject instanceof RatingContainer) {
+                    int selectedIndex = showList.getSelectionModel().getSelectedIndex();
+                    if (selectedIndex >= 0 && selectedIndex < showList.getItems().size() - 1) {
+                        showList.getSelectionModel().select(selectedIndex + 1);
+                    }
+                    return;
+                }
+                if (currentIndex == viewModel.count - 1) {
+                    btn_Next.setOnAction(event -> {
+                        try {
+                            handleFinalNext();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    private void handleFinalNext() throws IOException {
+        quickSave();
+        autoClose();
     }
 
+    private void autoClose() {
+        // Get a handle to the stage
+        Stage stage = (Stage) content.getScene().getWindow();
+        // Close the stage
+        stage.close();
+    }
+    private void quickSave() throws IOException {
 
+        FileWriter writer = new FileWriter(FILE_NAME +".csv",false);
+        writer.write("Heading,Time,Vas/GLMS Result,Question,Low Anchor, High Anchor, Low Value, High Value\n");
+
+        for (Object o : viewModel.getStages()) {
+            if(o instanceof RatingContainer){
+                for(Object subO : ((RatingContainer) o).getContainer()){
+                    saveResult(writer,subO);
+                }
+            }
+            saveResult(writer,o);
+        }
+
+        writer.flush();
+        writer.close();
+    }
+    private void saveResult(Writer writer, Object subO) throws IOException {
+        if( subO instanceof Vas){
+            writer.append("Vas,")
+                    .append(((Vas) subO).getConducted())
+                    .append(",")
+                    .append(String.valueOf(((Vas) subO).getResult()).trim())
+                    .append(",")
+                    .append(((Vas) subO).getTitle())
+                    .append(",")
+                    .append(((Vas) subO).getLowAnchorText())
+                    .append(",")
+                    .append(((Vas) subO).getHighAnchorText())
+                    .append(",")
+                    .append(String.valueOf(((Vas) subO).getLowAnchorValue()))
+                    .append(",")
+                    .append(String.valueOf(((Vas) subO).getHighAnchorValue()));
+            writer.append("\n");
+        }
+        if( subO instanceof gLMS){
+            writer.append("GLMS ,")
+                    .append(((gLMS) subO).getConducted())
+                    .append(",")
+                    .append(String.format("%.4f",((gLMS) subO).getResult()))
+                    .append(",")
+                    .append(((gLMS) subO).getTitle());
+            writer.append("\n");
+        }
+    }
 
 }
