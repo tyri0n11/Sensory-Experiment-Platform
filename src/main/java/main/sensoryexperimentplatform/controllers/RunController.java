@@ -13,6 +13,7 @@ import main.sensoryexperimentplatform.models.*;
 import main.sensoryexperimentplatform.models.Timer;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
@@ -194,8 +195,22 @@ public class RunController {
         stage.close();
     }
     private void quickSave() throws IOException {
+        // Create directory for the experiment results if it doesn't exist
+        File resultsDirectory = new File("results");
+        if (!resultsDirectory.exists()) {
+            resultsDirectory.mkdirs(); // Automatically creates the directory and any necessary parent directories
+        }
 
-        FileWriter writer = new FileWriter(FILE_NAME +".csv",false);
+        // Create directory for the experiment if it doesn't exist
+        String experimentName = viewModel.getExperimentName();
+        File experimentDirectory = new File("results/" + experimentName);
+        if (!experimentDirectory.exists()) {
+            experimentDirectory.mkdirs(); // Automatically creates the directory and any necessary parent directories
+        }
+
+        // Create file for saving results
+        FileWriter writer = new FileWriter("results/" + experimentName + "/" + FILE_NAME + ".csv", false);
+
         writer.write("Heading,Time,Vas/GLMS Result,Question,Low Anchor, High Anchor, Low Value, High Value\n");
 
         for (Object o : viewModel.getStages()) {
