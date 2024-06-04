@@ -211,6 +211,12 @@ public class Experiment {
     public String getExperimentName() {
         return experimentName;
     }
+    public String getDescription(){
+        return description;
+    }
+    public String getNote(){
+        return note;
+    }
 
     public void setCreatorName(String creatorName) {
         this.creatorName = creatorName;

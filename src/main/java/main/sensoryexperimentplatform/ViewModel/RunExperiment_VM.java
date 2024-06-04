@@ -1,10 +1,7 @@
 package main.sensoryexperimentplatform.ViewModel;
 
 import javafx.animation.AnimationTimer;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import main.sensoryexperimentplatform.models.*;
@@ -13,7 +10,7 @@ import main.sensoryexperimentplatform.models.Timer;
 import java.util.*;
 
 public class RunExperiment_VM {
-    private IntegerProperty elapsedTime;
+    private StringProperty btn,title;
 
     private Experiment experiment;
     public double count = 0.0;
@@ -24,8 +21,15 @@ public class RunExperiment_VM {
 
     public RunExperiment_VM(Experiment experiment) {
         this.experiment = experiment;
-        elapsedTime = new SimpleIntegerProperty(0);
+        title = new SimpleStringProperty(experiment.getDescription());
+        btn = new SimpleStringProperty(experiment.getNote());
         loadItems();
+    }
+    public StringProperty getTitle(){
+        return title;
+    }
+    public StringProperty getBtn(){
+        return btn;
     }
 
     public void loadItems() {

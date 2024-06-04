@@ -39,6 +39,7 @@
          <center>
             <Pane prefHeight="645.0" prefWidth="1054.0" BorderPane.alignment="CENTER">
                <children>
+                  <Label fx:id="title_label" layoutX="538.0" layoutY="190.0" prefHeight="82.0" prefWidth="203.0" text="Label" />
                   <Button fx:id="btn_back" layoutX="660.0" layoutY="544.0" mnemonicParsing="false" onMouseClicked="#handleBtnBack" prefHeight="70.0" prefWidth="150.0" text="Back" wrapText="true">
                      <font>
                         <Font size="20.0" />
@@ -49,7 +50,7 @@
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <AnchorPane fx:id="content" layoutX="175.0" prefHeight="539.0" prefWidth="971.0" />
+                  <AnchorPane fx:id="content" layoutX="22.0" layoutY="3.0" prefHeight="539.0" prefWidth="1215.0" />
 
                </children>
             </Pane>

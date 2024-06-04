@@ -9,12 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="Build: Run experiment _ v1.2">
+    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="Build: Run experiment _ v1.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yoyo_Nico.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/1MTasteScreenerShort/test_04_06.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kuma.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/Experiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/Experiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunExperiment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunExperiment.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;thinhchau&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;thinhchau__RunExp&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Desktop/Tyr1on/SceneBuilder/SceneBuilder.exe&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
@@ -196,9 +196,9 @@
       <list>
         <item itemvalue="Application.SensoryExperimentPlatform" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.DataAccess" />
         <item itemvalue="Application.TasteTest" />
         <item itemvalue="Application.RunExperiment" />
+        <item itemvalue="Application.DataAccess" />
       </list>
     </recent_temporary>
   </component>
@@ -248,6 +248,7 @@
       <workItem from="1717075141480" duration="9348000" />
       <workItem from="1717419706508" duration="3039000" />
       <workItem from="1717507880938" duration="1625000" />
+      <workItem from="1717511554757" duration="2459000" />
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />
@@ -374,7 +375,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/UserManager.java</url>
           <line>90</line>
-          <properties class="main.sensoryexperimentplatform.models.UserManager">
+          <properties class="main.sensoryexperimentplatform.models.UserManager" method="getExperimentForUser">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

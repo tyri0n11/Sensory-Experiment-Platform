@@ -34,6 +34,9 @@ public class RunController {
     private Button btn_back;
 
     @FXML
+    private Label title_label;
+
+    @FXML
     private ProgressBar progress_bar;
 
     @FXML
@@ -47,6 +50,9 @@ public class RunController {
         this.viewModel = viewModel;
         FILE_NAME = JOptionPane.showInputDialog("Enter your name, please!");
         bindViewModel();
+        title_label.textProperty().bind(viewModel.getTitle());
+        btn_Next.textProperty().bind(viewModel.getBtn());
+        btn_back.setVisible(false);
     }
     private void updateProgress(double processed){
         if(processed > pivot){
@@ -82,6 +88,8 @@ public class RunController {
 
     @FXML
     void handleBtnNext(MouseEvent event) throws IOException {
+        btn_back.setVisible(true);
+        title_label.setVisible(false);
 
         int selectedIndex = showList.getSelectionModel().getSelectedIndex();
         if (selectedIndex == -1){
