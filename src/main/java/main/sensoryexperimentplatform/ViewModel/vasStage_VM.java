@@ -200,4 +200,5 @@ public class vasStage_VM {
     public void setAlert(boolean alert) {
         this.alert.set(alert);
     }
+
 }

@@ -171,6 +171,7 @@ public class TestController {
         btn_assignSound.setDisable(true);
         btn_AddPeriodicStage.setDisable(true);
         btn_addFoodAndTaste.setDisable(true);
+        experiment.showStages();
         listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 System.out.println(newValue.getValue());
@@ -311,10 +312,6 @@ public class TestController {
                btn_AddCourse.setDisable(true);
 
 }
-
-
-
-
     }
 
     @FXML
@@ -427,19 +424,23 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        TreeItem<String> inputStage = new TreeItem<>("[User Input] Input Stage");
+        inputStage_VM inputStage_vm = new inputStage_VM();
+        Input inputStage = inputStage_vm.getInput();
+        String key = "[User Input]" +  inputStage.getTitle();
+        displayedItems.put(key, inputStage);
+
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(inputStage );
+            ifConditional.getChildren().add(new TreeItem<>(key) );
             ifConditional.setExpanded(true);
         }
         // Add to Randomnies if selected item matches elseConditional
         else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(inputStage );
+            elseConditional.getChildren().add(new TreeItem<>(key) );
             elseConditional.setExpanded(true);
         }
         // Add to start if no conditions match
         else {
-            start.getChildren().add(inputStage);
+            start.getChildren().add(new TreeItem<>(key));
         }
 
 
@@ -455,7 +456,7 @@ public class TestController {
         Notice noticeStage = noticeStage_vm.getNotice();
         String key = "[Instruction]" + noticeStage.getTitle();
         displayedItems.put(key, noticeStage);
-        experiment.showStages();
+
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(new TreeItem<>(key));
             ifConditional.setExpanded(true);
@@ -474,6 +475,7 @@ public class TestController {
     }
 
     @FXML
+    // chua co VM cho periodic
     void addPeriodicStage(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
@@ -495,7 +497,11 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        TreeItem<String> QuestionStage = new TreeItem<>("[Question] Question");
+        questionStage_VM questionStage_vm = new questionStage_VM();
+        Question question = questionStage_vm.getQuestionStage();
+        String key = "[Question]" + question.getQuestion();
+        displayedItems.put(key, question);
+        TreeItem<String> QuestionStage = new TreeItem<>(key);
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(QuestionStage);
             ifConditional.setExpanded(true);
@@ -516,7 +522,11 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        Randomnies = new TreeItem<>("Ratings container");
+        ratingContainer_VM ratingContainer_vm = new ratingContainer_VM();
+        RatingContainer ratingContainer = ratingContainer_vm.getRatingContainer();
+        String key = "Ratings container";
+        displayedItems.put(key, ratingContainer);
+        Randomnies = new TreeItem<>(key);
 
 
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
@@ -539,6 +549,7 @@ public class TestController {
 
     @FXML
     void addTasteTest(ActionEvent event) {
+        // TASTE TEST CHUA CO VM
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
@@ -564,7 +575,13 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        TreeItem<String> TimerStage = new TreeItem<>("[Waiting] Please wait");
+        timerStage_VM timerStage_vm = new timerStage_VM();
+        Timer timer = timerStage_vm.getTimer();
+        String key = "[Waiting]";
+        displayedItems.put(key, timer);
+
+
+        TreeItem<String> TimerStage = new TreeItem<>(key);
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(TimerStage);
             ifConditional.setExpanded(true);

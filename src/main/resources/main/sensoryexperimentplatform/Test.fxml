@@ -26,7 +26,7 @@
                <children>
                   <VBox id="dashboardBar" fx:id="sideMenu" prefHeight="783.0" prefWidth="250.0">
                      <children>
-                        <Button fx:id="btn_DashBoard" mnemonicParsing="false" prefHeight="67.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Dashboard">
+                        <Button mnemonicParsing="false" prefHeight="67.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Dashboard">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

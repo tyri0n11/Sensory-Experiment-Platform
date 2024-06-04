@@ -53,6 +53,9 @@ public class ratingContainer_VM {
     public void addGlmsStage_newExperiment(){
         ratingContainer.addGlms_newExperiment(glms);
     }
+    public RatingContainer getRatingContainer(){
+        return ratingContainer;
+    }
 
 
 }
