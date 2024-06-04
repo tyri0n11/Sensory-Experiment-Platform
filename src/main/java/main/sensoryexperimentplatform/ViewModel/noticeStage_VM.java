@@ -36,8 +36,9 @@ public class noticeStage_VM {
         String helpText = this.helpText.get();
         boolean alert = this.alert.get();
         Notice stage = new Notice(title, content, buttonText,helpText, alert);
-        experiment.addInputStage(title, content, buttonText, alert);
-//        stages.add(stage);
+        experiment.addNoticeStage(title, content, buttonText,helpText, alert);
+
+
 
     }
 
