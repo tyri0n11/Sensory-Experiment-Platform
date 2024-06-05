@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="NewExPane" prefHeight="592.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main/sensoryexperimentplatform.controllers.newExController">
+<AnchorPane fx:id="NewExPane" prefHeight="592.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.newExController">
               <children>
                   <Label fx:id="lbl_newEx" layoutX="36.0" layoutY="28.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="NEW EXPERIMENT" />
                   <Label fx:id="lbl_creator" layoutX="15.0" layoutY="81.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Creator" />

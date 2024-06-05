@@ -21,15 +21,15 @@ public class Experiment {
     public Experiment(){
         super();
         this.id = UUID.randomUUID().toString();
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the Creator: ");
-        setCreatorName(sc.nextLine());
-        System.out.print("Enter the Experiment Name: ");
-        setExperimentName(sc.nextLine());
-        System.out.print("Enter the Experiment Description: ");
-        setDescription(sc.nextLine());
-        System.out.print("Enter the Additional Notes: ");
-        setNote(sc.nextLine());
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Enter the Creator: ");
+//        setCreatorName(sc.nextLine());
+//        System.out.print("Enter the Experiment Name: ");
+//        setExperimentName(sc.nextLine());
+//        System.out.print("Enter the Experiment Description: ");
+//        setDescription(sc.nextLine());
+//        System.out.print("Enter the Additional Notes: ");
+//        setNote(sc.nextLine());
         pairs = new ArrayList<>();
         timers = new ArrayList<>();
         notices = new ArrayList<>();

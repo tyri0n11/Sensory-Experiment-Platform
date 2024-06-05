@@ -46,6 +46,19 @@ public class newEx_VM {
     public void setNote(String newValue) {
         experiment.setNote(newValue);
     }
+    public String getExperimentName(){
+        return experimentName.get();
+    }
+    public String getCreatorName(){
+        return creatorName.get();
+    }
+    public String getNote(){
+        return additionNote.get();
+    }
+    public String getDescription(){
+        return description.get();
+    }
+
 
 
 
