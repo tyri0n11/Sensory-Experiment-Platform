@@ -87,9 +87,9 @@ public class newExController {
         txt_description.textProperty().addListener((observable, oldValue, newValue) -> {
             viewModel.setDescription(newValue);
         });
-
-
-
+    }
+    public void setViewModel(newEx_VM viewModel){
+        this.viewModel = viewModel;
     }
 
 }

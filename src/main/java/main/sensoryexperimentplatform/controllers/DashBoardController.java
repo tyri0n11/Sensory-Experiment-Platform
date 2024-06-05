@@ -101,8 +101,16 @@ public class DashBoardController {
     }
 
     @FXML
-    void btn_addEx(ActionEvent event) {
-        // Implement action for adding an experiment
+    void btn_addEx(ActionEvent event) throws IOException {
+//        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("/main/sensoryexperimentplatform/NewExperiment.fxml"));
+//        Parent root = fxmlLoader.load();
+//        Stage stage = new Stage();
+//        Scene scene = new Scene(root);
+//        stage.setTitle("Add NewExperiment");
+//        stage.setScene(scene);
+//        System.out.println("gud morning");
+//        stage.show();
+
     }
 
 }
