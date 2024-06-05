@@ -26,17 +26,17 @@ public class inputStage_VM {
 
 
 
-    public void addInputStage() {
-
-        String title = this.title.get();
-        String content = this.content.get();
-        String buttonText = this.button.get();
-        boolean alert = this.alert.get();
-        Input stage = new Input(title, content, buttonText, alert);
-        experiment.addInputStage(title, content, buttonText, alert);
-//        stages.add(stage);
-
-    }
+//    public void addInputStage() {
+//
+//        String title = this.title.get();
+//        String content = this.content.get();
+//        String buttonText = this.button.get();
+//        boolean alert = this.alert.get();
+//        Input stage = new Input(title, content, buttonText, alert);
+//        experiment.addInputStage(title, content, buttonText, alert);
+////        stages.add(stage);
+//
+//    }
 
 //    public ObservableList<Object> getStages() {
 //        return stages.get();

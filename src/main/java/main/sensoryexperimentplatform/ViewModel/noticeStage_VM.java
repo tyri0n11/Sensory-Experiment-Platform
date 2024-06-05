@@ -4,11 +4,17 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.NoticeStageController;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Input;
 import main.sensoryexperimentplatform.models.Notice;
 
-public class noticeStage_VM {
+import java.io.IOException;
+
+public class noticeStage_VM implements choose{
     private StringProperty buttonText ;
 
     private StringProperty helpText ;
@@ -36,9 +42,7 @@ public class noticeStage_VM {
         String helpText = this.helpText.get();
         boolean alert = this.alert.get();
         Notice stage = new Notice(title, content, buttonText,helpText, alert);
-        experiment.addInputStage(title, content, buttonText, alert);
-//        stages.add(stage);
-
+        experiment.addNoticeStage(title, content, buttonText,helpText, alert);
     }
 
 
@@ -105,5 +109,14 @@ public class noticeStage_VM {
     }
 
 
+    @Override
+    public void modify(AnchorPane anchorPane) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddNoticeStage.fxml"));
+        AnchorPane newContent = fxmlLoader.load();
+        anchorPane.getChildren().setAll(newContent);
+        NoticeStageController controller = new NoticeStageController();
+        noticeStage_VM viewModel = new noticeStage_VM();
+        controller.setNoticeStage_vm(viewModel);
 
+    }
 }

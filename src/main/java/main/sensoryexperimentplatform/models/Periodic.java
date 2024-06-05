@@ -1,6 +1,13 @@
 package main.sensoryexperimentplatform.models;
 
-public class Periodic extends Stage {
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+
+import java.io.IOException;
+
+public class Periodic extends Stage{
     private long weight, seconds;
     public Periodic(String title, String content, long grams, long durations ) {
         super(title, content);
@@ -23,4 +30,5 @@ public class Periodic extends Stage {
     public void setSeconds(long seconds) {
         this.seconds = seconds;
     }
+
 }

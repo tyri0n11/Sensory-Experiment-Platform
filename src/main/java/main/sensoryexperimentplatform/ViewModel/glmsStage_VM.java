@@ -4,9 +4,15 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.GLMSController;
 import main.sensoryexperimentplatform.models.gLMS;
 
-public class glmsStage_VM {
+import java.io.IOException;
+
+public class glmsStage_VM implements choose {
     private StringProperty txt_question;
     private StringProperty txt_LowAncTxt;
     private StringProperty txt_yes;
@@ -14,8 +20,8 @@ public class glmsStage_VM {
     private StringProperty txt_help;
     private BooleanProperty checkB_sound;
     private gLMS glms;
-    public glmsStage_VM(gLMS glms){
-        this.glms = glms;
+    public glmsStage_VM(){
+        this.glms = new gLMS("User Input",null,null,null, false);;
         txt_help = new SimpleStringProperty(glms.getHelpText());
         txt_LowAncTxt = new SimpleStringProperty(glms.getButtonText());
         txt_question = new SimpleStringProperty(glms.getTitle());
@@ -96,5 +102,19 @@ public class glmsStage_VM {
 
     public BooleanProperty checkB_soundProperty() {
         return checkB_sound;
+    }
+
+    public gLMS getGLMS() {
+        return glms;
+    }
+
+    @Override
+    public void modify(AnchorPane anchorpane) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("GLMS.fxml"));
+        AnchorPane newContent = fxmlLoader.load();
+        anchorpane.getChildren().setAll(newContent);
+        GLMSController controller = fxmlLoader.getController();
+        glmsStage_VM view = new glmsStage_VM();
+        controller.setViewModel(view);
     }
 }
