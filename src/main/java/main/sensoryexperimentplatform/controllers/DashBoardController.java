@@ -10,7 +10,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
@@ -18,12 +17,7 @@ import main.sensoryexperimentplatform.ViewModel.RunExperiment_VM;
 import main.sensoryexperimentplatform.ViewModel.dashBoard_VM;
 import main.sensoryexperimentplatform.models.Experiment;
 
-import javax.swing.text.View;
 import java.io.IOException;
-import java.util.Date;
-import java.util.Map;
-
-import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class DashBoardController {
     private dashBoard_VM viewModel;
@@ -171,7 +165,7 @@ public class DashBoardController {
 
     }
 
-    private deleteEx(Experiment c) {
+    private void deleteEx(Experiment c) {
     }
 
     private void editExperiment(Experiment c) {
