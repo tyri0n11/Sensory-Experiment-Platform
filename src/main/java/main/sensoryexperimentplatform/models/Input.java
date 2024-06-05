@@ -1,6 +1,15 @@
 package main.sensoryexperimentplatform.models;
 
-public class Input extends Stage {
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
+import main.sensoryexperimentplatform.controllers.InputStageController;
+
+import java.io.IOException;
+
+public class Input extends Stage{
     private String buttonText;
     private boolean alert;
     public Input(String title, String content) {
@@ -52,4 +61,5 @@ public class Input extends Stage {
         return "inputStage(\"" + title + "\",\"" + content + "\",\"" +
                 buttonText + "\",\""+ alert + "\")";
     }
+
 }

@@ -1,6 +1,15 @@
 package main.sensoryexperimentplatform.models;
 
-public class Timer extends Stage {
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.timerStage_VM;
+import main.sensoryexperimentplatform.controllers.TimerController;
+
+import java.io.IOException;
+
+public class Timer extends Stage{
     private boolean alert;
     private boolean isRunning = true;
     private long timeToWait;
@@ -64,4 +73,6 @@ public class Timer extends Stage {
     public String toString() {
         return "wait(\""+ getFormattedElapsed() + "\",\"" + this.content  + "\",\"" + alert + "\")";
     }
+
+
 }

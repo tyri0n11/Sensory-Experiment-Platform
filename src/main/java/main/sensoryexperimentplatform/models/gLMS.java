@@ -1,6 +1,15 @@
 package main.sensoryexperimentplatform.models;
 
-public class gLMS extends Stage{
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.glmsStage_VM;
+import main.sensoryexperimentplatform.controllers.GLMSController;
+
+import java.io.IOException;
+
+public class gLMS extends Stage {
     private String title;
     private String questionText;
     private String buttonText;
@@ -101,6 +110,8 @@ public class gLMS extends Stage{
     public String getConducted(){
         return conducted;
     }
+
+
 }
 
 

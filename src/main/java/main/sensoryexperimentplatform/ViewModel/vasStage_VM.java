@@ -1,9 +1,15 @@
 package main.sensoryexperimentplatform.ViewModel;
 
 import javafx.beans.property.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.VasController;
 import main.sensoryexperimentplatform.models.Vas;
 
-public class vasStage_VM {
+import java.io.IOException;
+
+public class vasStage_VM implements choose{
     private StringProperty questionText;
     private StringProperty lowAnchorText;
     private StringProperty highAnchorText;
@@ -18,8 +24,9 @@ public class vasStage_VM {
     private final BooleanProperty alert = new SimpleBooleanProperty(true);
     private Vas vas;
 
-    public vasStage_VM(Vas stage) {
-        this.vas = stage;
+    public vasStage_VM() {
+        this.vas = new Vas("User input",null,null,
+                0,100,null,null, null,false,false);
         lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
         highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
         buttonText = new SimpleStringProperty(vas.getButtonText());
@@ -34,7 +41,10 @@ public class vasStage_VM {
         highAnchorValue.addListener((observableValue, oldValue, newValue) -> onhighAnchorValue(newValue));
         lowAnchorValue.addListener((observableValue, oldValue, newValue) -> onlowAnchorValue(newValue));
         helpText.addListener((observableValue, oldValue, newValue) -> onHelpText(newValue));
-        buttonText.addListener((observableValue, oldValue, newValue) -> onButtonText(newValue));
+        buttonText.addListener((observableValue, oldValue, newValue) -> {onButtonText(newValue);
+            System.out.println(vas);
+        });
+
         highAnchorText.addListener((observableValue, oldValue, newValue) -> onhighAnchorText(newValue));
         lowAnchorText.addListener((observableValue, oldValue, newValue) -> onlowAnchorText(newValue));
         questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
@@ -196,5 +206,20 @@ public class vasStage_VM {
 
     public void setAlert(boolean alert) {
         this.alert.set(alert);
+    }
+
+    public Vas getVas() {
+        return vas;
+    }
+
+    @Override
+    public void modify (AnchorPane anchorPane) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("VasStage.fxml"));
+        AnchorPane newContent = fxmlLoader.load();
+        anchorPane.getChildren().setAll(newContent);
+        VasController controller = fxmlLoader.getController();
+        vasStage_VM viewModel = new vasStage_VM();
+        controller.setViewModel(viewModel);
+
     }
 }

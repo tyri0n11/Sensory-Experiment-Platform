@@ -1,9 +1,17 @@
 package main.sensoryexperimentplatform.models;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.ratingContainer_VM;
+import main.sensoryexperimentplatform.controllers.addRatingContainerController;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class RatingContainer {
+public class RatingContainer{
     private boolean isRandomize;
     private int minTime;
     public ArrayList<Stage> container;
@@ -20,6 +28,12 @@ public class RatingContainer {
     }
     public void addStage(Stage s){
         container.add(s);
+    }
+    public void addVasStageTest_newExperiment(Vas stage){
+        container.add(stage);
+    }
+    public void addGlms_newExperiment(gLMS glms){
+        container.add(glms);
     }
     public void addVasStageContainer(String title, String lowAnchorText, String highAnchorText,
                             int lowAnchorValue, int highAnchorValue, String buttonText,
@@ -94,6 +108,7 @@ public class RatingContainer {
                 stageToString()+"endRatingsContainer()";
 
     }
+
 
 
 }
