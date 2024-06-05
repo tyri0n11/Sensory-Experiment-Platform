@@ -86,7 +86,7 @@ public class DashBoardController {
                             try {
                                 run = runloader.load();
                                 edit = editloader.load();
-                             delete = deleteloader.load();
+                                delete = deleteloader.load();
 //                                edit = editloader.load();
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
@@ -129,11 +129,11 @@ public class DashBoardController {
                                     throw new RuntimeException(e);
                                 }
                             });
-                            HBox managebtn = new HBox(run, edit);
+                            HBox managebtn = new HBox(run, edit,delete);
                             managebtn.setStyle("-fx-alignment:center");
                             HBox.setMargin(run, new Insets(2, 2, 0, 3));
                             HBox.setMargin(edit, new Insets(2, 3, 0, 2));
-      HBox.setMargin(delete, new Insets(2, 4, 0, 2));
+                              HBox.setMargin(delete, new Insets(2, 4, 0, 2));
 //                            HBox.setMargin(edit, new Insets(2, 5, 0, 3));
                             setGraphic(managebtn);
                         }

@@ -76,7 +76,7 @@
                             <children>
                                 <Label layoutX="54.0" prefHeight="62.0" prefWidth="282.0" styleClass="lbl_EditExperiment" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Edit experiment" />
                                 <Button fx:id="btn_menu" layoutX="8.0" layoutY="11.0" mnemonicParsing="false" onAction="#toggleDashboard" prefHeight="22.0" prefWidth="47.0" text=" " />
-                        <AnchorPane fx:id="mainPain" layoutX="54.0" layoutY="73.0" prefHeight="673.0" prefWidth="910.0" style="-fx-background-color: white;" />
+                        <AnchorPane fx:id="mainPain" layoutX="-2.0" layoutY="73.0" prefHeight="674.0" prefWidth="966.0" style="-fx-background-color: white;" />
                             </children>
                         </AnchorPane>
                     </children>

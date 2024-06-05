@@ -44,13 +44,8 @@
     -fx-pref-height: 55;
     -fx-pref-width: 55;
 
-<<<<<<< HEAD
 
     -fx-background-image: url('/static/images/btn_down.png');
-
-=======
-    -fx-background-image: url('/static/images/btn_down.png');
->>>>>>> fd066de9ece14d1ebe3295f37e31ae2d2573dbf6
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
