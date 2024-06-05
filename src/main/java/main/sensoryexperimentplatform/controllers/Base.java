@@ -63,6 +63,20 @@ public class Base implements Initializable {
 
     @FXML
     private VBox sideMenu;
+    @FXML
+    void OpenDashBoard(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/DashBoard.fxml"));
+        AnchorPane newContent = null;
+        try{
+            newContent = loader.load();
+            DashBoardController view=  loader.getController();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        mainPain.getChildren().setAll(newContent);
+    }
 
     @FXML
     void toggleDashboard(ActionEvent event) {
@@ -89,6 +103,6 @@ public class Base implements Initializable {
         catch (IOException e){
             e.printStackTrace();
         }
-        mainPane.getChildren().setAll(newContent);
+        mainPain.getChildren().setAll(newContent);
     }
 }
