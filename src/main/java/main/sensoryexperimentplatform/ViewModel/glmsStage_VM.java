@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.controllers.GLMSController;
+import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.gLMS;
 
 import java.io.IOException;
@@ -20,8 +21,10 @@ public class glmsStage_VM implements choose {
     private BooleanProperty checkB_swap;
     private StringProperty txt_help;
     private BooleanProperty checkB_sound;
+    private Experiment experiment;
     private gLMS glms;
-    public glmsStage_VM(){
+    public glmsStage_VM(Experiment experiment){
+        this.experiment = experiment;
         this.glms = new gLMS("User Input",null,null,null, false);;
         txt_help = new SimpleStringProperty(glms.getHelpText());
         txt_LowAncTxt = new SimpleStringProperty(glms.getButtonText());
@@ -34,6 +37,7 @@ public class glmsStage_VM implements choose {
         checkB_swap.addListener((observableValue, oldValue, newValue) -> onSwapChange(newValue));
         txt_question.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
         checkB_sound.addListener((observableValue, oldValue, newValue) -> onSoundChange(newValue));
+        experiment.addGlmsStage(glms);
     }
 
     private void onHelp(String newValue) {
@@ -115,8 +119,7 @@ public class glmsStage_VM implements choose {
         AnchorPane newContent = fxmlLoader.load();
         anchorpane.getChildren().setAll(newContent);
         GLMSController controller = fxmlLoader.getController();
-        glmsStage_VM view = new glmsStage_VM();
-        controller.setViewModel(view);
+        controller.setViewModel(this);
     }
 
     @Override

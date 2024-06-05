@@ -166,7 +166,6 @@ public class TestController implements MouseListener{
 
     public void initialize(){
         displayedItems = new HashMap<>();
-        this.experiment = new Experiment("Prof Tung`","Toi di test dao","khong co gi ca","ko",1);
         testVM = new TestVM();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
         start = new TreeItem<>("Start Experiment");
@@ -193,6 +192,7 @@ public class TestController implements MouseListener{
                 , btn_addInput, btn_noticeStage,
                 btn_addTimer, btn_AddQuestionStage,
                 btn_addRatingContainer, btn_addTasteTest, btn_AddConditionalStatement, btn_AddConditionalStatement);
+        experiment.showStages();
 
 
 //        else if (o instanceof Timer) {
@@ -290,10 +290,9 @@ public class TestController implements MouseListener{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        glmsStage_VM vasStage_VM = new glmsStage_VM();
+        glmsStage_VM vasStage_VM = new glmsStage_VM(experiment);
         String key = "[GLMS]" + vasStage_VM.getGLMS().getTitle();
         displayedItems.put(key, vasStage_VM);
-        experiment.showStages();
 
         // Add to Randomnies if selected item matches ifConditional
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
@@ -352,7 +351,7 @@ public class TestController implements MouseListener{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        noticeStage_VM noticeStage_vm = new noticeStage_VM();
+        noticeStage_VM noticeStage_vm = new noticeStage_VM(experiment);
         String key = "[Instruction]" + noticeStage_vm.getNotice().getTitle();
         displayedItems.put(key, noticeStage_vm);
         experiment.showStages();
@@ -471,19 +470,22 @@ public class TestController implements MouseListener{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        TreeItem<String> TimerStage = new TreeItem<>("[Waiting] Please wait");
+        timerStage_VM timerStageVm = new timerStage_VM(experiment);
+        String key = "[Waiting]" + timerStageVm.getTimer().getTitle();
+        displayedItems.put(key, timerStageVm);
+        experiment.showStages();
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(TimerStage);
+            ifConditional.getChildren().add(new TreeItem<>(key));
             ifConditional.setExpanded(true);
         }
         // Add to Randomnies if selected item matches elseConditional
         else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(TimerStage);
+            elseConditional.getChildren().add(new TreeItem<>(key));
             elseConditional.setExpanded(true);
         }
         // Add to start if no conditions match
         else {
-            start.getChildren().add(TimerStage);
+            start.getChildren().add(new TreeItem<>(key));
         }
 
     }
@@ -493,7 +495,7 @@ public class TestController implements MouseListener{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        vasStage_VM vasStage_VM = new vasStage_VM();
+        vasStage_VM vasStage_VM = new vasStage_VM(experiment);
         String key = "[Vas]" + vasStage_VM.getVas().getTitle();
 
         displayedItems.put(key, vasStage_VM);
