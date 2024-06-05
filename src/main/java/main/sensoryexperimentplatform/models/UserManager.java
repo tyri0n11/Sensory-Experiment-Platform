@@ -98,7 +98,7 @@ public class UserManager {
 
             while ((line = reader.readLine()) != null) {
                 if (line.startsWith("ExperimentID: " + exId)) {
-                    currentExperiment = new Experiment(null, null, null, null, null);
+                    currentExperiment = new Experiment(null, null, null, null, 1);
                     currentExperiment.setId(exId);
 
                 }
@@ -110,7 +110,8 @@ public class UserManager {
                         currentExperiment.setCreatorName(line.split(": ")[1].trim());
 
                     } else if (line.startsWith("Version")) {
-                        currentExperiment.version = line.split(": ")[1].trim();
+                        int crt = Integer.parseInt( line.split(": ")[1].trim());
+                        currentExperiment.version =crt;
 
                     } else if (line.startsWith("startExperiment")) {
                         Pattern patternExperiment = Pattern.compile("startExperiment\\(\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");

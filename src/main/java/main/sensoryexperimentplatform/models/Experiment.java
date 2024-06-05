@@ -8,7 +8,7 @@ import java.util.UUID;
 public class Experiment {
     private static Integer num = 0;
     private String id, creatorName, experimentName, description, note;
-    public String version;
+    public int version;
     private boolean isChanged;
     private ArrayList<Vas> vass;
     private ArrayList<gLMS> glmss;
@@ -21,15 +21,15 @@ public class Experiment {
     public Experiment(){
         super();
         this.id = UUID.randomUUID().toString();
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the Creator: ");
-        setCreatorName(sc.nextLine());
-        System.out.print("Enter the Experiment Name: ");
-        setExperimentName(sc.nextLine());
-        System.out.print("Enter the Experiment Description: ");
-        setDescription(sc.nextLine());
-        System.out.print("Enter the Additional Notes: ");
-        setNote(sc.nextLine());
+//        Scanner sc = new Scanner(System.in);
+//        System.out.print("Enter the Creator: ");
+//        setCreatorName(sc.nextLine());
+//        System.out.print("Enter the Experiment Name: ");
+//        setExperimentName(sc.nextLine());
+//        System.out.print("Enter the Experiment Description: ");
+//        setDescription(sc.nextLine());
+//        System.out.print("Enter the Additional Notes: ");
+//        setNote(sc.nextLine());
         pairs = new ArrayList<>();
         timers = new ArrayList<>();
         notices = new ArrayList<>();
@@ -38,10 +38,10 @@ public class Experiment {
         glmss = new ArrayList<>();
         quess = new ArrayList<>();
         stages = new ArrayList<>();
-        version = String.valueOf(1);
+        version = 1;
         isChanged = false;
     }
-    public Experiment(String creatorName, String experimentName, String description, String note, String version) {
+    public Experiment(String creatorName, String experimentName, String description, String note, int version) {
         this.creatorName = creatorName;
         this.experimentName = experimentName;
         this.description = description;
@@ -252,8 +252,12 @@ public class Experiment {
         return id;
     }
 
-    public String getVersion() {
+    public int getVersion() {
         return version;
+    }
+
+    public void updateVersion(){
+        version+=1;
     }
 
     public String stagesToString(){

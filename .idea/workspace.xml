@@ -10,10 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="Build: Run experiment _ v1.1">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/editButton.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/runButton.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/run.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/Base.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/DashBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/DashBoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/newExController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/newExController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/NewExperiment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/NewExperiment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/DataAccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/Experiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/Experiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/Base.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/Base.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/DashBoard_CSS.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/DashBoard_CSS.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +34,8 @@
       <list>
         <option value="CSS File" />
         <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -89,7 +97,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "qanh",
+    "git-widget-placeholder": "jennynewnew",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/PC/Desktop/Tyr1on/SceneBuilder/SceneBuilder.exe",
     "list.type.of.created.stylesheet": "CSS",
@@ -114,6 +122,7 @@
       <recent name="C:\Users\USER\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\Desktop\Respositories\Sensory Expeirment Platform\src\main\java\main\sensoryexpeirmentplatform" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Scale\src\main\resources\static\images" />
       <recent name="C:\Users\USER\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\Desktop\Respositories\Sensory Expeirment Platform\src\main\resources\static\stylesheets" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -250,6 +259,7 @@
       <workItem from="1717419706508" duration="3039000" />
       <workItem from="1717514319088" duration="10508000" />
       <workItem from="1717552104582" duration="3340000" />
+      <workItem from="1717568842369" duration="3349000" />
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />

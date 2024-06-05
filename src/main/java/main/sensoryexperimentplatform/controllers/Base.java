@@ -7,7 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
+import javafx.stage.FileChooser;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -64,6 +66,31 @@ public class Base implements Initializable {
     @FXML
     private VBox sideMenu;
     @FXML
+    void exportEx(ActionEvent event) {
+        FileChooser chooser = new FileChooser();
+        File file = chooser.showOpenDialog(null);
+        try{
+            if (file != null) {
+                String filePath = file.getAbsolutePath();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void importEx(ActionEvent event) {
+        FileChooser chooser = new FileChooser();
+        File file = chooser.showOpenDialog(null);
+        try{
+            if (file != null) {
+                String filePath = file.getAbsolutePath();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
     void OpenDashBoard(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/DashBoard.fxml"));
@@ -94,11 +121,11 @@ public class Base implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/Test.fxml"));
+        loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/DashBoard.fxml"));
         AnchorPane newContent = null;
         try{
             newContent = loader.load();
-            TestController view=  loader.getController();
+            DashBoardController view=  loader.getController();
         }
         catch (IOException e){
             e.printStackTrace();

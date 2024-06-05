@@ -9,8 +9,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.ViewModel.dashBoard_VM;
 import main.sensoryexperimentplatform.ViewModel.newEx_VM;
+import main.sensoryexperimentplatform.models.Experiment;
 
 public class newExController {
+    private Experiment experiment;
     newEx_VM viewModel;
 
     @FXML
@@ -74,6 +76,9 @@ public class newExController {
 
         txt_ExperimentName.textProperty().addListener((observable, oldValue, newValue) -> {
             viewModel.setExperimentName(newValue);
+            System.out.println(viewModel.getExperimentName());
+            System.out.println(viewModel);
+
         });
 
         txt_creatorName.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -86,6 +91,7 @@ public class newExController {
 
         txt_description.textProperty().addListener((observable, oldValue, newValue) -> {
             viewModel.setDescription(newValue);
+            System.out.println();
         });
     }
     public void setViewModel(newEx_VM viewModel){

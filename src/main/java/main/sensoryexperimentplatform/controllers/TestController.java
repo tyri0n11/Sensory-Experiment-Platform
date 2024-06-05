@@ -165,7 +165,7 @@ public class TestController implements MouseListener{
 
 
     public void initialize(){
-        this.experiment = new Experiment("Prof Tung`","Toi di test dao","khong co gi ca","ko","1");
+        this.experiment = new Experiment("Prof Tung`","Toi di test dao","khong co gi ca","ko",1);
         testVM = new TestVM();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
         start = new TreeItem<>("Start Experiment");
