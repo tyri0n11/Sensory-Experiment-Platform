@@ -10,10 +10,12 @@ import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.ViewModel.dashBoard_VM;
 import main.sensoryexperimentplatform.ViewModel.newEx_VM;
 import main.sensoryexperimentplatform.models.Experiment;
+import main.sensoryexperimentplatform.models.listOfExperiment;
 
 public class newExController {
     private Experiment experiment;
     newEx_VM viewModel;
+    dashBoard_VM DashBoard_vm;
 
     @FXML
     private AnchorPane NewExPane;
@@ -58,11 +60,14 @@ public class newExController {
     }
 
     @FXML
-    void btn_save(ActionEvent event) {
+    void btn_save(ActionEvent event) throws Exception {
+        viewModel.saveItems();
+        System.out.println(listOfExperiment.getInstance());
 
     }
-    public void initialize() {
-        viewModel = new newEx_VM();
+    public void initialize(dashBoard_VM DashBoard_vm) {
+        this.DashBoard_vm = DashBoard_vm;
+        viewModel = new newEx_VM(DashBoard_vm);
         bindViewModel();
     }
 
@@ -72,27 +77,6 @@ public class newExController {
         txt_additionNote.textProperty().bindBidirectional(viewModel.noteProperty());
         txt_description.textProperty().bindBidirectional(viewModel.DescriptionProperty());
 
-
-
-        txt_ExperimentName.textProperty().addListener((observable, oldValue, newValue) -> {
-            viewModel.setExperimentName(newValue);
-            System.out.println("hello");
-            System.out.println(viewModel);
-
-        });
-
-        txt_creatorName.textProperty().addListener((observable, oldValue, newValue) -> {
-            viewModel.setCreatorName(newValue);
-        });
-
-        txt_additionNote.textProperty().addListener((observable, oldValue, newValue) -> {
-            viewModel.setNote(newValue);
-        });
-
-        txt_description.textProperty().addListener((observable, oldValue, newValue) -> {
-            viewModel.setDescription(newValue);
-            System.out.println(viewModel.getDescription());
-        });
     }
     public void setViewModel(newEx_VM viewModel){
         this.viewModel = viewModel;
