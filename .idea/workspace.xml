@@ -9,12 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="Build: Run experiment _ v1.2">
+    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="Build: Run experiment _ v1.4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Yoyo_Nico.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/1MTasteScreenerShort/test_04_06.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kuma.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunExperiment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunExperiment.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunNotice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunNotice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunTimer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunTimer.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunVas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunVas.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunEx.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunEx.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,33 +80,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.DataAccess.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RunExperiment.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SensoryExperimentPlatform.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TasteTest.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;thinhchau&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Desktop/Tyr1on/SceneBuilder/SceneBuilder.exe&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DataAccess.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.RunExperiment.executor": "Run",
+    "Application.SensoryExperimentPlatform.executor": "Run",
+    "Application.TasteTest.executor": "Run",
+    "Application.Test.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "thinhchau",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/PC/Desktop/Tyr1on/SceneBuilder/SceneBuilder.exe",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\USER\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\Desktop\Respositories\Sensory Expeirment Platform\src\main\resources\static\images" />
@@ -146,19 +150,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RunExperiment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="main.sensoryexperimentplatform.models.RunExperiment" />
-      <module name="Sensory-Expeirment-Platform" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="main.sensoryexperimentplatform.models.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="SensoryExperimentPlatform" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.sensoryexperimentplatform.SensoryExperimentPlatform" />
       <module name="Sensory-Expeirment-Platform" />
@@ -185,9 +176,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.sensoryexperimentplatform.Test" />
+      <module name="Sensory-Expeirment-Platform" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.sensoryexperimentplatform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.Test" />
       <item itemvalue="Application.DataAccess" />
-      <item itemvalue="Application.RunExperiment" />
       <item itemvalue="Application.TasteTest" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.SensoryExperimentPlatform" />
@@ -196,9 +200,9 @@
       <list>
         <item itemvalue="Application.SensoryExperimentPlatform" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.DataAccess" />
         <item itemvalue="Application.TasteTest" />
-        <item itemvalue="Application.RunExperiment" />
       </list>
     </recent_temporary>
   </component>
@@ -248,6 +252,7 @@
       <workItem from="1717075141480" duration="9348000" />
       <workItem from="1717419706508" duration="3039000" />
       <workItem from="1717507880938" duration="1625000" />
+      <workItem from="1717569491741" duration="8758000" />
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />
@@ -374,7 +379,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/UserManager.java</url>
           <line>90</line>
-          <properties class="main.sensoryexperimentplatform.models.UserManager">
+          <properties class="main.sensoryexperimentplatform.models.UserManager" method="getExperimentForUser">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

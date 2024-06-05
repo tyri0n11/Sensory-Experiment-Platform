@@ -4,10 +4,10 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="530.0" prefWidth="970.0" stylesheets="/static/stylesheets/RunGLMS_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunGLMSController">
+<AnchorPane prefHeight="550" prefWidth="1100.0" stylesheets="/static/stylesheets/RunGLMS_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunGLMSController">
    <children>
-      <Slider fx:id="mySlider" layoutX="331.0" layoutY="85.0" majorTickUnit="10.0" orientation="VERTICAL" prefHeight="434.0" prefWidth="14.0" />
-      <Label fx:id="questionlbl" layoutX="14.0" layoutY="10.0" prefHeight="59.0" prefWidth="662.0" text="Question" wrapText="true" />
-      <Label fx:id="helpText" layoutX="576.0" layoutY="97.0" prefHeight="361.0" prefWidth="287.0" text="Label" wrapText="true" />
+      <Slider fx:id="mySlider" layoutX="542.0" layoutY="70.0" majorTickUnit="10.0" orientation="VERTICAL" prefHeight="434.0" prefWidth="14.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="542.0" AnchorPane.rightAnchor="543.6" AnchorPane.topAnchor="70.0" />
+      <Label fx:id="questionlbl" layoutX="64.0" layoutY="47.0" prefHeight="287.0" prefWidth="308.0" text="Question" wrapText="true" AnchorPane.bottomAnchor="216.0" AnchorPane.leftAnchor="64.0" AnchorPane.topAnchor="47.0" />
+      <Label fx:id="helpText" layoutX="576.0" layoutY="97.0" prefHeight="0.0" prefWidth="0.0" text="Label" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="700.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
    </children>
 </AnchorPane>

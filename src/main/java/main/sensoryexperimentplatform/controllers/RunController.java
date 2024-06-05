@@ -70,14 +70,10 @@ public class RunController {
     }
     @FXML
     void handleBtnBack(MouseEvent event) {
-        processed-=2;
         updateProgress(processed);
         int selectedIndex = showList.getSelectionModel().getSelectedIndex();
-        if (selectedIndex > 0) {
-            showList.getSelectionModel().select(selectedIndex - 1);
-        } else {
-            showList.getSelectionModel().clearSelection();
-        }
+        showList.getSelectionModel().select(selectedIndex - 1);
+
     }
 
     @FXML

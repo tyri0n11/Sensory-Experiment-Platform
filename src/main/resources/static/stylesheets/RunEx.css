@@ -6,6 +6,9 @@
     -fx-font-weight: Bold;
     -fx-text-fill: #397E82;
 }
+#content{
+    -fx-alignment: center;
+}
 
 
 /* Style cho ListView */
