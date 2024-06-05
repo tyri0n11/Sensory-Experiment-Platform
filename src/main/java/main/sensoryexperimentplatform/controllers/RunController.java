@@ -111,7 +111,12 @@ public class RunController {
                 if (selectedObject instanceof Vas) {
                     loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunVas.fxml"));
                     AnchorPane newContent = loader.load();
+                    AnchorPane.setTopAnchor(newContent, 0.0);
+                    AnchorPane.setBottomAnchor(newContent, 0.0);
+                    AnchorPane.setLeftAnchor(newContent, 0.0);
+                    AnchorPane.setRightAnchor(newContent, 0.0);
                     content.getChildren().setAll(newContent);
+
 
                     RunVasController controller = loader.getController();
                     RunVas_VM vm = new RunVas_VM((Vas) selectedObject);
@@ -123,6 +128,10 @@ public class RunController {
                 if (selectedObject instanceof gLMS) {
                     loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunGLMS.fxml"));
                     AnchorPane newContent = loader.load();
+                    AnchorPane.setTopAnchor(newContent, 0.0);
+                    AnchorPane.setBottomAnchor(newContent, 0.0);
+                    AnchorPane.setLeftAnchor(newContent, 0.0);
+                    AnchorPane.setRightAnchor(newContent, 0.0);
                     content.getChildren().setAll(newContent);
 
                     RunGLMSController controller = loader.getController();
@@ -134,6 +143,10 @@ public class RunController {
                 if (selectedObject instanceof Notice) {
                     loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunNotice.fxml"));
                     AnchorPane newContent = loader.load();
+                    AnchorPane.setTopAnchor(newContent, 0.0);
+                    AnchorPane.setBottomAnchor(newContent, 0.0);
+                    AnchorPane.setLeftAnchor(newContent, 0.0);
+                    AnchorPane.setRightAnchor(newContent, 0.0);
                     content.getChildren().setAll(newContent);
 
                     RunNoticeController controller = loader.getController();
@@ -144,6 +157,10 @@ public class RunController {
                 if (selectedObject instanceof Timer) {
                     loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunTimer.fxml"));
                     AnchorPane newContent = loader.load();
+                    AnchorPane.setTopAnchor(newContent, 0.0);
+                    AnchorPane.setBottomAnchor(newContent, 0.0);
+                    AnchorPane.setLeftAnchor(newContent, 0.0);
+                    AnchorPane.setRightAnchor(newContent, 0.0);
                     content.getChildren().setAll(newContent);
 
                     RunTimerController controller = loader.getController();
@@ -161,7 +178,7 @@ public class RunController {
                 if (selectedObject instanceof RatingContainer) {
                     int selectedIndex = showList.getSelectionModel().getSelectedIndex();
                     if (selectedIndex >= 0 && selectedIndex < showList.getItems().size() - 1) {
-                        showList.getSelectionModel().select(selectedIndex + 1);
+                        System.out.println("RatingContainer!!!!");
                     }
                     return;
                 }

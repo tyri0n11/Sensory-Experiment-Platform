@@ -8,10 +8,11 @@
 }
 #content{
     -fx-alignment: center;
+    -fx-border-color: black;
 }
 
 
-/* Style cho ListView */
+
 .list-view {
     -fx-background-color: transparent; /* Màu nền của ListView */
 }

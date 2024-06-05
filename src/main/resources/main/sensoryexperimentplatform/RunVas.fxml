@@ -5,19 +5,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="550.0" prefWidth="1257.0" stylesheets="/static/stylesheets/RunVas_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunVasController">
+<AnchorPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="550.0" prefWidth="1257.0" stylesheets="/static/stylesheets/RunVas_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunVasController">
    <children>
       <Label fx:id="lowAnchor_label" layoutX="91.0" layoutY="308.0" text="Not at all" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="222.0" AnchorPane.leftAnchor="120.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="questionlbl" layoutX="146.0" layoutY="29.0" wrapText="true" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="100.0" />
+      <Label fx:id="questionlbl" layoutX="342.0" layoutY="76.0" prefHeight="74.0" prefWidth="573.0" wrapText="true" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="342.0" AnchorPane.topAnchor="76.0" />
       <Label fx:id="highAnchor_label" layoutX="1107.0" layoutY="318.0" text="Extremely" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="222.0" AnchorPane.rightAnchor="120.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Slider fx:id="mySlider" layoutX="122.0" layoutY="265.0" AnchorPane.bottomAnchor="99.19999999999999" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="246.60000000000002" />
+      <Slider fx:id="mySlider" layoutX="120.0" layoutY="268.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0" />
    </children>
 </AnchorPane>

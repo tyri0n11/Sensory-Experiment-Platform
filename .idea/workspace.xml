@@ -9,10 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="Build: Run experiment _ v1.4.responsive">
+    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="Build: Run experiment _ v1.5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/Base.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/Base.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/DashBoard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/DashBoard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunNotice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunNotice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunVas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunVas.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunEx.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunEx.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunGLMS_CSS.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunGLMS_CSS.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +251,8 @@
       <workItem from="1717075141480" duration="9348000" />
       <workItem from="1717419706508" duration="3039000" />
       <workItem from="1717507880938" duration="1625000" />
-      <workItem from="1717569491741" duration="9261000" />
+      <workItem from="1717569491741" duration="9597000" />
+      <workItem from="1717600683833" duration="2390000" />
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />
@@ -345,7 +350,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717578944161</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Build: Run experiment _ v1.5">
+      <option name="closed" value="true" />
+      <created>1717579647550</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1717579647550</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -375,7 +388,8 @@
     <MESSAGE value="Build: Run experiment _ v1.1" />
     <MESSAGE value="Build: Run experiment _ v1.2" />
     <MESSAGE value="Build: Run experiment _ v1.4.responsive" />
-    <option name="LAST_COMMIT_MESSAGE" value="Build: Run experiment _ v1.4.responsive" />
+    <MESSAGE value="Build: Run experiment _ v1.5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Build: Run experiment _ v1.5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
