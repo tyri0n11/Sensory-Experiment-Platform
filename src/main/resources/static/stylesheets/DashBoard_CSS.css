@@ -46,7 +46,6 @@
 
 
     -fx-background-image: url('/static/images/btn_down.png');
-
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */

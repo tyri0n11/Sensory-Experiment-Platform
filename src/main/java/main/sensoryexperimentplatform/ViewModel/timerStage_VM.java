@@ -23,6 +23,15 @@ public class timerStage_VM {
         txt_timewait.addListener((observableValue, oldValue, newValue) -> onTimeWait(newValue));
         txt_instruction.addListener((observableValue, oldValue, newValue) -> onInstruction(newValue));
     }
+    public timerStage_VM(){
+        this.timer = timer;
+        txt_instruction = new SimpleStringProperty(timer.getInstruction());
+        txt_timewait = new SimpleStringProperty(timer.getFormattedElapsed());
+        cb_alertSound = new SimpleBooleanProperty(timer.isAlert());
+        cb_alertSound.addListener((observableValue, oldValue, newValue) -> onAlert(newValue));
+        txt_timewait.addListener((observableValue, oldValue, newValue) -> onTimeWait(newValue));
+        txt_instruction.addListener((observableValue, oldValue, newValue) -> onInstruction(newValue));
+    }
 
     private void onAlert(Boolean newValue) {
         timer.setAlert(newValue);
@@ -58,5 +67,9 @@ public class timerStage_VM {
 
     public StringProperty txt_timewaitProperty() {
         return txt_timewait;
+    }
+
+    public Timer getTimer() {
+        return timer;
     }
 }

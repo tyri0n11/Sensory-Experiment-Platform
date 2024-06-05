@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.controllers.GLMSController;
@@ -116,5 +117,10 @@ public class glmsStage_VM implements choose {
         GLMSController controller = fxmlLoader.getController();
         glmsStage_VM view = new glmsStage_VM();
         controller.setViewModel(view);
+    }
+
+    @Override
+    public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Button button13) throws IOException {
+
     }
 }
