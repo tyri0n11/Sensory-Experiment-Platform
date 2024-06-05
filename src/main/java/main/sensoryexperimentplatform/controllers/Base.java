@@ -93,12 +93,22 @@ public class Base implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/sensoryexperimentplatform/Test.fxml"));
+//        AnchorPane newContent = null;
+//        try{
+//            newContent = loader.load();
+//            TestController view=  loader.getController();
+//        }
+//        catch (IOException e){
+//            e.printStackTrace();
+//        }
+//        mainPain.getChildren().setAll(newContent);
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/Test.fxml"));
+        loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/DashBoard.fxml"));
         AnchorPane newContent = null;
         try{
             newContent = loader.load();
-            TestController view=  loader.getController();
+            DashBoardController view=  loader.getController();
         }
         catch (IOException e){
             e.printStackTrace();

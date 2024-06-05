@@ -15,15 +15,11 @@ import java.util.*;
 public class RunExperiment_VM {
     private IntegerProperty elapsedTime;
 
-<<<<<<< HEAD
     private ListProperty<String> items = new SimpleListProperty<>(FXCollections.observableArrayList());
     private Map<String, Object> objectsMap = new HashMap<>();
     private RunExperiment_VM viewModel;
-=======
     private Experiment experiment;
     public double count = 0.0;
-    private final ListProperty<String> items = new SimpleListProperty<>(FXCollections.observableArrayList());
-    private final Map<String, Object> objectsMap = new HashMap<>();
     private final List<Object> objectList = new ArrayList<>();
     private ArrayList<Object> stages = new ArrayList<>();
 
@@ -98,7 +94,6 @@ public class RunExperiment_VM {
     public String getExperimentName(){
         return experiment.getExperimentName();
     }
->>>>>>> 7a2212825dec188091988102bf0da9285f466266
 
     public ObservableList<String> getItems() {
         return items.get();

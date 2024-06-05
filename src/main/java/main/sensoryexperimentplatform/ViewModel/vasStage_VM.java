@@ -28,6 +28,14 @@ public class vasStage_VM implements choose {
     public vasStage_VM() {
         this.vas = new Vas("User input", null, null,
                 0, 100, null, null, null, false, false);
+        bind();
+    }
+    public vasStage_VM(Vas vas){
+        this.vas = vas;
+        bind();
+    }
+
+    private void bind(){
         lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
         highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
         buttonText = new SimpleStringProperty(vas.getButtonText());
@@ -52,9 +60,6 @@ public class vasStage_VM implements choose {
         questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
     }
 
-<<<<<<< HEAD
-
-=======
     private void onCheckSwap(Boolean newValue) {
         vas.setSwap(newValue);
     }
@@ -86,7 +91,6 @@ public class vasStage_VM implements choose {
     private void onlowAnchorText(String newValue) {
         vas.setLowAnchorText(newValue);
     }
->>>>>>> 7a2212825dec188091988102bf0da9285f466266
 
     public boolean isCheckB_swap() {
         return checkB_swap.get();
@@ -215,7 +219,6 @@ public class vasStage_VM implements choose {
         this.alert.set(alert);
     }
 
-<<<<<<< HEAD
     public void setLowAnchorValue(String lowAnchorValue) {
         this.lowAnchorValue.set(lowAnchorValue);
     }
@@ -227,8 +230,7 @@ public class vasStage_VM implements choose {
     public void save(){
         //vas.setValue();
     }
-}
-=======
+
     public Vas getVas() {
         return vas;
     }
@@ -251,4 +253,4 @@ public class vasStage_VM implements choose {
 
     }
 }
->>>>>>> 7a2212825dec188091988102bf0da9285f466266
+

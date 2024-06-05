@@ -41,8 +41,6 @@ public class inputStage_VM implements choose{
         alert = new SimpleBooleanProperty(input.isAlert());
 
     }
-
-<<<<<<< HEAD
     public void addInputStage() {
 
         String title = this.title.get();
@@ -54,21 +52,7 @@ public class inputStage_VM implements choose{
 //        stages.add(stage);
 
     }
-=======
 
-
-//    public void addInputStage() {
-//
-//        String title = this.title.get();
-//        String content = this.content.get();
-//        String buttonText = this.button.get();
-//        boolean alert = this.alert.get();
-//        Input stage = new Input(title, content, buttonText, alert);
-//        experiment.addInputStage(title, content, buttonText, alert);
-////        stages.add(stage);
-//
-//    }
->>>>>>> 7a2212825dec188091988102bf0da9285f466266
 
 //    public ObservableList<Object> getStages() {
 //        return stages.get();

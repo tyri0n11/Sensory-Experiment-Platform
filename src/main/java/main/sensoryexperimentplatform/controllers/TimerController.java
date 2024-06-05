@@ -23,7 +23,6 @@ public class TimerController {
     @FXML
     private TextField txt_timewait;
 
-<<<<<<< HEAD
     @FXML
     private StackPane TimerStackPane;
 
@@ -36,16 +35,8 @@ public class TimerController {
         this.timerVM = timerVM;
         bind();
     }
-    public void bind() {
-=======
-    public void setViewModel(timerStage_VM timer) {
-        this.timerVM = timer;
-        bindd();
 
-    }
-
-    private void bindd() {
->>>>>>> 7a2212825dec188091988102bf0da9285f466266
+    private void bind() {
         txt_instruction.textProperty().bindBidirectional(timerVM.txt_instructionProperty());
         txt_timewait.textProperty().bindBidirectional(timerVM.txt_timewaitProperty());
         cb_alertSound.selectedProperty().bindBidirectional(timerVM.cb_alertSoundProperty());

@@ -28,15 +28,23 @@ public class questionStage_VM implements choose{
 
     public questionStage_VM(Question question){
         this.questionStage = question;
-        this.question = new SimpleStringProperty(question.getQuestion());
+        bind();
+    }
+    public questionStage_VM(){
+        this.questionStage = new Question(null, null);
+        bind();
+    }
+
+
+    private void bind(){
+        this.question = new SimpleStringProperty(questionStage.getQuestion());
         this.leftText = new SimpleStringProperty();
         this.rightText = new SimpleStringProperty();
         this.leftValue = new SimpleStringProperty();
         this.rightValue = new SimpleStringProperty();
-       this.helpText = new SimpleStringProperty();
-       this.alert = new SimpleBooleanProperty(questionStage.isAlert());
+        this.helpText = new SimpleStringProperty();
+        this.alert = new SimpleBooleanProperty(questionStage.isAlert());
     }
-
 
     public String getLeftText(){
         return leftText.get();

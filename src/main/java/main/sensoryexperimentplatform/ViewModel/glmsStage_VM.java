@@ -23,19 +23,30 @@ public class glmsStage_VM implements choose {
     private gLMS glms;
     public glmsStage_VM(){
         this.glms = new gLMS("User Input",null,null,null, false);;
+        initialize();
+        bind();
+    }
+
+    public glmsStage_VM(gLMS glms){
+        this.glms = glms;
+        initialize();
+        bind();
+    }
+
+    private void initialize(){
         txt_help = new SimpleStringProperty(glms.getHelpText());
         txt_LowAncTxt = new SimpleStringProperty(glms.getButtonText());
         txt_question = new SimpleStringProperty(glms.getTitle());
         checkB_sound = new SimpleBooleanProperty(glms.getAlert());
         checkB_swap  = new SimpleBooleanProperty(glms.isResponse());
-<<<<<<< HEAD
         txt_yes = new SimpleStringProperty();
-=======
         txt_yes= new SimpleStringProperty();
+    }
+
+    private void bind(){
         txt_help.addListener((observableValue, oldValue, newValue) -> onHelp(newValue));
         txt_LowAncTxt.addListener((observableValue, oldValue, newValue) -> onLowAnc(newValue));
         checkB_swap.addListener((observableValue, oldValue, newValue) -> onSwapChange(newValue));
->>>>>>> 7a2212825dec188091988102bf0da9285f466266
         txt_question.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
         checkB_sound.addListener((observableValue, oldValue, newValue) -> onSoundChange(newValue));
     }

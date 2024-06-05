@@ -8,13 +8,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DataAccess {
-<<<<<<< HEAD
     private static final String saveFilePath = "src/main/java/main/sensoryexperimentplatform/models/Data/Test";
     private static final String loadFilePath = "src/main/java/main/sensoryexperimentplatform/models/Data/Test";
-=======
-    private static final String saveFilePath = "Data/Saving";
-    private static final String loadFilePath = "src/main/java/main/sensoryexperimentplatform/models/Data/ManyExperiments";
->>>>>>> 7a2212825dec188091988102bf0da9285f466266
     public DataAccess(){
 
     }

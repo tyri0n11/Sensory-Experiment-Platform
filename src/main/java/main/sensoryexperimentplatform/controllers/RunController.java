@@ -36,11 +36,6 @@ public class RunController {
     @FXML
     private ProgressBar progress_bar;
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 7a2212825dec188091988102bf0da9285f466266
     @FXML
     private ListView<String> showList;
 
@@ -99,10 +94,6 @@ public class RunController {
     }
 
     private void showDetailView(String item) {
-<<<<<<< HEAD
-
-=======
->>>>>>> 7a2212825dec188091988102bf0da9285f466266
         Object selectedObject = viewModel.getObjectByKey(item);
 
         if (selectedObject != null) {
@@ -152,8 +143,6 @@ public class RunController {
                     RunNoticeController controller = loader.getController();
                     RunNotice_VM vm = new RunNotice_VM((Notice) selectedObject);
                     controller.setViewModel(vm);
-<<<<<<< HEAD
-=======
                     btn_Next.textProperty().bind(vm.buttonProperty());
                 }
                 if (selectedObject instanceof Timer) {
@@ -172,7 +161,6 @@ public class RunController {
                         showList.getSelectionModel().select(showList.getSelectionModel().getSelectedIndex() + 1);
                     } ));
 
->>>>>>> 7a2212825dec188091988102bf0da9285f466266
                 }
                 if (selectedObject instanceof RatingContainer) {
                     int selectedIndex = showList.getSelectionModel().getSelectedIndex();
