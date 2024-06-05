@@ -63,7 +63,7 @@ public class Base implements Initializable {
 
     @FXML
     private VBox sideMenu;
-    @FXML
+   @FXML
     void OpenDashBoard(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/DashBoard.fxml"));
@@ -94,11 +94,11 @@ public class Base implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/Test.fxml"));
+        loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/DashBoard.fxml"));
         AnchorPane newContent = null;
         try{
             newContent = loader.load();
-            TestController view=  loader.getController();
+            DashBoardController view=  loader.getController();
         }
         catch (IOException e){
             e.printStackTrace();
