@@ -15,6 +15,8 @@ import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.ViewModel.RunExperiment_VM;
 import main.sensoryexperimentplatform.ViewModel.dashBoard_VM;
+import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
+import main.sensoryexperimentplatform.ViewModel.newEx_VM;
 import main.sensoryexperimentplatform.models.Experiment;
 
 import java.io.IOException;
@@ -214,6 +216,12 @@ public class DashBoardController {
 
         Stage stage = new Stage();
         stage.setTitle("Add Sound");
+        newExController controller = new newExController();
+        newEx_VM viewModel = new newEx_VM();
+        controller.setViewModel(viewModel);
+
+
+
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

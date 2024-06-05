@@ -76,7 +76,7 @@ public class newExController {
 
         txt_ExperimentName.textProperty().addListener((observable, oldValue, newValue) -> {
             viewModel.setExperimentName(newValue);
-            System.out.println(viewModel.getExperimentName());
+            System.out.println("hello");
             System.out.println(viewModel);
 
         });
@@ -91,7 +91,7 @@ public class newExController {
 
         txt_description.textProperty().addListener((observable, oldValue, newValue) -> {
             viewModel.setDescription(newValue);
-            System.out.println();
+            System.out.println(viewModel.getDescription());
         });
     }
     public void setViewModel(newEx_VM viewModel){
