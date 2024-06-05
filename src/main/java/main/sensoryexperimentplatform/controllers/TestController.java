@@ -187,6 +187,11 @@ public class TestController implements MouseListener{
     private void showDetailView(String key) throws IOException {
         choose o = displayedItems.get(key);
         o.modify(propertiesPane);
+        o.modifyWithButton(propertiesPane,btn_AddPeriodicStage, btn_AddCourse, btn_assignSound,
+                btn_addFoodAndTaste, btn_addAudibleInstruction
+                , btn_addInput, btn_noticeStage,
+                btn_addTimer, btn_AddQuestionStage,
+                btn_addRatingContainer, btn_addTasteTest, btn_AddConditionalStatement, btn_AddConditionalStatement);
 
 
 //        else if (o instanceof Timer) {
@@ -198,9 +203,6 @@ public class TestController implements MouseListener{
 //               timerStage_VM view = new timerStage_VM(timer);
 //               controller.setViewModel (view);
 //     /
-
-
-
 
     }
 
@@ -321,19 +323,23 @@ public class TestController implements MouseListener{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        TreeItem<String> inputStage = new TreeItem<>("[User Input] Input Stage");
+        inputStage_VM inputStage_vm = new inputStage_VM();
+        Input inputStage = inputStage_vm.getInput();
+        String key = "[User Input]" +  inputStage.getTitle();
+        displayedItems.put(key, inputStage_vm);
+
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(inputStage );
+            ifConditional.getChildren().add(new TreeItem<>(key) );
             ifConditional.setExpanded(true);
         }
         // Add to Randomnies if selected item matches elseConditional
         else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(inputStage );
+            elseConditional.getChildren().add(new TreeItem<>(key) );
             elseConditional.setExpanded(true);
         }
         // Add to start if no conditions match
         else {
-            start.getChildren().add(inputStage);
+            start.getChildren().add(new TreeItem<>(key));
         }
 
 
@@ -388,7 +394,11 @@ public class TestController implements MouseListener{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        TreeItem<String> QuestionStage = new TreeItem<>("[Question] Question");
+        questionStage_VM questionStage_vm = new questionStage_VM();
+        Question question = questionStage_vm.getQuestionStage();
+        String key = "[Question]" + question.getQuestion();
+        displayedItems.put(key, questionStage_vm);
+        TreeItem<String> QuestionStage = new TreeItem<>(key);
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(QuestionStage);
             ifConditional.setExpanded(true);
@@ -409,7 +419,11 @@ public class TestController implements MouseListener{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        Randomnies = new TreeItem<>("Ratings container");
+        ratingContainer_VM ratingContainer_vm = new ratingContainer_VM();
+        RatingContainer ratingContainer = ratingContainer_vm.getRatingContainer();
+        String key = "Ratings container";
+        displayedItems.put(key, ratingContainer_vm);
+        Randomnies = new TreeItem<>(key);
 
 
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
@@ -425,7 +439,6 @@ public class TestController implements MouseListener{
         else {
             start.getChildren().add( Randomnies);
         }
-
 
 
     }

@@ -2,6 +2,7 @@ package main.sensoryexperimentplatform.ViewModel;
 
 import javafx.beans.property.*;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.controllers.VasController;
@@ -220,6 +221,11 @@ public class vasStage_VM implements choose{
         VasController controller = fxmlLoader.getController();
         vasStage_VM viewModel = new vasStage_VM();
         controller.setViewModel(viewModel);
+
+    }
+
+    @Override
+    public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Button button13) throws IOException {
 
     }
 }
