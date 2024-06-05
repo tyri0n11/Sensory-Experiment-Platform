@@ -1,12 +1,21 @@
 package main.sensoryexperimentplatform.models;
 
-public class gLMS extends Stage{
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.glmsStage_VM;
+import main.sensoryexperimentplatform.controllers.GLMSController;
+
+import java.io.IOException;
+
+public class gLMS extends Stage {
     private String title;
     private String questionText;
     private String buttonText;
     private boolean response;
-    private String helpText;
-    private String result;
+    private String helpText, conducted;
+    private double result;
     private boolean alert;
 
     public gLMS(String title, String content){
@@ -25,11 +34,14 @@ public class gLMS extends Stage{
         this.helpText = helpText;
         this.alert = alert;
     }
-    public void setResult(String s){
-        this.result = s;
+    public void setAlert(boolean s){
+        this.alert =s;
+    }
+    public void setResult(double result){
+        this.result = result;
     }
 
-    public String getResult() {
+    public double getResult() {
         return result;
     }
 
@@ -91,8 +103,16 @@ public class gLMS extends Stage{
         return "glmsStage(\"" + title + "\",\"" + buttonText + "\",\"" +
                 content + "\",\""+ helpText + "\",\"" + alert + "\")";
     }
-}
 
+    public void setConducted(String currentFormattedTime) {
+        this.conducted = currentFormattedTime;
+    }
+    public String getConducted(){
+        return conducted;
+    }
+
+
+}
 
 
 

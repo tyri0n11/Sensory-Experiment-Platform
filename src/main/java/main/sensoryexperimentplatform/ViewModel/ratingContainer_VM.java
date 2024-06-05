@@ -4,12 +4,23 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.addRatingContainerController;
 import main.sensoryexperimentplatform.models.RatingContainer;
+import main.sensoryexperimentplatform.models.Vas;
+import main.sensoryexperimentplatform.models.gLMS;
 
-public class ratingContainer_VM {
+import java.io.IOException;
+
+public class ratingContainer_VM implements choose{
     private RatingContainer ratingContainer;
     private IntegerProperty minTime;
     private BooleanProperty isRandomize;
+    private Vas vas;
+    private gLMS glms;
     public ratingContainer_VM(){
         this.ratingContainer = new RatingContainer(false,5);
         minTime = new SimpleIntegerProperty(ratingContainer.getMinTime());
@@ -43,8 +54,50 @@ public class ratingContainer_VM {
     public void addGlmsStage(String question, String buttonText, String content, String helpText, boolean alert) {
         ratingContainer.addGlmsStageContainer(question, buttonText, content, helpText, alert);
     }
-
-    public RatingContainer getRatingContainer() {
+    public void addVasStage_newExperiment(){
+        ratingContainer.addVasStageTest_newExperiment(vas);
+    }
+    public void addGlmsStage_newExperiment(){
+        ratingContainer.addGlms_newExperiment(glms);
+    }
+    public RatingContainer getRatingContainer(){
         return ratingContainer;
+    }
+
+
+    @Override
+    public void modify(AnchorPane anchorPane) throws IOException {
+
+    }
+    @Override
+    public void modifyWithButton(AnchorPane propertiesPane, Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
+                                 Button btn_addFoodAndTaste, Button btn_addAudibleInstruction
+            , Button btn_addInput, Button btn_noticeStage,
+                                 Button btn_addTimer, Button btn_AddQuestionStage,
+                                 Button btn_addRatingContainer, Button btn_addTasteTest,  Button btn_AddConditionalStatement, Button button1) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddRatingsContainer.fxml"));
+        AnchorPane newContent = fxmlLoader.load();
+        propertiesPane.getChildren().setAll(newContent);
+        btn_AddPeriodicStage.setDisable(true);
+        btn_AddCourse.setDisable(true);
+        btn_assignSound.setDisable(true);
+        btn_addFoodAndTaste.setDisable(true);
+        btn_addAudibleInstruction.setDisable(true);
+        btn_addInput.setDisable(true);
+        btn_addInput.setDisable(true);
+        btn_noticeStage.setDisable(true);
+        btn_addTimer.setDisable(true);
+        btn_AddQuestionStage.setDisable(true);
+        btn_addRatingContainer.setDisable(true);
+        btn_addTasteTest.setDisable(true);
+        btn_AddConditionalStatement.setDisable(true);
+
+        addRatingContainerController controller = new addRatingContainerController();
+        ratingContainer_VM viewModel = new ratingContainer_VM();
+        viewModel.addVasStage_newExperiment();
+        viewModel.addGlmsStage_newExperiment();
+        controller.setViewModel(viewModel);
+
+//               AddNoticeStage controller = fxmlLoader.getController();
     }
 }

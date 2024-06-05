@@ -1,38 +1,92 @@
 package main.sensoryexperimentplatform.ViewModel;
 
 import javafx.beans.property.*;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.VasController;
 import main.sensoryexperimentplatform.models.Vas;
 
-public class vasStage_VM {
+import java.io.IOException;
+
+public class vasStage_VM implements choose {
     private StringProperty questionText;
     private StringProperty lowAnchorText;
     private StringProperty highAnchorText;
     private StringProperty helpText;
     private StringProperty buttonText;
-    private StringProperty lowAnchorValue ;
+    private StringProperty lowAnchorValue;
     private StringProperty highAnchorValue;
     private StringProperty txt_BtnTxt;
-    private StringProperty  txt_yes;
+    private StringProperty txt_yes;
     private BooleanProperty checkB_sound;
     private BooleanProperty checkB_swap;
     private final BooleanProperty alert = new SimpleBooleanProperty(true);
     private Vas vas;
 
-    public vasStage_VM(Vas stage) {
-        this.vas = stage;
+    public vasStage_VM() {
+        this.vas = new Vas("User input", null, null,
+                0, 100, null, null, null, false, false);
         lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
         highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
         buttonText = new SimpleStringProperty(vas.getButtonText());
         helpText = new SimpleStringProperty(vas.getHelpText());
         lowAnchorValue = new SimpleStringProperty(String.valueOf(vas.getLowAnchorValue()));
-        highAnchorValue= new SimpleStringProperty(String.valueOf(vas.getHighAnchorValue()));
+        highAnchorValue = new SimpleStringProperty(String.valueOf(vas.getHighAnchorValue()));
         questionText = new SimpleStringProperty(vas.getTitle());
         checkB_sound = new SimpleBooleanProperty(vas.getAlert());
         checkB_swap = new SimpleBooleanProperty(vas.getIsSwap());
+        checkB_swap.addListener((observableValue, oldValue, newValue) -> onCheckSwap(newValue));
+        checkB_sound.addListener((observableValue, oldValue, newValue) -> onCheckSound(newValue));
+        highAnchorValue.addListener((observableValue, oldValue, newValue) -> onhighAnchorValue(newValue));
+        lowAnchorValue.addListener((observableValue, oldValue, newValue) -> onlowAnchorValue(newValue));
+        helpText.addListener((observableValue, oldValue, newValue) -> onHelpText(newValue));
+        buttonText.addListener((observableValue, oldValue, newValue) -> {
+            onButtonText(newValue);
+            System.out.println(vas);
+        });
+
+        highAnchorText.addListener((observableValue, oldValue, newValue) -> onhighAnchorText(newValue));
+        lowAnchorText.addListener((observableValue, oldValue, newValue) -> onlowAnchorText(newValue));
         questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
     }
 
+<<<<<<< HEAD
 
+=======
+    private void onCheckSwap(Boolean newValue) {
+        vas.setSwap(newValue);
+    }
+
+    private void onCheckSound(Boolean newValue) {
+        vas.setAlert(newValue);
+    }
+
+    private void onhighAnchorValue(String newValue) {
+        vas.setHighAnchorValue(Integer.parseInt(newValue));
+    }
+
+    private void onlowAnchorValue(String newValue) {
+        vas.setLowAnchorValue(Integer.parseInt(newValue));
+    }
+
+    private void onHelpText(String newValue) {
+        vas.setHelpText(newValue);
+    }
+
+    private void onButtonText(String newValue) {
+        vas.setButtonText(newValue);
+    }
+
+    private void onhighAnchorText(String newValue) {
+        vas.setHighAnchorText(newValue);
+    }
+
+    private void onlowAnchorText(String newValue) {
+        vas.setLowAnchorText(newValue);
+    }
+>>>>>>> 7a2212825dec188091988102bf0da9285f466266
 
     public boolean isCheckB_swap() {
         return checkB_swap.get();
@@ -82,7 +136,7 @@ public class vasStage_VM {
         return txt_BtnTxt;
     }
 
-    private void onQuestionTextChange(String s){
+    private void onQuestionTextChange(String s) {
         vas.setTitle(s);
     }
 
@@ -161,6 +215,7 @@ public class vasStage_VM {
         this.alert.set(alert);
     }
 
+<<<<<<< HEAD
     public void setLowAnchorValue(String lowAnchorValue) {
         this.lowAnchorValue.set(lowAnchorValue);
     }
@@ -173,3 +228,27 @@ public class vasStage_VM {
         //vas.setValue();
     }
 }
+=======
+    public Vas getVas() {
+        return vas;
+    }
+
+    @Override
+    public void modify(AnchorPane anchorPane) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("VasStage.fxml"));
+        AnchorPane newContent = fxmlLoader.load();
+        anchorPane.getChildren().setAll(newContent);
+        VasController controller = fxmlLoader.getController();
+        vasStage_VM viewModel = new vasStage_VM();
+        controller.setViewModel(viewModel);
+
+    }
+
+
+    @Override
+    public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Button button13) throws IOException {
+
+
+    }
+}
+>>>>>>> 7a2212825dec188091988102bf0da9285f466266

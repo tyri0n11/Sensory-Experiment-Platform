@@ -4,9 +4,17 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.addRatingContainerController;
+import main.sensoryexperimentplatform.controllers.questionStageController;
 import main.sensoryexperimentplatform.models.Question;
 
-public class questionStage_VM {
+import java.io.IOException;
+
+public class questionStage_VM implements choose{
     //Notice can chinh lai
     private StringProperty question ;
     private StringProperty leftText ;
@@ -88,6 +96,27 @@ public class questionStage_VM {
         return questionStage;
     }
 
+    @Override
+    public void modify(AnchorPane anchorPane) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("QuestionStage.fxml"));
+        AnchorPane newContent = fxmlLoader.load();
+        anchorPane.getChildren().setAll(newContent);
+//               Question question = new Question("NULL","NULL","NULL",false);
+        questionStageController controller = fxmlLoader.getController();
+        questionStage_VM viewModel = new questionStage_VM();
+        controller.setQuestionStage_vm(viewModel);
+    }
+
+    @Override
+    public void modifyWithButton(AnchorPane propertiesPane, Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
+                                 Button btn_addFoodAndTaste, Button btn_addAudibleInstruction
+            , Button btn_addInput, Button btn_noticeStage,
+                                 Button btn_addTimer, Button btn_AddQuestionStage,
+                                 Button btn_addRatingContainer, Button btn_addTasteTest,  Button btn_AddConditionalStatement, Button button1) throws IOException {
+
+
+//               AddNoticeStage controller = fxmlLoader.getController();
+    }
 }
 
 

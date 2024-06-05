@@ -1,14 +1,13 @@
 package main.sensoryexperimentplatform.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import main.sensoryexperimentplatform.ViewModel.AddTasteVM;
+import main.sensoryexperimentplatform.models.TasteTest;
 
 public class addTasteController {
     public TextField txt_inital;
-    public CheckBox cbox;
     public TextArea txt_help;
     public TextField txt_endInstruction;
     public TextField txt_timetowait;
@@ -26,11 +25,9 @@ public class addTasteController {
     private AddTasteVM addVM;
 
     public void init() {
-        addVM = new AddTasteVM();
         txt_inital.textProperty().bindBidirectional(addVM.txt_initalProperty());
         txt_buttontext.textProperty().bindBidirectional(addVM.txt_buttontextProperty());
         txt_consumpins.textProperty().bindBidirectional(addVM.txt_consumpinsProperty());
-        cbox.selectedProperty().bindBidirectional(addVM.cboxProperty());
         txt_help.textProperty().bindBidirectional(addVM.txt_helpProperty());
         txt_endInstruction.textProperty().bindBidirectional(addVM.txt_endInstructionProperty());
         txt_howtaste.textProperty().bindBidirectional(addVM.txt_howtasteProperty());
@@ -43,5 +40,10 @@ public class addTasteController {
         checkbox_randomrate.selectedProperty().bindBidirectional(addVM.checkbox_randomrateProperty());
         txt_lowanchortext.textProperty().bindBidirectional(addVM.txt_lowanchortextProperty());
         txt_highanchortext.textProperty().bindBidirectional(addVM.txt_highanchortextProperty());
+    }
+
+    public void setViewModel(AddTasteVM view) {
+        addVM = view;
+        init();
     }
 }

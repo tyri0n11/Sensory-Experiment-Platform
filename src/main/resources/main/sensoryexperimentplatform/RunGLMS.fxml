@@ -3,37 +3,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="488.0" prefWidth="900.0" stylesheets="/static/stylesheets/RunGLMS_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunGLMSController">
+<AnchorPane prefHeight="530.0" prefWidth="970.0" stylesheets="/static/stylesheets/RunGLMS_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunGLMSController">
    <children>
-      <Slider fx:id="mySlider" layoutX="459.0" layoutY="26.0" majorTickUnit="10.0" orientation="VERTICAL" prefHeight="436.0" prefWidth="14.0" />
-      <Label wrapText="true" fx:id="questionlbl" layoutX="24.0" layoutY="13.0" prefHeight="100.0" prefWidth="393.0" text="Question" />
-      <Label layoutX="492.0" layoutY="434.0" text="-Barely Detecable">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="492.0" layoutY="397.0" text="-Weak">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="492.0" layoutY="313.0" text="-Moderate">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="492.0" layoutY="145.0" text="-Strong">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="492.0" layoutY="63.0" text="-Very strong">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="result" layoutX="159.0" layoutY="172.0" prefHeight="90.0" prefWidth="159.0" text="Label" />
+      <Slider fx:id="mySlider" layoutX="331.0" layoutY="85.0" majorTickUnit="10.0" orientation="VERTICAL" prefHeight="434.0" prefWidth="14.0" />
+      <Label fx:id="questionlbl" layoutX="14.0" layoutY="10.0" prefHeight="59.0" prefWidth="662.0" text="Question" wrapText="true" />
+      <Label fx:id="helpText" layoutX="576.0" layoutY="97.0" prefHeight="361.0" prefWidth="287.0" text="Label" wrapText="true" />
    </children>
 </AnchorPane>

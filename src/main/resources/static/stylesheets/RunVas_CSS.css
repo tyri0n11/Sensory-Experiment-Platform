@@ -6,7 +6,7 @@
 }
 #questionlbl{
     -fx-alignment: Center;
-    -fx-font-size: 18px;
+    -fx-font-size: 24px;
 }
 .slider .track{
     -fx-pref-height: 28px;

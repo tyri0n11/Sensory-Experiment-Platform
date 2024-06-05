@@ -1,6 +1,15 @@
 package main.sensoryexperimentplatform.models;
 
-public class Timer extends Stage {
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.timerStage_VM;
+import main.sensoryexperimentplatform.controllers.TimerController;
+
+import java.io.IOException;
+
+public class Timer extends Stage{
     private boolean alert;
     private boolean isRunning = true;
     private long timeToWait;
@@ -12,9 +21,18 @@ public class Timer extends Stage {
         timeToWait = Long.parseLong(time);
         this.alert = alert;
     }
+
+    public void setInstruction(String instruction) {
+        this.instruction = instruction;
+    }
+
     public Timer(String instruction, String time) {
         super(instruction, time);
         timeToWait = Long.parseLong(time);
+    }
+
+    public String getInstruction() {
+        return instruction;
     }
 
     public void start(){
@@ -31,6 +49,7 @@ public class Timer extends Stage {
         }
     }
 
+<<<<<<< HEAD
     public long getTimeToWait() {
         return timeToWait;
     }
@@ -46,6 +65,9 @@ public class Timer extends Stage {
     public void setInstruction(String instruction) {
         this.instruction = instruction;
     }
+=======
+
+>>>>>>> 7a2212825dec188091988102bf0da9285f466266
 
     public boolean isAlert() {
         return alert;
@@ -53,6 +75,9 @@ public class Timer extends Stage {
 
     public void setAlert(boolean alert) {
         this.alert = alert;
+    }
+    public void setTime(String time){
+        timeToWait = Long.parseLong(time);
     }
 
     public String getFormattedElapsed() {
@@ -66,4 +91,6 @@ public class Timer extends Stage {
     public String toString() {
         return "wait(\""+ getFormattedElapsed() + "\",\"" + this.content  + "\",\"" + alert + "\")";
     }
+
+
 }

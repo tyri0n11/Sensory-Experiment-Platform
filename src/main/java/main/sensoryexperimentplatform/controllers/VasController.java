@@ -89,7 +89,7 @@ public class VasController {
         txt_HighAncVal.textProperty().bindBidirectional(vasStageVM.highAnchorValueProperty());
         txt_BtnTxt.textProperty().bindBidirectional(vasStageVM.buttonTextProperty());
         txt_help.textProperty().bindBidirectional(vasStageVM.helpTextProperty());
-//        txt_yes.textProperty().bindBidirectional(vasStageVM.txt_yesProperty());
+        //txt_yes.textProperty().bindBidirectional(vasStageVM.txt_yesProperty());
         checkB_sound.selectedProperty().bindBidirectional(vasStageVM.checkB_soundProperty());
         checkB_swap.selectedProperty().bindBidirectional(vasStageVM.checkB_swapProperty());
 
@@ -117,6 +117,10 @@ public class VasController {
         bind();
     }
 
+<<<<<<< HEAD
 
 
 }
+=======
+}
+>>>>>>> 7a2212825dec188091988102bf0da9285f466266

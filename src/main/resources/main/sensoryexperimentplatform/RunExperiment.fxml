@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -12,16 +11,16 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1280.0" stylesheets="/static/stylesheets/RunEx.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunController">
    <children>
-      <BorderPane layoutY="-1.0" prefHeight="800.0" prefWidth="1280.0">
+      <BorderPane layoutY="-1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0">
          <left>
-            <Pane>
+            <Pane prefHeight="645.0" prefWidth="22.0">
                <children>
-                  <ListView fx:id="showList" layoutX="30.0" prefHeight="611.0" prefWidth="219.0" />
+                  <ListView fx:id="showList" focusTraversable="false" layoutX="13.0" layoutY="14.0" prefHeight="610.0" prefWidth="192.0" />
                </children>
             </Pane>
          </left>
          <top>
-            <AnchorPane prefHeight="173.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+            <AnchorPane prefHeight="155.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
                <children>
                   <ProgressBar fx:id="progress_bar" layoutX="105.0" layoutY="133.0" prefHeight="20.0" prefWidth="1070.0" progress="0.0" />
                   <Label fx:id="senseXPlbl" layoutX="14.0" layoutY="14.0" text="SenseXP">
@@ -29,7 +28,7 @@
                         <Font name="Baloo 2 Regular" size="40.0" />
                      </font>
                   </Label>
-                  <Label fx:id="runelbl" layoutX="105.0" layoutY="73.0" text="Run experiment">
+                  <Label fx:id="runelbl" layoutX="163.0" layoutY="73.0" text="Run experiment">
                      <font>
                         <Font name="Baloo 2 Regular" size="36.0" />
                      </font>
@@ -37,26 +36,20 @@
                </children>
             </AnchorPane>
          </top>
-         <right>
-            <Separator prefHeight="5.0" prefWidth="74.0" BorderPane.alignment="CENTER" />
-         </right>
          <center>
-            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <Pane prefHeight="645.0" prefWidth="1054.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="btn_back" layoutX="600.0" layoutY="516.0" mnemonicParsing="false" onMouseClicked="#handleBtnBack" prefHeight="57.0" prefWidth="132.0" text="Back">
+                  <Button fx:id="btn_back" layoutX="660.0" layoutY="544.0" mnemonicParsing="false" onMouseClicked="#handleBtnBack" prefHeight="70.0" prefWidth="150.0" text="Back" wrapText="true">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btn_Next" layoutX="768.0" layoutY="516.0" mnemonicParsing="false" onMouseClicked="#handleBtnNext" prefHeight="57.0" prefWidth="132.0" text="Next">
+                  <Button fx:id="btn_Next" layoutX="825.0" layoutY="544.0" mnemonicParsing="false" onMouseClicked="#handleBtnNext" prefHeight="70.0" prefWidth="150.0" text="Next" wrapText="true">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <AnchorPane fx:id="showPane" layoutX="14.0" layoutY="14.0" prefHeight="488.0" prefWidth="903.0">
-                     <children>
-                        <Label fx:id="labelView" layoutX="14.0" layoutY="14.0" stylesheets="@../../static/stylesheets/RunEx.css" text="Label" wrapText="true" />
-                     </children></AnchorPane>
+                  <AnchorPane fx:id="content" layoutX="175.0" prefHeight="539.0" prefWidth="971.0" />
 
                </children>
             </Pane>

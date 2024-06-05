@@ -1,5 +1,17 @@
 package main.sensoryexperimentplatform.models;
 
+<<<<<<< HEAD
+=======
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
+import main.sensoryexperimentplatform.controllers.NoticeStageController;
+
+import java.io.IOException;
+
+>>>>>>> 7a2212825dec188091988102bf0da9285f466266
 public class Notice extends Stage {
     private String buttonText;
     private String content;
@@ -66,6 +78,8 @@ public class Notice extends Stage {
         return "noticeStage(\"" + title + "\",\"" + content + "\",\"" +
                 buttonText + "\",\"" + helpText + "\",\"" + alert+ "\")";
     }
+
+
 }
 
 

@@ -20,6 +20,7 @@ public class addRatingContainerController {
 
     public void initialize() {
         viewModel = new ratingContainer_VM();
+        bindViewModel();
 
 
     }

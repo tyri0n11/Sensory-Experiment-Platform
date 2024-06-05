@@ -1,25 +1,64 @@
 package main.sensoryexperimentplatform.models;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.AddTasteVM;
+import main.sensoryexperimentplatform.controllers.addTasteController;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class TasteTest{
+public class TasteTest {
     private final String question;
-    private final String consumptionInstruction;
-    private final String endInStruction;
+    private String consumptionInstruction;
+    private String endInStruction;
     private final ArrayList<String> foods;
     private final ArrayList<Object> list;
     private final Notice initialNotice;
-    private final int timeWait;
+    private int timeWait;
     boolean randomizeFood, randomizeRatingVas, randomizeRatingGLMS;
     private final ArrayList<String> vasList;
     private final ArrayList<String> glmsList;
     private final Vas sampleVas;
     private final gLMS sampleGLMS;
+    public Vas returnsampleVas(){
+        return sampleVas;
+    }
+    public gLMS getSampleGLMS(){
+        return sampleGLMS;
+    }
+
+    public boolean isRandomizeFood() {
+        return randomizeFood;
+    }
+
+    public boolean isRandomizeRatingVas() {
+        return randomizeRatingVas;
+    }
+
+    public boolean isRandomizeRatingGLMS() {
+        return randomizeRatingGLMS;
+    }
+
+    public void setRandomizeRatingGLMS(boolean randomizeRatingGLMS) {
+        this.randomizeRatingGLMS = randomizeRatingGLMS;
+    }
+
+    public void setRandomizeRatingVas(boolean randomizeRatingVas) {
+        this.randomizeRatingVas = randomizeRatingVas;
+    }
+
+    public void setRandomizeFood(boolean randomizeFood) {
+        this.randomizeFood = randomizeFood;
+    }
+
     public TasteTest(String noticeStageContent, String consumptionInstruction, String question,
-            String lowAnchorText, String highAnchorText, int lowAnchorValue,
+                     String lowAnchorText, String highAnchorText, int lowAnchorValue,
                      int highAnchorValue, String buttonText,
-            boolean isSwap, String helpText, String endInstruction,
+                     boolean isSwap, String helpText, String endInstruction,
                      int timeWait, boolean randomizeFood, boolean randomizeRatingVas, boolean randomizeRatingGLMS){
 
         this.initialNotice = new Notice("Taste Test",noticeStageContent, buttonText, "", false);
@@ -41,6 +80,15 @@ public class TasteTest{
         list.add(initialNotice);
 
     }
+
+    public void setEndInStruction(String endInStruction) {
+        this.endInStruction = endInStruction;
+    }
+
+    public String getEndInStruction() {
+        return endInStruction;
+    }
+
     public void selectVas(String[] selectedVas){
         vasList.addAll(Arrays.asList(selectedVas));
     }
@@ -50,6 +98,13 @@ public class TasteTest{
 
     public void addFood(String[] foods){
         this.foods.addAll(Arrays.asList(foods));
+    }
+
+    public int getTimeWait() {
+        return timeWait;
+    }
+    public void setTime(int time){
+        this.timeWait = time;
     }
     public void generator(){
         for(String foodName : foods){
@@ -101,6 +156,14 @@ public class TasteTest{
         return "Taste Test";
     }
 
+    public String getConsumptionInstruction() {
+        return consumptionInstruction;
+    }
+
+    public void setConsumptionInstruction(String consumptionInstruction) {
+        this.consumptionInstruction = consumptionInstruction;
+    }
+
     public String toString(){
             StringBuilder stringBuilder = new StringBuilder();
             for(Object o : list){
@@ -128,4 +191,6 @@ public class TasteTest{
         tasteTest.generator();
         System.out.println(experiment.stages.toString());
     }
+
+
 }

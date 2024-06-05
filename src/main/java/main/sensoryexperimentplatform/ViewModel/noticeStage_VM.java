@@ -4,19 +4,31 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.NoticeStageController;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Input;
 import main.sensoryexperimentplatform.models.Notice;
 
+<<<<<<< HEAD
 public class noticeStage_VM {
     private StringProperty titleText;
     private StringProperty contentText;
+=======
+import java.io.IOException;
+
+public class noticeStage_VM implements choose{
+>>>>>>> 7a2212825dec188091988102bf0da9285f466266
     private StringProperty buttonText ;
 
     private StringProperty helpText ;
 
     private BooleanProperty alert;
     private Notice notice;
+<<<<<<< HEAD
     private Experiment experiment;
     public noticeStage_VM(Notice noticeStage) {
         this.notice = noticeStage;
@@ -25,6 +37,26 @@ public class noticeStage_VM {
         this.buttonText = new SimpleStringProperty(noticeStage.getButtonText());
         this.helpText = new SimpleStringProperty(noticeStage.getHelpText());
         this.alert = new SimpleBooleanProperty(noticeStage.isAlert());
+=======
+
+    public noticeStage_VM() {
+        this.notice = new Notice("User input", "This is question","this is button", "hell00",false);
+        this.buttonText = new SimpleStringProperty(notice.getButtonText());
+        this.helpText = new SimpleStringProperty(notice.getHelpText());
+        this.alert = new SimpleBooleanProperty(notice.isAlert());
+        this.title = new SimpleStringProperty(notice.getTitle());
+        this.content = new SimpleStringProperty(notice.getContent());
+
+    }
+    public void addNoticeStage() {
+        String title = this.title.get();
+        String content = this.content.get();
+        String buttonText = this.buttonText.get();
+        String helpText = this.helpText.get();
+        boolean alert = this.alert.get();
+        Notice stage = new Notice(title, content, buttonText,helpText, alert);
+        experiment.addNoticeStage(title, content, buttonText,helpText, alert);
+>>>>>>> 7a2212825dec188091988102bf0da9285f466266
     }
 
     public void setNotice(Notice notice) {
@@ -81,5 +113,19 @@ public class noticeStage_VM {
     }
 
 
+    @Override
+    public void modify(AnchorPane anchorPane) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddNoticeStage.fxml"));
+        AnchorPane newContent = fxmlLoader.load();
+        anchorPane.getChildren().setAll(newContent);
+        NoticeStageController controller = new NoticeStageController();
+        noticeStage_VM viewModel = new noticeStage_VM();
+        controller.setNoticeStage_vm(viewModel);
 
+    }
+
+    @Override
+    public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Button button13) throws IOException {
+
+    }
 }

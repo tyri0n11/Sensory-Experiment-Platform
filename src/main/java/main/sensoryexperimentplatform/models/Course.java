@@ -1,5 +1,12 @@
 package main.sensoryexperimentplatform.models;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.AddCourseController;
+
+import java.io.IOException;
 import java.time.Duration;
 
 public class Course extends Stage {
@@ -84,4 +91,6 @@ public class Course extends Stage {
                 "Please stop eating");
         course.show();
     }
+
+
 }

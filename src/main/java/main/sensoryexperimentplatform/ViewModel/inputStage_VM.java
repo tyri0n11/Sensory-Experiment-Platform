@@ -3,10 +3,17 @@ package main.sensoryexperimentplatform.ViewModel;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.InputStageController;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Input;
 
-public class inputStage_VM {
+import java.io.IOException;
+
+public class inputStage_VM implements choose{
     private Input input;
     private Experiment experiment;
 //    private final ListProperty<Object> stages = new SimpleListProperty<>(FXCollections.observableArrayList());
@@ -35,6 +42,7 @@ public class inputStage_VM {
 
     }
 
+<<<<<<< HEAD
     public void addInputStage() {
 
         String title = this.title.get();
@@ -46,6 +54,21 @@ public class inputStage_VM {
 //        stages.add(stage);
 
     }
+=======
+
+
+//    public void addInputStage() {
+//
+//        String title = this.title.get();
+//        String content = this.content.get();
+//        String buttonText = this.button.get();
+//        boolean alert = this.alert.get();
+//        Input stage = new Input(title, content, buttonText, alert);
+//        experiment.addInputStage(title, content, buttonText, alert);
+////        stages.add(stage);
+//
+//    }
+>>>>>>> 7a2212825dec188091988102bf0da9285f466266
 
 //    public ObservableList<Object> getStages() {
 //        return stages.get();
@@ -98,5 +121,22 @@ public class inputStage_VM {
     }
     public Input getInput(){
         return input;
+    }
+
+    @Override
+    public void modify(AnchorPane anchorPane) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("InputStage.fxml"));
+        AnchorPane newContent = fxmlLoader.load();
+        anchorPane.getChildren().setAll(newContent);
+
+        InputStageController controller = new InputStageController();
+        inputStage_VM viewModel = new inputStage_VM();
+        controller.setViewModel(viewModel);
+
+    }
+
+    @Override
+    public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Button button13) throws IOException {
+
     }
 }

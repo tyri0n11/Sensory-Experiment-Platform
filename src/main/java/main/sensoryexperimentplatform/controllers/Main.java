@@ -16,7 +16,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+<<<<<<< HEAD
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/Demo.fxml"));
+=======
+
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/Base.fxml"));
+        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/sensoryexperimentplatform/LogIn2.fxml"));
+
+//        ProfileController controller = new ProfileController();
+//        loader.setController(controller);*/
+>>>>>>> 7a2212825dec188091988102bf0da9285f466266
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setTitle("Sense XP");
