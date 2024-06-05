@@ -90,6 +90,9 @@ public class RunExperiment_VM {
         }
         items.setAll(stringSet);
     }
+    public String getExperimentName(){
+        return experiment.getExperimentName();
+    }
 
     public ObservableList<String> getItems() {
         return items.get();
