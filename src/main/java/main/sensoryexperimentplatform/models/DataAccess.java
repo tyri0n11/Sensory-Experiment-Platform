@@ -23,7 +23,7 @@ public class DataAccess {
     }
 
     public static Experiment getExperimentIndividually() throws IOException {
-        Experiment currentExperiment = new Experiment("null","null","null","null","null");
+        Experiment currentExperiment = new Experiment("null","null","null","null",1);
 
         try (BufferedReader reader = new BufferedReader(new FileReader(loadFilePath))) {
             String line;
@@ -38,7 +38,8 @@ public class DataAccess {
                     currentExperiment.setCreatorName(line.split(": ")[1].trim());
 
                 } else if (line.startsWith("Version:")) {
-                    currentExperiment.version = line.split(": ")[1].trim();
+                    int crt = Integer.parseInt(line.split(": ")[1].trim());
+                    currentExperiment.version = crt;
 
                 } else if (line.startsWith("startExperiment:")) {
                     Pattern patternExperiment = Pattern.compile("startExperiment\\(\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
@@ -164,7 +165,7 @@ public class DataAccess {
 
     public static ArrayList<Experiment> importExperiment() throws Exception{
         ArrayList<Experiment> experiments = new ArrayList<>();
-        Experiment currentExperiment = new Experiment(null,null,null,null,null);
+        Experiment currentExperiment = new Experiment(null,null,null,null,1);
         RatingContainer rc = null;
         boolean isContainer = false;
         String line;
@@ -179,7 +180,8 @@ public class DataAccess {
                     currentExperiment.setCreatorName(line.split(": ")[1].trim());
 
                 } else if (line.startsWith("Version")) {
-                    currentExperiment.version = line.split(": ")[1].trim();
+                    int crt = Integer.parseInt(line.split(": ")[1].trim());
+                    currentExperiment.version = crt;
 
                 } else if (line.startsWith("startExperiment")) {
                     Pattern patternExperiment = Pattern.compile("startExperiment\\(\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
@@ -297,7 +299,7 @@ public class DataAccess {
                     isContainer = false;
                 } else if (line.startsWith("endExperiment()")){
                     experiments.add(currentExperiment);
-                    currentExperiment = new Experiment(null,null,null,null,null);
+                    currentExperiment = new Experiment(null,null,null,null,1);
                 }
             }
             return experiments;
