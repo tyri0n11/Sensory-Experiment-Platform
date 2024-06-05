@@ -8,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -16,14 +15,18 @@ import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 
 import main.sensoryexperimentplatform.ViewModel.*;
 import main.sensoryexperimentplatform.models.*;
+import main.sensoryexperimentplatform.models.Timer;
 
 
+import javax.swing.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TestController {
+public class TestController implements MouseListener{
     @FXML
     private Button btn_AddConditionalStatement;
     private Experiment experiment;
@@ -68,9 +71,10 @@ public class TestController {
     private TreeItem<String> Randomnies;
     private TreeItem<String> ifConditional;
     private TreeItem<String> elseConditional;
-    private Map<String, Object> displayedItems = new HashMap<>();
+    private Map<String, choose> displayedItems = new HashMap<>();
 
     private TestVM testVM;
+    private boolean mouseClick;
     private boolean isSidebarVisible = true;
     @FXML
     private TreeView<String> listObject;
@@ -114,8 +118,6 @@ public class TestController {
     private AnchorPane mainPane;
     TreeItem<String> start;
 
-
-    private AnchorPane rootPane;
     @FXML
     void delete(ActionEvent event) {
         TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
@@ -171,7 +173,6 @@ public class TestController {
         btn_assignSound.setDisable(true);
         btn_AddPeriodicStage.setDisable(true);
         btn_addFoodAndTaste.setDisable(true);
-        experiment.showStages();
         listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 System.out.println(newValue.getValue());
@@ -182,136 +183,28 @@ public class TestController {
                 }
             }
         });
-
-//
-//        EventHandler<MouseEvent> mouseEventHandler = (MouseEvent event)->{
-//            try {
-//                handleMouseClicked(event);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//        };
-//        listObject.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEventHandler);
     }
     private void showDetailView(String key) throws IOException {
-        Object o = displayedItems.get(key);
-        if(o instanceof gLMS){
-            FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("GLMS.fxml"));
-            AnchorPane newContent = fxmlLoader.load();
-            propertiesPane.getChildren().setAll(newContent);
-            gLMS glms = new gLMS(null,null,null,null, false);
-            GLMSController controller = fxmlLoader.getController();
-            glmsStage_VM view = new glmsStage_VM(glms);
-            controller.setViewModel(view);
+        choose o = displayedItems.get(key);
+        o.modify(propertiesPane);
 
-        } else if (o instanceof Notice){
-            FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddNoticeStage.fxml"));
-            AnchorPane newContent = fxmlLoader.load();
-            propertiesPane.getChildren().setAll(newContent);
-            NoticeStageController controller = new NoticeStageController();
-            noticeStage_VM viewModel = new noticeStage_VM();
-            controller.setNoticeStage_vm(viewModel);
 
-        }
-        else if (o instanceof Vas){
-            FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("VasStage.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-               propertiesPane.getChildren().setAll(newContent);
-               Vas stage = new Vas(null,null,null,
-                       0,100,null,null,
-                       null,false,false);
-               VasController controller = fxmlLoader.getController();
-               vasStage_VM viewModel = new vasStage_VM(stage);
-               controller.setViewModel(viewModel);
+//        else if (o instanceof Timer) {
+//               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("TimerStage.fxml"));
+//               AnchorPane newContent = fxmlLoader.load();
+//               propertiesPane.getChildren().setAll(newContent);
+//               Timer timer = new Timer("13031321", null, false);
+//               TimerController controller = fxmlLoader.getController();
+//               timerStage_VM view = new timerStage_VM(timer);
+//               controller.setViewModel (view);
+//     /
 
-        }
-        else if (o instanceof Input){
-            //             else if (value.equals("[User Input] Input Stage")) {
-               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("InputStage.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-               propertiesPane.getChildren().setAll(newContent);
 
-               InputStageController controller = new InputStageController();
-               inputStage_VM viewModel = new inputStage_VM();
-               controller.setViewModel(viewModel);
 
-        }
-        else if (o instanceof Timer) {
-               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("TimerStage.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-               propertiesPane.getChildren().setAll(newContent);
-               Timer timer = new Timer("13031321", null, false);
-               TimerController controller = fxmlLoader.getController();
-               timerStage_VM view = new timerStage_VM(timer);
-               controller.setViewModel (view);
-           }
-        else if (o instanceof TasteTest) {
 
-                    FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddTasteTest.fxml"));
-                    AnchorPane newContent = fxmlLoader.load();
-                    propertiesPane.getChildren().setAll(newContent);
-                    TasteTest model = new TasteTest("hjd", "df", "kh", "d","da", 0, 100, "as", false,"áds", "ád", 0, false, false, false);
-                    addTasteController controller = fxmlLoader.getController();
-                    AddTasteVM view = new AddTasteVM(model);
-                    controller.setViewModel(view);
-        }
-        else if (o instanceof RatingContainer) {
+    }
 
-               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddRatingsContainer.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-               propertiesPane.getChildren().setAll(newContent);
-               btn_AddPeriodicStage.setDisable(true);
-               btn_AddCourse.setDisable(true);
-               btn_assignSound.setDisable(true);
-               btn_addFoodAndTaste.setDisable(true);
-               btn_addAudibleInstruction.setDisable(true);
-                btn_addInput.setDisable(true);
-               btn_addInput.setDisable(true);
-               btn_noticeStage.setDisable(true);
-               btn_addTimer.setDisable(true);
-               btn_AddQuestionStage.setDisable(true);
-               btn_addRatingContainer.setDisable(true);
-               btn_addTasteTest.setDisable(true);
-               btn_addFoodAndTaste.setDisable(true);
-               btn_AddConditionalStatement.setDisable(true);
-
-               addRatingContainerController controller = new addRatingContainerController();
-               ratingContainer_VM viewModel = new ratingContainer_VM();
-               viewModel.addVasStage_newExperiment();
-               viewModel.addGlmsStage_newExperiment();
-               controller.setViewModel(viewModel);
-
-//               AddNoticeStage controller = fxmlLoader.getController();
-           }
-        else if (o instanceof Course){
-            FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddCourse.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-               propertiesPane.getChildren().setAll(newContent);
-               AddCourseController controller = fxmlLoader.getController();
-               btn_AddPeriodicStage.setDisable(false);
-               btn_AddCourse.setDisable(true);
-               btn_noticeStage.setDisable(true);
-               btn_addAudibleInstruction.setDisable(true);
-
-        }
-        else if (o instanceof Question){
-               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("QuestionStage.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-               propertiesPane.getChildren().setAll(newContent);
-//               Question question = new Question("NULL","NULL","NULL",false);
-               questionStageController controller = fxmlLoader.getController();
-               questionStage_VM viewModel = new questionStage_VM();
-               controller.setQuestionStage_vm(viewModel);
-           }
-        else if (o instanceof Periodic){
-               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddPeriodicStage.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-               propertiesPane.getChildren().setAll(newContent);
-//               AddNoticeStage controller = fxmlLoader.getController();
-               btn_AddPeriodicStage.setDisable(false);
-               btn_AddCourse.setDisable(true);
-
-}
+    private void mouseClicked(javafx.scene.input.MouseEvent mouseEvent) {
     }
 
     @FXML
@@ -394,26 +287,30 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
+        glmsStage_VM vasStage_VM = new glmsStage_VM();
+        String key = "[GLMS]" + vasStage_VM.getGLMS().getTitle();
+        displayedItems.put(key, vasStage_VM);
+        experiment.showStages();
 
-        TreeItem<String> glmsQuestionItem = new TreeItem<>("[GLMS] Question?");
-        if (Randomnies != null && listObject.getSelectionModel().getSelectedItem() == Randomnies) {
-            Randomnies.getChildren().add(glmsQuestionItem);
-            Randomnies.setExpanded(true);
-        }
         // Add to Randomnies if selected item matches ifConditional
-        else if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(glmsQuestionItem);
+        if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
+            ifConditional.getChildren().add(new TreeItem<>(key));
             ifConditional.setExpanded(true);
         }
         // Add to Randomnies if selected item matches elseConditional
         else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(glmsQuestionItem);
+            elseConditional.getChildren().add(new TreeItem<>(key));
             elseConditional.setExpanded(true);
         }
         // Add to start if no conditions match
         else {
-            start.getChildren().add(glmsQuestionItem);
+            start.getChildren().add(new TreeItem<>(key));
         }
+        listObject.setMaxHeight(311);
+        propertiesPane.setVisible(true);
+        start.setExpanded(true);
+
+
 
 
 
@@ -424,23 +321,19 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        inputStage_VM inputStage_vm = new inputStage_VM();
-        Input inputStage = inputStage_vm.getInput();
-        String key = "[User Input]" +  inputStage.getTitle();
-        displayedItems.put(key, inputStage);
-
+        TreeItem<String> inputStage = new TreeItem<>("[User Input] Input Stage");
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(new TreeItem<>(key) );
+            ifConditional.getChildren().add(inputStage );
             ifConditional.setExpanded(true);
         }
         // Add to Randomnies if selected item matches elseConditional
         else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(new TreeItem<>(key) );
+            elseConditional.getChildren().add(inputStage );
             elseConditional.setExpanded(true);
         }
         // Add to start if no conditions match
         else {
-            start.getChildren().add(new TreeItem<>(key));
+            start.getChildren().add(inputStage);
         }
 
 
@@ -453,10 +346,9 @@ public class TestController {
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         noticeStage_VM noticeStage_vm = new noticeStage_VM();
-        Notice noticeStage = noticeStage_vm.getNotice();
-        String key = "[Instruction]" + noticeStage.getTitle();
-        displayedItems.put(key, noticeStage);
-
+        String key = "[Instruction]" + noticeStage_vm.getNotice().getTitle();
+        displayedItems.put(key, noticeStage_vm);
+        experiment.showStages();
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(new TreeItem<>(key));
             ifConditional.setExpanded(true);
@@ -475,7 +367,6 @@ public class TestController {
     }
 
     @FXML
-    // chua co VM cho periodic
     void addPeriodicStage(ActionEvent event) {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
@@ -497,11 +388,7 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        questionStage_VM questionStage_vm = new questionStage_VM();
-        Question question = questionStage_vm.getQuestionStage();
-        String key = "[Question]" + question.getQuestion();
-        displayedItems.put(key, question);
-        TreeItem<String> QuestionStage = new TreeItem<>(key);
+        TreeItem<String> QuestionStage = new TreeItem<>("[Question] Question");
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(QuestionStage);
             ifConditional.setExpanded(true);
@@ -522,11 +409,7 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        ratingContainer_VM ratingContainer_vm = new ratingContainer_VM();
-        RatingContainer ratingContainer = ratingContainer_vm.getRatingContainer();
-        String key = "Ratings container";
-        displayedItems.put(key, ratingContainer);
-        Randomnies = new TreeItem<>(key);
+        Randomnies = new TreeItem<>("Ratings container");
 
 
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
@@ -549,7 +432,6 @@ public class TestController {
 
     @FXML
     void addTasteTest(ActionEvent event) {
-        // TASTE TEST CHUA CO VM
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
@@ -575,13 +457,7 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        timerStage_VM timerStage_vm = new timerStage_VM();
-        Timer timer = timerStage_vm.getTimer();
-        String key = "[Waiting]";
-        displayedItems.put(key, timer);
-
-
-        TreeItem<String> TimerStage = new TreeItem<>(key);
+        TreeItem<String> TimerStage = new TreeItem<>("[Waiting] Please wait");
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(TimerStage);
             ifConditional.setExpanded(true);
@@ -603,29 +479,28 @@ public class TestController {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
+        vasStage_VM vasStage_VM = new vasStage_VM();
+        String key = "[Vas]" + vasStage_VM.getVas().getTitle();
+
+        displayedItems.put(key, vasStage_VM);
+        experiment.showStages();
 
 
-        TreeItem<String> vasQuestionItem = new TreeItem<>("[Vas] Question?");
 
-        if (Randomnies != null && listObject.getSelectionModel().getSelectedItem() == Randomnies) {
-            Randomnies.getChildren().add(vasQuestionItem );
-            Randomnies.setExpanded(true);
-        }
         // Add to Randomnies if selected item matches ifConditional
-        else if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(vasQuestionItem );
+        if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
+            ifConditional.getChildren().add(new TreeItem<>(key));
             ifConditional.setExpanded(true);
         }
         // Add to Randomnies if selected item matches elseConditional
         else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(vasQuestionItem );
+            elseConditional.getChildren().add(new TreeItem<>(key));
             elseConditional.setExpanded(true);
         }
         // Add to start if no conditions match
         else {
-            start.getChildren().add(vasQuestionItem );
+            start.getChildren().add(new TreeItem<>(key));
         }
-
 
     }
 
@@ -656,6 +531,34 @@ public class TestController {
         }
         isSidebarVisible = !isSidebarVisible;
     }
+
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        mouseClick = true;
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+
 //    private void handleMouseClicked(MouseEvent event) throws IOException {
 //       Node node = event.getPickResult().getIntersectedNode();
 //       if (node instanceof Text || (node instanceof TreeCell &&((TreeCell) node).getText() != null)) {

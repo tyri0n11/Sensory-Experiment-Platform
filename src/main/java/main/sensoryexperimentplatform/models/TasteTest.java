@@ -1,9 +1,17 @@
 package main.sensoryexperimentplatform.models;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.AddTasteVM;
+import main.sensoryexperimentplatform.controllers.addTasteController;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class TasteTest{
+public class TasteTest {
     private final String question;
     private String consumptionInstruction;
     private String endInStruction;
@@ -183,4 +191,6 @@ public class TasteTest{
         tasteTest.generator();
         System.out.println(experiment.stages.toString());
     }
+
+
 }

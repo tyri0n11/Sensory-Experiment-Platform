@@ -1,18 +1,28 @@
 package main.sensoryexperimentplatform.models;
 
-public class Question extends Stage{
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.questionStage_VM;
+import main.sensoryexperimentplatform.controllers.questionStageController;
+
+import java.io.IOException;
+
+public class Question extends Stage {
     private String question, buttonText, helpText;
     private boolean alert;
-    public Question(String title, String content){
-        super(title,content);
+
+    public Question(String title, String content) {
+        super(title, content);
     }
 
     public Question(String question, String buttonText,
-                    String helpText, boolean alert){
-        super(question,buttonText);
+                    String helpText, boolean alert) {
+        super(question, buttonText);
         this.question = question;
         this.buttonText = buttonText;
-        this. helpText = helpText;
+        this.helpText = helpText;
         this.alert = alert;
     }
 
@@ -63,9 +73,11 @@ public class Question extends Stage{
     public void setContent(String content) {
         this.content = content;
     }
-    public String getType(){
+
+    public String getType() {
         return "Question";
     }
+
     @Override
     public String toString() {
         return "questionStage(\"" + question + "\",\"" + buttonText +

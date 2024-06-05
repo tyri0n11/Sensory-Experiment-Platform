@@ -25,62 +25,9 @@ import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 public class DashBoardController {
     private dashBoard_VM viewModel;
 
-    @FXML
-    private AnchorPane DashBoard;
-
-    @FXML
-    private AnchorPane DashBoard1;
-
-    @FXML
-    private StackPane DashBoardStackPane;
-
-    @FXML
-    private ComboBox<?> DropDown;
-
-    @FXML
-    private Label EntriesLabel;
-
-    @FXML
-    private AnchorPane SenseXPBar;
-
-    @FXML
-    private Label ShowLabel;
-
-    @FXML
-    private AnchorPane SideBar;
-
-    @FXML
-    private Button btn_AddExperiment;
-
-    @FXML
-    private Button btn_DashBoard;
-
-    @FXML
-    private Button btn_Logout;
-
-    @FXML
-    private Button btn_config;
-
-    @FXML
-    private Button btn_dashboard_left;
-
-    @FXML
-    private Button btn_export;
-
-    @FXML
-    private Button btn_import;
-
-    @FXML
-    private Button btn_menu;
-
-    @FXML
-    private Button btn_share_experiment;
 
     @FXML
     private TableView<Experiment> contentTable;
-
-    @FXML
-    private TableColumn<Experiment, String> lbl_createDate;
 
     @FXML
     private TableColumn<Experiment, String> lbl_creator;
@@ -158,8 +105,4 @@ public class DashBoardController {
         // Implement action for adding an experiment
     }
 
-    @FXML
-    void btn_dashboard(ActionEvent event) throws IOException {
-        new ScenseSwitch(DashBoardStackPane, "/fxml/general.fxml");
-    }
 }
