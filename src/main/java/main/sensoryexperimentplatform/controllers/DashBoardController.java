@@ -83,16 +83,16 @@ public class DashBoardController {
                         } else {
                             FXMLLoader runloader = new FXMLLoader(getClass().getResource("/main/sensoryexperimentplatform/runButton.fxml"));
                             FXMLLoader editloader = new FXMLLoader(getClass().getResource("/main/sensoryexperimentplatform/editButton.fxml"));
-                            //FXMLLoader viewloader = new FXMLLoader(getClass().getResource("ViewButton.fxml"));
+                            FXMLLoader deleteloader = new FXMLLoader(getClass().getResource("/main/sensoryexperimentplatform/deleteButton.fxml"));
                             //FXMLLoader editloader = new FXMLLoader(getClass().getResource("EditButton.fxml"));
-                            //final Button btn;
+                            final Button delete;
                             //final Button add;
                             final Button edit;
                             final Button run;
                             try {
                                 run = runloader.load();
                                 edit = editloader.load();
-//                                view = viewloader.load();
+                             delete = deleteloader.load();
 //                                edit = editloader.load();
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
@@ -107,11 +107,11 @@ public class DashBoardController {
                                             + "-glyph-size:28px;"
                                             + "-fx-background-color: transparent"
                             );
-//                            view.setStyle(
-//                                    " -fx-cursor: hand ;"
-//                                            + "-glyph-size:28px;"
-//                                            + "-fx-background-color: transparent"
-//                            );
+                            delete.setStyle(
+                                    " -fx-cursor: hand ;"
+                                            + "-glyph-size:28px;"
+                                            + "-fx-background-color: transparent"
+                            );
 //                            edit.setStyle( " -fx-cursor: hand ;"
 //                                    + "-glyph-size:28px;"
 //                                    + "-fx-background-color: transparent");
@@ -119,11 +119,10 @@ public class DashBoardController {
 //                                Patient c = getTableView().getItems().get(getIndex());
 //                                addTreatment(c);
 //                            });
-//                            btn.setOnAction((ActionEvent event) -> {
-//                                Patient c = getTableView().getItems().get(getIndex());
-//                                patientpagevm.removeRecord(c);
-//                                patients.setItems(patientpagevm.getList());
-//                            });
+                            delete.setOnAction((ActionEvent event) -> {
+                                Experiment c = getTableView().getItems().get(getIndex());
+                                deleteEx(c);
+                            });
                             edit.setOnAction((ActionEvent event) -> {
                                 Experiment c = getTableView().getItems().get(getIndex());
                                 editExperiment(c);
@@ -140,7 +139,7 @@ public class DashBoardController {
                             managebtn.setStyle("-fx-alignment:center");
                             HBox.setMargin(run, new Insets(2, 2, 0, 3));
                             HBox.setMargin(edit, new Insets(2, 3, 0, 2));
-//                            HBox.setMargin(view, new Insets(2, 4, 0, 2));
+      HBox.setMargin(delete, new Insets(2, 4, 0, 2));
 //                            HBox.setMargin(edit, new Insets(2, 5, 0, 3));
                             setGraphic(managebtn);
                         }
@@ -170,6 +169,9 @@ public class DashBoardController {
         });
 
 
+    }
+
+    private deleteEx(Experiment c) {
     }
 
     private void editExperiment(Experiment c) {
