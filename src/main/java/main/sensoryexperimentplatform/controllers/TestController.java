@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TestController implements MouseListener{
+public class TestController{
     @FXML
     private Button btn_AddConditionalStatement;
     private Experiment experiment;
@@ -178,9 +178,10 @@ public class TestController implements MouseListener{
         listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 int index = getIndex(newValue);
-                System.out.println(index);
+               // System.out.println(index);
                 try {
-                    showDetailView(index);
+                    newValue.setValue(showDetailView(index));
+
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -195,7 +196,7 @@ public class TestController implements MouseListener{
         return item.getParent().getChildren().indexOf(item);
     }
 
-    private void showDetailView(int index) throws IOException {
+    private String showDetailView(int index) throws IOException {
         choose o = displayedItems.get(index).getChoose();
         o.modify(propertiesPane);
         o.modifyWithButton(propertiesPane,btn_AddPeriodicStage, btn_AddCourse, btn_assignSound,
@@ -203,6 +204,8 @@ public class TestController implements MouseListener{
                 , btn_addInput, btn_noticeStage,
                 btn_addTimer, btn_AddQuestionStage,
                 btn_addRatingContainer, btn_addTasteTest, btn_AddConditionalStatement);
+        return o.getTitle();
+
                //  experiment.showStages();
 
 
@@ -349,7 +352,7 @@ public class TestController implements MouseListener{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        inputStage_VM inputStage_vm = new inputStage_VM();
+        inputStage_VM inputStage_vm = new inputStage_VM(experiment);
         Input inputStage = inputStage_vm.getInput();
         String key = "[User Input]" +  inputStage.getTitle();
         Wrapper wrapper = new Wrapper(key, inputStage_vm);
@@ -425,7 +428,7 @@ public class TestController implements MouseListener{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        questionStage_VM questionStage_vm = new questionStage_VM();
+        questionStage_VM questionStage_vm = new questionStage_VM(experiment);
         Question question = questionStage_vm.getQuestionStage();
         String key = "[Question]" + question.getQuestion();
         Wrapper wrapper = new Wrapper(key, questionStage_vm);
@@ -534,9 +537,9 @@ public class TestController implements MouseListener{
         start.setExpanded(true);
         vasStage_VM vasStage_VM = new vasStage_VM(experiment);
         String key = "[Vas]" + vasStage_VM.getVas().getTitle();
-        index++;
         Wrapper wrapper = new Wrapper(key, vasStage_VM);
         displayedItems.put(index, wrapper);
+        index++;
       //  experiment.showStages();
 
 
@@ -576,30 +579,6 @@ public class TestController implements MouseListener{
     }
 
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        mouseClick = true;
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
 
 
     public void setExperiment(Experiment c) {

@@ -184,6 +184,12 @@ public class Experiment {
         pairs.add(new Pair<>(temp, ++num));
         System.out.println("Add Models.Question is done");
     }
+    public void addQuestion (Question question){
+        stages.add(question);
+    }
+    public void addInput(Input input){
+        stages.add(input);
+    }
 
     public void show(){
         System.out.println("\n-----------------------The Experiment-----------------------");

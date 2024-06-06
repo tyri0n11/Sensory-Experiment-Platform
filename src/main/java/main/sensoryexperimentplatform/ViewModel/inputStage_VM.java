@@ -22,12 +22,14 @@ public class inputStage_VM implements choose{
     private StringProperty button;
     private BooleanProperty alert;
 
-    public inputStage_VM(){
+    public inputStage_VM(Experiment experiment){
+        this.experiment = experiment;
         this.input = new Input("User input", "This is question","this is button", false);
         title = new SimpleStringProperty(input.getTitle());
         content = new SimpleStringProperty(input.getContent());
         button = new SimpleStringProperty(input.getButtonText());
         alert = new SimpleBooleanProperty(input.isAlert());
+        experiment.addInput(input);
 
     }
 
@@ -67,10 +69,6 @@ public class inputStage_VM implements choose{
     public BooleanProperty alertProperty() {
         return alert;
     }
-
-    public String getTitle(){
-        return title.get();
-    }
     public String getContent(){
         return content.get();
     }
@@ -104,14 +102,17 @@ public class inputStage_VM implements choose{
         AnchorPane newContent = fxmlLoader.load();
         anchorPane.getChildren().setAll(newContent);
 
-        InputStageController controller = new InputStageController();
-        inputStage_VM viewModel = new inputStage_VM();
-        controller.setViewModel(viewModel);
+        InputStageController controller =fxmlLoader.getController();
+        controller.setViewModel(this);
 
     }
 
     @Override
     public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12) throws IOException {
 
+    }
+    @Override
+    public String getTitle(){
+        return "[User Input] "+title.get();
     }
 }

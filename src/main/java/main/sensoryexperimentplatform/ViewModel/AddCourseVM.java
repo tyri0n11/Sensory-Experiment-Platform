@@ -149,4 +149,9 @@ public class AddCourseVM implements choose{
         btn_addAudibleInstruction.setDisable(true);
         controller.setViewModel(this);
     }
+
+    @Override
+    public String getTitle() {
+        return txt_title.get();
+    }
 }
