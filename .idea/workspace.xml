@@ -9,22 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="Build: Run experiment _ v1.6 make them responsive">
+    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="Build: Run experiment _ v1.7">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Sensory_Expeirment_Platform_jar/Sensory-Expeirment-Platform.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Sensory_Expeirment_Platform_jar/Sensory-Expeirment-Platform.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunTimer_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunTimer_VM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunVas_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunVas_VM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunGLMSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunGLMSController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunVasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunVasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/DataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunExperiment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunExperiment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunTimer.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunTimer.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunVas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunVas.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunEx.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunEx.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunGLMS_CSS.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunGLMS_CSS.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -262,7 +250,8 @@
       <workItem from="1717569491741" duration="9597000" />
       <workItem from="1717600683833" duration="2699000" />
       <workItem from="1717638341965" duration="4869000" />
-      <workItem from="1717652651393" duration="9939000" />
+      <workItem from="1717652651393" duration="9968000" />
+      <workItem from="1717682781345" duration="676000" />
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />
@@ -376,7 +365,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717603357349</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Build: Run experiment _ v1.7">
+      <option name="closed" value="true" />
+      <created>1717668738537</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1717668738537</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +405,8 @@
     <MESSAGE value="Build: Run experiment _ v1.4.responsive" />
     <MESSAGE value="Build: Run experiment _ v1.5" />
     <MESSAGE value="Build: Run experiment _ v1.6 make them responsive" />
-    <option name="LAST_COMMIT_MESSAGE" value="Build: Run experiment _ v1.6 make them responsive" />
+    <MESSAGE value="Build: Run experiment _ v1.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Build: Run experiment _ v1.7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

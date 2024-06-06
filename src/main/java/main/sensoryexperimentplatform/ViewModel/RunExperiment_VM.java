@@ -13,8 +13,6 @@ import main.sensoryexperimentplatform.models.Timer;
 import java.util.*;
 
 public class RunExperiment_VM {
-    private IntegerProperty elapsedTime;
-
     private Experiment experiment;
     public double count = 0.0;
     private final ListProperty<String> items = new SimpleListProperty<>(FXCollections.observableArrayList());
@@ -24,7 +22,6 @@ public class RunExperiment_VM {
 
     public RunExperiment_VM(Experiment experiment) {
         this.experiment = experiment;
-        elapsedTime = new SimpleIntegerProperty(0);
         loadItems();
     }
 

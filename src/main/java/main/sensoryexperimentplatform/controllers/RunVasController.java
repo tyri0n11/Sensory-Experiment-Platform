@@ -29,11 +29,7 @@ public class RunVasController {
         bindViewModel();
 
         mySlider.valueProperty().addListener((observableValue, oldValue, newValue) -> {
-            if (!newValue.equals(oldValue)){
-                isRecorded.set(false);
-
-            }else
-                isRecorded.set(true);
+           isRecorded.set(true);
 
             System.out.println(isRecorded.get());
         });
