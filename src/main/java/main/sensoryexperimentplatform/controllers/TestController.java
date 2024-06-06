@@ -216,6 +216,7 @@ public class TestController implements MouseListener{
         start.setExpanded(true);
         audibleSound_VM audibleSound_vm = new audibleSound_VM();
         String key = "[Audio]" + audibleSound_vm.getAudibleInstruction().getTitle();
+        btn_assignSound.setDisable(false);
         displayedItems.put(key, audibleSound_vm);
         experiment.showStages();
 

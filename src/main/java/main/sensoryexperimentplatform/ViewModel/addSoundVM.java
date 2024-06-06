@@ -18,6 +18,14 @@ public class addSoundVM {
         // Initialize properties with sound values
         file = new SimpleStringProperty(sound.getSoundFilePath());
         name = new SimpleStringProperty(sound.getName());
+        file.addListener((observable, oldValue, newValue) -> {
+            setFile(newValue);
+        });
+
+        name.addListener((observable, oldValue, newValue) -> {
+            setName(newValue);
+
+        });
     }
 
     public String getFile() {
