@@ -15,12 +15,14 @@ import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.ViewModel.RunExperiment_VM;
 import main.sensoryexperimentplatform.ViewModel.dashBoard_VM;
+import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
+import main.sensoryexperimentplatform.ViewModel.newEx_VM;
 import main.sensoryexperimentplatform.models.Experiment;
 
 import java.io.IOException;
 
 public class DashBoardController {
-    private dashBoard_VM viewModel;
+    private dashBoard_VM dashBoard_vm;
 
 
     @FXML
@@ -50,9 +52,12 @@ public class DashBoardController {
     @FXML
     private AnchorPane sidebar_left;
 
+
     public void initialize() {
-        viewModel = new dashBoard_VM();
+       dashBoard_vm = new dashBoard_VM();
         bindViewModel();
+
+
     }
 
     public void bindViewModel() {
@@ -146,7 +151,8 @@ public class DashBoardController {
 
 
         // Bind the TableView items to the ViewModel items
-        contentTable.setItems(viewModel.itemsProperty());
+        contentTable.setItems(dashBoard_vm.getItems());
+        System.out.println(dashBoard_vm.getItems());
 
 
 
@@ -208,6 +214,7 @@ public class DashBoardController {
 
     @FXML
     void btn_addEx(ActionEvent event) throws IOException {
+//        viewModel.addExperiment()
 
         // Implement action for adding an experiment
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("NewExperiment.fxml"));
@@ -215,6 +222,8 @@ public class DashBoardController {
 
         Stage stage = new Stage();
         stage.setTitle("Add Sound");
+        newExController controller = fxmlLoader.getController();
+        controller.initialize(dashBoard_vm);
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
