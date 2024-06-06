@@ -128,10 +128,10 @@ public class Experiment {
          timeWait,  randomizeFood,  randomizeRatingVas,  randomizeRatingGLMS);
         stages.add(tasteTest);
     }
-//    public void addAudibleInstruction(String title, String content){
-//        AudibleInstruction temp = new AudibleInstruction(title,content);
-//        stages.add(temp);
-//    }
+    public void addAudibleInstruction(String title, String content, String buttonText, String helpText){
+        AudibleInstruction temp = new AudibleInstruction(title,content, buttonText,helpText);
+        stages.add(temp);
+    }
 
     public void addAnyStage(Object o){
         stages.addLast(o);

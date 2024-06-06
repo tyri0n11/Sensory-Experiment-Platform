@@ -49,20 +49,13 @@ public class addSoundController {
 
     public void setViewModel(addSoundVM viewModel) {
         this.viewModel = viewModel;
+        bindViewModel();
     }
 
     private void bindViewModel() {
         txt_file.textProperty().bindBidirectional(viewModel.fileProperty());
         txt_name.textProperty().bindBidirectional(viewModel.nameProperty());
 
-        txt_file.textProperty().addListener((observable, oldValue, newValue) -> {
-            viewModel.setFile(newValue);
-        });
-
-        txt_name.textProperty().addListener((observable, oldValue, newValue) -> {
-            viewModel.setName(newValue);
-
-        });
 
     }
 

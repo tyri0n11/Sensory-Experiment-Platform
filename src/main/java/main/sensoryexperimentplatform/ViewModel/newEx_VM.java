@@ -37,7 +37,7 @@ public class newEx_VM {
 
         experimentName.addListener((observable, oldValue, newValue) -> {
            setExperimentName(newValue);
-            System.out.println(experiment);
+//            System.out.println(experiment);
         });
 
         creatorName.addListener((observable, oldValue, newValue) -> {

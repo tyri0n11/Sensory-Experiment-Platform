@@ -4,18 +4,21 @@ import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
 
-public class AudibleInstruction {
+public class AudibleInstruction extends Stage {
     private String title;
     private String content;
     private String soundFilePath;
     private String buttonText;
     private String helpText;
     public AudibleInstruction(String title, String content, String buttonText,String helpText){
-        this.content = content;
-        this.title = title;
+      super(title, content);
+      this.content=content;
+      this.title= title;
         this.buttonText= buttonText;
         this.helpText = helpText;
+
     }
+
     public String getTitle() {
         return title;
     }
