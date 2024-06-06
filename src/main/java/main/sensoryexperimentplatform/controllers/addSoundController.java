@@ -2,6 +2,8 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -11,6 +13,7 @@ import main.sensoryexperimentplatform.ViewModel.addSoundVM;
 
 import javax.swing.*;
 import java.io.File;
+import java.io.IOException;
 
 public class addSoundController {
 
@@ -93,6 +96,14 @@ public class addSoundController {
         else{
              JOptionPane.showInternalConfirmDialog(null, "The sound was successfully imported","IMPORT SOUND SUCESSFULLY",
                     JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+//             FXMLLoader loader = new FXMLLoader(getClass().getResource("main/sensoryexperimentplatform/AssignSound.fxml"));
+//             try {
+//                 Parent parent = loader.load();
+//                 assignSoundController controller = loader.getController();
+//                 controller.addRadioButton(txt_name.getText());
+//             } catch (IOException e) {
+//                 e.printStackTrace();
+//             }
 
         }
 

@@ -3,11 +3,14 @@ package main.sensoryexperimentplatform.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.View.ViewHandler;
@@ -61,4 +64,10 @@ public class  assignSoundController {
 
     public void init(addSoundVM addSoundVM, ViewHandler viewHandler) {
     }
+//    public void addRadioButton(String text) {
+//        RadioButton radioButton = new RadioButton(text);
+//
+//        VBox.setMargin(radioButton, new Insets(5, 0, 0, 0)); // Adjust margins as needed
+//        ((VBox)AddsoundPane.getChildren().get(0)).getChildren().add(radioButton);
+//    }
 }
