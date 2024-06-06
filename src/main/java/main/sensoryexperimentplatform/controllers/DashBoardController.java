@@ -181,13 +181,14 @@ public class DashBoardController {
         try{
             root = loader.load();
             TestController view=  loader.getController();
+            view.setExperiment (c);
         }
         catch (IOException e){
             e.printStackTrace();
         }
 
         Stage stage = new Stage();
-        stage.setTitle("Add Sound");
+        stage.setTitle("Edit experiment");
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

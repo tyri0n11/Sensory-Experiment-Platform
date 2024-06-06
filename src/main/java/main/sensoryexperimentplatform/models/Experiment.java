@@ -75,6 +75,18 @@ public class Experiment {
 
         stages.add(stage);
     }
+    public void addVasStage (Vas vas){
+        stages.add(vas);
+    }
+    public void addGlmsStage(gLMS gLMS){
+        stages.add(gLMS);
+    }
+    public void addNoticeStage(Notice notice){
+        stages.add(notice);
+    }
+    public void addTimerStage (Timer timer){
+        stages.add(timer);
+    }
     public void addVasStage(String title, String lowAnchorText, String highAnchorText,
                             int lowAnchorValue, int highAnchorValue, String buttonText,
                             String content, String helpText, boolean isSwap, boolean alert){
@@ -131,6 +143,10 @@ public class Experiment {
 
         Course stage = new Course(title,content,buttonText,
                 weight,duration,quantity,helpText,endState);
+    }
+    public void addCourse (Course course){
+        stages.add(course);
+
     }
     public void addNotice(String title, String content) {
         Notice temp = new Notice(title,content);

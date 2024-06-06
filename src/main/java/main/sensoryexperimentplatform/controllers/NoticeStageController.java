@@ -44,13 +44,9 @@ public class NoticeStageController {
     }
 
     private noticeStage_VM viewModel;
-    public void initialize(){
-        viewModel = new noticeStage_VM();
-        bindViewModel();
-
-    }
     public void setNoticeStage_vm( noticeStage_VM viewModel){
         this.viewModel = viewModel;
+        bindViewModel();
     }
 
     public void bindViewModel(){

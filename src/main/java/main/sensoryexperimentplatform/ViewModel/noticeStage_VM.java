@@ -27,23 +27,16 @@ public class noticeStage_VM implements choose{
     private Experiment experiment;
     private Notice notice;
 
-    public noticeStage_VM() {
+    public noticeStage_VM(Experiment experiment) {
+        this.experiment = experiment;
         this.notice = new Notice("User input", "This is question","this is button", "hell00",false);
         this.buttonText = new SimpleStringProperty(notice.getButtonText());
         this.helpText = new SimpleStringProperty(notice.getHelpText());
         this.alert = new SimpleBooleanProperty(notice.isAlert());
         this.title = new SimpleStringProperty(notice.getTitle());
         this.content = new SimpleStringProperty(notice.getContent());
+        experiment.addNoticeStage(notice);
 
-    }
-    public void addNoticeStage() {
-        String title = this.title.get();
-        String content = this.content.get();
-        String buttonText = this.buttonText.get();
-        String helpText = this.helpText.get();
-        boolean alert = this.alert.get();
-        Notice stage = new Notice(title, content, buttonText,helpText, alert);
-        experiment.addNoticeStage(title, content, buttonText,helpText, alert);
     }
 
 
@@ -115,14 +108,13 @@ public class noticeStage_VM implements choose{
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddNoticeStage.fxml"));
         AnchorPane newContent = fxmlLoader.load();
         anchorPane.getChildren().setAll(newContent);
-        NoticeStageController controller = new NoticeStageController();
-        noticeStage_VM viewModel = new noticeStage_VM();
-        controller.setNoticeStage_vm(viewModel);
+        NoticeStageController controller = fxmlLoader.getController();
+        controller.setNoticeStage_vm(this);
 
     }
 
     @Override
-    public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Button button13) throws IOException {
+    public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12) throws IOException {
 
     }
 }

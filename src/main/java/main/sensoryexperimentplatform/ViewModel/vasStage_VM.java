@@ -6,11 +6,13 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.controllers.VasController;
+import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Vas;
 
 import java.io.IOException;
 
 public class vasStage_VM implements choose {
+    private Experiment experiment;
     private StringProperty questionText;
     private StringProperty lowAnchorText;
     private StringProperty highAnchorText;
@@ -25,7 +27,8 @@ public class vasStage_VM implements choose {
     private final BooleanProperty alert = new SimpleBooleanProperty(true);
     private Vas vas;
 
-    public vasStage_VM() {
+    public vasStage_VM(Experiment experiment) {
+        this.experiment = experiment;
         this.vas = new Vas("User input", null, null,
                 0, 100, null, null, null, false, false);
         lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
@@ -50,6 +53,7 @@ public class vasStage_VM implements choose {
         highAnchorText.addListener((observableValue, oldValue, newValue) -> onhighAnchorText(newValue));
         lowAnchorText.addListener((observableValue, oldValue, newValue) -> onlowAnchorText(newValue));
         questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
+        experiment.addVasStage(vas);
     }
 
     private void onCheckSwap(Boolean newValue) {
@@ -220,14 +224,13 @@ public class vasStage_VM implements choose {
         AnchorPane newContent = fxmlLoader.load();
         anchorPane.getChildren().setAll(newContent);
         VasController controller = fxmlLoader.getController();
-        vasStage_VM viewModel = new vasStage_VM();
-        controller.setViewModel(viewModel);
+        controller.setViewModel(this);
 
     }
 
 
     @Override
-    public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Button button13) throws IOException {
+    public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12) throws IOException {
 
 
     }

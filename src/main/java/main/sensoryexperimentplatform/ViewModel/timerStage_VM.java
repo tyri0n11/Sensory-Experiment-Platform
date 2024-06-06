@@ -5,23 +5,34 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.TimerController;
+import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Timer;
 
-public class timerStage_VM {
+import java.io.IOException;
+
+public class timerStage_VM implements choose{
     private Timer timer;
     private StringProperty txt_instruction;
     private StringProperty txt_timewait;
     private BooleanProperty cb_alertSound;
-    public timerStage_VM(Timer timer){
-        this.timer = timer;
+    private Experiment experiment;
+    public timerStage_VM(Experiment experiment){
+        this.experiment = experiment;
+        timer = new Timer("123", "sa",false);
         txt_instruction = new SimpleStringProperty(timer.getInstruction());
         txt_timewait = new SimpleStringProperty(timer.getFormattedElapsed());
         cb_alertSound = new SimpleBooleanProperty(timer.isAlert());
         cb_alertSound.addListener((observableValue, oldValue, newValue) -> onAlert(newValue));
         txt_timewait.addListener((observableValue, oldValue, newValue) -> onTimeWait(newValue));
         txt_instruction.addListener((observableValue, oldValue, newValue) -> onInstruction(newValue));
+        experiment.addTimerStage(timer);
     }
     public timerStage_VM(){
         this.timer = timer;
@@ -71,5 +82,19 @@ public class timerStage_VM {
 
     public Timer getTimer() {
         return timer;
+    }
+
+    @Override
+    public void modify(AnchorPane anchorPane) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("TimerStage.fxml"));
+        AnchorPane newContent = fxmlLoader.load();
+        anchorPane.getChildren().setAll(newContent);
+        TimerController controller = fxmlLoader.getController();
+        controller.setViewModel (this);
+    }
+
+    @Override
+    public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12) throws IOException {
+
     }
 }

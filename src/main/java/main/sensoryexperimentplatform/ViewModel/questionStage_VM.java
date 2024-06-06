@@ -112,7 +112,7 @@ public class questionStage_VM implements choose{
                                  Button btn_addFoodAndTaste, Button btn_addAudibleInstruction
             , Button btn_addInput, Button btn_noticeStage,
                                  Button btn_addTimer, Button btn_AddQuestionStage,
-                                 Button btn_addRatingContainer, Button btn_addTasteTest,  Button btn_AddConditionalStatement, Button button1) throws IOException {
+                                 Button btn_addRatingContainer, Button btn_addTasteTest,  Button btn_AddConditionalStatement) throws IOException {
 
 
 //               AddNoticeStage controller = fxmlLoader.getController();
