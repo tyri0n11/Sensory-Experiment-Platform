@@ -12,6 +12,11 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.ViewModel.TestVM;
+import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
+import main.sensoryexperimentplatform.models.DataAccess;
+import main.sensoryexperimentplatform.models.Experiment;
+import main.sensoryexperimentplatform.models.Notice;
 
 import main.sensoryexperimentplatform.ViewModel.*;
 import main.sensoryexperimentplatform.models.*;
@@ -68,6 +73,7 @@ public class TestController{
     @FXML
     private AnchorPane propertiesPane;
     private TreeItem<String> courseItem;
+
     private TreeItem<String> Randomnies;
     private TreeItem<String> ifConditional;
     private TreeItem<String> elseConditional;
@@ -80,10 +86,8 @@ public class TestController{
     @FXML
     private TreeView<String> listObject;
 
-
     @FXML
     private HBox mainBox;
-
 
     @FXML
     private BorderPane borderPane;
@@ -106,8 +110,6 @@ public class TestController{
     @FXML
     private Button btn_menu;
 
-    @FXML
-    private Label lbl_SenseXP;
 
     @FXML
     private Button btn_noticeStage;
@@ -343,8 +345,6 @@ public class TestController{
 
 
 
-
-
     }
 
     @FXML
@@ -451,7 +451,7 @@ public class TestController{
     }
 
     @FXML
-    void addRatingContainer(ActionEvent event) {
+    void addRatingContainer(ActionEvent event) throws IOException {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
@@ -462,7 +462,6 @@ public class TestController{
         displayedItems.put(index, wrapper);
         index++;
         Randomnies = new TreeItem<>(key);
-
 
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add( Randomnies);
@@ -477,7 +476,6 @@ public class TestController{
         else {
             start.getChildren().add( Randomnies);
         }
-
 
     }
 
@@ -543,6 +541,7 @@ public class TestController{
       //  experiment.showStages();
 
 
+        TreeItem<String> vasQuestionItem = new TreeItem<>("[Vas] Question?");
 
         // Add to Randomnies if selected item matches ifConditional
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
@@ -575,7 +574,6 @@ public class TestController{
 
         stage.show();
 
-
     }
 
 
@@ -584,4 +582,8 @@ public class TestController{
     public void setExperiment(Experiment c) {
         this.experiment = c;
     }
+
+
+
+
 }

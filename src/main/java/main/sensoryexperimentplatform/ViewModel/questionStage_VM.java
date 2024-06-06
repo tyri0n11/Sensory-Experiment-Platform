@@ -36,9 +36,9 @@ public class questionStage_VM implements choose{
         this.rightText = new SimpleStringProperty();
         this.leftValue = new SimpleStringProperty();
         this.rightValue = new SimpleStringProperty();
-       this.helpText = new SimpleStringProperty();
-       this.alert= new SimpleBooleanProperty(questionStage.isAlert());
-       experiment.addQuestion(questionStage);
+        this.helpText = new SimpleStringProperty();
+        this.alert= new SimpleBooleanProperty(questionStage.isAlert());
+        experiment.addQuestion(questionStage);
     }
 
 
@@ -126,7 +126,6 @@ public class questionStage_VM implements choose{
         return "[Question] "+ question.get();
     }
 }
-
 
 
 

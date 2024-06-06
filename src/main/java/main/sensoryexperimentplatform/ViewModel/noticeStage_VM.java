@@ -19,38 +19,48 @@ public class noticeStage_VM implements choose{
     private StringProperty buttonText ;
 
     private StringProperty helpText ;
+    private StringProperty titleText;
+    private StringProperty contentText;
 
     private BooleanProperty alert;
-    private StringProperty title;
-    private StringProperty content;
-    private Notice noticeStage;
-    private Experiment experiment;
-    private Notice notice;
 
+
+
+
+    private Notice notice;
+    private Experiment experiment;
+    public noticeStage_VM(Notice noticeStage) {
+        this.notice = noticeStage;
+        this.titleText = new SimpleStringProperty(noticeStage.getTitle());
+        this.contentText = new SimpleStringProperty(noticeStage.getContent());
+        this.buttonText = new SimpleStringProperty(noticeStage.getButtonText());
+        this.helpText = new SimpleStringProperty(noticeStage.getHelpText());
+        this.alert = new SimpleBooleanProperty(noticeStage.isAlert());
+    }
     public noticeStage_VM(Experiment experiment) {
         this.experiment = experiment;
         this.notice = new Notice("User input", "This is question","this is button", "hell00",false);
         this.buttonText = new SimpleStringProperty(notice.getButtonText());
         this.helpText = new SimpleStringProperty(notice.getHelpText());
         this.alert = new SimpleBooleanProperty(notice.isAlert());
-        this.title = new SimpleStringProperty(notice.getTitle());
-        this.content = new SimpleStringProperty(notice.getContent());
+        this.titleText = new SimpleStringProperty(notice.getTitle());
+        this.contentText = new SimpleStringProperty(notice.getContent());
         experiment.addNoticeStage(notice);
 
     }
 
+
+
+
+    public void setNotice(Notice notice) {
+        this.notice = notice;
+    }
 
     public String getButtonText() {
         return buttonText.get();
     }
     public String getHelpText() {
         return helpText.get();
-    }
-    public String getContentText() {
-        return content.get();
-    }
-    public String getTitleText() {
-        return title.get();
     }
     public boolean getAlert(){
         return alert.get();
@@ -67,28 +77,21 @@ public class noticeStage_VM implements choose{
         return helpText;
     }
 
-
-
-    public BooleanProperty alertProperty() {
-        return alert;
-    }
-
-
     public StringProperty titleProperty() {
-        return title;
+        return titleText;
     }
 
     public StringProperty contentProperty() {
-        return content;
+        return contentText;
     }
     public void setHelpText(String newValue) {
-        notice.setContent(newValue);
+        notice.setHelpText(newValue);
     }
     public void setTitle(String newValue) {
         notice.setTitle(newValue);
     }
     public void setContent(String newValue) {
-        notice.setTitle(newValue);
+        notice.setContent(newValue);
     }
 
 
@@ -108,8 +111,10 @@ public class noticeStage_VM implements choose{
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddNoticeStage.fxml"));
         AnchorPane newContent = fxmlLoader.load();
         anchorPane.getChildren().setAll(newContent);
+
         NoticeStageController controller = fxmlLoader.getController();
         controller.setNoticeStage_vm(this);
+
 
     }
 
@@ -120,6 +125,6 @@ public class noticeStage_VM implements choose{
 
     @Override
     public String getTitle() {
-        return "[Instruction] "+ title.get();
+        return "[Instruction] "+ titleText.get();
     }
 }

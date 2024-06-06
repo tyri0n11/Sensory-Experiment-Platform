@@ -68,6 +68,7 @@ public class questionStageController {
 
     }
 
+
     public void setQuestionStage_vm( questionStage_VM viewModel){
         this.viewModel = viewModel;
         bindViewModel();

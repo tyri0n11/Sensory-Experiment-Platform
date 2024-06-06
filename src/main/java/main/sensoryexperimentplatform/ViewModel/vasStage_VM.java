@@ -31,6 +31,14 @@ public class vasStage_VM implements choose {
         this.experiment = experiment;
         this.vas = new Vas("User input", null, null,
                 0, 100, null, null, null, false, false);
+        bind();
+    }
+    public vasStage_VM(Vas vas){
+        this.vas = vas;
+        bind();
+    }
+
+    private void bind(){
         lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
         highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
         buttonText = new SimpleStringProperty(vas.getButtonText());
@@ -175,6 +183,7 @@ public class vasStage_VM implements choose {
 
     public void setHighAnchorText(String highAnchorText) {
         this.highAnchorText.set(highAnchorText);
+        System.out.println(vas.getHighAnchorText());
     }
 
     public String getHelpText() {
@@ -214,6 +223,18 @@ public class vasStage_VM implements choose {
         this.alert.set(alert);
     }
 
+    public void setLowAnchorValue(String lowAnchorValue) {
+        this.lowAnchorValue.set(lowAnchorValue);
+    }
+
+    public void setHighAnchorValue(String highAnchorValue) {
+        this.highAnchorValue.set(highAnchorValue);
+    }
+
+    public void save(){
+        //vas.setValue();
+    }
+
     public Vas getVas() {
         return vas;
     }
@@ -235,8 +256,12 @@ public class vasStage_VM implements choose {
 
     }
 
+
     @Override
     public String getTitle() {
         return "[VAS]" +getQuestionText();
     }
 }
+
+
+

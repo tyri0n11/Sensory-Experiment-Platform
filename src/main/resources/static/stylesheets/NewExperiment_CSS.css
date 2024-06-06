@@ -277,8 +277,7 @@
     -fx-text-fill: #000;
     -fx-background-color: #F7F6FE
 }
-#lbl_iD,#lbl_creator,#lbl_experimentName,#lbl_currentVersion,#lbl_result,#lbl_lastM,#lbl_createDate,#lbl_Option
-,#lbl_experimentDes,#lbl_additionNote,#FileLabel,#NameLabel{
+#normalLabel{
     -fx-font-family: 'Montserrat';
     -fx-font-weight: 700;
     -fx-align-items: center;

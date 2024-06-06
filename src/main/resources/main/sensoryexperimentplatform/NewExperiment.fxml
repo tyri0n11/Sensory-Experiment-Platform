@@ -8,16 +8,16 @@
 
 <AnchorPane fx:id="NewExPane" prefHeight="592.0" prefWidth="906.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.newExController">
               <children>
-                  <Label fx:id="lbl_newEx" layoutX="36.0" layoutY="28.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="NEW EXPERIMENT" />
-                  <Label fx:id="lbl_creator" layoutX="15.0" layoutY="81.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Creator" />
-                  <TextField fx:id="txt_creatorName" layoutX="213.0" layoutY="95.0" prefHeight="30.0" prefWidth="530.0" />
-                  <TextField fx:id="txt_ExperimentName" layoutX="213.0" layoutY="147.0" prefHeight="30.0" prefWidth="530.0" />
-                  <TextArea fx:id="txt_description" layoutX="217.0" layoutY="205.0" prefHeight="118.0" prefWidth="527.0" />
-                  <TextArea fx:id="txt_additionNote" layoutX="217.0" layoutY="352.0" prefHeight="118.0" prefWidth="527.0" />
-                  <Label fx:id="lbl_experimentDes" layoutX="7.0" layoutY="195.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Experiment description" />
-                  <Label fx:id="lbl_additionNote" layoutX="27.0" layoutY="342.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Additional Note" />
+                  <Label fx:id="lbl_newEx" layoutX="77.0" layoutY="34.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="NEW EXPERIMENT" />
+                  <Label fx:id="lbl_creator" layoutX="77.0" layoutY="87.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Creator" />
+                  <TextField fx:id="txt_creatorName" layoutX="276.0" layoutY="101.0" prefHeight="30.0" prefWidth="530.0" />
+                  <TextField fx:id="txt_ExperimentName" layoutX="276.0" layoutY="153.0" prefHeight="30.0" prefWidth="530.0" />
+                  <TextArea fx:id="txt_description" layoutX="280.0" layoutY="211.0" prefHeight="118.0" prefWidth="527.0" />
+                  <TextArea fx:id="txt_additionNote" layoutX="280.0" layoutY="358.0" prefHeight="118.0" prefWidth="527.0" />
+                  <Label fx:id="lbl_experimentDes" layoutX="77.0" layoutY="201.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Experiment description" />
+                  <Label fx:id="lbl_additionNote" layoutX="77.0" layoutY="348.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Additional Note" />
                   <Button fx:id="btn_save" layoutX="536.0" layoutY="518.0" mnemonicParsing="false" onAction="#btn_save" prefHeight="36.0" prefWidth="103.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Save" />
                   <Button fx:id="btn_cancel" layoutX="650.0" layoutY="518.0" mnemonicParsing="false" onAction="#btn_cancel" prefHeight="36.0" prefWidth="103.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Cancel" />
-      <Label fx:id="lbl_experimentName" layoutX="14.0" layoutY="133.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Experiment Name" />
+      <Label fx:id="lbl_experimentName" layoutX="77.0" layoutY="139.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Experiment Name" />
               </children>
           </AnchorPane>

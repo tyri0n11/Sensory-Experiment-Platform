@@ -22,20 +22,6 @@ public class GLMSController {
     @FXML
     private ChoiceBox<?> choiceB_avail;
 
-    @FXML
-    private Label lbl_buttonText;
-
-    @FXML
-    private Label lbl_help;
-
-    @FXML
-    private Label lbl_playSound;
-
-    @FXML
-    private Label lbl_storeResponse;
-
-    @FXML
-    private Label lbl_swapPole;
 
     @FXML
     private RadioButton radioBtn_Yes;

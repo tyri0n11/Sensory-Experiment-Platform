@@ -7,14 +7,8 @@ import javafx.scene.input.MouseEvent;
 import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
 
 public class NoticeStageController {
-
-//    public void initialize(){
-//        txt_buttonText.textProperty().bindBidirectional(noticeStage_vm.buttonTextProperty());
-//        txt_content.textProperty().bindBidirectional(noticeStage_vm.contentProperty());
-//        txt_title.textProperty().bindBidirectional(noticeStage_vm.titleProperty());
-//        txt_helptext.textProperty().bindBidirectional(noticeStage_vm.helpTextProperty());
-//    }
     private noticeStage_VM noticeStage_vm;
+    private noticeStage_VM viewModel;
 
     @FXML
     private TextField txt_buttonText;
@@ -27,6 +21,8 @@ public class NoticeStageController {
 
     @FXML
     private TextField txt_title;
+
+
 
     @FXML
     void txt_buttonText(MouseEvent event) {
@@ -43,27 +39,25 @@ public class NoticeStageController {
 
     }
 
-    private noticeStage_VM viewModel;
+
+
     public void setNoticeStage_vm( noticeStage_VM viewModel){
         this.viewModel = viewModel;
         bindViewModel();
     }
+
 
     public void bindViewModel(){
         txt_helptext.textProperty().bindBidirectional(viewModel.helpTextProperty());
         txt_buttonText.textProperty().bindBidirectional(viewModel.buttonTextProperty());
         txt_title.textProperty().bindBidirectional(viewModel.titleProperty());
         txt_content.textProperty().bindBidirectional(viewModel.contentProperty());
-
         txt_buttonText.textProperty().addListener((observable, oldValue, newValue) -> {
             viewModel.setButtonText(newValue);
-
-
         });
 
         txt_helptext.textProperty().addListener((observable, oldValue, newValue) -> {
             viewModel.setHelpText(newValue);
-//            System.out.println(viewModel.getHelpText());
         });
 
         txt_content.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -75,11 +69,11 @@ public class NoticeStageController {
 
 
 
+
     }
     @FXML
     void txt_title(MouseEvent event) {
 
     }
-
 
 }

@@ -19,33 +19,35 @@ public class inputStage_VM implements choose{
 //    private final ListProperty<Object> stages = new SimpleListProperty<>(FXCollections.observableArrayList());
     private StringProperty title;
     private StringProperty content;
-    private StringProperty button;
+    private StringProperty buttonText;
     private BooleanProperty alert;
 
     public inputStage_VM(Experiment experiment){
         this.experiment = experiment;
-        this.input = new Input("User input", "This is question","this is button", false);
-        title = new SimpleStringProperty(input.getTitle());
-        content = new SimpleStringProperty(input.getContent());
-        button = new SimpleStringProperty(input.getButtonText());
-        alert = new SimpleBooleanProperty(input.isAlert());
+
+        title = new SimpleStringProperty();
+        content = new SimpleStringProperty();
+        buttonText = new SimpleStringProperty();
+        alert = new SimpleBooleanProperty();
         experiment.addInput(input);
 
     }
 
+    private StringProperty button;
 
 
-//    public void addInputStage() {
-//
-//        String title = this.title.get();
-//        String content = this.content.get();
-//        String buttonText = this.button.get();
-//        boolean alert = this.alert.get();
-//        Input stage = new Input(title, content, buttonText, alert);
-//        experiment.addInputStage(title, content, buttonText, alert);
-////        stages.add(stage);
-//
-//    }
+    public void addInputStage() {
+
+        String title = this.title.get();
+        String content = this.content.get();
+        String buttonText = this.button.get();
+        boolean alert = this.alert.get();
+        Input stage = new Input(title, content, buttonText, alert);
+        experiment.addInputStage(title, content, buttonText, alert);
+//        stages.add(stage);
+
+    }
+
 
 //    public ObservableList<Object> getStages() {
 //        return stages.get();

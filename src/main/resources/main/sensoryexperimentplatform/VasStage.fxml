@@ -8,12 +8,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<<<<<<< HEAD
+<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Notice_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.VasController">
+=======
 
 <AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Notics_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.VasController">
+>>>>>>> 7a2212825dec188091988102bf0da9285f466266
     <children>
-        <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="253.0" prefWidth="520.0">
-            <content>
-                <AnchorPane minWidth="0.0" prefWidth="520.0" style="-fx-background-color: white;">
+        <ScrollPane layoutY="-4.0" prefHeight="260.0" prefWidth="540.0">
+         <content>
+                <AnchorPane minWidth="0.0" prefHeight="666.0" prefWidth="527.0" style="-fx-background-color: white;">
                     <children>
                         <Label layoutX="14.0" layoutY="13.0" prefHeight="26.0" prefWidth="188.0" styleClass="normallabel" text="Question" />
                         <Label id="propertiesLabel" fx:id="lbl_highAnchorText" layoutX="14.0" layoutY="54.0" prefHeight="26.0" prefWidth="188.0" styleClass="normallabel" text="Low Anchor Text" />
@@ -40,7 +44,11 @@
                         <TextField fx:id="txt_BtnTxt" layoutX="222.0" layoutY="215.0" prefHeight="25.0" prefWidth="274.0" />
                     </children>
                 </AnchorPane>
-            </content>
+         </content>
         </ScrollPane>
     </children>
+<<<<<<< HEAD
 </AnchorPane>
+=======
+</AnchorPane>
+>>>>>>> 7a2212825dec188091988102bf0da9285f466266

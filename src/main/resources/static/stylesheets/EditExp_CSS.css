@@ -90,6 +90,22 @@
     -fx-background-position: center;
     -fx-background-size: cover; /* or contain depending on your preference */
 }
+
+#btn_bind{
+    -fx-pref-width: 103px;
+    -fx-pref-height: 36px;
+    -fx-background-color: #397E82;
+    -fx-background-radius: 9px;
+
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 600;
+    -fx-font-size: 15px;
+    -fx-line-height: 18px;
+
+    -fx-text-fill: #F7F6FE;
+}
+
 #avatarImageView{
     -fx-pref-height: 48;
     -fx-pref-width: 48;

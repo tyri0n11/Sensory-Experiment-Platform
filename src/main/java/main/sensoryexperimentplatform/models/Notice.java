@@ -1,20 +1,10 @@
 package main.sensoryexperimentplatform.models;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
-import main.sensoryexperimentplatform.controllers.NoticeStageController;
-
-import java.io.IOException;
-
 public class Notice extends Stage {
     private String buttonText;
     private String content;
     private String helpText;
     private boolean alert;
-    //private Boolean balance = false;
 
     public Notice(String title, String content) {
         super(title,content);

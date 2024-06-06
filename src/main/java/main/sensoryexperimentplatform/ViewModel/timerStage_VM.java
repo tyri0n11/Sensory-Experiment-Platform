@@ -34,7 +34,7 @@ public class timerStage_VM implements choose{
         txt_instruction.addListener((observableValue, oldValue, newValue) -> onInstruction(newValue));
         experiment.addTimerStage(timer);
     }
-    public timerStage_VM(){
+    public timerStage_VM(Timer timer){
         this.timer = timer;
         txt_instruction = new SimpleStringProperty(timer.getInstruction());
         txt_timewait = new SimpleStringProperty(timer.getFormattedElapsed());

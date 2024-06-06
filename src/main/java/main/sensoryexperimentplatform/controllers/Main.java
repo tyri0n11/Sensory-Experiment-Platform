@@ -16,20 +16,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/Base.fxml"));
-        //FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/sensoryexperimentplatform/LogIn2.fxml"));
-
-//        ProfileController controller = new ProfileController();
-//        loader.setController(controller);*/
         Parent root = loader.load();
-        // Get the scene size from the loaded FXML file
         Scene scene = new Scene(root);
         primaryStage.setTitle("Sense XP");
 
         primaryStage.setScene(scene);
 
-        // Optionally, you can adjust the stage size based on the scene size
         primaryStage.sizeToScene();
 
         primaryStage.show();

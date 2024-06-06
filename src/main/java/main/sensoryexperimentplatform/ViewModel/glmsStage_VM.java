@@ -26,12 +26,27 @@ public class glmsStage_VM implements choose {
     public glmsStage_VM(Experiment experiment){
         this.experiment = experiment;
         this.glms = new gLMS("User Input",null,null,null, false);;
+        initialize();
+        bind();
+    }
+
+    public glmsStage_VM(gLMS glms){
+        this.glms = glms;
+        initialize();
+        bind();
+    }
+
+    private void initialize(){
         txt_help = new SimpleStringProperty(glms.getHelpText());
         txt_LowAncTxt = new SimpleStringProperty(glms.getButtonText());
         txt_question = new SimpleStringProperty(glms.getTitle());
         checkB_sound = new SimpleBooleanProperty(glms.getAlert());
         checkB_swap  = new SimpleBooleanProperty(glms.isResponse());
+        txt_yes = new SimpleStringProperty();
         txt_yes= new SimpleStringProperty();
+    }
+
+    private void bind(){
         txt_help.addListener((observableValue, oldValue, newValue) -> onHelp(newValue));
         txt_LowAncTxt.addListener((observableValue, oldValue, newValue) -> onLowAnc(newValue));
         checkB_swap.addListener((observableValue, oldValue, newValue) -> onSwapChange(newValue));
