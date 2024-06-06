@@ -23,13 +23,9 @@ public class InputStageController {
 
     @FXML
     private TextField txt_question;
-    public void initialize(){
-        viewModel = new inputStage_VM();
-        bindViewModel();
-
-    }
     public void setViewModel(inputStage_VM viewModel){
         this.viewModel = viewModel;
+        bindViewModel();
     }
 
     public void bindViewModel(){

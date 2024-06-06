@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.controllers.addRatingContainerController;
 import main.sensoryexperimentplatform.controllers.questionStageController;
+import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Question;
 
 import java.io.IOException;
@@ -24,9 +25,11 @@ public class questionStage_VM implements choose{
     private StringProperty helpText;
     private BooleanProperty alert;
     private Question questionStage;
+    private Experiment experiment;
 
 
-    public questionStage_VM(){
+    public questionStage_VM(Experiment experiment){
+        this.experiment = experiment;
         this.questionStage = new Question("hell0 ","hi","hello",false);
         this.question = new SimpleStringProperty(questionStage.getQuestion());
         this.leftText = new SimpleStringProperty();
@@ -35,6 +38,7 @@ public class questionStage_VM implements choose{
         this.rightValue = new SimpleStringProperty();
        this.helpText = new SimpleStringProperty();
        this.alert= new SimpleBooleanProperty(questionStage.isAlert());
+       experiment.addQuestion(questionStage);
     }
 
 
@@ -103,8 +107,7 @@ public class questionStage_VM implements choose{
         anchorPane.getChildren().setAll(newContent);
 //               Question question = new Question("NULL","NULL","NULL",false);
         questionStageController controller = fxmlLoader.getController();
-        questionStage_VM viewModel = new questionStage_VM();
-        controller.setQuestionStage_vm(viewModel);
+        controller.setQuestionStage_vm(this);
     }
 
     @Override
@@ -116,6 +119,11 @@ public class questionStage_VM implements choose{
 
 
 //               AddNoticeStage controller = fxmlLoader.getController();
+    }
+
+    @Override
+    public String getTitle() {
+        return "[Question] "+ question.get();
     }
 }
 

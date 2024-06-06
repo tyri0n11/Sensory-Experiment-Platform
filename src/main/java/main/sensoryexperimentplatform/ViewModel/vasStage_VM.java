@@ -234,4 +234,9 @@ public class vasStage_VM implements choose {
 
 
     }
+
+    @Override
+    public String getTitle() {
+        return "[VAS]" +getQuestionText();
+    }
 }

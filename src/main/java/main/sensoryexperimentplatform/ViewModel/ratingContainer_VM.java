@@ -100,4 +100,12 @@ public class ratingContainer_VM implements choose{
 
 //               AddNoticeStage controller = fxmlLoader.getController();
     }
+
+    @Override
+    public String getTitle() {
+        if (isRandomize.get()){
+            return "Ratings container - Randomised";
+        }
+        return "Ratings container";
+    }
 }
