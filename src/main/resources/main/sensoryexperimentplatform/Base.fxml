@@ -43,7 +43,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="btn_ImportExp" mnemonicParsing="false" prefHeight="67.0" prefWidth="256.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Import experiment">
+                                <Button fx:id="btn_ImportExp" mnemonicParsing="false" onAction="#importExperiment" prefHeight="67.0" prefWidth="256.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Import experiment">
                                     <graphic>
                                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
