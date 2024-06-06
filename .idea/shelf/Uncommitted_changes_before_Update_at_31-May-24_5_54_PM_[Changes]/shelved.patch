@@ -1,0 +1,494 @@
+Index: src/main/java/main/sensoryexperimentplatform/controllers/RunTimerController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main.sensoryexperimentplatform.controllers;\r\n\r\nimport javafx.animation.Animation;\r\nimport javafx.animation.KeyFrame;\r\nimport javafx.animation.Timeline;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.ProgressBar;\r\nimport javafx.util.Duration;\r\nimport main.sensoryexperimentplatform.ViewModel.RunTimer_VM;\r\n\r\npublic class RunTimerController {\r\n    public Label title_lbl;\r\n    public ProgressBar myProgress;\r\n    RunTimer_VM viewModel;\r\n    @FXML\r\n    Label instruction_lbl;\r\n\r\n    private Timeline timeline;\r\n    private int totalTimeInSeconds;\r\n    public void setViewModel(RunTimer_VM viewModel){\r\n        this.viewModel = viewModel;\r\n        totalTimeInSeconds = viewModel.getDuration() * 60;\r\n        bindViewModel();\r\n        startTimer();\r\n    }\r\n\r\n    private void bindViewModel(){\r\n\r\n        instruction_lbl.textProperty().bind(viewModel.getInstruction());\r\n        myProgress.progressProperty().bind(viewModel.getProgress());\r\n    }\r\n\r\n    private void startTimer() {\r\n        timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateTimer()));\r\n        timeline.setCycleCount(Animation.INDEFINITE);\r\n        timeline.play();\r\n    }\r\n\r\n    private void updateTimer() {\r\n        double currentProgress = viewModel.getProgress().get();\r\n        double increment = 1.0 / totalTimeInSeconds;\r\n        if (currentProgress + increment >= 1.0) {\r\n            viewModel.updateProgress(1.0);\r\n            timeline.stop();\r\n        } else {\r\n            viewModel.updateProgress(currentProgress + increment);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/main/sensoryexperimentplatform/controllers/RunTimerController.java b/src/main/java/main/sensoryexperimentplatform/controllers/RunTimerController.java
+--- a/src/main/java/main/sensoryexperimentplatform/controllers/RunTimerController.java	(revision 90130fa92ed5ae9cdb45d17ed3e458b5fe59e8b5)
++++ b/src/main/java/main/sensoryexperimentplatform/controllers/RunTimerController.java	(date 1717152770584)
+@@ -12,6 +12,7 @@
+ public class RunTimerController {
+     public Label title_lbl;
+     public ProgressBar myProgress;
++    public boolean isTimeLineFull;
+     RunTimer_VM viewModel;
+     @FXML
+     Label instruction_lbl;
+@@ -21,6 +22,7 @@
+     public void setViewModel(RunTimer_VM viewModel){
+         this.viewModel = viewModel;
+         totalTimeInSeconds = viewModel.getDuration() * 60;
++        isTimeLineFull = false;
+         bindViewModel();
+         startTimer();
+     }
+@@ -42,9 +44,13 @@
+         double increment = 1.0 / totalTimeInSeconds;
+         if (currentProgress + increment >= 1.0) {
+             viewModel.updateProgress(1.0);
++            isTimeLineFull = true;
+             timeline.stop();
+         } else {
+             viewModel.updateProgress(currentProgress + increment);
+         }
+     }
++    public boolean getTimeLineCheck(){
++        return isTimeLineFull;
++    }
+ }
+Index: src/main/java/main/sensoryexperimentplatform/controllers/RunGLMSController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main.sensoryexperimentplatform.controllers;\r\n\r\nimport javafx.beans.binding.Bindings;\r\nimport javafx.fxml.FXML;\r\nimport javafx.geometry.Insets;\r\nimport javafx.scene.control.*;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.layout.HBox;\r\nimport javafx.util.StringConverter;\r\nimport main.sensoryexperimentplatform.ViewModel.RunGLMS_VM;\r\n\r\nimport java.awt.*;\r\n\r\npublic class RunGLMSController {\r\n    @FXML\r\n    private Slider mySlider;\r\n    @FXML\r\n    private Label questionlbl, result, helpText;\r\n    private RunGLMS_VM viewModel;\r\n    public void setViewModel(RunGLMS_VM viewModel){\r\n        this.viewModel = viewModel;\r\n        bindViewModel();\r\n    }\r\n    private void bindViewModel(){\r\n        questionlbl.textProperty().bind(viewModel.questionProperty());\r\n        helpText.textProperty().bind(viewModel.helpProperty());\r\n\r\n        mySlider.setShowTickLabels(true);\r\n        mySlider.setMajorTickUnit(5); // Hiển thị nhãn tại các điểm chính\r\n\r\n        mySlider.valueProperty().addListener((observable, oldValue, newValue) -> {\r\n            result.textProperty().bind(viewModel.resultTextProperty());\r\n            result.setLayoutY(mySlider.getLayoutY()+ mySlider.getHeight()- result.getHeight() - (newValue.intValue()*mySlider.getPrefHeight())/100);\r\n        });\r\n        mySlider.setLabelFormatter(new StringConverter<Double>() {\r\n            @Override\r\n            public String toString(Double n) {\r\n                if (n >= 95.499) return \"Strongest imaginable\";\r\n                else if (n >= 50.119) return \"Very Strong\";\r\n                else if (n >= 33.13) return \"Strong\";\r\n                else if (n >= 16.218) return \"Moderate\";\r\n                else if (n >= 5.754) return \"Weak\";\r\n                else if (n >= 1.380) return \"Barely detectable\";\r\n                else if (n >= 0.00) return   \"No Sensation\";\r\n                else return \"Unknown\";\r\n\r\n            }\r\n\r\n            @Override\r\n            public Double fromString(String s) {\r\n                switch (s){\r\n                    case \"No Sensation\":\r\n                        return 0d;\r\n                    case \"Barely detectable\":\r\n                        return 1d;\r\n                    case \"Weak\":\r\n                        return 2d;\r\n                    case \"Moderate\":\r\n                        return 3d;\r\n                    case \"Strong\":\r\n                        return 4d;\r\n                    case \"Very Strong\":\r\n                        return 5d;\r\n                    case \"Strongest imaginable\":\r\n                        return 6d;\r\n\r\n                    default:\r\n                        return 6d;\r\n                }\r\n            }\r\n        });\r\n        // Binding hai chiều giữa mySlider.valueProperty() và viewModel.sliderValueProperty()\r\n        Bindings.bindBidirectional(mySlider.valueProperty(), viewModel.sliderValueProperty());\r\n\r\n        // Binding một chiều từ viewModel.resultTextProperty() đến result_label.textProperty()\r\n        result.textProperty().bind(viewModel.resultTextProperty());\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/main/sensoryexperimentplatform/controllers/RunGLMSController.java b/src/main/java/main/sensoryexperimentplatform/controllers/RunGLMSController.java
+--- a/src/main/java/main/sensoryexperimentplatform/controllers/RunGLMSController.java	(revision 90130fa92ed5ae9cdb45d17ed3e458b5fe59e8b5)
++++ b/src/main/java/main/sensoryexperimentplatform/controllers/RunGLMSController.java	(date 1716949461450)
+@@ -15,7 +15,7 @@
+     @FXML
+     private Slider mySlider;
+     @FXML
+-    private Label questionlbl, result, helpText;
++    private Label questionlbl, helpText;
+     private RunGLMS_VM viewModel;
+     public void setViewModel(RunGLMS_VM viewModel){
+         this.viewModel = viewModel;
+@@ -26,12 +26,9 @@
+         helpText.textProperty().bind(viewModel.helpProperty());
+ 
+         mySlider.setShowTickLabels(true);
+-        mySlider.setMajorTickUnit(5); // Hiển thị nhãn tại các điểm chính
++        mySlider.setMajorTickUnit(10); // Hiển thị nhãn tại các điểm chính
+ 
+-        mySlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+-            result.textProperty().bind(viewModel.resultTextProperty());
+-            result.setLayoutY(mySlider.getLayoutY()+ mySlider.getHeight()- result.getHeight() - (newValue.intValue()*mySlider.getPrefHeight())/100);
+-        });
++        Bindings.bindBidirectional(mySlider.valueProperty(), viewModel.sliderValueProperty());
+         mySlider.setLabelFormatter(new StringConverter<Double>() {
+             @Override
+             public String toString(Double n) {
+@@ -70,10 +67,9 @@
+             }
+         });
+         // Binding hai chiều giữa mySlider.valueProperty() và viewModel.sliderValueProperty()
+-        Bindings.bindBidirectional(mySlider.valueProperty(), viewModel.sliderValueProperty());
++
+ 
+-        // Binding một chiều từ viewModel.resultTextProperty() đến result_label.textProperty()
+-        result.textProperty().bind(viewModel.resultTextProperty());
++
+ 
+     }
+ }
+Index: src/main/java/main/sensoryexperimentplatform/models/TasteTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main.sensoryexperimentplatform.models;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.Arrays;\r\n\r\npublic class TasteTest{\r\n    private final String question;\r\n    private final String consumptionInstruction;\r\n    private final String endInStruction;\r\n    private final ArrayList<String> foods;\r\n    private final ArrayList<Object> list;\r\n    private final Notice initialNotice;\r\n    private final int timeWait;\r\n    boolean randomizeFood, randomizeRatingVas, randomizeRatingGLMS;\r\n    private final ArrayList<String> vasList;\r\n    private final ArrayList<String> glmsList;\r\n    private final Vas sampleVas;\r\n    private final gLMS sampleGLMS;\r\n    public TasteTest(String noticeStageContent, String consumptionInstruction, String question,\r\n            String lowAnchorText, String highAnchorText, double lowAnchorValue,\r\n                     double highAnchorValue, String buttonText,\r\n            boolean isSwap, String helpText, String endInstruction,\r\n                     int timeWait, boolean randomizeFood, boolean randomizeRatingVas, boolean randomizeRatingGLMS){\r\n\r\n        this.initialNotice = new Notice(\"Taste Test\",noticeStageContent, buttonText, \"\", false);\r\n        initialNotice.setContent(noticeStageContent);\r\n        this.sampleVas = new Vas(question, lowAnchorText, highAnchorText, lowAnchorValue, highAnchorValue,\r\n                \"Next\", \"\",helpText,isSwap,false);\r\n        this.sampleGLMS = new gLMS(question,\"Next\",\"\",\"\",false);\r\n        this.question = question;\r\n        this.consumptionInstruction = consumptionInstruction;\r\n        this.endInStruction = endInstruction;\r\n        this.timeWait = timeWait;\r\n        this.randomizeFood =  randomizeFood;\r\n        this.randomizeRatingVas = randomizeRatingVas;\r\n        this.randomizeRatingGLMS = randomizeRatingGLMS;\r\n        foods = new ArrayList<>();\r\n        list = new ArrayList<>();\r\n        vasList = new ArrayList<>();\r\n        glmsList = new ArrayList<>();\r\n        list.add(initialNotice);\r\n\r\n    }\r\n    public void selectVas(String[] selectedVas){\r\n        vasList.addAll(Arrays.asList(selectedVas));\r\n    }\r\n    public void selectgLMS(String[] selectedGLMS){\r\n        glmsList.addAll(Arrays.asList(selectedGLMS));\r\n    }\r\n\r\n    public void addFood(String[] foods){\r\n        this.foods.addAll(Arrays.asList(foods));\r\n    }\r\n    public void generator(){\r\n        for(String foodName : foods){\r\n            String convertedConsumption = consumptionInstruction.replace(\"<food>\",\"%s\");\r\n            String consumption = String.format(convertedConsumption, foodName);\r\n\r\n            Notice notice1 = new Notice(\"Taste Test\",consumption, initialNotice.getButtonText(), \"\",false);\r\n            notice1.setContent(consumption);\r\n            list.add(notice1);\r\n\r\n            Food currentFood = new Food(foodName,randomizeRatingVas,randomizeRatingGLMS,timeWait);\r\n            for(String taste : vasList){\r\n                Vas temp = getVas(foodName, taste);\r\n                currentFood.addVasRating(temp);\r\n            }\r\n            for(String taste : glmsList){\r\n                gLMS temp = getGLMS(foodName,taste);\r\n                currentFood.addGlmsRating(temp);\r\n                }\r\n\r\n            list.add(currentFood);\r\n            Notice notice2 = new Notice(\"Rinsing\", endInStruction, initialNotice.getButtonText(), \"\", false);\r\n            list.add(notice2);\r\n\r\n            }\r\n        }\r\n    private gLMS getGLMS(String foodName, String taste){\r\n        String convertedQuestion = question.replace(\"<taste>\",\"%s\").replace(\"<food>\",\"%s\");\r\n        convertedQuestion = String.format(convertedQuestion, taste, foodName);\r\n\r\n        return new gLMS(convertedQuestion, sampleGLMS.getButtonText(), sampleGLMS.getContent(),\r\n                sampleGLMS.getHelpText(), sampleGLMS.getAlert());\r\n    }\r\n    private Vas getVas(String foodName, String taste) {\r\n        String convertedQuestion = question.replace(\"<taste>\",\"%s\").replace(\"<food>\",\"%s\");\r\n        convertedQuestion = String.format(convertedQuestion, taste, foodName);\r\n\r\n        String convertedLowAnchor = sampleVas.getLowAnchorText().replace(\"<taste>\",\"%s\");\r\n        convertedLowAnchor = String.format(convertedLowAnchor, taste);\r\n\r\n        String convertedHighAnchor = sampleVas.getHighAnchorText().replace(\"<taste>\",\"%s\");\r\n        convertedHighAnchor = String.format(convertedHighAnchor, taste);\r\n\r\n        return new Vas(convertedQuestion, convertedLowAnchor,convertedHighAnchor,\r\n                sampleVas.getLowAnchorValue(), sampleVas.getHighAnchorValue(), sampleVas.getButtonText(),\r\n                sampleVas.getContent(),sampleVas.getHelpText(), sampleVas.getIsSwap(), sampleVas.getAlert());\r\n    }\r\n    public String getType(){\r\n        return \"Taste Test\";\r\n    }\r\n\r\n    public String toString(){\r\n            StringBuilder stringBuilder = new StringBuilder();\r\n            for(Object o : list){\r\n                stringBuilder.append(o.toString()).append(\"\\n\");\r\n            }return stringBuilder.toString();\r\n        }\r\n    public static void main(String[] args){\r\n        Experiment experiment = new Experiment();\r\n        experiment.addTasteTest(\"For the taste test, samples of simple solutions are presented for you to evaluate. Note you will complete one set of ratings, have a short (2 minute) pause and then complete a second set of ratings.____\" +\r\n                        \"When prompted by the computer please take the relevant sample.You will be asked to place all of the solution in your mouth, swirl it around while counting to 10 and then expectorate (spit) into the black cup we provide.\" +\r\n                        \" A reminder to rinse your mouth with the water provided (maximum 1-2 sips) and then to expectorate (spit) it into the black cup, will follow the ratings of each sample.\",\r\n                \"Please empty <food> in your mouth, swirl it around while counting to 10, and then expectorate it into the black cup.\",\r\n                \"How <taste> is <food>?\",\r\n                \"Not at all <taste>\", \"Extremely <taste>\",\r\n                0,100,\"Continue\" , false, \"\",\r\n                \"Please rinse your mouth with the water provided and then expectorate it into the black cup.\", 0,\r\n                false,true,true);\r\n        TasteTest tasteTest = (TasteTest) experiment.stages.getFirst();\r\n        String[] foods = {\"apple\", \"banana\"};\r\n        String[] vass = {\"bit\", \"pleasant\", \"tough\", \"insane\"};\r\n        String[] glmss ={\"spicy\", \"flavour\", \"salty\", \"creamy\"};\r\n        tasteTest.selectVas(vass);\r\n        tasteTest.addFood(foods);\r\n        tasteTest.selectgLMS(glmss);\r\n        tasteTest.generator();\r\n        System.out.println(experiment.stages.toString());\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/main/sensoryexperimentplatform/models/TasteTest.java b/src/main/java/main/sensoryexperimentplatform/models/TasteTest.java
+--- a/src/main/java/main/sensoryexperimentplatform/models/TasteTest.java	(revision 90130fa92ed5ae9cdb45d17ed3e458b5fe59e8b5)
++++ b/src/main/java/main/sensoryexperimentplatform/models/TasteTest.java	(date 1716949958713)
+@@ -17,8 +17,8 @@
+     private final Vas sampleVas;
+     private final gLMS sampleGLMS;
+     public TasteTest(String noticeStageContent, String consumptionInstruction, String question,
+-            String lowAnchorText, String highAnchorText, double lowAnchorValue,
+-                     double highAnchorValue, String buttonText,
++            String lowAnchorText, String highAnchorText, int lowAnchorValue,
++                     int highAnchorValue, String buttonText,
+             boolean isSwap, String helpText, String endInstruction,
+                      int timeWait, boolean randomizeFood, boolean randomizeRatingVas, boolean randomizeRatingGLMS){
+ 
+Index: src/main/java/main/sensoryexperimentplatform/controllers/RunVasController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main.sensoryexperimentplatform.controllers;\r\n\r\nimport javafx.beans.binding.Bindings;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.Label;\r\nimport javafx.scene.control.Slider;\r\nimport javafx.scene.control.TextArea;\r\nimport main.sensoryexperimentplatform.ViewModel.RunVas_VM;\r\n\r\npublic class RunVasController {\r\n    @FXML\r\n    private Label highAnchor_label;\r\n    @FXML\r\n    private Label lowAnchor_label;\r\n    @FXML\r\n    private Label questionlbl;\r\n    @FXML\r\n    private Label result_label;\r\n    @FXML\r\n    private Slider mySlider;\r\n\r\n    private RunVas_VM viewModel;\r\n\r\n    public void setViewModel(RunVas_VM viewModel) {\r\n        this.viewModel = viewModel;\r\n        bindViewModel();\r\n    }\r\n\r\n    private void bindViewModel() {\r\n        highAnchor_label.textProperty().bind(viewModel.highAnchorTextProperty());\r\n        lowAnchor_label.textProperty().bind(viewModel.lowAnchorTextProperty());\r\n        questionlbl.textProperty().bind(viewModel.questionTextProperty());\r\n\r\n\r\n        // Binding hai chiều giữa mySlider.valueProperty() và viewModel.sliderValueProperty()\r\n        Bindings.bindBidirectional(mySlider.valueProperty(),viewModel.sliderValueProperty());\r\n\r\n        mySlider.valueProperty().addListener((observable, oldValue, newValue) -> {\r\n            result_label.textProperty().bind(viewModel.resultTextProperty());\r\n            result_label.setLayoutX(mySlider.getLayoutX() + (newValue.intValue()*mySlider.getPrefWidth())/100);\r\n        });\r\n\r\n\r\n        // Binding một chiều từ viewModel.resultTextProperty() đến result_label.textProperty()\r\n        result_label.textProperty().bind(viewModel.resultTextProperty());\r\n\r\n        mySlider.applyCss();\r\n        var thumb = mySlider.lookup(\".thumb\");\r\n        if (thumb != null) {\r\n            result_label.setLayoutX((thumb.getLayoutX() + mySlider.getLayoutX()) / 2);\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/main/sensoryexperimentplatform/controllers/RunVasController.java b/src/main/java/main/sensoryexperimentplatform/controllers/RunVasController.java
+--- a/src/main/java/main/sensoryexperimentplatform/controllers/RunVasController.java	(revision 90130fa92ed5ae9cdb45d17ed3e458b5fe59e8b5)
++++ b/src/main/java/main/sensoryexperimentplatform/controllers/RunVasController.java	(date 1716948799133)
+@@ -14,8 +14,7 @@
+     private Label lowAnchor_label;
+     @FXML
+     private Label questionlbl;
+-    @FXML
+-    private Label result_label;
++
+     @FXML
+     private Slider mySlider;
+ 
+@@ -35,19 +34,6 @@
+         // Binding hai chiều giữa mySlider.valueProperty() và viewModel.sliderValueProperty()
+         Bindings.bindBidirectional(mySlider.valueProperty(),viewModel.sliderValueProperty());
+ 
+-        mySlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+-            result_label.textProperty().bind(viewModel.resultTextProperty());
+-            result_label.setLayoutX(mySlider.getLayoutX() + (newValue.intValue()*mySlider.getPrefWidth())/100);
+-        });
+-
+ 
+-        // Binding một chiều từ viewModel.resultTextProperty() đến result_label.textProperty()
+-        result_label.textProperty().bind(viewModel.resultTextProperty());
+-
+-        mySlider.applyCss();
+-        var thumb = mySlider.lookup(".thumb");
+-        if (thumb != null) {
+-            result_label.setLayoutX((thumb.getLayoutX() + mySlider.getLayoutX()) / 2);
+-        }
+     }
+ }
+\ No newline at end of file
+Index: src/main/java/main/sensoryexperimentplatform/controllers/RunController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main.sensoryexperimentplatform.controllers;\r\n\r\nimport javafx.application.Platform;\r\nimport javafx.event.Event;\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.control.*;\r\nimport javafx.scene.input.MouseEvent;\r\nimport javafx.scene.layout.AnchorPane;\r\nimport javafx.util.Callback;\r\nimport main.sensoryexperimentplatform.SensoryExperimentPlatform;\r\nimport main.sensoryexperimentplatform.ViewModel.*;\r\nimport main.sensoryexperimentplatform.models.*;\r\nimport java.io.FileWriter;\r\nimport java.io.IOException;\r\nimport java.io.Writer;\r\nimport java.util.Random;\r\n\r\n\r\npublic class RunController {\r\n    double pivot = 0.0;\r\n    double processed = 0.0;\r\n    @FXML\r\n    private AnchorPane content;\r\n\r\n    @FXML\r\n    private Button btn_Next;\r\n\r\n    @FXML\r\n    private Button btn_back;\r\n\r\n    @FXML\r\n    private ProgressBar progress_bar;\r\n\r\n    @FXML\r\n    private Label runelbl;\r\n\r\n    @FXML\r\n    private Label senseXPlbl;\r\n\r\n    @FXML\r\n    private ListView<String> showList;\r\n\r\n    private RunExperiment_VM viewModel;\r\n\r\n    public void setViewModel(RunExperiment_VM viewModel){\r\n        this.viewModel = viewModel;\r\n        bindViewModel();\r\n    }\r\n    private void updateProgress(double processed){\r\n        if(processed > pivot){\r\n            pivot = processed;\r\n            progress_bar.setProgress(pivot/(viewModel.count - 1));\r\n        }\r\n    }\r\n\r\n    private void bindViewModel() {\r\n        // Bind ListView items to ViewModel items\r\n        showList.itemsProperty().bind(viewModel.itemsProperty());\r\n\r\n        showList.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {\r\n            @Override\r\n            public ListCell<String> call(ListView<String> listView) {\r\n                return new ListCell<>() {\r\n                    @Override\r\n                    protected void updateItem(String item, boolean empty) {\r\n                        super.updateItem(item, empty);\r\n                        if (item != null && !empty) {\r\n                            setText(item);\r\n                        } else {\r\n                            setText(null);\r\n                        }\r\n                    }\r\n                };\r\n            }\r\n        });\r\n\r\n        // Add selection listener\r\n        showList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {\r\n            if (newValue != null) {\r\n                // Handle item selection (e.g., show detail view)\r\n                showDetailView(newValue);\r\n            }\r\n        });\r\n    }\r\n    @FXML\r\n    void handleBtnBack(MouseEvent event) {\r\n        processed-=2;\r\n        updateProgress(processed);\r\n        int selectedIndex = showList.getSelectionModel().getSelectedIndex();\r\n        if (selectedIndex > 0) {\r\n            showList.getSelectionModel().select(selectedIndex - 1);\r\n        } else {\r\n            showList.getSelectionModel().clearSelection();\r\n        }\r\n    }\r\n\r\n    @FXML\r\n    void handleBtnNext(MouseEvent event) {\r\n        int selectedIndex = showList.getSelectionModel().getSelectedIndex();\r\n        if (selectedIndex == -1){\r\n            showList.getSelectionModel().select(0);\r\n        }\r\n        if (selectedIndex >= 0 && selectedIndex < showList.getItems().size() - 1) {\r\n            showList.getSelectionModel().select(selectedIndex + 1);\r\n        }\r\n    }\r\n\r\n    private void showDetailView(String item) {\r\n        Object selectedObject = viewModel.getObjectByKey(item);\r\n        if (selectedObject != null) {\r\n            int currentIndex = viewModel.getIndexOfObject(selectedObject);\r\n            if (currentIndex >= 0) {\r\n                if (currentIndex > processed) {\r\n                    processed = currentIndex;\r\n                    updateProgress(currentIndex);\r\n                }\r\n            } else {\r\n                processed++;\r\n                updateProgress(processed);\r\n            }\r\n            content.getChildren().clear();\r\n            try {\r\n                FXMLLoader loader;\r\n                if (selectedObject instanceof Vas) {\r\n                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource(\"RunVas.fxml\"));\r\n                    AnchorPane newContent = loader.load();\r\n                    content.getChildren().setAll(newContent);\r\n\r\n                    RunVasController controller = loader.getController();\r\n                    RunVas_VM vm = new RunVas_VM((Vas) selectedObject);\r\n                    controller.setViewModel(vm);\r\n                    btn_Next.textProperty().bind(vm.buttonProperty());\r\n                }\r\n                if (selectedObject instanceof gLMS) {\r\n                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource(\"RunGLMS.fxml\"));\r\n                    AnchorPane newContent = loader.load();\r\n                    content.getChildren().setAll(newContent);\r\n\r\n                    RunGLMSController controller = loader.getController();\r\n                    RunGLMS_VM vm = new RunGLMS_VM((gLMS) selectedObject);\r\n                    controller.setViewModel(vm);\r\n                    btn_Next.textProperty().bind(vm.buttonProperty());\r\n\r\n                }\r\n                if (selectedObject instanceof Notice) {\r\n                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource(\"RunNotice.fxml\"));\r\n                    AnchorPane newContent = loader.load();\r\n                    content.getChildren().setAll(newContent);\r\n\r\n                    RunNoticeController controller = loader.getController();\r\n                    RunNotice_VM vm = new RunNotice_VM((Notice) selectedObject);\r\n                    controller.setViewModel(vm);\r\n                    btn_Next.textProperty().bind(vm.buttonProperty());\r\n                }\r\n                if (selectedObject instanceof Timer) {\r\n                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource(\"RunTimer.fxml\"));\r\n                    AnchorPane newContent = loader.load();\r\n                    content.getChildren().setAll(newContent);\r\n\r\n                    RunTimerController controller = loader.getController();\r\n                    RunTimer_VM viewModel = new RunTimer_VM((Timer) selectedObject);\r\n                    controller.setViewModel(viewModel);\r\n                }\r\n                if (selectedObject instanceof RatingContainer) {\r\n                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource(\"RunRating.fxml\"));\r\n                    AnchorPane newContent = loader.load();\r\n                    content.getChildren().setAll(newContent);\r\n                }\r\n                if (currentIndex == viewModel.count - 1) {\r\n                    btn_Next.setOnAction(event -> handleFinalNext());\r\n                }\r\n            } catch (IOException e) {\r\n                e.printStackTrace();\r\n            }\r\n        }\r\n    }\r\n\r\n    private void handleFinalNext() {\r\n        try {\r\n            Random random = new Random();\r\n            String save = String.valueOf(random.nextInt(1000));\r\n            FileWriter writer = new FileWriter(save+\"_results.csv\");\r\n            writer.append(\"Heading,Vas/GLMS Result,Question,Low Anchor, High Anchor, Low Value, High Value\\n\");\r\n\r\n            for (Object o : viewModel.getStages()) {\r\n                if(o instanceof RatingContainer){\r\n                    for(Object subO : ((RatingContainer) o).getContainer()){\r\n                        saveResult(writer,subO);\r\n                    }\r\n                }\r\n                saveResult(writer,o);\r\n            }\r\n\r\n            writer.flush();\r\n            writer.close();\r\n\r\n            System.out.println(\"Result was stored at \" + save + \"_results.csv\");\r\n            Platform.exit();\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n    private void saveResult(Writer writer, Object subO) throws IOException {\r\n        if( subO instanceof Vas){\r\n            writer.append(\"Vas,\")\r\n                    .append(String.valueOf(((Vas) subO).getResult()).trim())\r\n                    .append(\",\")\r\n                    .append(((Vas) subO).getTitle())\r\n                    .append(\",\")\r\n                    .append(((Vas) subO).getLowAnchorText())\r\n                    .append(\",\")\r\n                    .append(((Vas) subO).getHighAnchorText())\r\n                    .append(\",\")\r\n                    .append(String.valueOf(((Vas) subO).getLowAnchorValue()))\r\n                    .append(\",\")\r\n                    .append(String.valueOf(((Vas) subO).getHighAnchorValue()));\r\n            writer.append(\"\\n\");\r\n        }\r\n        if( subO instanceof gLMS){\r\n            writer.append(\"GLMS ,\")\r\n                    .append(String.valueOf(((gLMS) subO).getResult()))\r\n                    .append(\",\")\r\n                    .append(((gLMS) subO).getTitle());\r\n            writer.append(\"\\n\");\r\n        }\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java b/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java
+--- a/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java	(revision 90130fa92ed5ae9cdb45d17ed3e458b5fe59e8b5)
++++ b/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java	(date 1717152770593)
+@@ -161,6 +161,13 @@
+                     RunTimerController controller = loader.getController();
+                     RunTimer_VM viewModel = new RunTimer_VM((Timer) selectedObject);
+                     controller.setViewModel(viewModel);
++                    if (!controller.getTimeLineCheck()){
++                        btn_Next.setVisible(false);
++                        btn_back.setVisible(false);
++                    }else {
++                        btn_Next.setVisible(true);
++                        btn_back.setVisible(true);
++                    }
+                 }
+                 if (selectedObject instanceof RatingContainer) {
+                     loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunRating.fxml"));
+Index: src/main/java/main/sensoryexperimentplatform/ViewModel/RunGLMS_VM.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main.sensoryexperimentplatform.ViewModel;\r\n\r\nimport javafx.beans.property.*;\r\nimport main.sensoryexperimentplatform.models.gLMS;\r\n\r\npublic class RunGLMS_VM {\r\n    private gLMS stage;\r\n    private StringProperty question, result, help;\r\n    private DoubleProperty sliderValue;\r\n    private StringProperty button;\r\n\r\n    public RunGLMS_VM(gLMS stage){\r\n        this.stage = stage;\r\n        help = new SimpleStringProperty(stage.getHelpText());\r\n        result = new SimpleStringProperty(String.format(\"%.2f\",stage.getResult()));\r\n        question = new SimpleStringProperty(stage.getQuestionText());\r\n        button = new SimpleStringProperty(stage.getButtonText());\r\n        sliderValue = new SimpleDoubleProperty(stage.getResult());\r\n\r\n        sliderValue.addListener(((observableValue, oldValue, newValue) ->{\r\n            setResult(newValue.doubleValue());\r\n            result.set(String.format(\"%.2f\",newValue.doubleValue()));\r\n        } ));\r\n\r\n    }\r\n    public void setResult(double result){\r\n        stage.setResult(result);\r\n    }\r\n\r\n    public StringProperty helpProperty(){\r\n        return help;\r\n    }\r\n    public StringProperty questionProperty() {\r\n        return question;\r\n    }\r\n\r\n    public StringProperty resultTextProperty() {\r\n        return result;\r\n    }\r\n\r\n\r\n    public StringProperty buttonProperty() {\r\n        return button;\r\n    }\r\n\r\n    public DoubleProperty sliderValueProperty() {\r\n        return sliderValue;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/main/sensoryexperimentplatform/ViewModel/RunGLMS_VM.java b/src/main/java/main/sensoryexperimentplatform/ViewModel/RunGLMS_VM.java
+--- a/src/main/java/main/sensoryexperimentplatform/ViewModel/RunGLMS_VM.java	(revision 90130fa92ed5ae9cdb45d17ed3e458b5fe59e8b5)
++++ b/src/main/java/main/sensoryexperimentplatform/ViewModel/RunGLMS_VM.java	(date 1716949383362)
+@@ -5,21 +5,19 @@
+ 
+ public class RunGLMS_VM {
+     private gLMS stage;
+-    private StringProperty question, result, help;
++    private StringProperty question, help;
+     private DoubleProperty sliderValue;
+     private StringProperty button;
+ 
+     public RunGLMS_VM(gLMS stage){
+         this.stage = stage;
+         help = new SimpleStringProperty(stage.getHelpText());
+-        result = new SimpleStringProperty(String.format("%.2f",stage.getResult()));
+         question = new SimpleStringProperty(stage.getQuestionText());
+         button = new SimpleStringProperty(stage.getButtonText());
+         sliderValue = new SimpleDoubleProperty(stage.getResult());
+ 
+         sliderValue.addListener(((observableValue, oldValue, newValue) ->{
+             setResult(newValue.doubleValue());
+-            result.set(String.format("%.2f",newValue.doubleValue()));
+         } ));
+ 
+     }
+@@ -34,10 +32,6 @@
+         return question;
+     }
+ 
+-    public StringProperty resultTextProperty() {
+-        return result;
+-    }
+-
+ 
+     public StringProperty buttonProperty() {
+         return button;
+Index: src/main/java/main/sensoryexperimentplatform/ViewModel/RunVas_VM.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main.sensoryexperimentplatform.ViewModel;\r\n\r\nimport javafx.beans.property.DoubleProperty;\r\nimport javafx.beans.property.SimpleDoubleProperty;\r\nimport javafx.beans.property.SimpleStringProperty;\r\nimport javafx.beans.property.StringProperty;\r\nimport javafx.beans.value.ObservableValue;\r\nimport main.sensoryexperimentplatform.models.Vas;\r\n\r\npublic class RunVas_VM {\r\n    private Vas vas;\r\n    private StringProperty result;\r\n    private DoubleProperty sliderValue;\r\n    private final StringProperty questionText;\r\n    private StringProperty lowAnchorText, button;\r\n    private StringProperty highAnchorText;\r\n\r\n    public RunVas_VM(Vas vas) {\r\n        this.vas = vas;\r\n        result = new SimpleStringProperty(String.format(\"%.1f\", vas.getResult()));\r\n        sliderValue = new SimpleDoubleProperty(vas.getResult()); // Khởi tạo giá trị của sliderValue từ kết quả hiện tại\r\n        button = new SimpleStringProperty(vas.getButtonText());\r\n        questionText = new SimpleStringProperty(vas.getTitle());\r\n        lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());\r\n        highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());\r\n\r\n        sliderValue.addListener((observable, oldValue, newValue) -> {\r\n            setResult(newValue.doubleValue());\r\n            result.set(String.format(\"%.1f\", newValue.doubleValue()));\r\n        });\r\n    }\r\n\r\n    public StringProperty resultTextProperty() {\r\n        return result;\r\n    }\r\n\r\n    public void setResult(double result) {\r\n        vas.setResult(result);\r\n    }\r\n    public DoubleProperty sliderValueProperty() {\r\n        return sliderValue;\r\n    }\r\n    public StringProperty questionTextProperty() {\r\n        return questionText;\r\n    }\r\n\r\n    public StringProperty lowAnchorTextProperty() {\r\n        return lowAnchorText;\r\n    }\r\n\r\n    public StringProperty highAnchorTextProperty() {\r\n        return highAnchorText;\r\n    }\r\n\r\n    public StringProperty buttonProperty() {\r\n        return button;\r\n    }\r\n\r\n    public double getResult() {\r\n        return vas.getResult();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/main/sensoryexperimentplatform/ViewModel/RunVas_VM.java b/src/main/java/main/sensoryexperimentplatform/ViewModel/RunVas_VM.java
+--- a/src/main/java/main/sensoryexperimentplatform/ViewModel/RunVas_VM.java	(revision 90130fa92ed5ae9cdb45d17ed3e458b5fe59e8b5)
++++ b/src/main/java/main/sensoryexperimentplatform/ViewModel/RunVas_VM.java	(date 1716949820629)
+@@ -17,7 +17,6 @@
+ 
+     public RunVas_VM(Vas vas) {
+         this.vas = vas;
+-        result = new SimpleStringProperty(String.format("%.1f", vas.getResult()));
+         sliderValue = new SimpleDoubleProperty(vas.getResult()); // Khởi tạo giá trị của sliderValue từ kết quả hiện tại
+         button = new SimpleStringProperty(vas.getButtonText());
+         questionText = new SimpleStringProperty(vas.getTitle());
+@@ -25,16 +24,11 @@
+         highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
+ 
+         sliderValue.addListener((observable, oldValue, newValue) -> {
+-            setResult(newValue.doubleValue());
+-            result.set(String.format("%.1f", newValue.doubleValue()));
++            setResult(newValue.intValue());
+         });
+     }
+ 
+-    public StringProperty resultTextProperty() {
+-        return result;
+-    }
+-
+-    public void setResult(double result) {
++    public void setResult(int result) {
+         vas.setResult(result);
+     }
+     public DoubleProperty sliderValueProperty() {
+@@ -56,7 +50,7 @@
+         return button;
+     }
+ 
+-    public double getResult() {
++    public int getResult() {
+         return vas.getResult();
+     }
+ }
+\ No newline at end of file
+Index: src/main/java/main/sensoryexperimentplatform/models/Vas.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main.sensoryexperimentplatform.models;\r\n\r\npublic class Vas extends Stage {\r\n    private String lowAnchorText, highAnchorText, helpText, buttonText ;\r\n    private double lowAnchorValue, highAnchorValue;\r\n    private double result;\r\n    private boolean alert, isSwap;\r\n\r\n    public Vas(String title, String lowAnchorText, String highAnchorText,\r\n               double lowAnchorValue, double highAnchorValue, String buttonText,\r\n               String content, String helpText, boolean isSwap, boolean alert) {\r\n\r\n        super(title,content);\r\n        this.lowAnchorValue = lowAnchorValue;\r\n        this.highAnchorValue = highAnchorValue;\r\n        this.lowAnchorText = lowAnchorText;\r\n        this.highAnchorText = highAnchorText;\r\n        this.buttonText = buttonText;\r\n        this.helpText = helpText;\r\n        this.isSwap = isSwap;\r\n        this.alert = alert;\r\n        initialize();\r\n    }\r\n\r\n    public Vas(String title, String content){\r\n        super(title, content);\r\n        this.lowAnchorValue = 0;\r\n        this.highAnchorValue = 100;\r\n        this.lowAnchorText = \"Not at all\";\r\n        this.highAnchorText = \"Extremely\";\r\n        this.buttonText = \"Continue\";\r\n        this.isSwap = false;\r\n        this.helpText = \"help text\";\r\n        this.alert = false;\r\n        initialize();\r\n    }\r\n    private void initialize(){\r\n        this.result = 0;\r\n    }\r\n    public void swapPolarities(){\r\n        //swap values\r\n        while(isSwap){\r\n            double temp = getLowAnchorValue();\r\n            setLowAnchorValue(getHighAnchorValue());\r\n            setHighAnchorValue(temp);\r\n            //swap text\r\n            String tempStr = lowAnchorText;\r\n            setLowAnchorText(getHighAnchorText());\r\n            setHighAnchorText(tempStr);\r\n        }\r\n    }\r\n\r\n    public boolean getAlert() {\r\n        return alert;\r\n    }\r\n\r\n    public void setAlert(boolean alert) {\r\n        this.alert = alert;\r\n    }\r\n\r\n    public String getButtonText() {\r\n        return buttonText;\r\n    }\r\n\r\n    public void setButtonText(String buttonText) {\r\n        this.buttonText = buttonText;\r\n    }\r\n\r\n    public String getHelpText() {\r\n        return helpText;\r\n    }\r\n\r\n    public void setHelpText(String helpText) {\r\n        this.helpText = helpText;\r\n    }\r\n\r\n    public boolean getIsSwap() {\r\n        return isSwap;\r\n    }\r\n\r\n    public void setSwap(boolean swap) {\r\n        isSwap = swap;\r\n    }\r\n\r\n    public void setLowAnchorValue(double lowAnchorValue) {\r\n        this.lowAnchorValue = lowAnchorValue;\r\n    }\r\n\r\n    public void setHighAnchorValue(double highAnchorValue) {\r\n        this.highAnchorValue = highAnchorValue;\r\n    }\r\n\r\n    public double getLowAnchorValue() {\r\n        return lowAnchorValue;\r\n    }\r\n\r\n    public double getHighAnchorValue() {\r\n        return highAnchorValue;\r\n    }\r\n\r\n    public String getLowAnchorText(){\r\n        return lowAnchorText;\r\n    }\r\n\r\n    public String getHighAnchorText(){\r\n        return  highAnchorText;\r\n    }\r\n\r\n    public void setLowAnchorText(String string) {\r\n        this.lowAnchorText = string;\r\n    }\r\n\r\n    public void setHighAnchorText(String string) {\r\n        this.highAnchorText = string;\r\n    }\r\n    public void setResult(double result){this.result = result;}\r\n    public double getResult(){return result;}\r\n\r\n    public String getTitle() {\r\n        return title;\r\n    }\r\n    public void setTitle(String title) {\r\n        this.title = title;\r\n    }\r\n    @Override\r\n    public String toString() {\r\n        return \"vasStage(\\\"\" + title + \"\\\",\\\"\" + lowAnchorText + \"\\\",\\\"\"+\r\n                highAnchorText + \"\\\",\\\"\" + lowAnchorValue + \"\\\",\\\"\" +\r\n                highAnchorValue + \"\\\",\\\"\" + buttonText + \"\\\",\\\"\" +\r\n                content + \"\\\",\\\"\" + helpText + \"\\\",\\\"\" + isSwap + \"\\\",\\\"\" +\r\n                alert +\"\\\")\";\r\n    }\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/main/sensoryexperimentplatform/models/Vas.java b/src/main/java/main/sensoryexperimentplatform/models/Vas.java
+--- a/src/main/java/main/sensoryexperimentplatform/models/Vas.java	(revision 90130fa92ed5ae9cdb45d17ed3e458b5fe59e8b5)
++++ b/src/main/java/main/sensoryexperimentplatform/models/Vas.java	(date 1716949958724)
+@@ -2,12 +2,12 @@
+ 
+ public class Vas extends Stage {
+     private String lowAnchorText, highAnchorText, helpText, buttonText ;
+-    private double lowAnchorValue, highAnchorValue;
+-    private double result;
++    private int lowAnchorValue, highAnchorValue;
++    private int result;
+     private boolean alert, isSwap;
+ 
+     public Vas(String title, String lowAnchorText, String highAnchorText,
+-               double lowAnchorValue, double highAnchorValue, String buttonText,
++               int lowAnchorValue, int highAnchorValue, String buttonText,
+                String content, String helpText, boolean isSwap, boolean alert) {
+ 
+         super(title,content);
+@@ -35,12 +35,12 @@
+         initialize();
+     }
+     private void initialize(){
+-        this.result = 0;
++        this.result =(int) (lowAnchorValue+lowAnchorValue)/2;
+     }
+     public void swapPolarities(){
+         //swap values
+         while(isSwap){
+-            double temp = getLowAnchorValue();
++            int temp = getLowAnchorValue();
+             setLowAnchorValue(getHighAnchorValue());
+             setHighAnchorValue(temp);
+             //swap text
+@@ -82,19 +82,19 @@
+         isSwap = swap;
+     }
+ 
+-    public void setLowAnchorValue(double lowAnchorValue) {
++    public void setLowAnchorValue(int lowAnchorValue) {
+         this.lowAnchorValue = lowAnchorValue;
+     }
+ 
+-    public void setHighAnchorValue(double highAnchorValue) {
++    public void setHighAnchorValue(int highAnchorValue) {
+         this.highAnchorValue = highAnchorValue;
+     }
+ 
+-    public double getLowAnchorValue() {
++    public int getLowAnchorValue() {
+         return lowAnchorValue;
+     }
+ 
+-    public double getHighAnchorValue() {
++    public int getHighAnchorValue() {
+         return highAnchorValue;
+     }
+ 
+@@ -113,8 +113,8 @@
+     public void setHighAnchorText(String string) {
+         this.highAnchorText = string;
+     }
+-    public void setResult(double result){this.result = result;}
+-    public double getResult(){return result;}
++    public void setResult(int result){this.result = result;}
++    public int getResult(){return result;}
+ 
+     public String getTitle() {
+         return title;
+Index: src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.Slider?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n\r\n<AnchorPane prefHeight=\"530.0\" prefWidth=\"970.0\" stylesheets=\"/static/stylesheets/RunGLMS_CSS.css\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"main.sensoryexperimentplatform.controllers.RunGLMSController\">\r\n   <children>\r\n      <Slider fx:id=\"mySlider\" layoutX=\"331.0\" layoutY=\"85.0\" majorTickUnit=\"10.0\" orientation=\"VERTICAL\" prefHeight=\"434.0\" prefWidth=\"14.0\" />\r\n      <Label fx:id=\"questionlbl\" layoutX=\"14.0\" layoutY=\"10.0\" prefHeight=\"59.0\" prefWidth=\"662.0\" text=\"Question\" wrapText=\"true\" />\r\n      <Label fx:id=\"result\" layoutX=\"223.0\" layoutY=\"473.0\" prefHeight=\"33.0\" prefWidth=\"61.0\" text=\"Label\" />\r\n      <Label fx:id=\"helpText\" layoutX=\"576.0\" layoutY=\"97.0\" prefHeight=\"361.0\" prefWidth=\"287.0\" text=\"Label\" wrapText=\"true\" />\r\n   </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml b/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml
+--- a/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml	(revision 90130fa92ed5ae9cdb45d17ed3e458b5fe59e8b5)
++++ b/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml	(date 1716949982942)
+@@ -8,7 +8,6 @@
+    <children>
+       <Slider fx:id="mySlider" layoutX="331.0" layoutY="85.0" majorTickUnit="10.0" orientation="VERTICAL" prefHeight="434.0" prefWidth="14.0" />
+       <Label fx:id="questionlbl" layoutX="14.0" layoutY="10.0" prefHeight="59.0" prefWidth="662.0" text="Question" wrapText="true" />
+-      <Label fx:id="result" layoutX="223.0" layoutY="473.0" prefHeight="33.0" prefWidth="61.0" text="Label" />
+       <Label fx:id="helpText" layoutX="576.0" layoutY="97.0" prefHeight="361.0" prefWidth="287.0" text="Label" wrapText="true" />
+    </children>
+ </AnchorPane>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"f94c3078-ef99-4a09-b4f4-0c5a4fda2f19\" name=\"Changes\" comment=\"Build: binding input stage\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/artifacts/Sensory_Expeirment_Platform_jar.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/artifacts/Sensory_Expeirment_Platform_jar.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_12_52_AM_[Changes]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_12_52_AM__Changes_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_12_53_AM_[Changes]/shelved.patch\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_12_53_AM__Changes_.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/DashBoardController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/DashBoardController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunVasController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunVasController.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"qanh\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n    &quot;associatedIndex&quot;: 7\r\n    }</component>\r\n  <component name=\"ProjectId\" id=\"2gfMpE8hYQXVyt7Njo1xE7lNGtc\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.RunExperiment.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.SensoryExperimentPlatform.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.TasteTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.Test.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;thinhchau&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/Java/jdk-21/bin/zip.dll&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\USER\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Desktop\\Respositories\\Sensory Expeirment Platform\\src\\main\\resources\\static\\images\" />\r\n      <recent name=\"C:\\Users\\USER\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Desktop\\Respositories\\Sensory Expeirment Platform\\src\\main\\resources\\static\\fonts\" />\r\n      <recent name=\"C:\\Users\\USER\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Desktop\\Respositories\\Sensory Expeirment Platform\\src\\main\\resources\\static\" />\r\n      <recent name=\"C:\\Users\\USER\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Desktop\\Respositories\\Sensory Expeirment Platform\\src\\main\\resources\\static\\stylesheets\" />\r\n      <recent name=\"C:\\Users\\USER\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Desktop\\Respositories\\Sensory Expeirment Platform\\src\\main\\java\\main\\sensoryexpeirmentplatform\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\USER\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Desktop\\Respositories\\Sensory Expeirment Platform\\src\\main\\resources\\static\\stylesheets\" />\r\n    </key>\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"main.sensoryexperimentplatform\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.SensoryExperimentPlatform\">\r\n    <configuration name=\"DataAccess\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"main.sensoryexperimentplatform.models.DataAccess\" />\r\n      <module name=\"Sensory-Expeirment-Platform\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"main.sensoryexperimentplatform.models.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"main.sensoryexperimentplatform.controllers.Main\" />\r\n      <module name=\"Sensory-Expeirment-Platform\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"main.sensoryexperimentplatform.ViewModel.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"RunExperiment\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"main.sensoryexperimentplatform.models.RunExperiment\" />\r\n      <module name=\"Sensory-Expeirment-Platform\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"main.sensoryexperimentplatform.models.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SensoryExperimentPlatform\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"main.sensoryexperimentplatform.SensoryExperimentPlatform\" />\r\n      <module name=\"Sensory-Expeirment-Platform\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"main.sensoryexperimentplatform.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"TasteTest\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"main.sensoryexperimentplatform.models.TasteTest\" />\r\n      <module name=\"Sensory-Expeirment-Platform\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"main.sensoryexperimentplatform.models.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Application.DataAccess\" />\r\n      <item itemvalue=\"Application.TasteTest\" />\r\n      <item itemvalue=\"Application.Main\" />\r\n      <item itemvalue=\"Application.RunExperiment\" />\r\n      <item itemvalue=\"Application.SensoryExperimentPlatform\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.SensoryExperimentPlatform\" />\r\n        <item itemvalue=\"Application.TasteTest\" />\r\n        <item itemvalue=\"Application.RunExperiment\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.DataAccess\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-22-openjdk-22-4caba194b151-f504ca98\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"f94c3078-ef99-4a09-b4f4-0c5a4fda2f19\" name=\"Changes\" comment=\"\" />\r\n      <created>1716084363027</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1716084363027</updated>\r\n      <workItem from=\"1716084364098\" duration=\"2984000\" />\r\n      <workItem from=\"1716215905167\" duration=\"5908000\" />\r\n      <workItem from=\"1716093260329\" duration=\"921000\" />\r\n      <workItem from=\"1716124956703\" duration=\"2389000\" />\r\n      <workItem from=\"1716131018411\" duration=\"282000\" />\r\n      <workItem from=\"1716132925097\" duration=\"484000\" />\r\n      <workItem from=\"1716168538056\" duration=\"4659000\" />\r\n      <workItem from=\"1716206311453\" duration=\"2313000\" />\r\n      <workItem from=\"1716218483418\" duration=\"3469000\" />\r\n      <workItem from=\"1716257085079\" duration=\"4227000\" />\r\n      <workItem from=\"1716273124655\" duration=\"3523000\" />\r\n      <workItem from=\"1716276679530\" duration=\"1777000\" />\r\n      <workItem from=\"1716289889033\" duration=\"17757000\" />\r\n      <workItem from=\"1716343344310\" duration=\"2217000\" />\r\n      <workItem from=\"1716366067260\" duration=\"9018000\" />\r\n      <workItem from=\"1716443919507\" duration=\"11568000\" />\r\n      <workItem from=\"1716289889033\" duration=\"22994000\" />\r\n      <workItem from=\"1716341816877\" duration=\"4721000\" />\r\n      <workItem from=\"1716364512653\" duration=\"68000\" />\r\n      <workItem from=\"1716382762774\" duration=\"9101000\" />\r\n      <workItem from=\"1716434905694\" duration=\"5802000\" />\r\n      <workItem from=\"1716443943499\" duration=\"4589000\" />\r\n      <workItem from=\"1716525524548\" duration=\"463000\" />\r\n      <workItem from=\"1716526136007\" duration=\"7459000\" />\r\n      <workItem from=\"1716539147745\" duration=\"1601000\" />\r\n      <workItem from=\"1716545850052\" duration=\"3808000\" />\r\n      <workItem from=\"1716551030766\" duration=\"329000\" />\r\n      <workItem from=\"1716551617892\" duration=\"44000\" />\r\n      <workItem from=\"1716558077496\" duration=\"1530000\" />\r\n      <workItem from=\"1716617738275\" duration=\"2091000\" />\r\n      <workItem from=\"1716632821647\" duration=\"13532000\" />\r\n      <workItem from=\"1716815419667\" duration=\"833000\" />\r\n      <workItem from=\"1716818846866\" duration=\"55000\" />\r\n      <workItem from=\"1716879200186\" duration=\"154000\" />\r\n      <workItem from=\"1716879594023\" duration=\"1092000\" />\r\n      <workItem from=\"1716881472997\" duration=\"116000\" />\r\n      <workItem from=\"1716882418428\" duration=\"218000\" />\r\n      <workItem from=\"1716884732355\" duration=\"1044000\" />\r\n      <workItem from=\"1716894070533\" duration=\"1054000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"initialization: first touch\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716084629913</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716084629913</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"structure: define structure\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716086577773</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716086577773</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"structure: add images\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716086706510</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716086706510</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"structure: rename application\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716093332363</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716093332363</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"feat: build Run feature (UI, Controller)\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716315542917</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716315542917</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"update: add controller\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716316587538</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716316587538</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"build: select obj from list view - feat: Run Experiment\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716321622677</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716321622677</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"build: select obj from list view - feat: Run Experiment\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716382813979</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716382813979</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"9\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"initialization: first touch\" />\r\n    <MESSAGE value=\"structure: define structure\" />\r\n    <MESSAGE value=\"structure: add images\" />\r\n    <MESSAGE value=\"structure: rename application\" />\r\n    <MESSAGE value=\"feat: build Run feature (UI, Controller)\" />\r\n    <MESSAGE value=\"update: add controller\" />\r\n    <MESSAGE value=\"build: select obj from list view - feat: Run Experiment\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"build: select obj from list view - feat: Run Experiment\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-method\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/UserManager.java</url>\r\n          <line>90</line>\r\n          <properties class=\"main.sensoryexperimentplatform.models.UserManager\" method=\"getExperimentForUser\">\r\n            <option name=\"EMULATED\" value=\"true\" />\r\n            <option name=\"WATCH_EXIT\" value=\"false\" />\r\n          </properties>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/TasteTest.java</url>\r\n          <line>110</line>\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 90130fa92ed5ae9cdb45d17ed3e458b5fe59e8b5)
++++ b/.idea/workspace.xml	(date 1717152873852)
+@@ -4,17 +4,18 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="Build: binding input stage">
+-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Sensory_Expeirment_Platform_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Sensory_Expeirment_Platform_jar.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_12_52_AM_[Changes]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_12_52_AM__Changes_.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_12_53_AM_[Changes]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_5_21_2024_12_53_AM__Changes_.xml" beforeDir="false" />
++    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="Build: finish binding Run">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/DashBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/DashBoardController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunGLMS_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunGLMS_VM.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunVas_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunVas_VM.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunGLMSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunGLMSController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunTimerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunTimerController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunVasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunVasController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/TasteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/TasteTest.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/Vas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/Vas.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunVas.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunVas.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -232,6 +233,12 @@
+       <workItem from="1716882418428" duration="218000" />
+       <workItem from="1716884732355" duration="1044000" />
+       <workItem from="1716894070533" duration="1054000" />
++      <workItem from="1716896559913" duration="118000" />
++      <workItem from="1716898718636" duration="2326000" />
++      <workItem from="1716946229234" duration="3059000" />
++      <workItem from="1716950831711" duration="57000" />
++      <workItem from="1716984252798" duration="24000" />
++      <workItem from="1717152094605" duration="779000" />
+     </task>
+     <task id="LOCAL-00001" summary="initialization: first touch">
+       <option name="closed" value="true" />
+@@ -297,11 +304,57 @@
+       <option name="project" value="LOCAL" />
+       <updated>1716382813979</updated>
+     </task>
+-    <option name="localTasksCounter" value="9" />
++    <task id="LOCAL-00009" summary="Build: finish binding Run">
++      <option name="closed" value="true" />
++      <created>1716896619282</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1716896619283</updated>
++    </task>
++    <option name="localTasksCounter" value="10" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="RECENT_FILTERS">
++      <map>
++        <entry key="Branch">
++          <value>
++            <list>
++              <RecentGroup>
++                <option name="FILTER_VALUES">
++                  <option value="thinhchau" />
++                </option>
++              </RecentGroup>
++            </list>
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State>
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="thinhchau" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
++          </value>
++        </entry>
++      </map>
++    </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="initialization: first touch" />
+@@ -311,7 +364,8 @@
+     <MESSAGE value="feat: build Run feature (UI, Controller)" />
+     <MESSAGE value="update: add controller" />
+     <MESSAGE value="build: select obj from list view - feat: Run Experiment" />
+-    <option name="LAST_COMMIT_MESSAGE" value="build: select obj from list view - feat: Run Experiment" />
++    <MESSAGE value="Build: finish binding Run" />
++    <option name="LAST_COMMIT_MESSAGE" value="Build: finish binding Run" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+Index: src/main/resources/main/sensoryexperimentplatform/RunVas.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.Slider?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.text.Font?>\r\n\r\n<AnchorPane prefHeight=\"530.0\" prefWidth=\"970.0\" stylesheets=\"/static/stylesheets/RunVas_CSS.css\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"main.sensoryexperimentplatform.controllers.RunVasController\">\r\n   <children>\r\n      <Label fx:id=\"lowAnchor_label\" layoutX=\"64.0\" layoutY=\"308.0\" prefHeight=\"58.0\" prefWidth=\"117.0\" text=\"Not at all\" textAlignment=\"CENTER\" wrapText=\"true\">\r\n         <font>\r\n            <Font size=\"14.0\" />\r\n         </font>\r\n      </Label>\r\n      <Label fx:id=\"highAnchor_label\" layoutX=\"790.0\" layoutY=\"308.0\" prefHeight=\"58.0\" prefWidth=\"118.0\" text=\"Extremely\" textAlignment=\"CENTER\" wrapText=\"true\">\r\n         <font>\r\n            <Font size=\"14.0\" />\r\n         </font>\r\n      </Label>\r\n      <Label fx:id=\"questionlbl\" layoutX=\"146.0\" layoutY=\"29.0\" prefHeight=\"108.0\" prefWidth=\"678.0\" wrapText=\"true\" />\r\n      <Slider fx:id=\"mySlider\" layoutX=\"122.0\" layoutY=\"265.0\" prefHeight=\"28.0\" prefWidth=\"727.0\" />\r\n      <Label fx:id=\"result_label\" layoutX=\"461.0\" layoutY=\"212.0\" prefHeight=\"43.0\" prefWidth=\"48.0\" text=\"0%\" textAlignment=\"CENTER\" wrapText=\"true\" />\r\n   </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/main/sensoryexperimentplatform/RunVas.fxml b/src/main/resources/main/sensoryexperimentplatform/RunVas.fxml
+--- a/src/main/resources/main/sensoryexperimentplatform/RunVas.fxml	(revision 90130fa92ed5ae9cdb45d17ed3e458b5fe59e8b5)
++++ b/src/main/resources/main/sensoryexperimentplatform/RunVas.fxml	(date 1716948814998)
+@@ -19,6 +19,5 @@
+       </Label>
+       <Label fx:id="questionlbl" layoutX="146.0" layoutY="29.0" prefHeight="108.0" prefWidth="678.0" wrapText="true" />
+       <Slider fx:id="mySlider" layoutX="122.0" layoutY="265.0" prefHeight="28.0" prefWidth="727.0" />
+-      <Label fx:id="result_label" layoutX="461.0" layoutY="212.0" prefHeight="43.0" prefWidth="48.0" text="0%" textAlignment="CENTER" wrapText="true" />
+    </children>
+ </AnchorPane>

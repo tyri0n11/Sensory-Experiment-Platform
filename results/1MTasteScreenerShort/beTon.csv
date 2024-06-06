@@ -1,0 +1,27 @@
+Heading,Time,Vas/GLMS Result,Question,Low Anchor, High Anchor, Low Value, High Value
+Vas,2024.06.06.15.20.56.779,70,How hungry are you right now?,Extremely hungry,Not at all hungry,0,100
+Vas,2024.06.06.15.20.58.848,22,How full are you right now?,Extremely full,Not at all full,0,100
+Vas,2024.06.06.15.21.00.569,82,How thirsty are you right now?,Extremely thirsty,Not at all thirsty,0,100
+Vas,2024.06.06.15.21.02.942,33,How happy are you right now?,Extremely happy,Not at all happy,0,100
+Vas,2024.06.06.15.21.04.205,76,How anxious are you right now?,Extremely anxious,Not at all anxious,0,100
+Vas,2024.06.06.15.21.05.574,26,How tired are you right now?,Extremely tired,Not at all tired,0,100
+Vas,2024.06.06.15.21.08.925,68,How much do you like Sample 667?,Dislike extremely,Like extremely,0,100
+GLMS ,2024.06.06.15.21.12.049,37260.0000,How sweet is Sample 667?
+GLMS ,2024.06.06.15.21.14.642,13110.0000,How bitter is Sample 667?
+GLMS ,2024.06.06.15.21.16.249,58650.0000,How sour is Sample 667?
+GLMS ,2024.06.06.15.21.17.841,80952.3810,How salty is Sample 667?
+Vas,2024.06.06.15.21.21.965,75,How much do you like Sample 312?,Dislike extremely,Like extremely,0,100
+GLMS ,null,0.0000,How sweet is Sample 312?
+GLMS ,null,0.0000,How bitter is Sample 312?
+GLMS ,null,0.0000,How sour is Sample 312?
+GLMS ,null,0.0000,How salty is Sample 312?
+Vas,null,50,How much do you like Sample 265?,Dislike extremely,Like extremely,0,100
+GLMS ,null,0.0000,How sweet is Sample 265?
+GLMS ,null,0.0000,How bitter is Sample 265?
+GLMS ,null,0.0000,How sour is Sample 265?
+GLMS ,null,0.0000,How salty is Sample 265?
+Vas,null,50,How much do you like Sample 720?,Dislike extremely,Like extremely,0,100
+GLMS ,null,0.0000,How sweet is Sample 720?
+GLMS ,null,0.0000,How bitter is Sample 720?
+GLMS ,null,0.0000,How sour is Sample 720?
+GLMS ,null,0.0000,How salty is Sample 720?

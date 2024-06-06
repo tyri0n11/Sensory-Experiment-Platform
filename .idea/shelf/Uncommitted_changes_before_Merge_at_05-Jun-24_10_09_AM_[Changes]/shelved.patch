@@ -1,0 +1,312 @@
+Index: src/main/java/main/sensoryexperimentplatform/controllers/RunController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package main.sensoryexperimentplatform.controllers;\r\n\r\n\r\nimport javafx.fxml.FXML;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.control.*;\r\nimport javafx.scene.input.MouseEvent;\r\nimport javafx.scene.layout.AnchorPane;\r\nimport javafx.stage.Stage; // Explicit import for JavaFX Stage\r\nimport main.sensoryexperimentplatform.SensoryExperimentPlatform;\r\nimport main.sensoryexperimentplatform.ViewModel.*;\r\nimport main.sensoryexperimentplatform.models.*;\r\nimport main.sensoryexperimentplatform.models.Timer;\r\n\r\nimport javax.swing.*;\r\nimport java.io.File;\r\nimport java.io.FileWriter;\r\nimport java.io.IOException;\r\nimport java.io.Writer;\r\n\r\n\r\n\r\npublic class RunController {\r\n    private static String FILE_NAME;\r\n    double pivot = 0.0;\r\n    double processed = 0.0;\r\n    @FXML\r\n    private AnchorPane content;\r\n\r\n    @FXML\r\n    private Button btn_Next;\r\n\r\n    @FXML\r\n    private Button btn_back;\r\n\r\n    @FXML\r\n    private ProgressBar progress_bar;\r\n\r\n    @FXML\r\n    private ListView<String> showList;\r\n\r\n    private RunExperiment_VM viewModel;\r\n\r\n\r\n\r\n    public void setViewModel(RunExperiment_VM viewModel){\r\n        this.viewModel = viewModel;\r\n        FILE_NAME = JOptionPane.showInputDialog(\"Enter your name, please!\");\r\n        bindViewModel();\r\n    }\r\n    private void updateProgress(double processed){\r\n        if(processed > pivot){\r\n            pivot = processed;\r\n            progress_bar.setProgress(pivot/(viewModel.count - 1));\r\n        }\r\n    }\r\n\r\n    private void bindViewModel() {\r\n\r\n        showList.itemsProperty().bind(viewModel.itemsProperty());\r\n        showList.setVisible(false);\r\n\r\n        // Add selection listener\r\n        showList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {\r\n            if (newValue != null) {\r\n                // Handle item selection (e.g., show detail view)\r\n                showDetailView(newValue);\r\n            }\r\n        });\r\n    }\r\n    @FXML\r\n    void handleBtnBack(MouseEvent event) {\r\n        processed-=2;\r\n        updateProgress(processed);\r\n        int selectedIndex = showList.getSelectionModel().getSelectedIndex();\r\n        if (selectedIndex > 0) {\r\n            showList.getSelectionModel().select(selectedIndex - 1);\r\n        } else {\r\n            showList.getSelectionModel().clearSelection();\r\n        }\r\n    }\r\n\r\n    @FXML\r\n    void handleBtnNext(MouseEvent event) throws IOException {\r\n\r\n        int selectedIndex = showList.getSelectionModel().getSelectedIndex();\r\n        if (selectedIndex == -1){\r\n            showList.getSelectionModel().select(0);\r\n        }\r\n        if (selectedIndex >= 0 && selectedIndex < showList.getItems().size() - 1) {\r\n            showList.getSelectionModel().select(selectedIndex + 1);\r\n            quickSave();\r\n        }\r\n    }\r\n\r\n    private void showDetailView(String item) {\r\n        Object selectedObject = viewModel.getObjectByKey(item);\r\n\r\n        if (selectedObject != null) {\r\n            int currentIndex = viewModel.getIndexOfObject(selectedObject);\r\n            if (currentIndex >= 0) {\r\n                if (currentIndex > processed) {\r\n                    processed = currentIndex;\r\n                    updateProgress(currentIndex);\r\n                }\r\n            } else {\r\n                processed++;\r\n                updateProgress(processed);\r\n            }\r\n            content.getChildren().clear();\r\n\r\n            try {\r\n                FXMLLoader loader;\r\n                // Vas view display\r\n                if (selectedObject instanceof Vas) {\r\n                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource(\"RunVas.fxml\"));\r\n                    AnchorPane newContent = loader.load();\r\n                    content.getChildren().setAll(newContent);\r\n\r\n                    RunVasController controller = loader.getController();\r\n                    RunVas_VM vm = new RunVas_VM((Vas) selectedObject);\r\n                    controller.setViewModel(vm);\r\n                    btn_Next.textProperty().bind(vm.buttonProperty());\r\n\r\n                }\r\n                // glms view display\r\n                if (selectedObject instanceof gLMS) {\r\n                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource(\"RunGLMS.fxml\"));\r\n                    AnchorPane newContent = loader.load();\r\n                    content.getChildren().setAll(newContent);\r\n\r\n                    RunGLMSController controller = loader.getController();\r\n                    RunGLMS_VM vm = new RunGLMS_VM((gLMS) selectedObject);\r\n                    controller.setViewModel(vm);\r\n                    btn_Next.textProperty().bind(vm.buttonProperty());\r\n\r\n                }\r\n                if (selectedObject instanceof Notice) {\r\n                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource(\"RunNotice.fxml\"));\r\n                    AnchorPane newContent = loader.load();\r\n                    content.getChildren().setAll(newContent);\r\n\r\n                    RunNoticeController controller = loader.getController();\r\n                    RunNotice_VM vm = new RunNotice_VM((Notice) selectedObject);\r\n                    controller.setViewModel(vm);\r\n                    btn_Next.textProperty().bind(vm.buttonProperty());\r\n                }\r\n                if (selectedObject instanceof Timer) {\r\n                    loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource(\"RunTimer.fxml\"));\r\n                    AnchorPane newContent = loader.load();\r\n                    content.getChildren().setAll(newContent);\r\n\r\n                    RunTimerController controller = loader.getController();\r\n                    RunTimer_VM viewModel = new RunTimer_VM((Timer) selectedObject);\r\n                    controller.setViewModel(viewModel);\r\n                    btn_back.setVisible(controller.getTimeLineCheck());\r\n                    btn_Next.setVisible(controller.getTimeLineCheck());\r\n                    controller.timelineFullProperty().addListener(((observableValue, oldValue, newValue) ->{\r\n                        btn_back.setVisible(newValue);\r\n                        btn_Next.setVisible(newValue);\r\n                        showList.getSelectionModel().select(showList.getSelectionModel().getSelectedIndex() + 1);\r\n                    } ));\r\n\r\n                }\r\n                if (selectedObject instanceof RatingContainer) {\r\n                    int selectedIndex = showList.getSelectionModel().getSelectedIndex();\r\n                    if (selectedIndex >= 0 && selectedIndex < showList.getItems().size() - 1) {\r\n                        showList.getSelectionModel().select(selectedIndex + 1);\r\n                    }\r\n                    return;\r\n                }\r\n                if (currentIndex == viewModel.count - 1) {\r\n                    btn_Next.setOnAction(event -> {\r\n                        try {\r\n                            handleFinalNext();\r\n                        } catch (IOException e) {\r\n                            throw new RuntimeException(e);\r\n                        }\r\n                    });\r\n                }\r\n            } catch (IOException e) {\r\n                e.printStackTrace();\r\n            }\r\n        }\r\n    }\r\n    private void handleFinalNext() throws IOException {\r\n        quickSave();\r\n        autoClose();\r\n    }\r\n\r\n    private void autoClose() {\r\n        // Get a handle to the stage\r\n        Stage stage = (Stage) content.getScene().getWindow();\r\n        // Close the stage\r\n        stage.close();\r\n    }\r\n    private void quickSave() throws IOException {\r\n        // Create directory for the experiment results if it doesn't exist\r\n        File resultsDirectory = new File(\"results\");\r\n        if (!resultsDirectory.exists()) {\r\n            resultsDirectory.mkdirs(); // Automatically creates the directory and any necessary parent directories\r\n        }\r\n\r\n        // Create directory for the experiment if it doesn't exist\r\n        String experimentName = viewModel.getExperimentName();\r\n        File experimentDirectory = new File(\"results/\" + experimentName);\r\n        if (!experimentDirectory.exists()) {\r\n            experimentDirectory.mkdirs(); // Automatically creates the directory and any necessary parent directories\r\n        }\r\n\r\n        // Create file for saving results\r\n        FileWriter writer = new FileWriter(\"results/\" + experimentName + \"/\" + FILE_NAME + \".csv\", false);\r\n\r\n        writer.write(\"Heading,Time,Vas/GLMS Result,Question,Low Anchor, High Anchor, Low Value, High Value\\n\");\r\n\r\n        for (Object o : viewModel.getStages()) {\r\n            if(o instanceof RatingContainer){\r\n                for(Object subO : ((RatingContainer) o).getContainer()){\r\n                    saveResult(writer,subO);\r\n                }\r\n            }\r\n            saveResult(writer,o);\r\n        }\r\n\r\n        writer.flush();\r\n        writer.close();\r\n    }\r\n    private void saveResult(Writer writer, Object subO) throws IOException {\r\n        if( subO instanceof Vas){\r\n            writer.append(\"Vas,\")\r\n                    .append(((Vas) subO).getConducted())\r\n                    .append(\",\")\r\n                    .append(String.valueOf(((Vas) subO).getResult()).trim())\r\n                    .append(\",\")\r\n                    .append(((Vas) subO).getTitle())\r\n                    .append(\",\")\r\n                    .append(((Vas) subO).getLowAnchorText())\r\n                    .append(\",\")\r\n                    .append(((Vas) subO).getHighAnchorText())\r\n                    .append(\",\")\r\n                    .append(String.valueOf(((Vas) subO).getLowAnchorValue()))\r\n                    .append(\",\")\r\n                    .append(String.valueOf(((Vas) subO).getHighAnchorValue()));\r\n            writer.append(\"\\n\");\r\n        }\r\n        if( subO instanceof gLMS){\r\n            writer.append(\"GLMS ,\")\r\n                    .append(((gLMS) subO).getConducted())\r\n                    .append(\",\")\r\n                    .append(String.format(\"%.4f\",((gLMS) subO).getResult()))\r\n                    .append(\",\")\r\n                    .append(((gLMS) subO).getTitle());\r\n            writer.append(\"\\n\");\r\n        }\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java b/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java
+--- a/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java	(revision 4b66b2a735aca0463dbfd24eec2802862dd4b7a2)
++++ b/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java	(date 1717556938684)
+@@ -27,6 +27,8 @@
+     @FXML
+     private AnchorPane content;
+ 
++    @FXML
++    private Label title_label;
+     @FXML
+     private Button btn_Next;
+ 
+Index: src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.Slider?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n\r\n<AnchorPane prefHeight=\"530.0\" prefWidth=\"970.0\" stylesheets=\"/static/stylesheets/RunGLMS_CSS.css\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"main.sensoryexperimentplatform.controllers.RunGLMSController\">\r\n   <children>\r\n      <Slider fx:id=\"mySlider\" layoutX=\"331.0\" layoutY=\"85.0\" majorTickUnit=\"10.0\" orientation=\"VERTICAL\" prefHeight=\"434.0\" prefWidth=\"14.0\" />\r\n      <Label fx:id=\"questionlbl\" layoutX=\"14.0\" layoutY=\"10.0\" prefHeight=\"59.0\" prefWidth=\"662.0\" text=\"Question\" wrapText=\"true\" />\r\n      <Label fx:id=\"helpText\" layoutX=\"576.0\" layoutY=\"97.0\" prefHeight=\"361.0\" prefWidth=\"287.0\" text=\"Label\" wrapText=\"true\" />\r\n   </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml b/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml
+--- a/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml	(revision 4b66b2a735aca0463dbfd24eec2802862dd4b7a2)
++++ b/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml	(date 1717555617732)
+@@ -4,10 +4,10 @@
+ <?import javafx.scene.control.Slider?>
+ <?import javafx.scene.layout.AnchorPane?>
+ 
+-<AnchorPane prefHeight="530.0" prefWidth="970.0" stylesheets="/static/stylesheets/RunGLMS_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunGLMSController">
++<AnchorPane fx:id="content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="539.0" prefWidth="1200.0" stylesheets="/static/stylesheets/RunGLMS_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunGLMSController">
+    <children>
+-      <Slider fx:id="mySlider" layoutX="331.0" layoutY="85.0" majorTickUnit="10.0" orientation="VERTICAL" prefHeight="434.0" prefWidth="14.0" />
+-      <Label fx:id="questionlbl" layoutX="14.0" layoutY="10.0" prefHeight="59.0" prefWidth="662.0" text="Question" wrapText="true" />
+-      <Label fx:id="helpText" layoutX="576.0" layoutY="97.0" prefHeight="361.0" prefWidth="287.0" text="Label" wrapText="true" />
++      <Slider fx:id="mySlider" layoutX="331.0" layoutY="85.0" majorTickUnit="10.0" orientation="VERTICAL" prefHeight="444.0" prefWidth="14.0" />
++      <Label fx:id="questionlbl" layoutX="14.0" layoutY="10.0" prefHeight="59.0" prefWidth="1158.0" text="Question" wrapText="true" />
++      <Label fx:id="helpText" layoutX="576.0" layoutY="97.0" prefHeight="361.0" prefWidth="287.0" text="Help text" wrapText="true" />
+    </children>
+ </AnchorPane>
+Index: src/main/resources/main/sensoryexperimentplatform/RunNotice.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n\r\n<AnchorPane prefHeight=\"530.0\" prefWidth=\"970.0\" stylesheets=\"/static/stylesheets/RunNotice_CSS.css\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"main.sensoryexperimentplatform.controllers.RunNoticeController\">\r\n   <children>\r\n      <Label fx:id=\"titleTxt\" layoutX=\"129.0\" layoutY=\"73.0\" prefHeight=\"100.0\" prefWidth=\"713.0\" wrapText=\"true\" />\r\n      <Label fx:id=\"contentTxt\" layoutX=\"92.0\" layoutY=\"189.0\" prefHeight=\"304.0\" prefWidth=\"787.0\" wrapText=\"true\" />\r\n   </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/main/sensoryexperimentplatform/RunNotice.fxml b/src/main/resources/main/sensoryexperimentplatform/RunNotice.fxml
+--- a/src/main/resources/main/sensoryexperimentplatform/RunNotice.fxml	(revision 4b66b2a735aca0463dbfd24eec2802862dd4b7a2)
++++ b/src/main/resources/main/sensoryexperimentplatform/RunNotice.fxml	(date 1717555624280)
+@@ -3,9 +3,9 @@
+ <?import javafx.scene.control.Label?>
+ <?import javafx.scene.layout.AnchorPane?>
+ 
+-<AnchorPane prefHeight="530.0" prefWidth="970.0" stylesheets="/static/stylesheets/RunNotice_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunNoticeController">
++<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="539.0" prefWidth="1200.0" stylesheets="/static/stylesheets/RunNotice_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunNoticeController">
+    <children>
+-      <Label fx:id="titleTxt" layoutX="129.0" layoutY="73.0" prefHeight="100.0" prefWidth="713.0" wrapText="true" />
+-      <Label fx:id="contentTxt" layoutX="92.0" layoutY="189.0" prefHeight="304.0" prefWidth="787.0" wrapText="true" />
++      <Label fx:id="titleTxt" layoutX="289.0" layoutY="75.0" prefHeight="100.0" prefWidth="713.0" wrapText="true" />
++      <Label fx:id="contentTxt" layoutX="46.0" layoutY="186.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="539.0" prefWidth="1200.0" wrapText="true" />
+    </children>
+ </AnchorPane>
+Index: src/main/resources/main/sensoryexperimentplatform/RunExperiment.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.ListView?>\r\n<?import javafx.scene.control.ProgressBar?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.layout.BorderPane?>\r\n<?import javafx.scene.layout.Pane?>\r\n<?import javafx.scene.text.Font?>\r\n\r\n<AnchorPane prefHeight=\"800.0\" prefWidth=\"1280.0\" stylesheets=\"/static/stylesheets/RunEx.css\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"main.sensoryexperimentplatform.controllers.RunController\">\r\n   <children>\r\n      <BorderPane layoutY=\"-1.0\" maxHeight=\"1.7976931348623157E308\" maxWidth=\"1.7976931348623157E308\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"800.0\" prefWidth=\"1280.0\">\r\n         <left>\r\n            <Pane prefHeight=\"645.0\" prefWidth=\"22.0\">\r\n               <children>\r\n                  <ListView fx:id=\"showList\" focusTraversable=\"false\" layoutX=\"13.0\" layoutY=\"14.0\" prefHeight=\"610.0\" prefWidth=\"192.0\" />\r\n               </children>\r\n            </Pane>\r\n         </left>\r\n         <top>\r\n            <AnchorPane prefHeight=\"155.0\" prefWidth=\"1280.0\" BorderPane.alignment=\"CENTER\">\r\n               <children>\r\n                  <ProgressBar fx:id=\"progress_bar\" layoutX=\"105.0\" layoutY=\"133.0\" prefHeight=\"20.0\" prefWidth=\"1070.0\" progress=\"0.0\" />\r\n                  <Label fx:id=\"senseXPlbl\" layoutX=\"14.0\" layoutY=\"14.0\" text=\"SenseXP\">\r\n                     <font>\r\n                        <Font name=\"Baloo 2 Regular\" size=\"40.0\" />\r\n                     </font>\r\n                  </Label>\r\n                  <Label fx:id=\"runelbl\" layoutX=\"163.0\" layoutY=\"73.0\" text=\"Run experiment\">\r\n                     <font>\r\n                        <Font name=\"Baloo 2 Regular\" size=\"36.0\" />\r\n                     </font>\r\n                  </Label>\r\n               </children>\r\n            </AnchorPane>\r\n         </top>\r\n         <center>\r\n            <Pane prefHeight=\"645.0\" prefWidth=\"1054.0\" BorderPane.alignment=\"CENTER\">\r\n               <children>\r\n                  <Button fx:id=\"btn_back\" layoutX=\"660.0\" layoutY=\"544.0\" mnemonicParsing=\"false\" onMouseClicked=\"#handleBtnBack\" prefHeight=\"70.0\" prefWidth=\"150.0\" text=\"Back\" wrapText=\"true\">\r\n                     <font>\r\n                        <Font size=\"20.0\" />\r\n                     </font>\r\n                  </Button>\r\n                  <Button fx:id=\"btn_Next\" layoutX=\"825.0\" layoutY=\"544.0\" mnemonicParsing=\"false\" onMouseClicked=\"#handleBtnNext\" prefHeight=\"70.0\" prefWidth=\"150.0\" text=\"Next\" wrapText=\"true\">\r\n                     <font>\r\n                        <Font size=\"20.0\" />\r\n                     </font>\r\n                  </Button>\r\n                  <AnchorPane fx:id=\"content\" layoutX=\"175.0\" prefHeight=\"539.0\" prefWidth=\"971.0\" />\r\n\r\n               </children>\r\n            </Pane>\r\n         </center>\r\n      </BorderPane>\r\n   </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/main/sensoryexperimentplatform/RunExperiment.fxml b/src/main/resources/main/sensoryexperimentplatform/RunExperiment.fxml
+--- a/src/main/resources/main/sensoryexperimentplatform/RunExperiment.fxml	(revision 4b66b2a735aca0463dbfd24eec2802862dd4b7a2)
++++ b/src/main/resources/main/sensoryexperimentplatform/RunExperiment.fxml	(date 1717555624232)
+@@ -37,8 +37,9 @@
+             </AnchorPane>
+          </top>
+          <center>
+-            <Pane prefHeight="645.0" prefWidth="1054.0" BorderPane.alignment="CENTER">
++            <Pane prefHeight="537.0" prefWidth="1198.0" BorderPane.alignment="CENTER">
+                <children>
++                  <Label fx:id="title_label" layoutX="538.0" layoutY="190.0" prefHeight="82.0" prefWidth="203.0" text="Label" />
+                   <Button fx:id="btn_back" layoutX="660.0" layoutY="544.0" mnemonicParsing="false" onMouseClicked="#handleBtnBack" prefHeight="70.0" prefWidth="150.0" text="Back" wrapText="true">
+                      <font>
+                         <Font size="20.0" />
+@@ -49,9 +50,9 @@
+                         <Font size="20.0" />
+                      </font>
+                   </Button>
+-                  <AnchorPane fx:id="content" layoutX="175.0" prefHeight="539.0" prefWidth="971.0" />
++                  <AnchorPane fx:id="content" layoutX="58.0" layoutY="4.0" prefHeight="536.0" prefWidth="1142.0" />
+ 
+-               </children>
++                     </children>
+             </Pane>
+          </center>
+       </BorderPane>
+Index: src/main/resources/static/stylesheets/RunNotice_CSS.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.label{\r\n    -fx-font-family: Baloo2;\r\n    -fx-font-size: 20px;\r\n    -fx-text-fill: #397E82;\r\n    -fx-alignment: CENTER;\r\n}\r\n#titleTxt,#title_lbl {\r\n    -fx-font-size: 36px;\r\n}\r\n.progress-bar{\r\n    -fx-accent: #397E82;\r\n    -fx-pref-height: 28px;\r\n}\r\n#rating {\r\n    -fx-font-size: 36px;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/static/stylesheets/RunNotice_CSS.css b/src/main/resources/static/stylesheets/RunNotice_CSS.css
+--- a/src/main/resources/static/stylesheets/RunNotice_CSS.css	(revision 4b66b2a735aca0463dbfd24eec2802862dd4b7a2)
++++ b/src/main/resources/static/stylesheets/RunNotice_CSS.css	(date 1717555624258)
+@@ -1,3 +1,8 @@
++.Anchor-Pane{
++    -fx-content-display: 90%;
++    -fx-alignment: center;
++    -fx-wrap-text: true;
++}
+ .label{
+     -fx-font-family: Baloo2;
+     -fx-font-size: 20px;
+Index: src/main/resources/static/stylesheets/RunEx.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.root{\r\n    -fx-background-color: #FFFFFF;\r\n}\r\n.label{\r\n    -fx-font-family: Baloo2;\r\n    -fx-font-weight: Bold;\r\n    -fx-text-fill: #397E82;\r\n}\r\n\r\n\r\n/* Style cho ListView */\r\n.list-view {\r\n    -fx-background-color: transparent; /* Màu nền của ListView */\r\n}\r\n\r\n.list-view .scroll-bar:vertical {\r\n    -fx-background-color: transparent; /* Đặt màu nền của thanh cuộn thành trong suốt */\r\n    -fx-pref-width: 3px;\r\n}\r\n\r\n.list-view .scroll-bar:vertical .track {\r\n    -fx-background-color: #397E82; /* Đặt màu nền của track (đường dẫn) thành trong suốt */\r\n}\r\n\r\n.list-view .scroll-bar:vertical .thumb {\r\n    -fx-background-color: white; /* Đặt màu nền của thumb (nút cuộn) */\r\n    -fx-background-insets: 0; /* Loại bỏ phần inset (khoảng cách viền trong) */\r\n    -fx-border-radius: 50%; /* Bo tròn các góc của thumb thành hình tròn */\r\n    -fx-pref-width: 20px; /* Đặt chiều rộng của thumb */\r\n    -fx-pref-height: 20px; /* Đặt chiều cao của thumb */\r\n}\r\n\r\n.list-view .scroll-bar:vertical .increment-button,\r\n.list-view .scroll-bar:vertical .decrement-button {\r\n    -fx-background-color: transparent; /* Đặt màu nền của các nút tăng giảm thành trong suốt */\r\n    -fx-padding: 0; /* Loại bỏ phần padding */\r\n    -fx-shape: null; /* Loại bỏ hình dạng mặc định của các nút */\r\n    -fx-pref-height: 0; /* Đặt chiều cao của các nút thành 0 */\r\n}\r\n\r\n.list-cell{\r\n    -fx-font-size: 16px;\r\n    -fx-font-weight: bold;\r\n    -fx-text-fill: #397E82;\r\n    -fx-wrap-text: true;\r\n}\r\n.progress-bar{\r\n    -fx-border-radius: 40%;\r\n    -fx-border-color: transparent;\r\n}\r\n.progress-bar .bar{\r\n    -fx-background-color: #397E82;\r\n}\r\n\r\n.button {\r\n    -fx-font-size: 18px;\r\n    -fx-font-weight: bold;\r\n    -fx-background-radius: 30px;\r\n    -fx-text-fill: #397E82;\r\n    -fx-background-color: #F1F6FB;\r\n    -fx-effect: innershadow(three-pass-box, rgba(85, 91, 110, 0.15), 5, 0, 0, 5);\r\n}\r\n.button:hover{\r\n    -fx-background-color: #397E82;\r\n    -fx-text-fill: #F0F0F0;\r\n    -fx-effect: dropshadow(three-pass-box, rgba(85, 91, 110, 0.15), 5, 0, 0, 5);\r\n}\r\n\r\n#labelView{\r\n    -fx-font-family: 'Baloo 2';\r\n    -fx-font-style: normal;\r\n    -fx-font-weight: 700;\r\n    -fx-font-size: 36px;\r\n    -fx-line-height: 58px;\r\n    -fx-display: flex;\r\n    -fx-align-items: center;\r\n\r\n    -fx-text-fill: #397E82;\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/static/stylesheets/RunEx.css b/src/main/resources/static/stylesheets/RunEx.css
+--- a/src/main/resources/static/stylesheets/RunEx.css	(revision 4b66b2a735aca0463dbfd24eec2802862dd4b7a2)
++++ b/src/main/resources/static/stylesheets/RunEx.css	(date 1717555624268)
+@@ -7,7 +7,10 @@
+     -fx-text-fill: #397E82;
+ }
+ 
+-
++#content{
++    -fx-content-display: 90%;
++    -fx-alignment: center;
++}
+ /* Style cho ListView */
+ .list-view {
+     -fx-background-color: transparent; /* Màu nền của ListView */
+Index: src/main/resources/static/stylesheets/RunGLMS_CSS.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>.label{\r\n    -fx-font-family: \"Baloo2 SemiBold\";\r\n    -fx-font-weight: Bold;\r\n    -fx-font-size: 18px;\r\n    -fx-text-fill: #397E82;\r\n}\r\n#questionlbl{\r\n    -fx-alignment: Center;\r\n    -fx-font-size: 24px;\r\n}\r\n.slider .track{\r\n    -fx-pref-width: 28px;\r\n    -fx-background-color: #D5E9EA;\r\n    -fx-background-radius: 14px;\r\n\r\n}\r\ninput[type=\"range\"]::-webkit-slider-runnable-track {\r\n    background-color: #FF5733; /* Set your desired background color */\r\n}\r\ninput[type=\"range\"]::-moz-range-track {\r\n    background-color: #FF5733; /* Set your desired background color */\r\n}\r\n\r\n\r\n.slider .axis{\r\n    -fx-tick-label-fill: #397E82 ;\r\n    -fx-font-size: 16px;\r\n}\r\n.slider .thumb{\r\n    -fx-pref-height: 28px;\r\n    -fx-pref-width: 28px;\r\n    -fx-background-image: url(\"/static/images/slider_thumb.png\");\r\n    -fx-background-radius: 17px;\r\n}\r\n#result_label{\r\n    -fx-background-image: url(\"/static/images/popup.png\");\r\n    -fx-font-family: \"Baloo2 SemiBold\";\r\n    -fx-font-size: 18px;\r\n    -fx-text-alignment: center;\r\n    -fx-alignment: center;\r\n}\r\n#lowAnchor_label, #highAnchor_label{\r\n    -fx-font-family: \"Baloo2 SemiBold\";\r\n    -fx-font-size: 20px;\r\n    -fx-alignment: center;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/static/stylesheets/RunGLMS_CSS.css b/src/main/resources/static/stylesheets/RunGLMS_CSS.css
+--- a/src/main/resources/static/stylesheets/RunGLMS_CSS.css	(revision 4b66b2a735aca0463dbfd24eec2802862dd4b7a2)
++++ b/src/main/resources/static/stylesheets/RunGLMS_CSS.css	(date 1717555624273)
+@@ -1,3 +1,7 @@
++.root{
++    -fx-content-display: 98%;
++    -fx-alignment: center;
++}
+ .label{
+     -fx-font-family: "Baloo2 SemiBold";
+     -fx-font-weight: Bold;
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ArtifactsWorkspaceSettings\">\r\n    <artifacts-to-build>\r\n      <artifact name=\"Sensory-Expeirment-Platform:jar\" />\r\n    </artifacts-to-build>\r\n  </component>\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"f94c3078-ef99-4a09-b4f4-0c5a4fda2f19\" name=\"Changes\" comment=\"Build: Run experiment _ v1.2\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Yoyo_Nico.csv\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/results/1MTasteScreenerShort/test_04_06.csv\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/kuma.csv\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n        <option value=\"Class\" />\r\n        <option value=\"FxmlFile\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <favorite-branches>\r\n      <branch-storage>\r\n        <map>\r\n          <entry type=\"LOCAL\">\r\n            <value>\r\n              <list>\r\n                <branch-info repo=\"$PROJECT_DIR$\" source=\"thinhchau\" />\r\n              </list>\r\n            </value>\r\n          </entry>\r\n        </map>\r\n      </branch-storage>\r\n    </favorite-branches>\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"thinhchau_RunExp\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"3b4e63b0-bfac-4c7e-b9c0-959d55cc3dec\" />\r\n        <option name=\"url\" value=\"https://github.com/tyri0n11/Sensory-Experiment-Platform.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n        &quot;associatedIndex&quot;: 7\r\n        }</component>\r\n  <component name=\"ProjectId\" id=\"2gfMpE8hYQXVyt7Njo1xE7lNGtc\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Application.DataAccess.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.Main.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.RunExperiment.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.SensoryExperimentPlatform.executor&quot;: &quot;Run&quot;,\r\n    &quot;Application.TasteTest.executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;thinhchau&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Desktop/Tyr1on/SceneBuilder/SceneBuilder.exe&quot;,\r\n    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\USER\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Desktop\\Respositories\\Sensory Expeirment Platform\\src\\main\\resources\\static\\images\" />\r\n      <recent name=\"C:\\Users\\USER\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Desktop\\Respositories\\Sensory Expeirment Platform\\src\\main\\resources\\static\\fonts\" />\r\n      <recent name=\"C:\\Users\\USER\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Desktop\\Respositories\\Sensory Expeirment Platform\\src\\main\\resources\\static\" />\r\n      <recent name=\"C:\\Users\\USER\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Desktop\\Respositories\\Sensory Expeirment Platform\\src\\main\\resources\\static\\stylesheets\" />\r\n      <recent name=\"C:\\Users\\USER\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Desktop\\Respositories\\Sensory Expeirment Platform\\src\\main\\java\\main\\sensoryexpeirmentplatform\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\USER\\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\\Desktop\\Respositories\\Sensory Expeirment Platform\\src\\main\\resources\\static\\stylesheets\" />\r\n    </key>\r\n    <key name=\"MoveClassesOrPackagesDialog.RECENTS_KEY\">\r\n      <recent name=\"main.sensoryexperimentplatform\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.SensoryExperimentPlatform\">\r\n    <configuration name=\"DataAccess\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"main.sensoryexperimentplatform.models.DataAccess\" />\r\n      <module name=\"Sensory-Expeirment-Platform\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"main.sensoryexperimentplatform.models.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"main.sensoryexperimentplatform.controllers.Main\" />\r\n      <module name=\"Sensory-Expeirment-Platform\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"main.sensoryexperimentplatform.controllers.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"RunExperiment\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"main.sensoryexperimentplatform.models.RunExperiment\" />\r\n      <module name=\"Sensory-Expeirment-Platform\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"main.sensoryexperimentplatform.models.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SensoryExperimentPlatform\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"main.sensoryexperimentplatform.SensoryExperimentPlatform\" />\r\n      <module name=\"Sensory-Expeirment-Platform\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"main.sensoryexperimentplatform.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"TasteTest\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"main.sensoryexperimentplatform.models.TasteTest\" />\r\n      <module name=\"Sensory-Expeirment-Platform\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"main.sensoryexperimentplatform.models.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Application.DataAccess\" />\r\n      <item itemvalue=\"Application.RunExperiment\" />\r\n      <item itemvalue=\"Application.TasteTest\" />\r\n      <item itemvalue=\"Application.Main\" />\r\n      <item itemvalue=\"Application.SensoryExperimentPlatform\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.SensoryExperimentPlatform\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.DataAccess\" />\r\n        <item itemvalue=\"Application.TasteTest\" />\r\n        <item itemvalue=\"Application.RunExperiment\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-22-openjdk-22-4caba194b151-f504ca98\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"f94c3078-ef99-4a09-b4f4-0c5a4fda2f19\" name=\"Changes\" comment=\"\" />\r\n      <created>1716084363027</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1716084363027</updated>\r\n      <workItem from=\"1716084364098\" duration=\"2984000\" />\r\n      <workItem from=\"1716093260329\" duration=\"921000\" />\r\n      <workItem from=\"1716124956703\" duration=\"2389000\" />\r\n      <workItem from=\"1716131018411\" duration=\"282000\" />\r\n      <workItem from=\"1716132925097\" duration=\"484000\" />\r\n      <workItem from=\"1716168538056\" duration=\"4659000\" />\r\n      <workItem from=\"1716206311453\" duration=\"2313000\" />\r\n      <workItem from=\"1716218483418\" duration=\"3469000\" />\r\n      <workItem from=\"1716257085079\" duration=\"4227000\" />\r\n      <workItem from=\"1716273124655\" duration=\"3523000\" />\r\n      <workItem from=\"1716276679530\" duration=\"1777000\" />\r\n      <workItem from=\"1716289889033\" duration=\"22994000\" />\r\n      <workItem from=\"1716341816877\" duration=\"4721000\" />\r\n      <workItem from=\"1716364512653\" duration=\"68000\" />\r\n      <workItem from=\"1716382762774\" duration=\"9101000\" />\r\n      <workItem from=\"1716434905694\" duration=\"5802000\" />\r\n      <workItem from=\"1716443943499\" duration=\"4589000\" />\r\n      <workItem from=\"1716451937034\" duration=\"79000\" />\r\n      <workItem from=\"1716469722523\" duration=\"22000\" />\r\n      <workItem from=\"1716470459041\" duration=\"2912000\" />\r\n      <workItem from=\"1716473387962\" duration=\"9119000\" />\r\n      <workItem from=\"1716511290006\" duration=\"1710000\" />\r\n      <workItem from=\"1716523262601\" duration=\"5362000\" />\r\n      <workItem from=\"1716562656104\" duration=\"5394000\" />\r\n      <workItem from=\"1716599777864\" duration=\"20278000\" />\r\n      <workItem from=\"1716689043283\" duration=\"7271000\" />\r\n      <workItem from=\"1716731759942\" duration=\"446000\" />\r\n      <workItem from=\"1716912605073\" duration=\"2507000\" />\r\n      <workItem from=\"1717075141480\" duration=\"9348000\" />\r\n      <workItem from=\"1717419706508\" duration=\"3039000\" />\r\n      <workItem from=\"1717507880938\" duration=\"1625000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"initialization: first touch\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716084629913</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716084629913</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"structure: define structure\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716086577773</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716086577773</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"structure: add images\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716086706510</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716086706510</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"structure: rename application\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716093332363</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716093332363</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"feat: build Run feature (UI, Controller)\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716315542917</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716315542917</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"update: add controller\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716316587538</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716316587538</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"build: select obj from list view - feat: Run Experiment\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716321622677</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716321622677</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"build: select obj from list view - feat: Run Experiment\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716382813979</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716382813979</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"feat: run timer stage\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716477528567</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716477528567</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"Build: Run experiment _ v1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716619704246</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716619704246</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Build: Run experiment _ v1.1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1716914901876</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1716914901876</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"12\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"initialization: first touch\" />\r\n    <MESSAGE value=\"structure: define structure\" />\r\n    <MESSAGE value=\"structure: add images\" />\r\n    <MESSAGE value=\"structure: rename application\" />\r\n    <MESSAGE value=\"feat: build Run feature (UI, Controller)\" />\r\n    <MESSAGE value=\"update: add controller\" />\r\n    <MESSAGE value=\"build: select obj from list view - feat: Run Experiment\" />\r\n    <MESSAGE value=\"feat: run timer stage\" />\r\n    <MESSAGE value=\"Build: Run experiment _ v1\" />\r\n    <MESSAGE value=\"Build: Run experiment _ v1.1\" />\r\n    <MESSAGE value=\"Build: Run experiment _ v1.2\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Build: Run experiment _ v1.2\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" type=\"java-method\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/UserManager.java</url>\r\n          <line>90</line>\r\n          <properties class=\"main.sensoryexperimentplatform.models.UserManager\">\r\n            <option name=\"EMULATED\" value=\"true\" />\r\n            <option name=\"WATCH_EXIT\" value=\"false\" />\r\n          </properties>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\r\n          <url>file://$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/TasteTest.java</url>\r\n          <line>165</line>\r\n          <option name=\"timeStamp\" value=\"2\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 4b66b2a735aca0463dbfd24eec2802862dd4b7a2)
++++ b/.idea/workspace.xml	(date 1717556867850)
+@@ -9,12 +9,14 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="Build: Run experiment _ v1.2">
++    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="Build: Run experiment _ v1.4">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Yoyo_Nico.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/1MTasteScreenerShort/test_04_06.csv" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/kuma.csv" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunExperiment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunExperiment.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunNotice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunNotice.fxml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunEx.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunEx.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunGLMS_CSS.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunGLMS_CSS.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunNotice_CSS.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/RunNotice_CSS.css" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -77,33 +79,33 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Application.DataAccess.executor&quot;: &quot;Run&quot;,
+-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+-    &quot;Application.RunExperiment.executor&quot;: &quot;Run&quot;,
+-    &quot;Application.SensoryExperimentPlatform.executor&quot;: &quot;Run&quot;,
+-    &quot;Application.TasteTest.executor&quot;: &quot;Run&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+-    &quot;git-widget-placeholder&quot;: &quot;thinhchau&quot;,
+-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/Desktop/Tyr1on/SceneBuilder/SceneBuilder.exe&quot;,
+-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Application.DataAccess.executor": "Run",
++    "Application.Main.executor": "Run",
++    "Application.RunExperiment.executor": "Run",
++    "Application.SensoryExperimentPlatform.executor": "Run",
++    "Application.TasteTest.executor": "Run",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "extract.method.default.visibility": "private",
++    "git-widget-placeholder": "thinhchau",
++    "kotlin-language-version-configured": "true",
++    "last_opened_file_path": "C:/Users/PC/Desktop/Tyr1on/SceneBuilder/SceneBuilder.exe",
++    "list.type.of.created.stylesheet": "CSS",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
++    "settings.editor.selected.configurable": "preferences.lookFeel",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="C:\Users\USER\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\Desktop\Respositories\Sensory Expeirment Platform\src\main\resources\static\images" />
+@@ -196,15 +198,16 @@
+       <list>
+         <item itemvalue="Application.SensoryExperimentPlatform" />
+         <item itemvalue="Application.Main" />
+-        <item itemvalue="Application.DataAccess" />
+         <item itemvalue="Application.TasteTest" />
+         <item itemvalue="Application.RunExperiment" />
++        <item itemvalue="Application.DataAccess" />
+       </list>
+     </recent_temporary>
+   </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
++        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
+         <option value="jdk-22-openjdk-22-4caba194b151-f504ca98" />
+       </set>
+     </attachedChunks>
+@@ -248,6 +251,8 @@
+       <workItem from="1717075141480" duration="9348000" />
+       <workItem from="1717419706508" duration="3039000" />
+       <workItem from="1717507880938" duration="1625000" />
++      <workItem from="1717511554757" duration="2617000" />
++      <workItem from="1717553114375" duration="3035000" />
+     </task>
+     <task id="LOCAL-00001" summary="initialization: first touch">
+       <option name="closed" value="true" />
+@@ -337,7 +342,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1716914901876</updated>
+     </task>
+-    <option name="localTasksCounter" value="12" />
++    <task id="LOCAL-00012" summary="Build: Run experiment _ v1.4">
++      <option name="closed" value="true" />
++      <created>1717514810289</created>
++      <option name="number" value="00012" />
++      <option name="presentableId" value="LOCAL-00012" />
++      <option name="project" value="LOCAL" />
++      <updated>1717514810289</updated>
++    </task>
++    <option name="localTasksCounter" value="13" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -366,7 +379,8 @@
+     <MESSAGE value="Build: Run experiment _ v1" />
+     <MESSAGE value="Build: Run experiment _ v1.1" />
+     <MESSAGE value="Build: Run experiment _ v1.2" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Build: Run experiment _ v1.2" />
++    <MESSAGE value="Build: Run experiment _ v1.4" />
++    <option name="LAST_COMMIT_MESSAGE" value="Build: Run experiment _ v1.4" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+@@ -374,7 +388,7 @@
+         <line-breakpoint enabled="true" type="java-method">
+           <url>file://$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/UserManager.java</url>
+           <line>90</line>
+-          <properties class="main.sensoryexperimentplatform.models.UserManager">
++          <properties class="main.sensoryexperimentplatform.models.UserManager" method="getExperimentForUser">
+             <option name="EMULATED" value="true" />
+             <option name="WATCH_EXIT" value="false" />
+           </properties>

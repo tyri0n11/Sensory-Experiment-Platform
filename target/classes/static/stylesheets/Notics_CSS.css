@@ -1,0 +1,46 @@
+.property{
+    /* Properties */
+    -fx-font-family: "Poppins";
+    -fx-font-style: normal;
+
+    -fx-max-width: 719px;
+    -fx-max-height: 32px;
+    -fx-font-weight: 700;
+    -fx-font-size: 20px;
+    -fx-line-height: 30px;
+    -fx-letter-spacing: 0.03em;
+
+    -fx-text-fill: #655E95;
+
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+
+}
+.normallabel{
+    -fx-font-family: "Baloo Bhaina 2";
+    -fx-font-style: normal;
+    -fx-font-weight: 700;
+    -fx-font-size: 15px;
+    -fx-line-height: 25px;
+    -fx-text-fill:#0E0E0E;
+}
+.combo-box{
+    -fx-background-color: #F0F0F0;
+
+}
+.combo-box-popup .list-view {
+    -fx-background: #FFFFFF;
+
+}
+.combo-box .arrow-button {
+    -fx-background-color: #FFFFFF;
+
+}
+.combo-box .text-field {
+    -fx-background-color: #FFFFFF;
+
+}
+

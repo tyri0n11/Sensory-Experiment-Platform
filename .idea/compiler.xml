@@ -9,5 +9,8 @@
         <module name="Sensory-Expeirment-Platform" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Sensory-Expeirment-Platform" target="22" />
+    </bytecodeTargetLevel>
   </component>
 </project>
