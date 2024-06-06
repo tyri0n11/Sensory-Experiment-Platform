@@ -6,9 +6,18 @@
     -fx-font-weight: Bold;
     -fx-text-fill: #397E82;
 }
+#content{
+    -fx-alignment: center;
+    -fx-border-radius: 30%;
+    -fx-background-radius: 13px;
+    -fx-background-insets: 0, 2; /* Adjust the second value to control border width */
+    -fx-background-color:
+            linear-gradient(to right bottom, #397E82, #FFFACD), /* Border gradient */
+            white;
+}
 
 
-/* Style cho ListView */
+
 .list-view {
     -fx-background-color: transparent; /* Màu nền của ListView */
 }

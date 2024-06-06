@@ -162,6 +162,67 @@ public class DataAccess {
         }
         return currentExperiment;
     }
+    //Save results of conducted experiment
+    public static void quickSave(Experiment experiment, String FILE_NAME) throws IOException {
+        // Create directory for the experiment results if it doesn't exist
+        File resultsDirectory = new File("results");
+        if (!resultsDirectory.exists()) {
+            resultsDirectory.mkdirs(); // Automatically creates the directory and any necessary parent directories
+        }
+
+        // Create directory for the experiment if it doesn't exist
+        String experimentName = experiment.getExperimentName();
+        File experimentDirectory = new File("results/" + experimentName);
+        if (!experimentDirectory.exists()) {
+            experimentDirectory.mkdirs(); // Automatically creates the directory and any necessary parent directories
+        }
+
+        // Create file for saving results
+        FileWriter writer = new FileWriter("results/" + experimentName + "/" + FILE_NAME + ".csv", false);
+
+        writer.write("Heading,Time,Vas/GLMS Result,Question,Low Anchor, High Anchor, Low Value, High Value\n");
+
+        for (Object o : experiment.getStages()) {
+            if(o instanceof RatingContainer){
+                for(Object subO : ((RatingContainer) o).getContainer()){
+                    saveResult(writer,subO);
+                }
+            }
+            saveResult(writer,o);
+        }
+
+        writer.flush();
+        writer.close();
+    }
+    // quickSave func use this
+    private static void saveResult(Writer writer, Object subO) throws IOException {
+        if( subO instanceof Vas){
+            writer.append("Vas,")
+                    .append(((Vas) subO).getConducted())
+                    .append(",")
+                    .append(String.valueOf(((Vas) subO).getResult()).trim())
+                    .append(",")
+                    .append(((Vas) subO).getTitle())
+                    .append(",")
+                    .append(((Vas) subO).getLowAnchorText())
+                    .append(",")
+                    .append(((Vas) subO).getHighAnchorText())
+                    .append(",")
+                    .append(String.valueOf(((Vas) subO).getLowAnchorValue()))
+                    .append(",")
+                    .append(String.valueOf(((Vas) subO).getHighAnchorValue()));
+            writer.append("\n");
+        }
+        if( subO instanceof gLMS){
+            writer.append("GLMS ,")
+                    .append(((gLMS) subO).getConducted())
+                    .append(",")
+                    .append(String.format("%.4f",((gLMS) subO).getResult()))
+                    .append(",")
+                    .append(((gLMS) subO).getTitle());
+            writer.append("\n");
+        }
+    }
 
     public static ArrayList<Experiment> importExperiment() throws Exception{
         ArrayList<Experiment> experiments = new ArrayList<>();

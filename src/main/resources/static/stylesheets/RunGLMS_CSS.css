@@ -9,28 +9,23 @@
     -fx-font-size: 24px;
 }
 .slider .track{
-    -fx-pref-width: 28px;
+    -fx-pref-width: 13px;
     -fx-background-color: #D5E9EA;
-    -fx-background-radius: 14px;
-
-}
-input[type="range"]::-webkit-slider-runnable-track {
-    background-color: #FF5733; /* Set your desired background color */
-}
-input[type="range"]::-moz-range-track {
-    background-color: #FF5733; /* Set your desired background color */
 }
 
+#slider_pane .label{
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+}
 
 .slider .axis{
     -fx-tick-label-fill: #397E82 ;
     -fx-font-size: 16px;
 }
 .slider .thumb{
-    -fx-pref-height: 28px;
-    -fx-pref-width: 28px;
-    -fx-background-image: url("/static/images/slider_thumb.png");
-    -fx-background-radius: 17px;
+    -fx-pref-height: 13px;
+    -fx-pref-width: 13px;
+    -fx-background-radius: 13px;
 }
 #result_label{
     -fx-background-image: url("/static/images/popup.png");

@@ -13,6 +13,7 @@ public class RunVas_VM {
     private StringProperty lowAnchorText, button, conducted;
     private StringProperty highAnchorText;
     private IntegerProperty time;
+
     public RunVas_VM(Vas vas) {
         this.vas = vas;
         sliderValue = new SimpleIntegerProperty(vas.getResult()); // Khởi tạo giá trị của sliderValue từ kết quả hiện tại
