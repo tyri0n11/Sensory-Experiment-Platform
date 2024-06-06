@@ -144,6 +144,10 @@ public class Experiment {
         Course stage = new Course(title,content,buttonText,
                 weight,duration,quantity,helpText,endState);
     }
+    public void addCourse (Course course){
+        stages.add(course);
+
+    }
     public void addNotice(String title, String content) {
         Notice temp = new Notice(title,content);
         this.notices.add(temp);

@@ -62,6 +62,12 @@ public class Course extends Stage {
     public void setHelpText(String helpText) {
         this.helpText = helpText;
     }
+    public int getQuantity(){
+        return quantity;
+    }
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
 
     public String getEndStatement() {
         return endStatement;
@@ -85,11 +91,6 @@ public class Course extends Stage {
 
     public void setDuration(long duration) {
         this.duration = Duration.ofSeconds(duration);
-    }
-    public static void main(String[] args){
-        Course course = new Course("Eating stage", "content","next",1000, -1,9000, "help",
-                "Please stop eating");
-        course.show();
     }
 
 

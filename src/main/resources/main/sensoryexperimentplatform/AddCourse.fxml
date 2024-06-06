@@ -22,7 +22,7 @@
                   <TextField fx:id="txt_button" layoutX="210.0" layoutY="164.0" prefHeight="25.0" prefWidth="274.0" />
                   <Label layoutX="10.0" layoutY="214.0" styleClass="normallabel" text="Refill weight" />
                   <TextField fx:id="txt_refill" layoutX="210.0" layoutY="214.0" prefHeight="25.0" prefWidth="274.0" />
-                  <Label fx:id="txt_courseDuration" layoutX="10.0" layoutY="264.0" styleClass="normallabel" text="Course duration" />
+                  <Label layoutX="10.0" layoutY="264.0" styleClass="normallabel" text="Course duration" />
                   <TextField layoutX="210.0" layoutY="264.0" prefHeight="25.0" prefWidth="274.0" />
                   <Label layoutX="10.0" layoutY="314.0" styleClass="normallabel" text="Quantity to consume before auto-finish " />
                   <TextField fx:id="txt_quantity" layoutX="210.0" layoutY="344.0" prefHeight="25.0" prefWidth="274.0" />

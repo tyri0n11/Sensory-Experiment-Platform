@@ -71,7 +71,8 @@ public class TestController implements MouseListener{
     private TreeItem<String> Randomnies;
     private TreeItem<String> ifConditional;
     private TreeItem<String> elseConditional;
-    private Map<String, choose> displayedItems ;
+    private Map<Integer, Wrapper> displayedItems ;
+    private int index;
 
     private TestVM testVM;
     private boolean mouseClick;
@@ -165,6 +166,7 @@ public class TestController implements MouseListener{
 
 
     public void initialize(){
+        index =0;
         displayedItems = new HashMap<>();
         testVM = new TestVM();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
@@ -175,24 +177,33 @@ public class TestController implements MouseListener{
         btn_addFoodAndTaste.setDisable(true);
         listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                System.out.println(newValue.getValue());
+                int index = getIndex(newValue);
+                System.out.println(index);
                 try {
-                    showDetailView(newValue.getValue());
+                    showDetailView(index);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
         });
     }
-    private void showDetailView(String key) throws IOException {
-        choose o = displayedItems.get(key);
+
+    private int getIndex(TreeItem<String> item) {
+        if (item.getParent() == null) {
+            return 0; // Root item
+        }
+        return item.getParent().getChildren().indexOf(item);
+    }
+
+    private void showDetailView(int index) throws IOException {
+        choose o = displayedItems.get(index).getChoose();
         o.modify(propertiesPane);
         o.modifyWithButton(propertiesPane,btn_AddPeriodicStage, btn_AddCourse, btn_assignSound,
                 btn_addFoodAndTaste, btn_addAudibleInstruction
                 , btn_addInput, btn_noticeStage,
                 btn_addTimer, btn_AddQuestionStage,
-                btn_addRatingContainer, btn_addTasteTest, btn_AddConditionalStatement, btn_AddConditionalStatement);
-        experiment.showStages();
+                btn_addRatingContainer, btn_addTasteTest, btn_AddConditionalStatement);
+               //  experiment.showStages();
 
 
 //        else if (o instanceof Timer) {
@@ -218,8 +229,10 @@ public class TestController implements MouseListener{
         audibleSound_VM audibleSound_vm = new audibleSound_VM();
         String key = "[Audio]" + audibleSound_vm.getAudibleInstruction().getTitle();
         btn_assignSound.setDisable(false);
-        displayedItems.put(key, audibleSound_vm);
-        experiment.showStages();
+        Wrapper wrapper = new Wrapper(key, audibleSound_vm);
+        displayedItems.put(index, wrapper);
+        index++;
+        //experiment.showStages();
 
         // Add to Randomnies if selected item matches ifConditional
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
@@ -254,21 +267,26 @@ public class TestController implements MouseListener{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        courseItem = new TreeItem<>("Start Eating stage");
-        start.setExpanded(true);
+
+        AddCourseVM addCourseVM = new AddCourseVM(experiment);
+        String key = "Start Eating stage";
+        Wrapper wrapper = new Wrapper(key, addCourseVM);
+        displayedItems.put(index, wrapper);
+        index++;
+
 
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(courseItem);
+            ifConditional.getChildren().add(new TreeItem<>(key));
             ifConditional.setExpanded(true);
         }
         // Add to Randomnies if selected item matches elseConditional
         else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(courseItem);
+            elseConditional.getChildren().add(new TreeItem<>(key));
             elseConditional.setExpanded(true);
         }
         // Add to start if no conditions match
         else {
-            start.getChildren().add(courseItem);
+            start.getChildren().add(new TreeItem<>(key));
         }
 
     }
@@ -297,7 +315,9 @@ public class TestController implements MouseListener{
 
         glmsStage_VM glmsStage_VM = new glmsStage_VM(experiment);
         String key = "[GLMS]" + glmsStage_VM.getGLMS().getTitle();
-        displayedItems.put(key, glmsStage_VM);
+        Wrapper wrapper = new Wrapper(key, glmsStage_VM);
+        displayedItems.put(index, wrapper);
+        index++;
 
 
         // Add to Randomnies if selected item matches ifConditional
@@ -332,7 +352,9 @@ public class TestController implements MouseListener{
         inputStage_VM inputStage_vm = new inputStage_VM();
         Input inputStage = inputStage_vm.getInput();
         String key = "[User Input]" +  inputStage.getTitle();
-        displayedItems.put(key, inputStage_vm);
+        Wrapper wrapper = new Wrapper(key, inputStage_vm);
+        displayedItems.put(index, wrapper);
+        index++;
 
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(new TreeItem<>(key) );
@@ -359,8 +381,11 @@ public class TestController implements MouseListener{
         start.setExpanded(true);
         noticeStage_VM noticeStage_vm = new noticeStage_VM(experiment);
         String key = "[Instruction]" + noticeStage_vm.getNotice().getTitle();
-        displayedItems.put(key, noticeStage_vm);
-        experiment.showStages();
+        System.out.println(index);
+        Wrapper wrapper = new Wrapper(key, noticeStage_vm);
+        displayedItems.put(index, wrapper);
+        index++;
+        //experiment.showStages();
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(new TreeItem<>(key));
             ifConditional.setExpanded(true);
@@ -403,7 +428,9 @@ public class TestController implements MouseListener{
         questionStage_VM questionStage_vm = new questionStage_VM();
         Question question = questionStage_vm.getQuestionStage();
         String key = "[Question]" + question.getQuestion();
-        displayedItems.put(key, questionStage_vm);
+        Wrapper wrapper = new Wrapper(key, questionStage_vm);
+        displayedItems.put(index, wrapper);
+        index++;
         TreeItem<String> QuestionStage = new TreeItem<>(key);
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(QuestionStage);
@@ -428,7 +455,9 @@ public class TestController implements MouseListener{
         ratingContainer_VM ratingContainer_vm = new ratingContainer_VM();
         RatingContainer ratingContainer = ratingContainer_vm.getRatingContainer();
         String key = "Ratings container";
-        displayedItems.put(key, ratingContainer_vm);
+        Wrapper wrapper = new Wrapper(key,ratingContainer_vm);
+        displayedItems.put(index, wrapper);
+        index++;
         Randomnies = new TreeItem<>(key);
 
 
@@ -478,8 +507,10 @@ public class TestController implements MouseListener{
         start.setExpanded(true);
         timerStage_VM timerStageVm = new timerStage_VM(experiment);
         String key = "[Waiting]" + timerStageVm.getTimer().getTitle();
-        displayedItems.put(key, timerStageVm);
-        experiment.showStages();
+        Wrapper wrapper = new Wrapper(key, timerStageVm);
+        displayedItems.put(index, wrapper);
+        index++;
+       // experiment.showStages();
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(new TreeItem<>(key));
             ifConditional.setExpanded(true);
@@ -503,8 +534,10 @@ public class TestController implements MouseListener{
         start.setExpanded(true);
         vasStage_VM vasStage_VM = new vasStage_VM(experiment);
         String key = "[Vas]" + vasStage_VM.getVas().getTitle();
-        displayedItems.put(key, vasStage_VM);
-        experiment.showStages();
+        index++;
+        Wrapper wrapper = new Wrapper(key, vasStage_VM);
+        displayedItems.put(index, wrapper);
+      //  experiment.showStages();
 
 
 

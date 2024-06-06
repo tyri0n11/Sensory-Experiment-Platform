@@ -15,9 +15,6 @@ public class AddCourseController {
     private TextField txt_content;
 
     @FXML
-    private Label txt_courseDuration;
-
-    @FXML
     private TextArea txt_help;
 
     @FXML
@@ -28,25 +25,23 @@ public class AddCourseController {
 
     @FXML
     private TextField txt_title;
-    private AddCourseVM view;
-    /*private void bind(){
 
-        txt_question.textProperty().bindBidirectional(view.questionTextProperty());
-        txt_LowAncTxt.textProperty().bindBidirectional(view.lowAnchorTextProperty());
-        txt_HighAncTxt.textProperty().bindBidirectional(view.highAnchorTextProperty());
-        txt_LowAncTxt.textProperty().bindBidirectional(view.lowAnchorTextProperty());
-        txt_LowAncVal.textProperty().bindBidirectional(view.lowAnchorValueProperty());
-        txt_HighAncVal.textProperty().bindBidirectional(view.highAnchorValueProperty());
-        txt_BtnTxt.textProperty().bindBidirectional(view.buttonTextProperty());
-        txt_help.textProperty().bindBidirectional(view.helpTextProperty());
+    private AddCourseVM view;
+
+
+    private void bind(){
+        txt_content.textProperty().bindBidirectional(view.txt_contentProperty());
+        txt_title.textProperty().bindBidirectional(view.txt_titleProperty());
+        txt_refill.textProperty().bindBidirectional(view.txt_refillProperty());
+       txt_quantity.textProperty().bindBidirectional(view.txt_quantityProperty());
+        txt_button.textProperty().bindBidirectional(view.txt_buttonProperty());
+        txt_help.textProperty().bindBidirectional(view.txt_helpProperty());
         //txt_yes.textProperty().bindBidirectional(vasStageVM.txt_yesProperty());
-        checkB_sound.selectedProperty().bindBidirectional(vasStageVM.checkB_soundProperty());
-        checkB_swap.selectedProperty().bindBidirectional(vasStageVM.checkB_swapProperty());
     }
     public void setViewModel(AddCourseVM view){
         this.view = view;
         bind();
 
-    }*/
+    }
 
 }
