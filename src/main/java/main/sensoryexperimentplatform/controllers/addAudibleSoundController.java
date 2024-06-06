@@ -22,11 +22,11 @@ public class addAudibleSoundController  {
     @FXML
     private TextField txt_title;
 
-    public void intialize(){
-        viewModel = new audibleSound_VM();
-        bindViewModel();
-
-    }
+//    public void intialize(){
+//        viewModel = new audibleSound_VM();
+//        bindViewModel();
+//
+//    }
     public void bindViewModel(){
         txt_buttonText.textProperty().bindBidirectional(viewModel.buttonTextProperty());
         txt_helpText.textProperty().bindBidirectional(viewModel.contentProperty());
@@ -37,6 +37,7 @@ public class addAudibleSoundController  {
     }
     public void setViewModel(audibleSound_VM viewModel){
         this.viewModel = viewModel;
+        bindViewModel();
     }
 
 
