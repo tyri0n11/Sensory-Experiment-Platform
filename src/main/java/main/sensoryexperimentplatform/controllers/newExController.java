@@ -62,7 +62,6 @@ public class newExController {
     @FXML
     void btn_save(ActionEvent event) throws Exception {
         viewModel.saveItems();
-        System.out.println(listOfExperiment.getInstance());
 
     }
     public void initialize(dashBoard_VM DashBoard_vm) {

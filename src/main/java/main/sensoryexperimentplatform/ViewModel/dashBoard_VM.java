@@ -32,7 +32,6 @@ public class dashBoard_VM {
         // Load items on instantiation
         try {
             loadItems();
-            System.out.println(listOfExperiment.getInstance());
         } catch (Exception e) {
             e.printStackTrace();
         }

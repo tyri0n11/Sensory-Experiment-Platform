@@ -152,7 +152,6 @@ public class DashBoardController {
 
         // Bind the TableView items to the ViewModel items
         contentTable.setItems(dashBoard_vm.getItems());
-        System.out.println(dashBoard_vm.getItems());
 
 
 

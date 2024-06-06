@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import main.sensoryexperimentplatform.ViewModel.addSoundVM;
 
+import javax.swing.*;
 import java.io.File;
 
 public class addSoundController {
@@ -75,16 +76,34 @@ public class addSoundController {
 
     @FXML
     void btn_save(ActionEvent event) {
-        // Handle save button action
+
+         if (txt_name.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Name and Sound file are not imported yet","The sound was not sucessfully imported",
+                    JOptionPane.ERROR_MESSAGE);
+
+        }
+        else if (txt_file.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"The sound was not sucessfully impoerted  ","File Name and Sound are not imported yet",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        else if (txt_file.getText().isEmpty()&& txt_name.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"The sound was not sucessfully impoerted  ","File Name and Sound are not imported yet",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+             JOptionPane.showInternalConfirmDialog(null, "The sound was successfully imported","IMPORT SOUND SUCESSFULLY",
+                    JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+        }
+
+
     }
 
     @FXML
     void txt_file(ActionEvent event) {
-        // Handle text field action
     }
 
     @FXML
     void txt_name(ActionEvent event) {
-        // Handle text field action
     }
 }

@@ -15,7 +15,7 @@ import main.sensoryexperimentplatform.ViewModel.addSoundVM;
 
 import java.io.IOException;
 
-public class assignSoundController {
+public class  assignSoundController {
 
     @FXML
     private AnchorPane AddsoundPane;
