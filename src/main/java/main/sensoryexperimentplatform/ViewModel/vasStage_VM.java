@@ -44,7 +44,7 @@ public class vasStage_VM implements choose {
         helpText.addListener((observableValue, oldValue, newValue) -> onHelpText(newValue));
         buttonText.addListener((observableValue, oldValue, newValue) -> {
             onButtonText(newValue);
-            System.out.println(vas);
+//            System.out.println(vas);
         });
 
         highAnchorText.addListener((observableValue, oldValue, newValue) -> onhighAnchorText(newValue));

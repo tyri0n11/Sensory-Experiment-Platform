@@ -214,21 +214,24 @@ public class TestController implements MouseListener{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        TreeItem<String> audibleSound = new TreeItem<>("[Audio] Default Notice Stage");
+        audibleSound_VM audibleSound_vm = new audibleSound_VM();
+        String key = "[Audio]" + audibleSound_vm.getAudibleInstruction().getTitle();
+        displayedItems.put(key, audibleSound_vm);
+        experiment.showStages();
 
         // Add to Randomnies if selected item matches ifConditional
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(audibleSound);
+            ifConditional.getChildren().add(new TreeItem<>(key));
             ifConditional.setExpanded(true);
         }
         // Add to Randomnies if selected item matches elseConditional
         else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(audibleSound);
+            elseConditional.getChildren().add(new TreeItem<>(key));
             elseConditional.setExpanded(true);
         }
         // Add to start if no conditions match
         else {
-            start.getChildren().add(audibleSound);
+            start.getChildren().add(new TreeItem<>(key));
         }
     }
 
@@ -289,9 +292,9 @@ public class TestController implements MouseListener{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        glmsStage_VM vasStage_VM = new glmsStage_VM();
-        String key = "[GLMS]" + vasStage_VM.getGLMS().getTitle();
-        displayedItems.put(key, vasStage_VM);
+        glmsStage_VM glmsStage_vm = new glmsStage_VM();
+        String key = "[GLMS]" + glmsStage_vm.getGLMS().getTitle();
+        displayedItems.put(key,glmsStage_vm);
         experiment.showStages();
 
         // Add to Randomnies if selected item matches ifConditional
@@ -494,7 +497,6 @@ public class TestController implements MouseListener{
         start.setExpanded(true);
         vasStage_VM vasStage_VM = new vasStage_VM();
         String key = "[Vas]" + vasStage_VM.getVas().getTitle();
-
         displayedItems.put(key, vasStage_VM);
         experiment.showStages();
 

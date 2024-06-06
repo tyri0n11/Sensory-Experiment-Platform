@@ -33,19 +33,6 @@ public class addAudibleSoundController  {
         txt_content.textProperty().bindBidirectional(viewModel.helpTextProperty());
         txt_title.textProperty().bindBidirectional(viewModel.titleProperty());
 
-        txt_buttonText.textProperty().addListener((observable, oldValue, newValue) -> {
-            viewModel.setButtonText(newValue);
-        });
-
-        txt_helpText.textProperty().addListener((observable, oldValue, newValue) -> {
-            viewModel.setHelpText(newValue);
-        });
-        txt_title.textProperty().addListener((observable, oldValue, newValue) -> {
-            viewModel.setTitle(newValue);
-        });
-        txt_content.textProperty().addListener((observable, oldValue, newValue) -> {
-            viewModel.setTitle(newValue);
-        });
 
     }
     public void setViewModel(audibleSound_VM viewModel){

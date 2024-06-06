@@ -2,9 +2,16 @@ package main.sensoryexperimentplatform.ViewModel;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.addAudibleSoundController;
 import main.sensoryexperimentplatform.models.AudibleInstruction;
 
-public class audibleSound_VM {
+import java.io.IOException;
+
+public class audibleSound_VM implements choose {
     private StringProperty title;
     private StringProperty content;
     private StringProperty helpText;
@@ -13,11 +20,28 @@ public class audibleSound_VM {
 
     public audibleSound_VM(){
         this.audibleInstruction = new AudibleInstruction("Hello","hello","hello","hello");
-        title = new SimpleStringProperty(audibleInstruction.getTitle());
-        content = new SimpleStringProperty(audibleInstruction.getContent());
-        buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
-        helpText = new SimpleStringProperty(audibleInstruction.getButtonText());
+        this.title = new SimpleStringProperty(audibleInstruction.getTitle());
+        this.content = new SimpleStringProperty(audibleInstruction.getContent());
+        this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
+        this.helpText = new SimpleStringProperty(audibleInstruction.getButtonText());
+
+        buttonText.addListener((observable, oldValue, newValue) -> {
+            setButtonText(newValue);
+
+        });
+
+        helpText.addListener((observable, oldValue, newValue) -> {
+            setHelpText(newValue);
+        });
+        title.addListener((observable, oldValue, newValue) -> {
+           setTitle(newValue);
+
+        });
+        content.addListener((observable, oldValue, newValue) -> {
+            setTitle(newValue);
+        });
     }
+
     public StringProperty titleProperty() {
         return title;
     }
@@ -45,12 +69,11 @@ public class audibleSound_VM {
     public String getHelpText(){
         return helpText.get();
     }
-    public void setHelpText(String newValue) {
-        audibleInstruction.setContent(newValue);
+    public void setHelpText(String newValue) {audibleInstruction.setContent(newValue);
     }
-    public void setQuestion(String newValue) {
-        audibleInstruction.setTitle(newValue);
-    }
+//    public void setQuestion(String newValue) {
+//        this.audibleInstruction.setTitle(newValue);
+//    }
     public void setButtonText(String newValue) {
         audibleInstruction.setButtonText(newValue);
     }
@@ -66,4 +89,19 @@ public class audibleSound_VM {
 
 
 
+    @Override
+    public void modify(AnchorPane anchorPane) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddAudibleSound.fxml"));
+               AnchorPane newContent = fxmlLoader.load();
+                 anchorPane.getChildren().setAll(newContent);
+                addAudibleSoundController controller = fxmlLoader.getController();
+                audibleSound_VM viewModel = new audibleSound_VM();
+                controller.setViewModel(viewModel);
+//               btn_assignSound.setDisable(false);
+    }
+
+    @Override
+    public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Button button13) throws IOException {
+
+    }
 }
