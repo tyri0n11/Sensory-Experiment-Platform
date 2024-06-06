@@ -62,10 +62,6 @@ public class RunExperiment_VM {
             }
             if (o instanceof RatingContainer) {
                 int i = 0;
-                String key = index + " Rating Container";
-                objectsMap.put(key, o);
-                stringSet.add(key);
-                objectList.add(o); // Thêm đối tượng vào objectList
                 for (Object subO : ((RatingContainer) o).container) {
                     if (subO instanceof Vas) {
                         String subKey = "\t" + index + "." + i;
@@ -84,8 +80,6 @@ public class RunExperiment_VM {
                         count++;
                     }
                 }
-                index++;
-                count++;
             }
         }
         items.setAll(stringSet);
@@ -112,6 +106,9 @@ public class RunExperiment_VM {
 
     public int getIndexOfObject(Object obj) {
         return objectList.indexOf(obj);
+    }
+    public Experiment getExperiment(){
+        return experiment;
     }
 
 }

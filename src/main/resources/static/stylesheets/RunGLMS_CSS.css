@@ -13,7 +13,10 @@
     -fx-background-color: #D5E9EA;
 }
 
-
+#slider_pane .label{
+    -fx-font-size: 12px;
+    -fx-font-weight: normal;
+}
 
 .slider .axis{
     -fx-tick-label-fill: #397E82 ;

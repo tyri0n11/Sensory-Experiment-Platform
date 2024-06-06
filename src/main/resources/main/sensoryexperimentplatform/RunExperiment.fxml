@@ -18,7 +18,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <AnchorPane fx:id="content" layoutX="15.0" layoutY="153.0" minHeight="361.0" minWidth="971.0" prefHeight="550.0" prefWidth="1164.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
+      <AnchorPane fx:id="content" layoutX="15.0" layoutY="153.0" minHeight="361.0" minWidth="971.0" prefHeight="550.0" prefWidth="1164.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="150.0" />
       <ProgressBar fx:id="progress_bar" layoutX="-45.0" layoutY="-32.8" prefHeight="20.0" prefWidth="1154.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0" />
       <ListView fx:id="showList" focusTraversable="false" prefHeight="610.0" prefWidth="6.0" />
    </children>

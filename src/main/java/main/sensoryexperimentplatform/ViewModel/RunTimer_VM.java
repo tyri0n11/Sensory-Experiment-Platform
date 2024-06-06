@@ -36,12 +36,4 @@ public class RunTimer_VM {
         progress.set(progressValue);
     }
 
-    public BooleanProperty isTimerCompleteProperty() {
-        return timerComplete;
-    }
-
-    // Method to mark the timer as complete
-    public void markTimerComplete() {
-        timerComplete.set(true);
-    }
 }

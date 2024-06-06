@@ -12,7 +12,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="questionlbl" layoutX="342.0" layoutY="76.0" prefHeight="74.0" prefWidth="573.0" wrapText="true" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="342.0" AnchorPane.topAnchor="76.0" />
+      <Label fx:id="questionlbl" layoutX="342.0" layoutY="76.0" prefHeight="122.0" prefWidth="573.0" wrapText="true" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="342.0" AnchorPane.topAnchor="76.0" />
       <Label fx:id="highAnchor_label" layoutX="1107.0" layoutY="318.0" text="Extremely" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="222.0" AnchorPane.rightAnchor="120.0">
          <font>
             <Font size="14.0" />

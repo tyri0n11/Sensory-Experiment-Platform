@@ -1,6 +1,7 @@
 package main.sensoryexperimentplatform.controllers;
 
 
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -40,11 +41,13 @@ public class RunController {
     private ListView<String> showList;
 
     private RunExperiment_VM viewModel;
+    private Experiment experiment;
 
 
 
     public void setViewModel(RunExperiment_VM viewModel){
         this.viewModel = viewModel;
+        this.experiment = viewModel.getExperiment();
         FILE_NAME = JOptionPane.showInputDialog("Enter your name, please!");
         bindViewModel();
     }
@@ -85,7 +88,7 @@ public class RunController {
         }
         if (selectedIndex >= 0 && selectedIndex < showList.getItems().size() - 1) {
             showList.getSelectionModel().select(selectedIndex + 1);
-            quickSave();
+            DataAccess.quickSave(experiment, FILE_NAME);
         }
     }
 
@@ -122,6 +125,12 @@ public class RunController {
                     RunVas_VM vm = new RunVas_VM((Vas) selectedObject);
                     controller.setViewModel(vm);
                     btn_Next.textProperty().bind(vm.buttonProperty());
+                    btn_Next.setDisable(true);
+
+                    controller.isRecordedProperty().addListener(((observableValue, aBoolean, t1) ->{
+                        btn_Next.setDisable(!t1);
+                    } ));
+
 
                 }
                 // glms view display
@@ -138,6 +147,13 @@ public class RunController {
                     RunGLMS_VM vm = new RunGLMS_VM((gLMS) selectedObject);
                     controller.setViewModel(vm);
                     btn_Next.textProperty().bind(vm.buttonProperty());
+                    btn_Next.setDisable(true);
+
+                    controller.isRecordedProperty().addListener(((observableValue, aBoolean, t1) ->{
+                        btn_Next.setDisable(!t1);
+                    } ));
+
+
 
                 }
                 if (selectedObject instanceof Notice) {
@@ -148,6 +164,7 @@ public class RunController {
                     AnchorPane.setLeftAnchor(newContent, 0.0);
                     AnchorPane.setRightAnchor(newContent, 0.0);
                     content.getChildren().setAll(newContent);
+                    btn_Next.setDisable(false);
 
                     RunNoticeController controller = loader.getController();
                     RunNotice_VM vm = new RunNotice_VM((Notice) selectedObject);
@@ -163,24 +180,20 @@ public class RunController {
                     AnchorPane.setRightAnchor(newContent, 0.0);
                     content.getChildren().setAll(newContent);
 
+
                     RunTimerController controller = loader.getController();
                     RunTimer_VM viewModel = new RunTimer_VM((Timer) selectedObject);
                     controller.setViewModel(viewModel);
                     btn_back.setVisible(controller.getTimeLineCheck());
                     btn_Next.setVisible(controller.getTimeLineCheck());
+                    btn_Next.setDisable(false);
+
                     controller.timelineFullProperty().addListener(((observableValue, oldValue, newValue) ->{
                         btn_back.setVisible(newValue);
                         btn_Next.setVisible(newValue);
                         showList.getSelectionModel().select(showList.getSelectionModel().getSelectedIndex() + 1);
                     } ));
 
-                }
-                if (selectedObject instanceof RatingContainer) {
-                    int selectedIndex = showList.getSelectionModel().getSelectedIndex();
-                    if (selectedIndex >= 0 && selectedIndex < showList.getItems().size() - 1) {
-                        System.out.println("RatingContainer!!!!");
-                    }
-                    return;
                 }
                 if (currentIndex == viewModel.count - 1) {
                     btn_Next.setOnAction(event -> {
@@ -197,7 +210,8 @@ public class RunController {
         }
     }
     private void handleFinalNext() throws IOException {
-        quickSave();
+
+        DataAccess.quickSave(experiment, FILE_NAME);
         autoClose();
     }
 
@@ -207,64 +221,6 @@ public class RunController {
         // Close the stage
         stage.close();
     }
-    private void quickSave() throws IOException {
-        // Create directory for the experiment results if it doesn't exist
-        File resultsDirectory = new File("results");
-        if (!resultsDirectory.exists()) {
-            resultsDirectory.mkdirs(); // Automatically creates the directory and any necessary parent directories
-        }
 
-        // Create directory for the experiment if it doesn't exist
-        String experimentName = viewModel.getExperimentName();
-        File experimentDirectory = new File("results/" + experimentName);
-        if (!experimentDirectory.exists()) {
-            experimentDirectory.mkdirs(); // Automatically creates the directory and any necessary parent directories
-        }
-
-        // Create file for saving results
-        FileWriter writer = new FileWriter("results/" + experimentName + "/" + FILE_NAME + ".csv", false);
-
-        writer.write("Heading,Time,Vas/GLMS Result,Question,Low Anchor, High Anchor, Low Value, High Value\n");
-
-        for (Object o : viewModel.getStages()) {
-            if(o instanceof RatingContainer){
-                for(Object subO : ((RatingContainer) o).getContainer()){
-                    saveResult(writer,subO);
-                }
-            }
-            saveResult(writer,o);
-        }
-
-        writer.flush();
-        writer.close();
-    }
-    private void saveResult(Writer writer, Object subO) throws IOException {
-        if( subO instanceof Vas){
-            writer.append("Vas,")
-                    .append(((Vas) subO).getConducted())
-                    .append(",")
-                    .append(String.valueOf(((Vas) subO).getResult()).trim())
-                    .append(",")
-                    .append(((Vas) subO).getTitle())
-                    .append(",")
-                    .append(((Vas) subO).getLowAnchorText())
-                    .append(",")
-                    .append(((Vas) subO).getHighAnchorText())
-                    .append(",")
-                    .append(String.valueOf(((Vas) subO).getLowAnchorValue()))
-                    .append(",")
-                    .append(String.valueOf(((Vas) subO).getHighAnchorValue()));
-            writer.append("\n");
-        }
-        if( subO instanceof gLMS){
-            writer.append("GLMS ,")
-                    .append(((gLMS) subO).getConducted())
-                    .append(",")
-                    .append(String.format("%.4f",((gLMS) subO).getResult()))
-                    .append(",")
-                    .append(((gLMS) subO).getTitle());
-            writer.append("\n");
-        }
-    }
 
 }

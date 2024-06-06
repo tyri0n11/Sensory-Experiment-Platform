@@ -1,7 +1,9 @@
 package main.sensoryexperimentplatform.controllers;
 
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -19,13 +21,27 @@ public class RunVasController {
     private Slider mySlider;
 
     private RunVas_VM viewModel;
-    private IntegerProperty time;
+    private BooleanProperty isRecorded;
 
     public void setViewModel(RunVas_VM viewModel) {
         this.viewModel = viewModel;
+        isRecorded = new SimpleBooleanProperty(false);
         bindViewModel();
+
+        mySlider.valueProperty().addListener((observableValue, oldValue, newValue) -> {
+            if (!newValue.equals(oldValue)){
+                isRecorded.set(false);
+
+            }else
+                isRecorded.set(true);
+
+            System.out.println(isRecorded.get());
+        });
     }
 
+    public BooleanProperty isRecordedProperty() {
+        return isRecorded;
+    }
 
     private void bindViewModel() {
         highAnchor_label.textProperty().bind(viewModel.highAnchorTextProperty());
