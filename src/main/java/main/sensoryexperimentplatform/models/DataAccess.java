@@ -4,14 +4,17 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DataAccess {
     private static final String saveFilePath = "src/main/java/main/sensoryexperimentplatform/models/Data/Test";
     private static final String loadFilePath = "src/main/java/main/sensoryexperimentplatform/models/Data/Test";
-    public DataAccess(){
-
+    public static String getCurrentFormattedTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS");
+        Date now = new Date();
+        return sdf.format(now);
     }
     public static void saveData(ArrayList<Experiment> experiments) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(saveFilePath, false));
@@ -23,7 +26,7 @@ public class DataAccess {
     }
 
     public static Experiment getExperimentIndividually() throws IOException {
-        Experiment currentExperiment = new Experiment("null","null","null","null",1);
+        Experiment currentExperiment = new Experiment("null","null","null","null",1,000,null);
 
         try (BufferedReader reader = new BufferedReader(new FileReader(loadFilePath))) {
             String line;
@@ -31,15 +34,21 @@ public class DataAccess {
             boolean isContainer = false;
 
             while ((line = reader.readLine()) != null) {
-                if (line.startsWith("ExperimentName:")) {
+                if (line.startsWith("ExperimentName")) {
                     currentExperiment.setExperimentName(line.split(": ")[1].trim());
 
-                } else if (line.startsWith("ExperimenterName:")) {
+                } else if (line.startsWith("ExperimenterName")) {
                     currentExperiment.setCreatorName(line.split(": ")[1].trim());
 
-                } else if (line.startsWith("Version:")) {
-                    int crt = Integer.parseInt(line.split(": ")[1].trim());
-                    currentExperiment.version = crt;
+                } else if (line.startsWith("ExperimentID:")) {
+                    currentExperiment.setId(Integer.parseInt(line.split(": ")[1].trim()));
+
+                } else if (line.startsWith("Created on")) {
+                    currentExperiment.setCreated_date(line.split(": ")[1].trim());
+
+                } else if (line.startsWith("Version")) {
+                    int version = Integer.parseInt(line.split(": ")[1].trim());
+                    currentExperiment.version = version;
 
                 } else if (line.startsWith("startExperiment:")) {
                     Pattern patternExperiment = Pattern.compile("startExperiment\\(\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
@@ -156,6 +165,7 @@ public class DataAccess {
                     rc = null;
                     isContainer = false;
                 } else if (line.startsWith("endExperiment()")) {
+                    currentExperiment.setNumber_of_results(DataAccess.countingResults(currentExperiment));
                     return currentExperiment;
                 }
             }
@@ -223,10 +233,17 @@ public class DataAccess {
             writer.append("\n");
         }
     }
+    public static int countingResults(Experiment experiment){
+        int numOfResults=0;
+        String directory = experiment.getExperimentName();
+        numOfResults = Objects.requireNonNull(new File("results/" + directory).list()).length;
+
+        return numOfResults;
+    }
 
     public static ArrayList<Experiment> importExperiment() throws Exception{
         ArrayList<Experiment> experiments = new ArrayList<>();
-        Experiment currentExperiment = new Experiment(null,null,null,null,1);
+        Experiment currentExperiment = new Experiment(null,null,null,null,1,000,null);
         RatingContainer rc = null;
         boolean isContainer = false;
         String line;
@@ -240,9 +257,15 @@ public class DataAccess {
                 } else if (line.startsWith("ExperimenterName")) {
                     currentExperiment.setCreatorName(line.split(": ")[1].trim());
 
+                } else if (line.startsWith("ExperimentID:")) {
+                    currentExperiment.setId(Integer.parseInt(line.split(": ")[1].trim()));
+
+                } else if (line.startsWith("Created on")) {
+                    currentExperiment.setCreated_date(line.split(": ")[1].trim());
+
                 } else if (line.startsWith("Version")) {
-                    int crt = Integer.parseInt(line.split(": ")[1].trim());
-                    currentExperiment.version = crt;
+                    int version = Integer.parseInt(line.split(": ")[1].trim());
+                    currentExperiment.version = version;
 
                 } else if (line.startsWith("startExperiment")) {
                     Pattern patternExperiment = Pattern.compile("startExperiment\\(\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
@@ -359,12 +382,14 @@ public class DataAccess {
                     rc = null;
                     isContainer = false;
                 } else if (line.startsWith("endExperiment()")){
+                    currentExperiment.setNumber_of_results(DataAccess.countingResults(currentExperiment));
                     experiments.add(currentExperiment);
-                    currentExperiment = new Experiment(null,null,null,null,1);
+                    currentExperiment = new Experiment(null,null,null,null,1,000,null);
                 }
             }
             return experiments;
         }
+
     }
     public static void main(String[] args) {
         try {
@@ -377,14 +402,13 @@ public class DataAccess {
                 System.out.println("Experiment Name: " + experiment.getExperimentName());
                 System.out.println("Creator Name: " + experiment.getCreatorName());
                 System.out.println("Version: " + experiment.getVersion());
-
-                System.out.println("Stages:");
-                for (Object o : experiment.getStages()) {
-                    System.out.println(o);
-                }
+                System.out.println("Created date: " + experiment.getCreated_date());
+                System.out.println("Id: "+ experiment.getId());
+                System.out.println("Number of results = " + experiments.getFirst().getNumber_of_results());
 
                 System.out.println();
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }

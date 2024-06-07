@@ -29,7 +29,7 @@ public class newEx_VM {
     public newEx_VM(dashBoard_VM dashBoard_vm) {
         Notification = new notification(dashBoard_vm);
 
-        this.experiment = new Experiment(" Quynh Anh","Qanh","Thinh", "hello",1);
+        this.experiment = new Experiment("Creator","Experiment","Description", "Note",1,000,DataAccess.getCurrentFormattedTime());
         this.experimentName = new SimpleStringProperty(experiment.getExperimentName());
         this.creatorName = new SimpleStringProperty(experiment.getCreatorName());
         this.additionNote = new SimpleStringProperty(experiment.getNote());

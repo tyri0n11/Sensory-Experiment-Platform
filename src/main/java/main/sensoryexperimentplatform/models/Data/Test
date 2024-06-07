@@ -1,7 +1,8 @@
-ExperimentID: cd28178a-ac37-4365-bcfc-366611d27bed
+Created on: 01.01.2019
+ExperimentID: 111
 ExperimentName: 1MTasteScreenerShort
 ExperimenterName: Vasiliki
-Version: 111
+Version: 9
 startExperiment("null","","null")
 noticeStage("Mood Ratings","Thank you for agreeing to take part. To start with we need you to complete some simple ratings which will be followed by a taste test.","X","quynh anh coi bai ve nha chi t nghe chua","false")
 ratingsContainer("true","0")

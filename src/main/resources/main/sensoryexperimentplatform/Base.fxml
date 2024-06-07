@@ -16,7 +16,7 @@
             <top>
                 <AnchorPane prefHeight="61.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Label fx:id="lbl_SenseXP" layoutX="29.0" layoutY="2.0" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="SenseXP" />
+                        <Label fx:id="lbl_SenseXP" layoutX="29.0" layoutY="2.0" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="SenseXP" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="1092.0" />
                     </children>
                 </AnchorPane>
             </top>
@@ -78,7 +78,7 @@
                             <children>
                                 <Label layoutX="54.0" prefHeight="62.0" prefWidth="282.0" styleClass="lbl_EditExperiment" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Edit experiment" />
                                 <Button fx:id="btn_menu" layoutX="8.0" layoutY="11.0" mnemonicParsing="false" onAction="#toggleDashboard" prefHeight="22.0" prefWidth="47.0" text=" " />
-                        <AnchorPane fx:id="mainPain" layoutX="-2.0" layoutY="73.0" prefHeight="674.0" prefWidth="966.0" style="-fx-background-color: white;" />
+                        <AnchorPane fx:id="mainPain" layoutX="-2.0" layoutY="73.0" prefHeight="674.0" prefWidth="966.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="31.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="73.0" />
                             </children>
                         </AnchorPane>
                     </children>

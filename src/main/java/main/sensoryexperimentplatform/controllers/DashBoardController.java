@@ -47,6 +47,9 @@ public class DashBoardController {
     private TableColumn<Experiment, String> lbl_Option;
 
     @FXML
+    private TableColumn<Experiment, String> lbl_createDate;
+
+    @FXML
     private TextField searchBar;
 
     @FXML
@@ -69,6 +72,10 @@ public class DashBoardController {
         lbl_experimentName.setCellValueFactory(new PropertyValueFactory<>("experimentName"));
 
         lbl_currentVersion.setCellValueFactory(new PropertyValueFactory<>("version"));
+
+        lbl_result.setCellValueFactory(new PropertyValueFactory<>("number_of_results"));
+
+        lbl_createDate.setCellValueFactory(new PropertyValueFactory<>("created_date"));
         Callback<TableColumn<Experiment, String>, TableCell<Experiment, String>> cellFactory = new Callback<TableColumn<Experiment, String>, TableCell<Experiment, String>>() {
             @Override
             public TableCell<Experiment, String> call(final TableColumn<Experiment, String> param) {
