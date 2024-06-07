@@ -57,9 +57,6 @@ public class audibleSound_VM implements choose {
         return helpText;
     }
 
-    public String getTitle(){
-        return title.get();
-    }
     public String getContent(){
         return content.get();
     }
@@ -95,13 +92,16 @@ public class audibleSound_VM implements choose {
                AnchorPane newContent = fxmlLoader.load();
                  anchorPane.getChildren().setAll(newContent);
                 addAudibleSoundController controller = fxmlLoader.getController();
-                audibleSound_VM viewModel = new audibleSound_VM();
-                controller.setViewModel(viewModel);
+                controller.setViewModel(this);
 //               btn_assignSound.setDisable(false);
     }
 
     @Override
     public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12) throws IOException {
 
+    }
+    @Override
+    public String getTitle(){
+        return "[Audio] "+ audibleInstruction.getTitle();
     }
 }

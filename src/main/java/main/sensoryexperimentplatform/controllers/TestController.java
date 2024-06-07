@@ -377,11 +377,11 @@ public class TestController{
     void addFoodAndTaste(ActionEvent event) throws IOException {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
-        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AssignSound.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("FoodAndTaste.fxml"));
         Parent root = fxmlLoader.load();
 
         Stage stage = new Stage();
-        stage.setTitle("Add Sound");
+        stage.setTitle("Add Food and Taste");
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
