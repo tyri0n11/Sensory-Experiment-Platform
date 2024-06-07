@@ -1,0 +1,30 @@
+.button {
+    -fx-background-radius: 11px;
+    -fx-text-fill: #397E82;
+    -fx-background-color: #F1F6FB;
+    -fx-effect: innershadow(three-pass-box, rgba(85, 91, 110, 0.15), 5, 0, 0, 5);
+}
+.button:hover{
+    -fx-background-color: #397E82;
+    -fx-text-fill: #F0F0F0;
+    -fx-effect: dropshadow(three-pass-box, rgba(85, 91, 110, 0.15), 5, 0, 0, 5);
+}
+.label{
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #397E82;
+}
+.root{
+    -fx-background-color: #eae7e7;
+    -fx-font-family: "Baloo 2";
+}
+.text-field {
+    -fx-font-size: 14px;
+    -fx-text-alignment: center left;
+    -fx-background-radius: 13px;
+
+}
+.text-field :hover{
+    -fx-border-color: transparent;
+
+}

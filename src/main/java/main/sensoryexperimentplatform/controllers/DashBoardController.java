@@ -10,13 +10,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.RunExperiment_VM;
-import main.sensoryexperimentplatform.ViewModel.dashBoard_VM;
-import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
-import main.sensoryexperimentplatform.ViewModel.newEx_VM;
+import main.sensoryexperimentplatform.ViewModel.*;
 import main.sensoryexperimentplatform.models.Experiment;
 
 import java.io.IOException;
@@ -136,7 +134,18 @@ public class DashBoardController {
                             run.setOnAction((ActionEvent) ->{
                                 Experiment selectedExperiment = getTableView().getItems().get(getIndex());
                                 try {
-                                    runExperiment(selectedExperiment);
+                                    FXMLLoader fillNameLoader = new FXMLLoader(getClass().getResource("/main/sensoryexperimentplatform/fill_name.fxml"));
+                                    Parent root = fillNameLoader.load();
+
+                                    FillNameController controller = fillNameLoader.getController();
+                                    FillName_VM viewModel = new FillName_VM(selectedExperiment);
+                                    controller.setViewModel(viewModel);
+
+                                    Stage dialog = new Stage();
+                                    dialog.initModality(Modality.APPLICATION_MODAL);
+                                    dialog.setScene(new Scene(root));
+                                    dialog.showAndWait();
+
                                 } catch (IOException e) {
                                     throw new RuntimeException(e);
                                 }
@@ -160,19 +169,6 @@ public class DashBoardController {
         // Bind the TableView items to the ViewModel items
         contentTable.setItems(dashBoard_vm.getItems());
 
-
-
-        // Add listener for row selection
-        contentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, selectedExperiment) -> {
-            if (selectedExperiment != null) {
-                try {
-                    runExperiment(selectedExperiment);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-            }
-        });
 
 
     }
@@ -204,19 +200,7 @@ public class DashBoardController {
 
     }
 
-    private void runExperiment(Experiment experiment) throws IOException {
-        FXMLLoader loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunExperiment.fxml"));
-        Parent root = loader.load();
 
-        RunController controller = loader.getController(); // Get the controller from the loader
-        RunExperiment_VM viewModel = new RunExperiment_VM(experiment);
-        controller.setViewModel(viewModel);
-
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-
-    }
 
     @FXML
     void btn_addEx(ActionEvent event) throws IOException {

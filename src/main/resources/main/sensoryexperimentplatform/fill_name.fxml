@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="btm_pane" prefHeight="267.0" prefWidth="460.0" stylesheets="/static/stylesheets/FillName.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.FillNameController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="34.0" prefHeight="200.0" prefWidth="436.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="53.0">
+         <children>
+            <Button fx:id="cancel_btn" layoutX="35.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#handleCancelBtn" text="Cancel" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="35.0" />
+            <Button fx:id="approve_btn" layoutX="345.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#handleApproveBtn" text="Continue" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="35.0" />
+            <Label fx:id="instruction_lbl" layoutX="61.0" layoutY="30.0" text="Please enter a name for the result file" AnchorPane.bottomAnchor="153.0" AnchorPane.leftAnchor="61.0" AnchorPane.topAnchor="30.0" />
+            <TextField fx:id="file_name" layoutX="36.0" layoutY="88.0" prefHeight="25.0" prefWidth="361.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" />
+         </children>
+      </AnchorPane>
+      <Label fx:id="top_lbl" layoutX="14.0" layoutY="6.0" prefHeight="38.0" prefWidth="310.0" text="Result File Name" AnchorPane.bottomAnchor="223.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="136.0" AnchorPane.topAnchor="6.0" />
+      <ImageView fx:id="cross_img" fitHeight="38.0" fitWidth="38.0" layoutX="416.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="223.0" AnchorPane.leftAnchor="416.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="6.0" />
+   </children>
+</AnchorPane>

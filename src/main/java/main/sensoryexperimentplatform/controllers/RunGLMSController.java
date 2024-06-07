@@ -38,6 +38,8 @@ public class RunGLMSController {
         questionlbl.textProperty().bind(viewModel.questionProperty());
         helpText.textProperty().bind(viewModel.helpProperty());
 
+        mySlider.setMin(0);
+        mySlider.setMax(100);
 
         // Two-way binding between slider value and viewModel.sliderValueProperty()
         Bindings.bindBidirectional(mySlider.valueProperty(), viewModel.sliderValueProperty());
