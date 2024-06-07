@@ -174,7 +174,7 @@ public class TestController{
         listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 int index = getIndex(newValue);
-               // System.out.println(index);
+                // System.out.println(index);
                 try {
                     newValue.setValue(showDetailView(index));
 
@@ -200,6 +200,7 @@ public class TestController{
                 , btn_addInput, btn_noticeStage,
                 btn_addTimer, btn_AddQuestionStage,
                 btn_addRatingContainer, btn_addTasteTest, btn_AddConditionalStatement);
+        experiment.showStages();
         return o.getTitle();
 
     }
@@ -216,11 +217,11 @@ public class TestController{
                     displayedItems.put(index, wrapper);
                     displayedItems.put(index, wrapper);
                     index++;
-                   // str.add(key);
-                   // items.setAll(str);
+                    // str.add(key);
+                    // items.setAll(str);
                 }
                 else if (o instanceof Notice){
-                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Notice) o).getTitle();
+                    String key = "[Instruction] " + ((Notice) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
                     noticeStage_VM noticeStage_vm = new noticeStage_VM((Notice) o);
                     Wrapper wrapper = new Wrapper(key, noticeStage_vm);
@@ -228,7 +229,7 @@ public class TestController{
                     index++;
 
                 }else if (o instanceof gLMS){
-                    String key = "[" + o.getClass().getSimpleName() + "] " + ((gLMS) o).getTitle();
+                    String key = "[GLMS] " + ((gLMS) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
                     glmsStage_VM glmsStageVm = new glmsStage_VM((gLMS) o);
                     Wrapper wrapper = new Wrapper(key, glmsStageVm);
@@ -236,7 +237,7 @@ public class TestController{
                     index++;
                 }
                 else if (o instanceof Input){
-                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Input) o).getTitle();
+                    String key = "[User Input] " + ((Input) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
                     inputStage_VM inputStage_vm = new inputStage_VM((Input) o);
                     Wrapper wrapper = new Wrapper(key, inputStage_vm);
@@ -263,7 +264,7 @@ public class TestController{
                     String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
 
-                   // Wrapper wrapper = new Wrapper(key, addCourseVM);
+                    // Wrapper wrapper = new Wrapper(key, addCourseVM);
                     //displayedItems.put(index, wrapper);
                     index++;
                 }
@@ -276,12 +277,12 @@ public class TestController{
                         if (subO instanceof Vas) {
                             String key = "[VAS]" + ((Vas) subO).getTitle();
                             System.out.println(key);
-                        //    displayedScales.put(key, o);
+                            //    displayedScales.put(key, o);
                             set.add(key);
                         } else if (subO instanceof gLMS) {
                             String key = "[GLMS]" + ((gLMS) subO).getTitle();
                             System.out.println(key);
-                           // displayedScales.put(key, o);
+                            // displayedScales.put(key, o);
                             set.add(key);
                         }
                     }
@@ -553,19 +554,24 @@ public class TestController{
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         btn_addFoodAndTaste.setDisable(false);
-        TreeItem<String> tasteTest = new TreeItem<>("Taste test");
+        AddTasteVM addTasteVM = new AddTasteVM(experiment);
+        TasteTest tasteTest = addTasteVM.getTastetest();
+        String key = "[Taste Test]";
+        Wrapper wrapper = new Wrapper(key, addTasteVM);
+        displayedItems.put(index, wrapper);
+        index++;
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(tasteTest);
+            ifConditional.getChildren().add(new TreeItem<>(key));
             ifConditional.setExpanded(true);
         }
         // Add to Randomnies if selected item matches elseConditional
         else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(tasteTest);
+            elseConditional.getChildren().add(new TreeItem<>(key));
             elseConditional.setExpanded(true);
         }
         // Add to start if no conditions match
         else {
-            start.getChildren().add(tasteTest);
+            start.getChildren().add(new TreeItem<>(key));
         }
     }
 
@@ -579,7 +585,7 @@ public class TestController{
         Wrapper wrapper = new Wrapper(key, timerStageVm);
         displayedItems.put(index, wrapper);
         index++;
-       // experiment.showStages();
+        // experiment.showStages();
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(new TreeItem<>(key));
             ifConditional.setExpanded(true);
@@ -606,7 +612,7 @@ public class TestController{
         Wrapper wrapper = new Wrapper(key, vasStage_VM);
         displayedItems.put(index, wrapper);
         index++;
-      //  experiment.showStages();
+        //  experiment.showStages();
 
         // Add to Randomnies if selected item matches ifConditional
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {

@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import main.sensoryexperimentplatform.ViewModel.dashBoard_VM;
 import main.sensoryexperimentplatform.ViewModel.newEx_VM;
 import main.sensoryexperimentplatform.models.Experiment;
@@ -62,7 +63,8 @@ public class newExController {
     @FXML
     void btn_save(ActionEvent event) throws Exception {
         viewModel.saveItems();
-
+        Stage currentStage = (Stage) NewExPane.getScene().getWindow();
+        currentStage.close();
     }
     public void initialize(dashBoard_VM DashBoard_vm) {
         this.DashBoard_vm = DashBoard_vm;
