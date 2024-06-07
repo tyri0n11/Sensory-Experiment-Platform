@@ -12,7 +12,6 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.TestVM;
 import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
 import main.sensoryexperimentplatform.models.DataAccess;
 import main.sensoryexperimentplatform.models.Experiment;
@@ -77,8 +76,6 @@ public class TestController{
     private TreeItem<String> elseConditional;
     private Map<Integer, Wrapper> displayedItems ;
     private int index;
-
-    private TestVM testVM;
     private boolean mouseClick;
     private boolean isSidebarVisible = true;
     @FXML
@@ -168,7 +165,6 @@ public class TestController{
     public void initialize(){
         index =0;
         displayedItems = new HashMap<>();
-        testVM = new TestVM();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
         start = new TreeItem<>("Start Experiment");
         listObject.setRoot(start);
@@ -209,7 +205,6 @@ public class TestController{
     }
     private void loadItems(){
         if (experiment != null){
-            Set<String> str = new LinkedHashSet<>();
             Set<String> set = new LinkedHashSet<>();
             ArrayList<Object> stages = experiment.getStages();
             for (Object o : stages) {
@@ -290,9 +285,13 @@ public class TestController{
                             set.add(key);
                         }
                     }
+
                     //scales.setAll(set);
                 }
             }
+            listObject.setMaxHeight(311);
+            propertiesPane.setVisible(true);
+            start.setExpanded(true);
         }
     }
     @FXML

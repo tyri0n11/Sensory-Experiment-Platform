@@ -22,7 +22,6 @@
                   <TextField fx:id="txt_buttonText" layoutX="222.0" layoutY="290.0" onMouseClicked="#txt_buttonText" prefHeight="25.0" prefWidth="274.0" />
                   <Label layoutX="28.0" layoutY="340.0" styleClass="normallabel" text="Help text" />
                   <TextArea fx:id="txt_helptext" layoutX="222.0" layoutY="340.0" onMouseClicked="#txt_helptext" prefHeight="160.0" prefWidth="274.0" wrapText="true" />
-                  <Button id="btn_bind" fx:id="btnSave" layoutX="349.0" layoutY="287.0" mnemonicParsing="false" text="Save" />
                </children>
             </AnchorPane>
          </content>
