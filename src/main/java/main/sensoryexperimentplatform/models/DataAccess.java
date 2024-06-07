@@ -165,6 +165,7 @@ public class DataAccess {
                     rc = null;
                     isContainer = false;
                 } else if (line.startsWith("endExperiment()")) {
+                    initializeCaches(currentExperiment.getExperimentName(),currentExperiment.getVersion());
                     currentExperiment.setNumber_of_results(DataAccess.countingResults(currentExperiment));
                     return currentExperiment;
                 }
@@ -172,21 +173,23 @@ public class DataAccess {
         }
         return currentExperiment;
     }
-    //Save results of conducted experiment
-    public static void quickSave(Experiment experiment, String FILE_NAME) throws IOException {
-        // Create directory for the experiment results if it doesn't exist
+    private static void initializeCaches(String experimentName, int version){
         File resultsDirectory = new File("results");
         if (!resultsDirectory.exists()) {
             resultsDirectory.mkdirs(); // Automatically creates the directory and any necessary parent directories
         }
-
         // Create directory for the experiment if it doesn't exist
-        String experimentName = experiment.getExperimentName();
-        File experimentDirectory = new File("results/" + experimentName);
+        File experimentDirectory = new File("results/" + experimentName+"_"+version);
         if (!experimentDirectory.exists()) {
             experimentDirectory.mkdirs(); // Automatically creates the directory and any necessary parent directories
         }
+    }
+    //Save results of conducted experiment
+    public static void quickSave(Experiment experiment, String FILE_NAME) throws IOException {
 
+        String experimentName = experiment.getExperimentName();
+        int version = experiment.getVersion();
+        initializeCaches(experimentName,version);
         // Create file for saving results
         FileWriter writer = new FileWriter("results/" + experimentName + "/" + FILE_NAME + ".csv", false);
 
@@ -235,7 +238,9 @@ public class DataAccess {
     }
     public static int countingResults(Experiment experiment){
         int numOfResults=0;
-        String directory = experiment.getExperimentName();
+        String directory = experiment.getExperimentName() + "_" + experiment.getVersion();
+        System.out.println(directory);
+        initializeCaches(experiment.getExperimentName(),experiment.getVersion());
         numOfResults = Objects.requireNonNull(new File("results/" + directory).list()).length;
 
         return numOfResults;
