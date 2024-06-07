@@ -13,7 +13,7 @@ public class InputStageController {
     private inputStage_VM viewModel;
 
     @FXML
-    private CheckBox cbx_alert;
+    private CheckBox cbx_playsound;
 
     @FXML
     private TextField txt_buttonText;
@@ -23,16 +23,18 @@ public class InputStageController {
 
     @FXML
     private TextField txt_question;
+
     public void setViewModel(inputStage_VM viewModel){
         this.viewModel = viewModel;
         bindViewModel();
+        System.out.println("sdv");
     }
 
     public void bindViewModel(){
         txt_buttonText.textProperty().bindBidirectional(viewModel.buttonTextProperty());
         txt_helptext.textProperty().bindBidirectional(viewModel.contentProperty());
         txt_question.textProperty().bindBidirectional(viewModel.titleProperty());
-        cbx_alert.selectedProperty().bindBidirectional(viewModel.alertProperty());
+        cbx_playsound.selectedProperty().bindBidirectional(viewModel.alertProperty());
 
         // Add listeners for immediate update
         txt_buttonText.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -48,7 +50,7 @@ public class InputStageController {
             viewModel.setQuestion(newValue);
         });
 
-        cbx_alert.selectedProperty().addListener((observable, oldValue, newValue) -> {
+        cbx_playsound.selectedProperty().addListener((observable, oldValue, newValue) -> {
             viewModel.setAlert(newValue);
         });
     }
@@ -86,5 +88,6 @@ public class InputStageController {
     }
 
 
-
+    public void cbx_playsound(ActionEvent event) {
+    }
 }

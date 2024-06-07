@@ -47,6 +47,24 @@ public class AddCourseVM implements choose{
         experiment.addCourse(course);
 
     }
+    public AddCourseVM( Course course){
+        this.course = course;
+        txt_button = new SimpleStringProperty(course.getButtonText());
+        txt_help = new SimpleStringProperty(course.getHelpText());
+        txt_quantity = new SimpleStringProperty(String.valueOf(course.getQuantity()));
+        txt_refill = new SimpleStringProperty(String.valueOf(course.getRefillWeight()));
+        txt_title = new SimpleStringProperty(course.getTitle());
+        txt_content = new SimpleStringProperty(course.getContent());
+        txt_button.addListener((observableValue, oldValue, newValue) -> onButtonTextChange(newValue));
+        txt_help.addListener((observableValue, oldValue, newValue) -> onHelpTextChange(newValue));
+        txt_quantity.addListener((observableValue, oldValue, newValue) -> onQuantityChange(newValue));
+        txt_refill.addListener((observableValue, oldValue, newValue) -> onRefillTextChange(newValue));
+        txt_title.addListener((observableValue, oldValue, newValue) -> onTitleTextChange(newValue));
+        txt_content.addListener((observableValue, oldValue, newValue) -> onContentTextChange(newValue));
+        //txt_help = new SimpleStringProperty(model.getHelp)
+        experiment.addCourse(course);
+
+    }
 
     private void onContentTextChange(String newValue) {
         course.setContent(newValue);

@@ -26,19 +26,36 @@ public class vasStage_VM implements choose {
     private BooleanProperty checkB_swap;
     private final BooleanProperty alert = new SimpleBooleanProperty(true);
     private Vas vas;
+    public vasStage_VM(Vas vas){
+        this.vas= vas;
+        lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
+        highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
+        buttonText = new SimpleStringProperty(vas.getButtonText());
+        helpText = new SimpleStringProperty(vas.getHelpText());
+        lowAnchorValue = new SimpleStringProperty(String.valueOf(vas.getLowAnchorValue()));
+        highAnchorValue = new SimpleStringProperty(String.valueOf(vas.getHighAnchorValue()));
+        questionText = new SimpleStringProperty(vas.getTitle());
+        checkB_sound = new SimpleBooleanProperty(vas.getAlert());
+        checkB_swap = new SimpleBooleanProperty(vas.getIsSwap());
+        checkB_swap.addListener((observableValue, oldValue, newValue) -> onCheckSwap(newValue));
+        checkB_sound.addListener((observableValue, oldValue, newValue) -> onCheckSound(newValue));
+        highAnchorValue.addListener((observableValue, oldValue, newValue) -> onhighAnchorValue(newValue));
+        lowAnchorValue.addListener((observableValue, oldValue, newValue) -> onlowAnchorValue(newValue));
+        helpText.addListener((observableValue, oldValue, newValue) -> onHelpText(newValue));
+        buttonText.addListener((observableValue, oldValue, newValue) -> {
+            onButtonText(newValue);
+//            System.out.println(vas);
+        });
+
+        highAnchorText.addListener((observableValue, oldValue, newValue) -> onhighAnchorText(newValue));
+        lowAnchorText.addListener((observableValue, oldValue, newValue) -> onlowAnchorText(newValue));
+        questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
+    }
 
     public vasStage_VM(Experiment experiment) {
         this.experiment = experiment;
         this.vas = new Vas("User input", null, null,
                 0, 100, null, null, null, false, false);
-        bind();
-    }
-    public vasStage_VM(Vas vas){
-        this.vas = vas;
-        bind();
-    }
-
-    private void bind(){
         lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
         highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
         buttonText = new SimpleStringProperty(vas.getButtonText());
@@ -183,7 +200,6 @@ public class vasStage_VM implements choose {
 
     public void setHighAnchorText(String highAnchorText) {
         this.highAnchorText.set(highAnchorText);
-        System.out.println(vas.getHighAnchorText());
     }
 
     public String getHelpText() {
@@ -223,18 +239,6 @@ public class vasStage_VM implements choose {
         this.alert.set(alert);
     }
 
-    public void setLowAnchorValue(String lowAnchorValue) {
-        this.lowAnchorValue.set(lowAnchorValue);
-    }
-
-    public void setHighAnchorValue(String highAnchorValue) {
-        this.highAnchorValue.set(highAnchorValue);
-    }
-
-    public void save(){
-        //vas.setValue();
-    }
-
     public Vas getVas() {
         return vas;
     }
@@ -256,12 +260,8 @@ public class vasStage_VM implements choose {
 
     }
 
-
     @Override
     public String getTitle() {
         return "[VAS]" +getQuestionText();
     }
 }
-
-
-

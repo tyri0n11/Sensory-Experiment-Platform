@@ -27,9 +27,7 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TestController{
     @FXML
@@ -119,7 +117,7 @@ public class TestController{
 
     @FXML
     private AnchorPane mainPane;
-    TreeItem<String> start;
+    private TreeItem<String> start;
 
     @FXML
     void delete(ActionEvent event) {
@@ -208,24 +206,95 @@ public class TestController{
                 btn_addRatingContainer, btn_addTasteTest, btn_AddConditionalStatement);
         return o.getTitle();
 
-               //  experiment.showStages();
-
-
-//        else if (o instanceof Timer) {
-//               FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("TimerStage.fxml"));
-//               AnchorPane newContent = fxmlLoader.load();
-//               propertiesPane.getChildren().setAll(newContent);
-//               Timer timer = new Timer("13031321", null, false);
-//               TimerController controller = fxmlLoader.getController();
-//               timerStage_VM view = new timerStage_VM(timer);
-//               controller.setViewModel (view);
-//     /
-
     }
+    private void loadItems(){
+        if (experiment != null){
+            Set<String> str = new LinkedHashSet<>();
+            Set<String> set = new LinkedHashSet<>();
+            ArrayList<Object> stages = experiment.getStages();
+            for (Object o : stages) {
+                if(o instanceof Vas) {
+                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Vas) o).getTitle();
+                    start.getChildren().add(new TreeItem<>(key));
+                    vasStage_VM vasStageVm = new vasStage_VM((Vas) o);
+                    Wrapper wrapper = new Wrapper(key, vasStageVm);
+                    displayedItems.put(index, wrapper);
+                    displayedItems.put(index, wrapper);
+                    index++;
+                   // str.add(key);
+                   // items.setAll(str);
+                }
+                else if (o instanceof Notice){
+                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Notice) o).getTitle();
+                    start.getChildren().add(new TreeItem<>(key));
+                    noticeStage_VM noticeStage_vm = new noticeStage_VM((Notice) o);
+                    Wrapper wrapper = new Wrapper(key, noticeStage_vm);
+                    displayedItems.put(index, wrapper);
+                    index++;
 
-    private void mouseClicked(javafx.scene.input.MouseEvent mouseEvent) {
+                }else if (o instanceof gLMS){
+                    String key = "[" + o.getClass().getSimpleName() + "] " + ((gLMS) o).getTitle();
+                    start.getChildren().add(new TreeItem<>(key));
+                    glmsStage_VM glmsStageVm = new glmsStage_VM((gLMS) o);
+                    Wrapper wrapper = new Wrapper(key, glmsStageVm);
+                    displayedItems.put(index, wrapper);
+                    index++;
+                }
+                else if (o instanceof Input){
+                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Input) o).getTitle();
+                    start.getChildren().add(new TreeItem<>(key));
+                    inputStage_VM inputStage_vm = new inputStage_VM((Input) o);
+                    Wrapper wrapper = new Wrapper(key, inputStage_vm);
+                    displayedItems.put(index, wrapper);
+                    index++;
+                }
+                else if (o instanceof Course){
+                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Course) o).getTitle();
+                    start.getChildren().add(new TreeItem<>(key));
+                    AddCourseVM addCourseVM = new AddCourseVM((Course) o);
+                    Wrapper wrapper = new Wrapper(key, addCourseVM);
+                    displayedItems.put(index, wrapper);
+                    index++;
+                }
+                else if (o instanceof Timer){
+                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Timer) o).getTitle();
+                    start.getChildren().add(new TreeItem<>(key));
+                    timerStage_VM addCourseVM = new timerStage_VM((Timer) o);
+                    Wrapper wrapper = new Wrapper(key, addCourseVM);
+                    displayedItems.put(index, wrapper);
+                    index++;
+                }
+                else if (o instanceof Periodic){
+                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
+                    start.getChildren().add(new TreeItem<>(key));
+
+                   // Wrapper wrapper = new Wrapper(key, addCourseVM);
+                    //displayedItems.put(index, wrapper);
+                    index++;
+                }
+                else if (o instanceof RatingContainer) {
+//                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
+//                       System.out.println(key);
+//                       displayedItems.put(key, o);
+//                       str.add(key);
+                    for (Object subO : ((RatingContainer) o).container) {
+                        if (subO instanceof Vas) {
+                            String key = "[VAS]" + ((Vas) subO).getTitle();
+                            System.out.println(key);
+                        //    displayedScales.put(key, o);
+                            set.add(key);
+                        } else if (subO instanceof gLMS) {
+                            String key = "[GLMS]" + ((gLMS) subO).getTitle();
+                            System.out.println(key);
+                           // displayedScales.put(key, o);
+                            set.add(key);
+                        }
+                    }
+                    //scales.setAll(set);
+                }
+            }
+        }
     }
-
     @FXML
     void addAudibleInstruction(ActionEvent event) {
         listObject.setMaxHeight(311);
@@ -540,9 +609,6 @@ public class TestController{
         index++;
       //  experiment.showStages();
 
-
-        TreeItem<String> vasQuestionItem = new TreeItem<>("[Vas] Question?");
-
         // Add to Randomnies if selected item matches ifConditional
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(new TreeItem<>(key));
@@ -579,8 +645,10 @@ public class TestController{
 
 
 
-    public void setExperiment(Experiment c) {
+    public void setExperiment(Experiment c) throws IOException {
         this.experiment = c;
+        experiment.showStages();
+        loadItems();
     }
 
 

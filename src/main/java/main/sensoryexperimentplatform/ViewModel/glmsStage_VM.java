@@ -26,27 +26,12 @@ public class glmsStage_VM implements choose {
     public glmsStage_VM(Experiment experiment){
         this.experiment = experiment;
         this.glms = new gLMS("User Input",null,null,null, false);;
-        initialize();
-        bind();
-    }
-
-    public glmsStage_VM(gLMS glms){
-        this.glms = glms;
-        initialize();
-        bind();
-    }
-
-    private void initialize(){
         txt_help = new SimpleStringProperty(glms.getHelpText());
         txt_LowAncTxt = new SimpleStringProperty(glms.getButtonText());
         txt_question = new SimpleStringProperty(glms.getTitle());
         checkB_sound = new SimpleBooleanProperty(glms.getAlert());
         checkB_swap  = new SimpleBooleanProperty(glms.isResponse());
-        txt_yes = new SimpleStringProperty();
         txt_yes= new SimpleStringProperty();
-    }
-
-    private void bind(){
         txt_help.addListener((observableValue, oldValue, newValue) -> onHelp(newValue));
         txt_LowAncTxt.addListener((observableValue, oldValue, newValue) -> onLowAnc(newValue));
         checkB_swap.addListener((observableValue, oldValue, newValue) -> onSwapChange(newValue));
@@ -54,6 +39,21 @@ public class glmsStage_VM implements choose {
         checkB_sound.addListener((observableValue, oldValue, newValue) -> onSoundChange(newValue));
         experiment.addGlmsStage(glms);
     }
+    public glmsStage_VM(gLMS glms){
+        this.glms = glms;
+        txt_help = new SimpleStringProperty(glms.getHelpText());
+        txt_LowAncTxt = new SimpleStringProperty(glms.getButtonText());
+        txt_question = new SimpleStringProperty(glms.getTitle());
+        checkB_sound = new SimpleBooleanProperty(glms.getAlert());
+        checkB_swap  = new SimpleBooleanProperty(glms.isResponse());
+        txt_yes= new SimpleStringProperty();
+        txt_help.addListener((observableValue, oldValue, newValue) -> onHelp(newValue));
+        txt_LowAncTxt.addListener((observableValue, oldValue, newValue) -> onLowAnc(newValue));
+        checkB_swap.addListener((observableValue, oldValue, newValue) -> onSwapChange(newValue));
+        txt_question.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
+        checkB_sound.addListener((observableValue, oldValue, newValue) -> onSoundChange(newValue));
+    }
+
 
     private void onHelp(String newValue) {
         glms.setHelpText(newValue);
@@ -62,7 +62,7 @@ public class glmsStage_VM implements choose {
     private void onLowAnc(String newValue) {
         glms.setButtonText(newValue);
     }
-    
+
 
     private void onSwapChange(Boolean newValue) {
         glms.setResponse(newValue);
