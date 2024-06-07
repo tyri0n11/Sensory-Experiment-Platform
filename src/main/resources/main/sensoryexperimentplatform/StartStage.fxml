@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.StartStageController">
+    <children>
+        <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="253.0" prefWidth="520.0" stylesheets="@../../static/stylesheets/Notice1_CSS.css">
+            <content>
+                <AnchorPane layoutX="10.0" maxHeight="700.0" maxWidth="510.0" minWidth="510.0" prefHeight="700.0" prefWidth="510.0" style="-fx-background-color: white;" stylesheets="@../../static/stylesheets/Notice1_CSS.css">
+                    <children>
+                        <Label layoutX="14.0" layoutY="14.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Title Text:" />
+
+                        <TextField fx:id="txt_title" layoutX="200.0" layoutY="23.0" onMouseClicked="#txt_question" prefHeight="30.0" prefWidth="300.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
+                  <Label layoutX="14.0" layoutY="64.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Content Text: " />
+                  <TextArea fx:id="txt_content" layoutX="200.0" layoutY="64.0" prefHeight="200.0" prefWidth="302.0" />
+                  <Label layoutX="14.0" layoutY="314.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Button Text:" />
+                  <TextField fx:id="txt_ButtonText" layoutX="200.0" layoutY="314.0" prefHeight="30.0" prefWidth="300.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
+                  <Label layoutX="14.0" layoutY="364.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Does this experiment require a balance:" />
+                  <CheckBox fx:id="cbx_balance" layoutX="315.0" layoutY="369.0" mnemonicParsing="false" />
+                  <Label layoutX="14.0" layoutY="414.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Background color:" />
+                  <Button fx:id="btn_changeColor" layoutX="165.0" layoutY="414.0" mnemonicParsing="false" onAction="#btn_changeColor" prefHeight="30.0" prefWidth="78.0" text="Change:" />
+                  <ChoiceBox fx:id="chx_BackgroundColor" layoutX="250.0" layoutY="414.0" prefHeight="26.0" prefWidth="177.0" />
+                  <Label layoutX="14.0" layoutY="464.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Text Color:" />
+                  <Button fx:id="btn_textColor" layoutX="165.0" layoutY="464.0" mnemonicParsing="false" onAction="#btn_textColor" prefHeight="30.0" prefWidth="78.0" text="Change:" />
+                  <ChoiceBox fx:id="chx_textColor" layoutX="250.0" layoutY="464.0" prefHeight="26.0" prefWidth="177.0" />
+                  <Label layoutX="14.0" layoutY="514.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Font:" />
+                  <Button fx:id="btn_font" layoutX="165.0" layoutY="514.0" mnemonicParsing="false" onAction="#btn_font" prefHeight="30.0" prefWidth="78.0" text="Change:" />
+                  <ChoiceBox fx:id="chx_change" layoutX="250.0" layoutY="514.0" prefHeight="26.0" prefWidth="177.0" />
+                  <Label layoutX="14.0" layoutY="564.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Start of Stage Delay(Second): " />
+                  <TextField fx:id="txt_StarttimeDelay" layoutX="250.0" layoutY="564.0" onMouseClicked="#txt_question" prefHeight="30.0" prefWidth="200.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
+                  <Label layoutX="14.0" layoutY="614.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="End of Stage Delay(Second): " />
+                  <TextField fx:id="txt_EndtimeDelay" layoutX="250.0" layoutY="614.0" onMouseClicked="#txt_question" prefHeight="30.0" prefWidth="200.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
+                  <Label layoutX="14.0" layoutY="664.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Disable button color" />
+                  <Button fx:id="btn_DisableColor" layoutX="165.0" layoutY="664.0" mnemonicParsing="false" onAction="#btn_DisableColor" prefHeight="30.0" prefWidth="78.0" text="Change:" />
+                  <ChoiceBox fx:id="chx_disableColor" layoutX="250.0" layoutY="664.0" prefHeight="26.0" prefWidth="177.0" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

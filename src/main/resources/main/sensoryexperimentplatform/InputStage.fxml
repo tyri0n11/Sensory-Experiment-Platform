@@ -26,7 +26,8 @@
                         <Label layoutX="14.0" layoutY="201.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Help Text" />
                         <TextArea fx:id="txt_helptext" layoutX="200.0" layoutY="207.0" minWidth="300.0" onDragDetected="#txt_helptext" onMouseClicked="#txt_helptext" prefHeight="200.0" prefWidth="300.0" styleClass="text-area" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
                         <Label layoutX="14.0" layoutY="425.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Play alert sound on screen display ?" />
-                        <CheckBox fx:id="cbx_playsound" layoutX="304.0" layoutY="425.0" mnemonicParsing="false" onAction="#cbx_playsound" onMouseClicked="#cbx_playsound" />
+
+                        <CheckBox fx:id="cbx_alert" layoutX="304.0" layoutY="425.0" mnemonicParsing="false" onAction="#cbx_alert" onMouseClicked="#cbx_alert" />
 
                         <TextField fx:id="txt_question" layoutX="200.0" layoutY="23.0" onAction="#txt_question" onMouseClicked="#txt_question" prefHeight="30.0" prefWidth="300.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
                     </children>
