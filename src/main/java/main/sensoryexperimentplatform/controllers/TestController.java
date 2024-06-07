@@ -244,6 +244,14 @@ public class TestController{
                     displayedItems.put(index, wrapper);
                     index++;
                 }
+                else if (o instanceof TasteTest){
+                    String key = "[User Input] " + ((Input) o).getTitle();
+                    start.getChildren().add(new TreeItem<>(key));
+                    AddTasteVM inputStage_vm = new AddTasteVM((TasteTest) o);
+                    Wrapper wrapper = new Wrapper(key, inputStage_vm);
+                    displayedItems.put(index, wrapper);
+                    index++;
+                }
                 else if (o instanceof Course){
                     String key = "[" + o.getClass().getSimpleName() + "] " + ((Course) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));

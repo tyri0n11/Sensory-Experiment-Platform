@@ -4,8 +4,11 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.addTasteController;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.TasteTest;
 
@@ -65,7 +68,7 @@ public class AddTasteVM implements choose{
     }
     public AddTasteVM(Experiment experiment){
         this.experiment = experiment;
-        model = new TasteTest("d","ád","ád","d","ád",0,100,"ád", false, "help","ád", 1,false, false, false);
+        model = new TasteTest("d","lulu","ád","d","ád",0,100,"ád", false, "help","ád", 1,false, false, false);
         txt_buttontext = new SimpleStringProperty(model.returnsampleVas().getButtonText());
         txt_consumpins = new SimpleStringProperty(model.getConsumptionInstruction());
         txt_inital = new SimpleStringProperty(model.getConsumptionInstruction());
@@ -276,7 +279,11 @@ public class AddTasteVM implements choose{
 
     @Override
     public void modify(AnchorPane anchorPane) throws IOException {
-
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddTasteTest.fxml"));
+        AnchorPane newContent = fxmlLoader.load();
+        anchorPane.getChildren().setAll(newContent);
+        addTasteController controller = fxmlLoader.getController();
+        controller.setViewModel(this);
     }
 
     @Override
