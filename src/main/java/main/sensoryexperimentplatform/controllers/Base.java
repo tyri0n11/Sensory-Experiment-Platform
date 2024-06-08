@@ -12,10 +12,12 @@ import javafx.scene.layout.*;
 
 import javafx.stage.FileChooser;
 import main.sensoryexperimentplatform.models.DataAccess;
+import main.sensoryexperimentplatform.models.listOfExperiment;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -59,7 +61,7 @@ public class Base implements Initializable {
     private HBox mainBox;
 
     @FXML
-    private AnchorPane mainPain;
+    private AnchorPane mainContent;
 
     @FXML
     private AnchorPane mainPane;
@@ -83,18 +85,6 @@ public class Base implements Initializable {
     }
 
     @FXML
-    void importEx(ActionEvent event) {
-        FileChooser chooser = new FileChooser();
-        File file = chooser.showOpenDialog(null);
-        try{
-            if (file != null) {
-                String filePath = file.getAbsolutePath();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    @FXML
     void OpenDashBoard(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/DashBoard.fxml"));
@@ -106,7 +96,7 @@ public class Base implements Initializable {
         catch (IOException e){
             e.printStackTrace();
         }
-        mainPain.getChildren().setAll(newContent);
+        mainContent.getChildren().setAll(newContent);
     }
 
     @FXML
@@ -133,28 +123,33 @@ public class Base implements Initializable {
 //        catch (IOException e){
 //            e.printStackTrace();
 //        }
-//        mainPain.getChildren().setAll(newContent);
+//        mainContent.getChildren().setAll(newContent);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/DashBoard.fxml"));
         AnchorPane newContent = null;
         try{
             newContent = loader.load();
-            DashBoardController view=  loader.getController();
+            DashBoardController view = loader.getController();
 
         }
         catch (IOException e){
             e.printStackTrace();
         }
-        mainPain.getChildren().setAll(newContent);
+        mainContent.getChildren().setAll(newContent);
     }
     @FXML
-    void importExperiment(ActionEvent event) throws Exception {
+    void importExperiment() throws Exception {
         FileChooser chooser = new FileChooser();
         chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files", "*.*")); // Accept all file types
-        File file = chooser.showOpenDialog(null);
-        if (file != null) {
-            String filePath = file.getAbsolutePath();
-            DataAccess.importExperiment(filePath);
+        List<File> files = chooser.showOpenMultipleDialog(null);
+
+        if (files != null) {
+            for(File file : files){
+                String filePath = file.getAbsolutePath();
+                DataAccess.importExperiment(filePath);
+            }
         }
     }
+
+
 }

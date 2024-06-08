@@ -10,6 +10,5 @@ public class ImportController {
 
     @FXML
     public void cancel(){
-
     }
 }

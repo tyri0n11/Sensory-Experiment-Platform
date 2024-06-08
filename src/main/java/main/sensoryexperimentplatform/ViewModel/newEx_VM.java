@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import main.sensoryexperimentplatform.controllers.DashBoardController;
+import main.sensoryexperimentplatform.designpatterns.Observer;
 import main.sensoryexperimentplatform.models.DataAccess;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.listOfExperiment;
@@ -13,7 +14,7 @@ import main.sensoryexperimentplatform.models.notification;
 
 import static java.util.Arrays.setAll;
 
-public class newEx_VM {
+public class newEx_VM implements Observer {
     private StringProperty experimentName;
     private StringProperty creatorName;
     private StringProperty additionNote;
@@ -99,12 +100,15 @@ public class newEx_VM {
         return items;
     }
     public void saveItems() throws Exception {
-      listOfExperiment.getInstance().add(experiment);
-     items.setAll(listOfExperiment.getInstance());
-     Notification.noity(experiment);
+        listOfExperiment.addExperiment(experiment);
+
+        //Notification.notify(experiment);
 
 
+    }
 
-
+    @Override
+    public void update() {
+        items.setAll(listOfExperiment.getInstance());
     }
 }

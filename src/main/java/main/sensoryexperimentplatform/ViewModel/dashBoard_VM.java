@@ -1,60 +1,58 @@
 package main.sensoryexperimentplatform.ViewModel;
 
-import javafx.beans.Observable;
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import main.sensoryexperimentplatform.designpatterns.Observer;
 import main.sensoryexperimentplatform.models.DataAccess;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.listOfExperiment;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import static javafx.beans.binding.Bindings.bindBidirectional;
-
-public class dashBoard_VM {
-    private  ListProperty<Experiment> items = new SimpleListProperty<>(FXCollections.observableArrayList());
-    //id, creator, name, version
-    private final Map<String, Object> objectsMap = new HashMap<>();
-    private ArrayList<Experiment> experiments;
-    private listOfExperiment ListOfExperiment;
-
-
+public class dashBoard_VM implements Observer {
+    private ObservableList<Experiment> experiments;
 
     public dashBoard_VM() {
-     reload();
+        listOfExperiment.attach(this);
+        experiments = FXCollections.observableArrayList();
+        reload();
     }
-    public void reload(){
+
+    public void reload() {
         try {
             loadItems();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-    }
-    public void addListExperiment(Experiment e) throws Exception {
-        reload();
     }
 
-    void loadItems() throws Exception {
+//    public void addExperiment(Experiment e) throws Exception {
+//        listOfExperiment.getInstance().add(e);
+//        experiments.add(e);
+//    }
+//    public void importExperiment(Experiment e){
+//        experiments.add(e);
+//    }
+//
+//    public void deleteExperiment(Experiment e) throws Exception {
+//        listOfExperiment.deleteExperiment(e);
+//        experiments.remove(e);
+//    }
+
+    public void loadItems() throws Exception {
         DataAccess.loadExperiments();
-        items.setAll(listOfExperiment.getInstance());
-        System.out.println(listOfExperiment.getInstance());
+        experiments.setAll(listOfExperiment.getInstance());
     }
 
-
-    public ObservableList<Experiment> getItems() {
-        return items;
-    }
-    public ListProperty<Experiment> itemsProperty() {
-        return items;
+    public ObservableList<Experiment> getExperiments() {
+        return experiments;
     }
 
-    public Map<String, Object> getObjectsMap() {
-        return objectsMap;
+    @Override
+    public void update() {
+        try {
+            experiments.setAll(listOfExperiment.getInstance());
+            System.out.println(listOfExperiment.getInstance());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
-
 }

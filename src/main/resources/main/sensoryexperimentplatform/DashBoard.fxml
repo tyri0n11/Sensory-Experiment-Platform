@@ -26,5 +26,6 @@
                         <TableColumn fx:id="lbl_Option" prefWidth="170.0" text="Option" />
                     </columns>
                 </TableView>
+      <Button fx:id="redoBtn" layoutX="908.0" layoutY="5.0" mnemonicParsing="false" onAction="#redo" text="Redo" />
    </children>
 </AnchorPane>

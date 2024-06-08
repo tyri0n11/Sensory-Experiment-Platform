@@ -8,9 +8,9 @@ public class notification {
 
 
     public notification(dashBoard_VM dashBoard_vm){
-        this.dashBoard_vm= dashBoard_vm;
+        this.dashBoard_vm = dashBoard_vm;
     }
-    public void noity(Experiment e) throws Exception {
-        dashBoard_vm.addListExperiment(e);
+    public void notify(Experiment e) throws Exception {
+        //dashBoard_vm.addExperiment(e);
     }
 }

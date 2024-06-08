@@ -8,29 +8,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class DataAccess {
-    private static final String saveFilePath = "src/main/java/main/sensoryexperimentplatform/models/Data/AllExperiments";
-    private static final String loadFilePath = "src/main/java/main/sensoryexperimentplatform/models/Data/AllExperiments";
+    private static final String saveFilePath = "src/main/java/main/sensoryexperimentplatform/models/Data/Test";
+    private static final String loadFilePath = "src/main/java/main/sensoryexperimentplatform/models/Data/Test";
     public DataAccess(){
 
-    }
-    public static void updateFile() throws Exception {
-        ArrayList<Experiment> experiments = listOfExperiment.getInstance();
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(saveFilePath))) {
-            for (Experiment experiment : experiments) {
-                writer.write(experiment.toString());
-                writer.newLine();
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-    public static void saveNewExperiment(Experiment experiment) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(saveFilePath, true))) {
-            writer.write(experiment.toString());
-            writer.newLine();
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
     }
     public static void saveData(ArrayList<Experiment> experiments) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(saveFilePath, false));
@@ -244,7 +225,7 @@ public class DataAccess {
         }
     }
 
-    public static void importExperiment(String loadFilePath) throws Exception{
+    public static Experiment importExperiment(String loadFilePath) throws Exception{
         Experiment currentExperiment = new Experiment(null,null,null,null,1);
         RatingContainer rc = null;
         boolean isContainer = false;
@@ -378,12 +359,12 @@ public class DataAccess {
                     rc = null;
                     isContainer = false;
                 } else if (line.startsWith("endExperiment()")){
-                    listOfExperiment.getInstance().add(currentExperiment);
-                    DataAccess.saveNewExperiment(currentExperiment);
+                    listOfExperiment.addExperiment(currentExperiment);
                     currentExperiment = new Experiment(null,null,null,null,2);
                 }
             }
         }
+        return currentExperiment;
     }
 
     public static void loadExperiments() throws Exception{
@@ -520,7 +501,7 @@ public class DataAccess {
                     rc = null;
                     isContainer = false;
                 } else if (line.startsWith("endExperiment()")){
-                    listOfExperiment.getInstance().add(currentExperiment);
+                    listOfExperiment.addExperiment(currentExperiment);
                     currentExperiment = new Experiment(null,null,null,null,1);
                 }
             }

@@ -1,5 +1,9 @@
 package main.sensoryexperimentplatform.controllers;
 
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +21,7 @@ import main.sensoryexperimentplatform.ViewModel.RunExperiment_VM;
 import main.sensoryexperimentplatform.ViewModel.dashBoard_VM;
 import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
 import main.sensoryexperimentplatform.ViewModel.newEx_VM;
+import main.sensoryexperimentplatform.models.DataAccess;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.listOfExperiment;
 
@@ -25,7 +30,6 @@ import java.util.Stack;
 
 public class DashBoardController {
     private dashBoard_VM dashBoard_vm;
-
 
     @FXML
     private TableView<Experiment> contentTable;
@@ -49,13 +53,16 @@ public class DashBoardController {
     private TableColumn<Experiment, String> lbl_Option;
     
     private Stack<Experiment> deletedExp = new Stack<>();
+    private  ListProperty<Experiment> items = new SimpleListProperty<>(FXCollections.observableArrayList());
 
+
+    public ListProperty<Experiment> itemsProperty() {
+        return items;
+    }
 
     public void initialize() {
        dashBoard_vm = new dashBoard_VM();
-        bindViewModel();
-
-
+       bindViewModel();
     }
 
     public void bindViewModel() {
@@ -109,13 +116,7 @@ public class DashBoardController {
                                             + "-glyph-size:28px;"
                                             + "-fx-background-color: transparent"
                             );
-//                            edit.setStyle( " -fx-cursor: hand ;"
-//                                    + "-glyph-size:28px;"
-//                                    + "-fx-background-color: transparent");
-//                            add.setOnAction((ActionEvent event) -> {
-//                                Patient c = getTableView().getItems().get(getIndex());
-//                                addTreatment(c);
-//                            });
+//
                             delete.setOnAction((ActionEvent event) -> {
                                 Experiment c = getTableView().getItems().get(getIndex());
                                 try {
@@ -140,7 +141,7 @@ public class DashBoardController {
                             managebtn.setStyle("-fx-alignment:center");
                             HBox.setMargin(run, new Insets(2, 2, 0, 3));
                             HBox.setMargin(edit, new Insets(2, 3, 0, 2));
-                              HBox.setMargin(delete, new Insets(2, 4, 0, 2));
+                            HBox.setMargin(delete, new Insets(2, 4, 0, 2));
 //                            HBox.setMargin(edit, new Insets(2, 5, 0, 3));
                             setGraphic(managebtn);
                         }
@@ -153,8 +154,8 @@ public class DashBoardController {
 
 
         // Bind the TableView items to the ViewModel items
-        contentTable.setItems(dashBoard_vm.getItems());
 
+        contentTable.setItems(dashBoard_vm.getExperiments());
 
 
         // Add listener for row selection
@@ -168,13 +169,15 @@ public class DashBoardController {
 
             }
         });
-
-
     }
 
-    private void deleteEx(Experiment c) throws Exception {
-        deletedExp.push(c);
-        listOfExperiment.deleteExperiment(c);
+    private void deleteEx(Experiment e) throws Exception {
+        deletedExp.push(e);
+        listOfExperiment.deleteExperiment(e);
+    }
+
+    public void redo() throws Exception {
+        listOfExperiment.addExperiment(deletedExp.pop());
     }
 
 
@@ -218,9 +221,6 @@ public class DashBoardController {
 
     @FXML
     void btn_addEx(ActionEvent event) throws IOException {
-//        viewModel.addExperiment()
-
-        // Implement action for adding an experiment
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("NewExperiment.fxml"));
         Parent root = fxmlLoader.load();
 
