@@ -8,11 +8,20 @@ public class FoodTasteVM {
     private TasteTest tasteTest;
     private ArrayList<String> listFoods;
     private ArrayList<String> listFoodsShow;
+    private ArrayList<String> listGLMSShow;
+    private ArrayList <String> listVasShow;
+    private ArrayList <String> listVas;
+    private ArrayList<String> listGLMS;
+
 
     public FoodTasteVM(TasteTest tasteTest){
         this.tasteTest = tasteTest;
         listFoods = tasteTest.getFoods();
         listFoodsShow = tasteTest.getFoodsShow();
+        listVas = tasteTest.getVasList();
+        listGLMSShow = tasteTest.getGlmsListShow();
+        listVasShow = tasteTest.getVasListShow();
+        listGLMS = tasteTest.getGlmsList();
     }
 
     public ArrayList<String> getListFoodsShow() {

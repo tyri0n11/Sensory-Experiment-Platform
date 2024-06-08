@@ -42,6 +42,11 @@ public class FoodAndTasteController {
 
     @FXML
     private ListView<String> foodView;
+    @FXML
+    private ListView<String> glmsTable;
+
+    @FXML
+    private ListView<String> vasTable;
     private FoodTasteVM viewModel;
     private ObservableList<String> foods;
 

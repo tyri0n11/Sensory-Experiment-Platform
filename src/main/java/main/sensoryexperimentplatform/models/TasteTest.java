@@ -17,14 +17,34 @@ public class TasteTest {
     private String endInStruction;
     private ArrayList<String> foods;
     private ArrayList<String> foodsShow;
+
     private final ArrayList<Object> list;
     private final Notice initialNotice;
     private int timeWait;
     boolean randomizeFood, randomizeRatingVas, randomizeRatingGLMS;
     private ArrayList<String> vasList;
     private ArrayList<String> glmsList;
+    private ArrayList<String> vasListShow;
+    private ArrayList<String> glmsListShow;
     private final Vas sampleVas;
     private final gLMS sampleGLMS;
+
+    public ArrayList<String> getVasListShow() {
+        return vasListShow;
+    }
+
+    public ArrayList<String> getGlmsListShow() {
+        return glmsListShow;
+    }
+
+    public ArrayList<String> getVasList() {
+        return vasList;
+    }
+
+    public ArrayList<String> getGlmsList() {
+        return glmsList;
+    }
+
     public Vas returnsampleVas(){
         return sampleVas;
     }
@@ -92,6 +112,33 @@ public class TasteTest {
         list = new ArrayList<>();
         vasList = new ArrayList<>();
         glmsList = new ArrayList<>();
+        vasListShow = new ArrayList<>();
+        glmsListShow = new ArrayList<>();
+        vasListShow.add("Alcoholic");
+        vasListShow.add("Bitter");
+        vasListShow.add("Creamy");
+        vasListShow.add("Fruity");
+        vasListShow.add("Novel");
+        vasListShow.add("Pleasant");
+        vasListShow.add("Salty");
+        vasListShow.add("Savoury");
+        vasListShow.add("Sour");
+        vasListShow.add("Spicy");
+        vasListShow.add("Strong");
+        vasListShow.add("Sweet");
+        glmsListShow.add("Alcoholic");
+        glmsListShow.add("Bitter");
+        glmsListShow.add("Creamy");
+        glmsListShow.add("Fruity");
+        glmsListShow.add("Novel");
+        glmsListShow.add("Pleasant");
+        glmsListShow.add("Salty");
+        glmsListShow.add("Savoury");
+        glmsListShow.add("Sour");
+        glmsListShow.add("Spicy");
+        glmsListShow.add("Strong");
+        glmsListShow.add("Sweet");
+
         list.add(initialNotice);
 
     }

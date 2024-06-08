@@ -15,8 +15,13 @@
                   <Button fx:id="btn_stop" layoutX="240.0" layoutY="603.0" mnemonicParsing="false" onAction="#SelectAll" prefHeight="52.0" prefWidth="136.0" stylesheets="@/static/stylesheets/AddSound_CSS.css" text="Select All" />
                   <Button fx:id="btn_refresh" layoutX="400.0" layoutY="603.0" mnemonicParsing="false" onAction="#SelectNone" prefHeight="52.0" prefWidth="136.0" stylesheets="@/static/stylesheets/AddSound_CSS.css" text="Select None" />
                   <Button fx:id="btn_remove" layoutX="560.0" layoutY="603.0" mnemonicParsing="false" onAction="#Close" prefHeight="52.0" prefWidth="136.0" stylesheets="@/static/stylesheets/AddSound_CSS.css" text="Save" />
-            <ListView fx:id="foodView" layoutX="60.0" layoutY="110.0" prefHeight="471.0" prefWidth="362.0" />
+            <ListView fx:id="foodView" layoutX="60.0" layoutY="110.0" prefHeight="471.0" prefWidth="200.0" />
             <Label layoutX="66.0" layoutY="74.0" text="Foods" />
+            <ListView fx:id="vasTable" layoutX="283.0" layoutY="140.0" prefHeight="435.0" prefWidth="232.0" />
+            <ListView fx:id="glmsTable" layoutX="515.0" layoutY="140.0" prefHeight="435.0" prefWidth="232.0" />
+            <Label layoutX="501.0" layoutY="76.0" text="Ratings" />
+            <Label layoutX="371.0" layoutY="110.0" text="VAS" />
+            <Label layoutX="603.0" layoutY="112.0" text="gLMS" />
             </children>
         </AnchorPane>
     </children>
