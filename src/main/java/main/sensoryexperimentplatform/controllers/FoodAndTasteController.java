@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FoodAndTasteController {
+    private List <XCell> xcell;
     @FXML
     private Label SoundSelectTionLabel;
 
@@ -48,15 +49,27 @@ public class FoodAndTasteController {
         Pane pane = new Pane();
         CheckBox button = new CheckBox();
         String lastItem;
+        private String name;
+        private Boolean isSelect;
 
-        public XCell() {
+        public String getName() {
+            return name;
+        }
+
+        public Boolean getSelect() {
+            return isSelect;
+        }
+
+        public XCell(boolean boo) {
             super();
+            this.isSelect = boo;
             hbox.getChildren().addAll(label, pane, button);
             HBox.setHgrow(pane, Priority.ALWAYS);
             button.setOnAction(new EventHandler<ActionEvent>() {
+
                 @Override
                 public void handle(ActionEvent event) {
-                    System.out.println(lastItem + " : " + event);
+                    isSelect = button.isSelected();
                 }
             });
         }
@@ -70,6 +83,7 @@ public class FoodAndTasteController {
                 setGraphic(null);
             } else {
                 lastItem = item;
+                name = item;
                 label.setText(item!=null ? item : "<null>");
                 setGraphic(hbox);
             }
@@ -84,13 +98,17 @@ public class FoodAndTasteController {
         foodView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
             public ListCell<String> call(ListView<String> param) {
-                return new XCell();
+                XCell xCell = new XCell(false);
+                xcell.add(xCell);
+                System.out.println(xCell.getName());
+                return xCell;
             }
         });
 
     }
 
     public void setViewModel(FoodTasteVM viewModel) {
+        xcell = new ArrayList<>();
         foods = FXCollections.observableArrayList();
         this.viewModel = viewModel;
         loadItems();
@@ -113,12 +131,24 @@ public class FoodAndTasteController {
 
     @FXML
     void Close(ActionEvent event) {
-
+        for (XCell a:xcell){
+            if (a.isSelect){
+                viewModel.addListFoods(a.getName());
+            }
+        }
+        Stage currentStage = (Stage) btn_play.getScene().getWindow();
+        currentStage.close();
     }
 
     @FXML
     void SelectAll(ActionEvent event) {
-
+        for (String item : foods) {
+            // Assuming that the checkboxes are in the XCell
+            XCell cell = (XCell) foodView.lookup(".list-cell= '" + item + "'");
+            if (cell != null) {
+                cell.button.setSelected(true);
+            }
+        }
     }
 
     @FXML
