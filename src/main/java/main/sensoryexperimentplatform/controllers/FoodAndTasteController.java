@@ -18,6 +18,7 @@ import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.ViewModel.FoodTasteVM;
 import main.sensoryexperimentplatform.models.TasteTest;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +44,9 @@ public class FoodAndTasteController {
     private ListView<String> foodView;
     private FoodTasteVM viewModel;
     private ObservableList<String> foods;
+
     static class XCell extends ListCell<String> {
+
         HBox hbox = new HBox();
         Label label = new Label("(empty)");
         Pane pane = new Pane();
@@ -54,6 +57,10 @@ public class FoodAndTasteController {
 
         public String getName() {
             return name;
+        }
+
+        public void setSelect(Boolean select) {
+            isSelect = select;
         }
 
         public Boolean getSelect() {
@@ -132,7 +139,7 @@ public class FoodAndTasteController {
     @FXML
     void Close(ActionEvent event) {
         for (XCell a:xcell){
-            if (a.isSelect){
+            if (a.getSelect()){
                 viewModel.addListFoods(a.getName());
             }
         }
@@ -142,18 +149,18 @@ public class FoodAndTasteController {
 
     @FXML
     void SelectAll(ActionEvent event) {
-        for (String item : foods) {
-            // Assuming that the checkboxes are in the XCell
-            XCell cell = (XCell) foodView.lookup(".list-cell= '" + item + "'");
-            if (cell != null) {
-                cell.button.setSelected(true);
-            }
+        for (XCell cell : xcell) {
+            cell.button.setSelected(true);
+            cell.setSelect(true);
         }
     }
 
     @FXML
     void SelectNone(ActionEvent event) {
-
+        for (XCell cell : xcell) {
+            cell.button.setSelected(false);
+            cell.setSelect(false);
+        }
     }
 
 
