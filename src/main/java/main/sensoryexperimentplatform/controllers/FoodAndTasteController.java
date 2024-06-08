@@ -76,8 +76,9 @@ public class FoodAndTasteController {
         }
     }
 
-    private void loadItems(){
+    public void loadItems(){
         foods.clear();
+        foodView.getItems().clear();
         foods.addAll(viewModel.getListFoodsShow());
         foodView.getItems().addAll(foods);
         foodView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
@@ -102,7 +103,7 @@ public class FoodAndTasteController {
         Stage stage = new Stage();
         stage.setTitle("Add Food");
         addFoodController controller = fxmlLoader.getController();
-        controller.setViewModel(viewModel);
+        controller.setViewModel(viewModel, this);
         Scene scene = new Scene(root);
         stage.setScene(scene);
 
