@@ -3,8 +3,7 @@ package main.sensoryexperimentplatform.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import main.sensoryexperimentplatform.ViewModel.audibleSound_VM;
-import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
+import main.sensoryexperimentplatform.viewmodel.audibleSound_VM;
 
 public class addAudibleSoundController  {
     private audibleSound_VM viewModel;

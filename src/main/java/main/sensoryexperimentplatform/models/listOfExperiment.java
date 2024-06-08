@@ -1,7 +1,7 @@
 package main.sensoryexperimentplatform.models;
 
-import main.sensoryexperimentplatform.designpatterns.Observable;
-import main.sensoryexperimentplatform.designpatterns.Observer;
+import main.sensoryexperimentplatform.utilz.Observable;
+import main.sensoryexperimentplatform.utilz.Observer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,6 @@ public class listOfExperiment extends Observable {
 
     public static void deleteExperiment(Experiment experiment) throws Exception {
         if (experiments.remove(experiment)) {
-           // DataAccess.updateFile();
             notifyAllObservers();
         }
 

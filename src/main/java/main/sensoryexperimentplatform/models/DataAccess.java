@@ -7,9 +7,9 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static main.sensoryexperimentplatform.utilz.Constants.*;
+
 public class DataAccess {
-    private static final String saveFilePath = "src/main/java/main/sensoryexperimentplatform/models/Data/Test";
-    private static final String loadFilePath = "src/main/java/main/sensoryexperimentplatform/models/Data/Test";
     public DataAccess(){
 
     }
@@ -20,6 +20,15 @@ public class DataAccess {
             writer.newLine();
         }
         writer.close();
+    }
+
+    public static void saveNewExperiment(Experiment experiment) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(saveFilePath, true))) {
+            writer.write(experiment.toString());
+            writer.newLine();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static Experiment getExperimentIndividually() throws IOException {

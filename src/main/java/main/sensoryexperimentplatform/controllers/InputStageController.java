@@ -6,8 +6,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
-import main.sensoryexperimentplatform.models.Experiment;
+import main.sensoryexperimentplatform.viewmodel.inputStage_VM;
 
 public class InputStageController {
     private inputStage_VM viewModel;

@@ -4,8 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import main.sensoryexperimentplatform.ViewModel.questionStage_VM;
-import main.sensoryexperimentplatform.ViewModel.vasStage_VM;
+import main.sensoryexperimentplatform.viewmodel.questionStage_VM;
 import main.sensoryexperimentplatform.models.Question;
 
 public class questionStageController {

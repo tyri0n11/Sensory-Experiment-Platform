@@ -3,12 +3,11 @@ package main.sensoryexperimentplatform.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.FocusModel;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import main.sensoryexperimentplatform.ViewModel.FoodTasteVM;
+import main.sensoryexperimentplatform.viewmodel.FoodTasteVM;
 
 public class addFoodController {
     private FoodTasteVM viewModel;

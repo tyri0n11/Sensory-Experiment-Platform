@@ -1,14 +1,5 @@
 package main.sensoryexperimentplatform.models;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.layout.AnchorPane;
-import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.vasStage_VM;
-import main.sensoryexperimentplatform.controllers.VasController;
-
-import java.io.IOException;
-import java.util.Date;
-
 public class Vas extends Stage{
     private String lowAnchorText, highAnchorText, helpText, buttonText ;
     private int lowAnchorValue, highAnchorValue;

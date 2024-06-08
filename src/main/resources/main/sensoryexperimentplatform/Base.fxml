@@ -54,7 +54,7 @@
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="btn_exportExp" mnemonicParsing="false" onAction="#exportEx" prefHeight="66.0" prefWidth="254.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Export experiment">
+                                <Button fx:id="btn_exportExp" mnemonicParsing="false" onAction="#exportExperiment" prefHeight="66.0" prefWidth="254.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Export experiment">
                                     <graphic>
                                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                             <image>

@@ -2,13 +2,11 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.control.TextArea;
-import main.sensoryexperimentplatform.ViewModel.RunVas_VM;
+import main.sensoryexperimentplatform.viewmodel.RunVas_VM;
 
 public class RunVasController {
     @FXML

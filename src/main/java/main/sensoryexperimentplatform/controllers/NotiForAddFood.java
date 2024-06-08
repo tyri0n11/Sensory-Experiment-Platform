@@ -1,7 +1,5 @@
 package main.sensoryexperimentplatform.controllers;
 
-import main.sensoryexperimentplatform.ViewModel.FoodTasteVM;
-
 public class NotiForAddFood {
     private FoodAndTasteController foodAndTasteController;
     public NotiForAddFood(FoodAndTasteController foodAndTasteController){

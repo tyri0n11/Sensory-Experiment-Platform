@@ -3,7 +3,6 @@ package main.sensoryexperimentplatform.controllers;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,16 +11,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.RunExperiment_VM;
-import main.sensoryexperimentplatform.ViewModel.dashBoard_VM;
-import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
-import main.sensoryexperimentplatform.ViewModel.newEx_VM;
-import main.sensoryexperimentplatform.models.DataAccess;
+import main.sensoryexperimentplatform.viewmodel.RunExperiment_VM;
+import main.sensoryexperimentplatform.viewmodel.dashBoard_VM;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.listOfExperiment;
 
@@ -227,7 +222,7 @@ public class DashBoardController {
         Stage stage = new Stage();
         stage.setTitle("Add Sound");
         newExController controller = fxmlLoader.getController();
-        controller.initialize(dashBoard_vm);
+        controller.initialize();
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

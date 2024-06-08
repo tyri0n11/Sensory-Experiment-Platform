@@ -5,13 +5,11 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.util.Duration;
-import main.sensoryexperimentplatform.ViewModel.RunTimer_VM;
+import main.sensoryexperimentplatform.viewmodel.RunTimer_VM;
 
 public class RunTimerController {
     public Label title_lbl;

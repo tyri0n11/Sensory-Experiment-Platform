@@ -3,18 +3,15 @@ package main.sensoryexperimentplatform.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.View.ViewHandler;
-import main.sensoryexperimentplatform.ViewModel.addSoundVM;
+import main.sensoryexperimentplatform.view.ViewHandler;
+import main.sensoryexperimentplatform.viewmodel.addSoundVM;
 
 import java.io.IOException;
 

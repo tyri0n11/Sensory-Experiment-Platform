@@ -12,51 +12,23 @@ import javafx.scene.layout.*;
 
 import javafx.stage.FileChooser;
 import main.sensoryexperimentplatform.models.DataAccess;
+import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.listOfExperiment;
 
+import javax.swing.*;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import static main.sensoryexperimentplatform.utilz.Constants.DEFAULT_DIRECTORY;
+
 
 public class Base implements Initializable {
-    private boolean mouseClick;
     private boolean isSidebarVisible = true;
-    @FXML
-    private BorderPane borderPane;
-
-    @FXML
-    private Button btn_Config;
-
-    @FXML
-    private Button btn_DashBoard;
-
-    @FXML
-    private Button btn_ImportExp;
-
-    @FXML
-    private Button btn_ShareExp;
-
-    @FXML
-    private Button btn_cross;
-
-    @FXML
-    private Button btn_down;
-
-    @FXML
-    private Button btn_exportExp;
-
-    @FXML
-    private Button btn_menu;
-
-    @FXML
-    private Button btn_up;
-
-    @FXML
-    private Label lbl_SenseXP;
-
     @FXML
     private HBox mainBox;
 
@@ -64,25 +36,8 @@ public class Base implements Initializable {
     private AnchorPane mainContent;
 
     @FXML
-    private AnchorPane mainPane;
-
-    @FXML
-    private AnchorPane propertiesPane;
-
-    @FXML
     private VBox sideMenu;
-    @FXML
-    void exportEx(ActionEvent event) {
-        FileChooser chooser = new FileChooser();
-        File file = chooser.showOpenDialog(null);
-        try{
-            if (file != null) {
-                String filePath = file.getAbsolutePath();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
 
     @FXML
     void OpenDashBoard(ActionEvent event) {
@@ -139,9 +94,10 @@ public class Base implements Initializable {
     }
     @FXML
     void importExperiment() throws Exception {
-        FileChooser chooser = new FileChooser();
-        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files", "*.*")); // Accept all file types
-        List<File> files = chooser.showOpenMultipleDialog(null);
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File(DEFAULT_DIRECTORY));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("SIPM Files", "*.sipm")); // Accept all file types
+        List<File> files = fileChooser.showOpenMultipleDialog(null);
 
         if (files != null) {
             for(File file : files){
@@ -151,5 +107,27 @@ public class Base implements Initializable {
         }
     }
 
+    @FXML
+    void exportExperiment(){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File(DEFAULT_DIRECTORY));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("SIPM Files", "*.sipm"));
 
+        File file = fileChooser.showSaveDialog(null);
+
+        if (file != null) {
+            saveToFile(file);
+        }
+    }
+
+    private void saveToFile(File file) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            for (Experiment experiment : listOfExperiment.getInstance()) {
+                writer.write(experiment.toString());
+                writer.newLine();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
