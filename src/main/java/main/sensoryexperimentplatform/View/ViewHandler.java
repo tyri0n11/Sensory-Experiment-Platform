@@ -40,19 +40,19 @@ public class ViewHandler {
 
 
 
-    public void openGLMS(){
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("AssignSound.fxml"));
-        try{
-            Parent root = (Parent) loader.load();
-            assignSoundController assignSound =  loader.getController();
-            assignSound.init(vmf.addSound(), this);
-            Scene general = new Scene(root);
-            mainStage.setScene(general);
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-    }
+//    public void openGLMS(){
+//        FXMLLoader loader = new FXMLLoader();
+//        loader.setLocation(getClass().getResource("AssignSound.fxml"));
+//        try{
+//            Parent root = (Parent) loader.load();
+//            assignSoundController assignSound =  loader.getController();
+//            assignSound.init(vmf.addSound(), this);
+//            Scene general = new Scene(root);
+//            mainStage.setScene(general);
+//        }
+//        catch (IOException e){
+//            e.printStackTrace();
+//        }
+//    }
 
 }

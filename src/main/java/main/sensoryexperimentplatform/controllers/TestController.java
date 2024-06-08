@@ -115,6 +115,7 @@ public class TestController{
     @FXML
     private AnchorPane mainPane;
     private TreeItem<String> start;
+    private AudibleInstruction audibleInstruction;
     private Stack <AddTasteVM> addTasteVMS;
 
     @FXML
@@ -649,6 +650,9 @@ public class TestController{
         Parent root = fxmlLoader.load();
 
         Stage stage = new Stage();
+        assignSoundController controller = fxmlLoader.getController();
+//        assignSoundVM viewModel = new assignSoundVM(audibleInstruction);
+//        controller.setViewModel(viewModel);
         stage.setTitle("Add Sound");
 
         Scene scene = new Scene(root);
