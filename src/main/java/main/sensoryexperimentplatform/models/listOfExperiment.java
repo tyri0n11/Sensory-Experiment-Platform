@@ -25,6 +25,7 @@ public class listOfExperiment extends Observable {
 
     public static void deleteExperiment(Experiment experiment) throws Exception {
         if (experiments.remove(experiment)) {
+            DataAccess.updateFile();
             notifyAllObservers();
         }
 

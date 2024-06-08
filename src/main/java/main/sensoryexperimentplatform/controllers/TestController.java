@@ -628,13 +628,15 @@ public class TestController{
 
     }
 
-
-
-
     public void setExperiment(Experiment c) throws IOException {
         this.experiment = c;
         experiment.showStages();
         loadItems();
+    }
+
+    @FXML
+    void save(ActionEvent event) throws Exception {
+        DataAccess.updateFile();
     }
 
 

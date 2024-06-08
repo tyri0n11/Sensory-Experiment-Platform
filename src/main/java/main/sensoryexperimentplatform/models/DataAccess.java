@@ -539,6 +539,18 @@ public class DataAccess {
         }
     }
 
+    public static void updateFile() throws Exception {
+        ArrayList<Experiment> experiments = listOfExperiment.getInstance();
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(saveFilePath))) {
+            for (Experiment experiment : experiments) {
+                writer.write(experiment.toString());
+                writer.newLine();
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
 
 }
 

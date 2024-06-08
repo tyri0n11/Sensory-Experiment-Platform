@@ -1,4 +1,4 @@
-ExperimentID: a419e167-60d5-4e04-ad05-3a835cbff668
+ExperimentID: e1ef48b9-ae3c-411c-be14-cb75da2abf19
 ExperimentName: Taste Screener 2019_20
 ExperimenterName: SIBG
 Version: 1
@@ -65,7 +65,7 @@ noticeStage("Rinsing","Please rinse your mouth with the water provided and then 
 noticeStage("Thank you!","That completes the taste test: please call your researcher.","X","","true")
 endExperiment()
 
-ExperimentID: 6a193d79-746c-4001-8c24-dafdb243259a
+ExperimentID: 61c7c75c-0ac8-45aa-9f8e-aa0c20a47c3e
 ExperimentName: Marie GNG - Mood Ratings
 ExperimenterName: Martin
 Version: 0
@@ -85,7 +85,7 @@ endRatingsContainer()
 noticeStage("End of ratings","Please call the experimenter","End","","false")
 endExperiment()
 
-ExperimentID: 68d451af-11f0-4138-8b88-9114292ea53c
+ExperimentID: 71d1972b-9eff-4ff0-bb1d-15874a62b112
 ExperimentName: E6 Preload Soup
 ExperimenterName: Una
 Version: 8
@@ -123,7 +123,7 @@ endRatingsContainer()
 noticeStage("Thank you","That completes this part of the study\, please call your experimenter.","End","","false")
 endExperiment()
 
-ExperimentID: 98fc433a-0715-4715-836b-7b65b79d66f3
+ExperimentID: adba6d09-2553-419f-a1ea-04e3ea4c139b
 ExperimentName: Lab breakfast
 ExperimenterName: Vasiliki
 Version: 7
@@ -163,37 +163,11 @@ endRatingsContainer()
 noticeStage("Thank you!","That completes the lab-based breakfast: please call your researcher.","X","","true")
 endExperiment()
 
-ExperimentID: e92ee496-347c-427d-b4f6-26e449cf7fca
-ExperimentName: Ella - Mood Ratings
-ExperimenterName: Martin
-Version: 0
-startExperiment("Please complete the mood ratings","","Start ratings")
-ratingsContainer("true","0")
-vasStage("How hungry do you feel right now?","Not at all hungry","Extremely hungry","0","100","Rating completed","Session[]","","false","false")
-vasStage("How full do you feel right now?","Not at all full","Extremely full","0","100","Rating completed","Session[]","","false","false")
-vasStage("How thirsty do you feel right now?","Not at all thirsty","Extremely thirsty","0","100","Rating completed","Session[]","","false","false")
-vasStage("How strong is your desire to eat right now?","Very weak","Very strong","0","100","Rating completed","Session[]","","false","false")
-vasStage("How much do you think you could eat right now?","Nothing at all","A large amount","0","100","Rating completed","Session[]","","false","false")
-vasStage("How clearheaded do you feel right now?","Not at all clearheaded","Extremely clearheaded","0","100","Rating completed","Session[]","","false","false")
-vasStage("How tired do you feel right now?","Not at all tired","Extremely tired","0","100","Rating completed","Session[]","","false","false")
-vasStage("How headachy do you feel right now?","Not at all headachy","Extremely headachy","0","100","Rating completed","Session[]","","false","false")
-vasStage("How calm do you feel right now?","Not at all calm","Extremely calm","0","100","Rating completed","Session[]","","false","false")
-vasStage("How energetic do you feel right now?","Not at all energetic","Extremely energetic","0","100","Rating completed","Session[]","","false","false")
-endRatingsContainer()
-noticeStage("End of ratings","Please call the experimenter","End","","false")
-endExperiment()
-
-ExperimentID: f2ef9ba5-6d08-4248-912c-e867e85eb9ff
-ExperimentName: Qanh
-ExperimenterName:  Quynh Anh
-Version: 1
-startExperiment("Thinh","","hello")
-endExperiment()
-
-ExperimentID: 043781ff-df11-48b8-aea2-c6d9907c9208
+ExperimentID: d06498ad-0daa-4c82-b372-91c120cdb517
 ExperimentName: Giang
 ExperimenterName: Giang
-Version: 1
+Version: 3
 startExperiment("Giang","","Giang")
+noticeStage("hello mn","co len mn","kenchana","khung","false")
 endExperiment()
 

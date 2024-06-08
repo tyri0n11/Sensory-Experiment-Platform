@@ -47,7 +47,7 @@
                 </HBox>
             </left>
         </BorderPane>
-      <Button id="btn_bind" fx:id="btnSave" layoutX="488.0" layoutY="612.0" mnemonicParsing="false" text="Save" />
+      <Button id="btn_bind" fx:id="btnSave" layoutX="488.0" layoutY="612.0" mnemonicParsing="false" onAction="#save" text="Save" />
       <Button id="btn_bind" fx:id="btnSaveAll" layoutX="614.0" layoutY="612.0" mnemonicParsing="false" text="Save as" />
       <Button id="btn_bind" fx:id="btnCancel" layoutX="740.0" layoutY="612.0" mnemonicParsing="false" text="Cancel" />
     </children>
