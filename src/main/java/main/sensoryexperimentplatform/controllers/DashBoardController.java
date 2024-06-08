@@ -10,8 +10,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.stage.Modality;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.ViewModel.*;
@@ -142,8 +143,12 @@ public class DashBoardController {
                                     controller.setViewModel(viewModel);
 
                                     Stage dialog = new Stage();
-                                    dialog.initModality(Modality.APPLICATION_MODAL);
-                                    dialog.setScene(new Scene(root));
+                                    dialog.initStyle(StageStyle.TRANSPARENT);
+                                    Scene dialogScene = new Scene(root);
+                                    dialogScene.setFill(Color.TRANSPARENT);
+                                    dialog.setScene(dialogScene);
+
+
                                     dialog.showAndWait();
 
                                 } catch (IOException e) {

@@ -9,19 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/FillName_VM.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/FillNameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/fill_name.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/FillName.css" afterDir="false" />
+    <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="feat: fill name dialog v0.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/ViewModel/RunExperiment_VM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/DashBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/DashBoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunGLMSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunGLMSController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/Data/Test" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/Data/Test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/DataAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/DataAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/RunGLMS.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/fill_name.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/fill_name.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/FillName.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/FillName.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,34 +76,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DataAccess.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.RunExperiment.executor": "Run",
-    "Application.SensoryExperimentPlatform.executor": "Run",
-    "Application.TasteTest.executor": "Run",
-    "Application.Test.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "thinhchau",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/USER/OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY/Desktop/Respositories/Sensory Expeirment Platform/results",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DataAccess.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RunExperiment.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SensoryExperimentPlatform.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TasteTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;thinhchau&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY/Desktop/Respositories/Sensory Expeirment Platform/results&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\USER\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\Desktop\Respositories\Sensory Expeirment Platform\results" />
@@ -262,7 +254,8 @@
       <workItem from="1717652651393" duration="9968000" />
       <workItem from="1717682781345" duration="676000" />
       <workItem from="1717722990309" duration="4931000" />
-      <workItem from="1717761206734" duration="10160000" />
+      <workItem from="1717761206734" duration="10229000" />
+      <workItem from="1717807899906" duration="2120000" />
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />
@@ -392,7 +385,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717736248056</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat: fill name dialog v0.1">
+      <option name="closed" value="true" />
+      <created>1717781730066</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1717781730066</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,7 +427,8 @@
     <MESSAGE value="Build: Run experiment _ v1.1" />
     <MESSAGE value="Build: Run experiment _ v1.7" />
     <MESSAGE value="feat: store result files in specific directories" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: store result files in specific directories" />
+    <MESSAGE value="feat: fill name dialog v0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: fill name dialog v0.1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
