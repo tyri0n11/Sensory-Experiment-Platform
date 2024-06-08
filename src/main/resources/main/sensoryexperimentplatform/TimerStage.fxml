@@ -16,8 +16,8 @@
                                   <Label fx:id="lbl_timeToWait" layoutX="14.0" layoutY="64.0" styleClass="propertiesText" text="Time to wait in minutes" />
                                   <Label fx:id="lbl_soundDisplay" layoutX="14.0" layoutY="114.0" prefHeight="26.0" prefWidth="375.0" styleClass="propertiesText" text="Play alert sound on screen display?" />
                                   <CheckBox fx:id="cb_alertSound" layoutX="310.0" layoutY="114.0" mnemonicParsing="false" styleClass="propertiesText" />
-                                  <TextField fx:id="txt_instruction" layoutX="243.0" layoutY="10.0" prefHeight="31.0" prefWidth="261.0" />
-                                  <TextField fx:id="txt_timewait" layoutX="243.0" layoutY="64.0" prefHeight="31.0" prefWidth="261.0" style="-fx-background-color: white;" />
+                                  <TextField fx:id="txt_instruction" layoutX="243.0" layoutY="10.0" prefHeight="31.0" prefWidth="252.0" />
+                                  <TextField fx:id="txt_timewait" layoutX="243.0" layoutY="64.0" prefHeight="31.0" prefWidth="252.0" style="-fx-background-color: white;" />
                               </children>
                           </AnchorPane>
                       </content>

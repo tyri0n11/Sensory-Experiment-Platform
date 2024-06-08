@@ -48,16 +48,16 @@ public class DashBoardController {
     private TableColumn<Experiment, String> lbl_Option;
     
     private Stack<Experiment> deletedExp = new Stack<>();
-    private  ListProperty<Experiment> items = new SimpleListProperty<>(FXCollections.observableArrayList());
 
 
-    public ListProperty<Experiment> itemsProperty() {
-        return items;
-    }
+    private Experiment selectedExperiment;
+    private Base base;
 
     public void initialize() {
+        //this.base = base;
        dashBoard_vm = new dashBoard_VM();
        bindViewModel();
+
     }
 
     public void bindViewModel() {
@@ -69,6 +69,9 @@ public class DashBoardController {
         lbl_experimentName.setCellValueFactory(new PropertyValueFactory<>("experimentName"));
 
         lbl_currentVersion.setCellValueFactory(new PropertyValueFactory<>("version"));
+        contentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, selectedExperiment) -> {
+            this.selectedExperiment = selectedExperiment;
+        });
         Callback<TableColumn<Experiment, String>, TableCell<Experiment, String>> cellFactory = new Callback<TableColumn<Experiment, String>, TableCell<Experiment, String>>() {
             @Override
             public TableCell<Experiment, String> call(final TableColumn<Experiment, String> param) {
@@ -111,21 +114,24 @@ public class DashBoardController {
                                             + "-glyph-size:28px;"
                                             + "-fx-background-color: transparent"
                             );
+
+
+
 //
                             delete.setOnAction((ActionEvent event) -> {
-                                Experiment c = getTableView().getItems().get(getIndex());
+                                selectedExperiment = getTableView().getItems().get(getIndex());
                                 try {
-                                    deleteEx(c);
+                                    deleteEx(selectedExperiment);
                                 } catch (Exception e) {
                                     throw new RuntimeException(e);
                                 }
                             });
                             edit.setOnAction((ActionEvent event) -> {
-                                Experiment c = getTableView().getItems().get(getIndex());
-                                editExperiment(c);
+                                selectedExperiment = getTableView().getItems().get(getIndex());
+                                editExperiment(selectedExperiment);
                             });
                             run.setOnAction((ActionEvent) ->{
-                                Experiment selectedExperiment = getTableView().getItems().get(getIndex());
+                                selectedExperiment = getTableView().getItems().get(getIndex());
                                 try {
                                     runExperiment(selectedExperiment);
                                 } catch (IOException e) {
@@ -153,17 +159,6 @@ public class DashBoardController {
         contentTable.setItems(dashBoard_vm.getExperiments());
 
 
-        // Add listener for row selection
-        contentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, selectedExperiment) -> {
-            if (selectedExperiment != null) {
-                try {
-                    runExperiment(selectedExperiment);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-            }
-        });
     }
 
     private void deleteEx(Experiment e) throws Exception {
@@ -183,8 +178,8 @@ public class DashBoardController {
         Parent root =null;
         try{
             root = loader.load();
-            TestController view=  loader.getController();
-            view.setExperiment (c);
+            TestController view = loader.getController();
+            view.setExperiment(c);
         }
         catch (IOException e){
             e.printStackTrace();
@@ -230,6 +225,7 @@ public class DashBoardController {
         stage.show();
 
     }
+
 
 
 

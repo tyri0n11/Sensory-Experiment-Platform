@@ -89,10 +89,7 @@
     -fx-font-family: 'Inter';
     -fx-font-size: 14;
 }
-#lbl_DashBoard{
-    -fx-text-fill: #624DE3;
-    -fx-font-size: 36;
-}
+
 #txt_searchBar{
 
 

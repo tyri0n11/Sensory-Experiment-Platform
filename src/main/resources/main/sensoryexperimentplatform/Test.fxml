@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane maxHeight="673.0" maxWidth="1019.0" minHeight="673.0" minWidth="910.0" prefHeight="673.0" prefWidth="976.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.TestController">
+<AnchorPane maxHeight="673.0" maxWidth="1019.0" minHeight="673.0" minWidth="910.0" prefHeight="673.0" prefWidth="976.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.TestController">
     <children>
         <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0">
             <left>
@@ -32,20 +32,23 @@
                                         <Button fx:id="btn_AddQuestionStage" layoutX="25.0" layoutY="567.0" maxHeight="30.0" maxWidth="250.0" minHeight="30.0" minWidth="250.0" mnemonicParsing="false" onAction="#addQuestionStage" prefHeight="30.0" prefWidth="250.0" styleClass="menuButton" text="Add Question Stage" />
                                     </children>
                                 </AnchorPane>
-                                <TreeView fx:id="listObject" layoutX="304.0" layoutY="20.0" maxHeight="578.0" minHeight="212.0" minWidth="543.0" prefHeight="578.0" prefWidth="543.0" />
+                                <TreeView fx:id="listObject" layoutX="303.0" layoutY="20.0" maxHeight="578.0" minHeight="212.0" minWidth="543.0" prefHeight="570.0" prefWidth="543.0" stylesheets="@../../static/stylesheets/TreeView.css" />
                                 <AnchorPane layoutX="880.0" layoutY="34.0" maxHeight="513.0" maxWidth="79.0" minHeight="550.0" minWidth="79.0" prefHeight="513.0" prefWidth="79.0">
                                     <children>
-                                        <Button fx:id="btn_up" layoutX="9.600000381469727" layoutY="115.0" mnemonicParsing="false" onAction="#up" prefHeight="54.0" prefWidth="59.0" styleClass="btn_up" text=" " AnchorPane.leftAnchor="9.599999999999994" AnchorPane.rightAnchor="10.400000000000006" />
-                                        <Button fx:id="btn_down" layoutX="10.399999618530273" layoutY="271.0" mnemonicParsing="false" onAction="#down" prefHeight="54.0" prefWidth="59.0" styleClass="btn_down" text=" " AnchorPane.leftAnchor="10.4" AnchorPane.rightAnchor="9.600000000000001" />
-                                        <Button fx:id="btn_cross" layoutX="-4.0" layoutY="196.0" mnemonicParsing="false" onAction="#delete" prefHeight="54.0" prefWidth="68.0" styleClass="btn_cross" text=" " AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="9.599999999999994" />
+                                        <Button fx:id="btn_up" layoutX="9.0" layoutY="169.0" mnemonicParsing="false" onAction="#up" prefHeight="54.0" prefWidth="59.0" styleClass="btn_up" text=" " AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="10.999999999999986" />
+                                        <Button fx:id="btn_down" layoutX="10.0" layoutY="325.0" mnemonicParsing="false" onAction="#down" prefHeight="54.0" prefWidth="59.0" styleClass="btn_down" text=" " AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.000000000000014" />
+                                        <Button fx:id="btn_cross" layoutX="10.0" layoutY="250.0" mnemonicParsing="false" onAction="#delete" prefHeight="54.0" prefWidth="68.0" styleClass="btn_cross" text=" " AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.000000000000014" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="propertiesPane" layoutX="305.0" layoutY="405.0" maxHeight="253.0" maxWidth="540.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" styleClass="tree-view" stylesheets="@../../static/stylesheets/AddFood_CSS.css" visible="false" />
+                                <AnchorPane fx:id="propertiesPane" layoutX="299.0" layoutY="340.0" maxHeight="292.0" maxWidth="551.0" minWidth="540.0" prefHeight="243.0" prefWidth="551.0" visible="false" />
                             </children>
                         </AnchorPane>
                     </children>
                 </HBox>
             </left>
         </BorderPane>
+      <Button id="btn_bind" fx:id="btnSave" layoutX="488.0" layoutY="612.0" mnemonicParsing="false" text="Save" />
+      <Button id="btn_bind" fx:id="btnSaveAll" layoutX="614.0" layoutY="612.0" mnemonicParsing="false" text="Save as" />
+      <Button id="btn_bind" fx:id="btnCancel" layoutX="740.0" layoutY="612.0" mnemonicParsing="false" text="Cancel" />
     </children>
 </AnchorPane>

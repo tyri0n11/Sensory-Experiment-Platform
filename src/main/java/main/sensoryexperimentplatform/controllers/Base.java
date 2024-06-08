@@ -4,16 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 
 import javafx.stage.FileChooser;
-import main.sensoryexperimentplatform.models.DataAccess;
-import main.sensoryexperimentplatform.models.Experiment;
-import main.sensoryexperimentplatform.models.listOfExperiment;
+import main.sensoryexperimentplatform.models.*;
+import main.sensoryexperimentplatform.controllers.*;
 
 import javax.swing.*;
 import java.io.BufferedWriter;
@@ -37,7 +32,12 @@ public class Base implements Initializable {
 
     @FXML
     private VBox sideMenu;
+    private DashBoardController controller;
+    private Experiment selectedExp;
 
+    public void setSelectedExp(Experiment selectedExp) {
+        this.selectedExp = selectedExp;
+    }
 
     @FXML
     void OpenDashBoard(ActionEvent event) {
@@ -46,7 +46,9 @@ public class Base implements Initializable {
         AnchorPane newContent = null;
         try{
             newContent = loader.load();
-            DashBoardController view=  loader.getController();
+            DashBoardController controller = new DashBoardController();
+            //this.controller = loader.getController();
+           // controller.initialize(this);
         }
         catch (IOException e){
             e.printStackTrace();
@@ -63,8 +65,6 @@ public class Base implements Initializable {
             mainBox.getChildren().add(0, sideMenu);
         }
         isSidebarVisible = !isSidebarVisible;
-
-
     }
 
     @Override
@@ -122,10 +122,8 @@ public class Base implements Initializable {
 
     private void saveToFile(File file) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            for (Experiment experiment : listOfExperiment.getInstance()) {
-                writer.write(experiment.toString());
-                writer.newLine();
-            }
+            writer.write(selectedExp.toString());
+            writer.newLine();
         } catch (IOException ex) {
             ex.printStackTrace();
         }

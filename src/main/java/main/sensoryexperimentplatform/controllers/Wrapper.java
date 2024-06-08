@@ -18,7 +18,7 @@ public class Wrapper {
         this.key = key;
     }
 
-    public main.sensoryexperimentplatform.viewmodel.choose getChoose() {
+    public choose getChoose() {
         return choose;
     }
 

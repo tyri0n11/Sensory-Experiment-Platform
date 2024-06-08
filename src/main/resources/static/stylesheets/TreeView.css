@@ -1,41 +1,10 @@
-.property{
-    -fx-font-family: "Poppins";
-    -fx-font-style: normal;
-
-    -fx-max-width: 719px;
-    -fx-max-height: 32px;
-    -fx-font-weight: 700;
-    -fx-font-size: 20px;
-    -fx-line-height: 30px;
-    -fx-letter-spacing: 0.03em;
-
-    -fx-text-fill: #397E82;
-
-
-}
-.normallabel{
+.text{
     -fx-font-family: "Baloo Bhaina 2";
     -fx-font-style: normal;
     -fx-font-weight: 700;
     -fx-font-size: 15px;
     -fx-line-height: 25px;
-    -fx-text-fill: #0E0E0E;
-}
-.combo-box{
-    -fx-background-color: #F0F0F0;
-
-}
-.combo-box-popup .list-view {
-    -fx-background: #FFFFFF;
-
-}
-.combo-box .arrow-button {
-    -fx-background-color: #FFFFFF;
-
-}
-.combo-box .text-field {
-    -fx-background-color: #FFFFFF;
-
+    -fx-text-fill:#0E0E0E;
 }
 
 .scroll-pane .scroll-bar:vertical{
@@ -70,11 +39,9 @@
     -fx-padding: -2;
 
 }
-
 .scroll-pane .scroll-bar:vertical .thumb {
     -fx-background-color: #397E82;
     -fx-background-insets: 2, 0, 0;
     -fx-background-radius: 2em;
 }
-
 

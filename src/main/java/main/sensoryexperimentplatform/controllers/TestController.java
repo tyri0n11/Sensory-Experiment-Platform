@@ -74,30 +74,6 @@ public class TestController{
     @FXML
     private TreeView<String> listObject;
 
-    @FXML
-    private HBox mainBox;
-
-    @FXML
-    private BorderPane borderPane;
-
-    @FXML
-    private Button btn_Config;
-
-    @FXML
-    private Button btn_DashBoard;
-
-    @FXML
-    private Button btn_ImportExp;
-
-    @FXML
-    private Button btn_ShareExp;
-
-    @FXML
-    private Button btn_exportExp;
-
-    @FXML
-    private Button btn_menu;
-
 
     @FXML
     private Button btn_noticeStage;
@@ -158,7 +134,7 @@ public class TestController{
 
     public void initialize(){
         addTasteVMS = new Stack<>();
-        index =0;
+        index = 0;
         displayedItems = new HashMap<>();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
         start = new TreeItem<>("Start Experiment");
@@ -190,6 +166,7 @@ public class TestController{
     }
 
     private String showDetailView(int index) throws IOException {
+
         choose o = displayedItems.get(index).getChoose();
         o.modify(propertiesPane, addTasteVMS);
         o.modifyWithButton(propertiesPane,addTasteVMS,btn_AddPeriodicStage, btn_AddCourse, btn_assignSound,
