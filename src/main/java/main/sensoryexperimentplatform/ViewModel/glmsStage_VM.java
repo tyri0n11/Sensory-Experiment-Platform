@@ -13,6 +13,7 @@ import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.gLMS;
 
 import java.io.IOException;
+import java.util.Stack;
 
 public class glmsStage_VM implements choose {
     private StringProperty txt_question;
@@ -129,7 +130,7 @@ public class glmsStage_VM implements choose {
     }
 
     @Override
-    public void modify(AnchorPane anchorpane) throws IOException {
+    public void modify(AnchorPane anchorpane,Stack<AddTasteVM> stack) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("GLMS.fxml"));
         AnchorPane newContent = fxmlLoader.load();
         anchorpane.getChildren().setAll(newContent);
@@ -138,7 +139,7 @@ public class glmsStage_VM implements choose {
     }
 
     @Override
-    public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12) throws IOException {
+    public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack,Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12) throws IOException {
 
     }
 

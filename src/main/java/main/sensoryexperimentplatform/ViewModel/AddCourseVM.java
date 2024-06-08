@@ -16,6 +16,7 @@ import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Periodic;
 
 import java.io.IOException;
+import java.util.Stack;
 
 public class AddCourseVM implements choose{
     private StringProperty txt_button;
@@ -147,16 +148,16 @@ public class AddCourseVM implements choose{
     }
 
     @Override
-    public void modify(AnchorPane anchorPane) throws IOException {
+    public void modify(AnchorPane anchorPane, Stack<AddTasteVM> stack) throws IOException {
 
     }
 
     @Override
-    public void modifyWithButton(AnchorPane anchorPane, Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
+    public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack, Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
                                  Button btn_addFoodAndTaste, Button btn_addAudibleInstruction
             , Button btn_addInput, Button btn_noticeStage,
                                  Button  btn_addTimer, Button btn_AddQuestionStage,
-                                 Button btn_addRatingContainer,Button btn_addTasteTest, Button btn_AddConditionalStatement) throws IOException {
+                                 Button btn_addRatingContainer, Button btn_addTasteTest, Button btn_AddConditionalStatement) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddCourse.fxml"));
         AnchorPane newContent = fxmlLoader.load();
         anchorPane.getChildren().setAll(newContent);

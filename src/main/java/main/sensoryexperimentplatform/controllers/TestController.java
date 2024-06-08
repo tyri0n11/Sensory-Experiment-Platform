@@ -115,6 +115,7 @@ public class TestController{
     @FXML
     private AnchorPane mainPane;
     private TreeItem<String> start;
+    private Stack <AddTasteVM> addTasteVMS;
 
     @FXML
     void delete(ActionEvent event) {
@@ -163,6 +164,7 @@ public class TestController{
 
 
     public void initialize(){
+        addTasteVMS = new Stack<>();
         index =0;
         displayedItems = new HashMap<>();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
@@ -176,6 +178,8 @@ public class TestController{
                 int index = getIndex(newValue);
                 // System.out.println(index);
                 try {
+                    addTasteVMS.clear();
+                    btn_addFoodAndTaste.setDisable(true);
                     newValue.setValue(showDetailView(index));
 
                 } catch (IOException e) {
@@ -194,8 +198,8 @@ public class TestController{
 
     private String showDetailView(int index) throws IOException {
         choose o = displayedItems.get(index).getChoose();
-        o.modify(propertiesPane);
-        o.modifyWithButton(propertiesPane,btn_AddPeriodicStage, btn_AddCourse, btn_assignSound,
+        o.modify(propertiesPane, addTasteVMS);
+        o.modifyWithButton(propertiesPane,addTasteVMS,btn_AddPeriodicStage, btn_AddCourse, btn_assignSound,
                 btn_addFoodAndTaste, btn_addAudibleInstruction
                 , btn_addInput, btn_noticeStage,
                 btn_addTimer, btn_AddQuestionStage,
@@ -375,14 +379,14 @@ public class TestController{
 
     @FXML
     void addFoodAndTaste(ActionEvent event) throws IOException {
-        listObject.setMaxHeight(311);
-        propertiesPane.setVisible(true);
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("FoodAndTaste.fxml"));
         Parent root = fxmlLoader.load();
-
         Stage stage = new Stage();
         stage.setTitle("Add Food and Taste");
-
+        TasteTest taste = addTasteVMS.get(0).getTastetest();
+        FoodAndTasteController controller = fxmlLoader.getController();
+        FoodTasteVM foodTasteVM = new FoodTasteVM(taste);
+        controller.setViewModel(foodTasteVM);
         Scene scene = new Scene(root);
         stage.setScene(scene);
 
@@ -561,7 +565,6 @@ public class TestController{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        btn_addFoodAndTaste.setDisable(false);
         AddTasteVM addTasteVM = new AddTasteVM(experiment);
         TasteTest tasteTest = addTasteVM.getTastetest();
         String key = "[Taste Test]";

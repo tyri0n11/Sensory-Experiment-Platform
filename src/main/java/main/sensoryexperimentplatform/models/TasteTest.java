@@ -106,6 +106,11 @@ public class TasteTest {
     public void setTime(int time){
         this.timeWait = time;
     }
+
+    public ArrayList<String> getFoods() {
+        return foods;
+    }
+
     public void generator(){
         for(String foodName : foods){
             String convertedConsumption = consumptionInstruction.replace("<food>","%s");

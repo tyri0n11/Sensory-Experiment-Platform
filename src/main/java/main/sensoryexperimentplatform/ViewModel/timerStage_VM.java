@@ -16,6 +16,7 @@ import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Timer;
 
 import java.io.IOException;
+import java.util.Stack;
 
 public class timerStage_VM implements choose{
     private Timer timer;
@@ -85,7 +86,7 @@ public class timerStage_VM implements choose{
     }
 
     @Override
-    public void modify(AnchorPane anchorPane) throws IOException {
+    public void modify(AnchorPane anchorPane, Stack<AddTasteVM> stack) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("TimerStage.fxml"));
         AnchorPane newContent = fxmlLoader.load();
         anchorPane.getChildren().setAll(newContent);
@@ -94,7 +95,7 @@ public class timerStage_VM implements choose{
     }
 
     @Override
-    public void modifyWithButton(AnchorPane anchorPane, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12) throws IOException {
+    public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack,Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12) throws IOException {
 
     }
 

@@ -14,6 +14,7 @@ import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Question;
 
 import java.io.IOException;
+import java.util.Stack;
 
 public class questionStage_VM implements choose{
     //Notice can chinh lai
@@ -101,7 +102,7 @@ public class questionStage_VM implements choose{
     }
 
     @Override
-    public void modify(AnchorPane anchorPane) throws IOException {
+    public void modify(AnchorPane anchorPane,Stack<AddTasteVM> stack) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("QuestionStage.fxml"));
         AnchorPane newContent = fxmlLoader.load();
         anchorPane.getChildren().setAll(newContent);
@@ -111,11 +112,11 @@ public class questionStage_VM implements choose{
     }
 
     @Override
-    public void modifyWithButton(AnchorPane propertiesPane, Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
+    public void modifyWithButton(AnchorPane propertiesPane, Stack<AddTasteVM> stack,Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
                                  Button btn_addFoodAndTaste, Button btn_addAudibleInstruction
             , Button btn_addInput, Button btn_noticeStage,
                                  Button btn_addTimer, Button btn_AddQuestionStage,
-                                 Button btn_addRatingContainer, Button btn_addTasteTest,  Button btn_AddConditionalStatement) throws IOException {
+                                 Button btn_addRatingContainer, Button btn_addTasteTest, Button btn_AddConditionalStatement) throws IOException {
 
 
 //               AddNoticeStage controller = fxmlLoader.getController();
