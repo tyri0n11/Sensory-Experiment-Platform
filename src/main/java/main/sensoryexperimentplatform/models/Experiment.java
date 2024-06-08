@@ -1,26 +1,16 @@
 package main.sensoryexperimentplatform.models;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.UUID;
+import java.util.*;
 
 public class Experiment {
-    private static Integer num = 0;
-    private String id, creatorName, experimentName, description, note;
-    public int version;
-    private boolean isChanged;
-    private ArrayList<Vas> vass;
-    private ArrayList<gLMS> glmss;
-    private ArrayList<Question> quess;
-    private ArrayList<Notice> notices;
-    private ArrayList<Input> inputs;
-    private ArrayList<Timer> timers;
+    private String creatorName, experimentName, description, note, created_date;
+    public int version, number_of_results, id;
     ArrayList<Object> stages;
     List<Pair<Stage,Integer>> pairs;
     public Experiment(){
         super();
-        this.id = UUID.randomUUID().toString();
+        Random random = new Random();
+        this.id = random.nextInt(999);
 //        Scanner sc = new Scanner(System.in);
 //        System.out.print("Enter the Creator: ");
 //        setCreatorName(sc.nextLine());
@@ -30,33 +20,18 @@ public class Experiment {
 //        setDescription(sc.nextLine());
 //        System.out.print("Enter the Additional Notes: ");
 //        setNote(sc.nextLine());
-        pairs = new ArrayList<>();
-        timers = new ArrayList<>();
-        notices = new ArrayList<>();
-        inputs=new ArrayList<>();
-        vass = new ArrayList<>();
-        glmss = new ArrayList<>();
-        quess = new ArrayList<>();
         stages = new ArrayList<>();
         version = 1;
-        isChanged = false;
     }
-    public Experiment(String creatorName, String experimentName, String description, String note, int version) {
+    public Experiment(String creatorName, String experimentName, String description, String note, int version, int id, String created_date) {
         this.creatorName = creatorName;
         this.experimentName = experimentName;
         this.description = description;
         this.note = note;
         this.version = version;
-        this.id = UUID.randomUUID().toString();
-        pairs = new ArrayList<>();
-        timers = new ArrayList<>();
-        notices = new ArrayList<>();
-        inputs = new ArrayList<>();
-        vass = new ArrayList<>();
-        glmss = new ArrayList<>();
-        quess = new ArrayList<>();
+        this.id = id;
+        this.created_date = created_date;
         stages = new ArrayList<>();
-        isChanged = false;
     }
     public void addNoticeStage(String title, String content, String buttonText,
                                String helpText, boolean alert){
@@ -148,69 +123,11 @@ public class Experiment {
         stages.add(course);
 
     }
-    public void addNotice(String title, String content) {
-        Notice temp = new Notice(title,content);
-        this.notices.add(temp);
-        pairs.add(new Pair<>(temp, ++num));
-        System.out.println("Add Models.Notice is done");
-    }
-    public void addInput(String title, String content) {
-        Input temp = new Input(title, content);
-        this.inputs.add(temp);
-        pairs.add(new Pair<>(temp, ++num));
-        System.out.println(" Add Models.Input is done");
-    }
-    public void addTimer(String title, String content) {
-        Timer temp = new Timer(title,content);
-        this.timers.add(temp);
-        pairs.add(new Pair<>(temp, ++num));
-        System.out.println(" Add Models.Timer stage is done");
-    }
-    public void addVas(String title, String content) {
-        Vas temp = new Vas(title,content);
-        this.vass.add(temp);
-        pairs.add(new Pair<>(temp, ++num));
-        System.out.println("Add Models.Vas is done");
-    }
-    public void addgLMS(String title, String content) {
-        gLMS temp = new gLMS(title,content);
-        this.glmss.add(temp);
-        pairs.add(new Pair<>(temp, ++num));
-        System.out.println("Add Models.gLMS is done");
-    }
-    public void addQues(String title, String content) {
-        Question temp = new Question(title,content);
-        this.quess.add(temp);
-        pairs.add(new Pair<>(temp, ++num));
-        System.out.println("Add Models.Question is done");
-    }
     public void addQuestion (Question question){
         stages.add(question);
     }
     public void addInput(Input input){
         stages.add(input);
-    }
-
-    public void show(){
-        System.out.println("\n-----------------------The Experiment-----------------------");
-        System.out.println("Creator:" + creatorName + "\n Experiment Name: " + experimentName);
-        System.out.println("Description:" + description + "\n Additional Note: " + note);
-        for (Pair<Stage, Integer> pair: pairs)
-        {
-            System.out.print(pair.getValue() + ". ");
-            System.out.println(pair.getKey().toString());
-        }
-        System.out.println("-------------------------------------------------------------------");
-    }
-    public void showStages(){
-        System.out.println("\n-----------------------The Experiment-----------------------");
-        System.out.println("Creator:" + creatorName + "\n Experiment Name: " + experimentName);
-        System.out.println("Description:" + description + "\n Additional Note: " + note +"\n version: "+ version);
-        for (Object o : stages)
-        {
-            System.out.println(o);
-        }
-        System.out.println("-------------------------------------------------------------------");
     }
 
     public ArrayList<Object> getStages() {
@@ -221,9 +138,25 @@ public class Experiment {
         this.stages = stages;
     }
 
-    // integer k can thiet
-    public List<Pair<Stage, Integer>> getPairs() {
-        return pairs;
+
+    public String getCreated_date() {
+        return created_date;
+    }
+
+    public void setCreated_date(String created_date) {
+        this.created_date = created_date;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    public int getNumber_of_results() {
+        return number_of_results;
+    }
+
+    public void setNumber_of_results(int number_of_results) {
+        this.number_of_results = number_of_results;
     }
 
     public String getCreatorName() {
@@ -266,11 +199,11 @@ public class Experiment {
         }
         return sb.toString();
     }
-    public void setId(String id){
+    public void setId(int id){
         this.id = id;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -291,8 +224,9 @@ public class Experiment {
     }
     @Override
     public String toString() {
-        return "ExperimentID: "+ id +"\nExperimentName: " + experimentName + "\nExperimenterName: " + creatorName + "\nVersion: "+ version +
-                "\nstartExperiment(\"" + description + "\",\"" + "\",\"" + note + "\")\n"+
+        return "ExperimentName: " + experimentName + "\nExperimenterName: " + creatorName +
+                "\nExperimentID: "+ id + "\nCreated on: "+ created_date +
+                "\nVersion: "+ version + "\nstartExperiment(\"" + description + "\",\"" + "\",\"" + note + "\")\n"+
                 stagesToString() +"endExperiment()\n";
     }
 

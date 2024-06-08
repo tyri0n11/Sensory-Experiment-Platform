@@ -12,7 +12,6 @@ public class RunVas_VM {
     private final StringProperty questionText;
     private StringProperty lowAnchorText, button, conducted;
     private StringProperty highAnchorText;
-    private IntegerProperty time;
 
     public RunVas_VM(Vas vas) {
         this.vas = vas;
