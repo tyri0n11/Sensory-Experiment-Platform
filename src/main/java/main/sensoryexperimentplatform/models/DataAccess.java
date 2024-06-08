@@ -516,7 +516,7 @@ public class DataAccess {
                 System.out.println("Creator Name: " + experiment.getCreatorName());
                 System.out.println("Version: " + experiment.getVersion());
 
-                System.out.println("Stages:");
+                 System.out.println("Stages:");
                 for (Object o : experiment.getStages()) {
                     System.out.println(o);
                 }
