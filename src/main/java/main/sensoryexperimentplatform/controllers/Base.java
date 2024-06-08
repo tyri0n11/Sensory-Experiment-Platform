@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 
 import javafx.stage.FileChooser;
+import main.sensoryexperimentplatform.models.DataAccess;
 
 import java.io.File;
 import java.io.IOException;
@@ -147,18 +148,13 @@ public class Base implements Initializable {
         mainPain.getChildren().setAll(newContent);
     }
     @FXML
-    void importExperiment() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/Import.fxml"));
-        AnchorPane newContent = null;
-        try{
-            newContent = loader.load();
-            DashBoardController view=  loader.getController();
-
+    void importExperiment(ActionEvent event) throws Exception {
+        FileChooser chooser = new FileChooser();
+        chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files", "*.*")); // Accept all file types
+        File file = chooser.showOpenDialog(null);
+        if (file != null) {
+            String filePath = file.getAbsolutePath();
+            DataAccess.importExperiment(filePath);
         }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-        mainPain.getChildren().setAll(newContent);
     }
 }

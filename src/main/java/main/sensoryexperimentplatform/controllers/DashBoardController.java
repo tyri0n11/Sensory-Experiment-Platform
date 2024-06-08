@@ -18,8 +18,10 @@ import main.sensoryexperimentplatform.ViewModel.dashBoard_VM;
 import main.sensoryexperimentplatform.ViewModel.inputStage_VM;
 import main.sensoryexperimentplatform.ViewModel.newEx_VM;
 import main.sensoryexperimentplatform.models.Experiment;
+import main.sensoryexperimentplatform.models.listOfExperiment;
 
 import java.io.IOException;
+import java.util.Stack;
 
 public class DashBoardController {
     private dashBoard_VM dashBoard_vm;
@@ -45,12 +47,8 @@ public class DashBoardController {
 
     @FXML
     private TableColumn<Experiment, String> lbl_Option;
-
-    @FXML
-    private TextField searchBar;
-
-    @FXML
-    private AnchorPane sidebar_left;
+    
+    private Stack<Experiment> deletedExp = new Stack<>();
 
 
     public void initialize() {
@@ -120,7 +118,11 @@ public class DashBoardController {
 //                            });
                             delete.setOnAction((ActionEvent event) -> {
                                 Experiment c = getTableView().getItems().get(getIndex());
-                                deleteEx(c);
+                                try {
+                                    deleteEx(c);
+                                } catch (Exception e) {
+                                    throw new RuntimeException(e);
+                                }
                             });
                             edit.setOnAction((ActionEvent event) -> {
                                 Experiment c = getTableView().getItems().get(getIndex());
@@ -170,8 +172,11 @@ public class DashBoardController {
 
     }
 
-    private void deleteEx(Experiment c) {
+    private void deleteEx(Experiment c) throws Exception {
+        deletedExp.push(c);
+        listOfExperiment.deleteExperiment(c);
     }
+
 
     private void editExperiment(Experiment c) {
         c.updateVersion();

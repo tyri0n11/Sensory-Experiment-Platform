@@ -7,7 +7,7 @@ public class Data {
 
     public Data() throws Exception {
         Scanner sc = new Scanner(System.in);
-        news = DataAccess.importExperiment();
+        //news = DataAccess.importExperiment();
 
         boolean End = false;
         System.out.println("-----------------------Open------------------------");

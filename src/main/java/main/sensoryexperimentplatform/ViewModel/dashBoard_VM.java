@@ -25,11 +25,9 @@ public class dashBoard_VM {
 
 
     public dashBoard_VM() {
-        // Load items on instantiation
      reload();
     }
     public void reload(){
-        // Load items on instantiation
         try {
             loadItems();
         } catch (Exception e) {
@@ -38,18 +36,13 @@ public class dashBoard_VM {
 
     }
     public void addListExperiment(Experiment e) throws Exception {
-
-
         reload();
-
-
     }
 
     void loadItems() throws Exception {
-        listOfExperiment.getInstance();
+        DataAccess.loadExperiments();
         items.setAll(listOfExperiment.getInstance());
-
-
+        System.out.println(listOfExperiment.getInstance());
     }
 
 
