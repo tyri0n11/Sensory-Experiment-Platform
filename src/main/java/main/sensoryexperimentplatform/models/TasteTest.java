@@ -15,13 +15,14 @@ public class TasteTest {
     private final String question;
     private String consumptionInstruction;
     private String endInStruction;
-    private final ArrayList<String> foods;
+    private ArrayList<String> foods;
+    private ArrayList<String> foodsShow;
     private final ArrayList<Object> list;
     private final Notice initialNotice;
     private int timeWait;
     boolean randomizeFood, randomizeRatingVas, randomizeRatingGLMS;
-    private final ArrayList<String> vasList;
-    private final ArrayList<String> glmsList;
+    private ArrayList<String> vasList;
+    private ArrayList<String> glmsList;
     private final Vas sampleVas;
     private final gLMS sampleGLMS;
     public Vas returnsampleVas(){
@@ -73,6 +74,20 @@ public class TasteTest {
         this.randomizeFood =  randomizeFood;
         this.randomizeRatingVas = randomizeRatingVas;
         this.randomizeRatingGLMS = randomizeRatingGLMS;
+        foodsShow = new ArrayList<>();
+        foodsShow.add("Biscuits");
+        foodsShow.add("Cake");
+        foodsShow.add("Cereal");
+        foodsShow.add("Cheese");
+        foodsShow.add("Chocolate");
+        foodsShow.add("Crisps");
+        foodsShow.add("Ice Cream");
+        foodsShow.add("Pasta");
+        foodsShow.add("Porridge");
+        foodsShow.add("Sandwiches");
+        foodsShow.add("Soup");
+        foodsShow.add("Tomatoes");
+        foodsShow.add("Yoghurt");
         foods = new ArrayList<>();
         list = new ArrayList<>();
         vasList = new ArrayList<>();
@@ -80,6 +95,14 @@ public class TasteTest {
         list.add(initialNotice);
 
     }
+
+    public ArrayList<String> getFoodsShow() {
+        return foodsShow;
+    }
+    public void addFoodShow (String food){
+        foodsShow.add(food);
+    }
+
 
     public void setEndInStruction(String endInStruction) {
         this.endInStruction = endInStruction;

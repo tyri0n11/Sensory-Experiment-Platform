@@ -5,13 +5,20 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
+import javafx.stage.Stage;
 import javafx.util.Callback;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.ViewModel.FoodTasteVM;
+import main.sensoryexperimentplatform.models.TasteTest;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,7 +77,8 @@ public class FoodAndTasteController {
     }
 
     private void loadItems(){
-        foods.addAll(viewModel.getListFoods());
+        foods.clear();
+        foods.addAll(viewModel.getListFoodsShow());
         foodView.getItems().addAll(foods);
         foodView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
@@ -82,15 +90,23 @@ public class FoodAndTasteController {
     }
 
     public void setViewModel(FoodTasteVM viewModel) {
-        foods = FXCollections.observableArrayList("Biscuits","Cake","Cereal"
-        ,"Cheese","Chocolate","Crisps","Ice Cream","Pasta","Porridge","Sandwiches","Soup"
-        , "Tomatoes","Yoghurt");
+        foods = FXCollections.observableArrayList();
         this.viewModel = viewModel;
         loadItems();
     }
 
     @FXML
-    void Add(ActionEvent event) {
+    void Add(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddFood.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Add Food");
+        addFoodController controller = fxmlLoader.getController();
+        controller.setViewModel(viewModel);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+
+        stage.show();
 
     }
 
