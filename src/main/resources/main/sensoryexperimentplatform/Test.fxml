@@ -40,7 +40,7 @@
                                         <Button fx:id="btn_cross" layoutX="10.0" layoutY="250.0" mnemonicParsing="false" onAction="#delete" prefHeight="54.0" prefWidth="68.0" styleClass="btn_cross" text=" " AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.000000000000014" />
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane fx:id="propertiesPane" layoutX="299.0" layoutY="340.0" maxHeight="292.0" maxWidth="551.0" minWidth="540.0" prefHeight="243.0" prefWidth="551.0" visible="false" />
+                                <AnchorPane fx:id="propertiesPane" layoutX="303.0" layoutY="339.0" maxHeight="292.0" maxWidth="551.0" minWidth="540.0" prefHeight="251.0" prefWidth="542.0" visible="false" />
                             </children>
                         </AnchorPane>
                     </children>
@@ -49,6 +49,6 @@
         </BorderPane>
       <Button id="btn_bind" fx:id="btnSave" layoutX="488.0" layoutY="612.0" mnemonicParsing="false" onAction="#save" text="Save" />
       <Button id="btn_bind" fx:id="btnSaveAll" layoutX="614.0" layoutY="612.0" mnemonicParsing="false" text="Save as" />
-      <Button id="btn_bind" fx:id="btnCancel" layoutX="740.0" layoutY="612.0" mnemonicParsing="false" text="Cancel" />
+      <Button id="btn_bind" fx:id="btnCancel" layoutX="740.0" layoutY="612.0" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
     </children>
 </AnchorPane>

@@ -21,10 +21,6 @@
     -fx-font-weight: bold;
     -fx-font-size: 40;
 }
-#lbl_EditExperiment{
-    -fx-text-fill: #624DE3;
-    -fx-font-size: 36;
-}
 
 
 
@@ -143,13 +139,10 @@
 
 
 }
-#btn_AddExperiment{
+#btn_AddExperiment, #btn_redo{
     /* Auto layout */
     -fx-text-fill: white;
     -fx-font-weight: bold;
-
-    -fx-pref-width: 151px;
-    -fx-pref-height: 32px;
 
     -fx-background-color: #397E82;
     -fx-border-radius: 8px;

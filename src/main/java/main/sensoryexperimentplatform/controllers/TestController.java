@@ -29,7 +29,7 @@ public class TestController{
     private Button btn_AddCourse;
 
     @FXML
-    private Button btn_AddGLMS;
+    private Button btnCancel;
 
     @FXML
     private Button btn_AddPeriodicStage;
@@ -85,6 +85,7 @@ public class TestController{
     private AnchorPane mainPane;
     private TreeItem<String> start;
     private Stack <AddTasteVM> addTasteVMS;
+    private Experiment originalExperiment;
 
     @FXML
     void delete(ActionEvent event) {
@@ -630,6 +631,7 @@ public class TestController{
 
     public void setExperiment(Experiment c) throws IOException {
         this.experiment = c;
+        this.originalExperiment = experiment;
         experiment.showStages();
         loadItems();
     }
@@ -637,6 +639,14 @@ public class TestController{
     @FXML
     void save(ActionEvent event) throws Exception {
         DataAccess.updateFile();
+        this.experiment.version++;
+    }
+
+    @FXML
+    void cancel(){
+        Stage stage = (Stage) btnCancel.getScene().getWindow();
+        stage.close();
+        this.experiment = originalExperiment;
     }
 
 
