@@ -13,6 +13,20 @@ public class FoodTasteVM {
     private ArrayList <String> listVas;
     private ArrayList<String> listGLMS;
 
+    public ArrayList<String> getListGLMSShow() {
+        return listGLMSShow;
+    }
+    public ArrayList<String> getListVasShow() {
+        return listVasShow;
+    }
+
+    public ArrayList<String> getListVas() {
+        return listVas;
+    }
+
+    public ArrayList<String> getListGLMS() {
+        return listGLMS;
+    }
 
     public FoodTasteVM(TasteTest tasteTest){
         this.tasteTest = tasteTest;
@@ -30,7 +44,12 @@ public class FoodTasteVM {
 
     public void addListFoodsShow(String food) {
         listFoodsShow.add(food);
+        tasteTest.getFoodsShow().add(food);
     }
+    public void addVasShow(String food){listVasShow.add(food);
+        tasteTest.getVasListShow().add(food);}
+    public void addGLMSShow (String food){listGLMSShow.add(food);
+        tasteTest.getGlmsListShow().add(food);}
 
     public ArrayList<String> getListFoods() {
         return listFoods;
@@ -38,6 +57,13 @@ public class FoodTasteVM {
 
     public void addListFoods(String food) {
         listFoods.add(food);
+        tasteTest.getFoods().add(food);
+    }
+    public void addVas(String food){
+        listVas.add(food);
+    }
+    public void addGLMS(String food){
+        listGLMS.add(food);
     }
 
 }

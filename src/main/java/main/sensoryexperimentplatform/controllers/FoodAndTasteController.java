@@ -25,6 +25,8 @@ import java.util.List;
 
 public class FoodAndTasteController {
     private List <XCell> xcell;
+    private List <XCell> glmscell;
+    private List <XCell> vascell;
     @FXML
     private Label SoundSelectTionLabel;
 
@@ -49,7 +51,9 @@ public class FoodAndTasteController {
     private ListView<String> vasTable;
     private FoodTasteVM viewModel;
     private ObservableList<String> foods;
-
+    private ObservableList<String> glms;
+    private ObservableList<String> vas;
+    private int clickOnListView =1;
     static class XCell extends ListCell<String> {
 
         HBox hbox = new HBox();
@@ -66,6 +70,7 @@ public class FoodAndTasteController {
 
         public void setSelect(Boolean select) {
             isSelect = select;
+            button.setSelected(select);
         }
 
         public Boolean getSelect() {
@@ -75,6 +80,7 @@ public class FoodAndTasteController {
         public XCell(boolean boo) {
             super();
             this.isSelect = boo;
+            button.setSelected(boo);
             hbox.getChildren().addAll(label, pane, button);
             HBox.setHgrow(pane, Priority.ALWAYS);
             button.setOnAction(new EventHandler<ActionEvent>() {
@@ -102,42 +108,113 @@ public class FoodAndTasteController {
         }
     }
 
+
     public void loadItems(){
         foods.clear();
+        vas.clear();
+        glms.clear();
+        vasTable.getItems().clear();
+        glmsTable.getItems().clear();
         foodView.getItems().clear();
+        vas.addAll(viewModel.getListVasShow());
+        glms.addAll(viewModel.getListGLMSShow());
         foods.addAll(viewModel.getListFoodsShow());
         foodView.getItems().addAll(foods);
+        glmsTable.getItems().addAll(glms);
+        vasTable.getItems().addAll(vas);
+        foodView.setOnMouseClicked(event -> {
+            clickOnListView =1;
+            // Add your custom logic here
+        });
+        glmsTable.setOnMouseClicked(event -> {
+            clickOnListView =2;
+            // Add your custom logic here
+        });
+        vasTable.setOnMouseClicked(event -> {
+            clickOnListView =3;
+            // Add your custom logic here
+        });
         foodView.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
             @Override
             public ListCell<String> call(ListView<String> param) {
-                XCell xCell = new XCell(false);
+
+                XCell xCell = new XCell(true);
                 xcell.add(xCell);
-                System.out.println(xCell.getName());
                 return xCell;
             }
         });
 
+        glmsTable.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
+            @Override
+            public ListCell<String> call(ListView<String> param) {
+                XCell xCell = new XCell(false);
+                glmscell.add(xCell);
+                return xCell;
+            }
+        });
+        vasTable.setCellFactory(new Callback<ListView<String>, ListCell<String>>() {
+            @Override
+            public ListCell<String> call(ListView<String> param) {
+                XCell xCell = new XCell(false);
+                vascell.add(xCell);
+                return xCell;
+            }
+        });
+
+
     }
 
     public void setViewModel(FoodTasteVM viewModel) {
-        xcell = new ArrayList<>();
-        foods = FXCollections.observableArrayList();
         this.viewModel = viewModel;
+        xcell = new ArrayList<>();
+        vascell = new ArrayList<>();
+        glmscell = new ArrayList<>();
+        vas = FXCollections.observableArrayList();
+        glms = FXCollections.observableArrayList();
+        foods = FXCollections.observableArrayList();
         loadItems();
+        System.out.println(viewModel.getListFoods());
+
     }
 
     @FXML
     void Add(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddFood.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage stage = new Stage();
-        stage.setTitle("Add Food");
-        addFoodController controller = fxmlLoader.getController();
-        controller.setViewModel(viewModel, this);
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
+        if (clickOnListView == 1){
+            FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddFood.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Add Food");
+            addFoodController controller = fxmlLoader.getController();
+            controller.setViewModel(viewModel, this);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
 
-        stage.show();
+            stage.show();
+        }
+        else if (clickOnListView ==2){
+            FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddGLMS.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Add GLMS");
+            addGLMS controller = fxmlLoader.getController();
+            controller.setViewModel(viewModel, this);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+
+            stage.show();
+        }
+        else if (clickOnListView ==3){
+            FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddVas.fxml"));
+            Parent root = fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Add GLMS");
+            addVas controller = fxmlLoader.getController();
+            controller.setViewModel(viewModel, this);
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+
+            stage.show();
+        }
 
     }
 
@@ -146,6 +223,17 @@ public class FoodAndTasteController {
         for (XCell a:xcell){
             if (a.getSelect()){
                 viewModel.addListFoods(a.getName());
+               // JOptionPane.showMessageDialog(null,a.getName());
+            }
+        }
+        for (XCell a: glmscell){
+            if (a.getSelect()){
+                viewModel.addGLMS(a.getName());
+            }
+        }
+        for (XCell a: vascell){
+            if (a.getSelect()){
+                viewModel.addVas(a.getName());
             }
         }
         Stage currentStage = (Stage) btn_play.getScene().getWindow();
@@ -154,17 +242,46 @@ public class FoodAndTasteController {
 
     @FXML
     void SelectAll(ActionEvent event) {
-        for (XCell cell : xcell) {
-            cell.button.setSelected(true);
-            cell.setSelect(true);
+        if (clickOnListView ==1) {
+            for (XCell cell : xcell) {
+                cell.button.setSelected(true);
+                cell.setSelect(true);
+            }
         }
+        else if (clickOnListView ==2){
+            for (XCell cell : glmscell) {
+                cell.button.setSelected(true);
+                cell.setSelect(true);
+            }
+        }
+        else if (clickOnListView ==3){
+            for (XCell cell : vascell) {
+                cell.button.setSelected(true);
+                cell.setSelect(true);
+            }
+        }
+
     }
 
     @FXML
     void SelectNone(ActionEvent event) {
-        for (XCell cell : xcell) {
-            cell.button.setSelected(false);
-            cell.setSelect(false);
+        if (clickOnListView ==1) {
+            for (XCell cell : xcell) {
+                cell.button.setSelected(false);
+                cell.setSelect(false);
+            }
+        }
+        else if (clickOnListView ==2){
+            for (XCell cell : glmscell) {
+                cell.button.setSelected(false);
+                cell.setSelect(false);
+            }
+        }
+        else if (clickOnListView ==3){
+            for (XCell cell : vascell) {
+                cell.button.setSelected(false);
+                cell.setSelect(false);
+            }
         }
     }
 
