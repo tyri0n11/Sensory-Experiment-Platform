@@ -1,6 +1,5 @@
 package main.sensoryexperimentplatform.controllers;
 
-import main.sensoryexperimentplatform.view.ViewHandler;
 import main.sensoryexperimentplatform.viewmodel.general_VM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -84,9 +83,6 @@ public class GeneralController {
     void searchQuery(InputMethodEvent event) {
         UserName.setText(txt_searchBar.getText());
 
-    }
-
-    public void init(Object generalVM, ViewHandler viewHandler) {
     }
 //    public void initialize(GeneralVM generalVM){
 //        txt_searchBar.textProperty().bindBidirectional();
