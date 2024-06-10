@@ -13,7 +13,7 @@
       <Label layoutX="491.0" layoutY="351.0" stylesheets="@../../static/stylesheets/RunGLMS_CSS.css" text="Strong-" AnchorPane.bottomAnchor="172.0" AnchorPane.rightAnchor="544.0" />
       <Label layoutX="569.0" layoutY="254.0" stylesheets="@../../static/stylesheets/RunGLMS_CSS.css" text="-Very Strong" AnchorPane.bottomAnchor="269.0" AnchorPane.rightAnchor="422.0" />
       <Label layoutX="569.0" layoutY="23.0" stylesheets="@../../static/stylesheets/RunGLMS_CSS.css" text="-Strongest Imaginable" AnchorPane.bottomAnchor="500.0" AnchorPane.rightAnchor="342.0" />
-      <Slider fx:id="mySlider" blockIncrement="0.0" layoutX="556.0" layoutY="25.0" majorTickUnit="1380.0" minorTickCount="1" orientation="VERTICAL" prefHeight="517.0" prefWidth="14.0" snapToTicks="true" stylesheets="@../../static/stylesheets/RunGLMS_CSS.css" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="530.0" />
+      <Slider fx:id="mySlider" blockIncrement="0.0" layoutX="556.0" layoutY="25.0" majorTickUnit="1380.0" minorTickCount="1" orientation="VERTICAL" prefHeight="517.0" prefWidth="14.0" stylesheets="@../../static/stylesheets/RunGLMS_CSS.css" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="530.0" />
       <Label fx:id="questionlbl" layoutX="55.0" layoutY="20.0" prefHeight="273.0" prefWidth="328.0" stylesheets="@../../static/stylesheets/RunGLMS_CSS.css" text="Question" wrapText="true" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="20.0" />
       <Label fx:id="helpText" layoutX="734.0" layoutY="185.0" prefHeight="345.0" prefWidth="291.0" stylesheets="@../../static/stylesheets/RunGLMS_CSS.css" text="Label" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="6.0" />
    </children>

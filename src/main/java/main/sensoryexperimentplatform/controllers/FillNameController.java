@@ -69,7 +69,7 @@ public class FillNameController {
         Parent root = loader.load();
 
         RunController controller = loader.getController(); // Get the controller from the loader
-        RunExperiment_VM viewModel = new RunExperiment_VM(experiment);
+        RunExperiment_VM viewModel = new RunExperiment_VM(experiment, file_name);
         controller.setViewModel(viewModel);
 
         Stage stage = new Stage();
