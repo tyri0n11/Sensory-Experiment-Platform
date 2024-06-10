@@ -647,6 +647,7 @@ public class TestController{
     void assignSound(ActionEvent event) throws IOException {
         listObject.setMaxHeight(311);
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AssignSound.fxml"));
+        assignSoundController assignSoundController = fxmlLoader.getController();
         Parent root = fxmlLoader.load();
 
         Stage stage = new Stage();

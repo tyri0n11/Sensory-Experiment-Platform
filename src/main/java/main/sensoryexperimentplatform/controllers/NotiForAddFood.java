@@ -10,4 +10,5 @@ public class NotiForAddFood {
     public void notifyObject(){
         foodAndTasteController.loadItems();
     }
+
 }

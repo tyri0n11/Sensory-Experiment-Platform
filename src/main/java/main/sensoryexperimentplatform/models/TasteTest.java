@@ -138,7 +138,6 @@ public class TasteTest {
         glmsListShow.add("Spicy");
         glmsListShow.add("Strong");
         glmsListShow.add("Sweet");
-
         list.add(initialNotice);
 
     }
