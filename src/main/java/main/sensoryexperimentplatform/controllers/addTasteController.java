@@ -4,8 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import main.sensoryexperimentplatform.ViewModel.AddTasteVM;
-import main.sensoryexperimentplatform.models.TasteTest;
+import main.sensoryexperimentplatform.viewmodel.AddTasteVM;
 
 public class addTasteController {
 

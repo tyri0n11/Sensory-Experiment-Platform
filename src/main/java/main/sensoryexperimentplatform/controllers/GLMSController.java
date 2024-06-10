@@ -1,14 +1,8 @@
 package main.sensoryexperimentplatform.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import main.sensoryexperimentplatform.ViewModel.glmsStage_VM;
-import main.sensoryexperimentplatform.models.gLMS;
-
-import java.io.IOException;
+import main.sensoryexperimentplatform.viewmodel.glmsStage_VM;
 
 public class GLMSController {
 

@@ -1,6 +1,6 @@
 package main.sensoryexperimentplatform.controllers;
 
-import main.sensoryexperimentplatform.ViewModel.general_VM;
+import main.sensoryexperimentplatform.viewmodel.general_VM;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

@@ -1,14 +1,5 @@
 package main.sensoryexperimentplatform.models;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.questionStage_VM;
-import main.sensoryexperimentplatform.controllers.questionStageController;
-
-import java.io.IOException;
-
 public class Question extends Stage {
     private String question, buttonText, helpText;
     private boolean alert;

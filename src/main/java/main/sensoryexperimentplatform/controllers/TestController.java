@@ -1,30 +1,23 @@
 package main.sensoryexperimentplatform.controllers;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
-import main.sensoryexperimentplatform.models.DataAccess;
+import main.sensoryexperimentplatform.viewmodel.noticeStage_VM;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Notice;
 
-import main.sensoryexperimentplatform.ViewModel.*;
+import main.sensoryexperimentplatform.viewmodel.*;
 import main.sensoryexperimentplatform.models.*;
 import main.sensoryexperimentplatform.models.Timer;
 
 
-import javax.swing.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.*;
 
@@ -36,7 +29,7 @@ public class TestController{
     private Button btn_AddCourse;
 
     @FXML
-    private Button btn_AddGLMS;
+    private Button btnCancel;
 
     @FXML
     private Button btn_AddPeriodicStage;
@@ -81,30 +74,6 @@ public class TestController{
     @FXML
     private TreeView<String> listObject;
 
-    @FXML
-    private HBox mainBox;
-
-    @FXML
-    private BorderPane borderPane;
-
-    @FXML
-    private Button btn_Config;
-
-    @FXML
-    private Button btn_DashBoard;
-
-    @FXML
-    private Button btn_ImportExp;
-
-    @FXML
-    private Button btn_ShareExp;
-
-    @FXML
-    private Button btn_exportExp;
-
-    @FXML
-    private Button btn_menu;
-
 
     @FXML
     private Button btn_noticeStage;
@@ -117,6 +86,7 @@ public class TestController{
     private TreeItem<String> start;
     private AudibleInstruction audibleInstruction;
     private Stack <AddTasteVM> addTasteVMS;
+    private Experiment originalExperiment;
 
     @FXML
     void delete(ActionEvent event) {
@@ -166,7 +136,7 @@ public class TestController{
 
     public void initialize(){
         addTasteVMS = new Stack<>();
-        index =0;
+        index = 0;
         displayedItems = new HashMap<>();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
         start = new TreeItem<>("Start Experiment");
@@ -198,6 +168,7 @@ public class TestController{
     }
 
     private String showDetailView(int index) throws IOException {
+
         choose o = displayedItems.get(index).getChoose();
         o.modify(propertiesPane, addTasteVMS);
         o.modifyWithButton(propertiesPane,addTasteVMS,btn_AddPeriodicStage, btn_AddCourse, btn_assignSound,
@@ -663,13 +634,24 @@ public class TestController{
 
     }
 
-
-
-
     public void setExperiment(Experiment c) throws IOException {
         this.experiment = c;
+        this.originalExperiment = experiment;
         experiment.showStages();
         loadItems();
+    }
+
+    @FXML
+    void save(ActionEvent event) throws Exception {
+        DataAccess.updateFile();
+        this.experiment.version++;
+    }
+
+    @FXML
+    void cancel(){
+        Stage stage = (Stage) btnCancel.getScene().getWindow();
+        stage.close();
+        this.experiment = originalExperiment;
     }
 
 

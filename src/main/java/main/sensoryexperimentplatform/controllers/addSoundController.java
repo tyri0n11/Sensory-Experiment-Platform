@@ -2,18 +2,15 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
-import main.sensoryexperimentplatform.ViewModel.addSoundVM;
+import main.sensoryexperimentplatform.viewmodel.addSoundVM;
 
 import javax.swing.*;
 import java.io.File;
-import java.io.IOException;
 
 public class addSoundController {
 

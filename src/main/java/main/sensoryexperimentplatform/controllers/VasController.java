@@ -1,16 +1,8 @@
 package main.sensoryexperimentplatform.controllers;
 
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.util.converter.NumberStringConverter;
-import main.sensoryexperimentplatform.ViewModel.vasStage_VM;
-
-import java.io.IOException;
+import main.sensoryexperimentplatform.viewmodel.vasStage_VM;
 
 public class VasController {
     private vasStage_VM vasStageVM;

@@ -1,14 +1,5 @@
 package main.sensoryexperimentplatform.models;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.timerStage_VM;
-import main.sensoryexperimentplatform.controllers.TimerController;
-
-import java.io.IOException;
-
 public class Timer extends Stage{
     private boolean alert;
     private boolean isRunning = true;

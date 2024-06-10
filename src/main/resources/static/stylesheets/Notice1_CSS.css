@@ -89,10 +89,7 @@
     -fx-font-family: 'Inter';
     -fx-font-size: 14;
 }
-#lbl_DashBoard{
-    -fx-text-fill: #624DE3;
-    -fx-font-size: 36;
-}
+
 #txt_searchBar{
 
 
@@ -450,10 +447,6 @@
     -fx-max-height: 30px;
     -fx-background-color: #D5E9EA;
     -fx-background-radius: 20px 20px 20px 20px;
-    /* Add Notice Stage */
-
-
-
     -fx-font-family: 'Montserrat';
     -fx-font-style: normal;
     -fx-font-weight: 700;
@@ -463,9 +456,6 @@
     -fx-text-align: center;
 
     -fx-color-fill: #1E1E1E;
-
-
-
 }
 .btn_bell{
     -fx-pref-height: 39;
@@ -476,38 +466,22 @@
     -fx-background-size: cover;
 }
 .Name{
-    /* Nguyễn */
-
-
     -fx-font-family: "Baloo Bhaina 2";
     -fx-font-style: normal;
     -fx-font-weight: 700;
     -fx-font-size: 11px;
     -fx-line-height: 22px;
     -fx-text-fill:#0E0E0E;
-
-
-
-
 }
 .Nickname{
-    /* mymia */
-
-
-
     -fx-font-family: 'Inter';
     -fx-font-style: normal;
     -fx-font-weight: 500;
     -fx-font-size: 14px;
     -fx-text-fill: #397E82;
-    
-
-
-
 }
-.btn_copy{
-    /* gg:copy */
 
+.btn_copy{
     -fx-pref-width: 50px;
     -fx-pref-height: 50px;
     -fx-background-image: url('/static/images/btn_copy.png');

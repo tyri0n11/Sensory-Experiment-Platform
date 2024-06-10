@@ -3,10 +3,8 @@ package main.sensoryexperimentplatform.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import main.sensoryexperimentplatform.ViewModel.timerStage_VM;
-import main.sensoryexperimentplatform.ViewModel.vasStage_VM;
+import main.sensoryexperimentplatform.viewmodel.timerStage_VM;
 
 import java.io.IOException;
 

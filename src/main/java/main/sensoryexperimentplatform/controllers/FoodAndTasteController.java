@@ -15,10 +15,8 @@ import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.FoodTasteVM;
-import main.sensoryexperimentplatform.models.TasteTest;
+import main.sensoryexperimentplatform.viewmodel.FoodTasteVM;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
