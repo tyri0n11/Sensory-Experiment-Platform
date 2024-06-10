@@ -1,5 +1,7 @@
 package main.sensoryexperimentplatform.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +13,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.View.ViewHandler;
-import main.sensoryexperimentplatform.ViewModel.addSoundVM;
+
 
 import main.sensoryexperimentplatform.models.AudibleInstruction;
+import main.sensoryexperimentplatform.viewmodel.addSoundVM;
+import main.sensoryexperimentplatform.viewmodel.assignSoundVM;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,9 +26,12 @@ import java.util.List;
 public class  assignSoundController {
     @FXML
     private VBox ShowSound;
-    private ToggleGroup toggleGroup;
-    private List<String> soundName;
+    private ObservableList<String> SoundName;
+    private ToggleGroup group = new ToggleGroup();
     private AudibleInstruction audibleInstruction;
+    private assignSoundVM viewModel;
+    @FXML
+    private ListView<?> SoundList;
 
 
 
@@ -49,15 +55,14 @@ public class  assignSoundController {
 
     @FXML
     private Button btn_stop;
-
-    public assignSoundController(){
-        this.soundName=new ArrayList<>();
-        soundName.add("good");
-
-    }
-    public void initialize() {
-
+    public void setViewModel(assignSoundVM viewModel){
+        this.viewModel = viewModel;
+        SoundList = new ListView<>();
+        SoundName = FXCollections.observableArrayList();
+        System.out.println(viewModel.getListNameshow());
         loadSoundRadioButtons();
+
+
     }
     @FXML
     void AddButton(ActionEvent event) throws IOException {
@@ -70,25 +75,31 @@ public class  assignSoundController {
         addSoundController addSoundController = fxmlLoader.getController();
         addSoundVM addSoundVM = new addSoundVM();
         stage.show();
-
     }
 
     private void loadSoundRadioButtons() {
-        toggleGroup = new ToggleGroup();
+        ListView<String> soundListView = (ListView<String>) SoundList;
+        SoundName.clear();
+        SoundName.addAll(viewModel.getListNameshow());
+        soundListView.getItems().addAll(SoundName);
+        soundListView.setCellFactory(param -> new RadioListCell());
 
-        for (String soundNames:soundName) {
-            RadioButton radioButton = new RadioButton(soundNames); // Create a radio button for each sound name
-            radioButton.setToggleGroup(toggleGroup); // Add the radio button to the toggle group
-            ShowSound.getChildren().add(radioButton); // Add the radio button to the VBox
+    }
+    class RadioListCell extends ListCell<String> {
+        @Override
+        public void updateItem(String obj, boolean empty) {
+            super.updateItem(obj, empty);
+            if (empty) {
+                setText(null);
+                setGraphic(null);
+            } else {
+                RadioButton radioButton = new RadioButton(obj);
+                radioButton.setToggleGroup(group);
+                // Add Listeners if any
+                setGraphic(radioButton);
             }
+        }
     }
 
-
-//    public void addRadioButton(String text) {
-//        RadioButton radioButton = new RadioButton(text);
-//
-//        VBox.setMargin(radioButton, new Insets(5, 0, 0, 0)); // Adjust margins as needed
-//        ((VBox)AddsoundPane.getChildren().get(0)).getChildren().add(radioButton);
-//    }
 
 }

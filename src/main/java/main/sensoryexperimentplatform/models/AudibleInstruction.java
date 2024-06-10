@@ -14,10 +14,12 @@ public class AudibleInstruction extends Stage {
     private String soundFilePath;
     private String buttonText;
     private String helpText;
-    private List<String> soundNames;
+    private ArrayList<String> soundNamesList;
+
     private List<String> soundFilePaths;
+
 //    private Map<String, String> soundMap;
-    private List<String> soundNameshow;
+    private ArrayList<String> soundNameshow;
 
     public AudibleInstruction(String title, String content, String buttonText,String helpText){
       super(title, content);
@@ -25,13 +27,16 @@ public class AudibleInstruction extends Stage {
       this.title= title;
         this.buttonText= buttonText;
         this.helpText = helpText;
-        soundNames = new ArrayList<>();
         soundFilePaths = new ArrayList<>();
-        soundNames.add("hello");
-        soundNames.add("1");
-        soundNames.add("2");
-        soundNames.add("3");
-        soundNames.add("aaaaaa");
+        soundNameshow = new ArrayList<>();
+        soundNameshow.add("music");
+        soundNameshow.add("gud morning");
+        soundNameshow.add("quynh anh");
+        soundNameshow.add("quynh anh");
+        soundNameshow.add("quynh anh");
+        soundNameshow.add("skylar");
+        soundNamesList = new ArrayList<>();
+
 
     }
 
@@ -65,20 +70,24 @@ public class AudibleInstruction extends Stage {
     public void setHelpText(String helpText) {
         this.helpText = helpText;
     }
-    public List<String> getSoundNames() {
-        return soundNames;
-    }
+
 
     public List<String> getSoundFilePaths() {
         return soundFilePaths;
     }
-    public void addSound(String name, String soundFilePath) {
-        soundNames.add(name);
-        soundFilePaths.add(soundFilePath);
-//        soundMap.put(name, soundFilePath);
+
+    public ArrayList<String> getSoundNameshow() {
+        return soundNameshow;
     }
-
-
+    public void addSoundShow(String name){
+        soundNameshow.add(name);
+    }
+    public ArrayList<String>getSoundNameList(){
+        return soundNamesList;
+    }
+    public void addSoundNameList(String name){
+        soundNamesList.add(name);
+    }
 
     public String toString() {
 

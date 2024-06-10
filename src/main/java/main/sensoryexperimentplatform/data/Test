@@ -1,4 +1,4 @@
-ExperimentID: 52a44c21-1ef4-4a23-81a6-76b605ee0ec9
+ExperimentID: 5d46ad51-869d-485f-8556-b2a4f2466643
 ExperimentName: E6 Preload Soup
 ExperimenterName: Una
 Version: 9
@@ -36,7 +36,7 @@ endRatingsContainer()
 noticeStage("Thank you","That completes this part of the study\, please call your experimenter.","End","","false")
 endExperiment()
 
-ExperimentID: 5496afa5-9ecd-4525-90a6-d3135f8a6312
+ExperimentID: 8f7931b4-b871-4c91-b77d-c8fccca44673
 ExperimentName: E6 Umami Main Course
 ExperimenterName: Una
 Version: 6
@@ -67,10 +67,10 @@ endRatingsContainer()
 noticeStage("Thank you","That completes today's session\, please call your experimenter","End","","false")
 endExperiment()
 
-ExperimentID: b781438d-e333-49e0-b894-6274ddeb30a2
+ExperimentID: 29e67105-3cac-47a6-b81e-91798d203b97
 ExperimentName: Ella - Mood Ratings
 ExperimenterName: Martin
-Version: 3
+Version: 4
 startExperiment("Please complete the mood ratings","","Start ratings")
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","Extremely hungry","0","100","Rating completed","Session[]","","false","false")
@@ -85,9 +85,10 @@ vasStage("How calm do you feel right now?","Not at all calm","Extremely calm","0
 vasStage("How energetic do you feel right now?","Not at all energetic","Extremely energetic","0","100","Rating completed","Session[]","","false","false")
 endRatingsContainer()
 noticeStage("End of ratings","Please call the experimenter","End","","false")
+inputStage("User input","This is question","this is button","false")
 endExperiment()
 
-ExperimentID: bb7c40e6-bf66-4dcb-89ef-45764a5c8292
+ExperimentID: 034d2160-e0a1-4aed-a472-2a956d6e6ca2
 ExperimentName: Lab breakfast
 ExperimenterName: Vasiliki
 Version: 7
@@ -127,7 +128,7 @@ endRatingsContainer()
 noticeStage("Thank you!","That completes the lab-based breakfast: please call your researcher.","X","","true")
 endExperiment()
 
-ExperimentID: af8e50c9-7046-44c3-af48-f34c3bd8f77d
+ExperimentID: 3b104909-d1a4-4c1b-8099-b43d65961a72
 ExperimentName: Marie GNG - Mood Ratings
 ExperimenterName: Martin
 Version: 0
@@ -147,7 +148,7 @@ endRatingsContainer()
 noticeStage("End of ratings","Please call the experimenter","End","","false")
 endExperiment()
 
-ExperimentID: 4650115b-e548-40ea-881b-38b8dfecbdd5
+ExperimentID: aef48e2b-e515-4369-a0e5-64332eb0ecfe
 ExperimentName: Taste Screener 2019_20
 ExperimenterName: SIBG
 Version: 2
@@ -214,7 +215,7 @@ noticeStage("Rinsing","Please rinse your mouth with the water provided and then 
 noticeStage("Thank you!","That completes the taste test: please call your researcher.","X","","true")
 endExperiment()
 
-ExperimentID: 768ec06c-4a2f-4f27-8451-ea483fbdc791
+ExperimentID: f8ddb0d6-6a1d-4d9c-9719-3c1de02cd936
 ExperimentName: Porridge_taste test
 ExperimenterName: Vasiliki
 Version: 27
@@ -275,11 +276,18 @@ noticeStage("Rinsing and Spitting","Please re- rinse your mouth with fresh water
 noticeStage("Thank you!","That completes the food taste test: please call your researcher.","Continue","","false")
 endExperiment()
 
-ExperimentID: 5dc0b328-fbfa-4db3-8910-bb50f83392a9
+ExperimentID: 62e2d877-5b3f-476b-ab1c-3fc2e0bb227b
 ExperimentName: Qanh
 ExperimenterName: Thanh Hung
 Version: 2
 startExperiment("Thinh","","hello")
 noticeStage("quynh nhu khung vl","This is question","this is button","hell00","false")
+endExperiment()
+
+ExperimentID: 6e6e42c9-0ab0-4602-bab9-02e103b9492d
+ExperimentName: Qanh
+ExperimenterName:  Quynh Anh
+Version: 1
+startExperiment("Thinh","","hello")
 endExperiment()
 
