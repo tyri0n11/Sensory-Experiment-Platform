@@ -1,27 +1,59 @@
 package main.sensoryexperimentplatform.controllers;
 
+import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import main.sensoryexperimentplatform.ViewModel.AddTasteVM;
-import main.sensoryexperimentplatform.models.TasteTest;
+import main.sensoryexperimentplatform.viewmodel.AddTasteVM;
 
 public class addTasteController {
-    public TextField txt_inital;
-    public TextArea txt_help;
-    public TextField txt_endInstruction;
-    public TextField txt_timetowait;
-    public CheckBox checkbox_randomfood;
-    public CheckBox checkbox_randomrate;
-    public CheckBox checkbox_playalert;
-    public TextField txt_howtaste;
-    public TextField txt_consumpins;
-    public TextField txt_lowanchortext;
-    public TextField txt_highanchortext;
-    public TextField txt_lowacnhorvalue;
-    public TextField txt_highacnhorvalue;
-    public TextField txt_buttontext;
-    public CheckBox checkbox_swappole;
+
+    @FXML
+    private CheckBox cbox;
+    @FXML
+    private CheckBox checkbox_playalert;
+
+    @FXML
+    private CheckBox checkbox_randomfood;
+
+    @FXML
+    private CheckBox checkbox_randomrate;
+
+    @FXML
+    private TextField txt_buttontext;
+
+    @FXML
+    private TextField txt_consumpins;
+
+    @FXML
+    private TextField txt_endInstruction;
+
+    @FXML
+    private TextArea txt_help;
+
+    @FXML
+    private TextField txt_highacnhorvalue;
+
+    @FXML
+    private TextField txt_highanchortext;
+
+    @FXML
+    private CheckBox checkbox_swappol;
+
+    @FXML
+    private TextField txt_howtaste;
+
+    @FXML
+    private TextField txt_inital;
+
+    @FXML
+    private TextField txt_lowacnhorvalue;
+
+    @FXML
+    private TextField txt_lowanchortext;
+
+    @FXML
+    private TextField txt_timetowait;
     private AddTasteVM addVM;
 
     public void init() {
@@ -34,7 +66,7 @@ public class addTasteController {
         txt_timetowait.textProperty().bindBidirectional(addVM.txt_timetowaitProperty());
         checkbox_randomfood.selectedProperty().bindBidirectional(addVM.checkbox_randomfoodProperty());
         checkbox_playalert.selectedProperty().bindBidirectional(addVM.checkbox_playalertProperty());
-        checkbox_swappole.selectedProperty().bindBidirectional(addVM.checkbox_swappoleProperty());
+        checkbox_swappol.selectedProperty().bindBidirectional(addVM.checkbox_swappoleProperty());
         txt_highacnhorvalue.textProperty().bindBidirectional(addVM.txt_highacnhorvalueProperty());
         txt_lowacnhorvalue.textProperty().bindBidirectional(addVM.txt_lowacnhorvalueProperty());
         checkbox_randomrate.selectedProperty().bindBidirectional(addVM.checkbox_randomrateProperty());

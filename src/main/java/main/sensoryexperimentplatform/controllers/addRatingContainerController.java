@@ -1,12 +1,10 @@
 package main.sensoryexperimentplatform.controllers;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.util.converter.NumberStringConverter;
-import main.sensoryexperimentplatform.ViewModel.ratingContainer_VM;
+import main.sensoryexperimentplatform.viewmodel.ratingContainer_VM;
 
 public class addRatingContainerController {
 

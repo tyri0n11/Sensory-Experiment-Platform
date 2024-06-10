@@ -14,6 +14,6 @@ module main.sensoryexpeirmentplatform {
     exports main.sensoryexperimentplatform;
     exports main.sensoryexperimentplatform.controllers;
     opens main.sensoryexperimentplatform.controllers to javafx.fxml;
-    exports main.sensoryexperimentplatform.ViewModel;
-    opens main.sensoryexperimentplatform.ViewModel to javafx.fxml;
+    exports main.sensoryexperimentplatform.viewmodel;
+    opens main.sensoryexperimentplatform.viewmodel to javafx.fxml;
 }

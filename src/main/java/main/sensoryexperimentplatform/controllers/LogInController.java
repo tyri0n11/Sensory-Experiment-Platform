@@ -1,16 +1,12 @@
 package main.sensoryexperimentplatform.controllers;
 
-import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import main.sensoryexperimentplatform.ViewModel.Login_VM;
+import main.sensoryexperimentplatform.viewmodel.Login_VM;
 import main.sensoryexperimentplatform.models.UserManager;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class LogInController {
 

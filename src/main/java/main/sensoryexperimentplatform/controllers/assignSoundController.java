@@ -3,25 +3,32 @@ package main.sensoryexperimentplatform.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.View.ViewHandler;
-import main.sensoryexperimentplatform.ViewModel.addSoundVM;
+
+
+import main.sensoryexperimentplatform.ViewModel.assignSoundVM;
+import main.sensoryexperimentplatform.models.AudibleInstruction;
+import main.sensoryexperimentplatform.viewmodel.addSoundVM;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class  assignSoundController {
-
     @FXML
-    private AnchorPane AddsoundPane;
+    private VBox ShowSound;
+    private ToggleGroup toggleGroup;
+    private List<String> soundName;
+    private AudibleInstruction audibleInstruction;
+    private assignSoundVM viewModel;
+
+
 
     @FXML
     private Label SoundSelectTionLabel;
@@ -44,30 +51,50 @@ public class  assignSoundController {
     @FXML
     private Button btn_stop;
 
+    public assignSoundController(){
+        this.soundName = new ArrayList<>();
+        soundName.add("good");
+
+    }
+    public void initialize() {
+
+     //   loadSoundRadioButtons();
+    }
     @FXML
     void AddButton(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("addSound.fxml"));
         Parent root = fxmlLoader.load();
-
-        // Create a new stage
         Stage stage = new Stage();
         stage.setTitle("Add Sound");
-
-        // Set the scene for the new stage
         Scene scene = new Scene(root);
         stage.setScene(scene);
-
-        // Show the new stage
+        addSoundController addSoundController = fxmlLoader.getController();
+        addSoundVM addSoundVM = new addSoundVM();
         stage.show();
 
     }
 
-    public void init(addSoundVM addSoundVM, ViewHandler viewHandler) {
+//    private void loadSoundRadioButtons() {
+//        //soundName.addAll(viewModel.getSoundName());
+//        toggleGroup = new ToggleGroup();
+//
+//        for (String soundNames:soundName) {
+//            RadioButton radioButton = new RadioButton(soundNames);
+//            radioButton.setToggleGroup(toggleGroup);
+//            ShowSound.getChildren().add(radioButton);
+//
+//        }
+//    }
+    void setViewModel(assignSoundVM viewModel){
+        this.viewModel = viewModel;
     }
+
+
 //    public void addRadioButton(String text) {
 //        RadioButton radioButton = new RadioButton(text);
 //
 //        VBox.setMargin(radioButton, new Insets(5, 0, 0, 0)); // Adjust margins as needed
 //        ((VBox)AddsoundPane.getChildren().get(0)).getChildren().add(radioButton);
 //    }
+
 }

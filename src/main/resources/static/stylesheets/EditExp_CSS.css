@@ -10,19 +10,16 @@
 }
 .button{
     -fx-background-color: transparent;
+
 }
 .button:hover{
     -fx-background-color: #CCCCCC;
     -fx-text-fill: white;
 }
-#btn_dashboard{
-    -fx-background-color: transparent;
-    -fx-font-size: 32;
-    -fx-font-weight: normal;
-    -fx-text-alignment: left;
-    -fx-text-fill: #624DE3;
+.btn_Help{
 
 }
+
 #lbl_SenseXP{
     -fx-font-family: "Baloo Bhaina 2";
     -fx-text-fill: #397E82;
@@ -36,26 +33,6 @@
     -fx-font-weight: 700;
 }
 
-
-/*#btn_addAudibleInstruction, #btn_assignSound, #btn_addInput, #btn_addTimer, #btn_addTasteTest, #btn_addFoodAndTaste,
-#btn_addRatingContainer,
-#btn_addVasStage,
-#btn_AddGLMS,
-#btn_AddCourse,
-#btn_AddPeriodicStage,
-#btn_AddConditionalStatement, #btn_AddQuestionStage {
-    -fx-background-color: #624DE3;
-    -fx-text-fill: white;
-    -fx-font-weight: bold;
-    -fx-min-width: 250px;
-    -fx-max-width: 250px;
-    -fx-min-height: 30px;
-    -fx-max-height: 30px;
-    -fx-padding: 4px 33px, 4px 33px;
-    -fx-background-radius: 40px 40px 40px 40px;
-    -fx-opacity: 10;
-    -fx-gap: 10;
-}*/
 .btn_up{
     -fx-pref-height: 55;
     -fx-pref-width: 55;
@@ -119,8 +96,6 @@
     -fx-padding: 5px 5px 5px 5px;
     -fx-border-radius: 20px 20px 20px 20px;
     -fx-border-color:#0E0E0E ;
-
-
 
 }
 #headPanel{
@@ -255,6 +230,7 @@
     -fx-text-color: #181818;
 
 }
+
 #ChangeButton,#ChangeButton1,#ChangeButton2,#ChangeButton3{
     /* Frame 26919 */
     /* Change */
@@ -687,16 +663,19 @@
     -fx-border-radius: 20px 20px 20px 20px;
     -fx-border-color:#0E0E0E ;
 }
-.PropertiesPane {
-
-    -fx-min-width: 806px;
-    -fx-max-width: 806px;
-    -fx-min-height: 311px;
-    -fx-max-height: 311px;
+#propertiesPane {
     -fx-padding: 5px 5px 5px 5px;
-    -fx-border-radius: 20px 20px 20px 20px;
+    -fx-border-radius: 10px 10px 10px 10px;
     -fx-border-color: #0E0E0E;
+    -fx-background-color: white;
+    -fx-background-radius: 10px 10px 10px 10px;
+}
 
+#listObject{
+    -fx-border-color: black;
+    -fx-border-radius: 10px ;
+    -fx-background-radius: 10px;
+    -fx-padding: 10px;
 }
 
 

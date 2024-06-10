@@ -1,7 +1,7 @@
 package main.sensoryexperimentplatform.controllers;
 
 import javafx.beans.property.StringProperty;
-import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
+import main.sensoryexperimentplatform.viewmodel.noticeStage_VM;
 
 public class AddNoticeStage {
     private StringProperty buttonText, helpText;

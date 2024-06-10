@@ -8,14 +8,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<<<<<<< HEAD
 <AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Notice_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.VasController">
-=======
-
-<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Notics_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.VasController">
->>>>>>> 7a2212825dec188091988102bf0da9285f466266
     <children>
-        <ScrollPane layoutY="-4.0" prefHeight="260.0" prefWidth="540.0">
+        <ScrollPane layoutY="-4.0" prefHeight="253.0" prefWidth="540.0">
          <content>
                 <AnchorPane minWidth="0.0" prefHeight="666.0" prefWidth="527.0" style="-fx-background-color: white;">
                     <children>
@@ -47,8 +42,4 @@
          </content>
         </ScrollPane>
     </children>
-<<<<<<< HEAD
 </AnchorPane>
-=======
-</AnchorPane>
->>>>>>> 7a2212825dec188091988102bf0da9285f466266

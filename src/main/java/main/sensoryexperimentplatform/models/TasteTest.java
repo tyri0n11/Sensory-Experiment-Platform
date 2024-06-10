@@ -1,13 +1,5 @@
 package main.sensoryexperimentplatform.models;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
-import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.AddTasteVM;
-import main.sensoryexperimentplatform.controllers.addTasteController;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -15,15 +7,36 @@ public class TasteTest {
     private final String question;
     private String consumptionInstruction;
     private String endInStruction;
-    private final ArrayList<String> foods;
+    private ArrayList<String> foods;
+    private ArrayList<String> foodsShow;
+
     private final ArrayList<Object> list;
     private final Notice initialNotice;
     private int timeWait;
     boolean randomizeFood, randomizeRatingVas, randomizeRatingGLMS;
-    private final ArrayList<String> vasList;
-    private final ArrayList<String> glmsList;
+    private ArrayList<String> vasList;
+    private ArrayList<String> glmsList;
+    private ArrayList<String> vasListShow;
+    private ArrayList<String> glmsListShow;
     private final Vas sampleVas;
     private final gLMS sampleGLMS;
+
+    public ArrayList<String> getVasListShow() {
+        return vasListShow;
+    }
+
+    public ArrayList<String> getGlmsListShow() {
+        return glmsListShow;
+    }
+
+    public ArrayList<String> getVasList() {
+        return vasList;
+    }
+
+    public ArrayList<String> getGlmsList() {
+        return glmsList;
+    }
+
     public Vas returnsampleVas(){
         return sampleVas;
     }
@@ -73,13 +86,61 @@ public class TasteTest {
         this.randomizeFood =  randomizeFood;
         this.randomizeRatingVas = randomizeRatingVas;
         this.randomizeRatingGLMS = randomizeRatingGLMS;
+        foodsShow = new ArrayList<>();
+        foodsShow.add("Biscuits");
+        foodsShow.add("Cake");
+        foodsShow.add("Cereal");
+        foodsShow.add("Cheese");
+        foodsShow.add("Chocolate");
+        foodsShow.add("Crisps");
+        foodsShow.add("Ice Cream");
+        foodsShow.add("Pasta");
+        foodsShow.add("Porridge");
+        foodsShow.add("Sandwiches");
+        foodsShow.add("Soup");
+        foodsShow.add("Tomatoes");
+        foodsShow.add("Yoghurt");
         foods = new ArrayList<>();
         list = new ArrayList<>();
         vasList = new ArrayList<>();
         glmsList = new ArrayList<>();
+        vasListShow = new ArrayList<>();
+        glmsListShow = new ArrayList<>();
+        vasListShow.add("Alcoholic");
+        vasListShow.add("Bitter");
+        vasListShow.add("Creamy");
+        vasListShow.add("Fruity");
+        vasListShow.add("Novel");
+        vasListShow.add("Pleasant");
+        vasListShow.add("Salty");
+        vasListShow.add("Savoury");
+        vasListShow.add("Sour");
+        vasListShow.add("Spicy");
+        vasListShow.add("Strong");
+        vasListShow.add("Sweet");
+        glmsListShow.add("Alcoholic");
+        glmsListShow.add("Bitter");
+        glmsListShow.add("Creamy");
+        glmsListShow.add("Fruity");
+        glmsListShow.add("Novel");
+        glmsListShow.add("Pleasant");
+        glmsListShow.add("Salty");
+        glmsListShow.add("Savoury");
+        glmsListShow.add("Sour");
+        glmsListShow.add("Spicy");
+        glmsListShow.add("Strong");
+        glmsListShow.add("Sweet");
         list.add(initialNotice);
 
     }
+
+    public ArrayList<String> getFoodsShow() {
+        return foodsShow;
+    }
+    public void addFoodShow (String food){
+        foodsShow.add(food);
+    }
+
 
     public void setEndInStruction(String endInStruction) {
         this.endInStruction = endInStruction;
@@ -106,6 +167,11 @@ public class TasteTest {
     public void setTime(int time){
         this.timeWait = time;
     }
+
+    public ArrayList<String> getFoods() {
+        return foods;
+    }
+
     public void generator(){
         for(String foodName : foods){
             String convertedConsumption = consumptionInstruction.replace("<food>","%s");

@@ -1,5 +1,6 @@
 package main.sensoryexperimentplatform.controllers;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,21 +9,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.*;
+import main.sensoryexperimentplatform.viewmodel.RunExperiment_VM;
+import main.sensoryexperimentplatform.viewmodel.dashBoard_VM;
 import main.sensoryexperimentplatform.models.Experiment;
+import main.sensoryexperimentplatform.models.listOfExperiment;
 
 import java.io.IOException;
+import java.util.Stack;
 
 public class DashBoardController {
     private dashBoard_VM dashBoard_vm;
-
 
     @FXML
     private TableView<Experiment> contentTable;
@@ -41,24 +41,22 @@ public class DashBoardController {
 
     @FXML
     private TableColumn<Experiment, String> lbl_result;
-
-    @FXML
-    private TableColumn<Experiment, String> lbl_Option;
-
     @FXML
     private TableColumn<Experiment, String> lbl_createDate;
 
     @FXML
-    private TextField searchBar;
+    private TableColumn<Experiment, String> lbl_Option;
+    
+    private Stack<Experiment> deletedExp = new Stack<>();
 
-    @FXML
-    private AnchorPane sidebar_left;
 
+    private Experiment selectedExperiment;
+    private Base base;
 
     public void initialize() {
+        //this.base = base;
        dashBoard_vm = new dashBoard_VM();
-        bindViewModel();
-
+       bindViewModel();
 
     }
 
@@ -75,6 +73,10 @@ public class DashBoardController {
         lbl_result.setCellValueFactory(new PropertyValueFactory<>("number_of_results"));
 
         lbl_createDate.setCellValueFactory(new PropertyValueFactory<>("created_date"));
+
+        contentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, selectedExperiment) -> {
+            this.selectedExperiment = selectedExperiment;
+        });
         Callback<TableColumn<Experiment, String>, TableCell<Experiment, String>> cellFactory = new Callback<TableColumn<Experiment, String>, TableCell<Experiment, String>>() {
             @Override
             public TableCell<Experiment, String> call(final TableColumn<Experiment, String> param) {
@@ -117,40 +119,26 @@ public class DashBoardController {
                                             + "-glyph-size:28px;"
                                             + "-fx-background-color: transparent"
                             );
-//                            edit.setStyle( " -fx-cursor: hand ;"
-//                                    + "-glyph-size:28px;"
-//                                    + "-fx-background-color: transparent");
-//                            add.setOnAction((ActionEvent event) -> {
-//                                Patient c = getTableView().getItems().get(getIndex());
-//                                addTreatment(c);
-//                            });
+
+
+
+//
                             delete.setOnAction((ActionEvent event) -> {
-                                Experiment c = getTableView().getItems().get(getIndex());
-                                deleteEx(c);
+                                selectedExperiment = getTableView().getItems().get(getIndex());
+                                try {
+                                    deleteEx(selectedExperiment);
+                                } catch (Exception e) {
+                                    throw new RuntimeException(e);
+                                }
                             });
                             edit.setOnAction((ActionEvent event) -> {
-                                Experiment c = getTableView().getItems().get(getIndex());
-                                editExperiment(c);
+                                selectedExperiment = getTableView().getItems().get(getIndex());
+                                editExperiment(selectedExperiment);
                             });
                             run.setOnAction((ActionEvent) ->{
-                                Experiment selectedExperiment = getTableView().getItems().get(getIndex());
+                                selectedExperiment = getTableView().getItems().get(getIndex());
                                 try {
-                                    FXMLLoader fillNameLoader = new FXMLLoader(getClass().getResource("/main/sensoryexperimentplatform/fill_name.fxml"));
-                                    Parent root = fillNameLoader.load();
-
-                                    FillNameController controller = fillNameLoader.getController();
-                                    FillName_VM viewModel = new FillName_VM(selectedExperiment);
-                                    controller.setViewModel(viewModel);
-
-                                    Stage dialog = new Stage();
-                                    dialog.initStyle(StageStyle.TRANSPARENT);
-                                    Scene dialogScene = new Scene(root);
-                                    dialogScene.setFill(Color.TRANSPARENT);
-                                    dialog.setScene(dialogScene);
-
-
-                                    dialog.showAndWait();
-
+                                    runExperiment(selectedExperiment);
                                 } catch (IOException e) {
                                     throw new RuntimeException(e);
                                 }
@@ -159,7 +147,7 @@ public class DashBoardController {
                             managebtn.setStyle("-fx-alignment:center");
                             HBox.setMargin(run, new Insets(2, 2, 0, 3));
                             HBox.setMargin(edit, new Insets(2, 3, 0, 2));
-                              HBox.setMargin(delete, new Insets(2, 4, 0, 2));
+                            HBox.setMargin(delete, new Insets(2, 4, 0, 2));
 //                            HBox.setMargin(edit, new Insets(2, 5, 0, 3));
                             setGraphic(managebtn);
                         }
@@ -172,14 +160,21 @@ public class DashBoardController {
 
 
         // Bind the TableView items to the ViewModel items
-        contentTable.setItems(dashBoard_vm.getItems());
 
+        contentTable.setItems(dashBoard_vm.getExperiments());
 
 
     }
 
-    private void deleteEx(Experiment c) {
+    private void deleteEx(Experiment e) throws Exception {
+        deletedExp.push(e);
+        listOfExperiment.deleteExperiment(e);
     }
+
+    public void redo() throws Exception {
+        listOfExperiment.addExperiment(deletedExp.pop());
+    }
+
 
     private void editExperiment(Experiment c) {
         c.updateVersion();
@@ -188,8 +183,8 @@ public class DashBoardController {
         Parent root =null;
         try{
             root = loader.load();
-            TestController view=  loader.getController();
-            view.setExperiment (c);
+            TestController view = loader.getController();
+            view.setExperiment(c);
         }
         catch (IOException e){
             e.printStackTrace();
@@ -205,20 +200,29 @@ public class DashBoardController {
 
     }
 
+    private void runExperiment(Experiment experiment) throws IOException {
+        FXMLLoader loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunExperiment.fxml"));
+        Parent root = loader.load();
 
+        RunController controller = loader.getController(); // Get the controller from the loader
+        RunExperiment_VM viewModel = new RunExperiment_VM(experiment);
+        controller.setViewModel(viewModel);
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
+    }
 
     @FXML
     void btn_addEx(ActionEvent event) throws IOException {
-//        viewModel.addExperiment()
-
-        // Implement action for adding an experiment
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("NewExperiment.fxml"));
         Parent root = fxmlLoader.load();
 
         Stage stage = new Stage();
         stage.setTitle("Add Sound");
         newExController controller = fxmlLoader.getController();
-        controller.initialize(dashBoard_vm);
+        controller.initialize();
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -226,6 +230,7 @@ public class DashBoardController {
         stage.show();
 
     }
+
 
 
 

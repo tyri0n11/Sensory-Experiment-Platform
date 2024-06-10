@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import main.sensoryexperimentplatform.ViewModel.noticeStage_VM;
+import main.sensoryexperimentplatform.viewmodel.noticeStage_VM;
 
 public class NoticeStageController {
     private noticeStage_VM noticeStage_vm;

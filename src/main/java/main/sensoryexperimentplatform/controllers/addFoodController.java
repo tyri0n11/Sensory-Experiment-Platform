@@ -2,196 +2,50 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import main.sensoryexperimentplatform.ViewModel.addFoodVM;
+import javafx.stage.Stage;
+import main.sensoryexperimentplatform.viewmodel.FoodTasteVM;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class addFoodController implements Initializable {
+public class addFoodController {
+    private FoodTasteVM viewModel;
+    private NotiForAddFood notiForAddFood;
     @FXML
-    private TextField txt_nameFood;
-
-    @FXML
-    private Label AddFoodLabel;
+    private Label FileLabel;
 
     @FXML
-    private AnchorPane AddFoodPane;
+    private Label ImportSoundLabel;
 
     @FXML
-    private Button CancelButton1;
+    private AnchorPane ImportSoundPane;
 
     @FXML
-    private Button SaveButton1;
+    private Button btn_cancel;
 
     @FXML
-    private AnchorPane SenseXPBar;
+    private Button btn_save;
 
     @FXML
-    private AnchorPane SideBar;
+    private TextField txt_file;
 
     @FXML
-    private Button btn_AddConditionalStatement;
-
-    @FXML
-    private Button btn_AddCourse;
-
-    @FXML
-    private Button btn_AddGLMS;
-
-    @FXML
-    private Button btn_AddPeriodicStage;
-
-    @FXML
-    private Button btn_AddQuestionStage;
-
-    @FXML
-    private Button btn_Logout;
-
-    @FXML
-    private Button btn_addAudibleInstruction;
-
-    @FXML
-    private Button btn_addFoodAndTaste;
-
-    @FXML
-    private Button btn_addInput;
-
-    @FXML
-    private Button btn_addRatingContainer;
-
-    @FXML
-    private Button btn_addTasteTest;
-
-    @FXML
-    private Button btn_addTimer;
-
-    @FXML
-    private Button btn_addVasStage;
-
-    @FXML
-    private Button btn_assignSound;
-
-    @FXML
-    private Button btn_config;
-
-    @FXML
-    private Button btn_dashboard_left;
-
-    @FXML
-    private Button btn_edit;
-
-    @FXML
-    private Button btn_export;
-
-    @FXML
-    private Button btn_import;
-
-    @FXML
-    private Button btn_noticeStage;
-
-    @FXML
-    private Button btn_share_experiment;
-
-    @FXML
-    private Label lbl_EditExperiment;
-
-    @FXML
-    private Label lbl_EditExperiment1;
-
-    @FXML
-    private Label lbl_SenseXP;
-
-    @FXML
-    private Label lbl_TasteTestItemLable;
-
-    @FXML
-    private AnchorPane mainBar;
-
-    @FXML
-    private Label please1Label;
-
-    @FXML
-    private AnchorPane sidebar_left;
-    private addFoodVM addVM;
-
-    @FXML
-    void btn_AddConditionalStatement(ActionEvent event) {
-
+    void btn_cancel(ActionEvent event) {
+        Stage currentStage = (Stage) btn_cancel.getScene().getWindow();
+        currentStage.close();
     }
 
     @FXML
-    void btn_AddCourse(ActionEvent event) {
-
+    void btn_save(ActionEvent event) {
+        viewModel.addListFoodsShow(txt_file.getText());
+        notiForAddFood.notifyObject();
+        Stage currentStage = (Stage) btn_cancel.getScene().getWindow();
+        currentStage.close();
     }
+    public void setViewModel(FoodTasteVM viewModel, FoodAndTasteController FoodAndTasteController) {
+        this.viewModel = viewModel;
+        notiForAddFood = new NotiForAddFood(FoodAndTasteController);
 
-    @FXML
-    void btn_AddGLMS(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_AddPeriodicStage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_AddQuestionStage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_addAudibleInstruction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_addFoodAndTaste(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_addInput(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_addRatingContainer(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_addTasteTest(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_addTimer(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_addVasStage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_assignSound(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btn_noticeStage(ActionEvent event) {
-
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        addVM = new addFoodVM();
-        txt_nameFood.textProperty().bindBidirectional(addVM.nameProperty());
     }
 }

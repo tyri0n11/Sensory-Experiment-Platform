@@ -13,8 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.FillName_VM;
-import main.sensoryexperimentplatform.ViewModel.RunExperiment_VM;
+import main.sensoryexperimentplatform.viewmodel.*;
 import main.sensoryexperimentplatform.models.Experiment;
 
 import java.io.IOException;
@@ -70,7 +69,7 @@ public class FillNameController {
         Parent root = loader.load();
 
         RunController controller = loader.getController(); // Get the controller from the loader
-        RunExperiment_VM viewModel = new RunExperiment_VM(experiment, file_name);
+        RunExperiment_VM viewModel = new RunExperiment_VM(experiment);
         controller.setViewModel(viewModel);
 
         Stage stage = new Stage();

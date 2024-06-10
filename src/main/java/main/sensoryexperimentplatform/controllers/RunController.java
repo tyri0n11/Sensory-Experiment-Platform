@@ -1,7 +1,6 @@
 package main.sensoryexperimentplatform.controllers;
 
 
-import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -9,16 +8,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage; // Explicit import for JavaFX Stage
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.ViewModel.*;
+import main.sensoryexperimentplatform.viewmodel.*;
 import main.sensoryexperimentplatform.models.*;
 import main.sensoryexperimentplatform.models.Timer;
 
 import javax.swing.*;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
-
 
 
 public class RunController {

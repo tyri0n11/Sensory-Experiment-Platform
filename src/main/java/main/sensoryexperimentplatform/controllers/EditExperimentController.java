@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import main.sensoryexperimentplatform.ViewModel.*;
+import main.sensoryexperimentplatform.viewmodel.*;
 import main.sensoryexperimentplatform.models.*;
 import main.sensoryexperimentplatform.models.Timer;
 

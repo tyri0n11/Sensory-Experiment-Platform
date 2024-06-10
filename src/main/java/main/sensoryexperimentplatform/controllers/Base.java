@@ -4,95 +4,41 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 
 import javafx.stage.FileChooser;
+import main.sensoryexperimentplatform.models.*;
+import main.sensoryexperimentplatform.controllers.*;
 
+import javax.swing.*;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import static main.sensoryexperimentplatform.utilz.Constants.DEFAULT_DIRECTORY;
 
 
 public class Base implements Initializable {
-    private boolean mouseClick;
     private boolean isSidebarVisible = true;
-    @FXML
-    private BorderPane borderPane;
-
-    @FXML
-    private Button btn_Config;
-
-    @FXML
-    private Button btn_DashBoard;
-
-    @FXML
-    private Button btn_ImportExp;
-
-    @FXML
-    private Button btn_ShareExp;
-
-    @FXML
-    private Button btn_cross;
-
-    @FXML
-    private Button btn_down;
-
-    @FXML
-    private Button btn_exportExp;
-
-    @FXML
-    private Button btn_menu;
-
-    @FXML
-    private Button btn_up;
-
-    @FXML
-    private Label lbl_SenseXP;
-
     @FXML
     private HBox mainBox;
 
     @FXML
-    private AnchorPane mainPain;
-
-    @FXML
-    private AnchorPane mainPane;
-
-    @FXML
-    private AnchorPane propertiesPane;
+    private AnchorPane mainContent;
 
     @FXML
     private VBox sideMenu;
-    @FXML
-    void exportEx(ActionEvent event) {
-        FileChooser chooser = new FileChooser();
-        File file = chooser.showOpenDialog(null);
-        try{
-            if (file != null) {
-                String filePath = file.getAbsolutePath();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    private DashBoardController controller;
+    private Experiment selectedExp;
+
+    public void setSelectedExp(Experiment selectedExp) {
+        this.selectedExp = selectedExp;
     }
 
-    @FXML
-    void importEx(ActionEvent event) {
-        FileChooser chooser = new FileChooser();
-        File file = chooser.showOpenDialog(null);
-        try{
-            if (file != null) {
-                String filePath = file.getAbsolutePath();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     @FXML
     void OpenDashBoard(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
@@ -100,16 +46,14 @@ public class Base implements Initializable {
         AnchorPane newContent = null;
         try{
             newContent = loader.load();
-            AnchorPane.setTopAnchor(newContent, 0.0);
-            AnchorPane.setBottomAnchor(newContent, 0.0);
-            AnchorPane.setLeftAnchor(newContent, 0.0);
-            AnchorPane.setRightAnchor(newContent, 0.0);
-            DashBoardController view=  loader.getController();
+            DashBoardController controller = new DashBoardController();
+            //this.controller = loader.getController();
+           // controller.initialize(this);
         }
         catch (IOException e){
             e.printStackTrace();
         }
-        mainPain.getChildren().setAll(newContent);
+        mainContent.getChildren().setAll(newContent);
     }
 
     @FXML
@@ -121,8 +65,6 @@ public class Base implements Initializable {
             mainBox.getChildren().add(0, sideMenu);
         }
         isSidebarVisible = !isSidebarVisible;
-
-
     }
 
     @Override
@@ -136,33 +78,54 @@ public class Base implements Initializable {
 //        catch (IOException e){
 //            e.printStackTrace();
 //        }
-//        mainPain.getChildren().setAll(newContent);
+//        mainContent.getChildren().setAll(newContent);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/DashBoard.fxml"));
         AnchorPane newContent = null;
         try{
             newContent = loader.load();
-            DashBoardController view=  loader.getController();
+            DashBoardController view = loader.getController();
 
         }
         catch (IOException e){
             e.printStackTrace();
         }
-        mainPain.getChildren().setAll(newContent);
+        mainContent.getChildren().setAll(newContent);
     }
     @FXML
-    void importExperiment() throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/Import.fxml"));
-        AnchorPane newContent = null;
-        try{
-            newContent = loader.load();
-            DashBoardController view=  loader.getController();
+    void importExperiment() throws Exception {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File(DEFAULT_DIRECTORY));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("SIPM Files", "*.sipm")); // Accept all file types
+        List<File> files = fileChooser.showOpenMultipleDialog(null);
 
+        if (files != null) {
+            for(File file : files){
+                String filePath = file.getAbsolutePath();
+                DataAccess.importExperiment(filePath);
+            }
         }
-        catch (IOException e){
-            e.printStackTrace();
+    }
+
+    @FXML
+    void exportExperiment(){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File(DEFAULT_DIRECTORY));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("SIPM Files", "*.sipm"));
+
+        File file = fileChooser.showSaveDialog(null);
+
+        if (file != null) {
+            saveToFile(file);
         }
-        mainPain.getChildren().setAll(newContent);
+    }
+
+    private void saveToFile(File file) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+            writer.write(selectedExp.toString());
+            writer.newLine();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }

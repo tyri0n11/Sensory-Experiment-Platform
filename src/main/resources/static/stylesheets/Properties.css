@@ -1,0 +1,69 @@
+#lblProperty{
+    -fx-font-family: "Poppins";
+    -fx-font-style: normal;
+
+    -fx-max-width: 719px;
+    -fx-max-height: 32px;
+    -fx-font-weight: 700;
+    -fx-font-size: 20px;
+    -fx-line-height: 30px;
+    -fx-letter-spacing: 0.03em;
+
+    -fx-text-fill: #397E82;
+}
+
+.text-area{
+    -fx-border-color: #696969;
+    -fx-border-radius: 5px 5px 5px 5px;
+    -fx-alignment: center;
+    -fx-box-sizing: border-box;
+}
+.propertiesText{
+    -fx-pref-width: 375px;
+    -fx-pref-height: 21px;
+    -fx-font-family: "Poppins";
+    -fx-font-style: normal;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-letter-spacing: 0.03em;
+    -fx-text-color: #181818;
+}
+
+.scroll-pane .scroll-bar:vertical{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+}
+.scroll-pane .scroll-bar:horizontal{
+    -fx-opacity: 0;
+    -fx-pref-width: 0;
+}
+.scroll-pane .scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-background-radius:2em;
+    -fx-border-radius: 2em;
+    -fx-border-color: transparent
+
+}
+.scroll-pane .scroll-bar:horizontal .decrement-button{
+    -fx-padding: 0 ,0 ,10,0;
+    -fx-background-color: white;
+    -fx-background-radius:0em;
+
+}
+.scroll-pane .scroll-bar:vertical .decrement-button{
+    -fx-background-color: transparent;
+    -fx-background-radius:0em;
+    -fx-padding: 0 10  0  0;
+
+}
+.scroll-pane .scroll-bar:vertical .increment-arrow,
+.scroll-pane .scroll-bar:vertical .decrement-arrow{
+    -fx-padding: -2;
+
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #397E82;
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+}

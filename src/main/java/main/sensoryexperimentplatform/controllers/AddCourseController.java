@@ -1,11 +1,9 @@
 package main.sensoryexperimentplatform.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import main.sensoryexperimentplatform.ViewModel.AddCourseVM;
-import main.sensoryexperimentplatform.ViewModel.vasStage_VM;
+import main.sensoryexperimentplatform.viewmodel.AddCourseVM;
 
 public class AddCourseController {
     @FXML

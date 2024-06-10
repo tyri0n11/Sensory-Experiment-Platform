@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 
-import main.sensoryexperimentplatform.ViewModel.RunGLMS_VM;
+import main.sensoryexperimentplatform.viewmodel.RunGLMS_VM;
 
 public class RunGLMSController {
 

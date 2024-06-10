@@ -30,18 +30,6 @@
                         <Label layoutX="28.0" layoutY="834.0" styleClass="normallabel" text="Randomised Ratings?" />
                         <CheckBox fx:id="checkbox_randomrate" layoutX="222.0" layoutY="834.0" mnemonicParsing="false" />
                         <Label layoutX="28.0" layoutY="884.0" styleClass="normallabel" text="Play alert sound on screen display?" />
-<<<<<<< HEAD
-                        <CheckBox layoutX="300.0" layoutY="884.0" mnemonicParsing="false" />
-                        <TextField layoutX="222.0" layoutY="114.0" prefHeight="25.0" prefWidth="274.0" promptText="Consumption Instruction" />
-                        <TextField layoutX="222.0" layoutY="164.0" prefHeight="25.0" prefWidth="274.0" promptText="How &lt;taste&gt; is the &lt;food&gt;" />
-                        <Label layoutX="28.0" layoutY="214.0" styleClass="normallabel" text="Low Anchor Text" />
-                        <TextField layoutX="222.0" layoutY="214.0" prefHeight="25.0" prefWidth="274.0" promptText="Low Anchor Text" />
-                        <Label layoutX="28.0" layoutY="264.0" styleClass="normallabel" text="High Anchor Text" />
-                        <TextField layoutX="222.0" layoutY="264.0" prefHeight="25.0" prefWidth="274.0" promptText="High Anchor Text" />
-                        <Label layoutX="28.0" layoutY="314.0" styleClass="normallabel" text="Low Anchor Value" />
-                        <TextField layoutX="222.0" layoutY="314.0" prefHeight="25.0" prefWidth="274.0" />
-                        <TextField layoutX="222.0" layoutY="364.0" prefHeight="25.0" prefWidth="274.0" />
-=======
                         <CheckBox fx:id="checkbox_playalert" layoutX="300.0" layoutY="884.0" mnemonicParsing="false" />
                         <TextField fx:id="txt_consumpins" layoutX="222.0" layoutY="114.0" prefHeight="25.0" prefWidth="274.0" promptText="Consumption Instruction" />
                         <TextField fx:id="txt_howtaste" layoutX="222.0" layoutY="164.0" prefHeight="25.0" prefWidth="274.0" promptText="How &lt;taste&gt; is the &lt;food&gt;" />
@@ -52,15 +40,10 @@
                         <Label layoutX="28.0" layoutY="314.0" styleClass="normallabel" text="Low Anchor Value" />
                         <TextField fx:id="txt_lowacnhorvalue" layoutX="222.0" layoutY="314.0" prefHeight="25.0" prefWidth="274.0" />
                         <TextField fx:id="txt_highacnhorvalue" layoutX="222.0" layoutY="364.0" prefHeight="25.0" prefWidth="274.0" />
->>>>>>> 7384506b8428b90bbd46adeaec6fe0e34872f715
                         <Label layoutX="28.0" layoutY="414.0" styleClass="normallabel" text="Button Text" />
                         <TextField fx:id="txt_buttontext" layoutX="222.0" layoutY="414.0" prefHeight="25.0" prefWidth="274.0" />
                         <Label layoutX="28.0" layoutY="464.0" styleClass="normallabel" text="Swap Poles (ticked for yes)" />
-<<<<<<< HEAD
-                        <CheckBox layoutX="222.0" layoutY="464.0" mnemonicParsing="false" />
-=======
-                        <CheckBox fx:id="checkbox_swappole" layoutX="222.0" layoutY="464.0" mnemonicParsing="false" />
->>>>>>> 7384506b8428b90bbd46adeaec6fe0e34872f715
+                        <CheckBox fx:id="checkbox_swappol" layoutX="222.0" layoutY="464.0" mnemonicParsing="false" />
                         <Label layoutX="28.0" layoutY="504.0" styleClass="normallabel" text="Help Text" />
                     </children>
                 </AnchorPane>

@@ -7,8 +7,8 @@ import java.util.regex.Pattern;
 
 public class UserManager {
 
-    private static final String FILE_NAME = "Models/main.sensoryexperimentplatform.models.Data/ManyExperiments";
-    private static final String saveFilePath = "Models/main.sensoryexperimentplatform.models.Data/user";
+    private static final String FILE_NAME = "Models/main.sensoryexperimentplatform.Data/ManyExperiments";
+    private static final String saveFilePath = "Models/main.sensoryexperimentplatform.Data/user";
 
     public static void main(String[] args) throws IOException {
         UserManager manager = new UserManager();
