@@ -136,7 +136,7 @@ public class TestController{
     public void initialize(){
         addTasteVMS = new Stack<>();
         addCourseVMS = new Stack<>();
-        index = 0;
+        index = 1;
         displayedItems = new HashMap<>();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
         start = new TreeItem<>("Start Experiment");
@@ -165,7 +165,7 @@ public class TestController{
         if (item.getParent() == null) {
             return 0; // Root item
         }
-        return item.getParent().getChildren().indexOf(item);
+        return listObject.getRow(item);
     }
 
     private String showDetailView(int index) throws IOException {
@@ -474,7 +474,7 @@ public class TestController{
         Wrapper wrapper = new Wrapper(key, periodicVM);
         displayedItems.put(index, wrapper);
         index++;
-        TreeItem<String> periodicStage = new TreeItem<>("key");
+        TreeItem<String> periodicStage = new TreeItem<>(key);
         selectedItem.getChildren().add(periodicStage);
 
             // Optionally expand the course item to show the newly added child

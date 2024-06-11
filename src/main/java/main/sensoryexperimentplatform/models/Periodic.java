@@ -21,8 +21,46 @@ public class Periodic{
         this.forDaiLuong = forDaiLuong;
     }
 
+    public long getAmount() {
+        return amount;
+    }
 
-//    public Periodic (long seconds){
+    public void setAmount(long amount) {
+        this.amount = amount;
+    }
+
+    public long getForAmount() {
+        return forAmount;
+    }
+
+    public void setForAmount(long forAmount) {
+        this.forAmount = forAmount;
+    }
+
+    public String getDaiLuong() {
+        return daiLuong;
+    }
+
+    public void setDaiLuong(String daiLuong) {
+        this.daiLuong = daiLuong;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getForDaiLuong() {
+        return forDaiLuong;
+    }
+
+    public void setForDaiLuong(String forDaiLuong) {
+        this.forDaiLuong = forDaiLuong;
+    }
+    //    public Periodic (long seconds){
 //        this.seconds = seconds;
 //    }
 
