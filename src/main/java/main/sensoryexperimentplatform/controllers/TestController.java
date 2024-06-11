@@ -136,10 +136,10 @@ public class TestController{
     public void initialize(){
         addTasteVMS = new Stack<>();
         addCourseVMS = new Stack<>();
-        index = 1;
+        index = 0;
         displayedItems = new HashMap<>();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
-        start = new TreeItem<>("Start Experiment");
+        StartVM startVM = new StartVM(experiment);
         listObject.setRoot(start);
         btn_assignSound.setDisable(true);
         btn_AddPeriodicStage.setDisable(true);
@@ -182,16 +182,32 @@ public class TestController{
 
     }
     private void loadItems(){
-        if (experiment != null){
             Set<String> set = new LinkedHashSet<>();
             ArrayList<Object> stages = experiment.getStages();
+        if (experiment.getStages().isEmpty()){
+            String key = "Start experiment";
+            start = new TreeItem<>("Start experiment");
+            listObject.setRoot(start);
+            StartVM startVM = new StartVM(experiment);
+            Wrapper wrapper = new Wrapper(key, startVM );
+            displayedItems.put(index, wrapper);
+            index++;
+        }
             for (Object o : stages) {
+                if (o instanceof Start){
+                    String key = ((Start) o).getTitle();
+                    start = new TreeItem<>(key);
+                    listObject.setRoot(start);
+                    StartVM startVM = new StartVM(experiment);
+                    Wrapper wrapper = new Wrapper(key, startVM );
+                    displayedItems.put(index, wrapper);
+                    index++;
+                }
                 if(o instanceof Vas) {
                     String key = "[" + o.getClass().getSimpleName() + "] " + ((Vas) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
                     vasStage_VM vasStageVm = new vasStage_VM((Vas) o);
                     Wrapper wrapper = new Wrapper(key, vasStageVm);
-                    displayedItems.put(index, wrapper);
                     displayedItems.put(index, wrapper);
                     index++;
                     // str.add(key);
@@ -278,7 +294,6 @@ public class TestController{
             listObject.setMaxHeight(311);
             propertiesPane.setVisible(true);
             start.setExpanded(true);
-        }
     }
     @FXML
     void addAudibleInstruction(ActionEvent event) {
@@ -640,7 +655,6 @@ public class TestController{
     public void setExperiment(Experiment c) throws IOException {
         this.experiment = c;
         this.originalExperiment = experiment;
-        System.out.println(experiment);
         loadItems();
     }
 

@@ -2,14 +2,15 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import main.sensoryexperimentplatform.viewmodel.StartVM;
 
 public class StartStageController {
+    private StartVM startVM;
+
+    @FXML
+    private ColorPicker backGroundColor;
 
     @FXML
     private Button btn_DisableColor;
@@ -22,12 +23,12 @@ public class StartStageController {
 
     @FXML
     private Button btn_textColor;
+    @FXML
+    private ColorPicker disablebuttoncolor;
+
 
     @FXML
     private CheckBox cbx_balance;
-
-    @FXML
-    private ChoiceBox<?> chx_BackgroundColor;
 
     @FXML
     private ChoiceBox<?> chx_change;
@@ -36,7 +37,7 @@ public class StartStageController {
     private ChoiceBox<?> chx_disableColor;
 
     @FXML
-    private ChoiceBox<?> chx_textColor;
+    private ColorPicker textColor;
 
     @FXML
     private TextField txt_ButtonText;
@@ -73,9 +74,12 @@ public class StartStageController {
 
     }
 
-//    @FXML
-//    void txt_question(MouseEvent event) {
-//
-//    }
+    @FXML
+    void txt_question(MouseEvent event) {
 
+    }
+
+    public void setViewModel(StartVM startVM) {
+        this.startVM = startVM;
+    }
 }

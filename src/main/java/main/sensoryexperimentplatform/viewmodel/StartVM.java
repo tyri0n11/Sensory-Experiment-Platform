@@ -1,14 +1,130 @@
 package main.sensoryexperimentplatform.viewmodel;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.AddPeriodic;
+import main.sensoryexperimentplatform.controllers.StartStageController;
 import main.sensoryexperimentplatform.models.Experiment;
+import main.sensoryexperimentplatform.models.Start;
 
 import java.io.IOException;
 import java.util.Stack;
 
 public class StartVM implements choose{
     private Experiment experiment;
+    private Start start;
+    private SimpleStringProperty title;
+    private SimpleStringProperty content;
+    private ObjectProperty<Color> colorBackGround;
+    private ObjectProperty<Color> colorDisable;
+    private ObjectProperty<Color> TextColor;
+    private SimpleStringProperty StartOfStageDelay;
+    private SimpleStringProperty EndOfStageDelay;
+    public StartVM(Experiment experiment){
+        this.experiment = experiment;
+        this.start = new Start("Start Experiment","This is the first stage of the experiment" , null, false, null, null, 0,100, null);
+        title = new SimpleStringProperty(start.getTitle());
+        content = new SimpleStringProperty(start.getContent());
+        colorBackGround = new SimpleObjectProperty<>(start.getBackGroundColor());
+        colorDisable = new SimpleObjectProperty<>(start.getDisableButtonColor());
+        TextColor= new SimpleObjectProperty<>(start.getTextColor());
+        StartOfStageDelay = new SimpleStringProperty(String.valueOf(start.getStartOfStageDelay()));
+        EndOfStageDelay = new SimpleStringProperty(String.valueOf(start.getEndOfStageDelay()));
+        experiment.addStart(start);
+        title.addListener((observableValue, oldValue, newValue) -> onTitleChange(newValue));
+        content.addListener((observableValue, oldValue, newValue) -> onContentChange(newValue));
+        colorBackGround.addListener((observableValue, oldValue, newValue) -> onColorBackground(newValue));
+        TextColor.addListener((observableValue, oldValue, newValue) -> onColorText(newValue));
+        StartOfStageDelay.addListener((observableValue, oldValue, newValue) -> onStart(newValue));
+        EndOfStageDelay.addListener((observableValue, oldValue, newValue) -> onEnd(newValue));
+        colorDisable.addListener((observableValue, oldValue, newValue) -> onColorDisable(newValue));
+    }
+
+    private void onColorDisable(Color newValue) {
+        start.setDisableButtonColor(newValue);
+    }
+
+    private void onEnd(String newValue) {
+        start.setEndOfStageDelay(Long.parseLong(newValue));
+    }
+
+    private void onStart(String newValue) {
+        start.setStartOfStageDelay(Long.parseLong(newValue));
+    }
+
+    private void onColorText(Color newValue) {
+        start.setTextColor(newValue);
+    }
+
+    private void onColorBackground(Color newValue) {
+        start.setBackGroundColor( newValue);
+    }
+
+    private void onContentChange(String newValue) {
+        start.setContent(newValue);
+    }
+
+    private void onTitleChange(String newValue) {
+        start.setTitle(newValue);
+    }
+
+    public SimpleStringProperty titleProperty() {
+        return title;
+    }
+
+    public String getContent() {
+        return content.get();
+    }
+
+    public SimpleStringProperty contentProperty() {
+        return content;
+    }
+
+    public Color getColorBackGround() {
+        return colorBackGround.get();
+    }
+
+    public ObjectProperty<Color> colorBackGroundProperty() {
+        return colorBackGround;
+    }
+
+    public Color getColorDisable() {
+        return colorDisable.get();
+    }
+
+    public ObjectProperty<Color> colorDisableProperty() {
+        return colorDisable;
+    }
+
+    public Color getTextColor() {
+        return TextColor.get();
+    }
+
+    public ObjectProperty<Color> textColorProperty() {
+        return TextColor;
+    }
+
+    public String getStartOfStageDelay() {
+        return StartOfStageDelay.get();
+    }
+
+    public SimpleStringProperty startOfStageDelayProperty() {
+        return StartOfStageDelay;
+    }
+
+    public String getEndOfStageDelay() {
+        return EndOfStageDelay.get();
+    }
+
+    public SimpleStringProperty endOfStageDelayProperty() {
+        return EndOfStageDelay;
+    }
 
     @Override
     public void modify(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS) throws IOException {
@@ -17,7 +133,11 @@ public class StartVM implements choose{
 
     @Override
     public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12) throws IOException {
-
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("StartStage.fxml"));
+        AnchorPane newContent = fxmlLoader.load();
+        anchorPane.getChildren().setAll(newContent);
+        StartStageController controller = fxmlLoader.getController();
+        controller.setViewModel(this);
     }
 
     @Override

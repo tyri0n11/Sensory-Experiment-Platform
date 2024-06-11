@@ -230,4 +230,7 @@ public class Experiment {
     }
 
 
+    public void addStart(Start start) {
+        stages.add(start);
+    }
 }
