@@ -1,16 +1,10 @@
 package main.sensoryexperimentplatform.controllers;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
-import main.sensoryexperimentplatform.viewmodel.addSoundVM;
 import main.sensoryexperimentplatform.viewmodel.assignSoundVM;
-
-import javax.swing.*;
 import java.io.File;
 
 public class addSoundController {
@@ -46,11 +40,16 @@ public class addSoundController {
 
     @FXML
     void btn_browse(ActionEvent event) {
-//        FileChooser fileChooser = new FileChooser();
-//        File selectedFile = fileChooser.showOpenDialog(btn_browse.getScene().getWindow());
-//        if (selectedFile != null) {
-//            viewModel.setFile(selectedFile.getAbsolutePath());
-//        }
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("MP3 Files","*.mp3")
+        );
+        File selectedFile = fileChooser.showOpenDialog(btn_browse.getScene().getWindow());
+        if (selectedFile != null) {
+
+            txt_file.setText(selectedFile.getAbsolutePath());
+        }
     }
 
     @FXML
