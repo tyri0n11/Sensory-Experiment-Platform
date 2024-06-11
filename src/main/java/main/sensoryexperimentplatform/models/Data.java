@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Data {
     private ArrayList<Experiment> news;
 
-    public Data() throws Exception {
+    /*public Data() throws Exception {
         Scanner sc = new Scanner(System.in);
         //news = DataAccess.importExperiment();
 
@@ -71,7 +71,7 @@ public class Data {
                     break;
             }
         }
-    }
+    }*/
 
     public void newEx() {
         Experiment newex = new Experiment();

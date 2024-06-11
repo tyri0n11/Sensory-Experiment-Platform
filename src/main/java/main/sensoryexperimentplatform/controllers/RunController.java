@@ -17,7 +17,7 @@ import java.io.IOException;
 
 
 public class RunController {
-    private static String FILE_NAME;
+    private String FILE_NAME;
     double pivot = 0.0;
     double processed = 0.0;
     @FXML
@@ -43,7 +43,7 @@ public class RunController {
     public void setViewModel(RunExperiment_VM viewModel){
         this.viewModel = viewModel;
         this.experiment = viewModel.getExperiment();
-        FILE_NAME = JOptionPane.showInputDialog("Enter your name, please!");
+        this.FILE_NAME = viewModel.getFileName();
         bindViewModel();
     }
     private void updateProgress(double processed){

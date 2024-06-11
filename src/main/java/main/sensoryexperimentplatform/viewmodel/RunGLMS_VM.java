@@ -22,7 +22,7 @@ public class RunGLMS_VM {
 
         sliderValue.addListener(((observableValue, oldValue, newValue) ->{
             setResult(newValue.doubleValue());
-            System.out.println(newValue + "\t" +time);
+            System.out.println(stage.getResult());
             setDate();
         } ));
 
@@ -37,9 +37,6 @@ public class RunGLMS_VM {
     }
     public void setResult(double result){
         stage.setResult(result);
-    }
-    public IntegerProperty timeProperty(){
-        return time;
     }
 
     public StringProperty helpProperty(){

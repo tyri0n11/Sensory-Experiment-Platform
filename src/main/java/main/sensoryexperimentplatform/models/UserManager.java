@@ -98,8 +98,8 @@ public class UserManager {
 
             while ((line = reader.readLine()) != null) {
                 if (line.startsWith("ExperimentID: " + exId)) {
-                    currentExperiment = new Experiment(null, null, null, null, 1);
-                    currentExperiment.setId(exId);
+                    currentExperiment = new Experiment(null, null, null, null, 1,000,null);
+                    currentExperiment.setId(Integer.parseInt(exId));
 
                 }
                 else if (currentExperiment != null) {

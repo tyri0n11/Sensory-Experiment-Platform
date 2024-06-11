@@ -12,14 +12,20 @@ import java.util.*;
 public class RunExperiment_VM {
     private Experiment experiment;
     public double count = 0.0;
+    private String file_name;
     private final ListProperty<String> items = new SimpleListProperty<>(FXCollections.observableArrayList());
     private final Map<String, Object> objectsMap = new HashMap<>();
     private final List<Object> objectList = new ArrayList<>();
     private ArrayList<Object> stages = new ArrayList<>();
 
-    public RunExperiment_VM(Experiment experiment) {
+    public RunExperiment_VM(Experiment experiment, String file_name) {
         this.experiment = experiment;
+        this.file_name = file_name;
         loadItems();
+    }
+
+    public String getFileName() {
+        return file_name;
     }
 
     public void loadItems() {

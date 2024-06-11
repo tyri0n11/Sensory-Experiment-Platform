@@ -1,8 +1,6 @@
 package main.sensoryexperimentplatform.controllers;
 
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleListProperty;
-import javafx.collections.FXCollections;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,9 +10,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.viewmodel.FillName_VM;
 import main.sensoryexperimentplatform.viewmodel.RunExperiment_VM;
 import main.sensoryexperimentplatform.viewmodel.dashBoard_VM;
 import main.sensoryexperimentplatform.models.Experiment;
@@ -43,6 +44,8 @@ public class DashBoardController {
 
     @FXML
     private TableColumn<Experiment, String> lbl_result;
+    @FXML
+    private TableColumn<Experiment, String> lbl_createDate;
 
     @FXML
     private TableColumn<Experiment, String> lbl_Option;
@@ -69,6 +72,11 @@ public class DashBoardController {
         lbl_experimentName.setCellValueFactory(new PropertyValueFactory<>("experimentName"));
 
         lbl_currentVersion.setCellValueFactory(new PropertyValueFactory<>("version"));
+
+        lbl_result.setCellValueFactory(new PropertyValueFactory<>("number_of_results"));
+
+        lbl_createDate.setCellValueFactory(new PropertyValueFactory<>("created_date"));
+
         contentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, selectedExperiment) -> {
             this.selectedExperiment = selectedExperiment;
         });
@@ -131,9 +139,22 @@ public class DashBoardController {
                                 editExperiment(selectedExperiment);
                             });
                             run.setOnAction((ActionEvent) ->{
-                                selectedExperiment = getTableView().getItems().get(getIndex());
+                                Experiment selectedExperiment = getTableView().getItems().get(getIndex());
                                 try {
-                                    runExperiment(selectedExperiment);
+                                    FXMLLoader fillNameLoader = new FXMLLoader(getClass().getResource("/main/sensoryexperimentplatform/fill_name.fxml"));
+                                    Parent root = fillNameLoader.load();
+
+                                    FillNameController controller = fillNameLoader.getController();
+                                    FillName_VM viewModel = new FillName_VM(selectedExperiment);
+                                    controller.setViewModel(viewModel);
+
+                                    Stage dialog = new Stage();
+                                    dialog.initStyle(StageStyle.TRANSPARENT);
+                                    Scene dialogScene = new Scene(root);
+                                    dialogScene.setFill(Color.TRANSPARENT);
+                                    dialog.setScene(dialogScene);
+
+                                    dialog.showAndWait();
                                 } catch (IOException e) {
                                     throw new RuntimeException(e);
                                 }
@@ -195,19 +216,6 @@ public class DashBoardController {
 
     }
 
-    private void runExperiment(Experiment experiment) throws IOException {
-        FXMLLoader loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunExperiment.fxml"));
-        Parent root = loader.load();
-
-        RunController controller = loader.getController(); // Get the controller from the loader
-        RunExperiment_VM viewModel = new RunExperiment_VM(experiment);
-        controller.setViewModel(viewModel);
-
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
-
-    }
 
     @FXML
     void btn_addEx(ActionEvent event) throws IOException {
