@@ -121,7 +121,6 @@ public class Experiment {
     }
     public void addCourse (Course course){
         stages.add(course);
-
     }
     public void addQuestion (Question question){
         stages.add(question);

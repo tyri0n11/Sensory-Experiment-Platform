@@ -61,7 +61,6 @@ public class TestController{
 
     @FXML
     private AnchorPane propertiesPane;
-    private TreeItem<String> courseItem;
 
     private TreeItem<String> Randomnies;
     private TreeItem<String> ifConditional;
@@ -85,6 +84,7 @@ public class TestController{
     private TreeItem<String> start;
     private AudibleInstruction audibleInstruction;
     private Stack <AddTasteVM> addTasteVMS;
+    private Stack <AddCourseVM> addCourseVMS;
     private Experiment originalExperiment;
 
     @FXML
@@ -135,6 +135,7 @@ public class TestController{
 
     public void initialize(){
         addTasteVMS = new Stack<>();
+        addCourseVMS = new Stack<>();
         index = 0;
         displayedItems = new HashMap<>();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
@@ -149,6 +150,7 @@ public class TestController{
                 // System.out.println(index);
                 try {
                     addTasteVMS.clear();
+                    addCourseVMS.clear();
                     btn_addFoodAndTaste.setDisable(true);
                     newValue.setValue(showDetailView(index));
 
@@ -169,8 +171,8 @@ public class TestController{
     private String showDetailView(int index) throws IOException {
 
         choose o = displayedItems.get(index).getChoose();
-        o.modify(propertiesPane, addTasteVMS);
-        o.modifyWithButton(propertiesPane,addTasteVMS,btn_AddPeriodicStage, btn_AddCourse, btn_assignSound,
+        o.modify(propertiesPane, addTasteVMS, addCourseVMS);
+        o.modifyWithButton(propertiesPane,addTasteVMS, addCourseVMS,btn_AddPeriodicStage, btn_AddCourse, btn_assignSound,
                 btn_addFoodAndTaste, btn_addAudibleInstruction
                 , btn_addInput, btn_noticeStage,
                 btn_addTimer, btn_AddQuestionStage,
@@ -243,14 +245,14 @@ public class TestController{
                     displayedItems.put(index, wrapper);
                     index++;
                 }
-                else if (o instanceof Periodic){
-                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
-                    start.getChildren().add(new TreeItem<>(key));
-
-                    // Wrapper wrapper = new Wrapper(key, addCourseVM);
-                    //displayedItems.put(index, wrapper);
-                    index++;
-                }
+//                else if (o instanceof Periodic){
+//                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
+//                    start.getChildren().add(new TreeItem<>(key));
+//
+//                    // Wrapper wrapper = new Wrapper(key, addCourseVM);
+//                    //displayedItems.put(index, wrapper);
+//                    index++;
+//                }
                 else if (o instanceof RatingContainer) {
 //                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
 //                       System.out.println(key);
@@ -326,7 +328,8 @@ public class TestController{
         start.setExpanded(true);
 
         AddCourseVM addCourseVM = new AddCourseVM(experiment);
-        String key = "Start Eating stage";
+        Course course = addCourseVM.getCourse();
+        String key = course.getTitle();
         Wrapper wrapper = new Wrapper(key, addCourseVM);
         displayedItems.put(index, wrapper);
         index++;
@@ -463,17 +466,20 @@ public class TestController{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        if (courseItem != null) {
-
-            TreeItem<String> periodicStage = new TreeItem<>("Every -1 grams");
-            courseItem.getChildren().add(periodicStage);
+        Course course = addCourseVMS.get(0).getCourse();
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        //PeriodicVM periodicVM = new PeriodicVM();
+        PeriodicVM periodicVM = new PeriodicVM(course);
+        String key = periodicVM.getTitle();
+        Wrapper wrapper = new Wrapper(key, periodicVM);
+        displayedItems.put(index, wrapper);
+        index++;
+        TreeItem<String> periodicStage = new TreeItem<>("key");
+        selectedItem.getChildren().add(periodicStage);
 
             // Optionally expand the course item to show the newly added child
-            courseItem.setExpanded(true);
-        } else {
-
+        selectedItem.setExpanded(true);
         }
-    }
 
     @FXML
     void addQuestionStage(ActionEvent event) {
@@ -627,7 +633,6 @@ public class TestController{
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
-
         stage.show();
 
     }

@@ -74,7 +74,6 @@ public class VasController {
     private TextField txt_yes;
 
     private void bind(){
-
         txt_question.textProperty().bindBidirectional(vasStageVM.questionTextProperty());
         txt_LowAncTxt.textProperty().bindBidirectional(vasStageVM.lowAnchorTextProperty());
         txt_HighAncTxt.textProperty().bindBidirectional(vasStageVM.highAnchorTextProperty());

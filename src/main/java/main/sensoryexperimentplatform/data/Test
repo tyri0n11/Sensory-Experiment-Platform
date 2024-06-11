@@ -1,0 +1,8 @@
+ExperimentName: Experiment
+ExperimenterName: Creator
+ExperimentID: 0
+Created on: 2024.06.11.21.07.27.245
+Version: 1
+startExperiment("Description","","Note")
+endExperiment()
+

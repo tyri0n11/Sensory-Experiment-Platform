@@ -101,7 +101,7 @@ public class questionStage_VM implements choose{
     }
 
     @Override
-    public void modify(AnchorPane anchorPane,Stack<AddTasteVM> stack) throws IOException {
+    public void modify(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("QuestionStage.fxml"));
         AnchorPane newContent = fxmlLoader.load();
         anchorPane.getChildren().setAll(newContent);
@@ -111,7 +111,7 @@ public class questionStage_VM implements choose{
     }
 
     @Override
-    public void modifyWithButton(AnchorPane propertiesPane, Stack<AddTasteVM> stack,Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
+    public void modifyWithButton(AnchorPane propertiesPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS, Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
                                  Button btn_addFoodAndTaste, Button btn_addAudibleInstruction
             , Button btn_addInput, Button btn_noticeStage,
                                  Button btn_addTimer, Button btn_AddQuestionStage,

@@ -9,6 +9,7 @@ import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.controllers.AddCourseController;
 import main.sensoryexperimentplatform.models.Course;
 import main.sensoryexperimentplatform.models.Experiment;
+import main.sensoryexperimentplatform.models.Periodic;
 
 import java.io.IOException;
 import java.util.Stack;
@@ -26,7 +27,7 @@ public class AddCourseVM implements choose{
 
     public AddCourseVM( Experiment experiment){
         this.experiment = experiment;
-        this.course = new Course("User Input","User Input","User Input",0,0,0, "User Input", "User Input" );
+        this.course = new Course("Start Eating Stage","User Input","User Input",0,0,0, "User Input", "User Input" );
         txt_button = new SimpleStringProperty(course.getButtonText());
         txt_help = new SimpleStringProperty(course.getHelpText());
         txt_quantity = new SimpleStringProperty(String.valueOf(course.getQuantity()));
@@ -43,7 +44,7 @@ public class AddCourseVM implements choose{
         experiment.addCourse(course);
 
     }
-    public AddCourseVM( Course course){
+    public AddCourseVM(Course course){
         this.course = course;
         txt_button = new SimpleStringProperty(course.getButtonText());
         txt_help = new SimpleStringProperty(course.getHelpText());
@@ -143,12 +144,12 @@ public class AddCourseVM implements choose{
     }
 
     @Override
-    public void modify(AnchorPane anchorPane, Stack<AddTasteVM> stack) throws IOException {
+    public void modify(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS) throws IOException {
 
     }
 
     @Override
-    public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack, Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
+    public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS, Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
                                  Button btn_addFoodAndTaste, Button btn_addAudibleInstruction
             , Button btn_addInput, Button btn_noticeStage,
                                  Button  btn_addTimer, Button btn_AddQuestionStage,
@@ -162,6 +163,7 @@ public class AddCourseVM implements choose{
         btn_noticeStage.setDisable(true);
         btn_addAudibleInstruction.setDisable(true);
         controller.setViewModel(this);
+        addCourseVMS.push(this);
     }
 
     @Override

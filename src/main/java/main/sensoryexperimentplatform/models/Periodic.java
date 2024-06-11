@@ -7,28 +7,24 @@ import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 
 import java.io.IOException;
 
-public class Periodic extends Stage{
-    private long weight, seconds;
-    public Periodic(String title, String content, long grams, long durations ) {
-        super(title, content);
-        this.weight = grams;
-        this.seconds = durations;
+public class Periodic{
+    private long amount;
+    private long forAmount;
+    private String daiLuong;
+    private String time;
+    private String forDaiLuong;
+    public Periodic( long grams, String daiLuong, String time,long forAmount, String forDaiLuong) {
+        this.time = time;
+        this.amount = grams;
+        this.daiLuong = daiLuong;
+        this.forAmount = forAmount;
+        this.forDaiLuong = forDaiLuong;
     }
 
-    public long getWeight() {
-        return weight;
-    }
 
-    public void setWeight(long weight) {
-        this.weight = weight;
-    }
+//    public Periodic (long seconds){
+//        this.seconds = seconds;
+//    }
 
-    public long getSeconds() {
-        return seconds;
-    }
-
-    public void setSeconds(long seconds) {
-        this.seconds = seconds;
-    }
 
 }
