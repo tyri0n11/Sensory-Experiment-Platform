@@ -30,7 +30,7 @@ public class questionStage_VM implements choose{
 
     public questionStage_VM(Experiment experiment){
         this.experiment = experiment;
-        this.questionStage = new Question("hell0 ","hi","hello",false);
+        this.questionStage = new Question("Question ","button text",null,false);
         this.question = new SimpleStringProperty(questionStage.getQuestion());
         this.leftText = new SimpleStringProperty();
         this.rightText = new SimpleStringProperty();

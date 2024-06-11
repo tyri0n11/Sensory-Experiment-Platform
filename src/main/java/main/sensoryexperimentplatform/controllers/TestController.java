@@ -285,7 +285,7 @@ public class TestController{
         start.setExpanded(true);
         audibleSound_VM audibleSound_vm = new audibleSound_VM();
         String key = "[Audio]" + audibleSound_vm.getAudibleInstruction().getTitle();
-        btn_assignSound.setDisable(false);
+
         Wrapper wrapper = new Wrapper(key, audibleSound_vm);
         displayedItems.put(index, wrapper);
         index++;
@@ -387,6 +387,9 @@ public class TestController{
             elseConditional.getChildren().add(new TreeItem<>(key));
             elseConditional.setExpanded(true);
         }
+        else if (Randomnies != null && listObject.getSelectionModel().getSelectedItem() == Randomnies){
+            Randomnies.getChildren().add(new TreeItem<>(key));
+            Randomnies.setExpanded(true);}
         // Add to start if no conditions match
         else {
             start.getChildren().add(new TreeItem<>(key));
@@ -605,6 +608,11 @@ public class TestController{
         else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
             elseConditional.getChildren().add(new TreeItem<>(key));
             elseConditional.setExpanded(true);
+        }
+        else if (Randomnies != null && listObject.getSelectionModel().getSelectedItem() == Randomnies){
+            Randomnies.getChildren().add(new TreeItem<>(key));
+            Randomnies.setExpanded(true);
+
         }
         // Add to start if no conditions match
         else {
