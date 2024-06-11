@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import main.sensoryexperimentplatform.viewmodel.assignSoundVM;
 import java.io.File;
 
@@ -17,6 +18,8 @@ public class addSoundController {
 
     @FXML
     private Button btn_browse;
+    @FXML
+    private Button btn_cancel;
 
     @FXML
     private TextField txt_file;
@@ -54,7 +57,8 @@ public class addSoundController {
 
     @FXML
     void btn_cancel(ActionEvent event) {
-        // Handle cancel button action
+        Stage currentStage = (Stage) btn_cancel.getScene().getWindow();
+        currentStage.close();
     }
 
     @FXML
@@ -63,6 +67,9 @@ public class addSoundController {
         viewModel.addSound(txt_name.getText(),txt_file.getText());
         NotiAddSound.notifyObject();
         System.out.println(viewModel.getSoundMap());
+        Stage currentStage = (Stage) btn_cancel.getScene().getWindow();
+        currentStage.close();
+
     }
 
     @FXML
