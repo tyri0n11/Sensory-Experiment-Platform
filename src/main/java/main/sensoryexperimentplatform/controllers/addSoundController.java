@@ -61,7 +61,9 @@ public class addSoundController {
     @FXML
     void btn_save(ActionEvent event) {
         viewModel.addListSoundshow(txt_name.getText());
+        viewModel.addSound(txt_name.getText(),txt_file.getText());
         NotiAddSound.notifyObject();
+        System.out.println(viewModel.getSoundMap());
     }
 
     @FXML

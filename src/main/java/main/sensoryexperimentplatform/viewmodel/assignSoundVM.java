@@ -4,28 +4,22 @@ import main.sensoryexperimentplatform.models.AudibleInstruction;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class assignSoundVM {
     private AudibleInstruction audibleInstruction;
     private ArrayList<String> listNameshow;
     private ArrayList<String> listSoundName;
-    private List<String>soundPath;
+    private ArrayList<String>listSoundFilePaths;
 
     public assignSoundVM(AudibleInstruction audibleInstruction){
         this.audibleInstruction = audibleInstruction;
         listNameshow = audibleInstruction.getSoundNameshow();
         listSoundName= audibleInstruction.getSoundNameList();
-        soundPath = audibleInstruction.getSoundFilePaths();
+        listSoundFilePaths = audibleInstruction.getSoundFilePath();
+
     }
 
-
-    public List<String>getSoundPath(){
-        return soundPath;
-    }
-
-    public void addsoundPath(String Soundpath){
-        soundPath.add(Soundpath);
-    }
     public void addListSoundshow(String name){
 //        listNameshow.add(name);
         audibleInstruction.getSoundNameshow().add(name);
@@ -39,8 +33,21 @@ public class assignSoundVM {
     public ArrayList<String> getListNameshow() {
         return listNameshow;
     }
+    public Map<String, String> getSoundMap() {
+        return audibleInstruction.getSoundMap();
+    }
+
+    public void addSound(String name, String filePath) {
+        audibleInstruction.addSound(name, filePath);
+    }
 
     public ArrayList<String> getListSoundName() {
         return listSoundName;
+    }
+    public ArrayList<String> getSoundFilePaths(){
+      return listSoundFilePaths;
+    }
+    public void  addSoundFilePath(String soundPath){
+        listSoundFilePaths.add( soundPath);
     }
 }

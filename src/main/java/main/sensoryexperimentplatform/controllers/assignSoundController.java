@@ -22,37 +22,14 @@ import main.sensoryexperimentplatform.viewmodel.assignSoundVM;
 import java.io.IOException;
 
 public class  assignSoundController {
-    @FXML
-    private VBox ShowSound;
+
     private ObservableList<String> SoundName;
     private ToggleGroup group = new ToggleGroup();
-    private AudibleInstruction audibleInstruction;
+
     private assignSoundVM viewModel;
     @FXML
     private ListView<String> SoundList;
 
-
-
-    @FXML
-    private Label SoundSelectTionLabel;
-
-    @FXML
-    private Button btn_add;
-
-    @FXML
-    private Button btn_play;
-
-    @FXML
-    private Button btn_refresh;
-
-    @FXML
-    private Button btn_remove;
-
-    @FXML
-    private Button btn_save2;
-
-    @FXML
-    private Button btn_stop;
     public void setViewModel(assignSoundVM viewModel){
         this.viewModel = viewModel;
         SoundName = FXCollections.observableArrayList();

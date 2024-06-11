@@ -11,15 +11,17 @@ import java.util.Map;
 public class AudibleInstruction extends Stage {
     private String title;
     private String content;
-    private String soundFilePath;
+
     private String buttonText;
     private String helpText;
     private ArrayList<String> soundNamesList;
 
-    private List<String> soundFilePaths;
+    private ArrayList<String> soundFilePaths;
 
-//    private Map<String, String> soundMap;
+
+    private Map<String, String> soundMap;
     private ArrayList<String> soundNameshow;
+
 
     public AudibleInstruction(String title, String content, String buttonText,String helpText){
       super(title, content);
@@ -27,6 +29,7 @@ public class AudibleInstruction extends Stage {
       this.title= title;
         this.buttonText= buttonText;
         this.helpText = helpText;
+        soundMap = new HashMap<>();
         soundFilePaths = new ArrayList<>();
         soundNameshow = new ArrayList<>();
         soundNameshow.add("music");
@@ -36,6 +39,7 @@ public class AudibleInstruction extends Stage {
         soundNameshow.add("quynh anh");
         soundNameshow.add("skylar");
         soundNamesList = new ArrayList<>();
+
 
 
     }
@@ -88,6 +92,24 @@ public class AudibleInstruction extends Stage {
     public void addSoundNameList(String name){
         soundNamesList.add(name);
     }
+    public  ArrayList<String>getSoundFilePath(){
+        return soundFilePaths;
+    }
+    public void addSoundFilePath(String sound){
+        soundFilePaths.add(sound);
+    }
+    public Map<String, String> getSoundMap() {
+        return soundMap;
+    }
+    public void addSound(String name, String filePath) {
+        soundMap.put(name, filePath);
+    }
+
+
+//    public String getSoundFilePath(String name) {
+//        return soundMap.get(name);
+//    }
+
 
     public String toString() {
 
