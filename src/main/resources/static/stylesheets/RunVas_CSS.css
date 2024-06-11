@@ -8,12 +8,7 @@
     -fx-alignment: Center;
     -fx-font-size: 24px;
 }
-.slider .track{
-    -fx-pref-height: 28px;
-    -fx-background-color: #D5E9EA;
-    -fx-background-radius: 14px;
 
-}
 .slider .thumb{
     -fx-pref-height: 28px;
     -fx-pref-width: 28px;
@@ -31,4 +26,11 @@
     -fx-font-family: "Baloo2 SemiBold";
     -fx-font-size: 16px;
     -fx-alignment: center;
+}
+
+.slider .track{
+    -progress : 0.2;
+    -fx-background-radius: 14px;
+    -fx-pref-height: 28px;
+    -fx-background-color: #F1F6FB;
 }

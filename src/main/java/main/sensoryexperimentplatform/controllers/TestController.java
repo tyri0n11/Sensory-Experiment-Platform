@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.viewmodel.noticeStage_VM;
 import main.sensoryexperimentplatform.models.Experiment;
@@ -155,6 +156,29 @@ public class TestController{
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+            }
+        });
+        listObject.setCellFactory(new Callback<TreeView<String>, TreeCell<String>>() {
+            @Override
+            public TreeCell<String> call(TreeView<String> param) {
+                return new TreeCell<>() {
+                    @Override
+                    protected void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (empty || item == null) {
+                            setText(null);
+                            setStyle("");
+                        } else {
+                            setText(item);
+                            // Apply the style conditionally
+                            if (getTreeItem().getParent() != null && getTreeItem().getParent().getChildren().indexOf(getTreeItem()) % 2 != 0) {
+                                setStyle("-fx-background-color: #F1F6FB; -fx-text-fill: black;");
+                            } else {
+                                setStyle("");
+                            }
+                        }
+                    }
+                };
             }
         });
     }

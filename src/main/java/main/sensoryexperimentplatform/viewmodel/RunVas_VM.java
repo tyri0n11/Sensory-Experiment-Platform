@@ -26,6 +26,7 @@ public class RunVas_VM {
             setResult(newValue.intValue());
             System.out.println("Vas recording: "+ newValue);
             setDate();
+
         });
     }
     public String getCurrentFormattedTime() {

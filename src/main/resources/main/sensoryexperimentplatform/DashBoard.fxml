@@ -8,14 +8,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="674.0" maxWidth="966.0" minHeight="674.0" minWidth="966.0" prefHeight="674.0" prefWidth="966.0" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.DashBoardController">
+<AnchorPane prefWidth="951.0" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.DashBoardController">
    <children>
-                <ComboBox fx:id="DropDown" layoutX="50.0" layoutY="16.0" prefHeight="31.0" prefWidth="63.0" AnchorPane.rightAnchor="853.0" AnchorPane.topAnchor="16.0" />
-                <Label fx:id="ShowLabel" layoutX="14.0" layoutY="23.0" text="Show" AnchorPane.rightAnchor="923.0" AnchorPane.topAnchor="23.0" />
+                <ComboBox fx:id="DropDown" layoutX="52.0" layoutY="18.0" prefHeight="31.0" prefWidth="63.0" AnchorPane.rightAnchor="863.6" AnchorPane.topAnchor="18.0" />
+                <Label fx:id="ShowLabel" layoutX="0.9999999999999787" layoutY="23.2" text="Show" AnchorPane.rightAnchor="920.6" AnchorPane.topAnchor="23.2" />
                 <Label fx:id="EntriesLabel" layoutX="121.0" layoutY="23.0" text="entries" AnchorPane.rightAnchor="809.0" AnchorPane.topAnchor="23.0" />
-                <TextField fx:id="searchBar" layoutX="205.0" layoutY="16.0" prefHeight="32.0" prefWidth="441.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="16.0" />
+                <TextField fx:id="searchBar" layoutX="171.0" layoutY="18.0" prefHeight="32.0" prefWidth="441.0" promptText="Search" style="-fx-text-alignment: LEFT;" AnchorPane.rightAnchor="354.6" AnchorPane.topAnchor="18.0" />
                 <Button fx:id="btn_AddExperiment" layoutX="690.0" layoutY="19.0" mnemonicParsing="false" onAction="#btn_addEx" stylesheets="@/static/stylesheets/DashBoard_CSS.css" text="+ Add Experiment" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="19.0" />
-                <TableView fx:id="contentTable" layoutY="86.0" prefHeight="588.0" prefWidth="966.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="86.0">
+                <TableView fx:id="contentTable" layoutY="72.0" prefHeight="596.0" AnchorPane.bottomAnchor="14.399999999999977" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
                     <columns>
                         <TableColumn fx:id="lbl_iD" prefWidth="75.0" text="ID" />
                         <TableColumn fx:id="lbl_creator" prefWidth="140.0" text="Creator " />
@@ -26,6 +26,6 @@
                         <TableColumn fx:id="lbl_Option" prefWidth="175.0" text="Option" />
                     </columns>
                 </TableView>
-      <Button fx:id="btn_redo" layoutX="898.0" layoutY="5.0" mnemonicParsing="false" onAction="#redo" text="Redo" />
+      <Button fx:id="btn_redo" layoutX="879.0" layoutY="19.0" mnemonicParsing="false" onAction="#redo" text="Redo" />
    </children>
 </AnchorPane>
