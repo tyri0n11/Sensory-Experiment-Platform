@@ -27,7 +27,7 @@ public class assignSoundVM {
         soundPath.add(Soundpath);
     }
     public void addListSoundshow(String name){
-        listNameshow.add(name);
+//        listNameshow.add(name);
         audibleInstruction.getSoundNameshow().add(name);
 
     }

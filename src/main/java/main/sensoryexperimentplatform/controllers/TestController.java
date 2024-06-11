@@ -617,14 +617,13 @@ public class TestController{
     @FXML
     void assignSound(ActionEvent event) throws IOException {
         listObject.setMaxHeight(311);
+        audibleInstruction = new AudibleInstruction("hello","hello","hello","hello");
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AssignSound.fxml"));
-        assignSoundController assignSoundController = fxmlLoader.getController();
         Parent root = fxmlLoader.load();
-
         Stage stage = new Stage();
         assignSoundController controller = fxmlLoader.getController();
-//        assignSoundVM viewModel = new assignSoundVM(audibleInstruction);
-//        controller.setViewModel(viewModel);
+        assignSoundVM viewModel = new assignSoundVM(audibleInstruction);
+        controller.setViewModel(viewModel);
         stage.setTitle("Add Sound");
 
         Scene scene = new Scene(root);
