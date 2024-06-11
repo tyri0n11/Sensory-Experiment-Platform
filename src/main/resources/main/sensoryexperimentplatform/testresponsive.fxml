@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.Base">
+    <children>
+          <AnchorPane prefWidth="1280.0">
+              <children>
+                  <Label fx:id="lbl_SenseXP" layoutX="29.0" layoutY="2.0" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="SenseXP" AnchorPane.leftAnchor="15.0" />
+              </children>
+          </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+                <VBox fx:id="sideMenu" prefHeight="706.0" prefWidth="255.0" styleClass="sidebar_left" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1025.0">
+                    <children>
+                        <Button fx:id="btn_Dashboard" mnemonicParsing="false" onAction="#OpenDashBoard" prefHeight="70.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Dashboard">
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../static/images/dash_btn.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btn_ShareExp" mnemonicParsing="false" prefHeight="70.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Share experiment">
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../static/images/btn_share.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+            
+                        <Button fx:id="btn_ImportExp" mnemonicParsing="false" onAction="#importExperiment" prefHeight="70.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Import experiment">
+            
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../static/images/btn_import.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btn_exportExp" maxWidth="254.0" mnemonicParsing="false" onAction="#exportExperiment" prefHeight="70.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Export experiment">
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../static/images/btn_export.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <Button fx:id="btn_Config" mnemonicParsing="false" prefHeight="70.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Configure">
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../static/images/btn_configure.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                    </children>
+                </VBox>
+                  <Button fx:id="btn_menu" layoutX="280.0" layoutY="28.0" mnemonicParsing="false" onAction="#toggleDashboard" prefHeight="22.0" prefWidth="47.0" text=" " />
+                  <AnchorPane fx:id="mainContent" layoutX="-156.0" layoutY="84.8" prefHeight="621.0" prefWidth="970.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="85.0">
+               <children>
+                  <TableView layoutX="-5.0" layoutY="-2.0" prefHeight="650.0" prefWidth="970.0" AnchorPane.bottomAnchor="0.40000000000009095" AnchorPane.leftAnchor="1.1368683772161603E-13" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="1.1368683772161603E-13">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+                  <Label layoutX="328.0" layoutY="16.0" prefHeight="62.0" prefWidth="312.0" styleClass="lbl_EditExperiment" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Edit experiment" AnchorPane.rightAnchor="640.0" />
+            <Label layoutX="1214.0" layoutY="47.0" text="Keke" AnchorPane.rightAnchor="10.0" />
+         </children>
+      </AnchorPane>
+    </children>
+</StackPane>
