@@ -23,9 +23,6 @@ public class StartStageController {
 
     @FXML
     private Button btn_textColor;
-    @FXML
-    private ColorPicker disablebuttoncolor;
-
 
     @FXML
     private CheckBox cbx_balance;
@@ -34,7 +31,7 @@ public class StartStageController {
     private ChoiceBox<?> chx_change;
 
     @FXML
-    private ChoiceBox<?> chx_disableColor;
+    private ColorPicker disablebuttoncolor;
 
     @FXML
     private ColorPicker textColor;
@@ -53,6 +50,7 @@ public class StartStageController {
 
     @FXML
     private TextField txt_title;
+
 
     @FXML
     void btn_DisableColor(ActionEvent event) {
@@ -81,5 +79,18 @@ public class StartStageController {
 
     public void setViewModel(StartVM startVM) {
         this.startVM = startVM;
+        bindi();
+    }
+
+    private void bindi() {
+        txt_title.textProperty().bindBidirectional(startVM.titleProperty());
+        txt_content.textProperty().bindBidirectional(startVM.contentProperty());
+        backGroundColor.valueProperty().bindBidirectional(startVM.colorBackGroundProperty());
+        cbx_balance.selectedProperty().bindBidirectional(startVM.balanceProperty());
+        disablebuttoncolor.valueProperty().bindBidirectional(startVM.colorDisableProperty());
+        txt_EndtimeDelay.textProperty().bindBidirectional(startVM.endOfStageDelayProperty());
+        txt_StarttimeDelay.textProperty().bindBidirectional(startVM.startOfStageDelayProperty());
+        txt_ButtonText.textProperty().bindBidirectional(startVM.buttonTextProperty());
+        textColor.valueProperty().bindBidirectional(startVM.textColorProperty());
     }
 }
