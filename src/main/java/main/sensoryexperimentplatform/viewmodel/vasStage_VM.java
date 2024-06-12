@@ -82,6 +82,33 @@ public class vasStage_VM implements choose {
         experiment.addVasStage(vas);
     }
 
+    public vasStage_VM(ratingContainer_VM rating) {
+        this.vas = new Vas("User input", null, null,
+                0, 100, null, null, null, false, false);
+        rating.addContainerStage(vas);
+        lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
+        highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
+        buttonText = new SimpleStringProperty(vas.getButtonText());
+        helpText = new SimpleStringProperty(vas.getHelpText());
+        lowAnchorValue = new SimpleStringProperty(String.valueOf(vas.getLowAnchorValue()));
+        highAnchorValue = new SimpleStringProperty(String.valueOf(vas.getHighAnchorValue()));
+        questionText = new SimpleStringProperty(vas.getTitle());
+        checkB_sound = new SimpleBooleanProperty(vas.getAlert());
+        checkB_swap = new SimpleBooleanProperty(vas.getIsSwap());
+        checkB_swap.addListener((observableValue, oldValue, newValue) -> onCheckSwap(newValue));
+        checkB_sound.addListener((observableValue, oldValue, newValue) -> onCheckSound(newValue));
+        highAnchorValue.addListener((observableValue, oldValue, newValue) -> onhighAnchorValue(newValue));
+        lowAnchorValue.addListener((observableValue, oldValue, newValue) -> onlowAnchorValue(newValue));
+        helpText.addListener((observableValue, oldValue, newValue) -> onHelpText(newValue));
+        buttonText.addListener((observableValue, oldValue, newValue) -> {
+            onButtonText(newValue);
+        });
+
+        highAnchorText.addListener((observableValue, oldValue, newValue) -> onhighAnchorText(newValue));
+        lowAnchorText.addListener((observableValue, oldValue, newValue) -> onlowAnchorText(newValue));
+        questionText.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
+    }
+
     private void onCheckSwap(Boolean newValue) {
         vas.setSwap(newValue);
     }
@@ -251,12 +278,11 @@ public class vasStage_VM implements choose {
         anchorPane.getChildren().setAll(newContent);
         VasController controller = fxmlLoader.getController();
         controller.setViewModel(this);
-
     }
 
 
     @Override
-    public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12) throws IOException {
+    public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Stack<ratingContainer_VM> ratingContainerVm) throws IOException {
 
 
     }
