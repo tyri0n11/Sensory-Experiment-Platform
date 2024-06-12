@@ -1,0 +1,10 @@
+ExperimentName: Experiment
+ExperimenterName: Creator
+ExperimentID: 0
+Created on: 2024.06.12.10.00.37.986
+Version: 7
+startExperiment("Description","","Note")
+main.sensoryexperimentplatform.models.Start@693ce55a
+noticeStage("User input","This is question","this is button","hell00","false")
+endExperiment()
+

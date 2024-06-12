@@ -189,6 +189,13 @@ public class StartVM implements choose{
         AnchorPane newContent = fxmlLoader.load();
         anchorPane.getChildren().setAll(newContent);
         StartStageController controller = fxmlLoader.getController();
+        button1.setDisable(true);
+        button3.setDisable(true);
+        button4.setDisable(true);
+        button7.setDisable(false);
+        button5.setDisable(false);
+        button2.setDisable(false);
+        button11.setDisable(false);
         controller.setViewModel(this);
     }
 
