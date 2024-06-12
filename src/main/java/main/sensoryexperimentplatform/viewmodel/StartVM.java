@@ -197,6 +197,11 @@ public class StartVM implements choose{
         button11.setDisable(false);
         controller.setViewModel(this);
         ratingContainerVm.clear();
+        button6.setDisable(false);
+        button8.setDisable(false);
+        button12.setDisable(false);
+        button10.setDisable(false);
+        button9.setDisable(false);
     }
 
     @Override
