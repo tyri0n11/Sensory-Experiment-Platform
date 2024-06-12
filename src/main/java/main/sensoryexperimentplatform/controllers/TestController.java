@@ -62,7 +62,6 @@ public class TestController{
 
     @FXML
     private AnchorPane propertiesPane;
-    private TreeItem<String> courseItem;
 
     private TreeItem<String> Randomnies;
     private TreeItem<String> ifConditional;
@@ -86,6 +85,7 @@ public class TestController{
     private TreeItem<String> start;
     private AudibleInstruction audibleInstruction;
     private Stack <AddTasteVM> addTasteVMS;
+    private Stack <AddCourseVM> addCourseVMS;
     private Experiment originalExperiment;
 
     @FXML
@@ -136,10 +136,10 @@ public class TestController{
 
     public void initialize(){
         addTasteVMS = new Stack<>();
+        addCourseVMS = new Stack<>();
         index = 0;
         displayedItems = new HashMap<>();
         HBox.setHgrow(mainPane, Priority.ALWAYS);
-        start = new TreeItem<>("Start Experiment");
         listObject.setRoot(start);
         btn_assignSound.setDisable(true);
         btn_AddPeriodicStage.setDisable(true);
@@ -150,6 +150,7 @@ public class TestController{
                 // System.out.println(index);
                 try {
                     addTasteVMS.clear();
+                    addCourseVMS.clear();
                     btn_addFoodAndTaste.setDisable(true);
                     newValue.setValue(showDetailView(index));
 
@@ -187,14 +188,14 @@ public class TestController{
         if (item.getParent() == null) {
             return 0; // Root item
         }
-        return item.getParent().getChildren().indexOf(item);
+        return listObject.getRow(item);
     }
 
     private String showDetailView(int index) throws IOException {
 
         choose o = displayedItems.get(index).getChoose();
-        o.modify(propertiesPane, addTasteVMS);
-        o.modifyWithButton(propertiesPane,addTasteVMS,btn_AddPeriodicStage, btn_AddCourse, btn_assignSound,
+        o.modify(propertiesPane, addTasteVMS, addCourseVMS);
+        o.modifyWithButton(propertiesPane,addTasteVMS, addCourseVMS,btn_AddPeriodicStage, btn_AddCourse, btn_assignSound,
                 btn_addFoodAndTaste, btn_addAudibleInstruction
                 , btn_addInput, btn_noticeStage,
                 btn_addTimer, btn_AddQuestionStage,
@@ -203,35 +204,39 @@ public class TestController{
         return o.getTitle();
 
     }
-    private void loadItems(){
-        if (experiment != null){
-            Set<String> set = new LinkedHashSet<>();
-            ArrayList<Object> stages = experiment.getStages();
+    private void loadItems() {
+        Set<String> set = new LinkedHashSet<>();
+        ArrayList<Object> stages = experiment.getStages();
+        if (experiment.getStages().isEmpty()) {
+            StartVM startVM = new StartVM(experiment);
+            String key = startVM.getTitle();
+            start = new TreeItem<>(key);
+            listObject.setRoot(start);
+            Wrapper wrapper = new Wrapper(key, startVM);
+            displayedItems.put(index, wrapper);
+            index++;
+        } else {
+                    Start startNe = experiment.getStart();
+                    String key1 = startNe.getTitle();
+                    start = new TreeItem<>(key1);
+                    listObject.setRoot(start);
+                    StartVM startVM = new StartVM(startNe);
+                    Wrapper wrapper1 = new Wrapper(key1, startVM);
+                    displayedItems.put(index, wrapper1);
+                    index++;
             for (Object o : stages) {
-//                if(o instanceof RatingContainer){
-//                    String key = "Rating Container - Is randomised";
-//                    TreeItem<String> rc = new TreeItem<>(key);
-//                    start.getChildren().add(rc);
-//                    ratingContainer_VM vm = new ratingContainer_VM();
-//                    rc.getChildren().add(new TreeItem<>(vm.getRatingContainer().stageToString()));
-//                    Wrapper wrapper = new Wrapper(key, vm);
-//                    displayedItems.put(index, wrapper);
-//                    displayedItems.put(index, wrapper);
-//                    index++;
-//                } else
-                if(o instanceof Vas) {
+
+                if (o instanceof Vas) {
                     String key = "[" + o.getClass().getSimpleName() + "] " + ((Vas) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
                     start.getChildren().add(new TreeItem<>(key));
                     vasStage_VM vasStageVm = new vasStage_VM((Vas) o);
                     Wrapper wrapper = new Wrapper(key, vasStageVm);
                     displayedItems.put(index, wrapper);
-                    displayedItems.put(index, wrapper);
                     index++;
                     // str.add(key);
                     // items.setAll(str);
-                }
-                else if (o instanceof Notice){
+                } else if (o instanceof Notice) {
                     String key = "[Instruction] " + ((Notice) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
                     noticeStage_VM noticeStage_vm = new noticeStage_VM((Notice) o);
@@ -239,39 +244,35 @@ public class TestController{
                     displayedItems.put(index, wrapper);
                     index++;
 
-                }else if (o instanceof gLMS){
+                } else if (o instanceof gLMS) {
                     String key = "[GLMS] " + ((gLMS) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
                     glmsStage_VM glmsStageVm = new glmsStage_VM((gLMS) o);
                     Wrapper wrapper = new Wrapper(key, glmsStageVm);
                     displayedItems.put(index, wrapper);
                     index++;
-                }
-                else if (o instanceof Input){
+                } else if (o instanceof Input) {
                     String key = "[User Input] " + ((Input) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
                     inputStage_VM inputStage_vm = new inputStage_VM((Input) o);
                     Wrapper wrapper = new Wrapper(key, inputStage_vm);
                     displayedItems.put(index, wrapper);
                     index++;
-                }
-                else if (o instanceof TasteTest){
+                } else if (o instanceof TasteTest) {
                     String key = "[User Input] " + ((Input) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
                     AddTasteVM inputStage_vm = new AddTasteVM((TasteTest) o);
                     Wrapper wrapper = new Wrapper(key, inputStage_vm);
                     displayedItems.put(index, wrapper);
                     index++;
-                }
-                else if (o instanceof Course){
+                } else if (o instanceof Course) {
                     String key = "[" + o.getClass().getSimpleName() + "] " + ((Course) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
                     AddCourseVM addCourseVM = new AddCourseVM((Course) o);
                     Wrapper wrapper = new Wrapper(key, addCourseVM);
                     displayedItems.put(index, wrapper);
                     index++;
-                }
-                else if (o instanceof Timer){
+                } else if (o instanceof Timer) {
                     String key = "[" + o.getClass().getSimpleName() + "] " + ((Timer) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
                     timerStage_VM addCourseVM = new timerStage_VM((Timer) o);
@@ -279,14 +280,14 @@ public class TestController{
                     displayedItems.put(index, wrapper);
                     index++;
                 }
-                else if (o instanceof Periodic){
-                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
-                    start.getChildren().add(new TreeItem<>(key));
-
-                    // Wrapper wrapper = new Wrapper(key, addCourseVM);
-                    //displayedItems.put(index, wrapper);
-                    index++;
-                }
+//                else if (o instanceof Periodic){
+//                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
+//                    start.getChildren().add(new TreeItem<>(key));
+//
+//                    // Wrapper wrapper = new Wrapper(key, addCourseVM);
+//                    //displayedItems.put(index, wrapper);
+//                    index++;
+//                }
 //                else if (o instanceof RatingContainer) {
 ////                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
 ////                       System.out.println(key);
@@ -308,6 +309,35 @@ public class TestController{
 //
 //                    //scales.setAll(set);
 //                }
+//                else if (o instanceof Periodic){
+//                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
+//                    start.getChildren().add(new TreeItem<>(key));
+//
+//                    // Wrapper wrapper = new Wrapper(key, addCourseVM);
+//                    //displayedItems.put(index, wrapper);
+//                    index++;
+//                }
+                else if (o instanceof RatingContainer) {
+//                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
+//                       System.out.println(key);
+//                       displayedItems.put(key, o);
+//                       str.add(key);
+                    for (Object subO : ((RatingContainer) o).container) {
+                        if (subO instanceof Vas) {
+                            String key = "[VAS]" + ((Vas) subO).getTitle();
+                            System.out.println(key);
+                            //    displayedScales.put(key, o);
+                            set.add(key);
+                        } else if (subO instanceof gLMS) {
+                            String key = "[GLMS]" + ((gLMS) subO).getTitle();
+                            System.out.println(key);
+                            // displayedScales.put(key, o);
+                            set.add(key);
+                        }
+                    }
+
+                    //scales.setAll(set);
+                }
             }
             listObject.setMaxHeight(311);
             propertiesPane.setVisible(true);
@@ -362,7 +392,8 @@ public class TestController{
         start.setExpanded(true);
 
         AddCourseVM addCourseVM = new AddCourseVM(experiment);
-        String key = "Start Eating stage";
+        Course course = addCourseVM.getCourse();
+        String key = course.getTitle();
         Wrapper wrapper = new Wrapper(key, addCourseVM);
         displayedItems.put(index, wrapper);
         index++;
@@ -502,17 +533,20 @@ public class TestController{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        if (courseItem != null) {
-
-            TreeItem<String> periodicStage = new TreeItem<>("Every -1 grams");
-            courseItem.getChildren().add(periodicStage);
+        Course course = addCourseVMS.get(0).getCourse();
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        //PeriodicVM periodicVM = new PeriodicVM();
+        PeriodicVM periodicVM = new PeriodicVM(course);
+        String key = periodicVM.getTitle();
+        Wrapper wrapper = new Wrapper(key, periodicVM);
+        displayedItems.put(index, wrapper);
+        index++;
+        TreeItem<String> periodicStage = new TreeItem<>(key);
+        selectedItem.getChildren().add(periodicStage);
 
             // Optionally expand the course item to show the newly added child
-            courseItem.setExpanded(true);
-        } else {
-
+        selectedItem.setExpanded(true);
         }
-    }
 
     @FXML
     void addQuestionStage(ActionEvent event) {
@@ -671,7 +705,6 @@ public class TestController{
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
-
         stage.show();
 
     }
@@ -679,7 +712,6 @@ public class TestController{
     public void setExperiment(Experiment c) throws IOException {
         this.experiment = c;
         this.originalExperiment = experiment;
-        System.out.println(experiment);
         loadItems();
     }
 

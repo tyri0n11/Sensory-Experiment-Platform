@@ -1,8 +1,11 @@
 package main.sensoryexperimentplatform.models;
 
+import javafx.scene.paint.Color;
+
 import java.util.*;
 
 public class Experiment {
+    private Start start;
     private String creatorName, experimentName, description, note, created_date;
     public int version, number_of_results, id;
     ArrayList<Object> stages;
@@ -121,7 +124,6 @@ public class Experiment {
     }
     public void addCourse (Course course){
         stages.add(course);
-
     }
     public void addQuestion (Question question){
         stages.add(question);
@@ -230,5 +232,26 @@ public class Experiment {
                 stagesToString() +"endExperiment()\n";
     }
 
+    public void addStartStage(String title, String content, String buttonText, Boolean requireBalance, Color backGroundColor, Color TextColor
+            , long StartOfStageDelay, long EndOfStageDelay, Color disableButtonColor){
+        Start stage = new Start(title,
+                content,
+                buttonText,
+                requireBalance,
+                backGroundColor,
+                TextColor,StartOfStageDelay,
+                EndOfStageDelay, disableButtonColor);
+        this.start = start;
+        stages.add(stage);
+        stages.add(stage);
+    }
 
+    public Start getStart() {
+        return start;
+    }
+
+    public void addStart(Start start) {
+        this.start = start;
+        stages.add(start);
+    }
 }

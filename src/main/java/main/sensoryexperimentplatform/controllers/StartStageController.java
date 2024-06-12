@@ -2,14 +2,15 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import main.sensoryexperimentplatform.viewmodel.StartVM;
 
 public class StartStageController {
+    private StartVM startVM;
+
+    @FXML
+    private ColorPicker backGroundColor;
 
     @FXML
     private Button btn_DisableColor;
@@ -27,16 +28,13 @@ public class StartStageController {
     private CheckBox cbx_balance;
 
     @FXML
-    private ChoiceBox<?> chx_BackgroundColor;
-
-    @FXML
     private ChoiceBox<?> chx_change;
 
     @FXML
-    private ChoiceBox<?> chx_disableColor;
+    private ColorPicker disablebuttoncolor;
 
     @FXML
-    private ChoiceBox<?> chx_textColor;
+    private ColorPicker textColor;
 
     @FXML
     private TextField txt_ButtonText;
@@ -52,6 +50,7 @@ public class StartStageController {
 
     @FXML
     private TextField txt_title;
+
 
     @FXML
     void btn_DisableColor(ActionEvent event) {
@@ -73,9 +72,25 @@ public class StartStageController {
 
     }
 
-//    @FXML
-//    void txt_question(MouseEvent event) {
-//
-//    }
+    @FXML
+    void txt_question(MouseEvent event) {
 
+    }
+
+    public void setViewModel(StartVM startVM) {
+        this.startVM = startVM;
+        bindi();
+    }
+
+    private void bindi() {
+        txt_title.textProperty().bindBidirectional(startVM.titleProperty());
+        txt_content.textProperty().bindBidirectional(startVM.contentProperty());
+        backGroundColor.valueProperty().bindBidirectional(startVM.colorBackGroundProperty());
+        cbx_balance.selectedProperty().bindBidirectional(startVM.balanceProperty());
+        disablebuttoncolor.valueProperty().bindBidirectional(startVM.colorDisableProperty());
+        txt_EndtimeDelay.textProperty().bindBidirectional(startVM.endOfStageDelayProperty());
+        txt_StarttimeDelay.textProperty().bindBidirectional(startVM.startOfStageDelayProperty());
+        txt_ButtonText.textProperty().bindBidirectional(startVM.buttonTextProperty());
+        textColor.valueProperty().bindBidirectional(startVM.textColorProperty());
+    }
 }

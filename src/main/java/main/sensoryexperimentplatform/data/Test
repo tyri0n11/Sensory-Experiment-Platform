@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ExperimentName: Taste Screener 2019_20
 ExperimenterName: SIBG
 ExperimentID: 0
@@ -64,6 +65,16 @@ glmsStage("How salty is Sample 720?","Next","Session[]","","false")
 endRatingsContainer()
 noticeStage("Rinsing","Please rinse your mouth with the water provided and then expectorate it into the black cup.","Continue","","false")
 noticeStage("Thank you!","That completes the taste test: please call your researcher.","X","","true")
+=======
+ExperimentName: Experiment
+ExperimenterName: Creator
+ExperimentID: 0
+Created on: 2024.06.12.10.00.37.986
+Version: 7
+startExperiment("Description","","Note")
+main.sensoryexperimentplatform.models.Start@693ce55a
+noticeStage("User input","This is question","this is button","hell00","false")
+>>>>>>> 7600c07bba894117a19478ad3d6c8d552a2a327e
 endExperiment()
 
 ExperimentName: Experiment

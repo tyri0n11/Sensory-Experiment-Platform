@@ -20,6 +20,10 @@ public class TasteTest {
     private ArrayList<String> glmsListShow;
     private final Vas sampleVas;
     private final gLMS sampleGLMS;
+    private Periodic periodic;
+    public void setPeriodic (Periodic periodic){
+        this.periodic = periodic;
+    }
 
     public ArrayList<String> getVasListShow() {
         return vasListShow;
