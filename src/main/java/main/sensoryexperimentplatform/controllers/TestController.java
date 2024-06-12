@@ -338,6 +338,15 @@ public class TestController{
 
                     //scales.setAll(set);
                 }
+                else if (o instanceof conditionalStatement) {
+                    String key = "If "  +  ((conditionalStatement) o).getValue1Text();
+                    ifConditional = new TreeItem<>(key);
+                    start.getChildren().add(ifConditional);
+                    conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM((conditionalStatement) o);
+                    Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
+                    displayedItems.put(index, wrapper);
+                    index++;
+                }
             }
             listObject.setMaxHeight(311);
             propertiesPane.setVisible(true);
@@ -379,10 +388,15 @@ public class TestController{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        ifConditional = new TreeItem<>("If Something less than something else then");
-        elseConditional = new TreeItem<>("Else");
-        start.getChildren().add( ifConditional);
-        start.getChildren().add(elseConditional);
+//        elseConditional = new TreeItem<>("Else");
+        conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM(experiment);
+        conditionalStatement ConditionalStatement = ConditionalStatementVM.getConditionalStatement();
+        String key = "if" + ConditionalStatement.getValue1Text();
+        Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
+        displayedItems.put(index, wrapper);
+        index++;
+
+
     }
 
     @FXML

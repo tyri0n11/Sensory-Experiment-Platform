@@ -249,3 +249,11 @@ noticeStage("Rinsing","Please rinse your mouth with the water provided and then 
 noticeStage("Thank you!","That completes the taste test: please call your researcher.","X","","true")
 endExperiment()
 
+ExperimentName: test
+ExperimenterName: Quynh Anh 
+ExperimentID: 0
+Created on: 2024.06.12.15.33.23.654
+Version: 1
+startExperiment("idk","","idk")
+endExperiment()
+

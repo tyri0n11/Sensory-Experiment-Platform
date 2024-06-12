@@ -112,6 +112,12 @@ public class Experiment {
         AudibleInstruction temp = new AudibleInstruction(title,content, buttonText,helpText);
         stages.add(temp);
     }
+//    public void addConditionalStatement(boolean value1, boolean value2, boolean variable1, boolean variable2, String value1Text,
+//                                        String value2Text, String variable1Choice, String variable2Choice, String compare){
+//        conditionalStatement stage  = new conditionalStatement(value1, value2,variable1,variable2,value1Text,
+//                value2Text,variable1Choice,variable2Choice,compare);
+//        stages.add(stage);
+//    }
 
     public void addAnyStage(Object o){
         stages.addLast(o);
@@ -132,6 +138,9 @@ public class Experiment {
     }
     public void addInput(Input input){
         stages.add(input);
+    }
+    public void addConditionalStatement(conditionalStatement ConditionalStatement){
+        stages.add(ConditionalStatement);
     }
 
     public ArrayList<Object> getStages() {
