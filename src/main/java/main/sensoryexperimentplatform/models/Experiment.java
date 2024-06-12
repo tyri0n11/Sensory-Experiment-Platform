@@ -96,7 +96,9 @@ public class Experiment {
     public void addRatingContainerStage(boolean isRandomize, int time){
         RatingContainer container = new RatingContainer(isRandomize,time);
         stages.add(container);
-
+    }
+    public void addRatingContainerStage(RatingContainer ratingContainer){
+        stages.add(ratingContainer);
     }
     public void addTasteTest(String noticeStageContent, String consumptionInstruction, String question,
                              String lowAnchorText, String highAnchorText, int lowAnchorValue,

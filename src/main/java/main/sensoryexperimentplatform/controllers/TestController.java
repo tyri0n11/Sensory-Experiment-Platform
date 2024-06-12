@@ -69,7 +69,7 @@ public class TestController{
     private Map<Integer, Wrapper> displayedItems ;
     private int index;
     private boolean mouseClick;
-    private boolean isSidebarVisible = true;
+    private Stack<ratingContainer_VM> rating;
     @FXML
     private TreeView<String> listObject;
 
@@ -135,6 +135,7 @@ public class TestController{
 
 
     public void initialize(){
+        rating = new Stack<>();
         addTasteVMS = new Stack<>();
         addCourseVMS = new Stack<>();
         index = 0;
@@ -199,8 +200,8 @@ public class TestController{
                 btn_addFoodAndTaste, btn_addAudibleInstruction
                 , btn_addInput, btn_noticeStage,
                 btn_addTimer, btn_AddQuestionStage,
-                btn_addRatingContainer, btn_addTasteTest, btn_AddConditionalStatement);
-        System.out.println(experiment);
+                btn_addRatingContainer, btn_addTasteTest, btn_AddConditionalStatement, rating
+            );
         return o.getTitle();
 
     }
@@ -450,8 +451,16 @@ public class TestController{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
+        glmsStage_VM glmsStage_VM;
+        if (!rating.isEmpty()){
+            glmsStage_VM = new glmsStage_VM(rating.get(0));
+            System.out.println("con");
+        }
+        else {
+            glmsStage_VM = new glmsStage_VM(experiment);
+            System.out.println("ex");
+        }
 
-        glmsStage_VM glmsStage_VM = new glmsStage_VM(experiment);
         String key = "[GLMS]" + glmsStage_VM.getGLMS().getTitle();
         Wrapper wrapper = new Wrapper(key, glmsStage_VM);
         displayedItems.put(index, wrapper);
@@ -594,7 +603,7 @@ public class TestController{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        ratingContainer_VM ratingContainer_vm = new ratingContainer_VM();
+        ratingContainer_VM ratingContainer_vm = new ratingContainer_VM(experiment);
         RatingContainer ratingContainer = ratingContainer_vm.getRatingContainer();
         String key = "Ratings container";
         Wrapper wrapper = new Wrapper(key,ratingContainer_vm);
@@ -676,9 +685,15 @@ public class TestController{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        vasStage_VM vasStage_VM = new vasStage_VM(experiment);
-        String key = "[Vas]" + vasStage_VM.getVas().getTitle();
-        Wrapper wrapper = new Wrapper(key, vasStage_VM);
+        vasStage_VM vasStageVm ;
+        if (!rating.isEmpty()){
+            vasStageVm =  new vasStage_VM(rating.get(0));
+        }
+        else {
+            vasStageVm = new vasStage_VM(experiment);
+        }
+        String key = "[Vas]" + vasStageVm.getVas().getTitle();
+        Wrapper wrapper = new Wrapper(key, vasStageVm);
         displayedItems.put(index, wrapper);
         index++;
         //  experiment.showStages();
@@ -741,8 +756,5 @@ public class TestController{
         stage.close();
         this.experiment = originalExperiment;
     }
-
-
-
 
 }
