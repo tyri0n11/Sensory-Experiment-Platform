@@ -339,15 +339,14 @@ public class TestController{
 
                     //scales.setAll(set);
                 }
-                else if (o instanceof conditionalStatement) {
-                    String key = "If "  +  ((conditionalStatement) o).getValue1Text();
-                    ifConditional = new TreeItem<>(key);
-                    start.getChildren().add(ifConditional);
-                    conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM((conditionalStatement) o);
-                    Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
-                    displayedItems.put(index, wrapper);
-                    index++;
-                }
+//                else if (o instanceof conditionalStatement) {
+//                    String key = "If" +  ((conditionalStatement) o).getVariable1Choice();
+//                    start.getChildren().add( new TreeItem<>(key));
+//                    conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM((conditionalStatement) o);
+//                    Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
+//                    displayedItems.put(index, wrapper);
+//                    index++;
+//                }
             }
             listObject.setMaxHeight(311);
             propertiesPane.setVisible(true);
@@ -392,7 +391,7 @@ public class TestController{
 //        elseConditional = new TreeItem<>("Else");
         conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM(experiment);
         conditionalStatement ConditionalStatement = ConditionalStatementVM.getConditionalStatement();
-        String key = "if" + ConditionalStatement.getValue1Text();
+        String key = "If A B" + ConditionalStatement.getVariable1Choice() + ConditionalStatement.getCompare();
         Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
         displayedItems.put(index, wrapper);
         index++;
