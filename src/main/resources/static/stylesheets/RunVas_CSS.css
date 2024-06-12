@@ -5,20 +5,22 @@
     -fx-text-fill: #397E82;
 }
 #questionlbl{
+    -fx-text-alignment: center;
     -fx-alignment: Center;
     -fx-font-size: 24px;
 }
 .slider .track{
+    -fx-background-color: #397E82;
     -fx-pref-height: 28px;
-    -fx-background-color: #D5E9EA;
-    -fx-background-radius: 14px;
-
+    -fx-border-radius: 3px;
+}
+.slider .track .filled{
+    -fx-background-color: BLUE;
 }
 .slider .thumb{
     -fx-pref-height: 28px;
     -fx-pref-width: 28px;
     -fx-background-image: url("/static/images/slider_thumb.png");
-    -fx-background-radius: 17px;
 }
 #result_label{
     -fx-background-image: url("/static/images/popup.png");
@@ -29,6 +31,6 @@
 }
 #lowAnchor_label, #highAnchor_label{
     -fx-font-family: "Baloo2 SemiBold";
-    -fx-font-size: 16px;
+    -fx-font-size: 20px;
     -fx-alignment: center;
 }

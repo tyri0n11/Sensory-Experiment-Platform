@@ -16,6 +16,11 @@ public class DataAccess {
         Date now = new Date();
         return sdf.format(now);
     }
+    public static String getCurrentFormattedDate(){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+        Date now = new Date();
+        return sdf.format(now);
+    }
     public static void saveData(ArrayList<Experiment> experiments) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(saveFilePath, false));
         for(Experiment e : experiments){
@@ -372,8 +377,10 @@ public class DataAccess {
             saveResult(writer,o);
         }
 
+
         writer.flush();
         writer.close();
+        experiment.setNumber_of_results(countingResults(experiment));
     }
     // quickSave func use this
     private static void saveResult(Writer writer, Object subO) throws IOException {
@@ -398,16 +405,14 @@ public class DataAccess {
             writer.append("GLMS ,")
                     .append(((gLMS) subO).getConducted())
                     .append(",")
-                    .append(String.format("%.4f",((gLMS) subO).getResult()))
+                    .append(String.format("%d",((gLMS) subO).getResult()))
                     .append(",")
                     .append(((gLMS) subO).getTitle());
             writer.append("\n");
         }
     }
     public static int countingResults(Experiment experiment){
-
         String directory = experiment.getExperimentName() + "_" + experiment.getVersion();
-        System.out.println(directory);
         initializeCaches(experiment.getExperimentName(),experiment.getVersion());
         int numOfResults = Objects.requireNonNull(new File("results/" + directory).list()).length;
         return numOfResults;

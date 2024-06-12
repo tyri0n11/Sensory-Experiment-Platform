@@ -13,6 +13,7 @@ public class RunVas_VM {
     private StringProperty lowAnchorText, button, conducted;
     private StringProperty highAnchorText;
 
+
     public RunVas_VM(Vas vas) {
         this.vas = vas;
         sliderValue = new SimpleIntegerProperty(vas.getResult()); // Khởi tạo giá trị của sliderValue từ kết quả hiện tại
@@ -20,19 +21,22 @@ public class RunVas_VM {
         questionText = new SimpleStringProperty(vas.getTitle());
         lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
         highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
-        conducted = new SimpleStringProperty("Not finish");
+        conducted = new SimpleStringProperty(vas.getConducted());
 
         sliderValue.addListener((observable, oldValue, newValue) -> {
             setResult(newValue.intValue());
             System.out.println("Vas recording: "+ newValue);
+            conducted.set(getCurrentFormattedTime());
             setDate();
         });
     }
+
     public String getCurrentFormattedTime() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS");
         Date now = new Date();
         return sdf.format(now);
     }
+
     public void setDate(){
         vas.setConducted(getCurrentFormattedTime());
     }

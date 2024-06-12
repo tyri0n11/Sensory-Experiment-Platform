@@ -8,12 +8,12 @@
 
 <AnchorPane minHeight="645.0" minWidth="1054.0" prefHeight="800.0" prefWidth="1194.0" stylesheets="/static/stylesheets/RunEx.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunController">
    <children>
-      <Button fx:id="btn_back" layoutX="175.0" layoutY="555.0" mnemonicParsing="false" onMouseClicked="#handleBtnBack" prefHeight="70.0" prefWidth="150.0" text="Back" wrapText="true" AnchorPane.bottomAnchor="20.200000000000045" AnchorPane.leftAnchor="175.0">
+      <Button fx:id="btn_back" layoutX="256.0" layoutY="710.0" mnemonicParsing="false" onMouseClicked="#handleBtnBack" prefHeight="70.0" prefWidth="150.0" text="Back" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="250.0">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btn_Next" layoutX="954.0" layoutY="555.0" mnemonicParsing="false" onMouseClicked="#handleBtnNext" prefHeight="70.0" prefWidth="150.0" text="Next" wrapText="true" AnchorPane.bottomAnchor="20.200000000000045" AnchorPane.rightAnchor="175.5999999999999">
+      <Button fx:id="btn_Next" layoutX="954.0" layoutY="555.0" mnemonicParsing="false" onMouseClicked="#handleBtnNext" prefHeight="70.0" prefWidth="150.0" text="Next" wrapText="true" AnchorPane.bottomAnchor="20.200000000000045" AnchorPane.rightAnchor="250.0">
          <font>
             <Font size="20.0" />
          </font>

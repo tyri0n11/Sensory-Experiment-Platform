@@ -5,10 +5,11 @@ import main.sensoryexperimentplatform.models.gLMS;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class RunGLMS_VM {
     private gLMS stage;
-    private StringProperty question, help;
+    private StringProperty question, help, conducted;
     private DoubleProperty sliderValue;
     private StringProperty button;
     private IntegerProperty time;
@@ -19,10 +20,11 @@ public class RunGLMS_VM {
         question = new SimpleStringProperty(stage.getQuestionText());
         button = new SimpleStringProperty(stage.getButtonText());
         sliderValue = new SimpleDoubleProperty(stage.getResult());
+        conducted = new SimpleStringProperty(stage.getConducted());
 
         sliderValue.addListener(((observableValue, oldValue, newValue) ->{
-            setResult(newValue.doubleValue());
-            System.out.println(stage.getResult());
+            setResult(newValue.intValue());
+            conducted.set(getCurrentFormattedTime());
             setDate();
         } ));
 
@@ -35,7 +37,7 @@ public class RunGLMS_VM {
     public void setDate(){
         stage.setConducted(getCurrentFormattedTime());
     }
-    public void setResult(double result){
+    public void setResult(int result){
         stage.setResult(result);
     }
 
@@ -52,5 +54,9 @@ public class RunGLMS_VM {
 
     public DoubleProperty sliderValueProperty() {
         return sliderValue;
+    }
+
+    public StringProperty conductedTextProperty() {
+        return conducted;
     }
 }

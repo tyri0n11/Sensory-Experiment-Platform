@@ -38,19 +38,15 @@ public class RunController {
     private RunExperiment_VM viewModel;
     private Experiment experiment;
 
-
-
     public void setViewModel(RunExperiment_VM viewModel){
         this.viewModel = viewModel;
         this.experiment = viewModel.getExperiment();
-        this.FILE_NAME = viewModel.getFileName();
+        this.FILE_NAME = STR."\{viewModel.getFileName()}_\{DataAccess.getCurrentFormattedTime()}";
         bindViewModel();
     }
     private void updateProgress(double processed){
-        if(processed > pivot){
-            pivot = processed;
-            progress_bar.setProgress(pivot/(viewModel.count - 1));
-        }
+
+        progress_bar.setProgress(processed/(viewModel.count - 1));
     }
 
     private void bindViewModel() {
@@ -65,13 +61,17 @@ public class RunController {
                 showDetailView(newValue);
             }
         });
+        if (!showList.getItems().isEmpty()) {
+            showList.getSelectionModel().selectFirst();
+            showDetailView(showList.getItems().getFirst());
+        }
     }
     @FXML
     void handleBtnBack(MouseEvent event) {
-        updateProgress(processed);
+
         int selectedIndex = showList.getSelectionModel().getSelectedIndex();
         showList.getSelectionModel().select(selectedIndex - 1);
-
+        updateProgress(showList.getSelectionModel().getSelectedIndex());
     }
 
     @FXML
@@ -85,11 +85,12 @@ public class RunController {
             showList.getSelectionModel().select(selectedIndex + 1);
             DataAccess.quickSave(experiment, FILE_NAME);
         }
+        updateProgress(showList.getSelectionModel().getSelectedIndex());
     }
 
     private void showDetailView(String item) {
         Object selectedObject = viewModel.getObjectByKey(item);
-
+        updateProgress(showList.getSelectionModel().getSelectedIndex());
         if (selectedObject != null) {
             int currentIndex = viewModel.getIndexOfObject(selectedObject);
             if (currentIndex >= 0) {
@@ -120,12 +121,17 @@ public class RunController {
                     RunVas_VM vm = new RunVas_VM((Vas) selectedObject);
                     controller.setViewModel(vm);
                     btn_Next.textProperty().bind(vm.buttonProperty());
-                    btn_Next.setDisable(true);
 
-                    controller.isRecordedProperty().addListener(((observableValue, aBoolean, t1) ->{
-                        btn_Next.setDisable(!t1);
-                    } ));
+                    if (vm.conductedTextProperty().get() == null){
+                        btn_Next.setDisable(true);
+                    }else btn_Next.setDisable(false);
 
+                    vm.conductedTextProperty().addListener((observable, oldValue, newValue) -> {
+                        System.out.println(newValue);
+                        if (newValue != null) {
+                            btn_Next.setDisable(false);
+                        }
+                    });
 
                 }
                 // glms view display
@@ -142,12 +148,17 @@ public class RunController {
                     RunGLMS_VM vm = new RunGLMS_VM((gLMS) selectedObject);
                     controller.setViewModel(vm);
                     btn_Next.textProperty().bind(vm.buttonProperty());
-                    btn_Next.setDisable(true);
 
-                    controller.isRecordedProperty().addListener(((observableValue, aBoolean, t1) ->{
-                        btn_Next.setDisable(!t1);
-                    } ));
+                    if (vm.conductedTextProperty().get() == null){
+                        btn_Next.setDisable(true);
+                    }else btn_Next.setDisable(false);
 
+                    vm.conductedTextProperty().addListener((observable, oldValue, newValue) -> {
+                        System.out.println(newValue);
+                        if (newValue != null) {
+                            btn_Next.setDisable(false);
+                        }
+                    });
 
 
                 }

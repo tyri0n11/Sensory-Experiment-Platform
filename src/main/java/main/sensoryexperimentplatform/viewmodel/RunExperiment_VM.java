@@ -18,7 +18,7 @@ public class RunExperiment_VM {
     private final List<Object> objectList = new ArrayList<>();
     private ArrayList<Object> stages = new ArrayList<>();
 
-    public RunExperiment_VM(Experiment experiment, String file_name) {
+    public RunExperiment_VM(Experiment experiment, String file_name){
         this.experiment = experiment;
         this.file_name = file_name;
         loadItems();
