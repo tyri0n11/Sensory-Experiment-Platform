@@ -17,14 +17,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/testresponsive.fxml"));
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/Base.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setTitle("Sense XP");
 
         primaryStage.setScene(scene);
 
-        DataAccess.loadExperiments();
         primaryStage.sizeToScene();
         primaryStage.show();
 

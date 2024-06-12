@@ -38,7 +38,9 @@ public class dashBoard_VM implements Observer {
 //    }
 
     public void loadItems() throws Exception {
+        DataAccess.loadExperiments();
         experiments.setAll(listOfExperiment.getInstance());
+        System.out.println(experiments);
     }
 
     public ObservableList<Experiment> getExperiments() {

@@ -410,13 +410,13 @@ public class DataAccess {
     public static int countingResults(Experiment experiment){
 
         String directory = experiment.getExperimentName() + "_" + experiment.getVersion();
-        System.out.println(directory);
+        //System.out.println(directory);
         initializeCaches(experiment.getExperimentName(),experiment.getVersion());
         int numOfResults = Objects.requireNonNull(new File("results/" + directory).list()).length;
         return numOfResults;
     }
 
-    public static Experiment importExperiment(String loadFilePath) throws Exception{
+    public static void importExperiment(String loadFilePath) throws Exception{
         Experiment currentExperiment = new Experiment(null,null,null,null,1,000,null);
         RatingContainer rc = null;
         boolean isContainer = false;
@@ -561,12 +561,11 @@ public class DataAccess {
                     listOfExperiment.addExperiment(currentExperiment);
                     initializeCaches(currentExperiment.getExperimentName(),currentExperiment.getVersion());
                     currentExperiment.setNumber_of_results(DataAccess.countingResults(currentExperiment));
-                    System.out.println(DataAccess.countingResults(currentExperiment));
+                    //System.out.println(DataAccess.countingResults(currentExperiment));
                     currentExperiment = new Experiment(null,null,null,null,1,000,null);
                 }
             }
         }
-        return currentExperiment;
     }
 
     public static void loadExperiments() throws Exception{
@@ -719,26 +718,6 @@ public class DataAccess {
             }
         }
 
-    }
-    public static void main(String[] args) {
-        try {
-            ArrayList<Experiment> experiments = listOfExperiment.getInstance();
-
-            // Print the imported experiments
-            for (Experiment experiment : experiments) {
-
-                System.out.println("Experiment Name: " + experiment.getExperimentName());
-                System.out.println("Creator Name: " + experiment.getCreatorName());
-                System.out.println("Version: " + experiment.getVersion());
-                System.out.println("Created date: " + experiment.getCreated_date());
-                System.out.println("Id: "+ experiment.getId());
-                System.out.println("Number of results = " + experiments.getFirst().getNumber_of_results());
-
-                System.out.println();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public static void updateFile() throws Exception {
