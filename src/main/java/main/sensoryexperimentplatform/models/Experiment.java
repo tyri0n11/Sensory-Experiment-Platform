@@ -25,6 +25,7 @@ public class Experiment {
 //        setNote(sc.nextLine());
         stages = new ArrayList<>();
         version = 1;
+        start = new Start("default","default","default",false,null, null,0,100,null);
     }
     public Experiment(String creatorName, String experimentName, String description, String note, int version, int id, String created_date) {
         this.creatorName = creatorName;
@@ -35,6 +36,7 @@ public class Experiment {
         this.id = id;
         this.created_date = created_date;
         stages = new ArrayList<>();
+        start = new Start("default","default","default",false,null, null,0,100,null);
     }
     public void addNoticeStage(String title, String content, String buttonText,
                                String helpText, boolean alert){
@@ -241,8 +243,7 @@ public class Experiment {
                 backGroundColor,
                 TextColor,StartOfStageDelay,
                 EndOfStageDelay, disableButtonColor);
-        this.start = start;
-        stages.add(stage);
+        this.start = stage;
         stages.add(stage);
     }
 

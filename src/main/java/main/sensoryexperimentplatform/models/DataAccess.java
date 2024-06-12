@@ -572,8 +572,7 @@ public class DataAccess {
         Experiment currentExperiment = new Experiment(null,null,null,null,1,000,null);
         RatingContainer rc = null;
         boolean isContainer = false;
-        Start currentStart = new Start("default","default","default",false,null, null,0,100,null);
-        currentExperiment.addStart(currentStart);
+        System.out.println (currentExperiment.getStart().getTitle());
         String line;
         //notice, input, timer, vas, glms, question, rating container, course
 
@@ -600,8 +599,8 @@ public class DataAccess {
                     Matcher matcher = patternExperiment.matcher(line);
 
                     if (matcher.find()) {
-                        currentStart.setTitle(matcher.group(0));
-                        currentStart.setContent(matcher.group(1));
+                        currentExperiment.getStart().setTitle(matcher.group(0));
+                        currentExperiment.getStart().setContent(matcher.group(1));
                     }
                 } else if (line.startsWith("noticeStage")) {
                     Pattern noticePattern = Pattern.compile("noticeStage\\(\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\"\\)");

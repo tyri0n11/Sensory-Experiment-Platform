@@ -201,6 +201,10 @@ public class StartVM implements choose{
 
     @Override
     public String getTitle() {
-        return start.getTitle();
+        if (start.getTitle() == null){
+            return "Start experiment";
+        }
+        else
+            return start.getTitle();
     }
 }

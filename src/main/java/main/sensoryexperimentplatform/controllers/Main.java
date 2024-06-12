@@ -20,11 +20,15 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/Base.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
+
+        DataAccess.loadExperiments();
+
         primaryStage.setTitle("Sense XP");
 
         primaryStage.setScene(scene);
 
         primaryStage.sizeToScene();
+
         primaryStage.show();
 
     }
