@@ -17,7 +17,7 @@ public class DataAccess {
         return sdf.format(now);
     }
     public static String getCurrentFormattedDate(){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         Date now = new Date();
         return sdf.format(now);
     }
