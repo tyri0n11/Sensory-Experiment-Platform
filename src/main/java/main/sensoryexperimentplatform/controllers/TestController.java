@@ -208,8 +208,20 @@ public class TestController{
             Set<String> set = new LinkedHashSet<>();
             ArrayList<Object> stages = experiment.getStages();
             for (Object o : stages) {
+//                if(o instanceof RatingContainer){
+//                    String key = "Rating Container - Is randomised";
+//                    TreeItem<String> rc = new TreeItem<>(key);
+//                    start.getChildren().add(rc);
+//                    ratingContainer_VM vm = new ratingContainer_VM();
+//                    rc.getChildren().add(new TreeItem<>(vm.getRatingContainer().stageToString()));
+//                    Wrapper wrapper = new Wrapper(key, vm);
+//                    displayedItems.put(index, wrapper);
+//                    displayedItems.put(index, wrapper);
+//                    index++;
+//                } else
                 if(o instanceof Vas) {
                     String key = "[" + o.getClass().getSimpleName() + "] " + ((Vas) o).getTitle();
+                    start.getChildren().add(new TreeItem<>(key));
                     start.getChildren().add(new TreeItem<>(key));
                     vasStage_VM vasStageVm = new vasStage_VM((Vas) o);
                     Wrapper wrapper = new Wrapper(key, vasStageVm);
@@ -275,27 +287,27 @@ public class TestController{
                     //displayedItems.put(index, wrapper);
                     index++;
                 }
-                else if (o instanceof RatingContainer) {
-//                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
-//                       System.out.println(key);
-//                       displayedItems.put(key, o);
-//                       str.add(key);
-                    for (Object subO : ((RatingContainer) o).container) {
-                        if (subO instanceof Vas) {
-                            String key = "[VAS]" + ((Vas) subO).getTitle();
-                            System.out.println(key);
-                            //    displayedScales.put(key, o);
-                            set.add(key);
-                        } else if (subO instanceof gLMS) {
-                            String key = "[GLMS]" + ((gLMS) subO).getTitle();
-                            System.out.println(key);
-                            // displayedScales.put(key, o);
-                            set.add(key);
-                        }
-                    }
-
-                    //scales.setAll(set);
-                }
+//                else if (o instanceof RatingContainer) {
+////                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
+////                       System.out.println(key);
+////                       displayedItems.put(key, o);
+////                       str.add(key);
+//                    for (Object subO : ((RatingContainer) o).container) {
+//                        if (subO instanceof Vas) {
+//                            String key = "[VAS]" + ((Vas) subO).getTitle();
+//                            System.out.println(key);
+//                            //    displayedScales.put(key, o);
+//                            set.add(key);
+//                        } else if (subO instanceof gLMS) {
+//                            String key = "[GLMS]" + ((gLMS) subO).getTitle();
+//                            System.out.println(key);
+//                            // displayedScales.put(key, o);
+//                            set.add(key);
+//                        }
+//                    }
+//
+//                    //scales.setAll(set);
+//                }
             }
             listObject.setMaxHeight(311);
             propertiesPane.setVisible(true);
@@ -309,7 +321,7 @@ public class TestController{
         start.setExpanded(true);
         audibleSound_VM audibleSound_vm = new audibleSound_VM();
         String key = "[Audio]" + audibleSound_vm.getAudibleInstruction().getTitle();
-        btn_assignSound.setDisable(false);
+
         Wrapper wrapper = new Wrapper(key, audibleSound_vm);
         displayedItems.put(index, wrapper);
         index++;
@@ -411,6 +423,9 @@ public class TestController{
             elseConditional.getChildren().add(new TreeItem<>(key));
             elseConditional.setExpanded(true);
         }
+        else if (Randomnies != null && listObject.getSelectionModel().getSelectedItem() == Randomnies){
+            Randomnies.getChildren().add(new TreeItem<>(key));
+            Randomnies.setExpanded(true);}
         // Add to start if no conditions match
         else {
             start.getChildren().add(new TreeItem<>(key));
@@ -629,6 +644,11 @@ public class TestController{
         else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
             elseConditional.getChildren().add(new TreeItem<>(key));
             elseConditional.setExpanded(true);
+        }
+        else if (Randomnies != null && listObject.getSelectionModel().getSelectedItem() == Randomnies){
+            Randomnies.getChildren().add(new TreeItem<>(key));
+            Randomnies.setExpanded(true);
+
         }
         // Add to start if no conditions match
         else {

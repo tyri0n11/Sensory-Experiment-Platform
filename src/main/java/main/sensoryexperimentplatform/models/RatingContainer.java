@@ -90,7 +90,7 @@ public class RatingContainer {
         for(Object s : container){
             sb.append(s.toString()).append("\n");
         }
-        return  sb.toString();
+        return sb.toString();
     }
     public String getType(){
         return "Rating Container";

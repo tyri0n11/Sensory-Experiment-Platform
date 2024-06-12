@@ -353,6 +353,11 @@
 
 }
 
+.no-grid-lines .table-row-cell,
+.no-grid-lines .table-cell {
+    -fx-border-width: 0;
+}
+
 
 
 

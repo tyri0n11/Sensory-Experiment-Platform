@@ -3,14 +3,12 @@
     -fx-font-family: "Poppins";
     -fx-font-style: normal;
 
-    -fx-max-width: 719px;
-    -fx-max-height: 32px;
     -fx-font-weight: 700;
     -fx-font-size: 20px;
     -fx-line-height: 30px;
     -fx-letter-spacing: 0.03em;
 
-    -fx-text-fill: #655E95;
+    -fx-text-fill: #397E82;
 
 
     /* Inside auto layout */

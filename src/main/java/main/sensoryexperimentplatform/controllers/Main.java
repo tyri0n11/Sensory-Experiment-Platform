@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import main.sensoryexperimentplatform.models.DataAccess;
 
 import java.io.IOException;
 
@@ -15,7 +16,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/testresponsive.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -23,8 +24,8 @@ public class Main extends Application {
 
         primaryStage.setScene(scene);
 
+        DataAccess.loadExperiments();
         primaryStage.sizeToScene();
-
         primaryStage.show();
 
     }

@@ -46,11 +46,7 @@ public class RunVasController {
 
         // Binding hai chiều giữa mySlider.valueProperty() và viewModel.sliderValueProperty()
         Bindings.bindBidirectional(mySlider.valueProperty(),viewModel.sliderValueProperty());
-        mySlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            double percentage = newValue.doubleValue() / mySlider.getMax();
-            mySlider.setStyle(String.format("-fx-background-color: #397E82;",
-                    percentage * 100, percentage * 100));
-        });
+
     }
 
 
