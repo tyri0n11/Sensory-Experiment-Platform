@@ -35,16 +35,18 @@ public class RunVasController {
         }
 
         tooltip.setStyle(
-                "-fx-background-color: transparent;\n" +
+                "-fx-background-color: #e3e2e2;\n" +
                         "    -fx-text-fill: #397E82;\n" +
                         "    -fx-font-size: 20px;\n" +
                         "    -fx-padding: 5px;\n" +
-                        "    -fx-border-color: transparent;\n" +
+                        "    -fx-border-color: White;\n" +
                         "    -fx-border-width: 1px;\n" +
                         "    -fx-border-radius: 3px;"
         );
         tooltip.setShowDelay(Duration.ZERO);
         tooltip.setAutoHide(true);
+        tooltip.setWrapText(true);
+        tooltip.setMaxWidth(250);
 
         // Set listeners to show and hide tooltip on mouse enter and exit
         help_image.setOnMouseEntered(event -> showTooltip(help_image, tooltip));
@@ -54,7 +56,7 @@ public class RunVasController {
         help_image.imageProperty().addListener(new ChangeListener<>() {
             @Override
             public void changed(ObservableValue<? extends javafx.scene.image.Image> observable, javafx.scene.image.Image oldImage, javafx.scene.image.Image newImage) {
-                if (newImage != null) { // Image is set
+                if (newImage != null) {
                     showTooltip(help_image, tooltip);
                 }
             }
@@ -66,7 +68,7 @@ public class RunVasController {
         javafx.geometry.Bounds bounds = imageView.localToScreen(imageView.getBoundsInLocal());
 
         // Show the tooltip at the top-left position of the ImageView
-        tooltip.show(imageView, bounds.getMinX(), bounds.getMinY() - tooltip.getHeight());
+        tooltip.show(imageView, bounds.getMinX() - 250, bounds.getMinY() - tooltip.getHeight());
     }
 
     private void bindViewModel() {

@@ -12,7 +12,6 @@ public class RunGLMS_VM {
     private StringProperty question, help, conducted;
     private DoubleProperty sliderValue;
     private StringProperty button;
-    private IntegerProperty time;
 
     public RunGLMS_VM(gLMS stage){
         this.stage = stage;
