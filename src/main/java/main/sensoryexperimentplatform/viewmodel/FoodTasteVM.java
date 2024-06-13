@@ -43,12 +43,11 @@ public class FoodTasteVM {
     }
 
     public void addListFoodsShow(String food) {
-        listFoodsShow.add(food);
         tasteTest.getFoodsShow().add(food);
     }
-    public void addVasShow(String food){listVasShow.add(food);
+    public void addVasShow(String food){
         tasteTest.getVasListShow().add(food);}
-    public void addGLMSShow (String food){listGLMSShow.add(food);
+    public void addGLMSShow (String food){
         tasteTest.getGlmsListShow().add(food);}
 
     public ArrayList<String> getListFoods() {
@@ -56,7 +55,6 @@ public class FoodTasteVM {
     }
 
     public void addListFoods(String food) {
-        listFoods.add(food);
         tasteTest.getFoods().add(food);
     }
     public void addVas(String food){

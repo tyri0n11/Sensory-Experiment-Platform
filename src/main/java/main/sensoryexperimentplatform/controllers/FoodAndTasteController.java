@@ -136,7 +136,7 @@ public class FoodAndTasteController {
             @Override
             public ListCell<String> call(ListView<String> param) {
 
-                XCell xCell = new XCell(true);
+                XCell xCell = new XCell(false);
                 xcell.add(xCell);
                 return xCell;
             }
@@ -171,8 +171,6 @@ public class FoodAndTasteController {
         glms = FXCollections.observableArrayList();
         foods = FXCollections.observableArrayList();
         loadItems();
-        System.out.println(viewModel.getListFoods());
-
     }
 
     @FXML
@@ -221,7 +219,7 @@ public class FoodAndTasteController {
         for (XCell a:xcell){
             if (a.getSelect()){
                 viewModel.addListFoods(a.getName());
-               // JOptionPane.showMessageDialog(null,a.getName());
+                // JOptionPane.showMessageDialog(null,a.getName());
             }
         }
         for (XCell a: glmscell){

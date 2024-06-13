@@ -68,7 +68,6 @@ public class TestController{
     private TreeItem<String> elseConditional;
     private Map<Integer, Wrapper> displayedItems ;
     private int index;
-    private boolean mouseClick;
     private Stack<ratingContainer_VM> rating;
     @FXML
     private TreeView<String> listObject;
@@ -76,9 +75,6 @@ public class TestController{
 
     @FXML
     private Button btn_noticeStage;
-
-    @FXML
-    private VBox sideMenu;
 
     @FXML
     private AnchorPane mainPane;
@@ -552,7 +548,6 @@ public class TestController{
         index++;
         TreeItem<String> periodicStage = new TreeItem<>(key);
         selectedItem.getChildren().add(periodicStage);
-
             // Optionally expand the course item to show the newly added child
         selectedItem.setExpanded(true);
         }
@@ -717,7 +712,6 @@ public class TestController{
         assignSoundVM viewModel = new assignSoundVM(audibleInstruction);
         controller.setViewModel(viewModel);
         stage.setTitle("Add Sound");
-
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
