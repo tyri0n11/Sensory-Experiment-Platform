@@ -23,7 +23,7 @@ public class conditionalStatementVM implements choose {
     private SimpleStringProperty compare;
     private Experiment experiment;
     public conditionalStatementVM( conditionalStatement ConditionalStatement){
-        this.ConditionalStatement = new conditionalStatement(true, false,true,false,null,null,"Scale Reading","Bout number","Less Than(<)");
+        this.ConditionalStatement = new conditionalStatement(true, false,true,false,null,null,"Something","Something else","Less Than");
         value1Text = new SimpleStringProperty(ConditionalStatement.getValue1Text());
         value2Text = new SimpleStringProperty(ConditionalStatement.getValue2Text());
         variable1Choice = new SimpleStringProperty(ConditionalStatement.getVariable1Choice());
@@ -37,7 +37,8 @@ public class conditionalStatementVM implements choose {
     }
     public conditionalStatementVM( Experiment experiment){
         this.experiment = experiment;
-        this.ConditionalStatement = new conditionalStatement(true, false,true,false,null,null,"Scale Reading","Bout number","Less Than(<)");
+        this.ConditionalStatement = new conditionalStatement(true, false,true,false,null,null,"Something","Something else","Something");
+        experiment.addConditionalStatement(ConditionalStatement);
         value1Text = new SimpleStringProperty(ConditionalStatement.getValue1Text());
         value2Text = new SimpleStringProperty(ConditionalStatement.getValue2Text());
         variable1Choice = new SimpleStringProperty(ConditionalStatement.getVariable1Choice());
@@ -48,7 +49,7 @@ public class conditionalStatementVM implements choose {
         variable1Choice.addListener((observableValue, oldValue, newValue)->setVariable1Choice(newValue));
         variable2Choice.addListener((observableValue, oldValue, newValue)->setVariable2Choice(newValue));
         compare.addListener((observableValue, oldValue, newValue)->setCompare(newValue));
-        experiment.addConditionalStatement(ConditionalStatement);
+
     }
 
     public void setValue1Choice(String newValue){
@@ -121,7 +122,7 @@ public class conditionalStatementVM implements choose {
 
     @Override
     public String getTitle() {
-        return null;
+        return "If "+ ConditionalStatement.getVariable1Choice() + " " + ConditionalStatement.getCompare() + " Then " + ConditionalStatement.getVariable2Choice();
     }
 }
 

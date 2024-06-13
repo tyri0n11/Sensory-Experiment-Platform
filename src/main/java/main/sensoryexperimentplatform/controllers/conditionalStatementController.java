@@ -40,8 +40,6 @@ public class conditionalStatementController {
         chx_variable2Choice.valueProperty().bindBidirectional(viewModel.Variable2ChoiceProperty());
         chx_compare.valueProperty().bindBidirectional(viewModel.compareProperty());
 
-
-
     }
 
     public void setViewModel(conditionalStatementVM viewModel) {

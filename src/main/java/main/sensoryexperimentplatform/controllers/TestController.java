@@ -358,7 +358,7 @@ public class TestController{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        audibleSound_VM audibleSound_vm = new audibleSound_VM();
+        audibleSound_VM audibleSound_vm = new audibleSound_VM(audibleInstruction);
         String key = "[Audio]" + audibleSound_vm.getAudibleInstruction().getTitle();
 
         Wrapper wrapper = new Wrapper(key, audibleSound_vm);
@@ -385,17 +385,20 @@ public class TestController{
 
     @FXML
     void addConditionalStatement(ActionEvent event) {
+
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
+
 //        elseConditional = new TreeItem<>("Else");
         conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM(experiment);
-        conditionalStatement ConditionalStatement = ConditionalStatementVM.getConditionalStatement();
-        String key = "If A B" + ConditionalStatement.getVariable1Choice() + ConditionalStatement.getCompare();
+        String key = ConditionalStatementVM.getTitle() ;
+//        String key1 = "Else";
+
+        start.getChildren().add(new TreeItem<>(key));
         Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
         displayedItems.put(index, wrapper);
         index++;
-
 
     }
 
@@ -408,6 +411,7 @@ public class TestController{
         AddCourseVM addCourseVM = new AddCourseVM(experiment);
         Course course = addCourseVM.getCourse();
         String key = course.getTitle();
+
         Wrapper wrapper = new Wrapper(key, addCourseVM);
         displayedItems.put(index, wrapper);
         index++;

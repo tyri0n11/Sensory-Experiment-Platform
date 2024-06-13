@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.controllers.addAudibleSoundController;
 import main.sensoryexperimentplatform.models.AudibleInstruction;
+import main.sensoryexperimentplatform.models.Experiment;
 
 import java.io.IOException;
 import java.util.Stack;
@@ -18,8 +19,9 @@ public class audibleSound_VM implements choose {
     private StringProperty helpText;
     private StringProperty buttonText;
     private AudibleInstruction audibleInstruction;
+    private Experiment experiment;
 
-    public audibleSound_VM(){
+    public audibleSound_VM(AudibleInstruction audibleInstruction){
         this.audibleInstruction = new AudibleInstruction("Hello","hello","hello","hello");
         this.title = new SimpleStringProperty(audibleInstruction.getTitle());
         this.content = new SimpleStringProperty(audibleInstruction.getContent());
@@ -42,6 +44,32 @@ public class audibleSound_VM implements choose {
             setTitle(newValue);
         });
     }
+//    public audibleSound_VM(Experiment experiment){
+//        this.experiment = experiment;
+//        this.audibleInstruction = new AudibleInstruction("Hello","hello","hello","hello");
+//        this.title = new SimpleStringProperty(audibleInstruction.getTitle());
+//        this.content = new SimpleStringProperty(audibleInstruction.getContent());
+//        this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
+//        this.helpText = new SimpleStringProperty(audibleInstruction.getButtonText());
+//
+//        buttonText.addListener((observable, oldValue, newValue) -> {
+//            setButtonText(newValue);
+//
+//        });
+//
+//        helpText.addListener((observable, oldValue, newValue) -> {
+//            setHelpText(newValue);
+//        });
+//        title.addListener((observable, oldValue, newValue) -> {
+//            setTitle(newValue);
+//
+//        });
+//        content.addListener((observable, oldValue, newValue) -> {
+//            setTitle(newValue);
+//        });
+//        experiment.addAudibleInstruction(audibleInstruction);
+//
+//    }
 
     public StringProperty titleProperty() {
         return title;
