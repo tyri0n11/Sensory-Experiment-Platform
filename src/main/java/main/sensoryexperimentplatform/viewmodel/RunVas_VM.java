@@ -10,7 +10,7 @@ public class RunVas_VM {
     private Vas vas;
     private IntegerProperty sliderValue;
     private final StringProperty questionText;
-    private StringProperty lowAnchorText, button, conducted;
+    private StringProperty lowAnchorText, button, conducted, help;
     private StringProperty highAnchorText;
 
 
@@ -22,6 +22,7 @@ public class RunVas_VM {
         lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
         highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
         conducted = new SimpleStringProperty(vas.getConducted());
+        help = new SimpleStringProperty(vas.getHelpText());
 
         sliderValue.addListener((observable, oldValue, newValue) -> {
             setResult(newValue.intValue());
@@ -54,6 +55,10 @@ public class RunVas_VM {
     public IntegerProperty sliderValueProperty() {
         return sliderValue;
     }
+    public StringProperty helpTextProperty() {
+        return help;
+    }
+
     public StringProperty conductedTextProperty() {
         return conducted;
     }
