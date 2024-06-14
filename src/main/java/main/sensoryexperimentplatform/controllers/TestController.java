@@ -389,16 +389,14 @@ public class TestController{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-
-//        elseConditional = new TreeItem<>("Else");
         conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM(experiment);
         String key = ConditionalStatementVM.getTitle() ;
-//        String key1 = "Else";
 
-        start.getChildren().add(new TreeItem<>(key));
         Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
         displayedItems.put(index, wrapper);
         index++;
+        ifConditional = new TreeItem<>(key);
+        start.getChildren().add(ifConditional);
 
     }
 

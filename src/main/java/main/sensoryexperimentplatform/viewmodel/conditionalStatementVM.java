@@ -37,7 +37,7 @@ public class conditionalStatementVM implements choose {
     }
     public conditionalStatementVM( Experiment experiment){
         this.experiment = experiment;
-        this.ConditionalStatement = new conditionalStatement(true, false,true,false,null,null,"Something","Something else","Something");
+        this.ConditionalStatement = new conditionalStatement(true, false,true,false,null,null,"Something","Something else","Less Than");
         experiment.addConditionalStatement(ConditionalStatement);
         value1Text = new SimpleStringProperty(ConditionalStatement.getValue1Text());
         value2Text = new SimpleStringProperty(ConditionalStatement.getValue2Text());
@@ -123,6 +123,8 @@ public class conditionalStatementVM implements choose {
     @Override
     public String getTitle() {
         return "If "+ ConditionalStatement.getVariable1Choice() + " " + ConditionalStatement.getCompare() + " Then " + ConditionalStatement.getVariable2Choice();
+
     }
+
 }
 
