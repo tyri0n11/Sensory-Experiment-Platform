@@ -23,6 +23,37 @@ public class Experiment {
         stages = new ArrayList<>();
         version = 1;
     }
+    public Experiment(Experiment e){
+        this.creatorName = e.getCreatorName();
+        this.experimentName = e.getExperimentName();
+        this.description = e.getDescription();
+        this.note = e.getNote();
+        this.version = e.getVersion();
+        this.id = e.getId();
+        this.created_date = e.getCreated_date();
+        stages = new ArrayList<>();
+        for (Object o : e.getStages()) {
+            if (o instanceof Vas) {
+                ((Vas) o).setDefaultResult();
+            }
+            if (o instanceof gLMS) {
+                ((gLMS) o).setDefaultResult();
+            }
+            if (o instanceof RatingContainer) {
+                int i = 0;
+                for (Object subO : ((RatingContainer) o).container) {
+                    if (subO instanceof Vas) {
+                        ((Vas) subO).setDefaultResult();
+                    }
+                    if (subO instanceof gLMS) {
+                        ((gLMS) subO).setDefaultResult();
+                    }
+                    ((RatingContainer) o).addStage((Stage) subO);
+                }
+            }
+            stages.add(o);
+        }
+    }
     public Experiment(String creatorName, String experimentName, String description, String note, int version, int id, String created_date) {
         this.creatorName = creatorName;
         this.experimentName = experimentName;
@@ -108,9 +139,6 @@ public class Experiment {
         stages.add(temp);
     }
 
-    public void addAnyStage(Object o){
-        stages.addLast(o);
-    }
     //start eating stage
     public void addCourse(String title, String content, String buttonText,
                           int weight, int quantity,long duration,

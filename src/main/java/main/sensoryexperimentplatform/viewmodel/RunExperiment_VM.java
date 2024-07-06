@@ -11,16 +11,29 @@ import java.util.*;
 
 public class RunExperiment_VM {
     private Experiment experiment;
-    public double count = 0.0;
-    private String file_name;
-    private final ListProperty<String> items = new SimpleListProperty<>(FXCollections.observableArrayList());
-    private final Map<String, Object> objectsMap = new HashMap<>();
-    private final List<Object> objectList = new ArrayList<>();
-    private ArrayList<Object> stages = new ArrayList<>();
 
-    public RunExperiment_VM(Experiment experiment, String file_name){
-        this.experiment = experiment;
+    public double count = 0.0;
+
+    private String file_name;
+
+    private ListProperty<String> items;
+
+    private Map<String, Object> objectsMap;
+
+    private List<Object> objectList;
+
+    private ArrayList<Object> stages;
+
+    private Set<String> stringSet;
+
+    public RunExperiment_VM(Experiment e, String file_name){
+        this.experiment = new Experiment(e);
         this.file_name = file_name;
+        items = new SimpleListProperty<>(FXCollections.observableArrayList());
+        objectsMap = new HashMap<>();
+        objectList = new ArrayList<>();
+        stages = experiment.getStages();
+        stringSet = new LinkedHashSet<>();
         loadItems();
     }
 
@@ -30,8 +43,7 @@ public class RunExperiment_VM {
 
     public void loadItems() {
         stages = experiment.getStages();
-        Set<String> stringSet = new LinkedHashSet<>();
-        ArrayList<Object> stages = experiment.getStages();
+        stringSet = new LinkedHashSet<>();
         int index = 0;
 
         for (Object o : stages) {
@@ -84,20 +96,12 @@ public class RunExperiment_VM {
         }
         items.setAll(stringSet);
     }
-    public String getExperimentName(){
-        return experiment.getExperimentName();
-    }
-
     public ObservableList<String> getItems() {
         return items.get();
     }
 
     public ListProperty<String> itemsProperty() {
         return items;
-    }
-
-    public ArrayList<Object> getStages() {
-        return stages;
     }
 
     public Object getObjectByKey(String key) {
