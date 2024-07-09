@@ -26,6 +26,20 @@ public class gLMS extends Stage {
         this.alert = alert;
         result=0;
     }
+
+    public gLMS(gLMS stage) {
+        super(stage.getTitle(), stage.getContent());
+        this.title = stage.getTitle();
+        this.questionText = stage.getTitle();
+        this.buttonText = stage.getButtonText();
+        this.helpText = stage.getHelpText();
+        this.alert = stage.getAlert();
+        result=0;
+    }
+
+    public void setDefaultResult(){
+        result = 0;
+    }
     public void setAlert(boolean s){
         this.alert =s;
     }

@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javafx.beans.property.*;
+import main.sensoryexperimentplatform.models.DataAccess;
 import main.sensoryexperimentplatform.models.Vas;
 
 public class RunVas_VM {
@@ -26,20 +27,13 @@ public class RunVas_VM {
 
         sliderValue.addListener((observable, oldValue, newValue) -> {
             setResult(newValue.intValue());
-            System.out.println("Vas recording: "+ newValue);
-            conducted.set(getCurrentFormattedTime());
+            conducted.set(DataAccess.getCurrentFormattedTime());
             setDate();
         });
     }
 
-    public String getCurrentFormattedTime() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS");
-        Date now = new Date();
-        return sdf.format(now);
-    }
-
     public void setDate(){
-        vas.setConducted(getCurrentFormattedTime());
+        vas.setConducted(DataAccess.getCurrentFormattedTime());
     }
 
     public int getHighAnchorValue() {

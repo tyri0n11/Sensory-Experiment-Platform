@@ -1,6 +1,7 @@
 package main.sensoryexperimentplatform.viewmodel;
 
 import javafx.beans.property.*;
+import main.sensoryexperimentplatform.models.DataAccess;
 import main.sensoryexperimentplatform.models.gLMS;
 
 import java.text.SimpleDateFormat;
@@ -23,18 +24,14 @@ public class RunGLMS_VM {
 
         sliderValue.addListener(((observableValue, oldValue, newValue) ->{
             setResult(newValue.intValue());
-            conducted.set(getCurrentFormattedTime());
+            conducted.set(DataAccess.getCurrentFormattedTime());
             setDate();
         } ));
 
     }
-    public String getCurrentFormattedTime() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS");
-        Date now = new Date();
-        return sdf.format(now);
-    }
+
     public void setDate(){
-        stage.setConducted(getCurrentFormattedTime());
+        stage.setConducted(DataAccess.getCurrentFormattedTime());
     }
     public void setResult(int result){
         stage.setResult(result);

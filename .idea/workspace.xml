@@ -18,6 +18,11 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/TasteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/TasteTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/UserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/Vas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/Vas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/gLMS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/gLMS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/viewmodel/RunExperiment_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/viewmodel/RunExperiment_VM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/viewmodel/RunGLMS_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/viewmodel/RunGLMS_VM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/viewmodel/RunVas_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/viewmodel/RunVas_VM.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +54,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="thinhchau" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,6 +75,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
     &quot;associatedIndex&quot;: 7
     }</component>
@@ -81,34 +93,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.DataAccess.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RunExperiment.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SensoryExperimentPlatform.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TasteTest.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/scence builder/SceneBuilder.exe&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DataAccess.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.RunExperiment.executor": "Run",
+    "Application.SensoryExperimentPlatform.executor": "Run",
+    "Application.TasteTest.executor": "Run",
+    "Application.Test.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "thinhchau",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/USER/scence builder/SceneBuilder.exe",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\USER\OneDrive - VietNam National University - HCM INTERNATIONAL UNIVERSITY\Desktop\Respositories\Sensory Expeirment Platform\results" />
@@ -192,11 +204,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Test" />
       <item itemvalue="Application.DataAccess" />
-      <item itemvalue="Application.TasteTest" />
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.SensoryExperimentPlatform" />
+      <item itemvalue="Application.TasteTest" />
+      <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
@@ -271,7 +283,8 @@
       <workItem from="1718253791816" duration="3222000" />
       <workItem from="1718257619795" duration="762000" />
       <workItem from="1718263510876" duration="1724000" />
-      <workItem from="1720490752611" duration="357000" />
+      <workItem from="1719675146836" duration="5000" />
+      <workItem from="1720241426312" duration="8597000" />
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />

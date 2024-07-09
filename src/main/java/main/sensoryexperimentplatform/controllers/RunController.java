@@ -18,7 +18,6 @@ import java.io.IOException;
 
 public class RunController {
     private String FILE_NAME;
-    double pivot = 0.0;
     double processed = 0.0;
     @FXML
     private AnchorPane content;
@@ -41,7 +40,8 @@ public class RunController {
     public void setViewModel(RunExperiment_VM viewModel){
         this.viewModel = viewModel;
         this.experiment = viewModel.getExperiment();
-        this.FILE_NAME = viewModel.getFileName()+"_"+DataAccess.getCurrentFormattedTime();
+        this.FILE_NAME = viewModel.getFileName()+"_"+DataAccess.getCurrentFormattedTime();;
+        //viewModel.getFileName()+"_"+DataAccess.getCurrentFormattedTime();
         bindViewModel();
     }
     private void updateProgress(double processed){
@@ -68,7 +68,6 @@ public class RunController {
     }
     @FXML
     void handleBtnBack(MouseEvent event) {
-
         int selectedIndex = showList.getSelectionModel().getSelectedIndex();
         showList.getSelectionModel().select(selectedIndex - 1);
         updateProgress(showList.getSelectionModel().getSelectedIndex());

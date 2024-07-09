@@ -45,7 +45,8 @@ public class DataAccess {
             writer.write(e.toString());
             writer.newLine();
         }
-        System.out.println("Saved in " + file_path);
+        System.out.println("Saved in "+ file_path);
+        //"Saved in "+ file_path
     }
 
 
@@ -184,8 +185,7 @@ public class DataAccess {
                         currentExperiment.addRatingContainerStage(Boolean.parseBoolean(matcher.group(1)),
                                 Integer.parseInt(matcher.group(2))
                         );
-                        int num = currentExperiment.getStages().size();
-                        rc = (RatingContainer) currentExperiment.getStages().get(num-1);
+                        rc = (RatingContainer) currentExperiment.getStages().get(currentExperiment.getStages().size()-1);
                     }
                 } else if (line.startsWith("endRatingsContainer")) {
                     rc = null;
@@ -333,8 +333,7 @@ public class DataAccess {
                         currentExperiment.addRatingContainerStage(Boolean.parseBoolean(matcher.group(1)),
                                 Integer.parseInt(matcher.group(2))
                         );
-                        int num = currentExperiment.getStages().size();
-                        rc = (RatingContainer) currentExperiment.getStages().get(num-1);
+                        rc = (RatingContainer) currentExperiment.getStages().get(currentExperiment.getStages().size()-1);
                     }
                 } else if (line.startsWith("endRatingsContainer")) {
                     rc = null;
@@ -554,8 +553,7 @@ public class DataAccess {
                         currentExperiment.addRatingContainerStage(Boolean.parseBoolean(matcher.group(1)),
                                 Integer.parseInt(matcher.group(2))
                         );
-                        int num = currentExperiment.getStages().size();
-                        rc = (RatingContainer) currentExperiment.getStages().get(num-1);
+                        rc = (RatingContainer) currentExperiment.getStages().get(currentExperiment.getStages().size()-1);
                     }
                 } else if (line.startsWith("endRatingsContainer")) {
                     rc = null;
@@ -706,8 +704,7 @@ public class DataAccess {
                         currentExperiment.addRatingContainerStage(Boolean.parseBoolean(matcher.group(1)),
                                 Integer.parseInt(matcher.group(2))
                         );
-                        int num = currentExperiment.getStages().size();
-                        rc = (RatingContainer) currentExperiment.getStages().get(num-1);
+                        rc = (RatingContainer) currentExperiment.getStages().get(currentExperiment.getStages().size()-1);
                     }
                 } else if (line.startsWith("endRatingsContainer")) {
                     rc = null;
