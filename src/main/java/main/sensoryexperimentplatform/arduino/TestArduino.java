@@ -1,15 +1,13 @@
 package main.sensoryexperimentplatform.arduino;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import com.fazecast.jSerialComm.SerialPort;
-
 public class TestArduino {
     public static void main(String[] args) {
-        final SerialPort comPort = SerialPort.getCommPort("/dev/cu.usbserial-130"); // Assign COM Port accordingly
+        final SerialPort comPort = SerialPort.getCommPort("/dev/cu.usbserial-1130"); // Assign COM Port accordingly
 
         if (comPort == null) {
             System.out.println("COM not found");
@@ -33,11 +31,7 @@ public class TestArduino {
         }
 
         // Open file writer to save data
-        try (FileWriter writer = new FileWriter("scale_data.txt", true)) {
-            StringBuilder scale1Data = new StringBuilder();
-            StringBuilder scale2Data = new StringBuilder();
-            final String[] calibrationFactor = {""};
-
+        try (FileWriter writer = new FileWriter("/Users/macbook/Documents/VS code/Sensory-Experiment-Platform/src/main/java/main/sensoryexperimentplatform/arduino/scale_data.txt", true)) {
             comPort.addDataListener(new com.fazecast.jSerialComm.SerialPortDataListener() {
                 @Override
                 public int getListeningEvents() {
@@ -55,31 +49,12 @@ public class TestArduino {
                     String receivedData = new String(newData);
                     System.out.print(receivedData);
 
-                    // Parse the received data
-                    String[] lines = receivedData.split("\n");
-                    for (String line : lines) {
-                        if (line.contains("Scale 1 Reading")) {
-                            scale1Data.setLength(0);
-                            scale1Data.append(line.trim());
-                        } else if (line.contains("Scale 2 Reading")) {
-                            scale2Data.setLength(0);
-                            scale2Data.append(line.trim());
-                        } else if (line.contains("calibration_factor")) {
-                            calibrationFactor[0] = line.trim();
-                        }
-
-                        // If both scale data are received, write them to the file
-                        if (scale1Data.length() > 0 && scale2Data.length() > 0 && !calibrationFactor[0].isEmpty()) {
-                            String formattedData = String.format("%s %s \\ %s\n", calibrationFactor[0], scale1Data, scale2Data);
-                            try {
-                                writer.write(formattedData);
-                                writer.flush();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                            scale1Data.setLength(0);
-                            scale2Data.setLength(0);
-                        }
+                    // Write received data to file
+                    try {
+                        writer.write(receivedData);
+                        writer.flush();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
             });
