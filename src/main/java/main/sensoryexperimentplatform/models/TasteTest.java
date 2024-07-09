@@ -247,7 +247,7 @@ public class TasteTest {
                 0,100,"Continue" , false, "",
                 "Please rinse your mouth with the water provided and then expectorate it into the black cup.", 0,
                 false,true,true);
-        TasteTest tasteTest = (TasteTest) experiment.stages.getFirst();
+        TasteTest tasteTest = (TasteTest) experiment.stages.get(0);
         String[] foods = {"apple", "banana"};
         String[] vass = {"bit", "pleasant", "tough", "insane"};
         String[] glmss ={"spicy", "flavour", "salty", "creamy"};

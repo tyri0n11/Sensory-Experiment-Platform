@@ -222,7 +222,8 @@ public class UserManager {
                             currentExperiment.addRatingContainerStage(Boolean.parseBoolean(matcher.group(1)),
                                     Integer.parseInt(matcher.group(2))
                             );
-                            rc = (RatingContainer) currentExperiment.getStages().getLast();
+                            int num = currentExperiment.getStages().size();
+                            rc = (RatingContainer) currentExperiment.getStages().get(num-1);
                         }
                     } else if (line.startsWith("endRatingsContainer")) {
                         rc = null;

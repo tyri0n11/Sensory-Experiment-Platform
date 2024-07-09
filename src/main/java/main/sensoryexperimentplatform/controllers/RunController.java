@@ -41,7 +41,7 @@ public class RunController {
     public void setViewModel(RunExperiment_VM viewModel){
         this.viewModel = viewModel;
         this.experiment = viewModel.getExperiment();
-        this.FILE_NAME = STR."\{viewModel.getFileName()}_\{DataAccess.getCurrentFormattedTime()}";
+        this.FILE_NAME = viewModel.getFileName()+"_"+DataAccess.getCurrentFormattedTime();
         bindViewModel();
     }
     private void updateProgress(double processed){
@@ -63,7 +63,7 @@ public class RunController {
         });
         if (!showList.getItems().isEmpty()) {
             showList.getSelectionModel().selectFirst();
-            showDetailView(showList.getItems().getFirst());
+            showDetailView(showList.getItems().get(0));
         }
     }
     @FXML

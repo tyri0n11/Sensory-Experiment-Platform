@@ -109,7 +109,7 @@ public class Experiment {
     }
 
     public void addAnyStage(Object o){
-        stages.addLast(o);
+        stages.add(o);
     }
     //start eating stage
     public void addCourse(String title, String content, String buttonText,
