@@ -8,6 +8,7 @@ module main.sensoryexpeirmentplatform {
     requires com.almasb.fxgl.all;
     requires java.desktop;
     requires javafx.media;
+    requires com.fazecast.jSerialComm;
 
     opens main.sensoryexperimentplatform to javafx.fxml;
     opens main.sensoryexperimentplatform.models to javafx.base;
