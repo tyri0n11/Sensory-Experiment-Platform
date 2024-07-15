@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+
+
+<AnchorPane prefHeight="389.0" prefWidth="683.0" stylesheets="@../../static/stylesheets/PopUp.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.picture.PopUpWaiting">
+   <children>
+      <Label id="labelWaiting" layoutX="150.0" layoutY="71.0" stylesheets="@../../static/stylesheets/PopUp.css" text="Waiting for you" />
+      <Button fx:id="endButton" layoutX="209.0" layoutY="276.0" mnemonicParsing="false" prefWidth="228.0" text="END" />
+      <Label id="instructionText" layoutX="106.0" layoutY="225.0" text="When you're ready for next step, click “End&quot; button." />
+      <Label id="instructionText" layoutX="195.0" layoutY="195.0" text="We will wait until you are done." />
+      <Circle id="waitSign" fx:id="waitSign" fill="#387c80a6" layoutX="272.0" layoutY="166.0" radius="9.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle id="waitSign" fx:id="waitSign1" fill="#387c80a6" layoutX="334.0" layoutY="166.0" radius="9.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle id="waitSign" fx:id="waitSign2" fill="#387c80a6" layoutX="398.0" layoutY="166.0" radius="9.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+   </children>
+</AnchorPane>
