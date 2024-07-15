@@ -53,7 +53,6 @@
 }
 
 #waitSign{
-
     -fx-position: absolute;
     -fx-pref-width: 21px;
     -fx-pref-height: 21px;
@@ -61,5 +60,23 @@
     -fx-top: 201px;
 
     -fx-background-color: rgba(57, 126, 130, 0.64);
+}
 
+#labelError{
+    /* Error Message */
+
+    -fx-position: absolute;
+    -fx-max-width: 354px;
+    -fx-max-height: 59px;
+    -fx-left: 248px;
+    -fx-top: 289px;
+
+    -fx-font-family: 'Montserrat';
+    -fx-font-style: normal;
+    -fx-font-weight: 600;
+    -fx-font-size: 48px;
+    -fx-line-height: 59px;
+    /* identical to box height */
+
+    -fx-text-fill: #000000;
 }
