@@ -21,7 +21,8 @@ public class audibleSound_VM implements choose {
     private AudibleInstruction audibleInstruction;
     private Experiment experiment;
 
-    public audibleSound_VM(AudibleInstruction audibleInstruction){
+    public audibleSound_VM(Experiment experiment){
+        this.experiment = experiment;
         this.audibleInstruction = new AudibleInstruction("Hello","hello","hello","hello");
         this.title = new SimpleStringProperty(audibleInstruction.getTitle());
         this.content = new SimpleStringProperty(audibleInstruction.getContent());
