@@ -6,7 +6,7 @@ import java.util.Collections;
 public class RatingContainer {
     private boolean isRandomize;
     private int minTime;
-    public ArrayList<Stage> container;
+    public ArrayList<containerObject> container;
     public RatingContainer(boolean isRandomize,int minTime){
         this.minTime = minTime;
         this.isRandomize = isRandomize;
@@ -18,7 +18,7 @@ public class RatingContainer {
         }
 
     }
-    public void addStage(Stage s){
+    public void addStage(containerObject s){
         container.add(s);
     }
     public void addVasStageTest_newExperiment(Vas stage){
@@ -78,11 +78,11 @@ public class RatingContainer {
         return minTime;
     }
 
-    public void setContainer(ArrayList<Stage> container) {
+    public void setContainer(ArrayList<containerObject> container) {
         this.container = container;
     }
 
-    public ArrayList<Stage> getContainer() {
+    public ArrayList<containerObject> getContainer() {
         return container;
     }
     public String stageToString(){
@@ -90,7 +90,7 @@ public class RatingContainer {
         for(Object s : container){
             sb.append(s.toString()).append("\n");
         }
-        return  sb.toString();
+        return sb.toString();
     }
     public String getType(){
         return "Rating Container";

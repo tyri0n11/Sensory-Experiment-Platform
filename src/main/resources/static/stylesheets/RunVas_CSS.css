@@ -9,6 +9,7 @@
     -fx-alignment: Center;
     -fx-font-size: 24px;
 }
+<<<<<<< HEAD
 .tooltip {
     -fx-background-color: #e3e2e2;
     -fx-text-fill: #397E82;
@@ -26,6 +27,9 @@
 .slider .track .filled{
     -fx-background-color: BLUE;
 }
+=======
+
+>>>>>>> adcc111cd4d62496177af3ac528cd395f2b976c7
 .slider .thumb{
     -fx-pref-height: 28px;
     -fx-pref-width: 28px;
@@ -42,4 +46,11 @@
     -fx-font-family: "Baloo2 SemiBold";
     -fx-font-size: 20px;
     -fx-alignment: center;
+}
+
+.slider .track{
+    -progress : 0.2;
+    -fx-background-radius: 14px;
+    -fx-pref-height: 28px;
+    -fx-background-color: #F1F6FB;
 }

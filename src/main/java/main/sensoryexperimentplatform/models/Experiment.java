@@ -1,8 +1,11 @@
 package main.sensoryexperimentplatform.models;
 
+import javafx.scene.paint.Color;
+
 import java.util.*;
 
 public class Experiment {
+    private Start start;
     private String creatorName, experimentName, description, note, created_date;
     public int version, number_of_results, id;
     ArrayList<Object> stages;
@@ -22,6 +25,7 @@ public class Experiment {
 //        setNote(sc.nextLine());
         stages = new ArrayList<>();
         version = 1;
+        start = new Start("default","default","default",false,null, null,0,100,null);
     }
     public Experiment(Experiment e){
         this.creatorName = e.getCreatorName();
@@ -48,7 +52,7 @@ public class Experiment {
                     if (subO instanceof gLMS) {
                         ((gLMS) subO).setDefaultResult();
                     }
-                    ((RatingContainer) o).addStage((Stage) subO);
+                    ((RatingContainer) o).addStage((containerObject) subO);
                 }
             }
             stages.add(o);
@@ -63,6 +67,7 @@ public class Experiment {
         this.id = id;
         this.created_date = created_date;
         stages = new ArrayList<>();
+        start = new Start("default","default","default",false,null, null,0,100,null);
     }
     public void addNoticeStage(String title, String content, String buttonText,
                                String helpText, boolean alert){
@@ -122,7 +127,9 @@ public class Experiment {
     public void addRatingContainerStage(boolean isRandomize, int time){
         RatingContainer container = new RatingContainer(isRandomize,time);
         stages.add(container);
-
+    }
+    public void addRatingContainerStage(RatingContainer ratingContainer){
+        stages.add(ratingContainer);
     }
     public void addTasteTest(String noticeStageContent, String consumptionInstruction, String question,
                              String lowAnchorText, String highAnchorText, int lowAnchorValue,
@@ -138,6 +145,12 @@ public class Experiment {
         AudibleInstruction temp = new AudibleInstruction(title,content, buttonText,helpText);
         stages.add(temp);
     }
+//    public void addConditionalStatement(boolean value1, boolean value2, boolean variable1, boolean variable2, String value1Text,
+//                                        String value2Text, String variable1Choice, String variable2Choice, String compare){
+//        conditionalStatement stage  = new conditionalStatement(value1, value2,variable1,variable2,value1Text,
+//                value2Text,variable1Choice,variable2Choice,compare);
+//        stages.add(stage);
+//    }
 
     //start eating stage
     public void addCourse(String title, String content, String buttonText,
@@ -149,13 +162,15 @@ public class Experiment {
     }
     public void addCourse (Course course){
         stages.add(course);
-
     }
     public void addQuestion (Question question){
         stages.add(question);
     }
     public void addInput(Input input){
         stages.add(input);
+    }
+    public void addConditionalStatement(conditionalStatement ConditionalStatement){
+        stages.add(ConditionalStatement);
     }
 
     public ArrayList<Object> getStages() {
@@ -258,5 +273,25 @@ public class Experiment {
                 stagesToString() +"endExperiment()\n";
     }
 
+    public void addStartStage(String title, String content, String buttonText, Boolean requireBalance, Color backGroundColor, Color TextColor
+            , long StartOfStageDelay, long EndOfStageDelay, Color disableButtonColor){
+        Start stage = new Start(title,
+                content,
+                buttonText,
+                requireBalance,
+                backGroundColor,
+                TextColor,StartOfStageDelay,
+                EndOfStageDelay, disableButtonColor);
+        this.start = stage;
+        stages.add(stage);
+    }
 
+    public Start getStart() {
+        return start;
+    }
+
+    public void addStart(Start start) {
+        this.start = start;
+        stages.add(start);
+    }
 }

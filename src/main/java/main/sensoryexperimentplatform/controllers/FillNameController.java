@@ -83,6 +83,8 @@ public class FillNameController {
                 stage.setFullScreen(!stage.isFullScreen()); // Toggle full-screen mode
             }
         });
+        stage.setResizable(false);
+        stage.setScene(new Scene(root));
         stage.show();
 
     }

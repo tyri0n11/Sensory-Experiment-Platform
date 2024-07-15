@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import main.sensoryexperimentplatform.models.DataAccess;
 
 import java.io.IOException;
 
@@ -15,10 +16,13 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(Main.class.getResource("/main/sensoryexperimentplatform/Base.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
+
+        DataAccess.loadExperiments();
+
         primaryStage.setTitle("Sense XP");
 
         primaryStage.setScene(scene);

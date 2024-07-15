@@ -7,28 +7,62 @@ import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 
 import java.io.IOException;
 
-public class Periodic extends Stage{
-    private long weight, seconds;
-    public Periodic(String title, String content, long grams, long durations ) {
-        super(title, content);
-        this.weight = grams;
-        this.seconds = durations;
+public class Periodic{
+    private long amount;
+    private long forAmount;
+    private String daiLuong;
+    private String time;
+    private String forDaiLuong;
+    public Periodic( long grams, String daiLuong, String time,long forAmount, String forDaiLuong) {
+        this.time = time;
+        this.amount = grams;
+        this.daiLuong = daiLuong;
+        this.forAmount = forAmount;
+        this.forDaiLuong = forDaiLuong;
     }
 
-    public long getWeight() {
-        return weight;
+    public long getAmount() {
+        return amount;
     }
 
-    public void setWeight(long weight) {
-        this.weight = weight;
+    public void setAmount(long amount) {
+        this.amount = amount;
     }
 
-    public long getSeconds() {
-        return seconds;
+    public long getForAmount() {
+        return forAmount;
     }
 
-    public void setSeconds(long seconds) {
-        this.seconds = seconds;
+    public void setForAmount(long forAmount) {
+        this.forAmount = forAmount;
     }
+
+    public String getDaiLuong() {
+        return daiLuong;
+    }
+
+    public void setDaiLuong(String daiLuong) {
+        this.daiLuong = daiLuong;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getForDaiLuong() {
+        return forDaiLuong;
+    }
+
+    public void setForDaiLuong(String forDaiLuong) {
+        this.forDaiLuong = forDaiLuong;
+    }
+    //    public Periodic (long seconds){
+//        this.seconds = seconds;
+//    }
+
 
 }

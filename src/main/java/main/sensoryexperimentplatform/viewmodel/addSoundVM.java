@@ -11,7 +11,7 @@ public class addSoundVM {
 
     public addSoundVM(){
         // Initialize the sound object with default values
-        sound = new Sound();
+
         sound.setSoundFilePath(""); // Default file path
         sound.setName(""); // Default name
 

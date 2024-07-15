@@ -9,9 +9,11 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.controllers.addRatingContainerController;
+import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.RatingContainer;
 import main.sensoryexperimentplatform.models.Vas;
 import main.sensoryexperimentplatform.models.gLMS;
+import main.sensoryexperimentplatform.models.containerObject;
 
 import java.io.IOException;
 import java.util.Stack;
@@ -22,12 +24,25 @@ public class ratingContainer_VM implements choose{
     private BooleanProperty isRandomize;
     private Vas vas;
     private gLMS glms;
-    public ratingContainer_VM(){
-        this.ratingContainer = new RatingContainer(false,5);
+    private Experiment experiment;
+    public ratingContainer_VM(Experiment experiment){
+        this.experiment = experiment;
+        this.ratingContainer = new RatingContainer(false,0);
         minTime = new SimpleIntegerProperty(ratingContainer.getMinTime());
+        minTime.addListener((observableValue, oldValue, newValue) -> onMinTime(newValue));
         isRandomize = new SimpleBooleanProperty(ratingContainer.isRandomize());
-
+        isRandomize.addListener((observableValue, oldValue, newValue) -> onRandom(newValue));
+        experiment.addRatingContainerStage(ratingContainer);
     }
+
+    private void onRandom(Boolean newValue) {
+        ratingContainer.setRandomize(newValue);
+    }
+
+    private void onMinTime(Number newValue) {
+        ratingContainer.setMinTime((Integer) newValue);
+    }
+
     public IntegerProperty minTimeProperty(){
         return minTime;
     }
@@ -47,19 +62,8 @@ public class ratingContainer_VM implements choose{
     public void setIsRandomize(boolean newValue){
         ratingContainer.setRandomize(newValue);
     }
-    public void addVasStage(String title, String lowAnchorText, String highAnchorText, int lowAnchorValue, int highAnchorValue, String buttonText, String content, String helpText, boolean isSwap, boolean alert) {
-        ratingContainer.addVasStageContainer(title, lowAnchorText, highAnchorText, lowAnchorValue, highAnchorValue, buttonText, content, helpText, isSwap, alert);
-    }
-
-    // Method to add gLMS stage
-    public void addGlmsStage(String question, String buttonText, String content, String helpText, boolean alert) {
-        ratingContainer.addGlmsStageContainer(question, buttonText, content, helpText, alert);
-    }
-    public void addVasStage_newExperiment(){
-        ratingContainer.addVasStageTest_newExperiment(vas);
-    }
-    public void addGlmsStage_newExperiment(){
-        ratingContainer.addGlms_newExperiment(glms);
+    public void addContainerStage(containerObject object){
+        ratingContainer.addStage(object);
     }
     public RatingContainer getRatingContainer(){
         return ratingContainer;
@@ -67,15 +71,15 @@ public class ratingContainer_VM implements choose{
 
 
     @Override
-    public void modify(AnchorPane anchorPane,Stack<AddTasteVM> stack) throws IOException {
+    public void modify(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS) throws IOException {
 
     }
     @Override
-    public void modifyWithButton(AnchorPane propertiesPane, Stack<AddTasteVM> stack,Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
+    public void modifyWithButton(AnchorPane propertiesPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS, Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
                                  Button btn_addFoodAndTaste, Button btn_addAudibleInstruction
             , Button btn_addInput, Button btn_noticeStage,
                                  Button btn_addTimer, Button btn_AddQuestionStage,
-                                 Button btn_addRatingContainer, Button btn_addTasteTest, Button btn_AddConditionalStatement) throws IOException {
+                                 Button btn_addRatingContainer, Button btn_addTasteTest, Button btn_AddConditionalStatement, Stack<ratingContainer_VM> rating) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddRatingsContainer.fxml"));
         AnchorPane newContent = fxmlLoader.load();
         propertiesPane.getChildren().setAll(newContent);
@@ -92,12 +96,9 @@ public class ratingContainer_VM implements choose{
         btn_addRatingContainer.setDisable(true);
         btn_addTasteTest.setDisable(true);
         btn_AddConditionalStatement.setDisable(true);
-
-        addRatingContainerController controller = new addRatingContainerController();
-        ratingContainer_VM viewModel = new ratingContainer_VM();
-        viewModel.addVasStage_newExperiment();
-        viewModel.addGlmsStage_newExperiment();
-        controller.setViewModel(viewModel);
+        rating.push(this);
+        addRatingContainerController controller = fxmlLoader.getController();
+        controller.setViewModel(this);
 
 //               AddNoticeStage controller = fxmlLoader.getController();
     }

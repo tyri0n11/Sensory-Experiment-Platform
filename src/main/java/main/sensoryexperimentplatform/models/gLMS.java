@@ -1,6 +1,6 @@
 package main.sensoryexperimentplatform.models;
 
-public class gLMS extends Stage {
+public class gLMS extends Stage implements containerObject{
     private String title;
     private String questionText;
     private String buttonText;

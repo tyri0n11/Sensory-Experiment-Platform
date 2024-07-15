@@ -1,67 +1,45 @@
 package main.sensoryexperimentplatform.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 
 
-import main.sensoryexperimentplatform.ViewModel.assignSoundVM;
 import main.sensoryexperimentplatform.models.AudibleInstruction;
 import main.sensoryexperimentplatform.viewmodel.addSoundVM;
+import main.sensoryexperimentplatform.viewmodel.assignSoundVM;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class  assignSoundController {
-    @FXML
-    private VBox ShowSound;
-    private ToggleGroup toggleGroup;
-    private List<String> soundName;
-    private AudibleInstruction audibleInstruction;
+
+    private ObservableList<String> SoundName;
+    private ToggleGroup group = new ToggleGroup();
+
     private assignSoundVM viewModel;
-
-
-
     @FXML
-    private Label SoundSelectTionLabel;
+    private ListView<String> SoundList;
 
-    @FXML
-    private Button btn_add;
+    public void setViewModel(assignSoundVM viewModel){
+        this.viewModel = viewModel;
+        SoundName = FXCollections.observableArrayList();
+        loadSoundRadioButtons();
 
-    @FXML
-    private Button btn_play;
 
-    @FXML
-    private Button btn_refresh;
-
-    @FXML
-    private Button btn_remove;
-
-    @FXML
-    private Button btn_save2;
-
-    @FXML
-    private Button btn_stop;
-
-    public assignSoundController(){
-        this.soundName = new ArrayList<>();
-        soundName.add("good");
-
-    }
-    public void initialize() {
-
-     //   loadSoundRadioButtons();
     }
     @FXML
     void AddButton(ActionEvent event) throws IOException {
+
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("addSound.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = new Stage();
@@ -69,32 +47,31 @@ public class  assignSoundController {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         addSoundController addSoundController = fxmlLoader.getController();
-        addSoundVM addSoundVM = new addSoundVM();
+       addSoundController.setViewModel(viewModel,this);
         stage.show();
-
     }
 
-//    private void loadSoundRadioButtons() {
-//        //soundName.addAll(viewModel.getSoundName());
-//        toggleGroup = new ToggleGroup();
-//
-//        for (String soundNames:soundName) {
-//            RadioButton radioButton = new RadioButton(soundNames);
-//            radioButton.setToggleGroup(toggleGroup);
-//            ShowSound.getChildren().add(radioButton);
-//
-//        }
-//    }
-    void setViewModel(assignSoundVM viewModel){
-        this.viewModel = viewModel;
+    public void loadSoundRadioButtons() {
+        SoundName.clear();
+        SoundName.addAll(viewModel.getListNameshow());
+        SoundList.setItems(SoundName);
+        SoundList.setCellFactory(param -> new RadioListCell());
+
+    }
+    class RadioListCell extends ListCell<String> {
+        @Override
+        public void updateItem(String obj, boolean empty) {
+            super.updateItem(obj, empty);
+            if (empty) {
+                setText(null);
+                setGraphic(null);
+            } else {
+                RadioButton radioButton = new RadioButton(obj);
+                radioButton.setToggleGroup(group);
+                setGraphic(radioButton);
+            }
+        }
     }
 
-
-//    public void addRadioButton(String text) {
-//        RadioButton radioButton = new RadioButton(text);
-//
-//        VBox.setMargin(radioButton, new Insets(5, 0, 0, 0)); // Adjust margins as needed
-//        ((VBox)AddsoundPane.getChildren().get(0)).getChildren().add(radioButton);
-//    }
 
 }

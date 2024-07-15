@@ -7,41 +7,45 @@
     -fx-text-fill:#0E0E0E;
 }
 
-.scroll-pane .scroll-bar:vertical{
+.tree-view .scroll-bar:vertical{
     -fx-background-color: transparent;
     -fx-background-radius: 0px;
 }
-.scroll-pane .scroll-bar:horizontal{
+.tree-view .scroll-bar:horizontal{
     -fx-opacity: 0;
     -fx-pref-width: 0;
 }
-.scroll-pane .scroll-bar:vertical .track{
+.tree-view .scroll-bar:vertical .track{
     -fx-background-color: transparent;
     -fx-background-radius:2em;
     -fx-border-radius: 2em;
     -fx-border-color: transparent
 
 }
-.scroll-pane .scroll-bar:horizontal .decrement-button{
+.tree-view .scroll-bar:horizontal .decrement-button{
     -fx-padding: 0 ,0 ,10,0;
     -fx-background-color: white;
     -fx-background-radius:0em;
 
 }
-.scroll-pane .scroll-bar:vertical .decrement-button{
+.tree-view .scroll-bar:vertical .decrement-button{
     -fx-background-color: transparent;
     -fx-background-radius:0em;
     -fx-padding: 0 10  0  0;
 
 }
-.scroll-pane .scroll-bar:vertical .increment-arrow,
-.scroll-pane .scroll-bar:vertical .decrement-arrow{
+.tree-view .scroll-bar:vertical .increment-arrow,
+.tree-view .scroll-bar:vertical .decrement-arrow{
     -fx-padding: -2;
 
 }
-.scroll-pane .scroll-bar:vertical .thumb {
+.tree-view .scroll-bar:vertical .thumb {
     -fx-background-color: #397E82;
     -fx-background-insets: 2, 0, 0;
     -fx-background-radius: 2em;
 }
 
+.tree-cel:odd {
+    -fx-background-color: #F1F6FB;
+    -fx-text-fill: black;
+}

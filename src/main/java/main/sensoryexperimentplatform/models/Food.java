@@ -10,12 +10,12 @@ public class Food {
         vasContainer = new RatingContainer(isRandomizeVas,time);
         glmsContainer = new RatingContainer(isRandomizeGlms, time);
     }
-    public void addVasRating(Stage stage){
-        vasContainer.addStage(stage);
-    }
-    public void addGlmsRating(Stage stage){
-        glmsContainer.addStage(stage);
-    }
+   public void addVasRating(Vas stage){
+       vasContainer.addStage(stage);
+   }
+  public void addGlmsRating(gLMS stage){
+      glmsContainer.addStage(stage);
+   }
     public String toString(){
         return vasContainer.toString() +"\n"+
                 glmsContainer.toString();

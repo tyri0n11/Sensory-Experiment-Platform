@@ -1,89 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1280.0" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.Base">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.Base">
     <children>
-        <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0">
+        <BorderPane fx:id="borderPane">
             <top>
-                <AnchorPane prefHeight="61.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+                <AnchorPane prefWidth="1280.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Label fx:id="lbl_SenseXP" layoutX="29.0" layoutY="2.0" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="SenseXP" />
+                        <Label fx:id="lbl_SenseXP" layoutX="29.0" layoutY="2.0" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="SenseXP" AnchorPane.leftAnchor="15.0" />
                     </children>
                 </AnchorPane>
             </top>
-            <left>
-                <HBox fx:id="mainBox" BorderPane.alignment="CENTER">
-                    <children>
-                        <VBox fx:id="sideMenu" prefHeight="783.0" prefWidth="250.0" styleClass="sidebar_left">
-                            <children>
-                                <Button fx:id="btn_Dashboard" mnemonicParsing="false" onAction="#OpenDashBoard" prefHeight="67.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Dashboard">
-                                    <graphic>
-                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../static/images/dash_btn.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                </Button>
-                                <Button fx:id="btn_ShareExp" mnemonicParsing="false" prefHeight="70.0" prefWidth="254.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Share experiment">
-                                    <graphic>
-                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../static/images/btn_share.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                </Button>
+         <left>
+                  <VBox fx:id="sideMenu" prefHeight="782.0" styleClass="sidebar_left" BorderPane.alignment="CENTER">
+                      <children>
+                          <Button fx:id="btn_Dashboard" mnemonicParsing="false" onAction="#OpenDashBoard" prefHeight="70.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Dashboard">
+                              <graphic>
+                                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                          <Image url="@../../static/images/dash_btn.png" />
+                                      </image>
+                                  </ImageView>
+                              </graphic>
+                          </Button>
+                          <Button fx:id="btn_ShareExp" mnemonicParsing="false" prefHeight="70.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Share experiment">
+                              <graphic>
+                                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                          <Image url="@../../static/images/btn_share.png" />
+                                      </image>
+                                  </ImageView>
+                              </graphic>
+                          </Button>
 
-                                <Button fx:id="btn_ImportExp" mnemonicParsing="false" onAction="#importExperiment" prefHeight="67.0" prefWidth="256.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Import experiment">
+                                      <Button fx:id="btn_ImportExp" mnemonicParsing="false" onAction="#importExperiment" prefHeight="70.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Import experiment">
 
-                                    <graphic>
-                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../static/images/btn_import.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                </Button>
-                                <Button fx:id="btn_exportExp" maxWidth="254.0" mnemonicParsing="false" onAction="#exportExperiment" prefHeight="56.0" prefWidth="254.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Export experiment">
-                                    <graphic>
-                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../static/images/btn_export.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                </Button>
-                                <Button fx:id="btn_Config" mnemonicParsing="false" prefHeight="66.0" prefWidth="251.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Configure">
-                                    <graphic>
-                                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../static/images/btn_configure.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                </Button>
-                            </children>
-                        </VBox>
-                        <AnchorPane fx:id="mainPane" prefHeight="777.0" prefWidth="972.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css">
-                            <children>
-                                <Label layoutX="54.0" prefHeight="62.0" prefWidth="282.0" styleClass="lbl_EditExperiment" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Edit experiment" />
-                                <Button fx:id="btn_menu" layoutX="8.0" layoutY="11.0" mnemonicParsing="false" onAction="#toggleDashboard" prefHeight="22.0" prefWidth="47.0" text=" " />
-                        <AnchorPane fx:id="mainContent" layoutX="10.0" layoutY="66.0" prefHeight="681.0" prefWidth="978.0" />
-                            </children>
-                        </AnchorPane>
-                    </children>
-                </HBox>
-            </left>
+                                          <graphic>
+                                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                          <Image url="@../../static/images/btn_import.png" />
+                                      </image>
+                                  </ImageView>
+                              </graphic>
+                          </Button>
+                          <Button fx:id="btn_exportExp" maxWidth="254.0" mnemonicParsing="false" onAction="#exportExperiment" prefHeight="70.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Export experiment">
+                              <graphic>
+                                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                          <Image url="@../../static/images/btn_export.png" />
+                                      </image>
+                                  </ImageView>
+                              </graphic>
+                          </Button>
+                          <Button fx:id="btn_Config" mnemonicParsing="false" prefHeight="70.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Configure">
+                              <graphic>
+                                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                      <image>
+                                          <Image url="@../../static/images/btn_configure.png" />
+                                      </image>
+                                  </ImageView>
+                              </graphic>
+                          </Button>
+                      </children>
+                  </VBox>
+         </left>
+         <center>
+                  <AnchorPane fx:id="mainPane" stylesheets="@../../static/stylesheets/EditExp_CSS.css" BorderPane.alignment="CENTER">
+                      <children>
+                          <Label layoutX="54.0" prefHeight="62.0" prefWidth="282.0" styleClass="lbl_EditExperiment" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Edit experiment" />
+                          <Button fx:id="btn_menu" layoutX="8.0" layoutY="11.0" mnemonicParsing="false" onAction="#toggleDashboard" prefHeight="22.0" prefWidth="47.0" text=" " />
+                  <AnchorPane fx:id="mainContent" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="66.0" />
+                      </children>
+               <BorderPane.margin>
+                  <Insets right="10.0" />
+               </BorderPane.margin>
+                  </AnchorPane>
+         </center>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
         </BorderPane>
     </children>
 </StackPane>

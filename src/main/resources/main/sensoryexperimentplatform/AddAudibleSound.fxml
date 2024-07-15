@@ -8,9 +8,9 @@
 
 <AnchorPane prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/AddAudibleSound_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.addAudibleSoundController">
     <children>
-        <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="253.0" prefWidth="520.0" stylesheets="@../../static/stylesheets/AddAudibleSound_CSS.css">
+        <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="247.0" prefWidth="524.0" stylesheets="@../../static/stylesheets/AddAudibleSound_CSS.css">
             <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="570.0" prefWidth="520.0" style="-fx-background-color: white;">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="570.0" prefWidth="524.0" style="-fx-background-color: white;">
                     <children>
                         <Label layoutX="28.0" layoutY="14.0" styleClass="property" stylesheets="@../../static/stylesheets/AddAudibleSound_CSS.css" text="Properties" />
                         <Label layoutX="28.0" layoutY="64.0" styleClass="normallabel" stylesheets="@../../static/stylesheets/AddAudibleSound_CSS.css" text="Title Text" />
