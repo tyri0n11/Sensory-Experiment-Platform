@@ -36,6 +36,40 @@ public class Experiment {
         elapsedTime= 0;
         stages = new ArrayList<>();
     }
+
+    public Experiment(Experiment selectedExperiment) {
+        this.creatorName = selectedExperiment.getCreatorName();
+        this.experimentName = selectedExperiment.getExperimentName();
+        this.description = selectedExperiment.getDescription();
+        this.note = selectedExperiment.getNote();
+        this.version = selectedExperiment.getVersion();
+        this.id = selectedExperiment.getId();
+        this.created_date = selectedExperiment.getCreated_date();
+        elapsedTime= 0;
+        stages = new ArrayList<>();
+        for (Object o : selectedExperiment.getStages()) {
+            if (o instanceof Vas) {
+                ((Vas) o).setDefaultResult();
+            }
+            if (o instanceof gLMS) {
+                ((gLMS) o).setDefaultResult();
+            }
+            if (o instanceof RatingContainer) {
+                RatingContainer ratingContainer = new RatingContainer(((RatingContainer) o).isRandomize(), ((RatingContainer) o).getMinTime());
+                for (Object subO : ((RatingContainer) o).container) {
+                    if (subO instanceof Vas) {
+                        ((Vas) subO).setDefaultResult();
+                    }
+                    if (subO instanceof gLMS) {
+                        ((gLMS) subO).setDefaultResult();
+                    }
+                    ratingContainer.addStage((Stage) subO);
+                }
+            }
+            stages.add(o);
+        }
+    }
+
     public void addNoticeStage(String title, String content, String buttonText,
                                String helpText, boolean alert){
 

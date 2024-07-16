@@ -23,10 +23,13 @@ import main.sensoryexperimentplatform.models.listOfExperiment;
 
 import java.io.IOException;
 import java.util.Stack;
+import java.util.concurrent.ScheduledExecutorService;
 
 public class DashBoardController {
     private dashBoard_VM dashBoard_vm;
 
+    private ScheduledExecutorService executorService;
+    private long startTime, elapsedTime;
     @FXML
     private TableView<Experiment> contentTable;
 
@@ -145,7 +148,9 @@ public class DashBoardController {
                                     Parent root = fillNameLoader.load();
 
                                     FillNameController controller = fillNameLoader.getController();
-                                    FillName_VM viewModel = new FillName_VM(selectedExperiment);
+                                    //use cloned object
+                                    Experiment newE = new Experiment(selectedExperiment);
+                                    FillName_VM viewModel = new FillName_VM(newE);
                                     controller.setViewModel(viewModel);
 
                                     Stage dialog = new Stage();

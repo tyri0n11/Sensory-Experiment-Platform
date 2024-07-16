@@ -13,6 +13,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.viewmodel.*;
 import main.sensoryexperimentplatform.models.Experiment;
@@ -75,6 +76,13 @@ public class FillNameController {
 
         Stage stage = new Stage();
         Scene scene = new Scene(root);
+        stage.setOnCloseRequest((WindowEvent event) -> {
+            // Perform any necessary cleanup here
+            System.out.println("Experiment is closing");
+            stage.close();
+            controller.stopTimer();
+//            scene.getWindow().hide();
+        });
         stage.setScene(scene);
         stage.setFullScreen(true);
         stage.setFullScreenExitHint("Press any keys to exit full screen");
@@ -86,5 +94,6 @@ public class FillNameController {
         stage.show();
 
     }
+
 
 }

@@ -7,17 +7,14 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage; // Explicit import for JavaFX Stage
+import javafx.stage.WindowEvent;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.viewmodel.*;
 import main.sensoryexperimentplatform.models.*;
-import main.sensoryexperimentplatform.models.Timer;
 
-import javax.swing.*;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
+
 
 
 public class RunController {
@@ -44,6 +41,7 @@ public class RunController {
     private RunExperiment_VM viewModel;
     private Experiment experiment;
 
+
     public void setViewModel(RunExperiment_VM viewModel){
         this.viewModel = viewModel;
         this.experiment = viewModel.getExperiment();
@@ -52,6 +50,7 @@ public class RunController {
         startTimer();
         bindViewModel();
     }
+
     //timer tracks the experiment
     private void startTimer() {
         executorService = Executors.newSingleThreadScheduledExecutor();
@@ -64,7 +63,7 @@ public class RunController {
         }, 0, 1, TimeUnit.SECONDS);
     }
     //stop tracking time
-    private void stopTimer() {
+    public void stopTimer() {
         if (executorService != null && !executorService.isShutdown()) {
             executorService.shutdown();
         }
@@ -244,11 +243,9 @@ public class RunController {
     }
 
     private void autoClose() {
-        // Get a handle to the stage
         Stage stage = (Stage) content.getScene().getWindow();
-        // Close the stage
+        stopTimer();
         stage.close();
     }
-
 
 }
