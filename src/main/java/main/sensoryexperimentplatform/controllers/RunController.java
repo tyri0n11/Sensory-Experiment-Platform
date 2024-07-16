@@ -13,12 +13,19 @@ import main.sensoryexperimentplatform.models.*;
 import main.sensoryexperimentplatform.models.Timer;
 
 import javax.swing.*;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 
 public class RunController {
     private String FILE_NAME;
     double processed = 0.0;
+
+    private ScheduledExecutorService executorService;
+    private long startTime, elapsedTime;
     @FXML
     private AnchorPane content;
 
@@ -42,7 +49,25 @@ public class RunController {
         this.experiment = viewModel.getExperiment();
         this.FILE_NAME = viewModel.getFileName()+"_"+DataAccess.getCurrentFormattedTime();;
         //viewModel.getFileName()+"_"+DataAccess.getCurrentFormattedTime();
+        startTimer();
         bindViewModel();
+    }
+    //timer tracks the experiment
+    private void startTimer() {
+        executorService = Executors.newSingleThreadScheduledExecutor();
+        startTime = System.currentTimeMillis();
+        executorService.scheduleAtFixedRate(() ->{
+            long currentTime = System.currentTimeMillis();
+            elapsedTime = (currentTime - startTime) / 1000;
+            experiment.elapsedTime = Math.toIntExact(elapsedTime);
+            System.out.println("Elapsed time: "+elapsedTime +" seconds");
+        }, 0, 1, TimeUnit.SECONDS);
+    }
+    //stop tracking time
+    private void stopTimer() {
+        if (executorService != null && !executorService.isShutdown()) {
+            executorService.shutdown();
+        }
     }
     private void updateProgress(double processed){
 
@@ -126,7 +151,6 @@ public class RunController {
                     }else btn_Next.setDisable(false);
 
                     vm.conductedTextProperty().addListener((observable, oldValue, newValue) -> {
-                        System.out.println(newValue);
                         if (newValue != null) {
                             btn_Next.setDisable(false);
                         }
@@ -153,7 +177,6 @@ public class RunController {
                     }else btn_Next.setDisable(false);
 
                     vm.conductedTextProperty().addListener((observable, oldValue, newValue) -> {
-                        System.out.println(newValue);
                         if (newValue != null) {
                             btn_Next.setDisable(false);
                         }
@@ -215,7 +238,7 @@ public class RunController {
         }
     }
     private void handleFinalNext() throws IOException {
-
+        stopTimer();
         DataAccess.quickSave(experiment, FILE_NAME);
         autoClose();
     }

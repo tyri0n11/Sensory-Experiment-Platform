@@ -377,6 +377,7 @@ public class DataAccess {
             }
             saveResult(writer,o);
         }
+        writer.write("Elapsed Time," + experiment.elapsedTime + ", seconds");
 
 
         writer.flush();
