@@ -45,14 +45,14 @@ public class Experiment {
             }
             if (o instanceof RatingContainer) {
                 int i = 0;
-                for (Object subO : ((RatingContainer) o).container) {
+                for (containerObject subO : ((RatingContainer) o).container) {
                     if (subO instanceof Vas) {
                         ((Vas) subO).setDefaultResult();
                     }
                     if (subO instanceof gLMS) {
                         ((gLMS) subO).setDefaultResult();
                     }
-                    ((RatingContainer) o).addStage((containerObject) subO);
+                    ((RatingContainer) o).addStage(subO);
                 }
             }
             stages.add(o);
