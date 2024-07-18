@@ -1,6 +1,7 @@
 package main.sensoryexperimentplatform.controllers;
 
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -33,6 +34,9 @@ public class RunController {
     private Button btn_back;
 
     @FXML
+    private Label elapsedTime_label;
+
+    @FXML
     private ProgressBar progress_bar;
 
     @FXML
@@ -59,7 +63,11 @@ public class RunController {
             long currentTime = System.currentTimeMillis();
             elapsedTime = (currentTime - startTime) / 1000;
             experiment.elapsedTime = Math.toIntExact(elapsedTime);
-            System.out.println("Elapsed time: "+elapsedTime +" seconds");
+
+            long minutes = experiment.elapsedTime / 60;
+            long seconds = experiment.elapsedTime % 60;
+            String formattedTime = String.format("%d:%02d", minutes, seconds);
+            Platform.runLater(() -> elapsedTime_label.setText(formattedTime));
         }, 0, 1, TimeUnit.SECONDS);
     }
     //stop tracking time
