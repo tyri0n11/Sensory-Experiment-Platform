@@ -11,10 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="update: run_experiment: add elapsed time">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/DashBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/DashBoardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/FillNameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/FillNameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/RunController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/Experiment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/Experiment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/RatingContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/RatingContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/gLMS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/models/gLMS.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,18 +52,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-    &quot;lastFilter&quot;: {
-    }
-    }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="3b4e63b0-bfac-4c7e-b9c0-959d55cc3dec" />
-        <option name="url" value="https://github.com/tyri0n11/Sensory-Experiment-Platform.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {}
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/tyri0n11/Sensory-Experiment-Platform.git",
+    "accountId": "3b4e63b0-bfac-4c7e-b9c0-959d55cc3dec"
+  }
+}]]></component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="true" />
   </component>
@@ -248,8 +245,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17890.1" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17890.1" />
       </set>
     </attachedChunks>
   </component>
@@ -315,6 +312,7 @@
       <workItem from="1720541148476" duration="2304000" />
       <workItem from="1721115121768" duration="1815000" />
       <workItem from="1721117328030" duration="4097000" />
+      <workItem from="1721289769097" duration="1371000" />
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />

@@ -12,6 +12,21 @@ public class RatingContainer {
         this.isRandomize = isRandomize;
         container = new ArrayList<>();
     }
+    public RatingContainer(RatingContainer other){
+        this.isRandomize = other.isRandomize;
+        this.minTime = other.minTime;
+        container = new ArrayList<>();
+        for (Object subO : other.container) {
+            if (subO instanceof Vas) {
+                Vas temp = new Vas((Vas) subO);
+                addStage(temp);
+            }
+            if (subO instanceof gLMS) {
+                gLMS temp = new gLMS((gLMS) subO);
+                addStage(temp);
+            }
+        }
+    }
     public void randomizeContainer(){
         if(isRandomize){
             Collections.shuffle(container);

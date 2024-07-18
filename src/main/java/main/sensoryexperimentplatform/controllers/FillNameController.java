@@ -50,7 +50,8 @@ public class FillNameController {
 
     @FXML
     void handleApproveBtn(MouseEvent event) throws IOException, CloneNotSupportedException {
-        runExperiment(viewModel.getExperiment(), viewModel.getFileName());
+        Experiment experiment = new Experiment(viewModel.getExperiment());
+        runExperiment(experiment, viewModel.getFileName());
         close();
     }
 

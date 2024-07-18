@@ -17,6 +17,7 @@ public class gLMS extends Stage {
         response = false;
         this.helpText = "";
     }
+
     public gLMS(String title, String buttonText, String content, String helpText, boolean alert){
         super(title,content);
         this.title = title;

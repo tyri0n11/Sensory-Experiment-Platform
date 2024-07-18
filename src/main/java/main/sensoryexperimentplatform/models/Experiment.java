@@ -49,24 +49,17 @@ public class Experiment {
         stages = new ArrayList<>();
         for (Object o : selectedExperiment.getStages()) {
             if (o instanceof Vas) {
-                ((Vas) o).setDefaultResult();
+                Vas temp = new Vas((Vas) o);
+                stages.add(temp);
             }
             if (o instanceof gLMS) {
-                ((gLMS) o).setDefaultResult();
+                gLMS temp = new gLMS((gLMS) o);
+                stages.add(temp);
             }
             if (o instanceof RatingContainer) {
-                RatingContainer ratingContainer = new RatingContainer(((RatingContainer) o).isRandomize(), ((RatingContainer) o).getMinTime());
-                for (Object subO : ((RatingContainer) o).container) {
-                    if (subO instanceof Vas) {
-                        ((Vas) subO).setDefaultResult();
-                    }
-                    if (subO instanceof gLMS) {
-                        ((gLMS) subO).setDefaultResult();
-                    }
-                    ratingContainer.addStage((Stage) subO);
-                }
+                RatingContainer ratingContainer = new RatingContainer((RatingContainer) o);
+                stages.add(ratingContainer);
             }
-            stages.add(o);
         }
     }
 
