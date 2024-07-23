@@ -20,6 +20,7 @@ public class listOfExperiment extends Observable {
 
     public static void addExperiment(Experiment experiment) throws Exception {
         listOfExperiment.getInstance().add(experiment);
+        //DataAccess.saveNewExperiment(experiment);
         notifyAllObservers();
     }
 

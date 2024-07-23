@@ -2,15 +2,16 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="789.0" stylesheets="@../../static/stylesheets/AddSound_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.assignSoundController">
     <children>
-              <AnchorPane prefHeight="698.0" prefWidth="770.0">
+              <AnchorPane fx:id="showSound" prefHeight="698.0" prefWidth="770.0">
                   <children>
-                      <AnchorPane fx:id="AddsoundPane" layoutX="24.0" layoutY="71.0" prefHeight="561.0" prefWidth="566.0" />
                       <AnchorPane layoutX="598.0" layoutY="49.0" prefHeight="569.0" prefWidth="171.0">
                           <children>
                               <Button fx:id="btn_play" layoutX="18.0" layoutY="14.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="136.0" stylesheets="@/static/stylesheets/AddSound_CSS.css" text="Play" />
@@ -23,6 +24,10 @@
                           </children>
                       </AnchorPane>
                     <Label fx:id="SoundSelectTionLabel" layoutX="24.0" layoutY="14.0" stylesheets="@/static/stylesheets/AddSound_CSS.css" text="Sound Selection" />
+            <VBox fx:id="ShowSound" layoutX="24.0" layoutY="68.0" prefHeight="561.0" prefWidth="566.0" style="-fx-background-color: white;">
+               <children>
+                  <ListView fx:id="SoundList" prefHeight="562.0" prefWidth="566.0" />
+               </children></VBox>
                   </children>
               </AnchorPane>
     </children>

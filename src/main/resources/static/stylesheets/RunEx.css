@@ -6,6 +6,18 @@
     -fx-font-weight: Bold;
     -fx-text-fill: #397E82;
 }
+#lbl_Run{
+    -fx-pref-width: 778px;
+    -fx-pref-height: 61px;
+
+    -fx-font-family: 'Baloo 2';
+    -fx-font-style: normal;
+    -fx-font-weight: 600;
+    -fx-font-size: 36px;
+    -fx-line-height: 58px;
+
+    -fx-text-fill: #397E82;
+}
 #elapsedTime_label{
     -fx-font-size: 24px;
     -fx-font-weight: bold;

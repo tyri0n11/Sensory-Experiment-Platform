@@ -1,5 +1,6 @@
 package main.sensoryexperimentplatform.models;
 
+import java.awt.*;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -53,7 +54,8 @@ public class DataAccess {
 
     public static Experiment getImportedExperiment(String file_path) throws IOException {
         Experiment currentExperiment = new Experiment("default","default","default","default",0,0,"default");
-
+        Start currentStart = new Start("default","default","default",false,null, null,0,100,null);
+        currentExperiment.addStart(currentStart);
         try (BufferedReader reader = new BufferedReader(new FileReader(file_path))) {
             String line;
             RatingContainer rc = null;
@@ -81,8 +83,8 @@ public class DataAccess {
                     Matcher matcher = patternExperiment.matcher(line);
 
                     if (matcher.find()) {
-                        currentExperiment.setDescription(matcher.group(1));
-                        currentExperiment.setNote(matcher.group(3));
+                        currentStart.setTitle(matcher.group(0));
+                        currentStart.setContent(matcher.group(1));
                     }
                 } else if (line.startsWith("noticeStage")) {
                     Pattern noticePattern = Pattern.compile("noticeStage\\(\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\"\\)");
@@ -201,7 +203,8 @@ public class DataAccess {
     }
     public static Experiment getExperimentIndividually() throws IOException {
         Experiment currentExperiment = new Experiment("null","null","null","null",1,000,null);
-
+        Start currentStart = new Start("default","default","default",false,null, null,0,100,null);
+        currentExperiment.addStart(currentStart);
         try (BufferedReader reader = new BufferedReader(new FileReader(loadFilePath))) {
             String line;
             RatingContainer rc = null;
@@ -229,8 +232,8 @@ public class DataAccess {
                     Matcher matcher = patternExperiment.matcher(line);
 
                     if (matcher.find()) {
-                        currentExperiment.setDescription(matcher.group(1));
-                        currentExperiment.setNote(matcher.group(3));
+                        currentStart.setTitle(matcher.group(0));
+                        currentStart.setContent(matcher.group(1));
                     }
                 } else if (line.startsWith("noticeStage")) {
                     Pattern noticePattern = Pattern.compile("noticeStage\\(\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\"\\)");
@@ -420,11 +423,13 @@ public class DataAccess {
         return numOfResults;
     }
 
-    public static Experiment importExperiment(String loadFilePath) throws Exception{
+    public static void importExperiment(String loadFilePath) throws Exception{
         Experiment currentExperiment = new Experiment(null,null,null,null,1,000,null);
         RatingContainer rc = null;
         boolean isContainer = false;
         String line;
+        Start currentStart = new Start("default","default","default",false,null, null,0,100,null);
+        currentExperiment.addStart(currentStart);
         //notice, input, timer, vas, glms, question, rating container, course
 
         try(BufferedReader reader = new BufferedReader(new FileReader(loadFilePath))){
@@ -450,8 +455,8 @@ public class DataAccess {
                     Matcher matcher = patternExperiment.matcher(line);
 
                     if (matcher.find()) {
-                        currentExperiment.setDescription(matcher.group(1));
-                        currentExperiment.setNote(matcher.group(3));
+                        currentStart.setTitle(matcher.group(0));
+                        currentStart.setContent(matcher.group(1));
                     }
                 } else if (line.startsWith("noticeStage")) {
                     Pattern noticePattern = Pattern.compile("noticeStage\\(\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\"\\)");
@@ -568,13 +573,13 @@ public class DataAccess {
                 }
             }
         }
-        return currentExperiment;
     }
 
     public static void loadExperiments() throws Exception{
         Experiment currentExperiment = new Experiment(null,null,null,null,1,000,null);
         RatingContainer rc = null;
         boolean isContainer = false;
+        System.out.println (currentExperiment.getStart().getTitle());
         String line;
         //notice, input, timer, vas, glms, question, rating container, course
 
@@ -601,8 +606,8 @@ public class DataAccess {
                     Matcher matcher = patternExperiment.matcher(line);
 
                     if (matcher.find()) {
-                        currentExperiment.setDescription(matcher.group(1));
-                        currentExperiment.setNote(matcher.group(3));
+                        currentExperiment.getStart().setTitle(matcher.group(0));
+                        currentExperiment.getStart().setContent(matcher.group(1));
                     }
                 } else if (line.startsWith("noticeStage")) {
                     Pattern noticePattern = Pattern.compile("noticeStage\\(\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\"\\)");
@@ -719,26 +724,6 @@ public class DataAccess {
             }
         }
 
-    }
-    public static void main(String[] args) {
-        try {
-            ArrayList<Experiment> experiments = listOfExperiment.getInstance();
-
-            // Print the imported experiments
-            for (Experiment experiment : experiments) {
-
-                System.out.println("Experiment Name: " + experiment.getExperimentName());
-                System.out.println("Creator Name: " + experiment.getCreatorName());
-                System.out.println("Version: " + experiment.getVersion());
-                System.out.println("Created date: " + experiment.getCreated_date());
-                System.out.println("Id: "+ experiment.getId());
-                System.out.println("Number of results = " + experiments.get(0).getNumber_of_results());
-
-                System.out.println();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public static void updateFile() throws Exception {

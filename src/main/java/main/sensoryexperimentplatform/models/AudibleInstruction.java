@@ -1,5 +1,4 @@
-
-        package main.sensoryexperimentplatform.models;
+package main.sensoryexperimentplatform.models;
 
 import javax.sound.sampled.*;
 import java.io.File;
@@ -12,27 +11,36 @@ import java.util.Map;
 public class AudibleInstruction extends Stage {
     private String title;
     private String content;
-    private String soundFilePath;
+
     private String buttonText;
     private String helpText;
-    private List<String> soundNames;
-    private List<String> soundFilePaths;
-    //    private Map<String, String> soundMap;
-    private List<String> soundNameshow;
+    private ArrayList<String> soundNamesList;
+
+    private ArrayList<String> soundFilePaths;
+
+
+    private Map<String, String> soundMap;
+    private ArrayList<String> soundNameshow;
+
 
     public AudibleInstruction(String title, String content, String buttonText,String helpText){
-        super(title, content);
-        this.content=content;
-        this.title= title;
+      super(title, content);
+      this.content=content;
+      this.title= title;
         this.buttonText= buttonText;
         this.helpText = helpText;
-        soundNames = new ArrayList<>();
+        soundMap = new HashMap<>();
         soundFilePaths = new ArrayList<>();
-        soundNames.add("hello");
-        soundNames.add("1");
-        soundNames.add("2");
-        soundNames.add("3");
-        soundNames.add("aaaaaa");
+        soundNameshow = new ArrayList<>();
+        soundNameshow.add("music");
+        soundNameshow.add("gud morning");
+        soundNameshow.add("quynh anh");
+        soundNameshow.add("quynh anh");
+        soundNameshow.add("quynh anh");
+        soundNameshow.add("skylar");
+        soundNamesList = new ArrayList<>();
+
+
 
     }
 
@@ -66,26 +74,51 @@ public class AudibleInstruction extends Stage {
     public void setHelpText(String helpText) {
         this.helpText = helpText;
     }
-    public List<String> getSoundNames() {
-        System.out.println("hello");
-        return soundNames;
-    }
+
 
     public List<String> getSoundFilePaths() {
         return soundFilePaths;
     }
 
-    public void addSound(String name, String soundFilePath) {
-        soundNames.add(name);
-        soundFilePaths.add(soundFilePath);
-//        soundMap.put(name, soundFilePath);
+    public ArrayList<String> getSoundNameshow() {
+        return soundNameshow;
+    }
+    public void addSoundShow(String name){
+        soundNameshow.add(name);
+    }
+    public ArrayList<String>getSoundNameList(){
+        return soundNamesList;
+    }
+    public void addSoundNameList(String name){
+        soundNamesList.add(name);
+    }
+    public  ArrayList<String>getSoundFilePath(){
+        return soundFilePaths;
+    }
+    public void addSoundFilePath(String sound){
+        soundFilePaths.add(sound);
+    }
+    public Map<String, String> getSoundMap() {
+        return soundMap;
+    }
+    public void addSound(String name, String filePath) {
+        soundMap.put(name, filePath);
     }
 
+
+//    public String getSoundFilePath(String name) {
+//        return soundMap.get(name);
+//    }
 
 
     public String toString() {
 
-        return "Audio(\"" + title + "\",\"" + content +
-                "\",\"" + buttonText + "\",\"" + helpText + "\")";
+            return "Audio(\"" + title + "\",\"" + content +
+                    "\",\"" + buttonText + "\",\"" + helpText + "\")";
+        }
     }
-}
+
+
+
+
+

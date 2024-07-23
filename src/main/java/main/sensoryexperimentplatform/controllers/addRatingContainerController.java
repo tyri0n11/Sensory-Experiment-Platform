@@ -15,16 +15,9 @@ public class addRatingContainerController {
 
     @FXML
     private TextField txt_minTime;
-
-    public void initialize() {
-        viewModel = new ratingContainer_VM();
-        bindViewModel();
-
-
-    }
-
     public void setViewModel(ratingContainer_VM viewModel) {
         this.viewModel = viewModel;
+        bindViewModel();
     }
 
     public void bindViewModel() {

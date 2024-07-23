@@ -55,6 +55,22 @@ public class glmsStage_VM implements choose {
         checkB_sound.addListener((observableValue, oldValue, newValue) -> onSoundChange(newValue));
     }
 
+    public glmsStage_VM(ratingContainer_VM rating) {
+        this.glms = new gLMS("User Input",null,null,null, false);;
+        txt_help = new SimpleStringProperty(glms.getHelpText());
+        txt_LowAncTxt = new SimpleStringProperty(glms.getButtonText());
+        txt_question = new SimpleStringProperty(glms.getTitle());
+        checkB_sound = new SimpleBooleanProperty(glms.getAlert());
+        checkB_swap  = new SimpleBooleanProperty(glms.isResponse());
+        txt_yes= new SimpleStringProperty();
+        txt_help.addListener((observableValue, oldValue, newValue) -> onHelp(newValue));
+        txt_LowAncTxt.addListener((observableValue, oldValue, newValue) -> onLowAnc(newValue));
+        checkB_swap.addListener((observableValue, oldValue, newValue) -> onSwapChange(newValue));
+        txt_question.addListener((observableValue, oldValue, newValue) -> onQuestionTextChange(newValue));
+        checkB_sound.addListener((observableValue, oldValue, newValue) -> onSoundChange(newValue));
+        rating.addContainerStage(glms);
+    }
+
 
     private void onHelp(String newValue) {
         glms.setHelpText(newValue);
@@ -130,7 +146,7 @@ public class glmsStage_VM implements choose {
     }
 
     @Override
-    public void modify(AnchorPane anchorpane,Stack<AddTasteVM> stack) throws IOException {
+    public void modify(AnchorPane anchorpane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("GLMS.fxml"));
         AnchorPane newContent = fxmlLoader.load();
         anchorpane.getChildren().setAll(newContent);
@@ -139,7 +155,7 @@ public class glmsStage_VM implements choose {
     }
 
     @Override
-    public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack,Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12) throws IOException {
+    public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Stack<ratingContainer_VM> ratingContainerVm) throws IOException {
 
     }
 

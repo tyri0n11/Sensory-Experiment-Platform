@@ -24,6 +24,7 @@ public class AddCourseController {
     @FXML
     private TextField txt_title;
 
+
     private AddCourseVM view;
 
 
@@ -39,7 +40,6 @@ public class AddCourseController {
     public void setViewModel(AddCourseVM view){
         this.view = view;
         bind();
-
     }
 
 }

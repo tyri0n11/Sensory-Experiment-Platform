@@ -1,6 +1,7 @@
 package main.sensoryexperimentplatform.models;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
@@ -15,6 +16,7 @@ public class Course extends Stage {
     private int refillWeight;
     private Duration duration;
     private int quantity;
+    private Periodic periodic;
     public Course(String title, String content,String buttonText, int refillWeight, long duration, int quantity, String helpText,String endStatement){
         super(title, content);
         this.buttonText = buttonText;
@@ -36,6 +38,9 @@ public class Course extends Stage {
                 "Click on Meal Finished ONLY when you are sure you have had enough food.";
         buttonText = "Finished";
         endStatement = "End session";
+    }
+    public void setPeriodic(Periodic periodic){
+        this.periodic = periodic;
     }
     public void show(){
         System.out.println("Title: " + title);
@@ -94,4 +99,7 @@ public class Course extends Stage {
     }
 
 
+    public Periodic getPeriodic() {
+        return periodic;
+    }
 }

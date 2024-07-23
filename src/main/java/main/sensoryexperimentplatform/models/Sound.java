@@ -8,6 +8,13 @@ public class Sound {
     private String soundFilePath;
     private String name;
 
+    public Sound(String name, String soundFilePath){
+        this.name = name;
+        this.soundFilePath = soundFilePath;
+
+    }
+
+
     public String getSoundFilePath() {
         return soundFilePath;
     }

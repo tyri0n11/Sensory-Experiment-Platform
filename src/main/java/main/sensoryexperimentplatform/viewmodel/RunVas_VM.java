@@ -29,6 +29,7 @@ public class RunVas_VM {
             setResult(newValue.intValue());
             conducted.set(DataAccess.getCurrentFormattedTime());
             setDate();
+
         });
     }
 

@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.controllers.addAudibleSoundController;
 import main.sensoryexperimentplatform.models.AudibleInstruction;
+import main.sensoryexperimentplatform.models.Experiment;
 
 import java.io.IOException;
 import java.util.Stack;
@@ -18,8 +19,10 @@ public class audibleSound_VM implements choose {
     private StringProperty helpText;
     private StringProperty buttonText;
     private AudibleInstruction audibleInstruction;
+    private Experiment experiment;
 
-    public audibleSound_VM(){
+    public audibleSound_VM(Experiment experiment){
+        this.experiment = experiment;
         this.audibleInstruction = new AudibleInstruction("Hello","hello","hello","hello");
         this.title = new SimpleStringProperty(audibleInstruction.getTitle());
         this.content = new SimpleStringProperty(audibleInstruction.getContent());
@@ -42,6 +45,32 @@ public class audibleSound_VM implements choose {
             setTitle(newValue);
         });
     }
+//    public audibleSound_VM(Experiment experiment){
+//        this.experiment = experiment;
+//        this.audibleInstruction = new AudibleInstruction("Hello","hello","hello","hello");
+//        this.title = new SimpleStringProperty(audibleInstruction.getTitle());
+//        this.content = new SimpleStringProperty(audibleInstruction.getContent());
+//        this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
+//        this.helpText = new SimpleStringProperty(audibleInstruction.getButtonText());
+//
+//        buttonText.addListener((observable, oldValue, newValue) -> {
+//            setButtonText(newValue);
+//
+//        });
+//
+//        helpText.addListener((observable, oldValue, newValue) -> {
+//            setHelpText(newValue);
+//        });
+//        title.addListener((observable, oldValue, newValue) -> {
+//            setTitle(newValue);
+//
+//        });
+//        content.addListener((observable, oldValue, newValue) -> {
+//            setTitle(newValue);
+//        });
+//        experiment.addAudibleInstruction(audibleInstruction);
+//
+//    }
 
     public StringProperty titleProperty() {
         return title;
@@ -88,18 +117,18 @@ public class audibleSound_VM implements choose {
 
 
     @Override
-    public void modify(AnchorPane anchorPane,Stack<AddTasteVM> stack) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddAudibleSound.fxml"));
-               AnchorPane newContent = fxmlLoader.load();
-                 anchorPane.getChildren().setAll(newContent);
-                addAudibleSoundController controller = fxmlLoader.getController();
-                controller.setViewModel(this);
-//               btn_assignSound.setDisable(false);
+    public void modify(AnchorPane anchorPane,Stack<AddTasteVM> stack, Stack <AddCourseVM> add) throws IOException {
+
     }
 
     @Override
-    public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12) throws IOException {
-
+    public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack <AddCourseVM> add, Button button1, Button button2, Button btn_assignSound, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Stack<ratingContainer_VM> ratingContainerVm) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddAudibleSound.fxml"));
+        AnchorPane newContent = fxmlLoader.load();
+        anchorPane.getChildren().setAll(newContent);
+        addAudibleSoundController controller = fxmlLoader.getController();
+        controller.setViewModel(this);
+               btn_assignSound.setDisable(false);
     }
     @Override
     public String getTitle(){

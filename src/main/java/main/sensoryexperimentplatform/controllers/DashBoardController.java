@@ -213,6 +213,7 @@ public class DashBoardController {
 
         Stage stage = new Stage();
         stage.setTitle("Edit experiment");
+        stage.setResizable(false);
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

@@ -1,8 +1,11 @@
 package main.sensoryexperimentplatform.models;
 
+import javafx.scene.paint.Color;
+
 import java.util.*;
 
 public class Experiment {
+    private Start start;
     private String creatorName, experimentName, description, note, created_date;
     public int version, number_of_results, id, elapsedTime;
     ArrayList<Object> stages;
@@ -23,6 +26,7 @@ public class Experiment {
         stages = new ArrayList<>();
         version = 1;
         elapsedTime= 0;
+        start = new Start("default","default","default",false,null, null,0,100,null);
     }
 
     public Experiment(String creatorName, String experimentName, String description, String note, int version, int id, String created_date) {
@@ -33,10 +37,10 @@ public class Experiment {
         this.version = version;
         this.id = id;
         this.created_date = created_date;
-        elapsedTime= 0;
         stages = new ArrayList<>();
+        elapsedTime= 0;
+        start = new Start("default","default","default",false,null, null,0,100,null);
     }
-
     public Experiment(Experiment selectedExperiment) {
         this.creatorName = selectedExperiment.getCreatorName();
         this.experimentName = selectedExperiment.getExperimentName();
@@ -121,7 +125,9 @@ public class Experiment {
     public void addRatingContainerStage(boolean isRandomize, int time){
         RatingContainer container = new RatingContainer(isRandomize,time);
         stages.add(container);
-
+    }
+    public void addRatingContainerStage(RatingContainer ratingContainer){
+        stages.add(ratingContainer);
     }
     public void addTasteTest(String noticeStageContent, String consumptionInstruction, String question,
                              String lowAnchorText, String highAnchorText, int lowAnchorValue,
@@ -148,13 +154,15 @@ public class Experiment {
     }
     public void addCourse (Course course){
         stages.add(course);
-
     }
     public void addQuestion (Question question){
         stages.add(question);
     }
     public void addInput(Input input){
         stages.add(input);
+    }
+    public void addConditionalStatement(conditionalStatement ConditionalStatement){
+        stages.add(ConditionalStatement);
     }
 
     public ArrayList<Object> getStages() {
@@ -258,5 +266,25 @@ public class Experiment {
                 stagesToString() +"endExperiment()\n";
     }
 
+    public void addStartStage(String title, String content, String buttonText, Boolean requireBalance, Color backGroundColor, Color TextColor
+            , long StartOfStageDelay, long EndOfStageDelay, Color disableButtonColor){
+        Start stage = new Start(title,
+                content,
+                buttonText,
+                requireBalance,
+                backGroundColor,
+                TextColor,StartOfStageDelay,
+                EndOfStageDelay, disableButtonColor);
+        this.start = stage;
+        stages.add(stage);
+    }
 
+    public Start getStart() {
+        return start;
+    }
+
+    public void addStart(Start start) {
+        this.start = start;
+        stages.add(start);
+    }
 }
