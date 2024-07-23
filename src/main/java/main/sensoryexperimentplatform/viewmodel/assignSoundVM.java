@@ -21,18 +21,21 @@ public class assignSoundVM {
     }
 
     public void addListSoundshow(String name){
-//        listNameshow.add(name);
-        audibleInstruction.getSoundNameshow().add(name);
+        listNameshow.add(name);
+
 
     }
     public void addListSoundName(String name){
         listSoundName.add(name);
-        audibleInstruction.getSoundNameList();
+        audibleInstruction.getSoundNameList().add(name);
     }
+
 
     public ArrayList<String> getListNameshow() {
         return listNameshow;
     }
+
+
     public Map<String, String> getSoundMap() {
         return audibleInstruction.getSoundMap();
     }

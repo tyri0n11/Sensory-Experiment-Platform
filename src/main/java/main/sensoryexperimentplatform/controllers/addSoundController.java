@@ -66,9 +66,9 @@ public class addSoundController {
         viewModel.addListSoundshow(txt_name.getText());
         viewModel.addSound(txt_name.getText(),txt_file.getText());
         NotiAddSound.notifyObject();
-        System.out.println(viewModel.getSoundMap());
         Stage currentStage = (Stage) btn_cancel.getScene().getWindow();
         currentStage.close();
+        System.out.println(viewModel.getListNameshow());
 
     }
 

@@ -52,11 +52,11 @@ public class  assignSoundController {
     }
 
     public void loadSoundRadioButtons() {
-        SoundName.clear();
-        SoundName.addAll(viewModel.getListNameshow());
-        SoundList.setItems(SoundName);
         SoundList.setCellFactory(param -> new RadioListCell());
-
+        SoundName.clear();
+        SoundList.getItems().clear();
+        SoundName.addAll(viewModel.getListNameshow());
+        SoundList.getItems().addAll(SoundName);
     }
     class RadioListCell extends ListCell<String> {
         @Override
