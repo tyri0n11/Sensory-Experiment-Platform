@@ -26,7 +26,10 @@ public class Experiment {
         stages = new ArrayList<>();
         version = 1;
         elapsedTime= 0;
-        start = new Start("default","default","default",false,null, null,0,100,null);
+        start = new Start("default","default","default",
+                false,null, null,
+                0,100,null);
+        this.created_date = DataAccess.getCurrentFormattedDate();
     }
 
     public Experiment(String creatorName, String experimentName, String description, String note, int version, int id, String created_date) {
