@@ -23,10 +23,13 @@ import main.sensoryexperimentplatform.models.listOfExperiment;
 
 import java.io.IOException;
 import java.util.Stack;
+import java.util.concurrent.ScheduledExecutorService;
 
 public class DashBoardController {
     private dashBoard_VM dashBoard_vm;
 
+    private ScheduledExecutorService executorService;
+    private long startTime, elapsedTime;
     @FXML
     private TableView<Experiment> contentTable;
 
@@ -61,6 +64,17 @@ public class DashBoardController {
        dashBoard_vm = new dashBoard_VM();
        bindViewModel();
 
+        bindColumnWidths();
+    }
+
+    private void bindColumnWidths() {
+        lbl_iD.prefWidthProperty().bind(contentTable.widthProperty().multiply(0.10)); // 10% of table width
+        lbl_creator.prefWidthProperty().bind(contentTable.widthProperty().multiply(0.15)); // 15% of table width
+        lbl_experimentName.prefWidthProperty().bind(contentTable.widthProperty().multiply(0.25)); // 25% of table width
+        lbl_currentVersion.prefWidthProperty().bind(contentTable.widthProperty().multiply(0.10)); // 10% of table width
+        lbl_result.prefWidthProperty().bind(contentTable.widthProperty().multiply(0.10)); // 10% of table width
+        lbl_createDate.prefWidthProperty().bind(contentTable.widthProperty().multiply(0.15)); // 15% of table width
+        lbl_Option.prefWidthProperty().bind(contentTable.widthProperty().multiply(0.15)); // 15% of table width
     }
 
     public void bindViewModel() {
@@ -145,7 +159,9 @@ public class DashBoardController {
                                     Parent root = fillNameLoader.load();
 
                                     FillNameController controller = fillNameLoader.getController();
-                                    FillName_VM viewModel = new FillName_VM(selectedExperiment);
+                                    //use cloned object
+                                    Experiment newE = new Experiment(selectedExperiment);
+                                    FillName_VM viewModel = new FillName_VM(newE);
                                     controller.setViewModel(viewModel);
 
                                     Stage dialog = new Stage();
@@ -224,7 +240,7 @@ public class DashBoardController {
         Parent root = fxmlLoader.load();
 
         Stage stage = new Stage();
-        stage.setTitle("Add Sound");
+        stage.setTitle("New experiment");
         newExController controller = fxmlLoader.getController();
         controller.initialize();
 

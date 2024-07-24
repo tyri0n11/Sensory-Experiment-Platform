@@ -44,8 +44,14 @@ public class Base implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/DashBoard.fxml"));
         AnchorPane newContent = null;
+
         try{
             newContent = loader.load();
+            AnchorPane.setTopAnchor(newContent, 0.0);
+            AnchorPane.setBottomAnchor(newContent, 0.0);
+            AnchorPane.setLeftAnchor(newContent, 0.0);
+            AnchorPane.setRightAnchor(newContent, 0.0);
+            mainContent.getChildren().setAll(newContent);
             DashBoardController controller = new DashBoardController();
             //this.controller = loader.getController();
            // controller.initialize(this);
@@ -53,7 +59,7 @@ public class Base implements Initializable {
         catch (IOException e){
             e.printStackTrace();
         }
-        mainContent.getChildren().setAll(newContent);
+
     }
 
     @FXML
@@ -84,13 +90,18 @@ public class Base implements Initializable {
         AnchorPane newContent = null;
         try{
             newContent = loader.load();
+            AnchorPane.setTopAnchor(newContent, 0.0);
+            AnchorPane.setBottomAnchor(newContent, 0.0);
+            AnchorPane.setLeftAnchor(newContent, 0.0);
+            AnchorPane.setRightAnchor(newContent, 0.0);
+            mainContent.getChildren().setAll(newContent);
             DashBoardController view = loader.getController();
 
         }
         catch (IOException e){
             e.printStackTrace();
         }
-        mainContent.getChildren().setAll(newContent);
+        /*mainContent.getChildren().setAll(newContent);*/
     }
     @FXML
     void importExperiment() throws Exception {

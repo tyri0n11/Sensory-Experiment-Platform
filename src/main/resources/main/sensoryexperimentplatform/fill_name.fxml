@@ -8,11 +8,11 @@
 
 <AnchorPane fx:id="btm_pane" prefHeight="267.0" prefWidth="460.0" stylesheets="/static/stylesheets/FillName.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.FillNameController">
    <children>
-      <AnchorPane fx:id="mainPane" layoutX="14.0" layoutY="34.0" prefHeight="200.0" prefWidth="436.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="53.0">
+      <AnchorPane fx:id="mainPane" layoutX="7.0" layoutY="34.0" prefHeight="203.0" prefWidth="447.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="46.0">
          <children>
-            <Button fx:id="cancel_btn" layoutX="35.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#handleCancelBtn" prefHeight="38.0" prefWidth="65.0" text="Cancel" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="35.0" />
-            <Button fx:id="approve_btn" layoutX="345.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#handleApproveBtn" prefHeight="38.0" prefWidth="65.0" text="Continue" AnchorPane.bottomAnchor="1.0" AnchorPane.rightAnchor="35.0" />
-            <Label fx:id="instruction_lbl" layoutX="61.0" layoutY="30.0" text="Please enter a name for the result file" AnchorPane.bottomAnchor="153.0" AnchorPane.leftAnchor="61.0" AnchorPane.topAnchor="30.0" />
+            <Button fx:id="cancel_btn" layoutX="35.0" layoutY="157.0" mnemonicParsing="false" onMouseClicked="#handleCancelBtn" prefHeight="38.0" prefWidth="65.0" text="Cancel" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="35.0" />
+            <Button fx:id="approve_btn" layoutX="332.0" layoutY="157.0" mnemonicParsing="false" onMouseClicked="#handleApproveBtn" prefHeight="38.0" prefWidth="65.0" text="Continue" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="35.0" />
+            <Label fx:id="instruction_lbl" layoutX="61.0" layoutY="30.0" text="Please enter participant ID" AnchorPane.bottomAnchor="153.0" AnchorPane.leftAnchor="61.0" AnchorPane.topAnchor="30.0" />
             <TextField fx:id="file_name" layoutX="36.0" layoutY="88.0" prefHeight="25.0" prefWidth="361.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" />
          </children>
       </AnchorPane>

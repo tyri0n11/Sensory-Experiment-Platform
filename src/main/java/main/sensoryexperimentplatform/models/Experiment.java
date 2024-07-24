@@ -7,7 +7,7 @@ import java.util.*;
 public class Experiment {
     private Start start;
     private String creatorName, experimentName, description, note, created_date;
-    public int version, number_of_results, id;
+    public int version, number_of_results, id, elapsedTime;
     ArrayList<Object> stages;
     List<Pair<Stage,Integer>> pairs;
     public Experiment(){
@@ -25,8 +25,13 @@ public class Experiment {
 //        setNote(sc.nextLine());
         stages = new ArrayList<>();
         version = 1;
-        start = new Start("default","default","default",false,null, null,0,100,null);
+        elapsedTime= 0;
+        start = new Start("default","default","default",
+                false,null, null,
+                0,100,null);
+        this.created_date = DataAccess.getCurrentFormattedDate();
     }
+
     public Experiment(String creatorName, String experimentName, String description, String note, int version, int id, String created_date) {
         this.creatorName = creatorName;
         this.experimentName = experimentName;
@@ -36,8 +41,35 @@ public class Experiment {
         this.id = id;
         this.created_date = created_date;
         stages = new ArrayList<>();
+        elapsedTime= 0;
         start = new Start("default","default","default",false,null, null,0,100,null);
     }
+    public Experiment(Experiment selectedExperiment) {
+        this.creatorName = selectedExperiment.getCreatorName();
+        this.experimentName = selectedExperiment.getExperimentName();
+        this.description = selectedExperiment.getDescription();
+        this.note = selectedExperiment.getNote();
+        this.version = selectedExperiment.getVersion();
+        this.id = selectedExperiment.getId();
+        this.created_date = selectedExperiment.getCreated_date();
+        elapsedTime= 0;
+        stages = new ArrayList<>();
+        for (Object o : selectedExperiment.getStages()) {
+            if (o instanceof Vas) {
+                Vas temp = new Vas((Vas) o);
+                stages.add(temp);
+            }
+            if (o instanceof gLMS) {
+                gLMS temp = new gLMS((gLMS) o);
+                stages.add(temp);
+            }
+            if (o instanceof RatingContainer) {
+                RatingContainer ratingContainer = new RatingContainer((RatingContainer) o);
+                stages.add(ratingContainer);
+            }
+        }
+    }
+
     public void addNoticeStage(String title, String content, String buttonText,
                                String helpText, boolean alert){
 
@@ -114,16 +146,7 @@ public class Experiment {
         AudibleInstruction temp = new AudibleInstruction(title,content, buttonText,helpText);
         stages.add(temp);
     }
-//    public void addConditionalStatement(boolean value1, boolean value2, boolean variable1, boolean variable2, String value1Text,
-//                                        String value2Text, String variable1Choice, String variable2Choice, String compare){
-//        conditionalStatement stage  = new conditionalStatement(value1, value2,variable1,variable2,value1Text,
-//                value2Text,variable1Choice,variable2Choice,compare);
-//        stages.add(stage);
-//    }
 
-    public void addAnyStage(Object o){
-        stages.addLast(o);
-    }
     //start eating stage
     public void addCourse(String title, String content, String buttonText,
                           int weight, int quantity,long duration,
@@ -227,6 +250,7 @@ public class Experiment {
     }
 
     public void updateVersion(){
+        System.out.println("Version updated successfully");
         version+=1;
     }
 

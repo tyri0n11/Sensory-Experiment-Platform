@@ -1,17 +1,18 @@
 package main.sensoryexperimentplatform.viewmodel;
 
 import javafx.beans.property.*;
+import main.sensoryexperimentplatform.models.DataAccess;
 import main.sensoryexperimentplatform.models.gLMS;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 public class RunGLMS_VM {
     private gLMS stage;
-    private StringProperty question, help;
+    private StringProperty question, help, conducted;
     private DoubleProperty sliderValue;
     private StringProperty button;
-    private IntegerProperty time;
 
     public RunGLMS_VM(gLMS stage){
         this.stage = stage;
@@ -19,23 +20,20 @@ public class RunGLMS_VM {
         question = new SimpleStringProperty(stage.getQuestionText());
         button = new SimpleStringProperty(stage.getButtonText());
         sliderValue = new SimpleDoubleProperty(stage.getResult());
+        conducted = new SimpleStringProperty(stage.getConducted());
 
         sliderValue.addListener(((observableValue, oldValue, newValue) ->{
-            setResult(newValue.doubleValue());
-            System.out.println(stage.getResult());
+            setResult(newValue.intValue());
+            conducted.set(DataAccess.getCurrentFormattedTime());
             setDate();
         } ));
 
     }
-    public String getCurrentFormattedTime() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS");
-        Date now = new Date();
-        return sdf.format(now);
-    }
+
     public void setDate(){
-        stage.setConducted(getCurrentFormattedTime());
+        stage.setConducted(DataAccess.getCurrentFormattedTime());
     }
-    public void setResult(double result){
+    public void setResult(int result){
         stage.setResult(result);
     }
 
@@ -52,5 +50,9 @@ public class RunGLMS_VM {
 
     public DoubleProperty sliderValueProperty() {
         return sliderValue;
+    }
+
+    public StringProperty conductedTextProperty() {
+        return conducted;
     }
 }

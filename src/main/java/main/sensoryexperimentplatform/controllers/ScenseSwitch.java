@@ -2,7 +2,7 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.StackPane;
-
+import main.sensoryexperimentplatform.*;
 import java.io.IOException;
 import java.util.Objects;
 

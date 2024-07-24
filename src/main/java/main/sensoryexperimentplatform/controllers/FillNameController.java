@@ -9,9 +9,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.viewmodel.*;
 import main.sensoryexperimentplatform.models.Experiment;
@@ -47,8 +49,9 @@ public class FillNameController {
     }
 
     @FXML
-    void handleApproveBtn(MouseEvent event) throws IOException {
-        runExperiment(viewModel.getExperiment(), viewModel.getFileName());
+    void handleApproveBtn(MouseEvent event) throws IOException, CloneNotSupportedException {
+        Experiment experiment = new Experiment(viewModel.getExperiment());
+        runExperiment(experiment, viewModel.getFileName());
         close();
     }
 
@@ -64,7 +67,7 @@ public class FillNameController {
         return file_name.getText();
     }
 
-    private void runExperiment(Experiment experiment, String file_name) throws IOException {
+    private void runExperiment(Experiment experiment, String file_name) throws IOException, CloneNotSupportedException {
         FXMLLoader loader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("RunExperiment.fxml"));
         Parent root = loader.load();
 
@@ -73,10 +76,25 @@ public class FillNameController {
         controller.setViewModel(viewModel);
 
         Stage stage = new Stage();
-        stage.setResizable(false);
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        stage.setOnCloseRequest((WindowEvent event) -> {
+            // Perform any necessary cleanup here
+            System.out.println("Experiment is closing");
+            stage.close();
+            controller.stopTimer();
+//            scene.getWindow().hide();
+        });
+        stage.setScene(scene);
+        stage.setFullScreen(true);
+        stage.setFullScreenExitHint("Press any keys to exit full screen");
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.F11) {
+                stage.setFullScreen(!stage.isFullScreen()); // Toggle full-screen mode
+            }
+        });
         stage.show();
 
     }
+
 
 }

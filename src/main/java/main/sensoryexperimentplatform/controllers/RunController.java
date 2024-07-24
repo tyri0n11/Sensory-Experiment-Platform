@@ -1,25 +1,29 @@
 package main.sensoryexperimentplatform.controllers;
 
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage; // Explicit import for JavaFX Stage
+import javafx.stage.WindowEvent;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.viewmodel.*;
 import main.sensoryexperimentplatform.models.*;
-import main.sensoryexperimentplatform.models.Timer;
 
-import javax.swing.*;
 import java.io.IOException;
+import java.util.concurrent.*;
+
 
 
 public class RunController {
     private String FILE_NAME;
-    double pivot = 0.0;
     double processed = 0.0;
+
+    private ScheduledExecutorService executorService;
+    private long startTime, elapsedTime;
     @FXML
     private AnchorPane content;
 
@@ -28,6 +32,9 @@ public class RunController {
 
     @FXML
     private Button btn_back;
+
+    @FXML
+    private Label elapsedTime_label;
 
     @FXML
     private ProgressBar progress_bar;
@@ -39,18 +46,39 @@ public class RunController {
     private Experiment experiment;
 
 
-
     public void setViewModel(RunExperiment_VM viewModel){
         this.viewModel = viewModel;
         this.experiment = viewModel.getExperiment();
-        this.FILE_NAME = viewModel.getFileName();
+        this.FILE_NAME = viewModel.getFileName()+"_"+DataAccess.getCurrentFormattedTime();;
+        //viewModel.getFileName()+"_"+DataAccess.getCurrentFormattedTime();
+        startTimer();
         bindViewModel();
     }
-    private void updateProgress(double processed){
-        if(processed > pivot){
-            pivot = processed;
-            progress_bar.setProgress(pivot/(viewModel.count - 1));
+
+    //timer tracks the experiment
+    private void startTimer() {
+        executorService = Executors.newSingleThreadScheduledExecutor();
+        startTime = System.currentTimeMillis();
+        executorService.scheduleAtFixedRate(() ->{
+            long currentTime = System.currentTimeMillis();
+            elapsedTime = (currentTime - startTime) / 1000;
+            experiment.elapsedTime = Math.toIntExact(elapsedTime);
+
+            long minutes = experiment.elapsedTime / 60;
+            long seconds = experiment.elapsedTime % 60;
+            String formattedTime = String.format("%d:%02d", minutes, seconds);
+            Platform.runLater(() -> elapsedTime_label.setText(formattedTime));
+        }, 0, 1, TimeUnit.SECONDS);
+    }
+    //stop tracking time
+    public void stopTimer() {
+        if (executorService != null && !executorService.isShutdown()) {
+            executorService.shutdown();
         }
+    }
+    private void updateProgress(double processed){
+
+        progress_bar.setProgress(processed/(viewModel.count - 1));
     }
 
     private void bindViewModel() {
@@ -65,13 +93,16 @@ public class RunController {
                 showDetailView(newValue);
             }
         });
+        if (!showList.getItems().isEmpty()) {
+            showList.getSelectionModel().selectFirst();
+            showDetailView(showList.getItems().get(0));
+        }
     }
     @FXML
     void handleBtnBack(MouseEvent event) {
-        updateProgress(processed);
         int selectedIndex = showList.getSelectionModel().getSelectedIndex();
         showList.getSelectionModel().select(selectedIndex - 1);
-
+        updateProgress(showList.getSelectionModel().getSelectedIndex());
     }
 
     @FXML
@@ -85,11 +116,12 @@ public class RunController {
             showList.getSelectionModel().select(selectedIndex + 1);
             DataAccess.quickSave(experiment, FILE_NAME);
         }
+        updateProgress(showList.getSelectionModel().getSelectedIndex());
     }
 
     private void showDetailView(String item) {
         Object selectedObject = viewModel.getObjectByKey(item);
-
+        updateProgress(showList.getSelectionModel().getSelectedIndex());
         if (selectedObject != null) {
             int currentIndex = viewModel.getIndexOfObject(selectedObject);
             if (currentIndex >= 0) {
@@ -120,12 +152,16 @@ public class RunController {
                     RunVas_VM vm = new RunVas_VM((Vas) selectedObject);
                     controller.setViewModel(vm);
                     btn_Next.textProperty().bind(vm.buttonProperty());
-                    btn_Next.setDisable(true);
 
-                    controller.isRecordedProperty().addListener(((observableValue, aBoolean, t1) ->{
-                        btn_Next.setDisable(!t1);
-                    } ));
+                    if (vm.conductedTextProperty().get() == null){
+                        btn_Next.setDisable(true);
+                    }else btn_Next.setDisable(false);
 
+                    vm.conductedTextProperty().addListener((observable, oldValue, newValue) -> {
+                        if (newValue != null) {
+                            btn_Next.setDisable(false);
+                        }
+                    });
 
                 }
                 // glms view display
@@ -142,12 +178,16 @@ public class RunController {
                     RunGLMS_VM vm = new RunGLMS_VM((gLMS) selectedObject);
                     controller.setViewModel(vm);
                     btn_Next.textProperty().bind(vm.buttonProperty());
-                    btn_Next.setDisable(true);
 
-                    controller.isRecordedProperty().addListener(((observableValue, aBoolean, t1) ->{
-                        btn_Next.setDisable(!t1);
-                    } ));
+                    if (vm.conductedTextProperty().get() == null){
+                        btn_Next.setDisable(true);
+                    }else btn_Next.setDisable(false);
 
+                    vm.conductedTextProperty().addListener((observable, oldValue, newValue) -> {
+                        if (newValue != null) {
+                            btn_Next.setDisable(false);
+                        }
+                    });
 
 
                 }
@@ -205,17 +245,15 @@ public class RunController {
         }
     }
     private void handleFinalNext() throws IOException {
-
+        stopTimer();
         DataAccess.quickSave(experiment, FILE_NAME);
         autoClose();
     }
 
     private void autoClose() {
-        // Get a handle to the stage
         Stage stage = (Stage) content.getScene().getWindow();
-        // Close the stage
+        stopTimer();
         stage.close();
     }
-
 
 }

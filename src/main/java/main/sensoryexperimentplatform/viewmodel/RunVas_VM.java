@@ -4,14 +4,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javafx.beans.property.*;
+import main.sensoryexperimentplatform.models.DataAccess;
 import main.sensoryexperimentplatform.models.Vas;
 
 public class RunVas_VM {
     private Vas vas;
     private IntegerProperty sliderValue;
     private final StringProperty questionText;
-    private StringProperty lowAnchorText, button, conducted;
+    private StringProperty lowAnchorText, button, conducted, help;
     private StringProperty highAnchorText;
+
 
     public RunVas_VM(Vas vas) {
         this.vas = vas;
@@ -20,22 +22,19 @@ public class RunVas_VM {
         questionText = new SimpleStringProperty(vas.getTitle());
         lowAnchorText = new SimpleStringProperty(vas.getLowAnchorText());
         highAnchorText = new SimpleStringProperty(vas.getHighAnchorText());
-        conducted = new SimpleStringProperty("Not finish");
+        conducted = new SimpleStringProperty(vas.getConducted());
+        help = new SimpleStringProperty(vas.getHelpText());
 
         sliderValue.addListener((observable, oldValue, newValue) -> {
             setResult(newValue.intValue());
-            System.out.println("Vas recording: "+ newValue);
+            conducted.set(DataAccess.getCurrentFormattedTime());
             setDate();
 
         });
     }
-    public String getCurrentFormattedTime() {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss.SSS");
-        Date now = new Date();
-        return sdf.format(now);
-    }
+
     public void setDate(){
-        vas.setConducted(getCurrentFormattedTime());
+        vas.setConducted(DataAccess.getCurrentFormattedTime());
     }
 
     public int getHighAnchorValue() {
@@ -51,6 +50,10 @@ public class RunVas_VM {
     public IntegerProperty sliderValueProperty() {
         return sliderValue;
     }
+    public StringProperty helpTextProperty() {
+        return help;
+    }
+
     public StringProperty conductedTextProperty() {
         return conducted;
     }

@@ -64,7 +64,7 @@ public class User{
         experiments.add(experiment);
     }
     private String experimentString(){
-        if (experiments.getFirst() == null){
+        if (experiments.get(0) == null){
             return "No experiments";
         }else{
             StringBuilder sb = new StringBuilder();

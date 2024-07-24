@@ -17,6 +17,11 @@ public class DataAccess {
         Date now = new Date();
         return sdf.format(now);
     }
+    public static String getCurrentFormattedDate(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        Date now = new Date();
+        return sdf.format(now);
+    }
     public static void saveData(ArrayList<Experiment> experiments) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(saveFilePath, false));
         for(Experiment e : experiments){
@@ -41,7 +46,8 @@ public class DataAccess {
             writer.write(e.toString());
             writer.newLine();
         }
-//        System.out.println("Saved in \{file_path}");
+        System.out.println("Saved in "+ file_path);
+        //"Saved in "+ file_path
     }
 
 
@@ -181,7 +187,7 @@ public class DataAccess {
                         currentExperiment.addRatingContainerStage(Boolean.parseBoolean(matcher.group(1)),
                                 Integer.parseInt(matcher.group(2))
                         );
-                        rc = (RatingContainer) currentExperiment.getStages().getLast();
+                        rc = (RatingContainer) currentExperiment.getStages().get(currentExperiment.getStages().size()-1);
                     }
                 } else if (line.startsWith("endRatingsContainer")) {
                     rc = null;
@@ -330,7 +336,7 @@ public class DataAccess {
                         currentExperiment.addRatingContainerStage(Boolean.parseBoolean(matcher.group(1)),
                                 Integer.parseInt(matcher.group(2))
                         );
-                        rc = (RatingContainer) currentExperiment.getStages().getLast();
+                        rc = (RatingContainer) currentExperiment.getStages().get(currentExperiment.getStages().size()-1);
                     }
                 } else if (line.startsWith("endRatingsContainer")) {
                     rc = null;
@@ -374,9 +380,12 @@ public class DataAccess {
             }
             saveResult(writer,o);
         }
+        writer.write("Elapsed Time," + experiment.elapsedTime + ", seconds");
+
 
         writer.flush();
         writer.close();
+        experiment.setNumber_of_results(countingResults(experiment));
     }
     // quickSave func use this
     private static void saveResult(Writer writer, Object subO) throws IOException {
@@ -401,16 +410,14 @@ public class DataAccess {
             writer.append("GLMS ,")
                     .append(((gLMS) subO).getConducted())
                     .append(",")
-                    .append(String.format("%.4f",((gLMS) subO).getResult()))
+                    .append(String.format("%d",((gLMS) subO).getResult()))
                     .append(",")
                     .append(((gLMS) subO).getTitle());
             writer.append("\n");
         }
     }
     public static int countingResults(Experiment experiment){
-
         String directory = experiment.getExperimentName() + "_" + experiment.getVersion();
-        //System.out.println(directory);
         initializeCaches(experiment.getExperimentName(),experiment.getVersion());
         int numOfResults = Objects.requireNonNull(new File("results/" + directory).list()).length;
         return numOfResults;
@@ -552,7 +559,7 @@ public class DataAccess {
                         currentExperiment.addRatingContainerStage(Boolean.parseBoolean(matcher.group(1)),
                                 Integer.parseInt(matcher.group(2))
                         );
-                        rc = (RatingContainer) currentExperiment.getStages().getLast();
+                        rc = (RatingContainer) currentExperiment.getStages().get(currentExperiment.getStages().size()-1);
                     }
                 } else if (line.startsWith("endRatingsContainer")) {
                     rc = null;
@@ -561,7 +568,7 @@ public class DataAccess {
                     listOfExperiment.addExperiment(currentExperiment);
                     initializeCaches(currentExperiment.getExperimentName(),currentExperiment.getVersion());
                     currentExperiment.setNumber_of_results(DataAccess.countingResults(currentExperiment));
-                    //System.out.println(DataAccess.countingResults(currentExperiment));
+                    System.out.println(DataAccess.countingResults(currentExperiment));
                     currentExperiment = new Experiment(null,null,null,null,1,000,null);
                 }
             }
@@ -703,7 +710,7 @@ public class DataAccess {
                         currentExperiment.addRatingContainerStage(Boolean.parseBoolean(matcher.group(1)),
                                 Integer.parseInt(matcher.group(2))
                         );
-                        rc = (RatingContainer) currentExperiment.getStages().getLast();
+                        rc = (RatingContainer) currentExperiment.getStages().get(currentExperiment.getStages().size()-1);
                     }
                 } else if (line.startsWith("endRatingsContainer")) {
                     rc = null;

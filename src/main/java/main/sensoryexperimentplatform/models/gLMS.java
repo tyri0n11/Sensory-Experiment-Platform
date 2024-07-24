@@ -6,7 +6,7 @@ public class gLMS extends Stage implements containerObject{
     private String buttonText;
     private boolean response;
     private String helpText, conducted;
-    private double result;
+    private int result;
     private boolean alert;
 
     public gLMS(String title, String content){
@@ -17,6 +17,7 @@ public class gLMS extends Stage implements containerObject{
         response = false;
         this.helpText = "";
     }
+
     public gLMS(String title, String buttonText, String content, String helpText, boolean alert){
         super(title,content);
         this.title = title;
@@ -26,14 +27,28 @@ public class gLMS extends Stage implements containerObject{
         this.alert = alert;
         result=0;
     }
+
+    public gLMS(gLMS stage) {
+        super(stage.getTitle(), stage.getContent());
+        this.title = stage.getTitle();
+        this.questionText = stage.getTitle();
+        this.buttonText = stage.getButtonText();
+        this.helpText = stage.getHelpText();
+        this.alert = stage.getAlert();
+        result=0;
+    }
+
+    public void setDefaultResult(){
+        result = 0;
+    }
     public void setAlert(boolean s){
         this.alert =s;
     }
-    public void setResult(double result){
+    public void setResult(int result){
         this.result = result;
     }
 
-    public double getResult() {
+    public int getResult() {
         return result;
     }
 

@@ -18,6 +18,10 @@
 
     -fx-text-fill: #397E82;
 }
+#elapsedTime_label{
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
 #content{
     -fx-alignment: center;
     -fx-border-radius: 30%;

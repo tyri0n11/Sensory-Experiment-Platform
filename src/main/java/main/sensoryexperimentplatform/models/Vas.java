@@ -20,7 +20,19 @@ public class Vas extends Stage implements containerObject{
         this.helpText = helpText;
         this.isSwap = isSwap;
         this.alert = alert;
-        initialize();
+        setDefaultResult();
+    }
+    public Vas(Vas v){
+        super(v.getTitle(), v.getContent());
+        this.lowAnchorValue = v.lowAnchorValue;
+        this.highAnchorValue = v.highAnchorValue;
+        this.lowAnchorText = v.getLowAnchorText();
+        this.highAnchorText = v.getHighAnchorText();
+        this.buttonText = v.getButtonText();
+        this.isSwap = v.getIsSwap();
+        this.helpText = v.getHelpText();
+        this.alert = v.getAlert();
+        setDefaultResult();
     }
 
     public Vas(String title, String content){
@@ -33,10 +45,7 @@ public class Vas extends Stage implements containerObject{
         this.isSwap = false;
         this.helpText = "help text";
         this.alert = false;
-        initialize();
-    }
-    private void initialize(){
-        this.result = (lowAnchorValue+highAnchorValue)/2;
+        setDefaultResult();
     }
     public void swapPolarities(){
         //swap values
@@ -49,6 +58,9 @@ public class Vas extends Stage implements containerObject{
             setLowAnchorText(getHighAnchorText());
             setHighAnchorText(tempStr);
         }
+    }
+    public void setDefaultResult(){
+        result = (highAnchorValue+lowAnchorValue)/2;
     }
     public void setConducted(String conduct_day){
         this.conducted = conduct_day;

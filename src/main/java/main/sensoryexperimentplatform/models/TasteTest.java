@@ -240,27 +240,5 @@ public class TasteTest {
                 stringBuilder.append(o.toString()).append("\n");
             }return stringBuilder.toString();
         }
-    public static void main(String[] args){
-        Experiment experiment = new Experiment();
-        experiment.addTasteTest("For the taste test, samples of simple solutions are presented for you to evaluate. Note you will complete one set of ratings, have a short (2 minute) pause and then complete a second set of ratings.____" +
-                        "When prompted by the computer please take the relevant sample.You will be asked to place all of the solution in your mouth, swirl it around while counting to 10 and then expectorate (spit) into the black cup we provide." +
-                        " A reminder to rinse your mouth with the water provided (maximum 1-2 sips) and then to expectorate (spit) it into the black cup, will follow the ratings of each sample.",
-                "Please empty <food> in your mouth, swirl it around while counting to 10, and then expectorate it into the black cup.",
-                "How <taste> is <food>?",
-                "Not at all <taste>", "Extremely <taste>",
-                0,100,"Continue" , false, "",
-                "Please rinse your mouth with the water provided and then expectorate it into the black cup.", 0,
-                false,true,true);
-        TasteTest tasteTest = (TasteTest) experiment.stages.getFirst();
-        String[] foods = {"apple", "banana"};
-        String[] vass = {"bit", "pleasant", "tough", "insane"};
-        String[] glmss ={"spicy", "flavour", "salty", "creamy"};
-        tasteTest.selectVas(vass);
-        tasteTest.addFood(foods);
-        tasteTest.selectgLMS(glmss);
-        tasteTest.generator();
-        System.out.println(experiment.stages.toString());
-    }
-
 
 }

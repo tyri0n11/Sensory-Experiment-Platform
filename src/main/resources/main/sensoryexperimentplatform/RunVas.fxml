@@ -2,22 +2,29 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="550.0" prefWidth="1257.0" stylesheets="/static/stylesheets/RunVas_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunVasController">
    <children>
-      <Label fx:id="lowAnchor_label" layoutX="91.0" layoutY="308.0" text="Not at all" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="222.0" AnchorPane.leftAnchor="120.0">
+      <Label fx:id="lowAnchor_label" layoutX="76.0" layoutY="227.0" stylesheets="@../../static/stylesheets/RunVas_CSS.css" text="Not at all" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="76.0" AnchorPane.topAnchor="227.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="questionlbl" layoutX="342.0" layoutY="76.0" prefHeight="122.0" prefWidth="573.0" wrapText="true" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="342.0" AnchorPane.topAnchor="76.0" />
-      <Label fx:id="highAnchor_label" layoutX="1107.0" layoutY="318.0" text="Extremely" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="222.0" AnchorPane.rightAnchor="120.0">
+      <Label fx:id="questionlbl" layoutX="342.0" layoutY="14.0" prefHeight="122.0" prefWidth="573.0" stylesheets="@../../static/stylesheets/RunVas_CSS.css" wrapText="true" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="342.0" AnchorPane.topAnchor="14.0" />
+      <Label fx:id="highAnchor_label" layoutX="1081.0" layoutY="227.0" stylesheets="@../../static/stylesheets/RunVas_CSS.css" text="Extremely" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="82.0" AnchorPane.topAnchor="227.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Slider fx:id="mySlider" layoutX="120.0" layoutY="268.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="120.0" />
+      <Slider fx:id="mySlider" layoutX="120.0" layoutY="275.0" prefHeight="28.0" prefWidth="1008.0" stylesheets="@../../static/stylesheets/RunVas_CSS.css" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="129.0" AnchorPane.topAnchor="275.0" />
+      <ImageView fx:id="help_image" fitHeight="48.0" fitWidth="48.0" layoutX="1128.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="66.0" AnchorPane.rightAnchor="81.0">
+         <image>
+            <Image url="@../../static/images/Help_outline.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
