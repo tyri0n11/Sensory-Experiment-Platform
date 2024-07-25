@@ -243,3 +243,11 @@ noticeStage("Rinsing","Please rinse your mouth with the water provided and then 
 noticeStage("Thank you!","That completes the taste test: please call your researcher.","X","","true")
 endExperiment()
 
+ExperimentName: Experiment
+ExperimenterName: Creator
+ExperimentID: 0
+Created on: 25.07.2024
+Version: 1
+startExperiment("Description","","Note")
+endExperiment()
+

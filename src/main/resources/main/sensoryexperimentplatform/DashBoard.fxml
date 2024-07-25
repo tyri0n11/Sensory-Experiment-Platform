@@ -16,7 +16,7 @@
                 <Label fx:id="EntriesLabel" layoutX="121.0" layoutY="23.0" text="entries" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="23.0" />
                 <TextField fx:id="searchBar" layoutX="171.0" layoutY="18.0" prefHeight="32.0" prefWidth="441.0" promptText="Search" style="-fx-text-alignment: LEFT;" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="354.6" AnchorPane.topAnchor="18.0" />
                 <Button fx:id="btn_AddExperiment" layoutX="690.0" layoutY="19.0" mnemonicParsing="false" onAction="#btn_addEx" stylesheets="@/static/stylesheets/DashBoard_CSS.css" text="+ Add Experiment" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="19.0" />
-                <TableView fx:id="contentTable" layoutY="72.0" prefHeight="596.0" AnchorPane.bottomAnchor="14.399999999999977" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="72.0">
+                <TableView fx:id="contentTable" layoutY="76.0" prefHeight="592.0" prefWidth="992.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-11.0" AnchorPane.topAnchor="76.0">
                     <columns>
                         <TableColumn fx:id="lbl_iD" maxWidth="1.7976931348623157E308" prefWidth="75.0" text="ID" />
                         <TableColumn fx:id="lbl_creator" maxWidth="1.7976931348623157E308" prefWidth="140.0" text="Creator " />
@@ -24,7 +24,7 @@
                         <TableColumn fx:id="lbl_currentVersion" maxWidth="1.7976931348623157E308" prefWidth="161.0" text="Current Version " />
                         <TableColumn fx:id="lbl_result" maxWidth="1.7976931348623157E308" prefWidth="88.0" text="Result" />
                         <TableColumn fx:id="lbl_createDate" maxWidth="1.7976931348623157E308" prefWidth="147.0" text="Create Date" />
-                        <TableColumn fx:id="lbl_Option" maxWidth="1.7976931348623157E308" prefWidth="177.0" text="Option" />
+                        <TableColumn fx:id="lbl_Option" maxWidth="1.7976931348623157E308" prefWidth="188.8001708984375" text="Option" />
                     </columns>
                 </TableView>
       <Button fx:id="btn_redo" layoutX="879.0" layoutY="19.0" mnemonicParsing="false" onAction="#redo" text="Redo" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="19.0" />
