@@ -24,16 +24,16 @@ import static main.sensoryexperimentplatform.utilz.Constants.DEFAULT_DIRECTORY;
 
 public class Base implements Initializable {
     private boolean isSidebarVisible = true;
-    @FXML
-    private HBox mainBox;
 
     @FXML
     private AnchorPane mainContent;
 
     @FXML
     private VBox sideMenu;
-    private DashBoardController controller;
     private Experiment selectedExp;
+    @FXML
+    private BorderPane borderPane;
+
 
     public void setSelectedExp(Experiment selectedExp) {
         this.selectedExp = selectedExp;
@@ -65,10 +65,10 @@ public class Base implements Initializable {
     @FXML
     void toggleDashboard(ActionEvent event) {
         if (isSidebarVisible) {
-            mainBox.getChildren().remove(sideMenu);
+            borderPane.setLeft(null);
 
         } else {
-            mainBox.getChildren().add(0, sideMenu);
+            borderPane.setLeft(sideMenu);
         }
         isSidebarVisible = !isSidebarVisible;
     }
