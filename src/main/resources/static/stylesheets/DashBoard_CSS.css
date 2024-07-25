@@ -2,7 +2,6 @@
     -fx-background-size: contain;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
-
 }
 
 .button:hover{
@@ -55,6 +54,12 @@
 .stackpane{
     -fx-background-color: white;
 
+}
+#lbl_SenseXP{
+    -fx-font-family: "Baloo Bhaina 2";
+    -fx-text-fill: #397E82;
+    -fx-font-weight: bold;
+    -fx-font-size: 40;
 }
 #lbl_ID{
 

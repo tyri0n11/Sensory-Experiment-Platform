@@ -19,6 +19,21 @@
 .btn_Help{
 
 }
+/*.text-field {*/
+/*    -fx-border-color: black;*/
+/*    -fx-border-radius: 5px 5px 5px 5px;*/
+/*    -fx-alignment: center;*/
+/*}*/
+.text-field{
+    -fx-padding: 0px 7px;
+
+    -fx-max-width: 530px;
+    -fx-max-height: 30px;
+
+    -fx-border-color: rgba(73, 73, 73, 0.8);
+    -fx-border-radius: 5px;
+}
+
 
 #lbl_SenseXP{
     -fx-font-family: "Baloo Bhaina 2";
@@ -272,16 +287,9 @@
 
 }
 
-#timeField,#timeField2
-{
-    -fx-border-color: #696969;
-    -fx-border-radius: 5px 5px 5px 5px;
-    -fx-alignment: center;}
-
 .text-area{
     -fx-border-color: #696969;
     -fx-border-radius: 5px 5px 5px 5px;
-    -fx-alignment: center;
     -fx-box-sizing: border-box;
 }
 #mainBar{
@@ -336,7 +344,7 @@
 }
 .scroll-pane{
     -fx-background-color: transparent;
-    -fx-border-color: derive(gray,100%);
+    -fx-border-color: derive(rgb(128, 128, 128),100%);
     -fx-padding: 0px;
 }
 .scroll-pane .scroll-bar:vertical{
@@ -401,11 +409,7 @@
     -fx-border-radius: 3px;
 }
 
-.text-field {
-    -fx-border-color: black;
-    -fx-border-radius: 5px 5px 5px 5px;
-    -fx-alignment: center;
-}
+
 #AddFoodPane,#NewExPane,#AddsoundPane,#ImportSoundPane{
 
 

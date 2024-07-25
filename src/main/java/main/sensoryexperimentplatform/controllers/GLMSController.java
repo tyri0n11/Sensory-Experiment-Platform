@@ -2,6 +2,7 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.viewmodel.glmsStage_VM;
 
 public class GLMSController {
@@ -49,6 +50,15 @@ public class GLMSController {
     @FXML
     private TextField txt_yes;
 
+    @FXML
+    private AnchorPane innerPane;
+    @FXML
+    private ScrollPane scrollPane;
+    public void initialize() {
+        scrollPane.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> {
+            innerPane.setPrefSize(newValue.getWidth(), newValue.getHeight());
+        });
+    }
 
     private void bind() {
         txt_LowAncTxt.textProperty().bindBidirectional(glmsStageVm.txt_LowAncTxtProperty());

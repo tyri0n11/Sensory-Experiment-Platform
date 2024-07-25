@@ -10,14 +10,14 @@
     <children>
         <Label id="lbl_NewExp" layoutX="73.0" layoutY="34.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="NEW EXPERIMENT" AnchorPane.leftAnchor="73.19999999999999" AnchorPane.rightAnchor="552.2" AnchorPane.topAnchor="33.8" />
         <Label layoutX="73.0" layoutY="101.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Creator" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="767.8" AnchorPane.topAnchor="101.0" />
-        <TextField fx:id="txt_creatorName" layoutX="287.0" layoutY="101.0" prefHeight="30.0" prefWidth="530.0" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="88.0" AnchorPane.topAnchor="101.0" />
-        <TextField fx:id="txt_ExperimentName" layoutX="287.0" layoutY="153.0" prefHeight="30.0" prefWidth="530.0" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="88.0" AnchorPane.topAnchor="155.0" />
-        <TextArea fx:id="txt_description" layoutX="285.0" layoutY="211.0" prefWidth="530.0" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="88.0" AnchorPane.topAnchor="211.0" />
-        <TextArea fx:id="txt_additionNote" layoutX="287.0" layoutY="358.0" prefWidth="530.0" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="88.0" AnchorPane.topAnchor="358.0" />
+        <TextField fx:id="txt_creatorName" layoutX="287.0" layoutY="101.0" prefHeight="30.0" prefWidth="530.0" promptText="Creator" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="88.0" AnchorPane.topAnchor="101.0" />
+        <TextField fx:id="txt_ExperimentName" layoutX="287.0" layoutY="153.0" prefHeight="30.0" prefWidth="530.0" promptText="Experiment Name" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="88.0" AnchorPane.topAnchor="155.0" />
+        <TextArea fx:id="txt_description" layoutX="285.0" layoutY="211.0" prefWidth="530.0" promptText="Experiment description" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="88.0" AnchorPane.topAnchor="211.0" />
+        <TextArea fx:id="txt_additionNote" layoutX="287.0" layoutY="358.0" prefWidth="530.0" promptText="Note" AnchorPane.leftAnchor="287.0" AnchorPane.rightAnchor="88.0" AnchorPane.topAnchor="358.0" />
         <Label layoutX="73.0" layoutY="211.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Experiment description" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="630.0" AnchorPane.topAnchor="211.0" />
         <Label layoutX="73.0" layoutY="358.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Additional Note" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="692.4000000000001" AnchorPane.topAnchor="358.0" />
         <Button fx:id="btn_save" layoutX="547.0" layoutY="500.0" minHeight="36.0" minWidth="103.0" mnemonicParsing="false" onAction="#btn_save" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Save" AnchorPane.rightAnchor="255.59999999999997" AnchorPane.topAnchor="500.0" />
         <Button fx:id="btn_cancel" layoutX="672.0" layoutY="500.0" minHeight="36.0" minWidth="103.0" mnemonicParsing="false" onAction="#btn_cancel" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Cancel" AnchorPane.rightAnchor="130.8" AnchorPane.topAnchor="500.0" />
-        <Label layoutX="73.0" layoutY="155.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Experiment Name" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="675.8" AnchorPane.topAnchor="155.0" />
+        <Label layoutX="73.0" layoutY="155.0" stylesheets="@../../static/stylesheets/NewExperiment_CSS.css" text="Experiment name" AnchorPane.leftAnchor="73.0" AnchorPane.rightAnchor="675.8" AnchorPane.topAnchor="155.0" />
     </children>
 </AnchorPane>

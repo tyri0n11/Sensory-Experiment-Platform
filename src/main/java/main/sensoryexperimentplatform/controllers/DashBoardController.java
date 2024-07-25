@@ -117,7 +117,7 @@ public class DashBoardController {
                                 run = runloader.load();
                                 edit = editloader.load();
                                 delete = deleteloader.load();
-//                                edit = editloader.load();
+//
                             } catch (IOException e) {
                                 throw new RuntimeException(e);
                             }
@@ -212,7 +212,7 @@ public class DashBoardController {
         c.updateVersion();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/Test.fxml"));
-        Parent root =null;
+        Parent root = null;
         try{
             root = loader.load();
             TestController view = loader.getController();
@@ -224,7 +224,6 @@ public class DashBoardController {
 
         Stage stage = new Stage();
         stage.setTitle("Edit experiment");
-        stage.setResizable(false);
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
