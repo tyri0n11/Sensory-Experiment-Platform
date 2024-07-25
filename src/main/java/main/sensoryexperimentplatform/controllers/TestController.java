@@ -140,7 +140,6 @@ public class TestController{
         addCourseVMS = new Stack<>();
         index = 0;
         displayedItems = new HashMap<>();
-        HBox.setHgrow(mainPane, Priority.ALWAYS);
         listObject.setRoot(start);
         btn_assignSound.setDisable(true);
         btn_AddPeriodicStage.setDisable(true);

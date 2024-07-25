@@ -13,33 +13,11 @@ import main.sensoryexperimentplatform.viewmodel.newEx_VM;
 import main.sensoryexperimentplatform.models.Experiment;
 
 public class newExController {
-    private Experiment experiment;
     newEx_VM viewModel;
-    dashBoard_VM DashBoard_vm;
 
     @FXML
-    private AnchorPane NewExPane;
+    private AnchorPane newExPane;
 
-    @FXML
-    private Button btn_cancel;
-
-    @FXML
-    private Button btn_save;
-
-    @FXML
-    private Label lbl_additionNote;
-
-    @FXML
-    private Label lbl_creator;
-
-    @FXML
-    private Label lbl_experimentDes;
-
-    @FXML
-    private Label lbl_experimentName;
-
-    @FXML
-    private Label lbl_newEx;
 
     @FXML
     private TextField txt_ExperimentName;
@@ -54,6 +32,15 @@ public class newExController {
     @FXML
     private TextField txt_creatorName;
 
+    public void initialize(){
+        viewModel = new newEx_VM();
+        bindViewModel();
+
+        AnchorPane.setTopAnchor(newExPane, 0.0);
+        AnchorPane.setBottomAnchor(newExPane, 0.0);
+        AnchorPane.setLeftAnchor(newExPane, 0.0);
+        AnchorPane.setRightAnchor(newExPane, 0.0);
+    }
     @FXML
     void btn_cancel(ActionEvent event) {
 
@@ -62,12 +49,8 @@ public class newExController {
     @FXML
     void btn_save(ActionEvent event) throws Exception {
         viewModel.saveItems();
-        Stage currentStage = (Stage) NewExPane.getScene().getWindow();
+        Stage currentStage = (Stage) newExPane.getScene().getWindow();
         currentStage.close();
-    }
-    public void initialize() {
-        viewModel = new newEx_VM();
-        bindViewModel();
     }
 
     public void bindViewModel(){

@@ -3,6 +3,7 @@
     -fx-font-weight: Bold;
     -fx-font-size: 40px;
     -fx-text-fill: #397E82;
+
 }
 #questionlbl{
     -fx-text-alignment: center;
@@ -42,7 +43,7 @@
 #lowAnchor_label, #highAnchor_label{
     -fx-font-family: "Baloo2 SemiBold";
     -fx-font-size: 20px;
-    -fx-alignment: center;
+    -fx-text-alignment: center;
 }
 
 .slider .track{
