@@ -2,6 +2,7 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.viewmodel.vasStage_VM;
 
 public class VasController {
@@ -72,6 +73,22 @@ public class VasController {
 
     @FXML
     private TextField txt_yes;
+    @FXML
+    private ScrollPane scrollPane;
+    @FXML
+    private AnchorPane outterPane;
+    @FXML
+    private AnchorPane innerPane;
+    @FXML
+    private void initialize() {
+        scrollPane.prefWidthProperty().bind(outterPane.widthProperty());
+        scrollPane.prefHeightProperty().bind(outterPane.heightProperty());
+        // Bind the innerPane's size to the scrollPane's viewport size
+        innerPane.prefWidthProperty().bind(scrollPane.widthProperty());
+        innerPane.prefHeightProperty().bind(scrollPane.heightProperty());
+    }
+
+
 
     private void bind(){
         txt_question.textProperty().bindBidirectional(vasStageVM.questionTextProperty());

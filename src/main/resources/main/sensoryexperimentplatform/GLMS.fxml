@@ -26,7 +26,7 @@
                         <Label fx:id="lbl_swapPole" layoutX="14.0" layoutY="253.0" styleClass="propertiesText" text="Swap Poles (ticked for yes)" />
                         <CheckBox fx:id="checkB_swap" layoutX="222.0" layoutY="253.0" mnemonicParsing="false" styleClass="propertiesTextField" />
                         <Label fx:id="lbl_help" layoutX="14.0" layoutY="303.0" styleClass="propertiesText" text="Help Text" />
-                  <TextArea fx:id="txt_help" layoutX="222.0" layoutY="303.0" prefHeight="160.0" prefWidth="274.0" />
+                  <TextField fx:id="txt_help" layoutX="222.0" layoutY="303.0" prefHeight="160.0" prefWidth="274.0" />
                         <Label fx:id="lbl_playSound" layoutX="14.0" layoutY="480.0" styleClass="propertiesText" text="Play alert sound on screen display ?" />
                         <CheckBox fx:id="checkB_sound" layoutX="280.0" layoutY="480.0" mnemonicParsing="false" styleClass="propertiesTextField" />
                         <TextField fx:id="txt_question" layoutX="222.0" layoutY="42.0" prefHeight="25.0" prefWidth="274.0" AnchorPane.leftAnchor="221.60000000000008" AnchorPane.rightAnchor="42.80000000000007" />
