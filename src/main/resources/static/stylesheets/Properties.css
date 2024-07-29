@@ -19,7 +19,13 @@
     -fx-box-sizing: border-box;
 }
 
+.text-field, .combo-box, .choice-box{
+    -fx-pref-height: 30px;
+}
 
+.text-area{
+    -fx-pref-height: 160px;
+}
 .check-box .box {
     -fx-pref-width: 25px;
     -fx-pref-height: 25px;
