@@ -24,25 +24,7 @@ public class FillNameController {
     private FillName_VM viewModel;
 
     @FXML
-    private Button approve_btn;
-
-    @FXML
-    private AnchorPane btm_pane;
-
-    @FXML
-    private Button cancel_btn;
-
-    @FXML
-    private ImageView cross_img;
-
-    @FXML
     private TextField file_name;
-
-    @FXML
-    private Label instruction_lbl;
-
-    @FXML
-    private Label top_lbl;
     public void setViewModel(FillName_VM viewModel){
         this.viewModel = viewModel;
         Bindings.bindBidirectional(file_name.textProperty(), viewModel.fileName());
@@ -93,6 +75,7 @@ public class FillNameController {
             }
         });
         stage.show();
+
 
     }
 

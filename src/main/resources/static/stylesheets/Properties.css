@@ -12,10 +12,9 @@
     -fx-text-fill: #397E82;
 }
 
-.text-area{
+.text-area, .text-field{
     -fx-border-color: #696969;
     -fx-border-radius: 5px 5px 5px 5px;
-    -fx-alignment: center;
     -fx-box-sizing: border-box;
 }
 .label{
