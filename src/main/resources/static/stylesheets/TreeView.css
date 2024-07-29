@@ -1,12 +1,21 @@
 .text{
     -fx-font-family: "Baloo Bhaina 2";
     -fx-font-style: normal;
-    -fx-font-weight: 700;
+    -fx-font-weight: 600;
     -fx-font-size: 15px;
     -fx-line-height: 25px;
     -fx-text-fill:#0E0E0E;
 }
 
+.tree-cell:selected{
+    -fx-background-color: #D5E9EA;
+    -fx-border-color: #397E82;
+    -fx-border-width: 2px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-text-fill: #0E0E0E;
+    -fx-font-weight: 700;
+}
 .tree-view .scroll-bar:vertical{
     -fx-background-color: transparent;
     -fx-background-radius: 0px;
@@ -45,7 +54,6 @@
     -fx-background-radius: 2em;
 }
 
-.tree-cel:odd {
+.oddTreeCells{
     -fx-background-color: #F1F6FB;
-    -fx-text-fill: black;
 }

@@ -2,7 +2,7 @@ ExperimentName: Ella - Mood Ratings
 ExperimenterName: Martin
 ExperimentID: 0
 Created on: null
-Version: 1
+Version: 2
 startExperiment("null","","null")
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","Extremely hungry","0","100","Rating completed","Session[]","","false","false")

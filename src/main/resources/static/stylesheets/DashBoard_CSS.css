@@ -1,11 +1,22 @@
+/*This CSS is used to manage the dashboard and the menu bar*/
 .body{
     -fx-background-size: contain;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
 }
 
-.button:hover{
-    -fx-background-color: #CCCCCC;
+/*Left menu bar*/
+.sidebar_left{
+    -fx-background-color: #F1F6FB;
+}
+
+
+.button:hover, #btn_AddExperiment:hover, #btn_redo:hover{
+    -fx-background-color:#D5E9EA;
+    -fx-text-fill: black;
+}
+.button:selected{
+    -fx-background-color: white;
 }
 .text-field {
     -fx-border-color: black;
@@ -136,9 +147,7 @@
     -fx-border-radius: 3px;
 }
 
-.sidebar_left{
-    -fx-background-color: #F1F6FB;
-}
+
 
 
 .btn_dashboardButton {

@@ -17,7 +17,7 @@
             <content>
                 <AnchorPane layoutX="10.0" prefWidth="510.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <Label layoutX="28.0" layoutY="64.0" styleClass="propertiesText" text="Title Text:" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="107.19999999999999" />
+                        <Label layoutX="28.0" layoutY="64.0"  text="Title Text:" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="107.19999999999999" />
 
                         <TextField fx:id="txt_title" layoutX="200.0" layoutY="60.0" onMouseClicked="#txt_question" prefHeight="30.0" prefWidth="300.0" promptText="Simple VAS demo" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="10.399999999999977" />
                   <Label layoutX="28.0" layoutY="114.0" text="Content Text: " AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="107.19999999999999" />

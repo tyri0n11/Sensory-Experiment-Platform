@@ -144,6 +144,7 @@ public class TestController{
         btn_assignSound.setDisable(true);
         btn_AddPeriodicStage.setDisable(true);
         btn_addFoodAndTaste.setDisable(true);
+        listObject.setPrefHeight(574);
         listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 int index = getIndex(newValue);
@@ -153,6 +154,7 @@ public class TestController{
                     addCourseVMS.clear();
                     btn_addFoodAndTaste.setDisable(true);
                     newValue.setValue(showDetailView(index));
+
 
                 } catch (IOException e) {
                     throw new RuntimeException(e);

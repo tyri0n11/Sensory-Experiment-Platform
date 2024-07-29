@@ -23,7 +23,7 @@
          <left>
                   <VBox fx:id="sideMenu" prefHeight="782.0" styleClass="sidebar_left" BorderPane.alignment="CENTER">
                       <children>
-                          <Button fx:id="btn_Dashboard" mnemonicParsing="false" onAction="#OpenDashBoard" prefHeight="70.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Dashboard">
+                          <Button fx:id="btn_Dashboard" mnemonicParsing="false" onAction="#openDashBoard" prefHeight="70.0" prefWidth="255.0" styleClass="btn_dashboardButton" stylesheets="@../../static/stylesheets/DashBoard_CSS.css" text="Dashboard">
                               <graphic>
                                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                       <image>

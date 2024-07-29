@@ -22,9 +22,9 @@
                         <Label layoutX="28.0" layoutY="264.0" text="High Anchor Value" AnchorPane.leftAnchor="28.0" />
                         <Label layoutX="28.0" layoutY="314.0" text="Button Text" AnchorPane.leftAnchor="28.0" />
                         <Label layoutX="28.0" layoutY="364.0" text="Store Response In A Variable?" AnchorPane.leftAnchor="28.0" />
-                        <RadioButton fx:id="radioBtn_available" layoutX="100.0" layoutY="400.0" mnemonicParsing="false" styleClass="propertiesText" text="Available" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="48.80000000000001" />
+                        <RadioButton fx:id="radioBtn_available" layoutX="100.0" layoutY="400.0" mnemonicParsing="false" text="Available" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="48.80000000000001" />
                         <ChoiceBox fx:id="choiceB_avail" layoutX="222.0" layoutY="397.0" prefHeight="25.0" prefWidth="274.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="27.200000000000045" />
-                        <RadioButton fx:id="radioBtn_Yes" layoutX="100.0" layoutY="454.0" mnemonicParsing="false" styleClass="propertiesText" text="New" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="48.80000000000001" />
+                        <RadioButton fx:id="radioBtn_Yes" layoutX="100.0" layoutY="454.0" mnemonicParsing="false" text="New" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="48.80000000000001" />
                         <TextField fx:id="txt_yes" layoutX="222.0" layoutY="450.0" maxWidth="410.0" minHeight="25.0" prefHeight="25.0" prefWidth="274.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="27.200000000000045" />
                         <Label fx:id="lbl_swapPole" layoutX="28.0" layoutY="504.0" text="Swap Poles (ticked for yes) " AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="120.80000000000001" />
                         <CheckBox fx:id="checkB_swap" layoutX="285.0" layoutY="500.0" mnemonicParsing="false" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="276.0" />
