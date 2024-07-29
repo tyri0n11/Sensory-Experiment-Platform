@@ -12,12 +12,13 @@
     -fx-text-fill: #397E82;
 }
 
-.text-area, .text-field{
+.text-area, .text-field, .combo-box{
+    -fx-background-color: white;
     -fx-border-color: #696969;
     -fx-border-radius: 5px 5px 5px 5px;
     -fx-box-sizing: border-box;
 }
-.label{
+.label, .radio-button{
     -fx-pref-width: 375px;
     -fx-pref-height: 21px;
     -fx-font-family: "Poppins";

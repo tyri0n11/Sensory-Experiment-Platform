@@ -10,17 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="publish: SenseXP_version 1">
-      <change afterPath="$PROJECT_DIR$/results/E6 Umami Main Course_7/111_2024.07.23.10.31.12.113.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/E6 Umami Main Course_7/240_2024.07.23.10.30.26.602.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/Porridge_taste test_27/1_2024.07.15.15.19.48.866.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/demo_28/091_2024.07.29.08.30.02.408.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/testresponsive.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/FillNameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/FillNameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddAudibleSound.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddAudibleSound.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddNoticeStage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddNoticeStage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/AddAudibleSound_CSS.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Properties.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Properties.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +90,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "Merging httgiang",
+    "git-widget-placeholder": "httgiang",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/DSA/PracticeDSA",
     "list.type.of.created.stylesheet": "CSS",
