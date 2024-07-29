@@ -12,12 +12,22 @@
     -fx-text-fill: #397E82;
 }
 
-.text-area, .text-field, .combo-box{
+.text-area, .text-field, .combo-box, .check-box{
     -fx-background-color: white;
     -fx-border-color: #696969;
     -fx-border-radius: 5px 5px 5px 5px;
     -fx-box-sizing: border-box;
 }
+.checkbox:selected .box {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
+.checkbox:selected .box .mark {
+    -fx-background-color: #696969;
+    -fx-background-radius: 5px;
+}
+
 .label, .radio-button{
     -fx-pref-width: 375px;
     -fx-pref-height: 21px;
