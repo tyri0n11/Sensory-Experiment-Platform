@@ -12,13 +12,12 @@
     -fx-background-color: transparent;
 
 }
+
 .button:hover{
-    -fx-background-color: #CCCCCC;
+    -fx-background-color: #F7F6FE;
     -fx-text-fill: white;
 }
-.btn_Help{
 
-}
 /*.text-field {*/
 /*    -fx-border-color: black;*/
 /*    -fx-border-radius: 5px 5px 5px 5px;*/
@@ -41,12 +40,14 @@
     -fx-font-weight: bold;
     -fx-font-size: 40;
 }
+
 .lbl_EditExperiment{
     -fx-font-family: "Baloo Bhaina 2";
     -fx-text-fill: #397E82;
     -fx-font-size: 36;
     -fx-font-weight: 700;
 }
+
 
 .btn_up{
     -fx-pref-height: 55;

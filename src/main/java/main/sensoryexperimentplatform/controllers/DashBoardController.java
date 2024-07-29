@@ -229,7 +229,6 @@ public class DashBoardController {
         stage.setScene(scene);
 
         stage.show();
-
     }
 
 
