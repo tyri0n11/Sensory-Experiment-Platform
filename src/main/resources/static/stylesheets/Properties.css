@@ -12,12 +12,13 @@
     -fx-text-fill: #397E82;
 }
 
-.text-area, .text-field, .combo-box, .check-box{
+.text-area, .text-field, .combo-box, .check-box, .choice-box{
     -fx-background-color: white;
     -fx-border-color: #696969;
     -fx-border-radius: 5px 5px 5px 5px;
     -fx-box-sizing: border-box;
 }
+
 .checkbox:selected .box {
     -fx-background-color: white;
     -fx-text-fill: black;

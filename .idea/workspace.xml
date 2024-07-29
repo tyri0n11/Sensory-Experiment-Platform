@@ -11,7 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f94c3078-ef99-4a09-b4f4-0c5a4fda2f19" name="Changes" comment="publish: SenseXP_version 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddCourse.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/AddCourse.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/GLMSController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/GLMSController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/GLMS.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/GLMS.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Properties.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/stylesheets/Properties.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,37 +77,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DataAccess.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.RunExperiment.executor": "Run",
-    "Application.SensoryExperimentPlatform.executor": "Run",
-    "Application.TasteTest.executor": "Run",
-    "Application.Test.executor": "Run",
-    "Application.TestArduino.executor": "Run",
-    "Application.main.sensoryexperimentplatform.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "httgiang",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/DSA/PracticeDSA",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DataAccess.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RunExperiment.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SensoryExperimentPlatform.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TasteTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Test.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestArduino.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.sensoryexperimentplatform.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;httgiang&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/DSA/PracticeDSA&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/arduino" />
