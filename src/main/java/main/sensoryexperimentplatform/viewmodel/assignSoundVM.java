@@ -9,24 +9,21 @@ import java.util.Map;
 
 public class assignSoundVM {
     private AudibleInstruction audibleInstruction;
-//    private ArrayList<String> listNameshow;
-//    private ArrayList<String> listSoundName;
-//    private ArrayList<String>listSoundFilePaths;
+
 
     public assignSoundVM(AudibleInstruction audibleInstruction){
         this.audibleInstruction = AudibleInstructionSingleton.getInstance();
-//        listNameshow = audibleInstruction.getSoundNameshow();
-//        listSoundName= audibleInstruction.getSoundNameList();
-//        listSoundFilePaths = audibleInstruction.getSoundFilePath();
 
     }
 
     public void addListSoundshow(String name){
-//        listNameshow.add(name);
+
         audibleInstruction.getSoundNameshow().add(name);
     }
+    public void getSoundPath(){
+        audibleInstruction.getSoundFilePath();
+    }
     public void addListSoundName(String name){
-//        listSoundName.add(name);
         audibleInstruction.getSoundNameList().add(name);
     }
 
@@ -35,13 +32,14 @@ public class assignSoundVM {
         return audibleInstruction.getSoundNameshow();
     }
 
-
-    public Map<String, String> getSoundMap() {
-        return audibleInstruction.getSoundMap();
+//    public void loadSound(String name, String filePath) {
+//        audibleInstruction.loadSound(name, filePath);
+//    }
+    public void playSound(String name) {
+        audibleInstruction.playSound(name);
     }
-
-    public void addSound(String name, String filePath) {
-        audibleInstruction.addSound(name, filePath);
+    public void stopSound(String name) {
+        audibleInstruction.stopSound(name);
     }
 
     public ArrayList<String> getListSoundName() {

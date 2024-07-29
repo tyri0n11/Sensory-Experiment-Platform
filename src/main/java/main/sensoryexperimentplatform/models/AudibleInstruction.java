@@ -3,10 +3,13 @@ package main.sensoryexperimentplatform.models;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 public class AudibleInstruction extends Stage {
     private String title;
@@ -20,7 +23,7 @@ public class AudibleInstruction extends Stage {
     private ArrayList<String> soundFilePaths;
 
 
-    private Map<String, String> soundMap;
+    private Map<String, Clip> soundMap;
     //sound name for showing
     private ArrayList<String> soundNameshow; // for the appearance of sound
 
@@ -32,32 +35,8 @@ public class AudibleInstruction extends Stage {
         this.buttonText= buttonText;
         this.helpText = helpText;
         soundMap = new HashMap<>();
-        soundFilePaths = new ArrayList<>();
         soundNameshow = new ArrayList<>();
-        soundNameshow.add("Whispering Wind");
-        soundNameshow.add("Ocean Waves");
-        soundNameshow.add("Forest Rain");
-        soundNameshow.add("City Ambiance");
-        soundNameshow.add("Rustling Leaves");
-        soundNameshow.add("Rusty Doorbell");
-        soundNameshow.add("Thunderstorm");
-        soundNameshow.add("Crackling Fire");
-        soundNameshow.add("Gentle Stream");
-        soundNameshow.add("Birdsong at Dawn");
-        soundNameshow.add("Heartbeat");
-        soundNameshow.add("Clock Ticking");
-        soundNameshow.add("Humming Engine");
-        soundNameshow.add("Keyboard Typing");
-        soundNameshow.add("Footsteps on Gravel");
-        soundNameshow.add("Distant Thunder");
-        soundNameshow.add("Running Water");
-        soundNameshow.add("Church Bells");
-        soundNameshow.add("Campfire");
-        soundNameshow.add("Birds Chirping");
-        soundNameshow.add("Sizzling Bacon");
-        soundNameshow.add("Breeze Through Trees");
-        soundNameshow.add("Crashing Waves");
-        soundNameshow.add("Coffee Brewing");
+        soundNameshow.add("boop");
         soundNamesList = new ArrayList<>();
 
     }
@@ -112,18 +91,25 @@ public class AudibleInstruction extends Stage {
     public void addSoundFilePath(String sound){
         soundFilePaths.add(sound);
     }
-    public Map<String, String> getSoundMap() {
+    public Map<String, Clip> getSoundMap() {
         return soundMap;
     }
-    public void addSound(String name, String filePath) {
-        soundMap.put(name, filePath);
+
+
+    public void playSound(String name) {
+        Clip clip = soundMap.get(name);
+        if (clip != null) {
+            clip.start();
+        }
     }
 
-
-//    public String getSoundFilePath(String name) {
-//        return soundMap.get(name);
-//    }
-
+    public void stopSound(String name) {
+        Clip clip = soundMap.get(name);
+        if (clip != null) {
+            clip.stop();
+            clip.setFramePosition(0);
+        }
+    }
 
     public String toString() {
 

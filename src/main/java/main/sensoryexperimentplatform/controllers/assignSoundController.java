@@ -55,6 +55,7 @@ public class  assignSoundController {
     private assignSoundVM viewModel;
     @FXML
     private ListView<String> SoundList;
+    private RadioButton selectedRadioButton;
 
     public void setViewModel(assignSoundVM viewModel){
         this.viewModel = viewModel;
@@ -92,6 +93,7 @@ public class  assignSoundController {
                 setGraphic(null);
             } else {
                 RadioButton radioButton = new RadioButton(obj);
+                radioButton.setOnAction(event -> selectedRadioButton = radioButton);
                 radioButton.setToggleGroup(group);
                 setGraphic(radioButton);
             }
@@ -104,6 +106,11 @@ public class  assignSoundController {
 
     @FXML
     void btn_play(ActionEvent event) {
+        if (selectedRadioButton != null) {
+            String soundName = selectedRadioButton.getText();
+            viewModel.playSound(soundName);
+        }
+
 
     }
 
@@ -126,6 +133,10 @@ public class  assignSoundController {
 
     @FXML
     void btn_stop(ActionEvent event) {
+        if (selectedRadioButton != null) {
+            String soundName = selectedRadioButton.getText();
+            viewModel.stopSound(soundName);
+        }
 
     }
 
