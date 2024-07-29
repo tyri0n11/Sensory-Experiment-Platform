@@ -142,4 +142,3 @@ noticeStage("Rinsing and Swallowing","Please rinse your mouth thoroughly with a 
 noticeStage("Rinsing and Spitting","Please re- rinse your mouth with fresh water (a minimum of one sip) and then spit it into the black cup provided.","Next","","false")
 noticeStage("Thank you!","That completes the food taste test: please call your researcher.","Continue","","false")
 endExperiment()
-

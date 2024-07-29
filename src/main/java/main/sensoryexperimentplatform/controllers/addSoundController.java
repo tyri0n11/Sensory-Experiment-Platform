@@ -48,7 +48,7 @@ public class addSoundController {
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("MP3 Files","*.mp3")
+                new FileChooser.ExtensionFilter("WAV Files","*.wav")
         );
         File selectedFile = fileChooser.showOpenDialog(btn_browse.getScene().getWindow());
         if (selectedFile != null) {
@@ -68,11 +68,8 @@ public class addSoundController {
         viewModel.addListSoundshow(txt_name.getText());
         viewModel.addSound(txt_name.getText(),txt_file.getText());
         NotiAddSound.notifyObject();
-        AssignSoundController.addNewSound(txt_name.getText());
         Stage currentStage = (Stage) btn_cancel.getScene().getWindow();
         currentStage.close();
-        System.out.println(viewModel.getListNameshow());
-
     }
 
     @FXML

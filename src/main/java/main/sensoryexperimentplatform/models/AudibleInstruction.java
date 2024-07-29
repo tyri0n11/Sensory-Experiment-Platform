@@ -14,13 +14,15 @@ public class AudibleInstruction extends Stage {
 
     private String buttonText;
     private String helpText;
+    //soundNameList
     private ArrayList<String> soundNamesList;
 
     private ArrayList<String> soundFilePaths;
 
 
     private Map<String, String> soundMap;
-    private ArrayList<String> soundNameshow;
+    //sound name for showing
+    private ArrayList<String> soundNameshow; // for the appearance of sound
 
 
     public AudibleInstruction(String title, String content, String buttonText,String helpText){
@@ -32,15 +34,31 @@ public class AudibleInstruction extends Stage {
         soundMap = new HashMap<>();
         soundFilePaths = new ArrayList<>();
         soundNameshow = new ArrayList<>();
-        soundNameshow.add("music");
-        soundNameshow.add("gud morning");
-        soundNameshow.add("quynh anh");
-        soundNameshow.add("quynh anh");
-        soundNameshow.add("quynh anh");
-        soundNameshow.add("skylar");
+        soundNameshow.add("Whispering Wind");
+        soundNameshow.add("Ocean Waves");
+        soundNameshow.add("Forest Rain");
+        soundNameshow.add("City Ambiance");
+        soundNameshow.add("Rustling Leaves");
+        soundNameshow.add("Rusty Doorbell");
+        soundNameshow.add("Thunderstorm");
+        soundNameshow.add("Crackling Fire");
+        soundNameshow.add("Gentle Stream");
+        soundNameshow.add("Birdsong at Dawn");
+        soundNameshow.add("Heartbeat");
+        soundNameshow.add("Clock Ticking");
+        soundNameshow.add("Humming Engine");
+        soundNameshow.add("Keyboard Typing");
+        soundNameshow.add("Footsteps on Gravel");
+        soundNameshow.add("Distant Thunder");
+        soundNameshow.add("Running Water");
+        soundNameshow.add("Church Bells");
+        soundNameshow.add("Campfire");
+        soundNameshow.add("Birds Chirping");
+        soundNameshow.add("Sizzling Bacon");
+        soundNameshow.add("Breeze Through Trees");
+        soundNameshow.add("Crashing Waves");
+        soundNameshow.add("Coffee Brewing");
         soundNamesList = new ArrayList<>();
-
-
 
     }
 
@@ -75,10 +93,6 @@ public class AudibleInstruction extends Stage {
         this.helpText = helpText;
     }
 
-
-    public List<String> getSoundFilePaths() {
-        return soundFilePaths;
-    }
 
     public ArrayList<String> getSoundNameshow() {
         return soundNameshow;

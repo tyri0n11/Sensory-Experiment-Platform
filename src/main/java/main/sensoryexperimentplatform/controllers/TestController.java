@@ -358,7 +358,7 @@ public class TestController{
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         audibleSound_VM audibleSound_vm = new audibleSound_VM(experiment);
-        String key = audibleSound_vm.getAudibleInstruction().getTitle();
+        String key = "[Audio] " +audibleSound_vm.getAudibleInstruction().getTitle();
 
         Wrapper wrapper = new Wrapper(key, audibleSound_vm);
         displayedItems.put(index, wrapper);
@@ -724,7 +724,7 @@ public class TestController{
     @FXML
     void assignSound(ActionEvent event) throws IOException {
         listObject.setMaxHeight(311);
-        audibleInstruction = new AudibleInstruction("hello","hello","hello","hello");
+        audibleInstruction = AudibleInstructionSingleton.getInstance();
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AssignSound.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = new Stage();

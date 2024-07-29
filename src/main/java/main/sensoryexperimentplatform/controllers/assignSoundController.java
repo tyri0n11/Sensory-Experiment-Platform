@@ -99,6 +99,7 @@ public class  assignSoundController {
     }
     public void addNewSound(String name) {
         viewModel.addListSoundshow(name);
+
     }
 
     @FXML
