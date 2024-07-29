@@ -13,6 +13,7 @@ public class addSoundController {
 
     private assignSoundVM viewModel;
     private notiAddSound NotiAddSound;
+    private assignSoundController AssignSoundController;
 
 
 
@@ -31,6 +32,7 @@ public class addSoundController {
 
     public void setViewModel(assignSoundVM viewModel, assignSoundController AssignSoundController ) {
        this.viewModel = viewModel;
+       this.AssignSoundController = AssignSoundController;
        NotiAddSound = new notiAddSound(AssignSoundController);
     }
 
@@ -66,6 +68,7 @@ public class addSoundController {
         viewModel.addListSoundshow(txt_name.getText());
         viewModel.addSound(txt_name.getText(),txt_file.getText());
         NotiAddSound.notifyObject();
+        AssignSoundController.addNewSound(txt_name.getText());
         Stage currentStage = (Stage) btn_cancel.getScene().getWindow();
         currentStage.close();
         System.out.println(viewModel.getListNameshow());

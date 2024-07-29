@@ -22,6 +22,32 @@ import main.sensoryexperimentplatform.viewmodel.assignSoundVM;
 import java.io.IOException;
 
 public class  assignSoundController {
+    @FXML
+    private VBox ShowSound;
+
+
+    @FXML
+    private Label SoundSelectTionLabel;
+
+    @FXML
+    private Button btn_add;
+
+    @FXML
+    private Button btn_play;
+
+    @FXML
+    private Button btn_refresh;
+
+    @FXML
+    private Button btn_remove;
+
+    @FXML
+    private Button btn_save2;
+
+    @FXML
+    private Button btn_stop;
+
+
 
     private ObservableList<String> SoundName;
     private ToggleGroup group = new ToggleGroup();
@@ -32,11 +58,10 @@ public class  assignSoundController {
 
     public void setViewModel(assignSoundVM viewModel){
         this.viewModel = viewModel;
-        SoundName = FXCollections.observableArrayList();
+        SoundName = FXCollections.observableArrayList(viewModel.getListNameshow());
         loadSoundRadioButtons();
-
-
     }
+
     @FXML
     void AddButton(ActionEvent event) throws IOException {
 
@@ -71,6 +96,36 @@ public class  assignSoundController {
                 setGraphic(radioButton);
             }
         }
+    }
+    public void addNewSound(String name) {
+        viewModel.addListSoundshow(name);
+    }
+
+    @FXML
+    void btn_play(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btn_refesh(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btn_remove(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btn_save(ActionEvent event) {
+        Stage currentStage = (Stage) btn_save2.getScene().getWindow();
+        currentStage.close();
+
+    }
+
+    @FXML
+    void btn_stop(ActionEvent event) {
+
     }
 
 
