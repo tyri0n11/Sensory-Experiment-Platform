@@ -9,29 +9,29 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.InputStageController">
+<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Properties.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.InputStageController">
     <children>
-        <ScrollPane layoutX="8.0" layoutY="2.0" prefHeight="247.0" prefWidth="524.0" stylesheets="@../../static/stylesheets/Notice1_CSS.css">
-         <content>
-            <AnchorPane maxHeight="485.0" maxWidth="546.0" minWidth="510.0" prefHeight="485.0" prefWidth="524.0" style="-fx-background-color: white;" stylesheets="@../../static/stylesheets/Notice1_CSS.css">
-               <children>
-                  <Label layoutX="14.0" layoutY="51.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Question" />
-                  <Label layoutX="14.0" layoutY="90.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Store response in A" />
-                  <RadioButton layoutX="73.0" layoutY="126.0" mnemonicParsing="false" styleClass="propertiesText" text="Available" />
-                  <ComboBox layoutX="216.0" layoutY="124.0" minHeight="30.0" minWidth="300.0" prefHeight="30.0" prefWidth="300.0" />
-                  <RadioButton layoutX="73.0" layoutY="173.0" mnemonicParsing="false" styleClass="propertiesText" text="New" />
-                  <TextField layoutX="216.0" layoutY="171.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" styleClass="text-field" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
-                  <Label layoutX="14.0" layoutY="221.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Button Text" />
-                  <TextField fx:id="txt_buttonText" layoutX="216.0" layoutY="218.0" minHeight="30.0" onAction="#txt_buttonText" onMouseClicked="#txt_question" prefHeight="30.0" prefWidth="300.0" />
-                  <Label layoutX="14.0" layoutY="266.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Help Text" />
-                  <TextArea fx:id="txt_helptext" layoutX="216.0" layoutY="266.0" minWidth="300.0" onDragDetected="#txt_helptext" onMouseClicked="#txt_helptext" prefHeight="170.0" prefWidth="300.0" styleClass="text-area" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
-                  <Label layoutX="14.0" layoutY="452.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/EditExp_CSS.css" text="Play alert sound on screen display ?" />
-                  <CheckBox fx:id="cbx_alert" layoutX="305.0" layoutY="453.0" mnemonicParsing="false" onAction="#cbx_alert" onMouseClicked="#cbx_alert" />
-                  <TextField fx:id="txt_question" layoutX="216.0" layoutY="48.0" onAction="#txt_question" onMouseClicked="#txt_question" prefHeight="30.0" prefWidth="300.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" />
-                  <Label layoutX="14.0" layoutY="14.0" styleClass="property" stylesheets="@../../static/stylesheets/Notice_CSS.css" text="Properties" />
-               </children>
-            </AnchorPane>
-         </content>
+        <ScrollPane fitToWidth="true" layoutX="8.0" layoutY="2.0" prefHeight="247.0" prefWidth="524.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <AnchorPane minWidth="510.0" prefHeight="485.0" prefWidth="524.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children>
+                        <Label layoutX="14.0" layoutY="51.0" styleClass="Name" text="Question" AnchorPane.leftAnchor="14.4" AnchorPane.rightAnchor="134.39999999999998" />
+                        <Label layoutX="14.0" layoutY="90.0" text="Store response in A" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="134.40000000000003" />
+                        <RadioButton layoutX="73.0" layoutY="126.0" mnemonicParsing="false" text="Available" />
+                        <ComboBox layoutX="216.0" layoutY="124.0" minHeight="30.0" minWidth="300.0" prefHeight="30.0" prefWidth="300.0" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="8.0" />
+                        <RadioButton layoutX="73.0" layoutY="173.0" mnemonicParsing="false" text="New" />
+                        <TextField layoutX="216.0" layoutY="171.0" minHeight="30.0" prefHeight="30.0" prefWidth="300.0" styleClass="text-field" stylesheets="@../../static/stylesheets/EditExp_CSS.css" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="8.0" />
+                        <Label layoutX="14.0" layoutY="221.0" text="Button Text" AnchorPane.leftAnchor="14.0" />
+                        <TextField fx:id="txt_buttonText" layoutX="216.0" layoutY="218.0" minHeight="30.0" onAction="#txt_buttonText" onMouseClicked="#txt_question" prefHeight="30.0" prefWidth="300.0" promptText="Button text" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="8.0" />
+                        <Label layoutX="14.0" layoutY="266.0" text="Help Text" AnchorPane.leftAnchor="14.0" />
+                        <TextArea fx:id="txt_helptext" layoutX="216.0" layoutY="266.0" minWidth="300.0" onDragDetected="#txt_helptext" onMouseClicked="#txt_helptext" prefHeight="170.0" prefWidth="300.0" promptText="Help text" styleClass="text-area" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="8.0" />
+                        <Label layoutX="14.0" layoutY="452.0" text="Play alert sound on screen display ?" />
+                        <CheckBox fx:id="cbx_alert" layoutX="290.0" layoutY="453.0" mnemonicParsing="false" onAction="#cbx_alert" onMouseClicked="#cbx_alert" AnchorPane.leftAnchor="275.0" />
+                        <TextField fx:id="txt_question" layoutX="216.0" layoutY="48.0" onAction="#txt_question" onMouseClicked="#txt_question" prefHeight="30.0" prefWidth="300.0" promptText="Question text" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="8.0" />
+                        <Label id="lblProperty" layoutX="14.0" layoutY="14.0" text="Properties" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="134.40000000000003" />
+                    </children>
+                </AnchorPane>
+            </content>
         </ScrollPane>
     </children>
 </AnchorPane>
