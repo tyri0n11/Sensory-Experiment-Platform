@@ -122,8 +122,11 @@ public class conditionalStatementVM implements choose {
 
     @Override
     public String getTitle() {
-        return "If "+ ConditionalStatement.getVariable1Choice() + " " + ConditionalStatement.getCompare() + " Then " + ConditionalStatement.getVariable2Choice();
+        return  "If "+ ConditionalStatement.getVariable1Choice() + " " + ConditionalStatement.getCompare() + " Then " + ConditionalStatement.getVariable2Choice() ;
 
+    }
+    public String getTitle2(){
+        return "Else";
     }
 
 }

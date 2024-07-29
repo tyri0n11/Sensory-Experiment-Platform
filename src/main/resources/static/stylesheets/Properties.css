@@ -18,7 +18,7 @@
     -fx-alignment: center;
     -fx-box-sizing: border-box;
 }
-.propertiesText{
+.label{
     -fx-pref-width: 375px;
     -fx-pref-height: 21px;
     -fx-font-family: "Poppins";
@@ -39,7 +39,7 @@
 }
 .scroll-pane .scroll-bar:vertical .track{
     -fx-background-color: transparent;
-    -fx-background-radius:2em;
+    -fx-background-radius: 2em;
     -fx-border-radius: 2em;
     -fx-border-color: transparent
 

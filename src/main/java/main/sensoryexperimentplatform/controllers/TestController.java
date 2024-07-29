@@ -140,7 +140,6 @@ public class TestController{
         addCourseVMS = new Stack<>();
         index = 0;
         displayedItems = new HashMap<>();
-        HBox.setHgrow(mainPane, Priority.ALWAYS);
         listObject.setRoot(start);
         btn_assignSound.setDisable(true);
         btn_AddPeriodicStage.setDisable(true);
@@ -358,8 +357,8 @@ public class TestController{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        audibleSound_VM audibleSound_vm = new audibleSound_VM(audibleInstruction);
-        String key = "[Audio]" + audibleSound_vm.getAudibleInstruction().getTitle();
+        audibleSound_VM audibleSound_vm = new audibleSound_VM(experiment);
+        String key = audibleSound_vm.getAudibleInstruction().getTitle();
 
         Wrapper wrapper = new Wrapper(key, audibleSound_vm);
         displayedItems.put(index, wrapper);
@@ -391,12 +390,13 @@ public class TestController{
         start.setExpanded(true);
         conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM(experiment);
         String key = ConditionalStatementVM.getTitle() ;
-
         Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
         displayedItems.put(index, wrapper);
         index++;
         ifConditional = new TreeItem<>(key);
+        elseConditional = new TreeItem<>("Else");
         start.getChildren().add(ifConditional);
+        start.getChildren().add(elseConditional);
 
     }
 

@@ -8,6 +8,7 @@ import main.sensoryexperimentplatform.models.*;
 import main.sensoryexperimentplatform.models.Timer;
 
 import java.util.*;
+import java.util.concurrent.ScheduledExecutorService;
 
 public class RunExperiment_VM {
     private Experiment experiment;
@@ -27,7 +28,7 @@ public class RunExperiment_VM {
     private Set<String> stringSet;
 
     public RunExperiment_VM(Experiment e, String file_name){
-        this.experiment = new Experiment(e);
+        this.experiment = e;
         this.file_name = file_name;
         items = new SimpleListProperty<>(FXCollections.observableArrayList());
         objectsMap = new HashMap<>();

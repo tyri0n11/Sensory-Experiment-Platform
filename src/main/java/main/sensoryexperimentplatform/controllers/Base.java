@@ -24,16 +24,16 @@ import static main.sensoryexperimentplatform.utilz.Constants.DEFAULT_DIRECTORY;
 
 public class Base implements Initializable {
     private boolean isSidebarVisible = true;
-    @FXML
-    private HBox mainBox;
 
     @FXML
     private AnchorPane mainContent;
 
     @FXML
     private VBox sideMenu;
-    private DashBoardController controller;
     private Experiment selectedExp;
+    @FXML
+    private BorderPane borderPane;
+
 
     public void setSelectedExp(Experiment selectedExp) {
         this.selectedExp = selectedExp;
@@ -44,8 +44,14 @@ public class Base implements Initializable {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/DashBoard.fxml"));
         AnchorPane newContent = null;
+
         try{
             newContent = loader.load();
+            AnchorPane.setTopAnchor(newContent, 0.0);
+            AnchorPane.setBottomAnchor(newContent, 0.0);
+            AnchorPane.setLeftAnchor(newContent, 0.0);
+            AnchorPane.setRightAnchor(newContent, 0.0);
+            mainContent.getChildren().setAll(newContent);
             DashBoardController controller = new DashBoardController();
             //this.controller = loader.getController();
            // controller.initialize(this);
@@ -53,16 +59,16 @@ public class Base implements Initializable {
         catch (IOException e){
             e.printStackTrace();
         }
-        mainContent.getChildren().setAll(newContent);
+
     }
 
     @FXML
     void toggleDashboard(ActionEvent event) {
         if (isSidebarVisible) {
-            mainBox.getChildren().remove(sideMenu);
+            borderPane.setLeft(null);
 
         } else {
-            mainBox.getChildren().add(0, sideMenu);
+            borderPane.setLeft(sideMenu);
         }
         isSidebarVisible = !isSidebarVisible;
     }
@@ -84,13 +90,18 @@ public class Base implements Initializable {
         AnchorPane newContent = null;
         try{
             newContent = loader.load();
+            AnchorPane.setTopAnchor(newContent, 0.0);
+            AnchorPane.setBottomAnchor(newContent, 0.0);
+            AnchorPane.setLeftAnchor(newContent, 0.0);
+            AnchorPane.setRightAnchor(newContent, 0.0);
+            mainContent.getChildren().setAll(newContent);
             DashBoardController view = loader.getController();
 
         }
         catch (IOException e){
             e.printStackTrace();
         }
-        mainContent.getChildren().setAll(newContent);
+        /*mainContent.getChildren().setAll(newContent);*/
     }
     @FXML
     void importExperiment() throws Exception {

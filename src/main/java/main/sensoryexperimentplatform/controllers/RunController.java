@@ -1,24 +1,29 @@
 package main.sensoryexperimentplatform.controllers;
 
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage; // Explicit import for JavaFX Stage
+import javafx.stage.WindowEvent;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.viewmodel.*;
 import main.sensoryexperimentplatform.models.*;
-import main.sensoryexperimentplatform.models.Timer;
 
-import javax.swing.*;
 import java.io.IOException;
+import java.util.concurrent.*;
+
 
 
 public class RunController {
     private String FILE_NAME;
     double processed = 0.0;
+
+    private ScheduledExecutorService executorService;
+    private long startTime, elapsedTime;
     @FXML
     private AnchorPane content;
 
@@ -29,6 +34,9 @@ public class RunController {
     private Button btn_back;
 
     @FXML
+    private Label elapsedTime_label;
+
+    @FXML
     private ProgressBar progress_bar;
 
     @FXML
@@ -37,12 +45,36 @@ public class RunController {
     private RunExperiment_VM viewModel;
     private Experiment experiment;
 
+
     public void setViewModel(RunExperiment_VM viewModel){
         this.viewModel = viewModel;
         this.experiment = viewModel.getExperiment();
         this.FILE_NAME = viewModel.getFileName()+"_"+DataAccess.getCurrentFormattedTime();;
         //viewModel.getFileName()+"_"+DataAccess.getCurrentFormattedTime();
+        startTimer();
         bindViewModel();
+    }
+
+    //timer tracks the experiment
+    private void startTimer() {
+        executorService = Executors.newSingleThreadScheduledExecutor();
+        startTime = System.currentTimeMillis();
+        executorService.scheduleAtFixedRate(() ->{
+            long currentTime = System.currentTimeMillis();
+            elapsedTime = (currentTime - startTime) / 1000;
+            experiment.elapsedTime = Math.toIntExact(elapsedTime);
+
+            long minutes = experiment.elapsedTime / 60;
+            long seconds = experiment.elapsedTime % 60;
+            String formattedTime = String.format("%d:%02d", minutes, seconds);
+            Platform.runLater(() -> elapsedTime_label.setText(formattedTime));
+        }, 0, 1, TimeUnit.SECONDS);
+    }
+    //stop tracking time
+    public void stopTimer() {
+        if (executorService != null && !executorService.isShutdown()) {
+            executorService.shutdown();
+        }
     }
     private void updateProgress(double processed){
 
@@ -126,7 +158,6 @@ public class RunController {
                     }else btn_Next.setDisable(false);
 
                     vm.conductedTextProperty().addListener((observable, oldValue, newValue) -> {
-                        System.out.println(newValue);
                         if (newValue != null) {
                             btn_Next.setDisable(false);
                         }
@@ -153,7 +184,6 @@ public class RunController {
                     }else btn_Next.setDisable(false);
 
                     vm.conductedTextProperty().addListener((observable, oldValue, newValue) -> {
-                        System.out.println(newValue);
                         if (newValue != null) {
                             btn_Next.setDisable(false);
                         }
@@ -215,17 +245,15 @@ public class RunController {
         }
     }
     private void handleFinalNext() throws IOException {
-
+        stopTimer();
         DataAccess.quickSave(experiment, FILE_NAME);
         autoClose();
     }
 
     private void autoClose() {
-        // Get a handle to the stage
         Stage stage = (Stage) content.getScene().getWindow();
-        // Close the stage
+        stopTimer();
         stage.close();
     }
-
 
 }

@@ -1,89 +1,18 @@
-.sidebar_left{
-    -fx-background-color: #F1F6FB;
+.body{
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
 }
-.root {
-    -fx-font-family: 'Inter';
-    -fx-font-size: 14;
-}
-.button{
-    -fx-background-color: transparent;
-}
+
 .button:hover{
     -fx-background-color: #CCCCCC;
 }
-
-#lbl_SenseXP{
-    -fx-font-family: "Baloo Bhaina 2";
-    -fx-text-fill: #397E82;
-    -fx-font-weight: bold;
-    -fx-font-size: 40;
-}
-
-#btn_up{
-    -fx-pref-height: 55;
-    -fx-pref-width: 55;
-
-
-
-    -fx-background-image: url('/static/images/btn_up.png');
-
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: cover; /* or contain depending on your preference */
-}
-#btn_down{
-    -fx-pref-height: 55;
-    -fx-pref-width: 55;
-
-
-    -fx-background-image: url('/static/images/btn_down.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: cover; /* or contain depending on your preference */
-}
-#btn_cross{
-    -fx-pref-height: 55;
-    -fx-pref-width: 55;
-    -fx-background-image: url('/static/images/cross.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: cover; /* or contain depending on your preference */
-}
-#btn_menu{
-    -fx-pref-height: 39;
-    -fx-pref-width: 39;
-    -fx-background-image: url('/static/images/btn_menu.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: cover; /* or contain depending on your preference */
-}
-#avatarImageView{
-    -fx-pref-height: 48;
-    -fx-pref-width: 48;
-}
-
-#textResult{
-    -fx-min-width: 812px;
-    -fx-max-width: 812px;
-    -fx-min-height: 644px;
-    -fx-max-height: 644px;
-    -fx-padding: 5px 0px 5px 0px;
-    -fx-border-radius: 20px 0px 0px 0px;
-    -fx-border: 1px 0px 0px 0px;
-
-}
-#headPanel{
-
-    -fx-background-color: #CAD1D040;
-
-}
-#dashboardPanel,#DashBoard,#DashBoard1,#right{
-    -fx-background-color: #FFFFFF;
+.text-field {
+    -fx-border-color: black;
+    -fx-border-radius: 5px 5px 5px 5px;
 }
 
 #txt_searchBar{
-
-
     -fx-pref-width: 441px;
     -fx-pref-height: 32px;
     -fx-border-color: #9E9E9E;
@@ -91,9 +20,6 @@
 
     -fx-text-alignment: CENTER-LEFT;
     -fx-border-radius: 8px;
-
-
-
 }
 #btn_dropDown{
 
@@ -105,23 +31,15 @@
 
 
 }
-#showLabel,#entriesLabel{
-    /* Show */
-
-    -fx-pref-width: 40px;
-    -fx-pref-height: 15px;
+#showAndEntries{
 
     -fx-font-family: 'Montserrat';
     -fx-font-style: normal;
     -fx-font-weight: 500;
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-line-height: 15px;
-    /* identical to box height */
 
     -fx-text-fill: #000000;
-
-
-
 
 }
 #btn_AddExperiment, #btn_redo{
@@ -137,6 +55,12 @@
     -fx-background-color: white;
 
 }
+#lbl_SenseXP{
+    -fx-font-family: "Baloo Bhaina 2";
+    -fx-text-fill: #397E82;
+    -fx-font-weight: bold;
+    -fx-font-size: 40;
+}
 #lbl_ID{
 
 
@@ -149,65 +73,7 @@
     /* ID */
 
 }
-#textFrame{
-    -fx-min-width: 806px;
-    -fx-max-width: 806px;
-    -fx-min-height: 311px;
-    -fx-max-height: 311px;
-    -fx-padding: 5px 0px 5px 0px;
-    -fx-border-radius: 20px 0px 0px 0px;
-    -fx-border: 1px 0px 0px 0px;
 
-}
-#Properties{
-    /* Frame 26937 */
-
-    -fx-box-sizing: border-box;
-
-    -fx-min-width: 810px;
-    -fx-max-width: 810px;
-    -fx-min-height: 275px;
-    -fx-max-height: 275px;
-
-
-
-
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-
-}
-#lbl_backgroundColor,#lbl_textColor,#lbl_font,#lbl_startDelay, #lbl_endDelay, #lbl_disable,#lbl_instruction,#lbl_instruction,#lbl_timeToWait,
-#lbl_soundDisplay,#lbl_question,#lbl_storeResponse,#lbl_ButtonText,#lbl_help,#lbl_playSound, #propertiesLabel, #radioButtonAvailable,#lbl_containStage,#lbl_minimumTime,#lbl_lowAnchor{
-
-
-    -fx-pref-width: 375px;
-    -fx-pref-height: 21px;
-
-    -fx-font-family: 'Poppins';
-    -fx-font-style: normal;
-    -fx-font-weight: bold;
-    -fx-font-size: 16px;
-    line-height: 24px;
-    -fx-letter-spacing: 0.03em;
-
-    -fx-text-color: #181818;
-
-}
-
-#timeField,#timeField2
-{
-    -fx-border-color: #696969;
-    -fx-border-radius: 5px 5px 5px 5px;
-    -fx-alignment: center;}
-
-.propertiesTextField{
-    -fx-border-color: #696969;
-    -fx-border-radius: 5px 5px 5px 5px;
-    -fx-alignment: center;
-
-}
 .text-area{
     -fx-border-color: #696969;
     -fx-border-radius: 5px 5px 5px 5px;
@@ -217,29 +83,7 @@
     -fx-background-color: #FFFFFF;
 }
 
-#DashBoardButton2,#DashBoardButton3,#DashBoardButton4,#DashBoardButton5,#DashBoardButton6{
-    -fx-font-family: 'Montserrat';
-    -fx-font-weight: normal;
-    -fx-align-items: center;
-    -fx-padding: 16px;
-    -fx-gap: 16px;
-    -fx-text-alignment: center;
-    -fx-font-size: 14px;
 
-
-    -fx-text-fill: #000;
-    -fx-background-color: #F7F6FE
-}
-#lbl_iD,#lbl_creator,#lbl_experimentName,#lbl_currentVersion,#lbl_result,#lbl_lastM,#lbl_createDate,#lbl_Option
-,#ExperimentdesLabel,#AdditionNoteLabel,#FileLabel,#NameLabel{
-    -fx-font-family: 'Montserrat';
-    -fx-font-weight: 700;
-    -fx-align-items: center;
-    -fx-padding: 16px;
-    -fx-gap: 14px;
-    -fx-text-alignment: center;
-    -fx-font-size: 16px;
-}
 #lbl_show,#lbl_entries{
     -fx-font-family: 'Montserrat';
     -fx-font-weight: 500;
@@ -247,7 +91,7 @@
 }
 .scroll-pane{
     -fx-background-color: transparent;
-    -fx-border-color: derive(gray,100%);
+    -fx-border-color: derive(rgb(128, 128, 128),100%);
     -fx-padding: 0px;
 }
 .scroll-pane .scroll-bar:vertical{
@@ -284,33 +128,21 @@
     -fx-max-height: 28px;
     -fx-background-color: white;
 
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
-
 }
 
-    .check-box .box {
-        -fx-background-color: white;
-        -fx-border-color: grey;
-        -fx-border-radius: 3px;
-    }
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: grey;
+    -fx-border-radius: 3px;
+}
 
-    .text-field {
-        -fx-border-color: black;
-        -fx-border-radius: 5px 5px 5px 5px;
-        -fx-alignment: center;
-    }
+.sidebar_left{
+    -fx-background-color: #F1F6FB;
+}
 
 
-    .body{
-        -fx-background-size: contain;
-        -fx-background-repeat: no-repeat;
-        -fx-background-position: center;
-
-    }
 .btn_dashboardButton {
+    -fx-background-color: transparent;
     -fx-font-family: 'Montserrat';
     -fx-font-style: normal;
     -fx-font-weight: 500;
@@ -318,6 +150,7 @@
     -fx-text-fill: #000000;
     -fx-border-radius: 5px 5px 5px 5px;
 }
+
 .table-view{
     -fx-background-color: transparent;
 }
@@ -332,6 +165,14 @@
     -fx-background-color: #E7F0F8;
 }
 .table-view .column-header {
+    -fx-font-family: 'Montserrat';
+    -fx-font-weight: 700;
+    -fx-align-items: center;
+    /*-fx-padding: 16px;*/
+    /*-fx-gap: 14px;*/
+    -fx-text-alignment: center;
+    -fx-font-size: 16px;
+
     -fx-background-color: #FFFFFF;
     -fx-gap: 16px;
     -fx-background-insets: 0, 0 0 1 0;
