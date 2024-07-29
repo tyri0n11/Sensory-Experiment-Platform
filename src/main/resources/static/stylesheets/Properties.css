@@ -12,7 +12,7 @@
     -fx-text-fill: #397E82;
 }
 
-.text-area, .text-field, .combo-box, .choice-box, .check-box .box {
+.text-area, .text-field, .combo-box, .choice-box, .check-box .box, .color-picker {
     -fx-background-color: white;
     -fx-border-color: #696969;
     -fx-border-radius: 5px 5px 5px 5px;
@@ -51,6 +51,23 @@
     -fx-text-color: #181818;
 }
 
+/*CHANGE BUTTON*/
+.button {
+    -fx-pref-height: 30px;
+    -fx-background-color: white;
+    -fx-border-color: rgba(73, 73, 73, 0.8);
+    -fx-border-radius: 5px;
+
+    -fx-font-family: 'Poppins';
+    -fx-font-style: normal;
+    -fx-font-weight: 600;
+    -fx-font-size: 13px;
+    -fx-text-align: center;
+    -fx-letter-spacing: 0.03em;
+
+    -fx-text-fill: #636364;
+
+}
 .scroll-pane .scroll-bar:vertical{
     -fx-background-color: transparent;
     -fx-background-radius: 0px;
@@ -89,3 +106,4 @@
     -fx-background-insets: 2, 0, 0;
     -fx-background-radius: 2em;
 }
+
