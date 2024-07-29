@@ -2,26 +2,21 @@
 
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.TimerController">
-            <children>
-                  <ScrollPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="520.0">
-                      <content>
-                          <AnchorPane minHeight="30.0" minWidth="0.0" prefHeight="254.0" prefWidth="540.0" style="-fx-background-color: white;" stylesheets="@../../static/stylesheets/EditExp_CSS.css">
-                              <children>
-                                  <Label fx:id="lbl_instruction" layoutX="14.0" layoutY="42.0" prefHeight="26.0" prefWidth="352.0" styleClass="propertiesText" text="Instruction to whilst waiting" />
-                                  <Label fx:id="lbl_timeToWait" layoutX="14.0" layoutY="82.0" styleClass="propertiesText" text="Time to wait in minutes" />
-                                  <Label fx:id="lbl_soundDisplay" layoutX="14.0" layoutY="127.0" prefHeight="26.0" prefWidth="375.0" styleClass="propertiesText" text="Play alert sound on screen display?" />
-                                  <CheckBox fx:id="cb_alertSound" layoutX="310.0" layoutY="127.0" mnemonicParsing="false" styleClass="propertiesText" />
-                                  <TextField fx:id="txt_instruction" layoutX="243.0" layoutY="39.0" prefHeight="31.0" prefWidth="252.0" />
-                                  <TextField fx:id="txt_timewait" layoutX="243.0" layoutY="82.0" prefHeight="31.0" prefWidth="252.0" style="-fx-background-color: white;" />
+<AnchorPane prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.TimerController">
+    <children>
+          <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="30.0" minWidth="0.0" prefHeight="200.0" prefWidth="520.0" style="-fx-background-color: white;" stylesheets="@../../static/stylesheets/EditExp_CSS.css">
+              <children>
+                  <Label fx:id="lbl_instruction" layoutX="14.0" layoutY="42.0" prefHeight="26.0" prefWidth="352.0" styleClass="propertiesText" text="Instruction to whilst waiting" />
+                  <Label fx:id="lbl_timeToWait" layoutX="14.0" layoutY="82.0" styleClass="propertiesText" text="Time to wait in minutes" />
+                  <Label fx:id="lbl_soundDisplay" layoutX="14.0" layoutY="127.0" prefHeight="26.0" prefWidth="375.0" styleClass="propertiesText" text="Play alert sound on screen display?" />
+                  <CheckBox fx:id="cb_alertSound" layoutX="310.0" layoutY="127.0" mnemonicParsing="false" styleClass="propertiesText" />
+                  <TextField fx:id="txt_instruction" layoutX="243.0" layoutY="39.0" prefHeight="31.0" prefWidth="252.0" />
+                  <TextField fx:id="txt_timewait" layoutX="243.0" layoutY="82.0" prefHeight="31.0" prefWidth="252.0" style="-fx-background-color: white;" />
                   <Label layoutX="14.0" layoutY="8.0" styleClass="property" stylesheets="@../../static/stylesheets/Notice_CSS.css" text="Properties" />
-                              </children>
-                          </AnchorPane>
-                      </content>
-                  </ScrollPane>
-            </children>
-        </AnchorPane>
+              </children>
+          </AnchorPane>
+    </children>
+</AnchorPane>
