@@ -12,7 +12,7 @@
     -fx-background-color: transparent;
 }
 .button:hover{
-    -fx-background-color: #CCCCCC;
+    -fx-background-color: #F7F6FE;
     -fx-text-fill: white;
 }
 #btn_dashboard{
