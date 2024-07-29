@@ -227,7 +227,7 @@ public class TestController{
             for (Object o : stages) {
 
                 if (o instanceof Vas) {
-                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Vas) o).getTitle();
+                    String key = "[VAS]" + ((Vas) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
                     start.getChildren().add(new TreeItem<>(key));
                     vasStage_VM vasStageVm = new vasStage_VM((Vas) o);
@@ -693,7 +693,7 @@ public class TestController{
         else {
             vasStageVm = new vasStage_VM(experiment);
         }
-        String key = "[Vas]" + vasStageVm.getVas().getTitle();
+        String key = "[VAS]" + vasStageVm.getVas().getTitle();
         Wrapper wrapper = new Wrapper(key, vasStageVm);
         displayedItems.put(index, wrapper);
         index++;
