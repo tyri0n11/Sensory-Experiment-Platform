@@ -31,15 +31,14 @@ public class inputStage_VM implements choose{
         experiment.addInput(input);
 
     }
-    public inputStage_VM(Input input){
+    public inputStage_VM(Experiment experiment,Input input){
         this.input = input;
+        this.experiment = experiment;
         title = new SimpleStringProperty(input.getTitle());
         content = new SimpleStringProperty(input.getContent());
         button = new SimpleStringProperty(input.getButtonText());
         alert = new SimpleBooleanProperty(input.isAlert());
-        if(experiment != null){
-            experiment.addInput(input);
-        }
+
 
     }
 
