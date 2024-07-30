@@ -10,7 +10,7 @@ public class AudibleInstructionSingleton {
 
     public static AudibleInstruction getInstance() {
         if (instance == null) {
-            instance = new AudibleInstruction("Default Notice stage", null, null, null);
+            instance = new AudibleInstruction("Default Notice stage", "Default content", "Continue", null);
         }
         return instance;
     }

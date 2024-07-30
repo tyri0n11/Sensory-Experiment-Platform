@@ -23,7 +23,7 @@ public class timerStage_VM implements choose{
     private Experiment experiment;
     public timerStage_VM(Experiment experiment){
         this.experiment = experiment;
-        timer = new Timer("123", "sa",false);
+        timer = new Timer("1", "Please Wait",false);
         txt_instruction = new SimpleStringProperty(timer.getInstruction());
         txt_timewait = new SimpleStringProperty(timer.getFormattedElapsed());
         cb_alertSound = new SimpleBooleanProperty(timer.isAlert());

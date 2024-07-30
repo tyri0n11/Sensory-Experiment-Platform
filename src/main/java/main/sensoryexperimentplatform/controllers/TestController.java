@@ -501,7 +501,7 @@ public class TestController{
         start.setExpanded(true);
         inputStage_VM inputStage_vm = new inputStage_VM(experiment);
         Input inputStage = inputStage_vm.getInput();
-        String key = "[User Input]" +  inputStage.getTitle();
+        String key = "[User Input] " +  inputStage.getTitle();
         Wrapper wrapper = new Wrapper(key, inputStage_vm);
         displayedItems.put(index, wrapper);
         index++;
@@ -530,7 +530,7 @@ public class TestController{
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         noticeStage_VM noticeStage_vm = new noticeStage_VM(experiment);
-        String key = "[Instruction]" + noticeStage_vm.getNotice().getTitle();
+        String key = "[Instruction] " + noticeStage_vm.getNotice().getTitle();
         System.out.println(index);
         Wrapper wrapper = new Wrapper(key, noticeStage_vm);
         displayedItems.put(index, wrapper);
@@ -580,7 +580,7 @@ public class TestController{
         start.setExpanded(true);
         questionStage_VM questionStage_vm = new questionStage_VM(experiment);
         Question question = questionStage_vm.getQuestionStage();
-        String key = "[Question]" + question.getQuestion();
+        String key = "[Question] " + question.getQuestion();
         Wrapper wrapper = new Wrapper(key, questionStage_vm);
         displayedItems.put(index, wrapper);
         index++;
@@ -661,7 +661,7 @@ public class TestController{
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         timerStage_VM timerStageVm = new timerStage_VM(experiment);
-        String key = "[Waiting]" + timerStageVm.getTimer().getTitle();
+        String key = "[Waiting] " + timerStageVm.getTimer().getInstruction();
         Wrapper wrapper = new Wrapper(key, timerStageVm);
         displayedItems.put(index, wrapper);
         index++;
@@ -694,7 +694,7 @@ public class TestController{
         else {
             vasStageVm = new vasStage_VM(experiment);
         }
-        String key = "[VAS]" + vasStageVm.getVas().getTitle();
+        String key = "[VAS] " + vasStageVm.getVas().getTitle();
         Wrapper wrapper = new Wrapper(key, vasStageVm);
         displayedItems.put(index, wrapper);
         index++;

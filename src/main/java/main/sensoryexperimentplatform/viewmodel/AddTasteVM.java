@@ -69,7 +69,7 @@ public class AddTasteVM implements choose{
     }
     public AddTasteVM(Experiment experiment){
         this.experiment = experiment;
-        model = new TasteTest("d","lulu","ád","d","ád",0,100,"ád", false, "help","ád", 1,false, false, false);
+        model = new TasteTest(null,null,null,null,null,0,100,null, false, null,null, 1,false, false, false);
         txt_buttontext = new SimpleStringProperty(model.returnsampleVas().getButtonText());
         txt_consumpins = new SimpleStringProperty(model.getConsumptionInstruction());
         txt_inital = new SimpleStringProperty(model.getConsumptionInstruction());

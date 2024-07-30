@@ -12,7 +12,7 @@
             <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="520.0" style="-fx-background-color: white;">
                     <children>
-                        <Label layoutX="28.0" layoutY="14.0" styleClass="property" stylesheets="@../../static/stylesheets/Properties.css" text="Properties" />
+                        <Label fx:id="lblProperty" layoutX="28.0" layoutY="14.0" styleClass="property" stylesheets="@../../static/stylesheets/Properties.css" text="Properties" />
                         <Label layoutX="10.0" layoutY="64.0" styleClass="normallabel" stylesheets="@../../static/stylesheets/Properties.css" text="Title Text" />
                         <TextField fx:id="txt_title" layoutX="210.0" layoutY="69.0" prefHeight="25.0" prefWidth="274.0" />
 

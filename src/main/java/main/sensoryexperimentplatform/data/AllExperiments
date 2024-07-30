@@ -49,7 +49,6 @@ vasStage("How calm do you feel right now?","Not at all calm","Extremely calm","0
 vasStage("How energetic do you feel right now?","Not at all energetic","Extremely energetic","0","100","Rating completed","Session[]","","false","false")
 endRatingsContainer()
 noticeStage("End of ratings","Please call the experimenter","End","","false")
-wait("123","sa","false")
 endExperiment()
 
 ExperimentName: Lab breakfast
