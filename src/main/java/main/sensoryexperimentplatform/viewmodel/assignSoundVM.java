@@ -3,6 +3,10 @@ package main.sensoryexperimentplatform.viewmodel;
 import main.sensoryexperimentplatform.controllers.AudibleInstructionSingleton;
 import main.sensoryexperimentplatform.models.AudibleInstruction;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -11,7 +15,7 @@ public class assignSoundVM {
     private AudibleInstruction audibleInstruction;
 
 
-    public assignSoundVM(AudibleInstruction audibleInstruction){
+    public assignSoundVM(AudibleInstruction audibleInstruction) throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
         this.audibleInstruction = AudibleInstructionSingleton.getInstance();
 
     }

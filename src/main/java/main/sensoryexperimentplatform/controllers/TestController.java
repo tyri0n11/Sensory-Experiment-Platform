@@ -18,7 +18,10 @@ import main.sensoryexperimentplatform.models.*;
 import main.sensoryexperimentplatform.models.Timer;
 
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.*;
 
 public class TestController{
@@ -723,7 +726,7 @@ public class TestController{
     }
 
     @FXML
-    void assignSound(ActionEvent event) throws IOException {
+    void assignSound(ActionEvent event) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
         listObject.setMaxHeight(311);
         audibleInstruction = AudibleInstructionSingleton.getInstance();
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AssignSound.fxml"));

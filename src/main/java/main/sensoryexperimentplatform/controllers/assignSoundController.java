@@ -99,10 +99,10 @@ public class  assignSoundController {
             }
         }
     }
-    public void addNewSound(String name) {
-        viewModel.addListSoundshow(name);
-
-    }
+//    public void addNewSound(String name) {
+//        viewModel.addListSoundshow(name);
+//
+//    }
 
     @FXML
     void btn_play(ActionEvent event) {

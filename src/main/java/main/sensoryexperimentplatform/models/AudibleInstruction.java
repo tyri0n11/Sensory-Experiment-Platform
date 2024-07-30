@@ -37,6 +37,8 @@ public class AudibleInstruction extends Stage {
         soundMap = new HashMap<>();
         soundNameshow = new ArrayList<>();
         soundNameshow.add("boop");
+        loadSound("boop","src/main/java/main/sensoryexperimentplatform/sound/boop-741-mhz-39314.wav");
+
         soundNamesList = new ArrayList<>();
 
     }
@@ -93,6 +95,23 @@ public class AudibleInstruction extends Stage {
     }
     public Map<String, Clip> getSoundMap() {
         return soundMap;
+    }
+
+    public void loadSound(String name, String filePath) {
+        try {
+            File soundFile = new File(filePath);
+
+            if (!soundFile.exists()) {
+                throw new IllegalArgumentException("Sound file not found: " + filePath);
+            }
+
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            soundMap.put(name, clip);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
 
 
