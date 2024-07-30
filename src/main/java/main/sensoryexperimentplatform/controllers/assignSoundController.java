@@ -131,8 +131,7 @@ public class  assignSoundController {
     void btn_save(ActionEvent event) {
         Stage currentStage = (Stage) btn_save2.getScene().getWindow();
         currentStage.close();
-
-    }
+       }
 
     @FXML
     void btn_stop(ActionEvent event) {
