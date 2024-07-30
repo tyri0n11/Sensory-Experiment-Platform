@@ -38,6 +38,8 @@ public class AudibleInstruction extends Stage {
         soundNameshow = new ArrayList<>();
         soundNameshow.add("boop");
         loadSound("boop","src/main/java/main/sensoryexperimentplatform/sound/boop-741-mhz-39314.wav");
+        loadSound("stomp","src/main/java/main/sensoryexperimentplatform/sound/stompwav-14753.wav");
+        soundNameshow.add("stomp");
 
         soundNamesList = new ArrayList<>();
 
@@ -118,6 +120,7 @@ public class AudibleInstruction extends Stage {
     public void playSound(String name) {
         Clip clip = soundMap.get(name);
         if (clip != null) {
+            stopAllSounds();
             clip.start();
         }
     }
@@ -129,6 +132,15 @@ public class AudibleInstruction extends Stage {
             clip.setFramePosition(0);
         }
     }
+
+    public void stopAllSounds() {
+        for (Clip clip : soundMap.values()) {
+            if (clip.isRunning()) {
+                clip.stop();
+            }
+        }
+    }
+
 
     public String toString() {
 
