@@ -49,18 +49,18 @@ public class editEx_VM {
                            str.add(key);
                            items.setAll(str);
                    } else if (o instanceof RatingContainer) {
-//                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
-//                       System.out.println(key);
-//                       displayedItems.put(key, o);
-//                       str.add(key);
+                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
+                       System.out.println(key);
+                       displayedItems.put(key, o);
+                       str.add(key);
                        for (Object subO : ((RatingContainer) o).container) {
                            if (subO instanceof Vas) {
-                               String key = "[VAS]" + ((Vas) subO).getTitle();
+                               String subkey = "[VAS]" + ((Vas) subO).getTitle();
                                System.out.println(key);
                                displayedScales.put(key, o);
                                set.add(key);
                            } else if (subO instanceof gLMS) {
-                               String key = "[GLMS]" + ((gLMS) subO).getTitle();
+                               String subkey = "[GLMS]" + ((gLMS) subO).getTitle();
                                System.out.println(key);
                                displayedScales.put(key, o);
                                set.add(key);

@@ -58,7 +58,10 @@ public class AddCourseVM implements choose{
         txt_title.addListener((observableValue, oldValue, newValue) -> onTitleTextChange(newValue));
         txt_content.addListener((observableValue, oldValue, newValue) -> onContentTextChange(newValue));
         //txt_help = new SimpleStringProperty(model.getHelp)
-        experiment.addCourse(course);
+        if(experiment != null){
+            experiment.addCourse(course);
+        }
+
 
     }
 

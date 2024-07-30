@@ -194,7 +194,6 @@ public class TestController{
     }
 
     private String showDetailView(int index) throws IOException {
-
         choose o = displayedItems.get(index).getChoose();
         o.modify(propertiesPane, addTasteVMS, addCourseVMS);
         o.modifyWithButton(propertiesPane,addTasteVMS, addCourseVMS,btn_AddPeriodicStage, btn_AddCourse, btn_assignSound,
