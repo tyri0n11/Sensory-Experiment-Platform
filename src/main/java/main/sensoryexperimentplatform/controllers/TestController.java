@@ -12,7 +12,6 @@ import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.viewmodel.noticeStage_VM;
 import main.sensoryexperimentplatform.models.Experiment;
-import main.sensoryexperimentplatform.models.Notice;
 import main.sensoryexperimentplatform.viewmodel.*;
 import main.sensoryexperimentplatform.models.*;
 import main.sensoryexperimentplatform.models.Timer;
@@ -201,7 +200,7 @@ public class TestController{
                 , btn_addInput, btn_noticeStage,
                 btn_addTimer, btn_AddQuestionStage,
                 btn_addRatingContainer, btn_addTasteTest, btn_AddConditionalStatement, rating
-            );
+        );
         return o.getTitle();
 
     }
@@ -255,7 +254,7 @@ public class TestController{
                 } else if (o instanceof Input) {
                     String key = "[User Input] " + ((Input) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
-                    inputStage_VM inputStage_vm = new inputStage_VM((Input) o);
+                    inputStage_VM inputStage_vm = new inputStage_VM(experiment,(Input) o);
                     Wrapper wrapper = new Wrapper(key, inputStage_vm);
                     displayedItems.put(index, wrapper);
                     index++;
