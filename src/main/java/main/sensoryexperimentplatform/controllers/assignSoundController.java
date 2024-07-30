@@ -95,7 +95,6 @@ public class  assignSoundController {
             } else {
                 RadioButton radioButton = new RadioButton(obj);
                 radioButton.setOnAction(event -> selectedRadioButton = radioButton);
-                radioButton.setOnAction(event -> selectedSoundName = obj);
                 radioButton.setToggleGroup(group);
                 setGraphic(radioButton);
             }
@@ -119,11 +118,11 @@ public class  assignSoundController {
 
     @FXML
     void btn_remove(ActionEvent event) {
-        if (selectedSoundName != null) {
-            SoundList.getItems().remove(selectedSoundName);
-            selectedSoundName = null;
-
-        }
+//        if (selectedSoundName != null) {
+//            SoundList.getItems().remove(selectedSoundName);
+//            selectedSoundName = null;
+//
+//        }
 
     }
 
