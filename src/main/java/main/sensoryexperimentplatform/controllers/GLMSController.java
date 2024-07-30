@@ -42,7 +42,7 @@ public class GLMSController {
     private TextField txt_LowAncTxt;
 
     @FXML
-    private TextArea txt_help;
+    private TextField txt_help;
 
     @FXML
     private TextField txt_question;

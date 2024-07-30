@@ -15,7 +15,7 @@
                   <CheckBox fx:id="cb_alertSound" layoutX="310.0" layoutY="127.0" mnemonicParsing="false" styleClass="propertiesText" />
                   <TextField fx:id="txt_instruction" layoutX="243.0" layoutY="39.0" prefHeight="31.0" prefWidth="252.0" />
                   <TextField fx:id="txt_timewait" layoutX="243.0" layoutY="82.0" prefHeight="31.0" prefWidth="252.0" style="-fx-background-color: white;" />
-                  <Label layoutX="14.0" layoutY="8.0" styleClass="property" stylesheets="@../../static/stylesheets/Notice_CSS.css" text="Properties" />
+                  <Label layoutX="14.0" layoutY="8.0" styleClass="property" stylesheets="@../../static/stylesheets/Properties.css" text="Properties" />
               </children>
           </AnchorPane>
     </children>

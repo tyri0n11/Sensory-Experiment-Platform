@@ -40,7 +40,7 @@ public class VasController {
     private TextField txt_LowAncVal;
 
     @FXML
-    private TextArea txt_help;
+    private TextField txt_help;
 
     @FXML
     private TextField txt_question;
