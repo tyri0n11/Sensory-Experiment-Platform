@@ -37,7 +37,9 @@ public class inputStage_VM implements choose{
         content = new SimpleStringProperty(input.getContent());
         button = new SimpleStringProperty(input.getButtonText());
         alert = new SimpleBooleanProperty(input.isAlert());
-        experiment.addInput(input);
+        if(experiment != null){
+            experiment.addInput(input);
+        }
 
     }
 

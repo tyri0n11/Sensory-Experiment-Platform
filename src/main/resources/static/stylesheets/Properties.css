@@ -1,3 +1,5 @@
+/*This CSS file is used to manage all properties pane inside edit experiment */
+
 #lblProperty{
     -fx-font-family: "Poppins";
     -fx-font-style: normal;
@@ -12,13 +14,35 @@
     -fx-text-fill: #397E82;
 }
 
-.text-area{
+.text-area, .text-field, .combo-box, .choice-box, .check-box .box, .color-picker {
+    -fx-background-color: white;
     -fx-border-color: #696969;
     -fx-border-radius: 5px 5px 5px 5px;
-    -fx-alignment: center;
     -fx-box-sizing: border-box;
 }
-.label{
+
+.text-field, .combo-box, .choice-box{
+    -fx-pref-height: 30px;
+}
+
+.text-area{
+    -fx-pref-height: 160px;
+}
+.check-box .box {
+    -fx-pref-width: 25px;
+    -fx-pref-height: 25px;
+}
+.checkbox:selected .box {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
+
+.checkbox:selected .box .mark {
+    -fx-background-color: #696969;
+    -fx-background-radius: 5px;
+}
+
+.label, .radio-button{
     -fx-pref-width: 375px;
     -fx-pref-height: 21px;
     -fx-font-family: "Poppins";
@@ -29,6 +53,23 @@
     -fx-text-color: #181818;
 }
 
+/*CHANGE BUTTON*/
+.button {
+    -fx-pref-height: 30px;
+    -fx-background-color: white;
+    -fx-border-color: rgba(73, 73, 73, 0.8);
+    -fx-border-radius: 5px;
+
+    -fx-font-family: 'Poppins';
+    -fx-font-style: normal;
+    -fx-font-weight: 600;
+    -fx-font-size: 13px;
+    -fx-text-align: center;
+    -fx-letter-spacing: 0.03em;
+
+    -fx-text-fill: #636364;
+
+}
 .scroll-pane .scroll-bar:vertical{
     -fx-background-color: transparent;
     -fx-background-radius: 0px;
@@ -67,3 +108,4 @@
     -fx-background-insets: 2, 0, 0;
     -fx-background-radius: 2em;
 }
+

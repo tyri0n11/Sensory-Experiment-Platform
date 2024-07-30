@@ -8,9 +8,7 @@ import javafx.scene.layout.*;
 
 import javafx.stage.FileChooser;
 import main.sensoryexperimentplatform.models.*;
-import main.sensoryexperimentplatform.controllers.*;
 
-import javax.swing.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -40,7 +38,7 @@ public class Base implements Initializable {
     }
 
     @FXML
-    void OpenDashBoard(ActionEvent event) {
+    void openDashBoard(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/DashBoard.fxml"));
         AnchorPane newContent = null;

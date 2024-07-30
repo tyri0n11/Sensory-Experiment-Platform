@@ -17,32 +17,6 @@ public class VasController {
     @FXML
     private ChoiceBox<?> choiceB_avail;
 
-    @FXML
-    private Label lbl_buttonText;
-
-    @FXML
-    private Label lbl_help;
-
-    @FXML
-    private Label lbl_highAnchorText;
-
-    @FXML
-    private Label lbl_highAnchorValue;
-
-    @FXML
-    private Label lbl_highAnchortext;
-
-    @FXML
-    private Label lbl_lowAnchorValue;
-
-    @FXML
-    private Label lbl_playSound;
-
-    @FXML
-    private Label lbl_storeResponse;
-
-    @FXML
-    private Label lbl_swapPole;
 
     @FXML
     private RadioButton radioBtn_Yes;
@@ -66,7 +40,7 @@ public class VasController {
     private TextField txt_LowAncVal;
 
     @FXML
-    private TextField txt_help;
+    private TextArea txt_help;
 
     @FXML
     private TextField txt_question;

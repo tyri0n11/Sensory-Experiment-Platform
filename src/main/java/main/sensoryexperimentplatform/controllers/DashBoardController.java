@@ -1,6 +1,8 @@
 package main.sensoryexperimentplatform.controllers;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -26,6 +29,8 @@ import java.util.Stack;
 import java.util.concurrent.ScheduledExecutorService;
 
 public class DashBoardController {
+
+    private static final int ITEMS_PER_PAGE = 10;
     private dashBoard_VM dashBoard_vm;
 
     private ScheduledExecutorService executorService;
@@ -52,19 +57,19 @@ public class DashBoardController {
 
     @FXML
     private TableColumn<Experiment, String> lbl_Option;
-    
+    @FXML
+    private Pagination pagination;
+
     private Stack<Experiment> deletedExp = new Stack<>();
 
-
     private Experiment selectedExperiment;
-    private Base base;
 
     public void initialize() {
         //this.base = base;
        dashBoard_vm = new dashBoard_VM();
        bindViewModel();
-
-        bindColumnWidths();
+       bindColumnWidths();
+       //setupPagination();
     }
 
     private void bindColumnWidths() {
@@ -108,9 +113,8 @@ public class DashBoardController {
                             FXMLLoader runloader = new FXMLLoader(getClass().getResource("/main/sensoryexperimentplatform/runButton.fxml"));
                             FXMLLoader editloader = new FXMLLoader(getClass().getResource("/main/sensoryexperimentplatform/editButton.fxml"));
                             FXMLLoader deleteloader = new FXMLLoader(getClass().getResource("/main/sensoryexperimentplatform/deleteButton.fxml"));
-                            //FXMLLoader editloader = new FXMLLoader(getClass().getResource("EditButton.fxml"));
+
                             final Button delete;
-                            //final Button add;
                             final Button edit;
                             final Button run;
                             try {
@@ -137,9 +141,6 @@ public class DashBoardController {
                                             + "-fx-background-color: transparent"
                             );
 
-
-
-//
                             delete.setOnAction((ActionEvent event) -> {
                                 selectedExperiment = getTableView().getItems().get(getIndex());
                                 try {
@@ -198,6 +199,23 @@ public class DashBoardController {
 
     }
 
+    private void setupPagination() {
+        int totalItems = dashBoard_vm.getExperiments().size();
+        int totalPages = (int) Math.ceil((double) totalItems / ITEMS_PER_PAGE);
+        pagination.setPageCount(totalPages);
+        pagination.setPageFactory(this::createPage);
+    }
+
+    private VBox createPage(int pageIndex) {
+        int start = pageIndex * ITEMS_PER_PAGE;
+        int end = Math.min(start + ITEMS_PER_PAGE, dashBoard_vm.getExperiments().size());
+        ObservableList<Experiment> itemsForPage = FXCollections.observableArrayList(
+                dashBoard_vm.getExperiments().subList(start, end)
+        );
+        contentTable.setItems(itemsForPage);
+        return new VBox(contentTable);
+    }
+
     private void deleteEx(Experiment e) throws Exception {
         deletedExp.push(e);
         listOfExperiment.deleteExperiment(e);
@@ -209,14 +227,15 @@ public class DashBoardController {
 
 
     private void editExperiment(Experiment c) {
-        c.updateVersion();
+//        c.updateVersion();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/Test.fxml"));
         Parent root = null;
         try{
+            TestController controller = new TestController();
             root = loader.load();
-            TestController view = loader.getController();
-            view.setExperiment(c);
+            controller = loader.getController();
+            controller.setExperiment(c);
         }
         catch (IOException e){
             e.printStackTrace();
@@ -224,12 +243,12 @@ public class DashBoardController {
 
         Stage stage = new Stage();
         stage.setTitle("Edit experiment");
+//        stage.setResizable(false);
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
 
         stage.show();
-
     }
 
 
@@ -241,6 +260,7 @@ public class DashBoardController {
         Stage stage = new Stage();
         stage.setTitle("New experiment");
         newExController controller = fxmlLoader.getController();
+        controller.initialize();
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

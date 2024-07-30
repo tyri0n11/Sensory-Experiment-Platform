@@ -32,7 +32,7 @@ public class AddCourseController {
         txt_content.textProperty().bindBidirectional(view.txt_contentProperty());
         txt_title.textProperty().bindBidirectional(view.txt_titleProperty());
         txt_refill.textProperty().bindBidirectional(view.txt_refillProperty());
-       txt_quantity.textProperty().bindBidirectional(view.txt_quantityProperty());
+        txt_quantity.textProperty().bindBidirectional(view.txt_quantityProperty());
         txt_button.textProperty().bindBidirectional(view.txt_buttonProperty());
         txt_help.textProperty().bindBidirectional(view.txt_helpProperty());
         //txt_yes.textProperty().bindBidirectional(vasStageVM.txt_yesProperty());

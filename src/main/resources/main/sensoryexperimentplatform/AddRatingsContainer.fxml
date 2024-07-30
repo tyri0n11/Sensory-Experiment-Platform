@@ -2,24 +2,15 @@
 
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Properties.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.addRatingContainerController">
     <children>
-        <ScrollPane layoutX="8.0" layoutY="2.0" prefHeight="253.0" prefWidth="524.0" stylesheets="@../../static/stylesheets/AddRatingsContainer_CSS.css">
-            <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="253.0" prefWidth="524.0" style="-fx-background-color: white;">
-                    <children>
-                        <Label id="lblProperty" layoutX="28.0" layoutY="14.0" text="Properties" />
-                        <Label layoutX="28.0" layoutY="64.0" styleClass="normallabel" stylesheets="@../../static/stylesheets/AddRatingsContainer_CSS.css" text="Contains stages appear in a random order? " />
-                        <TextField fx:id="txt_minTime" layoutX="316.0" layoutY="111.0" prefHeight="26.0" prefWidth="130.0" />
-                        <Label layoutX="28.0" layoutY="114.0" styleClass="normallabel" text="minimum for stage to run (in minutes) " />
-                  <CheckBox fx:id="cbx_random" layoutX="339.0" layoutY="66.0" mnemonicParsing="false" />
-                    </children>
-                </AnchorPane>
-            </content>
-        </ScrollPane>
+            <Label id="lblProperty" layoutX="36.0" layoutY="16.0" text="Properties" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="16.0" />
+            <Label layoutX="36.0" layoutY="66.0" styleClass="normallabel" text="Contains stages appear in a random order? " AnchorPane.leftAnchor="36.0" />
+            <TextField fx:id="txt_minTime" layoutX="324.0" layoutY="113.0" prefHeight="26.0" prefWidth="130.0" promptText="0" AnchorPane.leftAnchor="324.0" AnchorPane.rightAnchor="85.6" AnchorPane.topAnchor="113.0" />
+            <Label layoutX="36.0" layoutY="116.0" styleClass="normallabel" text="Minimum for stage to run (in minutes) " AnchorPane.leftAnchor="36.0" />
+      <CheckBox fx:id="cbx_random" layoutX="346.0" layoutY="64.0" mnemonicParsing="false" AnchorPane.leftAnchor="346.0" />
     </children>
 </AnchorPane>

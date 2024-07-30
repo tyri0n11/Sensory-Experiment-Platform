@@ -6,21 +6,21 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="236.0" minWidth="540.0" prefHeight="253.0" prefWidth="506.0" stylesheets="@../../static/stylesheets/EditExp_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.NoticeStageController">
+<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="236.0" minWidth="540.0" prefHeight="253.0" prefWidth="506.0" stylesheets="@../../static/stylesheets/Properties.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.NoticeStageController">
    <children>
-      <ScrollPane layoutX="8.0" layoutY="2.0" prefHeight="247.0" prefWidth="524.0" stylesheets="@../../static/stylesheets/Notice_CSS.css">
+      <ScrollPane fitToWidth="true" layoutX="8.0" layoutY="2.0" prefHeight="247.0" prefWidth="524.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <AnchorPane layoutX="8.0" layoutY="2.0" minHeight="0.0" minWidth="0.0" prefHeight="555.0" prefWidth="539.0" style="-fx-background-color: white;">
+            <AnchorPane layoutX="8.0" layoutY="2.0" minHeight="0.0" minWidth="0.0" prefHeight="555.0" prefWidth="539.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label layoutX="28.0" layoutY="14.0" styleClass="property" stylesheets="@../../static/stylesheets/Notice_CSS.css" text="Properties" />
-                  <Label layoutX="28.0" layoutY="64.0" styleClass="propertiesText" stylesheets="@../../static/stylesheets/Notice_CSS.css" text="Title Text" />
-                  <TextField fx:id="txt_title" layoutX="222.0" layoutY="64.0" onMouseClicked="#txt_title" prefHeight="25.0" prefWidth="274.0" />
-                  <Label layoutX="28.0" layoutY="114.0" styleClass="propertiesText" text="Content text" />
-                  <TextArea fx:id="txt_content" layoutX="222.0" layoutY="114.0" onMouseClicked="#txt_content" prefHeight="160.0" prefWidth="274.0" wrapText="true" />
-                  <Label layoutX="28.0" layoutY="296.0" styleClass="propertiesText" text="Button text" />
-                  <TextField fx:id="txt_buttonText" layoutX="222.0" layoutY="293.0" onMouseClicked="#txt_buttonText" prefHeight="25.0" prefWidth="274.0" />
-                  <Label layoutX="28.0" layoutY="344.0" styleClass="propertiesText" text="Help text" />
-                  <TextArea fx:id="txt_helptext" layoutX="222.0" layoutY="344.0" onMouseClicked="#txt_helptext" prefHeight="160.0" prefWidth="274.0" wrapText="true" />
+                  <Label id="lblProperty" layoutX="28.0" layoutY="14.0" text="Properties" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="14.0" />
+                  <Label layoutX="28.0" layoutY="64.0" text="Title Text" AnchorPane.leftAnchor="28.0" />
+                  <TextField fx:id="txt_title" layoutX="222.0" layoutY="64.0" onMouseClicked="#txt_title" prefHeight="25.0" prefWidth="274.0" promptText="Title" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="42.40000000000009" />
+                  <Label layoutX="28.0" layoutY="114.0" text="Content text" AnchorPane.leftAnchor="28.0" />
+                  <TextArea fx:id="txt_content" layoutX="222.0" layoutY="114.0" onMouseClicked="#txt_content" prefHeight="160.0" prefWidth="274.0" promptText="Content" wrapText="true" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="42.40000000000009" />
+                  <Label layoutX="28.0" layoutY="296.0" text="Button text" AnchorPane.leftAnchor="28.0" />
+                  <TextField fx:id="txt_buttonText" layoutX="222.0" layoutY="293.0" onMouseClicked="#txt_buttonText" prefHeight="25.0" prefWidth="274.0" promptText="Button text" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="42.40000000000009" />
+                  <Label layoutX="28.0" layoutY="344.0" styleClass="propertiesText" text="Help text" AnchorPane.leftAnchor="28.0" />
+                  <TextArea fx:id="txt_helptext" layoutX="222.0" layoutY="344.0" onMouseClicked="#txt_helptext" prefHeight="160.0" prefWidth="274.0" promptText="Help text" wrapText="true" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="42.40000000000009" />
                </children>
             </AnchorPane>
          </content>
