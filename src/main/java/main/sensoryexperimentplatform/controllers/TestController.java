@@ -88,50 +88,7 @@ public class TestController{
     private Stack <AddCourseVM> addCourseVMS;
     private Experiment originalExperiment;
 
-    @FXML
-    void delete(ActionEvent event) {
-        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            TreeItem<String> parent = selectedItem.getParent();
-            if (parent != null) {
-                parent.getChildren().remove(selectedItem);
-            } else {
-                // If it's a root item, remove it from the TreeView directly
-                listObject.getRoot().getChildren().remove(selectedItem);
-            }
-        }
-    }
-    @FXML
-    void down(ActionEvent event) {
-        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            TreeItem<String> parent = selectedItem.getParent();
-            if (parent != null) {
-                int currentIndex = parent.getChildren().indexOf(selectedItem);
-                if (currentIndex < parent.getChildren().size() - 1) {
-                    TreeItem<String> nextItem = parent.getChildren().get(currentIndex + 1);
-                    // Select the next sibling item
-                    listObject.getSelectionModel().select(nextItem);
-                }
-            }
-        }
 
-    }
-    @FXML
-    void up(ActionEvent event) {
-        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            TreeItem<String> parent = selectedItem.getParent();
-            if (parent != null) {
-                int currentIndex = parent.getChildren().indexOf(selectedItem);
-                if (currentIndex > 0) {
-                    TreeItem<String> previousItem = parent.getChildren().get(currentIndex - 1);
-                    // Select the previous sibling item
-                    listObject.getSelectionModel().select(previousItem);
-                }
-            }
-        }
-    }
 
 
     public void initialize(){
@@ -161,6 +118,8 @@ public class TestController{
                 }
             }
         });
+
+        //THIS CODE IS TO MAKE THE TREE ITEM WHICH APPEAR DIFFER IN COLORS (ODD VS EVEN)
         listObject.setCellFactory(new Callback<TreeView<String>, TreeCell<String>>() {
             @Override
             public TreeCell<String> call(TreeView<String> param) {
@@ -184,6 +143,63 @@ public class TestController{
                 };
             }
         });
+    }
+
+    //THREE RIGHT-SIDE BUTTONS
+    @FXML
+    void delete(ActionEvent event) {
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            TreeItem<String> parent = selectedItem.getParent();
+            if (parent != null) {
+                parent.getChildren().remove(selectedItem);
+            } else {
+                // If it's a root item, remove it from the TreeView directly
+                listObject.getRoot().getChildren().remove(selectedItem);
+            }
+        }
+    }
+    @FXML
+    void down(ActionEvent event) {
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            TreeItem<String> parent = selectedItem.getParent();
+            if (parent != null) {
+                int currentIndex = parent.getChildren().indexOf(selectedItem);
+                System.out.println(currentIndex);
+                if (currentIndex < parent.getChildren().size() - 1 && currentIndex >= 0) {
+                    TreeItem<String> nextItem = parent.getChildren().get(currentIndex + 1);
+                    parent.getChildren().set(currentIndex + 1, parent.getChildren().get(currentIndex));
+                    parent.getChildren().set(currentIndex, nextItem);
+
+//                    Object next = experiment.getStages().get(currentIndex + 1);
+//                    System.out.println(next);
+//                    experiment.getStages().set(currentIndex + 1, experiment.getStages().get(currentIndex));
+//                    experiment.getStages().set(currentIndex, next);
+                }
+                // listObject.getSelectionModel().select(currentIndex - 1);
+            }
+        }
+    }
+    @FXML
+    void up(ActionEvent event) {
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            TreeItem<String> parent = selectedItem.getParent();
+            if (parent != null) {
+                int currentIndex = parent.getChildren().indexOf(selectedItem);
+                if (currentIndex < parent.getChildren().size() && currentIndex > 0) {
+                    TreeItem<String> lastItem = parent.getChildren().get(currentIndex - 1);
+                    parent.getChildren().set(currentIndex - 1, parent.getChildren().get(currentIndex));
+                    parent.getChildren().set(currentIndex, lastItem);
+//                    Object last = experiment.getStages().get(currentIndex - 1);
+//                    System.out.println(last);
+//                    experiment.getStages().set(currentIndex - 1, experiment.getStages().get(currentIndex));
+//                    experiment.getStages().set(currentIndex, last);
+                }
+                //listObject.getSelectionModel().select(currentIndex - 1);
+            }
+        }
     }
 
     private int getIndex(TreeItem<String> item) {

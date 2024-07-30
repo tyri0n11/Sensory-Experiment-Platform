@@ -41,7 +41,7 @@ public class Experiment {
         this.id = id;
         this.created_date = created_date;
         stages = new ArrayList<>();
-        elapsedTime= 0;
+        elapsedTime = 0;
         start = new Start("default","default","default",false,null, null,0,100,null);
     }
     public Experiment(Experiment selectedExperiment) {

@@ -82,3 +82,11 @@ endRatingsContainer()
 noticeStage("End of ratings","Please call the experimenter","End","","false")
 endExperiment()
 
+ExperimentName: Experiment
+ExperimenterName: Creator
+ExperimentID: 0
+Created on: 30.07.2024
+Version: 1
+startExperiment("Description","","Note")
+endExperiment()
+
