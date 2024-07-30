@@ -137,9 +137,6 @@ public class DashBoardController {
                                             + "-fx-background-color: transparent"
                             );
 
-
-
-//
                             delete.setOnAction((ActionEvent event) -> {
                                 selectedExperiment = getTableView().getItems().get(getIndex());
                                 try {
@@ -209,14 +206,15 @@ public class DashBoardController {
 
 
     private void editExperiment(Experiment c) {
-        c.updateVersion();
+//        c.updateVersion();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/Test.fxml"));
         Parent root =null;
         try{
+            TestController controller = new TestController();
             root = loader.load();
-            TestController view = loader.getController();
-            view.setExperiment(c);
+            controller = loader.getController();
+            controller.setExperiment(c);
         }
         catch (IOException e){
             e.printStackTrace();
@@ -224,7 +222,7 @@ public class DashBoardController {
 
         Stage stage = new Stage();
         stage.setTitle("Edit experiment");
-        stage.setResizable(false);
+//        stage.setResizable(false);
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
