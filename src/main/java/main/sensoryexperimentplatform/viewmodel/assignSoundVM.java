@@ -15,8 +15,10 @@ public class assignSoundVM {
     private AudibleInstruction audibleInstruction;
 
 
+
     public assignSoundVM(AudibleInstruction audibleInstruction) throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
         this.audibleInstruction = AudibleInstructionSingleton.getInstance();
+
 
     }
 
@@ -45,6 +47,10 @@ public class assignSoundVM {
     public void stopSound(String name) {
         audibleInstruction.stopSound(name);
     }
+    public void removeSound(String name) {
+        audibleInstruction.getSoundNameshow().remove(name);
+    }
+
 
     public ArrayList<String> getListSoundName() {
         return audibleInstruction.getSoundNameList();
