@@ -1,151 +1,32 @@
-#SideBar{
-    -fx-background-color: #F7F6FE
-}
-#SideBar2{
-    -fx-background-color: #FFFF
-}
-.root {
-    -fx-font-family: 'Inter';
-    -fx-font-size: 14;
-}
-.button{
-    -fx-background-color: transparent;
-}
+
+
+
 .button:hover{
-    -fx-background-color: #F7F6FE;
+    -fx-background-color: #D5E9EA;
     -fx-text-fill: white;
 }
-#btn_dashboard{
-    -fx-background-color: transparent;
-    -fx-font-size: 32;
-    -fx-font-weight: normal;
-    -fx-text-alignment: left;
-    -fx-text-fill: #397E82;
-}
 
-
-
-#btn_up{
-    -fx-pref-height: 55;
-    -fx-pref-width: 55;
-    -fx-background-image: url('/static/images/btn_up.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: cover; /* or contain depending on your preference */
-}
-#btn_down{
-    -fx-pref-height: 55;
-    -fx-pref-width: 55;
-    -fx-background-image: url('/static/images/btn_down.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: cover; /* or contain depending on your preference */
-}
-#btn_cross{
-    -fx-pref-height: 55;
-    -fx-pref-width: 55;
-    -fx-background-image: url('/static/images/cross.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: cover; /* or contain depending on your preference */
-}
-#btn_menu{
-    -fx-pref-height: 39;
-    -fx-pref-width: 39;
-    -fx-background-image: url('/static/images/btn_menu.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-background-size: cover; /* or contain depending on your preference */
-}
-#avatarImageView{
-    -fx-pref-height: 48;
-    -fx-pref-width: 48;
-}
-
-#textResult{
-    -fx-min-width: 812px;
-    -fx-max-width: 812px;
-    -fx-min-height: 644px;
-    -fx-max-height: 644px;
-    -fx-padding: 5px 0px 5px 0px;
-    -fx-border-radius: 20px 0px 0px 0px;
-    -fx-border: 1px 0px 0px 0px;
-
-}
-#headPanel{
-
-    -fx-background-color: #CAD1D040;
-
-}
-#dashboardPanel,#DashBoard,#DashBoard1,#right{
-    -fx-background-color: #FFFFFF;
-}
 .root {
     -fx-font-family: 'Inter';
     -fx-font-size: 14;
 }
-#lbl_DashBoard{
-    -fx-text-fill: #397E82;
-    -fx-font-size: 36;
-}
-#txt_searchBar{
 
-
-    -fx-pref-width: 441px;
-    -fx-pref-height: 32px;
-    -fx-border-color: #9E9E9E;
-    -fx-border-style: solid ;
-
-
-    -fx-border-radius: 8px;
-
-
-
-}
-#btn_dropDown{
-
-    -fx-font-weight: normal;
-    -fx-font-size: 12px;
-
-    -fx-pref-width: 46px;
-    -fx-pref-height: 31px;
-
+.stackpane{
+    -fx-background-color: white;
 
 }
 
 
-
-#lbl_ID{
-
-
-    -fx-font-family: 'Montserrat';
-    -fx-font-style: normal;
-
-    -fx-font-weight: bold;
-    -fx-text-fill: black;
-    -FX-font-size: 14px;
-    /* ID */
-
-}
-#textFrame{
-    -fx-min-width: 806px;
-    -fx-max-width: 806px;
-    -fx-min-height: 311px;
-    -fx-max-height: 311px;
-    -fx-padding: 5px 0px 5px 0px;
-    -fx-border-radius: 20px 0px 0px 0px;
-    -fx-border: 1px 0px 0px 0px;
-
+.text-area{
+    -fx-border-color: #696969;
+    -fx-border-radius: 5px 5px 5px 5px;
+    -fx-alignment: center;
+    -fx-box-sizing: border-box;
 }
 
-#mainBar{
 
-    -fx-background-color: #FFFF;
 
-}
-
-#lbl_iD,#lbl_creator,#lbl_experimentName,#lbl_currentVersion,#lbl_result,#lbl_lastM,#lbl_createDate,#lbl_Option
-,#ExperimentdesLabel,#AdditionNoteLabel,#FileLabel,#NameLabel{
+#FileLabel,#NameLabel{
     -fx-font-family: 'Montserrat';
     -fx-font-weight: 700;
     -fx-align-items: center;
@@ -154,11 +35,7 @@
     -fx-text-alignment: center;
     -fx-font-size: 16px;
 }
-#lbl_show,#lbl_entries{
-    -fx-font-family: 'Montserrat';
-    -fx-font-weight: 500;
-    -fx-font-size: 12px;
-}
+
 .scroll-pane{
     -fx-background-color: transparent;
     -fx-border-color: derive(gray,100%);
@@ -222,17 +99,11 @@
 
     }
 
-    #btn_add,#btn_selectAll,#btn_selectNone,#CloseButton,#btn_save,#btn_refresh,#btn_stop,#btn_remove,#btn_play{
-        /* Button 6 */
-
+    .button{
 
         -fx-background-color: #397E82;
 
-
-
-
         -fx-border-radius: 20px 20px 20px 20px;
-        /* Add */
 
 
         -fx-font-family: 'Montserrat';
@@ -252,74 +123,12 @@
 
     }
 
-    .check-box {
-        -fx-max-width: 28px;
-        -fx-max-height: 28px;
-        -fx-background-color: white;
 
-        /* Inside auto layout */
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-
-    }
-
-    .check-box .box {
-        -fx-background-color: white;
-        -fx-border-color: grey;
-        -fx-border-radius: 3px;
-    }
 
     .text-field {
         -fx-border-color: black;
         -fx-border-radius: 5px 5px 5px 5px;
         -fx-alignment: center;
-    }
-    #AddFoodPane,#NewExPane,#AddsoundPane,#ImportSoundPane{
-
-
-
-        -fx-background-color: #FFFFFF;
-
-        -fx-box-shadow: inset 0px -20px 0px rgba(0, 0, 0, 0.25);
-        -fx-border-radius: 14px 14px 14px 14px;
-        -fx-border-color: #000;
-
-
-
-
-    }
-    #AddFoodLabel{
-        /* Add Food */
-
-
-        -fx-font-family: 'Montserrat';
-        -fx-font-style: normal;
-        -fx-font-weight: 400;
-        -fx-font-size: 30px;
-        line-height: 41px;
-        /* identical to box height */
-        -fx-text-align: center;
-
-        -fx-text-fill: #1E1E1E;
-
-
-    }
-    #please1Label{
-        /* Please type the name of the new food below: */
-
-
-
-        -fx-font-family: 'Montserrat';
-        -fx-font-style: normal;
-        -fx-font-weight: 400;
-        -fx-font-size: 15px;
-        line-height: 41px;
-        /* identical to box height */
-        -fx-text-align: center;
-
-        -fx-text-fill: #1E1E1E;
-
     }
 
 
@@ -354,22 +163,7 @@
 
 
     }
-.btn_dashboardButton{
 
-    -fx-font-family: 'Montserrat';
-    -fx-font-style: normal;
-    -fx-font-weight: 500;
-    -fx-font-size: 14px;
-    -fx-text-fill: #000000;
-
-    -fx-max-width: 217px;
-    -fx-max-height: 56px;
-    -fx-min-width: 217px;
-    -fx-min-height: 56px;
-
-    -fx-border-radius: 5px 5px 5px 5px;
-
-}
 #btn_edit{
     -fx-pref-height: 39;
     -fx-pref-width: 39;
@@ -380,14 +174,8 @@
 }
 #btn_cancel, #btn_save{
     -fx-background-color: #397E82;
-
-
-
-
     -fx-border-radius: 20px 20px 20px 20px;
     /* Add */
-
-
     -fx-font-family: 'Montserrat';
     -fx-font-style: normal;
     -fx-font-weight: 400;

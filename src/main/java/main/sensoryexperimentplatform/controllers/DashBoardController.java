@@ -30,7 +30,7 @@ import java.util.concurrent.ScheduledExecutorService;
 
 public class DashBoardController {
 
-    private static final int ITEMS_PER_PAGE = 10;
+    private static final int ITEMS_PER_PAGE = 6;
     private dashBoard_VM dashBoard_vm;
 
     private ScheduledExecutorService executorService;
@@ -59,7 +59,7 @@ public class DashBoardController {
     private TableColumn<Experiment, String> lbl_Option;
     @FXML
     private Pagination pagination;
-    
+
     private Stack<Experiment> deletedExp = new Stack<>();
 
     private Experiment selectedExperiment;
@@ -141,9 +141,6 @@ public class DashBoardController {
                                             + "-fx-background-color: transparent"
                             );
 
-
-
-//
                             delete.setOnAction((ActionEvent event) -> {
                                 selectedExperiment = getTableView().getItems().get(getIndex());
                                 try {
@@ -206,6 +203,7 @@ public class DashBoardController {
         int totalItems = dashBoard_vm.getExperiments().size();
         int totalPages = (int) Math.ceil((double) totalItems / ITEMS_PER_PAGE);
         pagination.setPageCount(totalPages);
+        System.out.println("page count" + pagination.getPageCount());
         pagination.setPageFactory(this::createPage);
     }
 
@@ -230,14 +228,15 @@ public class DashBoardController {
 
 
     private void editExperiment(Experiment c) {
-        c.updateVersion();
+//        c.updateVersion();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/Test.fxml"));
         Parent root = null;
         try{
+            TestController controller = new TestController();
             root = loader.load();
-            TestController view = loader.getController();
-            view.setExperiment(c);
+            controller = loader.getController();
+            controller.setExperiment(c);
         }
         catch (IOException e){
             e.printStackTrace();
@@ -245,6 +244,7 @@ public class DashBoardController {
 
         Stage stage = new Stage();
         stage.setTitle("Edit experiment");
+//        stage.setResizable(false);
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -261,6 +261,7 @@ public class DashBoardController {
         Stage stage = new Stage();
         stage.setTitle("New experiment");
         newExController controller = fxmlLoader.getController();
+        controller.initialize();
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

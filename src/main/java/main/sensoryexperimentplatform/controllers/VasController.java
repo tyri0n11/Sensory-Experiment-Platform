@@ -2,6 +2,7 @@ package main.sensoryexperimentplatform.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.viewmodel.vasStage_VM;
 
 public class VasController {
@@ -13,15 +14,7 @@ public class VasController {
     @FXML
     private CheckBox checkB_swap;
 
-    @FXML
-    private ChoiceBox<?> choiceB_avail;
 
-
-    @FXML
-    private RadioButton radioBtn_Yes;
-
-    @FXML
-    private RadioButton radioBtn_available;
 
     @FXML
     private TextField txt_BtnTxt;
@@ -46,6 +39,9 @@ public class VasController {
 
     @FXML
     private TextField txt_yes;
+
+
+
 
     private void bind(){
         txt_question.textProperty().bindBidirectional(vasStageVM.questionTextProperty());

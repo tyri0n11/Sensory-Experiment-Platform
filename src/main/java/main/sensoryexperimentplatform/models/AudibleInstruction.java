@@ -3,10 +3,13 @@ package main.sensoryexperimentplatform.models;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 public class AudibleInstruction extends Stage {
     private String title;
@@ -14,13 +17,15 @@ public class AudibleInstruction extends Stage {
 
     private String buttonText;
     private String helpText;
+    //soundNameList
     private ArrayList<String> soundNamesList;
 
     private ArrayList<String> soundFilePaths;
 
 
-    private Map<String, String> soundMap;
-    private ArrayList<String> soundNameshow;
+    private Map<String, Clip> soundMap;
+    //sound name for showing
+    private ArrayList<String> soundNameshow; // for the appearance of sound
 
 
     public AudibleInstruction(String title, String content, String buttonText,String helpText){
@@ -30,17 +35,13 @@ public class AudibleInstruction extends Stage {
         this.buttonText= buttonText;
         this.helpText = helpText;
         soundMap = new HashMap<>();
-        soundFilePaths = new ArrayList<>();
         soundNameshow = new ArrayList<>();
-        soundNameshow.add("music");
-        soundNameshow.add("gud morning");
-        soundNameshow.add("quynh anh");
-        soundNameshow.add("quynh anh");
-        soundNameshow.add("quynh anh");
-        soundNameshow.add("skylar");
+        soundNameshow.add("boop");
+        loadSound("boop","src/main/java/main/sensoryexperimentplatform/sound/boop-741-mhz-39314.wav");
+        loadSound("stomp","src/main/java/main/sensoryexperimentplatform/sound/stompwav-14753.wav");
+        soundNameshow.add("stomp");
+
         soundNamesList = new ArrayList<>();
-
-
 
     }
 
@@ -76,10 +77,6 @@ public class AudibleInstruction extends Stage {
     }
 
 
-    public List<String> getSoundFilePaths() {
-        return soundFilePaths;
-    }
-
     public ArrayList<String> getSoundNameshow() {
         return soundNameshow;
     }
@@ -98,17 +95,51 @@ public class AudibleInstruction extends Stage {
     public void addSoundFilePath(String sound){
         soundFilePaths.add(sound);
     }
-    public Map<String, String> getSoundMap() {
+    public Map<String, Clip> getSoundMap() {
         return soundMap;
     }
-    public void addSound(String name, String filePath) {
-        soundMap.put(name, filePath);
+
+    public void loadSound(String name, String filePath) {
+        try {
+            File soundFile = new File(filePath);
+
+            if (!soundFile.exists()) {
+                throw new IllegalArgumentException("Sound file not found: " + filePath);
+            }
+
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            soundMap.put(name, clip);
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
 
 
-//    public String getSoundFilePath(String name) {
-//        return soundMap.get(name);
-//    }
+    public void playSound(String name) {
+        Clip clip = soundMap.get(name);
+        if (clip != null) {
+            stopAllSounds();
+            clip.start();
+        }
+    }
+
+    public void stopSound(String name) {
+        Clip clip = soundMap.get(name);
+        if (clip != null) {
+            clip.stop();
+            clip.setFramePosition(0);
+        }
+    }
+
+    public void stopAllSounds() {
+        for (Clip clip : soundMap.values()) {
+            if (clip.isRunning()) {
+                clip.stop();
+            }
+        }
+    }
 
 
     public String toString() {

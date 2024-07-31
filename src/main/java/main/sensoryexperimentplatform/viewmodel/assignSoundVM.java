@@ -1,53 +1,58 @@
 package main.sensoryexperimentplatform.viewmodel;
 
+import main.sensoryexperimentplatform.controllers.AudibleInstructionSingleton;
 import main.sensoryexperimentplatform.models.AudibleInstruction;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class assignSoundVM {
     private AudibleInstruction audibleInstruction;
-    private ArrayList<String> listNameshow;
-    private ArrayList<String> listSoundName;
-    private ArrayList<String>listSoundFilePaths;
 
-    public assignSoundVM(AudibleInstruction audibleInstruction){
-        this.audibleInstruction = audibleInstruction;
-        listNameshow = audibleInstruction.getSoundNameshow();
-        listSoundName= audibleInstruction.getSoundNameList();
-        listSoundFilePaths = audibleInstruction.getSoundFilePath();
+
+    public assignSoundVM(AudibleInstruction audibleInstruction) throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
+        this.audibleInstruction = AudibleInstructionSingleton.getInstance();
 
     }
 
     public void addListSoundshow(String name){
-//        listNameshow.add(name);
-        audibleInstruction.getSoundNameshow().add(name);
 
+        audibleInstruction.getSoundNameshow().add(name);
+    }
+    public void getSoundPath(){
+        audibleInstruction.getSoundFilePath();
     }
     public void addListSoundName(String name){
-        listSoundName.add(name);
-        audibleInstruction.getSoundNameList();
+        audibleInstruction.getSoundNameList().add(name);
     }
+
 
     public ArrayList<String> getListNameshow() {
-        return listNameshow;
-    }
-    public Map<String, String> getSoundMap() {
-        return audibleInstruction.getSoundMap();
+        return audibleInstruction.getSoundNameshow();
     }
 
-    public void addSound(String name, String filePath) {
-        audibleInstruction.addSound(name, filePath);
+//    public void loadSound(String name, String filePath) {
+//        audibleInstruction.loadSound(name, filePath);
+//    }
+    public void playSound(String name) {
+        audibleInstruction.playSound(name);
+    }
+    public void stopSound(String name) {
+        audibleInstruction.stopSound(name);
     }
 
     public ArrayList<String> getListSoundName() {
-        return listSoundName;
+        return audibleInstruction.getSoundNameList();
     }
     public ArrayList<String> getSoundFilePaths(){
-      return listSoundFilePaths;
+      return audibleInstruction.getSoundFilePath();
     }
     public void  addSoundFilePath(String soundPath){
-        listSoundFilePaths.add( soundPath);
+        audibleInstruction.getSoundFilePath().add(soundPath);
     }
 }

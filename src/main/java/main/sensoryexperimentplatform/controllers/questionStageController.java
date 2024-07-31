@@ -11,13 +11,19 @@ public class questionStageController {
     private questionStage_VM viewModel;
 
     @FXML
+    private CheckBox cbx_alert;
+
+    @FXML
     private Label fontLabel;
+
+    @FXML
+    private Label lblProperty;
 
     @FXML
     private Label lbl_helpText;
 
     @FXML
-    private Label lbl_leftbutton;
+    private Label lbl_leftbutton1;
 
     @FXML
     private Label lbl_leftbuttonValue;
@@ -35,7 +41,7 @@ public class questionStageController {
     private Label lbl_storeResponse;
 
     @FXML
-    private TextArea txt_helpText;
+    private TextField txt_helpText;
 
     @FXML
     private TextField txt_leftText;
@@ -44,29 +50,12 @@ public class questionStageController {
     private TextField txt_leftValue;
 
     @FXML
-    private TextField txt_question;
-
-    @FXML
     private TextField txt_rightText;
 
     @FXML
-    private TextField txt_rightvalue;
-
+    private TextField txt_rightValue;
     @FXML
-    private CheckBox cbx_alert;
-    private Question question;
-
-
-    @FXML
-    void txt_question(ActionEvent event) {
-
-    }
-
-    @FXML
-    void txt_rightvalue(ActionEvent event) {
-
-    }
-
+    private TextField txt_question;
 
     public void setQuestionStage_vm( questionStage_VM viewModel){
         this.viewModel = viewModel;
@@ -78,7 +67,7 @@ public class questionStageController {
         txt_rightText.textProperty().bindBidirectional(viewModel.rightTextProperty());
         txt_question.textProperty().bindBidirectional(viewModel.questionProperty());
         txt_leftValue.textProperty().bindBidirectional(viewModel.leftValueProperty());
-        txt_rightvalue.textProperty().bindBidirectional(viewModel.rightValueProperty());
+        txt_rightValue.textProperty().bindBidirectional(viewModel.rightValueProperty());
         cbx_alert.selectedProperty().bindBidirectional(viewModel.alertProperty());
 
         txt_helpText.textProperty().addListener((observable, oldValue, newValue) -> {

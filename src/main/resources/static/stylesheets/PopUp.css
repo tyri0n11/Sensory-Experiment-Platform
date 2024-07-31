@@ -80,3 +80,27 @@
 
     -fx-text-fill: #000000;
 }
+#lbl_goodjob{
+    -fx-text-fill: #000;
+    -fx-font-family: Montserrat;
+    -fx-font-size: 48px;
+    -fx-font-style: normal;
+    -fx-font-weight: bold;
+    -fx-line-height: normal;
+}
+#lbl_username{
+    -fx-text-fill: #397E82;
+    -fx-font-family: Montserrat;
+    -fx-font-size: 48px;
+    -fx-font-style: normal;
+    -fx-font-weight: bold; /* JavaFX uses 'bold' for font-weight 600 */
+    -fx-line-height: normal;
+}
+#lbl_message{
+    -fx-text-fill: #000;
+    -fx-font-family: Montserrat;
+    -fx-font-size: 36px;
+    -fx-font-style: normal;
+    -fx-font-weight: normal; /* JavaFX uses 'normal' for font-weight 500 */
+    -fx-line-height: normal;
+}

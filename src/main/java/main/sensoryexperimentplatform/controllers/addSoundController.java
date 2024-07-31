@@ -13,6 +13,7 @@ public class addSoundController {
 
     private assignSoundVM viewModel;
     private notiAddSound NotiAddSound;
+    private assignSoundController AssignSoundController;
 
 
 
@@ -31,7 +32,9 @@ public class addSoundController {
 
     public void setViewModel(assignSoundVM viewModel, assignSoundController AssignSoundController ) {
        this.viewModel = viewModel;
+       this.AssignSoundController = AssignSoundController;
        NotiAddSound = new notiAddSound(AssignSoundController);
+
     }
 
 //    private void bindViewModel() {
@@ -46,7 +49,7 @@ public class addSoundController {
 
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("MP3 Files","*.mp3")
+                new FileChooser.ExtensionFilter("WAV Files","*.wav")
         );
         File selectedFile = fileChooser.showOpenDialog(btn_browse.getScene().getWindow());
         if (selectedFile != null) {
@@ -63,13 +66,12 @@ public class addSoundController {
 
     @FXML
     void btn_save(ActionEvent event) {
+        if(!txt_file.getText().isEmpty() || !txt_name.getText().isEmpty()) {
         viewModel.addListSoundshow(txt_name.getText());
-        viewModel.addSound(txt_name.getText(),txt_file.getText());
+//        viewModel.loadSound(txt_name.getText(),txt_file.getText());
         NotiAddSound.notifyObject();
-        System.out.println(viewModel.getSoundMap());
         Stage currentStage = (Stage) btn_cancel.getScene().getWindow();
-        currentStage.close();
-
+        currentStage.close();}
     }
 
     @FXML

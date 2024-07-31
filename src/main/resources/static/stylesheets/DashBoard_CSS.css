@@ -192,7 +192,28 @@
 .table-view .table-column {
     -fx-alignment: CENTER;
 }
+.table-view .scroll-bar * {
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
 
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+.table-view .table-row-cell:hover{
+    -fx-background-color: #D5E9EA;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #0E0E0E;
+}
+.table-view .table-row-cell:selected{
+    -fx-background-color: #D5E9EA;
+    -fx-border-color: #397E82;
+    -fx-border-width: 2px;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-text-fill: #0E0E0E;
+}
 .combo-box{
 
     -fx-pref-width: 43px;

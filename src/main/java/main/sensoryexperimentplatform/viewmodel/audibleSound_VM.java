@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.controllers.AudibleInstructionSingleton;
 import main.sensoryexperimentplatform.controllers.addAudibleSoundController;
 import main.sensoryexperimentplatform.models.AudibleInstruction;
 import main.sensoryexperimentplatform.models.Experiment;
@@ -23,11 +24,11 @@ public class audibleSound_VM implements choose {
 
     public audibleSound_VM(Experiment experiment){
         this.experiment = experiment;
-        this.audibleInstruction = new AudibleInstruction("Hello","hello","hello","hello");
-        this.title = new SimpleStringProperty(audibleInstruction.getTitle());
-        this.content = new SimpleStringProperty(audibleInstruction.getContent());
-        this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
-        this.helpText = new SimpleStringProperty(audibleInstruction.getButtonText());
+        this.audibleInstruction = AudibleInstructionSingleton.getInstance();
+        this.title = new SimpleStringProperty(AudibleInstructionSingleton.getInstance().getTitle());
+        this.content = new SimpleStringProperty(AudibleInstructionSingleton.getInstance().getContent());
+        this.buttonText = new SimpleStringProperty(AudibleInstructionSingleton.getInstance().getButtonText());
+        this.helpText = new SimpleStringProperty(AudibleInstructionSingleton.getInstance().getButtonText());
 
         buttonText.addListener((observable, oldValue, newValue) -> {
             setButtonText(newValue);
@@ -102,16 +103,16 @@ public class audibleSound_VM implements choose {
 //        this.audibleInstruction.setTitle(newValue);
 //    }
     public void setButtonText(String newValue) {
-        audibleInstruction.setButtonText(newValue);
+        AudibleInstructionSingleton.getInstance().setButtonText(newValue);
     }
     public void setTitle(String newValue) {
-        audibleInstruction.setTitle(newValue);
+        AudibleInstructionSingleton.getInstance().setTitle(newValue);
     }
     public void setContent(String newValue) {
-        audibleInstruction.setContent(newValue);
+        AudibleInstructionSingleton.getInstance().setContent(newValue);
     }
     public AudibleInstruction getAudibleInstruction(){
-        return audibleInstruction;
+        return AudibleInstructionSingleton.getInstance();
     }
 
 
@@ -132,6 +133,6 @@ public class audibleSound_VM implements choose {
     }
     @Override
     public String getTitle(){
-        return "[Audio] "+ audibleInstruction.getTitle();
+        return "[Audio] "+ AudibleInstructionSingleton.getInstance().getTitle();
     }
 }

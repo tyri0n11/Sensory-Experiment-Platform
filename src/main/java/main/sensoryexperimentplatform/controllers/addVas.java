@@ -4,12 +4,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.viewmodel.FoodTasteVM;
 
 public class addVas {
+    @FXML
+    private TextField txt_help;
     @FXML
     private Label FileLabel;
 

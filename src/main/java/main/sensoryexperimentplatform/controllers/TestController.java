@@ -18,7 +18,10 @@ import main.sensoryexperimentplatform.models.*;
 import main.sensoryexperimentplatform.models.Timer;
 
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.*;
 
 public class TestController{
@@ -210,7 +213,6 @@ public class TestController{
     }
 
     private String showDetailView(int index) throws IOException {
-
         choose o = displayedItems.get(index).getChoose();
         o.modify(propertiesPane, addTasteVMS, addCourseVMS);
         o.modifyWithButton(propertiesPane,addTasteVMS, addCourseVMS,btn_AddPeriodicStage, btn_AddCourse, btn_assignSound,
@@ -245,7 +247,7 @@ public class TestController{
             for (Object o : stages) {
 
                 if (o instanceof Vas) {
-                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Vas) o).getTitle();
+                    String key = "[VAS]" + ((Vas) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
                     start.getChildren().add(new TreeItem<>(key));
                     vasStage_VM vasStageVm = new vasStage_VM((Vas) o);
@@ -376,7 +378,7 @@ public class TestController{
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         audibleSound_VM audibleSound_vm = new audibleSound_VM(experiment);
-        String key = audibleSound_vm.getAudibleInstruction().getTitle();
+        String key = "[Audio] " +audibleSound_vm.getAudibleInstruction().getTitle();
 
         Wrapper wrapper = new Wrapper(key, audibleSound_vm);
         displayedItems.put(index, wrapper);
@@ -518,7 +520,7 @@ public class TestController{
         start.setExpanded(true);
         inputStage_VM inputStage_vm = new inputStage_VM(experiment);
         Input inputStage = inputStage_vm.getInput();
-        String key = "[User Input]" +  inputStage.getTitle();
+        String key = "[User Input] " +  inputStage.getTitle();
         Wrapper wrapper = new Wrapper(key, inputStage_vm);
         displayedItems.put(index, wrapper);
         index++;
@@ -547,7 +549,7 @@ public class TestController{
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         noticeStage_VM noticeStage_vm = new noticeStage_VM(experiment);
-        String key = "[Instruction]" + noticeStage_vm.getNotice().getTitle();
+        String key = "[Instruction] " + noticeStage_vm.getNotice().getTitle();
         System.out.println(index);
         Wrapper wrapper = new Wrapper(key, noticeStage_vm);
         displayedItems.put(index, wrapper);
@@ -597,7 +599,7 @@ public class TestController{
         start.setExpanded(true);
         questionStage_VM questionStage_vm = new questionStage_VM(experiment);
         Question question = questionStage_vm.getQuestionStage();
-        String key = "[Question]" + question.getQuestion();
+        String key = "[Question] " + question.getQuestion();
         Wrapper wrapper = new Wrapper(key, questionStage_vm);
         displayedItems.put(index, wrapper);
         index++;
@@ -678,7 +680,7 @@ public class TestController{
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         timerStage_VM timerStageVm = new timerStage_VM(experiment);
-        String key = "[Waiting]" + timerStageVm.getTimer().getTitle();
+        String key = "[Waiting] " + timerStageVm.getTimer().getInstruction();
         Wrapper wrapper = new Wrapper(key, timerStageVm);
         displayedItems.put(index, wrapper);
         index++;
@@ -711,7 +713,7 @@ public class TestController{
         else {
             vasStageVm = new vasStage_VM(experiment);
         }
-        String key = "[Vas]" + vasStageVm.getVas().getTitle();
+        String key = "[VAS] " + vasStageVm.getVas().getTitle();
         Wrapper wrapper = new Wrapper(key, vasStageVm);
         displayedItems.put(index, wrapper);
         index++;
@@ -740,9 +742,9 @@ public class TestController{
     }
 
     @FXML
-    void assignSound(ActionEvent event) throws IOException {
+    void assignSound(ActionEvent event) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
         listObject.setMaxHeight(311);
-        audibleInstruction = new AudibleInstruction("hello","hello","hello","hello");
+        audibleInstruction = AudibleInstructionSingleton.getInstance();
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AssignSound.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = new Stage();

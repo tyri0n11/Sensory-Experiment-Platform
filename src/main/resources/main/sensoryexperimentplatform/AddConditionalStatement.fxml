@@ -15,11 +15,11 @@
                     <children>
                         <Label id="lblProperty" layoutX="28.0" layoutY="14.0" text="Properties" AnchorPane.leftAnchor="28.0" AnchorPane.topAnchor="14.0" />
                         <ComboBox fx:id="chx_variable2Choice" layoutX="260.0" layoutY="159.0" prefHeight="26.0" prefWidth="218.0" promptText="Every" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="159.0" />
-                        <TextField fx:id="txt_value1Text" layoutX="260.0" layoutY="89.0" prefHeight="26.0" prefWidth="218.0" promptText="Value 1" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="89.0" />
+                        <TextField fx:id="txt_value1Text" layoutX="260.0" layoutY="89.0" prefHeight="26.0" prefWidth="218.0" promptText="Something" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="89.0" />
                         <ComboBox fx:id="chx_variable1Choice" layoutX="260.0" layoutY="59.0" prefHeight="26.0" prefWidth="218.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="59.0" />
-                        <TextField fx:id="txt_value2Text" layoutX="260.0" layoutY="189.0" prefHeight="26.0" prefWidth="218.0" promptText="Value 2" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="189.0" />
+                        <TextField fx:id="txt_value2Text" layoutX="260.0" layoutY="189.0" prefHeight="26.0" prefWidth="218.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="189.0" />
                         <RadioButton fx:id="cbx_variable1" layoutX="14.0" layoutY="64.0" mnemonicParsing="false" text="Variable" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="64.0" />
-                        <RadioButton fx:id="cbx_value2" layoutX="14.0" layoutY="94.0" mnemonicParsing="false" text="Value" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="94.0" />
+                        <RadioButton fx:id="cbx_value1" layoutX="14.0" layoutY="94.0" mnemonicParsing="false" text="Value" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="94.0" />
                         <RadioButton fx:id="cbx_variable2" layoutX="14.0" layoutY="164.0" mnemonicParsing="false" text="Variable" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="164.0" />
                         <RadioButton fx:id="cbx_value2" layoutX="14.0" layoutY="194.0" mnemonicParsing="false" text="Value" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="194.0" />
                         <ComboBox fx:id="chx_compare" layoutX="260.0" layoutY="123.0" prefHeight="26.0" prefWidth="218.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="42.0" AnchorPane.topAnchor="123.0" />

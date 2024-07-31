@@ -17,7 +17,7 @@
                 <Label fx:id="EntriesLabel" layoutX="121.0" layoutY="23.0" text="entries" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="23.0" />
                 <TextField fx:id="searchBar" layoutX="171.0" layoutY="18.0" prefHeight="32.0" prefWidth="441.0" promptText="Search" style="-fx-text-alignment: LEFT;" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="354.6" AnchorPane.topAnchor="18.0" />
                 <Button fx:id="btn_AddExperiment" layoutX="690.0" layoutY="19.0" mnemonicParsing="false" onAction="#btn_addEx" stylesheets="@/static/stylesheets/DashBoard_CSS.css" text="+ Add Experiment" AnchorPane.rightAnchor="163.0" AnchorPane.topAnchor="19.0" />
-                <TableView fx:id="contentTable" layoutY="76.0" prefHeight="633.0" prefWidth="971.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="76.0">
+                <TableView fx:id="contentTable" layoutY="82.0" prefHeight="536.0" prefWidth="950.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="82.0">
                     <columns>
                         <TableColumn fx:id="lbl_iD" maxWidth="1.7976931348623157E308" prefWidth="75.0" text="ID" />
                         <TableColumn fx:id="lbl_creator" maxWidth="1.7976931348623157E308" prefWidth="140.0" text="Creator " />
@@ -29,7 +29,7 @@
                     </columns>
                 </TableView>
       <Button fx:id="btn_redo" layoutX="879.0" layoutY="19.0" mnemonicParsing="false" onAction="#redo" text="Redo" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="19.0" />
-      <Pagination fx:id="pagination" layoutX="380.0" layoutY="715.0" prefHeight="53.0" prefWidth="200.0" />
+      <Pagination fx:id="pagination" layoutX="415.0" layoutY="628.0" prefHeight="53.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.39999999999997726" AnchorPane.leftAnchor="415.0" AnchorPane.rightAnchor="365.79999999999995" />
    </children>
    <padding>
       <Insets right="10.0" />
