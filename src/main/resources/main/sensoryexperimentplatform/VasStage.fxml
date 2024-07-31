@@ -38,7 +38,7 @@
                         <TextField fx:id="txt_HighAncVal" layoutX="222.0" layoutY="260.0" prefHeight="25.0" prefWidth="274.0" promptText="100" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="27.2" />
                         <TextField fx:id="txt_BtnTxt" layoutX="222.0" layoutY="310.0" prefHeight="25.0" prefWidth="274.0" promptText="Continue" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="31.200000000000045" />
                         <Label id="lblProperty" layoutX="28.0" layoutY="14.0" text="Properties" AnchorPane.leftAnchor="28.0" />
-                        <TextArea fx:id="txt_help" layoutX="222.0" layoutY="550.0" prefHeight="160.0" prefWidth="274.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="27.200000000000045" />
+                        <TextArea fx:id="txt_help" layoutX="222.0" layoutY="550.0" prefHeight="160.0" prefWidth="274.0" wrapText="true" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="27.200000000000045" />
                     </children>
                 </AnchorPane>
             </content>

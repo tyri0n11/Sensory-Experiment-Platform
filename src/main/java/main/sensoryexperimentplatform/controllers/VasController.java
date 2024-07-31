@@ -43,6 +43,7 @@ public class VasController {
 
 
 
+
     private void bind(){
         txt_question.textProperty().bindBidirectional(vasStageVM.questionTextProperty());
         txt_LowAncTxt.textProperty().bindBidirectional(vasStageVM.lowAnchorTextProperty());
