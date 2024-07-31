@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import main.sensoryexperimentplatform.models.DataAccess;
+import main.sensoryexperimentplatform.models.listOfExperiment;
 
 public class Main extends Application {
 
@@ -20,6 +21,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
 
         DataAccess.loadExperiments();
+        System.out.println(listOfExperiment.getSize());
 
         primaryStage.setTitle("Sense XP");
 

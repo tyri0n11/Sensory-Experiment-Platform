@@ -212,8 +212,11 @@
     -fx-border-width: 2px;
     -fx-background-radius: 8px;
     -fx-border-radius: 8px;
+}
+.table-view .table-column{
     -fx-text-fill: #0E0E0E;
 }
+
 .combo-box{
 
     -fx-pref-width: 43px;

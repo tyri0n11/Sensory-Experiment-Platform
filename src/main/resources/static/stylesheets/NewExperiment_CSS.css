@@ -4,9 +4,12 @@
     -fx-text-fill: white;
 }
 
-body{
+.body{
     -fx-font-family: 'Poppins';
     -fx-font-style: normal;
+}
+.anchor-pane{
+    -fx-background-color: white;
 }
 #lbl_NewExp{
     -fx-max-width: 794px;

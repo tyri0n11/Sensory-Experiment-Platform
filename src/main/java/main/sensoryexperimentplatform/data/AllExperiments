@@ -1,8 +1,8 @@
-ExperimentName: Ella - Mood Ratings
+ExperimentName: Marie GNG - Mood Ratings
 ExperimenterName: Martin
 ExperimentID: 0
 Created on: null
-Version: 2
+Version: 0
 startExperiment("null","","null")
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","Extremely hungry","0","100","Rating completed","Session[]","","false","false")
@@ -17,7 +17,14 @@ vasStage("How calm do you feel right now?","Not at all calm","Extremely calm","0
 vasStage("How energetic do you feel right now?","Not at all energetic","Extremely energetic","0","100","Rating completed","Session[]","","false","false")
 endRatingsContainer()
 noticeStage("End of ratings","Please call the experimenter","End","","false")
-wait("123","sa","false")
+endExperiment()
+
+ExperimentName: Experiment
+ExperimenterName: Creator
+ExperimentID: 0
+Created on: 30.07.2024
+Version: 1
+startExperiment("null","","null")
 endExperiment()
 
 ExperimentName: Lab breakfast
@@ -61,11 +68,11 @@ endRatingsContainer()
 noticeStage("Thank you!","That completes the lab-based breakfast: please call your researcher.","X","","true")
 endExperiment()
 
-ExperimentName: Marie GNG - Mood Ratings
+ExperimentName: Ella - Mood Ratings
 ExperimenterName: Martin
 ExperimentID: 0
 Created on: null
-Version: 0
+Version: 2
 startExperiment("null","","null")
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","Extremely hungry","0","100","Rating completed","Session[]","","false","false")
@@ -80,13 +87,17 @@ vasStage("How calm do you feel right now?","Not at all calm","Extremely calm","0
 vasStage("How energetic do you feel right now?","Not at all energetic","Extremely energetic","0","100","Rating completed","Session[]","","false","false")
 endRatingsContainer()
 noticeStage("End of ratings","Please call the experimenter","End","","false")
+wait("123","sa","false")
 endExperiment()
 
 ExperimentName: Experiment
 ExperimenterName: Creator
 ExperimentID: 0
-Created on: 30.07.2024
-Version: 1
+Created on: 01.08.2024
+Version: 2
 startExperiment("Description","","Note")
+main.sensoryexperimentplatform.models.Start@79eb7964
+inputStage("User input","This is question","this is button","false")
+noticeStage("User input","This is question","this is button","hell00","false")
 endExperiment()
 

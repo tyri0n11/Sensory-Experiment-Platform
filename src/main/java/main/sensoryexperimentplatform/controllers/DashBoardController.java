@@ -69,7 +69,7 @@ public class DashBoardController {
        dashBoard_vm = new dashBoard_VM();
        bindViewModel();
        bindColumnWidths();
-       //setupPagination();
+     // setupPagination();
     }
 
     private void bindColumnWidths() {
@@ -193,15 +193,16 @@ public class DashBoardController {
 
 
         // Bind the TableView items to the ViewModel items
-
-        contentTable.setItems(dashBoard_vm.getExperiments());
-
+       // System.out.println(dashBoard_vm.getExperiments().size());
+       contentTable.setItems(dashBoard_vm.getExperiments());
+      //  setupPagination();
 
     }
 
     private void setupPagination() {
-        int totalItems = dashBoard_vm.getExperiments().size();
-        int totalPages = (int) Math.ceil((double) totalItems / ITEMS_PER_PAGE);
+        int totalPages = (int) Math.ceil((double) dashBoard_vm.getExperiments().size() / ITEMS_PER_PAGE);
+
+        System.out.println("num page" + totalPages);
         pagination.setPageCount(totalPages);
         System.out.println("page count" + pagination.getPageCount());
         pagination.setPageFactory(this::createPage);
@@ -210,10 +211,14 @@ public class DashBoardController {
     private VBox createPage(int pageIndex) {
         int start = pageIndex * ITEMS_PER_PAGE;
         int end = Math.min(start + ITEMS_PER_PAGE, dashBoard_vm.getExperiments().size());
-        ObservableList<Experiment> itemsForPage = FXCollections.observableArrayList(
-                dashBoard_vm.getExperiments().subList(start, end)
-        );
-        contentTable.setItems(itemsForPage);
+        if(start > end){
+            contentTable.setItems(dashBoard_vm.getExperiments());
+        } else {
+            ObservableList<Experiment> itemsForPage = FXCollections.observableArrayList(
+                    dashBoard_vm.getExperiments().subList(start, end)
+            );
+            contentTable.setItems(itemsForPage);
+        }
         return new VBox(contentTable);
     }
 
@@ -223,7 +228,9 @@ public class DashBoardController {
     }
 
     public void redo() throws Exception {
-        listOfExperiment.addExperiment(deletedExp.pop());
+        if(!deletedExp.isEmpty()){
+            listOfExperiment.addExperiment(deletedExp.pop());
+        }
     }
 
 
