@@ -338,25 +338,31 @@ public class TestController{
 //                    index++;
 //                }
                 else if (o instanceof RatingContainer) {
-//                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
-//                       System.out.println(key);
-//                       displayedItems.put(key, o);
-//                       str.add(key);
+                       String key = "Rating Container";
+                       TreeItem<String> itemRating = new TreeItem<>(key);
+                       start.getChildren().add(itemRating);
+                       ratingContainer_VM ratingContainerVm = new ratingContainer_VM((RatingContainer)o);
+                       Wrapper wrapper = new Wrapper(key, ratingContainerVm);
+                       displayedItems.put(index, wrapper);
+                       index++;
                     for (Object subO : ((RatingContainer) o).container) {
                         if (subO instanceof Vas) {
-                            String key = "[VAS]" + ((Vas) subO).getTitle();
-                            System.out.println(key);
-                            //    displayedScales.put(key, o);
-                            set.add(key);
+                            String subKey = "[VAS]" + ((Vas) subO).getTitle();
+                            itemRating.getChildren().add(new TreeItem<>(subKey));
+                            vasStage_VM vasStageVm = new vasStage_VM((Vas) subO);
+                            Wrapper subWrapper = new Wrapper(key, vasStageVm);
+                            displayedItems.put(index,  subWrapper);
+                            index++;
                         } else if (subO instanceof gLMS) {
-                            String key = "[GLMS]" + ((gLMS) subO).getTitle();
-                            System.out.println(key);
-                            // displayedScales.put(key, o);
-                            set.add(key);
+                            String subKey = "[GLMS]" + ((gLMS) subO).getTitle();
+                            itemRating.getChildren().add(new TreeItem<>(subKey));
+                            glmsStage_VM gLMSStageVm = new glmsStage_VM((gLMS) subO);
+                            Wrapper subWrapper = new Wrapper(key, gLMSStageVm);
+                            displayedItems.put(index, subWrapper);
+                            index++;
                         }
                     }
 
-                    //scales.setAll(set);
                 }
 //                else if (o instanceof conditionalStatement) {
 //                    String key = "If" +  ((conditionalStatement) o).getVariable1Choice();

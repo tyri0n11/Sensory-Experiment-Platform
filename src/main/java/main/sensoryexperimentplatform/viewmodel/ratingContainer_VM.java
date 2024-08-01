@@ -34,6 +34,15 @@ public class ratingContainer_VM implements choose{
         isRandomize.addListener((observableValue, oldValue, newValue) -> onRandom(newValue));
         experiment.addRatingContainerStage(ratingContainer);
     }
+    public ratingContainer_VM(RatingContainer rc){
+        this.ratingContainer = rc;
+        minTime = new SimpleIntegerProperty(ratingContainer.getMinTime());
+        minTime.addListener((observableValue, oldValue, newValue) -> onMinTime(newValue));
+        isRandomize = new SimpleBooleanProperty(ratingContainer.isRandomize());
+        isRandomize.addListener((observableValue, oldValue, newValue) -> onRandom(newValue));
+    }
+
+
 
     private void onRandom(Boolean newValue) {
         ratingContainer.setRandomize(newValue);
