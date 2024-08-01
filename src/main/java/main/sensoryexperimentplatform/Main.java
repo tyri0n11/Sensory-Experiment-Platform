@@ -21,7 +21,6 @@ public class Main extends Application {
         Scene scene = new Scene(root);
 
         DataAccess.loadExperiments();
-        System.out.println(listOfExperiment.getSize());
 
         primaryStage.setTitle("Sense XP");
 

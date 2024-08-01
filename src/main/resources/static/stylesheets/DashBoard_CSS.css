@@ -234,6 +234,26 @@
 
 
 
+.pagination > .pagination-control > .control-box > .toggle-button{
+    -fx-align-items: center;
+    -fx-background-insets: 0, 1;
+
+    -fx-pref-width: 30px;
+    -fx-pref-height: 40px;
+
+    -fx-background-color: #E0E0E0;
+    -fx-background-radius: 5px;
+
+}
+
+.pagination > .pagination-control > .control-box > .number-button:selected{
+    -fx-background-color: #397E82 ;
+}
+.pagination .button {
+    -fx-padding: 8 10 8 10px;
+}
+
+
 
 
 
