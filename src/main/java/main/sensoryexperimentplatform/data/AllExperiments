@@ -2,7 +2,7 @@ ExperimentName: E6 Umami Main Course
 ExperimenterName: Una
 ExperimentID: 0
 Created on: null
-Version: 8
+Version: 9
 startExperiment("null","","null")
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","As hungry as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.","false","false")

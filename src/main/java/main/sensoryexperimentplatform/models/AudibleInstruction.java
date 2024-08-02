@@ -65,7 +65,7 @@ public class AudibleInstruction extends Stage {
 
     public String toString() {
 
-            return "Audio(\"" + title + "\",\"" + content +
+            return "audio(\"" + title + "\",\"" + content +
                     "\",\"" + buttonText + "\",\"" + helpText + "\")";
         }
     }

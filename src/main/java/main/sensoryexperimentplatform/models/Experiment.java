@@ -99,7 +99,7 @@ public class Experiment {
     public void addTimerStage (Timer timer){
         stages.add(timer);
     }
-    public void addAudibleIntruction (AudibleInstruction audibleInstruction){
+    public void addAudibleInstruction (AudibleInstruction audibleInstruction){
         stages.add(audibleInstruction);
     }
     public void addVasStage(String title, String lowAnchorText, String highAnchorText,
@@ -145,6 +145,7 @@ public class Experiment {
          timeWait,  randomizeFood,  randomizeRatingVas,  randomizeRatingGLMS);
         stages.add(tasteTest);
     }
+    // Audible instruction stage
 
     public void addAudibleInstruction(String title, String content, String buttonText, String helpText) {
         AudibleInstruction temp = new AudibleInstruction(title, content, buttonText, helpText);
@@ -171,6 +172,7 @@ public class Experiment {
     public void addConditionalStatement(conditionalStatement ConditionalStatement){
         stages.add(ConditionalStatement);
     }
+
 
     public ArrayList<Object> getStages() {
         return stages;

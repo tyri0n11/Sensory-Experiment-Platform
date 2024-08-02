@@ -24,11 +24,12 @@ public class AudibleSound_VM implements choose {
 
     public AudibleSound_VM(Experiment experiment){
         this.experiment = experiment;
-        this.audibleInstruction = new AudibleInstruction(null, null, null,null);
+        this.audibleInstruction = new AudibleInstruction("Default Notice Stage", null, null,null);
         this.title = new SimpleStringProperty(audibleInstruction.getTitle());
         this.content = new SimpleStringProperty(audibleInstruction.getContent());
         this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
         this.helpText = new SimpleStringProperty(audibleInstruction.getButtonText());
+        experiment.addAudibleInstruction(audibleInstruction);
 
         buttonText.addListener((observable, oldValue, newValue) -> {
             setButtonText(newValue);

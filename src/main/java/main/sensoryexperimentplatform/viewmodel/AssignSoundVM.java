@@ -19,14 +19,8 @@ public class AssignSoundVM {
 
     public AssignSoundVM(Experiment experiment) throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
         this.sound = SoundSingleton.getInstance();
-
-
+        this.experiment = experiment;
     }
-
-//    public void addListSoundshow(String name){
-//
-//       sound.getSoundNameshow().add(name);
-//    }
     public void getSoundPath(){
        sound.getSoundFilePath();
     }
@@ -36,9 +30,6 @@ public class AssignSoundVM {
         return sound.getSoundNameshow();
     }
 
-//    public void loadSound(String name, String filePath) {
-//       sound.loadSound(name, filePath);
-//    }
     public void playSound(String name) {
        sound.playSound(name);
     }
