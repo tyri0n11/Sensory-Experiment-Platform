@@ -104,6 +104,9 @@ public class Experiment {
     public void addTimerStage (Timer timer){
         stages.add(timer);
     }
+    public void addAudibleIntruction (AudibleInstruction audibleInstruction){
+        stages.add(audibleInstruction);
+    }
     public void addVasStage(String title, String lowAnchorText, String highAnchorText,
                             int lowAnchorValue, int highAnchorValue, String buttonText,
                             String content, String helpText, boolean isSwap, boolean alert){

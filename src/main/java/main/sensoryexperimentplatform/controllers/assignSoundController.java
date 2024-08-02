@@ -115,6 +115,7 @@ public class  assignSoundController {
 
     @FXML
     void btn_refesh(ActionEvent event) {
+        loadSoundRadioButtons();
 
     }
 
@@ -125,7 +126,7 @@ public class  assignSoundController {
             viewModel.removeSound(soundName);
             SoundName.remove(soundName);
             loadSoundRadioButtons();
-            soundName = null;
+
         }
 
     }

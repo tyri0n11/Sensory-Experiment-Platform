@@ -38,9 +38,9 @@ public class assignSoundVM {
         return audibleInstruction.getSoundNameshow();
     }
 
-//    public void loadSound(String name, String filePath) {
-//        audibleInstruction.loadSound(name, filePath);
-//    }
+    public void loadSound(String name, String filePath) {
+        audibleInstruction.loadSound(name, filePath);
+    }
     public void playSound(String name) {
         audibleInstruction.playSound(name);
     }

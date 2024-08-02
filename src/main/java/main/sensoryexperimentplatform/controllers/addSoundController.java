@@ -68,7 +68,7 @@ public class addSoundController {
     void btn_save(ActionEvent event) {
         if(!txt_file.getText().isEmpty() || !txt_name.getText().isEmpty()) {
         viewModel.addListSoundshow(txt_name.getText());
-//        viewModel.loadSound(txt_name.getText(),txt_file.getText());
+        viewModel.loadSound(txt_name.getText(), txt_file.getText());
         NotiAddSound.notifyObject();
         Stage currentStage = (Stage) btn_cancel.getScene().getWindow();
         currentStage.close();}
