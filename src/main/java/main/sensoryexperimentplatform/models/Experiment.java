@@ -1,12 +1,7 @@
 package main.sensoryexperimentplatform.models;
 
 import javafx.scene.paint.Color;
-import main.sensoryexperimentplatform.controllers.AudibleInstructionSingleton;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.*;
 
 public class Experiment {
@@ -150,8 +145,9 @@ public class Experiment {
          timeWait,  randomizeFood,  randomizeRatingVas,  randomizeRatingGLMS);
         stages.add(tasteTest);
     }
+
     public void addAudibleInstruction(String title, String content, String buttonText, String helpText) {
-        AudibleInstruction temp = AudibleInstructionSingleton.getInstance();
+        AudibleInstruction temp = new AudibleInstruction(title, content, buttonText, helpText);
         stages.add(temp);
     }
 

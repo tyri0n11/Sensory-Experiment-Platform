@@ -17,15 +17,7 @@ public class AudibleInstruction extends Stage {
 
     private String buttonText;
     private String helpText;
-    //soundNameList
-    private ArrayList<String> soundNamesList;
 
-    private ArrayList<String> soundFilePaths;
-
-
-    private Map<String, Clip> soundMap;
-    //sound name for showing
-    private ArrayList<String> soundNameshow; // for the appearance of sound
 
 
     public AudibleInstruction(String title, String content, String buttonText,String helpText){
@@ -34,14 +26,7 @@ public class AudibleInstruction extends Stage {
       this.title= title;
         this.buttonText= buttonText;
         this.helpText = helpText;
-        soundMap = new HashMap<>();
-        soundNameshow = new ArrayList<>();
-        soundNameshow.add("boop");
-        loadSound("boop","src/main/java/main/sensoryexperimentplatform/sound/boop-741-mhz-39314.wav");
-        loadSound("stomp","src/main/java/main/sensoryexperimentplatform/sound/stompwav-14753.wav");
-        soundNameshow.add("stomp");
 
-        soundNamesList = new ArrayList<>();
 
     }
 
@@ -76,70 +61,6 @@ public class AudibleInstruction extends Stage {
         this.helpText = helpText;
     }
 
-
-    public ArrayList<String> getSoundNameshow() {
-        return soundNameshow;
-    }
-    public void addSoundShow(String name){
-        soundNameshow.add(name);
-    }
-    public ArrayList<String>getSoundNameList(){
-        return soundNamesList;
-    }
-    public void addSoundNameList(String name){
-        soundNamesList.add(name);
-    }
-    public  ArrayList<String>getSoundFilePath(){
-        return soundFilePaths;
-    }
-    public void addSoundFilePath(String sound){
-        soundFilePaths.add(sound);
-    }
-    public Map<String, Clip> getSoundMap() {
-        return soundMap;
-    }
-
-    public void loadSound(String name, String filePath) {
-        try {
-            File soundFile = new File(filePath);
-
-            if (!soundFile.exists()) {
-                throw new IllegalArgumentException("Sound file not found: " + filePath);
-            }
-
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            soundMap.put(name, clip);
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    public void playSound(String name) {
-        Clip clip = soundMap.get(name);
-        if (clip != null) {
-            stopAllSounds();
-            clip.start();
-        }
-    }
-
-    public void stopSound(String name) {
-        Clip clip = soundMap.get(name);
-        if (clip != null) {
-            clip.stop();
-            clip.setFramePosition(0);
-        }
-    }
-
-    public void stopAllSounds() {
-        for (Clip clip : soundMap.values()) {
-            if (clip.isRunning()) {
-                clip.stop();
-            }
-        }
-    }
 
 
     public String toString() {

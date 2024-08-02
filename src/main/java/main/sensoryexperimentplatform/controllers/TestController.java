@@ -361,7 +361,7 @@ public class TestController{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        audibleSound_VM audibleSound_vm = new audibleSound_VM(experiment);
+        AudibleSound_VM audibleSound_vm = new AudibleSound_VM(experiment);
         String key = "[Audio] " +audibleSound_vm.getAudibleInstruction().getTitle();
 
         Wrapper wrapper = new Wrapper(key, audibleSound_vm);
@@ -728,12 +728,13 @@ public class TestController{
     @FXML
     void assignSound(ActionEvent event) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
         listObject.setMaxHeight(311);
-        audibleInstruction = AudibleInstructionSingleton.getInstance();
+        Sound sound = SoundSingleton.getInstance();
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AssignSound.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = new Stage();
-        assignSoundController controller = fxmlLoader.getController();
-        assignSoundVM viewModel = new assignSoundVM(audibleInstruction);
+        AssignSoundController controller = fxmlLoader.getController();
+        AssignSoundVM viewModel = new AssignSoundVM(experiment);
+
         controller.setViewModel(viewModel);
         stage.setTitle("Add Sound");
 
