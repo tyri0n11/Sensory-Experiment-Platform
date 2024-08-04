@@ -2,9 +2,9 @@ package main.sensoryexperimentplatform.controllers;
 
 
 
-public class notiAddSound {
-    private assignSoundController AssignSoundController;
-    public notiAddSound(assignSoundController AssignSoundController){
+public class NotiAddSound {
+    private AssignSoundController AssignSoundController;
+    public NotiAddSound(AssignSoundController AssignSoundController){
         this.AssignSoundController = AssignSoundController;
     }
     public void notifyObject(){

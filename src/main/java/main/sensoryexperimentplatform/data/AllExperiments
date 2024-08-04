@@ -143,7 +143,7 @@ ExperimentName: E6 Umami Main Course
 ExperimenterName: Una
 ExperimentID: 0
 Created on: null
-Version: 6
+Version: 9
 startExperiment("null","","null")
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","As hungry as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.","false","false")
@@ -683,11 +683,10 @@ endRatingsContainer()
 endExperiment()
 
 ExperimentName: Experiment
-ExperimenterName: Creator
+ExperimenterName: Qanh
 ExperimentID: 0
-Created on: 02.08.2024
-Version: 2
+Created on: 04.08.2024
+Version: 1
 startExperiment("Description","","Note")
-main.sensoryexperimentplatform.models.Start@b7a2a8
 endExperiment()
 

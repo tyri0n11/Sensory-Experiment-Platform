@@ -308,27 +308,6 @@ public class TestController{
 //                    //displayedItems.put(index, wrapper);
 //                    index++;
 //                }
-//                else if (o instanceof RatingContainer) {
-////                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
-////                       System.out.println(key);
-////                       displayedItems.put(key, o);
-////                       str.add(key);
-//                    for (Object subO : ((RatingContainer) o).container) {
-//                        if (subO instanceof Vas) {
-//                            String key = "[VAS]" + ((Vas) subO).getTitle();
-//                            System.out.println(key);
-//                            //    displayedScales.put(key, o);
-//                            set.add(key);
-//                        } else if (subO instanceof gLMS) {
-//                            String key = "[GLMS]" + ((gLMS) subO).getTitle();
-//                            System.out.println(key);
-//                            // displayedScales.put(key, o);
-//                            set.add(key);
-//                        }
-//                    }
-//
-//                    //scales.setAll(set);
-//                }
 //                else if (o instanceof Periodic){
 //                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
 //                    start.getChildren().add(new TreeItem<>(key));
@@ -364,14 +343,14 @@ public class TestController{
                     }
 
                 }
-//                else if (o instanceof conditionalStatement) {
-//                    String key = "If" +  ((conditionalStatement) o).getVariable1Choice();
-//                    start.getChildren().add( new TreeItem<>(key));
-//                    conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM((conditionalStatement) o);
-//                    Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
-//                    displayedItems.put(index, wrapper);
-//                    index++;
-//                }
+                else if (o instanceof conditionalStatement) {
+                    String key = "If" +  ((conditionalStatement) o).getVariable1Choice();
+                    start.getChildren().add( new TreeItem<>(key));
+                    conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM((conditionalStatement) o);
+                    Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
+                    displayedItems.put(index, wrapper);
+                    index++;
+                }
             }
             listObject.setMaxHeight(311);
             propertiesPane.setVisible(true);
@@ -383,7 +362,7 @@ public class TestController{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        audibleSound_VM audibleSound_vm = new audibleSound_VM(experiment);
+        AudibleSound_VM audibleSound_vm = new AudibleSound_VM(experiment);
         String key = "[Audio] " +audibleSound_vm.getAudibleInstruction().getTitle();
 
         Wrapper wrapper = new Wrapper(key, audibleSound_vm);
@@ -750,12 +729,13 @@ public class TestController{
     @FXML
     void assignSound(ActionEvent event) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
         listObject.setMaxHeight(311);
-        audibleInstruction = AudibleInstructionSingleton.getInstance();
+        Sound sound = SoundSingleton.getInstance();
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AssignSound.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = new Stage();
-        assignSoundController controller = fxmlLoader.getController();
-        assignSoundVM viewModel = new assignSoundVM(audibleInstruction);
+        AssignSoundController controller = fxmlLoader.getController();
+        AssignSoundVM viewModel = new AssignSoundVM(experiment);
+
         controller.setViewModel(viewModel);
         stage.setTitle("Add Sound");
 
