@@ -225,7 +225,6 @@ public class TestController{
 
     }
     private void loadItems() {
-        Set<String> set = new LinkedHashSet<>();
         ArrayList<Object> stages = experiment.getStages();
         if (experiment.getStages().isEmpty()) {
             StartVM startVM = new StartVM(experiment);
@@ -350,14 +349,14 @@ public class TestController{
                             String subKey = "[VAS]" + ((Vas) subO).getTitle();
                             itemRating.getChildren().add(new TreeItem<>(subKey));
                             vasStage_VM vasStageVm = new vasStage_VM((Vas) subO);
-                            Wrapper subWrapper = new Wrapper(key, vasStageVm);
+                            Wrapper subWrapper = new Wrapper(subKey, vasStageVm);
                             displayedItems.put(index,  subWrapper);
                             index++;
                         } else if (subO instanceof gLMS) {
                             String subKey = "[GLMS]" + ((gLMS) subO).getTitle();
                             itemRating.getChildren().add(new TreeItem<>(subKey));
                             glmsStage_VM gLMSStageVm = new glmsStage_VM((gLMS) subO);
-                            Wrapper subWrapper = new Wrapper(key, gLMSStageVm);
+                            Wrapper subWrapper = new Wrapper(subKey, gLMSStageVm);
                             displayedItems.put(index, subWrapper);
                             index++;
                         }
