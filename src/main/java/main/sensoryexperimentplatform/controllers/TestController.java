@@ -91,50 +91,7 @@ public class TestController{
     private Stack <AddCourseVM> addCourseVMS;
     private Experiment originalExperiment;
 
-    @FXML
-    void delete(ActionEvent event) {
-        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            TreeItem<String> parent = selectedItem.getParent();
-            if (parent != null) {
-                parent.getChildren().remove(selectedItem);
-            } else {
-                // If it's a root item, remove it from the TreeView directly
-                listObject.getRoot().getChildren().remove(selectedItem);
-            }
-        }
-    }
-    @FXML
-    void down(ActionEvent event) {
-        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            TreeItem<String> parent = selectedItem.getParent();
-            if (parent != null) {
-                int currentIndex = parent.getChildren().indexOf(selectedItem);
-                if (currentIndex < parent.getChildren().size() - 1) {
-                    TreeItem<String> nextItem = parent.getChildren().get(currentIndex + 1);
-                    // Select the next sibling item
-                    listObject.getSelectionModel().select(nextItem);
-                }
-            }
-        }
 
-    }
-    @FXML
-    void up(ActionEvent event) {
-        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            TreeItem<String> parent = selectedItem.getParent();
-            if (parent != null) {
-                int currentIndex = parent.getChildren().indexOf(selectedItem);
-                if (currentIndex > 0) {
-                    TreeItem<String> previousItem = parent.getChildren().get(currentIndex - 1);
-                    // Select the previous sibling item
-                    listObject.getSelectionModel().select(previousItem);
-                }
-            }
-        }
-    }
 
 
     public void initialize(){
@@ -164,6 +121,8 @@ public class TestController{
                 }
             }
         });
+
+        //THIS CODE IS TO MAKE THE TREE ITEM WHICH APPEAR DIFFER IN COLORS (ODD VS EVEN)
         listObject.setCellFactory(new Callback<TreeView<String>, TreeCell<String>>() {
             @Override
             public TreeCell<String> call(TreeView<String> param) {
@@ -187,6 +146,63 @@ public class TestController{
                 };
             }
         });
+    }
+
+    //THREE RIGHT-SIDE BUTTONS
+    @FXML
+    void delete(ActionEvent event) {
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            TreeItem<String> parent = selectedItem.getParent();
+            if (parent != null) {
+                parent.getChildren().remove(selectedItem);
+            } else {
+                // If it's a root item, remove it from the TreeView directly
+                listObject.getRoot().getChildren().remove(selectedItem);
+            }
+        }
+    }
+    @FXML
+    void down(ActionEvent event) {
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            TreeItem<String> parent = selectedItem.getParent();
+            if (parent != null) {
+                int currentIndex = parent.getChildren().indexOf(selectedItem);
+                System.out.println(currentIndex);
+                if (currentIndex < parent.getChildren().size() - 1 && currentIndex >= 0) {
+                    TreeItem<String> nextItem = parent.getChildren().get(currentIndex + 1);
+                    parent.getChildren().set(currentIndex + 1, parent.getChildren().get(currentIndex));
+                    parent.getChildren().set(currentIndex, nextItem);
+
+//                    Object next = experiment.getStages().get(currentIndex + 1);
+//                    System.out.println(next);
+//                    experiment.getStages().set(currentIndex + 1, experiment.getStages().get(currentIndex));
+//                    experiment.getStages().set(currentIndex, next);
+                }
+                // listObject.getSelectionModel().select(currentIndex - 1);
+            }
+        }
+    }
+    @FXML
+    void up(ActionEvent event) {
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            TreeItem<String> parent = selectedItem.getParent();
+            if (parent != null) {
+                int currentIndex = parent.getChildren().indexOf(selectedItem);
+                if (currentIndex < parent.getChildren().size() && currentIndex > 0) {
+                    TreeItem<String> lastItem = parent.getChildren().get(currentIndex - 1);
+                    parent.getChildren().set(currentIndex - 1, parent.getChildren().get(currentIndex));
+                    parent.getChildren().set(currentIndex, lastItem);
+//                    Object last = experiment.getStages().get(currentIndex - 1);
+//                    System.out.println(last);
+//                    experiment.getStages().set(currentIndex - 1, experiment.getStages().get(currentIndex));
+//                    experiment.getStages().set(currentIndex, last);
+                }
+                //listObject.getSelectionModel().select(currentIndex - 1);
+            }
+        }
     }
 
     private int getIndex(TreeItem<String> item) {
@@ -292,27 +308,6 @@ public class TestController{
 //                    //displayedItems.put(index, wrapper);
 //                    index++;
 //                }
-//                else if (o instanceof RatingContainer) {
-////                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
-////                       System.out.println(key);
-////                       displayedItems.put(key, o);
-////                       str.add(key);
-//                    for (Object subO : ((RatingContainer) o).container) {
-//                        if (subO instanceof Vas) {
-//                            String key = "[VAS]" + ((Vas) subO).getTitle();
-//                            System.out.println(key);
-//                            //    displayedScales.put(key, o);
-//                            set.add(key);
-//                        } else if (subO instanceof gLMS) {
-//                            String key = "[GLMS]" + ((gLMS) subO).getTitle();
-//                            System.out.println(key);
-//                            // displayedScales.put(key, o);
-//                            set.add(key);
-//                        }
-//                    }
-//
-//                    //scales.setAll(set);
-//                }
 //                else if (o instanceof Periodic){
 //                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
 //                    start.getChildren().add(new TreeItem<>(key));
@@ -322,34 +317,40 @@ public class TestController{
 //                    index++;
 //                }
                 else if (o instanceof RatingContainer) {
-//                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
-//                       System.out.println(key);
-//                       displayedItems.put(key, o);
-//                       str.add(key);
+                       String key = "Rating Container";
+                       TreeItem<String> itemRating = new TreeItem<>(key);
+                       start.getChildren().add(itemRating);
+                       ratingContainer_VM ratingContainerVm = new ratingContainer_VM((RatingContainer)o);
+                       Wrapper wrapper = new Wrapper(key, ratingContainerVm);
+                       displayedItems.put(index, wrapper);
+                       index++;
                     for (Object subO : ((RatingContainer) o).container) {
                         if (subO instanceof Vas) {
-                            String key = "[VAS]" + ((Vas) subO).getTitle();
-                            System.out.println(key);
-                            //    displayedScales.put(key, o);
-                            set.add(key);
+                            String subKey = "[VAS]" + ((Vas) subO).getTitle();
+                            itemRating.getChildren().add(new TreeItem<>(subKey));
+                            vasStage_VM vasStageVm = new vasStage_VM((Vas) subO);
+                            Wrapper subWrapper = new Wrapper(subKey, vasStageVm);
+                            displayedItems.put(index,  subWrapper);
+                            index++;
                         } else if (subO instanceof gLMS) {
-                            String key = "[GLMS]" + ((gLMS) subO).getTitle();
-                            System.out.println(key);
-                            // displayedScales.put(key, o);
-                            set.add(key);
+                            String subKey = "[GLMS]" + ((gLMS) subO).getTitle();
+                            itemRating.getChildren().add(new TreeItem<>(subKey));
+                            glmsStage_VM gLMSStageVm = new glmsStage_VM((gLMS) subO);
+                            Wrapper subWrapper = new Wrapper(subKey, gLMSStageVm);
+                            displayedItems.put(index, subWrapper);
+                            index++;
                         }
                     }
 
-                    //scales.setAll(set);
                 }
-//                else if (o instanceof conditionalStatement) {
-//                    String key = "If" +  ((conditionalStatement) o).getVariable1Choice();
-//                    start.getChildren().add( new TreeItem<>(key));
-//                    conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM((conditionalStatement) o);
-//                    Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
-//                    displayedItems.put(index, wrapper);
-//                    index++;
-//                }
+                else if (o instanceof conditionalStatement) {
+                    String key = "If" +  ((conditionalStatement) o).getVariable1Choice();
+                    start.getChildren().add( new TreeItem<>(key));
+                    conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM((conditionalStatement) o);
+                    Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
+                    displayedItems.put(index, wrapper);
+                    index++;
+                }
             }
             listObject.setMaxHeight(311);
             propertiesPane.setVisible(true);

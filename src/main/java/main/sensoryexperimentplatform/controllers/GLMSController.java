@@ -42,7 +42,7 @@ public class GLMSController {
     private TextField txt_LowAncTxt;
 
     @FXML
-    private TextField txt_help;
+    private TextArea txt_help;
 
     @FXML
     private TextField txt_question;
@@ -54,11 +54,7 @@ public class GLMSController {
     private AnchorPane innerPane;
     @FXML
     private ScrollPane scrollPane;
-    public void initialize() {
-        scrollPane.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> {
-            innerPane.setPrefSize(newValue.getWidth(), newValue.getHeight());
-        });
-    }
+
 
     private void bind() {
         txt_LowAncTxt.textProperty().bindBidirectional(glmsStageVm.txt_LowAncTxtProperty());

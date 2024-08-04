@@ -74,7 +74,7 @@ public class AssignSoundController {
         AddSoundVM addSoundVM = new AddSoundVM();
         stage.setScene(scene);
         AddSoundController addSoundController = fxmlLoader.getController();
-       addSoundController.setViewModel(addSoundVM,this);
+        addSoundController.setViewModel(addSoundVM,this);
         stage.show();
     }
 
@@ -95,7 +95,7 @@ public class AssignSoundController {
             } else {
                 RadioButton radioButton = new RadioButton(obj);
                 radioButton.setOnAction(event ->
-                    selectedRadioButton = radioButton
+                        selectedRadioButton = radioButton
                 );
                 radioButton.setToggleGroup(group);
                 setGraphic(radioButton);
@@ -135,7 +135,7 @@ public class AssignSoundController {
     void btn_save(ActionEvent event) {
         Stage currentStage = (Stage) btn_save2.getScene().getWindow();
         currentStage.close();
-       }
+    }
 
     @FXML
     void btn_stop(ActionEvent event) {

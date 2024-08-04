@@ -3,16 +3,16 @@
     -fx-background-color: transparent;
 
 }
-.button:hover, #btn_bind:hover{
+.button:hover, #btn_bind:hover, #btn_up:hover, #btn_down:hover, #btn_cross:hover{
     -fx-background-color: #D5E9EA;
     -fx-text-fill: black;
 }
+
 
 .button:disabled{
     -fx-background-color: #CCCCCC;
     -fx-text-fill: black;
 }
-
 
 #lbl_SenseXP{
     -fx-font-family: "Baloo Bhaina 2";
