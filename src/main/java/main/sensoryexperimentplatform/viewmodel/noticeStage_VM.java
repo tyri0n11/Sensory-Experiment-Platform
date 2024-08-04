@@ -39,7 +39,7 @@ public class noticeStage_VM implements choose{
     }
     public noticeStage_VM(Experiment experiment) {
         this.experiment = experiment;
-        this.notice = new Notice("User input", "This is question","this is button", "hell00",false);
+        this.notice = new Notice("User input", null,null, null,false);
         this.buttonText = new SimpleStringProperty(notice.getButtonText());
         this.helpText = new SimpleStringProperty(notice.getHelpText());
         this.alert = new SimpleBooleanProperty(notice.isAlert());

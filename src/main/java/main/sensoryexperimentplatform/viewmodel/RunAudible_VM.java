@@ -17,8 +17,8 @@ public class RunAudible_VM {
     public void setAudibleInstruction(AudibleInstruction audibleInstruction) {
      this.audibleInstruction = audibleInstruction;
     }
-    public void playSound(String name, String filePath){
-        audibleInstruction.playSound(name, filePath);
+    public void playSound(String name){
+        audibleInstruction.playSound(name);
     }
 
     public StringProperty getTitle(){

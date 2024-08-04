@@ -11,7 +11,10 @@ import main.sensoryexperimentplatform.controllers.AddAudibleSoundController;
 import main.sensoryexperimentplatform.models.AudibleInstruction;
 import main.sensoryexperimentplatform.models.Experiment;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Stack;
 
 public class AudibleSound_VM implements choose {
@@ -20,9 +23,10 @@ public class AudibleSound_VM implements choose {
     private StringProperty helpText;
     private StringProperty buttonText;
     private AudibleInstruction audibleInstruction;
+    private AssignSoundVM assignSoundVM;
     private Experiment experiment;
 
-    public AudibleSound_VM(Experiment experiment){
+    public AudibleSound_VM(Experiment experiment) throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
         this.experiment = experiment;
         this.audibleInstruction = new AudibleInstruction("Default Notice Stage", null, null,null);
         this.title = new SimpleStringProperty(audibleInstruction.getTitle());
@@ -30,6 +34,7 @@ public class AudibleSound_VM implements choose {
         this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
         this.helpText = new SimpleStringProperty(audibleInstruction.getButtonText());
         experiment.addAudibleInstruction(audibleInstruction);
+        this.assignSoundVM = new AssignSoundVM();
 
         buttonText.addListener((observable, oldValue, newValue) -> {
             setButtonText(newValue);
@@ -112,9 +117,25 @@ public class AudibleSound_VM implements choose {
     public void setContent(String newValue) {
         audibleInstruction.setContent(newValue);
     }
+    public void playSound(String name, String filePath){
+        audibleInstruction.playSound(name);
+    }
+
+    public AssignSoundVM getAssignSoundVM() {
+        return assignSoundVM;
+    }
+
+    public void setSoundName(String name) {
+        audibleInstruction.setSoundName(name);
+    }
+    public String getSoundName(){
+        return audibleInstruction.getSoundName();
+    }
+
     public AudibleInstruction getAudibleInstruction(){
         return audibleInstruction;
     }
+
 
 
 

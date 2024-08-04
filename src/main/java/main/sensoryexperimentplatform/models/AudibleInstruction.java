@@ -17,6 +17,8 @@ public class AudibleInstruction extends Stage {
 
     private String buttonText;
     private String helpText;
+    private String soundName;
+    private Sound SoundManager;
 
 
 
@@ -26,6 +28,7 @@ public class AudibleInstruction extends Stage {
       this.title= title;
         this.buttonText= buttonText;
         this.helpText = helpText;
+        this.SoundManager = new Sound();
 
 
     }
@@ -61,19 +64,16 @@ public class AudibleInstruction extends Stage {
         this.helpText = helpText;
     }
 
-    public void playSound(String name, String filePath) {
-        File soundFile = new File(filePath);
-        if (!soundFile.exists()) {
-            throw new IllegalArgumentException("Sound file not found: " + filePath);
-        }
+    public String getSoundName(){
+        return soundName;
+    }
+    public void setSoundName(String soundName){
+        this.soundName = soundName;
+    }
 
-        try (AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile)) {
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            e.printStackTrace();
-        }
+
+    public void playSound(String name) {
+       SoundManager.playSound(name);
     }
 
 

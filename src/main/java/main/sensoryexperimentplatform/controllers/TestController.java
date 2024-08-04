@@ -89,6 +89,7 @@ public class TestController{
     private AudibleInstruction audibleInstruction;
     private Stack <AddTasteVM> addTasteVMS;
     private Stack <AddCourseVM> addCourseVMS;
+    private AudibleSound_VM selectAudibleSound_vm;
     private Experiment originalExperiment;
 
 
@@ -358,11 +359,12 @@ public class TestController{
         }
     }
     @FXML
-    void addAudibleInstruction(ActionEvent event) {
+    void addAudibleInstruction(ActionEvent event) throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         AudibleSound_VM audibleSound_vm = new AudibleSound_VM(experiment);
+        selectAudibleSound_vm = audibleSound_vm;
         String key = "[Audio] " +audibleSound_vm.getAudibleInstruction().getTitle();
 
         Wrapper wrapper = new Wrapper(key, audibleSound_vm);
@@ -734,9 +736,9 @@ public class TestController{
         Parent root = fxmlLoader.load();
         Stage stage = new Stage();
         AssignSoundController controller = fxmlLoader.getController();
-        AssignSoundVM viewModel = new AssignSoundVM(experiment);
+        AssignSoundVM viewModel = new AssignSoundVM();
 
-        controller.setViewModel(viewModel);
+        controller.setViewModel(viewModel,selectAudibleSound_vm);
         stage.setTitle("Add Sound");
 
         Scene scene = new Scene(root);

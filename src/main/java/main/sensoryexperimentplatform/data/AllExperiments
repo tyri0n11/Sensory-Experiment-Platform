@@ -16,7 +16,6 @@ vasStage("How headachy do you feel right now?","Not at all headachy","Extremely 
 vasStage("How calm do you feel right now?","Not at all calm","Extremely calm","0","100","Rating completed","Session[]","","false","false")
 vasStage("How energetic do you feel right now?","Not at all energetic","Extremely energetic","0","100","Rating completed","Session[]","","false","false")
 endRatingsContainer()
-noticeStage("End of ratings","Please call the experimenter","End","","false")
 endExperiment()
 
 ExperimentName: Experiment
@@ -25,6 +24,7 @@ ExperimentID: 0
 Created on: 30.07.2024
 Version: 1
 startExperiment("null","","null")
+main.sensoryexperimentplatform.models.Start@25e43be9
 endExperiment()
 
 ExperimentName: Lab breakfast
@@ -688,6 +688,6 @@ ExperimenterName: Qanh
 ExperimentID: 0
 Created on: 04.08.2024
 Version: 1
-startExperiment("Description","","Note")
+startExperiment("null","","null")
 endExperiment()
 
