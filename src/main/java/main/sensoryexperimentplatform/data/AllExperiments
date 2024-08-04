@@ -28,6 +28,7 @@ vasStage("How energetic do you feel right now?","Not at all energetic","As energ
 vasStage("How alert do you feel right now?","Not at all alert","As alert as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.","false","false")
 endRatingsContainer()
 noticeStage("Thank you","That completes today's session\, please call your experimenter","End","","false")
+audio("hello ","null","null","null")
 endExperiment()
 
 ExperimentName: Ella - Mood Ratings

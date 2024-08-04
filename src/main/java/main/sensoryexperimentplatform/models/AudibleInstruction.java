@@ -61,6 +61,20 @@ public class AudibleInstruction extends Stage {
         this.helpText = helpText;
     }
 
+    public void playSound(String name, String filePath) {
+        File soundFile = new File(filePath);
+        if (!soundFile.exists()) {
+            throw new IllegalArgumentException("Sound file not found: " + filePath);
+        }
+
+        try (AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile)) {
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public String toString() {
