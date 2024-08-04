@@ -99,23 +99,22 @@ public class TestController{
         addTasteVMS = new Stack<>();
         addCourseVMS = new Stack<>();
         index = 0;
-        displayedItems = new HashMap<>();
+        displayedItems = new LinkedHashMap<>();
         listObject.setRoot(start);
         btn_assignSound.setDisable(true);
         btn_AddPeriodicStage.setDisable(true);
         btn_addFoodAndTaste.setDisable(true);
         listObject.setPrefHeight(574);
         listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
+            if (newValue != null && newValue !=oldValue) {
                 int index = getIndex(newValue);
-                // System.out.println(index);
+                System.out.println(index);
                 try {
                     addTasteVMS.clear();
                     addCourseVMS.clear();
                     btn_addFoodAndTaste.setDisable(true);
-                    newValue.setValue(showDetailView(index));
-
-
+//                    newValue.setValue(showDetailView(index));
+                    showDetailView(index);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -209,7 +208,7 @@ public class TestController{
         if (item.getParent() == null) {
             return 0; // Root item
         }
-        return listObject.getRow(item);
+        return listObject.getSelectionModel().getSelectedIndex();
     }
 
     private String showDetailView(int index) throws IOException {
@@ -247,7 +246,6 @@ public class TestController{
 
                 if (o instanceof Vas) {
                     String key = "[VAS]" + ((Vas) o).getTitle();
-                    start.getChildren().add(new TreeItem<>(key));
                     start.getChildren().add(new TreeItem<>(key));
                     vasStage_VM vasStageVm = new vasStage_VM((Vas) o);
                     Wrapper wrapper = new Wrapper(key, vasStageVm);
