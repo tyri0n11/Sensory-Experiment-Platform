@@ -106,7 +106,6 @@ ExperimentID: 0
 Created on: null
 Version: 8
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@10dd3a7e
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","As hungry as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.__","false","false")
 vasStage("How full do you feel right now?","Not at all full","As full as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.__","false","false")
@@ -146,7 +145,6 @@ ExperimentID: 0
 Created on: null
 Version: 6
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@7fde4f6f
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","As hungry as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.","false","false")
 vasStage("How full do you feel right now?","Not at all full","As full as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.","false","false")
@@ -179,7 +177,6 @@ ExperimentID: 0
 Created on: null
 Version: 0
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@1c58937f
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","Extremely hungry","0","100","Rating completed","Session[]","","false","false")
 vasStage("How full do you feel right now?","Not at all full","Extremely full","0","100","Rating completed","Session[]","","false","false")
@@ -201,7 +198,6 @@ ExperimentID: 0
 Created on: null
 Version: 7
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@79833c6f
 noticeStage("Good Morning!","Today\, we are preparing the breakfast for you! Note that you will be asked to complete some simple mood and appetite ratings both before and after this lab-based meal.____Subsequent to the first set of mood and appetite ratings and before you start enjoying your breakfast in full\, you are also required to rate different gustatory aspects of the breakfast items; detailed instructions follow.","Ready to start","","false")
 noticeStage("Mood and Appetite Ratings","Use the mouse to move the bar to the position that best describes how you feel\, and then click the box to register your rating.","Ready to start the ratings","_","false")
 ratingsContainer("true","0")
@@ -243,7 +239,6 @@ ExperimentID: 0
 Created on: null
 Version: 0
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@f4e7eb
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","Extremely hungry","0","100","Rating completed","Session[]","","false","false")
 vasStage("How full do you feel right now?","Not at all full","Extremely full","0","100","Rating completed","Session[]","","false","false")
@@ -265,7 +260,6 @@ ExperimentID: 0
 Created on: null
 Version: 27
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@d5c65ad
 noticeStage("Porridge Taste Test","For the second taste test\, porridge samples are presented for you to evaluate. Note you will complete one set of ratings\, have a pause and then complete a second set of ratings.______When prompted by the computer please take the relevant sample and place the entire portion in your mouth. Chew the sample/Keep the sample in your mouth for approximately 10 seconds and then swallow it.______After you complete the ratings of each porridge sample\, a two-step rinsing process will follow. First\, you will be instructed to rinse your mouth  thoroughly with a single very small sip of water (10-15 mL) in order to remove all food particles; this small amount of risning water should eventually be swallowed. Subsequently\, you will be asked to re-rinse your mouth with fresh water (a minimum of one sip) but this time to spit it into the black cup provided.","Ready for the taste test","","false")
 noticeStage("Taste Test","Please place Sample 356 in your mouth\, chew it/keep it in your mouth for approximately 10 seconds\, and then swallow it.",">>","","false")
 vasStage("How much do you like Sample 356?","Dislike extremely","Like extremely","0","100","Continue","Session[]","__**REMINDER**____The left side of the line corresponds to different levels of disliking and the right side to different levels of liking. The middle of the line represents the neutral point\, in other words\, a stimulus that you ‘Neither Like or Dislike’.","false","false")
@@ -328,7 +322,6 @@ ExperimentID: 0
 Created on: null
 Version: 1
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@55c7dc12
 noticeStage("Welcome!","Thank you for agreeing to take part. To start with\, we need you to complete some simple ratings\, which will be followed by a taste test.","Ready to start","","false")
 noticeStage("Liking ratings","The first type of rating you complete measures how much you like different things. It uses a horizontal line anchored as ‘Dislike Extremely’ and ‘Like Extremely’. In other words\, the left side of the line corresponds to different levels of disliking and the right side corresponds to different levels of liking. The middle of the line represents the neutral point\, that is something that you ‘Neither Like or Dislike'.____You can move the mouse and place your rating anywhere on the scale.____We will start with some simple examples as a practice.","Continue","","false")
 ratingsContainer("true","0")
@@ -397,7 +390,6 @@ ExperimentID: 0
 Created on: null
 Version: 8
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@3547e281
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","As hungry as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.__","false","false")
 vasStage("How full do you feel right now?","Not at all full","As full as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.__","false","false")
@@ -437,7 +429,6 @@ ExperimentID: 0
 Created on: null
 Version: 6
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@12ab907d
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","As hungry as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.","false","false")
 vasStage("How full do you feel right now?","Not at all full","As full as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.","false","false")
@@ -470,7 +461,6 @@ ExperimentID: 0
 Created on: null
 Version: 0
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@7cb4ee88
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","Extremely hungry","0","100","Rating completed","Session[]","","false","false")
 vasStage("How full do you feel right now?","Not at all full","Extremely full","0","100","Rating completed","Session[]","","false","false")
@@ -492,7 +482,6 @@ ExperimentID: 0
 Created on: null
 Version: 7
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@17788a40
 noticeStage("Good Morning!","Today\, we are preparing the breakfast for you! Note that you will be asked to complete some simple mood and appetite ratings both before and after this lab-based meal.____Subsequent to the first set of mood and appetite ratings and before you start enjoying your breakfast in full\, you are also required to rate different gustatory aspects of the breakfast items; detailed instructions follow.","Ready to start","","false")
 noticeStage("Mood and Appetite Ratings","Use the mouse to move the bar to the position that best describes how you feel\, and then click the box to register your rating.","Ready to start the ratings","_","false")
 ratingsContainer("true","0")
@@ -534,7 +523,6 @@ ExperimentID: 0
 Created on: null
 Version: 0
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@1d2121c4
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","Extremely hungry","0","100","Rating completed","Session[]","","false","false")
 vasStage("How full do you feel right now?","Not at all full","Extremely full","0","100","Rating completed","Session[]","","false","false")
@@ -556,7 +544,6 @@ ExperimentID: 0
 Created on: null
 Version: 27
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@53476265
 noticeStage("Porridge Taste Test","For the second taste test\, porridge samples are presented for you to evaluate. Note you will complete one set of ratings\, have a pause and then complete a second set of ratings.______When prompted by the computer please take the relevant sample and place the entire portion in your mouth. Chew the sample/Keep the sample in your mouth for approximately 10 seconds and then swallow it.______After you complete the ratings of each porridge sample\, a two-step rinsing process will follow. First\, you will be instructed to rinse your mouth  thoroughly with a single very small sip of water (10-15 mL) in order to remove all food particles; this small amount of risning water should eventually be swallowed. Subsequently\, you will be asked to re-rinse your mouth with fresh water (a minimum of one sip) but this time to spit it into the black cup provided.","Ready for the taste test","","false")
 noticeStage("Taste Test","Please place Sample 356 in your mouth\, chew it/keep it in your mouth for approximately 10 seconds\, and then swallow it.",">>","","false")
 vasStage("How much do you like Sample 356?","Dislike extremely","Like extremely","0","100","Continue","Session[]","__**REMINDER**____The left side of the line corresponds to different levels of disliking and the right side to different levels of liking. The middle of the line represents the neutral point\, in other words\, a stimulus that you ‘Neither Like or Dislike’.","false","false")
@@ -619,7 +606,6 @@ ExperimentID: 0
 Created on: null
 Version: 1
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@85c162b
 noticeStage("Welcome!","Thank you for agreeing to take part. To start with\, we need you to complete some simple ratings\, which will be followed by a taste test.","Ready to start","","false")
 noticeStage("Liking ratings","The first type of rating you complete measures how much you like different things. It uses a horizontal line anchored as ‘Dislike Extremely’ and ‘Like Extremely’. In other words\, the left side of the line corresponds to different levels of disliking and the right side corresponds to different levels of liking. The middle of the line represents the neutral point\, that is something that you ‘Neither Like or Dislike'.____You can move the mouse and place your rating anywhere on the scale.____We will start with some simple examples as a practice.","Continue","","false")
 ratingsContainer("true","0")
@@ -687,13 +673,21 @@ ExperimenterName: Thang Dy
 ExperimentID: 0
 Created on: 01.08.2024
 Version: 2
-startExperiment("Description","","Note")
-main.sensoryexperimentplatform.models.Start@5b25b7ea
+startExperiment("null","","null")
 ratingsContainer("false","0")
 vasStage("Vas1","null","null","0","100","null","null","null","false","false")
 glmsStage("GLMS 1","null","null","null","false")
 vasStage("Vas 3","null","null","0","100","null","null","null","false","false")
 vasStage("Vas outside","null","null","0","100","null","null","null","false","false")
 endRatingsContainer()
+endExperiment()
+
+ExperimentName: Experiment
+ExperimenterName: Creator
+ExperimentID: 0
+Created on: 02.08.2024
+Version: 2
+startExperiment("Description","","Note")
+main.sensoryexperimentplatform.models.Start@b7a2a8
 endExperiment()
 

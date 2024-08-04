@@ -13,8 +13,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/controllers/TestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/data/AllExperiments" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/data/AllExperiments" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/viewmodel/ratingContainer_VM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/main/sensoryexperimentplatform/viewmodel/ratingContainer_VM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/Test.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/main/sensoryexperimentplatform/Test.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +93,7 @@
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "Merge",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/DSA/PracticeDSA",
+    "last_opened_file_path": "D:/SMARTSCALEUI",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -308,7 +306,10 @@
       <workItem from="1720541148476" duration="2304000" />
       <workItem from="1721030622711" duration="2757000" />
       <workItem from="1722341214993" duration="2553000" />
-      <workItem from="1722489964403" duration="13397000" />
+      <workItem from="1722489964403" duration="15605000" />
+      <workItem from="1722650132711" duration="1223000" />
+      <workItem from="1722692321493" duration="63000" />
+      <workItem from="1722746477235" duration="1224000" />
     </task>
     <task id="LOCAL-00001" summary="initialization: first touch">
       <option name="closed" value="true" />
