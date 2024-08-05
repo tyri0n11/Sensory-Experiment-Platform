@@ -12,7 +12,6 @@ import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.viewmodel.noticeStage_VM;
 import main.sensoryexperimentplatform.models.Experiment;
-import main.sensoryexperimentplatform.models.Notice;
 import main.sensoryexperimentplatform.viewmodel.*;
 import main.sensoryexperimentplatform.models.*;
 import main.sensoryexperimentplatform.models.Timer;
@@ -119,19 +118,20 @@ public class TestController{
         //UI handling
         handleToolTip();
         initialDisablingButtons();
+        displayedItems = new LinkedHashMap<>();
+        listObject.setRoot(start);
+
         listObject.setPrefHeight(574);
 
         listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
+            if (newValue != null && newValue !=oldValue) {
                 int index = getIndex(newValue);
-                // System.out.println(index);
+                System.out.println(index);
                 try {
                     addTasteVMS.clear();
                     addCourseVMS.clear();
                     btn_addFoodAndTaste.setDisable(true);
                     newValue.setValue(showDetailView(index));
-
-
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -241,7 +241,7 @@ public class TestController{
         if (item.getParent() == null) {
             return 0; // Root item
         }
-        return listObject.getRow(item);
+        return listObject.getSelectionModel().getSelectedIndex();
     }
 
     private String showDetailView(int index) throws IOException {
@@ -252,12 +252,11 @@ public class TestController{
                 , btn_addInput, btn_noticeStage,
                 btn_addTimer, btn_AddQuestionStage,
                 btn_addRatingContainer, btn_addTasteTest, btn_AddConditionalStatement, rating
-            );
+        );
         return o.getTitle();
 
     }
     private void loadItems() {
-        Set<String> set = new LinkedHashSet<>();
         ArrayList<Object> stages = experiment.getStages();
         if (experiment.getStages().isEmpty()) {
             StartVM startVM = new StartVM(experiment);
@@ -281,7 +280,6 @@ public class TestController{
                 if (o instanceof Vas) {
                     String key = "[VAS]" + ((Vas) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
-                    start.getChildren().add(new TreeItem<>(key));
                     vasStage_VM vasStageVm = new vasStage_VM((Vas) o);
                     Wrapper wrapper = new Wrapper(key, vasStageVm);
                     displayedItems.put(index, wrapper);
@@ -304,7 +302,7 @@ public class TestController{
                 } else if (o instanceof Input) {
                     String key = "[User Input] " + ((Input) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
-                    inputStage_VM inputStage_vm = new inputStage_VM((Input) o);
+                    inputStage_VM inputStage_vm = new inputStage_VM(experiment,(Input) o);
                     Wrapper wrapper = new Wrapper(key, inputStage_vm);
                     displayedItems.put(index, wrapper);
                     index++;

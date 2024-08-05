@@ -22,9 +22,10 @@
 }
 
 .slider .thumb{
-    -fx-pref-height: 40px;
-    -fx-pref-width: 40px;
-    -fx-background-image: url("/static/images/slider_thumb.png");
+    -fx-pref-height: 48px;
+    -fx-pref-width: 48px;
+    -fx-background-image: url("/static/images/thumb.png");
+    -fx-background-color: transparent;
 }
 #result_label{
     -fx-background-image: url("/static/images/popup.png");
