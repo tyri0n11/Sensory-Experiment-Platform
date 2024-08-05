@@ -78,12 +78,12 @@
 }
 
 .button {
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
+    -fx-font-size: 22px;
+    -fx-padding: 18px,32px,18px,32px;
+    -fx-font-weight: normal;
     -fx-background-radius: 30px;
-    -fx-text-fill: #397E82;
-    -fx-background-color: #F1F6FB;
-    -fx-effect: innershadow(three-pass-box, rgba(85, 91, 110, 0.15), 5, 0, 0, 5);
+    -fx-text-fill: BLACK;
+    -fx-effect: innershadow(three-pass-box, #555B6E26, 0, 5, 5, 0);
 }
 .button:hover{
     -fx-background-color: #397E82;
