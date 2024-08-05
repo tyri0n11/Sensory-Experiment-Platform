@@ -18,6 +18,7 @@ import javafx.scene.control.ListView;
 import main.sensoryexperimentplatform.viewmodel.AddSoundVM;
 import main.sensoryexperimentplatform.viewmodel.AssignSoundVM;
 import main.sensoryexperimentplatform.viewmodel.AudibleSound_VM;
+import main.sensoryexperimentplatform.viewmodel.RunAudible_VM;
 
 import java.io.IOException;
 
@@ -57,6 +58,7 @@ public class AssignSoundController {
     private ListView<String> SoundList;
     private RadioButton selectedRadioButton;
     private AudibleSound_VM audibleSoundVM;
+    private RunAudible_VM runAudibleVm;
 
 
     public void setViewModel(AssignSoundVM viewModel, AudibleSound_VM audibleSoundVM){
@@ -64,7 +66,6 @@ public class AssignSoundController {
         this.audibleSoundVM = audibleSoundVM;
         SoundName = FXCollections.observableArrayList(viewModel.getListNameshow());
         loadSoundRadioButtons();
-        selectSavedSound();
     }
 
     @FXML
@@ -80,23 +81,6 @@ public class AssignSoundController {
         AddSoundController addSoundController = fxmlLoader.getController();
         addSoundController.setViewModel(addSoundVM,this);
         stage.show();
-    }
-
-    //set the last choosen
-    private void selectSavedSound() {
-        String savedSoundName = audibleSoundVM.getSoundName();
-        for (String item : SoundList.getItems()) {
-            if (item.equals(savedSoundName)) {
-                for (int i = 0; i < SoundList.getItems().size(); i++) {
-                    RadioListCell cell = (RadioListCell) SoundList.getCellFactory().call(SoundList);
-                    if (cell.getItem().equals(savedSoundName)) {
-                        cell.getRadioButton().setSelected(true);
-                        selectedRadioButton = cell.getRadioButton();
-                        break;
-                    }
-                }
-            }
-        }
     }
 
 

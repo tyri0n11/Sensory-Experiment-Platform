@@ -13,12 +13,19 @@ public class RunAudible_VM {
         content = new SimpleStringProperty(audibleInstruction.getContent());
         button = new SimpleStringProperty(audibleInstruction.getButtonText());
         helpText = new SimpleStringProperty(audibleInstruction.getHelpText());
+
+
     }
     public void setAudibleInstruction(AudibleInstruction audibleInstruction) {
      this.audibleInstruction = audibleInstruction;
     }
-    public void playSound(String name){
-        audibleInstruction.playSound(name);
+    public void playSound(){
+        audibleInstruction.playSound(audibleInstruction.getSoundName());
+        System.out.println(audibleInstruction.getSoundName());
+    }
+    public String test(){
+        System.out.println(audibleInstruction.getSoundName());
+        return audibleInstruction.getSoundName();
     }
 
     public StringProperty getTitle(){

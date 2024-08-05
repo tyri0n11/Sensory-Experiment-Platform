@@ -366,8 +366,7 @@ public class TestController{
         AudibleSound_VM audibleSound_vm = new AudibleSound_VM(experiment);
         selectAudibleSound_vm = audibleSound_vm;
         String key = "[Audio] " +audibleSound_vm.getAudibleInstruction().getTitle();
-
-        Wrapper wrapper = new Wrapper(key, audibleSound_vm);
+        Wrapper wrapper = new Wrapper(key,audibleSound_vm);
         displayedItems.put(index, wrapper);
         index++;
         //experiment.showStages();
