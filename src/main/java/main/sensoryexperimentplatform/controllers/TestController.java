@@ -304,7 +304,7 @@ public class TestController{
                 else if (o instanceof AudibleInstruction) {
                     String key = "[Audio] " + ((AudibleInstruction) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
-                    AudibleSound_VM audibleSound_vm = new AudibleSound_VM(experiment);
+                    AudibleSound_VM audibleSound_vm = new AudibleSound_VM((AudibleInstruction) o);
                     Wrapper wrapper = new Wrapper(key,audibleSound_vm);
                     displayedItems.put(index, wrapper);
                     index++;
@@ -374,6 +374,7 @@ public class TestController{
         AudibleSound_VM audibleSound_vm = new AudibleSound_VM(experiment);
         selectAudibleSound_vm = audibleSound_vm;
         String key = "[Audio] " +selectAudibleSound_vm.getAudibleInstruction().getTitle();
+        System.out.println(experiment + "hello");
         Wrapper wrapper = new Wrapper(key,audibleSound_vm);
         displayedItems.put(index, wrapper);
         index++;

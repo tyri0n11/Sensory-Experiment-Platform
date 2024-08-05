@@ -52,6 +52,30 @@ public class AudibleSound_VM implements choose {
             setTitle(newValue);
         });
     }
+    public AudibleSound_VM(AudibleInstruction audibleInstruction) throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
+        this.audibleInstruction = new AudibleInstruction("Default Notice Stage", null, null,null);
+        this.title = new SimpleStringProperty(audibleInstruction.getTitle());
+        this.content = new SimpleStringProperty(audibleInstruction.getContent());
+        this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
+        this.helpText = new SimpleStringProperty(audibleInstruction.getButtonText());
+        this.assignSoundVM = new AssignSoundVM();
+
+        buttonText.addListener((observable, oldValue, newValue) -> {
+            setButtonText(newValue);
+
+        });
+
+        helpText.addListener((observable, oldValue, newValue) -> {
+            setHelpText(newValue);
+        });
+        title.addListener((observable, oldValue, newValue) -> {
+            setTitle(newValue);
+
+        });
+        content.addListener((observable, oldValue, newValue) -> {
+            setTitle(newValue);
+        });
+    }
 //    public audibleSound_VM(Experiment experiment){
 //        this.experiment = experiment;
 //        this.audibleInstruction = new AudibleInstruction("Hello","hello","hello","hello");
@@ -157,6 +181,6 @@ public class AudibleSound_VM implements choose {
     }
     @Override
     public String getTitle(){
-        return "[Audio] "+ audibleInstruction.getTitle();
+        return "[Audio] "+ title.get();
     }
 }
