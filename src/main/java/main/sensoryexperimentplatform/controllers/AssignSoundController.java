@@ -66,6 +66,7 @@ public class AssignSoundController {
         this.audibleSoundVM = audibleSoundVM;
         SoundName = FXCollections.observableArrayList(viewModel.getListNameshow());
         loadSoundRadioButtons();
+
     }
 
     @FXML
@@ -81,6 +82,23 @@ public class AssignSoundController {
         AddSoundController addSoundController = fxmlLoader.getController();
         addSoundController.setViewModel(addSoundVM,this);
         stage.show();
+    }
+
+    //set the last choosen
+    private void selectSavedSound() {
+        String savedSoundName = audibleSoundVM.getSoundName();
+        for (String item : SoundList.getItems()) {
+            if (item.equals(savedSoundName)) {
+                for (int i = 0; i < SoundList.getItems().size(); i++) {
+                    RadioListCell cell = (RadioListCell) SoundList.getCellFactory().call(SoundList);
+                    if (cell.getItem().equals(savedSoundName)) {
+                        cell.getRadioButton().setSelected(true);
+                        selectedRadioButton = cell.getRadioButton();
+                        break;
+                    }
+                }
+            }
+        }
     }
 
 
