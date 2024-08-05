@@ -113,8 +113,7 @@ public class TestController{
                     addTasteVMS.clear();
                     addCourseVMS.clear();
                     btn_addFoodAndTaste.setDisable(true);
-//                    newValue.setValue(showDetailView(index));
-                    showDetailView(index);
+                    newValue.setValue(showDetailView(index));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
