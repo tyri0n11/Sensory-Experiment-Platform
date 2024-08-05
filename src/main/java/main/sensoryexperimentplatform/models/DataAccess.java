@@ -672,7 +672,8 @@ public class DataAccess {
                     if (matcher.find()) {
                         currentExperiment.addAudibleInstruction(matcher.group(1),matcher.group(2),matcher.group(3),matcher.group(4));
                     }
-                }else if (line.startsWith("vasStage")) {
+                }
+                else if (line.startsWith("vasStage")) {
                     Pattern vasPattern = Pattern.compile("vasStage\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
                     Matcher matcher = vasPattern.matcher(line);
 
