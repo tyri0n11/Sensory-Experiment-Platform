@@ -279,9 +279,6 @@ public class DashBoardController {
         Parent root = fxmlLoader.load();
 
         Stage stage = new Stage();
-        stage.setTitle("New experiment");
-        newExController controller = fxmlLoader.getController();
-        controller.initialize();
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

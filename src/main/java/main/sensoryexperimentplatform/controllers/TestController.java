@@ -87,6 +87,17 @@ public class TestController{
     private AnchorPane mainPane;
     private TreeItem<String> start;
     private AudibleInstruction audibleInstruction;
+
+    @FXML
+    private Button btn_cross;
+
+    @FXML
+    private Button btn_down;
+    @FXML
+    private Button btn_up;
+
+
+
     private Stack <AddTasteVM> addTasteVMS;
     private Stack <AddCourseVM> addCourseVMS;
     private Experiment originalExperiment;
@@ -98,13 +109,18 @@ public class TestController{
         rating = new Stack<>();
         addTasteVMS = new Stack<>();
         addCourseVMS = new Stack<>();
+
         index = 0;
+        //The hashMap to map the object to the tree item
         displayedItems = new HashMap<>();
-        listObject.setRoot(start);
-        btn_assignSound.setDisable(true);
-        btn_AddPeriodicStage.setDisable(true);
-        btn_addFoodAndTaste.setDisable(true);
+
+        listObject.setRoot(start); //set the root of tree, which is the start exp
+
+        //UI handling
+        handleToolTip();
+        initialDisablingButtons();
         listObject.setPrefHeight(574);
+
         listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
                 int index = getIndex(newValue);
@@ -147,6 +163,21 @@ public class TestController{
             }
         });
     }
+    private void handleToolTip(){
+        Tooltip up = new Tooltip("Moves item up");
+        Tooltip down = new Tooltip("Moves item down");
+        Tooltip cross = new Tooltip("Deletes item");
+
+        btn_up.setTooltip(up);
+        btn_down.setTooltip(down);
+        btn_cross.setTooltip(cross);
+    }
+
+    private void initialDisablingButtons(){
+        btn_assignSound.setDisable(true);
+        btn_AddPeriodicStage.setDisable(true);
+        btn_addFoodAndTaste.setDisable(true);
+    }
 
     //THREE RIGHT-SIDE BUTTONS
     @FXML
@@ -175,12 +206,12 @@ public class TestController{
                     parent.getChildren().set(currentIndex + 1, parent.getChildren().get(currentIndex));
                     parent.getChildren().set(currentIndex, nextItem);
 
-//                    Object next = experiment.getStages().get(currentIndex + 1);
-//                    System.out.println(next);
-//                    experiment.getStages().set(currentIndex + 1, experiment.getStages().get(currentIndex));
-//                    experiment.getStages().set(currentIndex, next);
+                    Object next = experiment.getStages().get(currentIndex + 1);
+                    System.out.println(next);
+                    experiment.getStages().set(currentIndex + 1, experiment.getStages().get(currentIndex));
+                    experiment.getStages().set(currentIndex, next);
                 }
-                // listObject.getSelectionModel().select(currentIndex - 1);
+                 listObject.getSelectionModel().select(currentIndex - 1);
             }
         }
     }
@@ -195,15 +226,16 @@ public class TestController{
                     TreeItem<String> lastItem = parent.getChildren().get(currentIndex - 1);
                     parent.getChildren().set(currentIndex - 1, parent.getChildren().get(currentIndex));
                     parent.getChildren().set(currentIndex, lastItem);
-//                    Object last = experiment.getStages().get(currentIndex - 1);
-//                    System.out.println(last);
-//                    experiment.getStages().set(currentIndex - 1, experiment.getStages().get(currentIndex));
-//                    experiment.getStages().set(currentIndex, last);
+                    Object last = experiment.getStages().get(currentIndex - 1);
+                    System.out.println(last);
+                    experiment.getStages().set(currentIndex - 1, experiment.getStages().get(currentIndex));
+                    experiment.getStages().set(currentIndex, last);
                 }
-                //listObject.getSelectionModel().select(currentIndex - 1);
+                listObject.getSelectionModel().select(currentIndex - 1);
             }
         }
     }
+
 
     private int getIndex(TreeItem<String> item) {
         if (item.getParent() == null) {
@@ -254,8 +286,6 @@ public class TestController{
                     Wrapper wrapper = new Wrapper(key, vasStageVm);
                     displayedItems.put(index, wrapper);
                     index++;
-                    // str.add(key);
-                    // items.setAll(str);
                 } else if (o instanceof Notice) {
                     String key = "[Instruction] " + ((Notice) o).getTitle();
                     start.getChildren().add(new TreeItem<>(key));
@@ -762,6 +792,20 @@ public class TestController{
         Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
         this.experiment = originalExperiment;
+    }
+
+    @FXML
+    void saveAs() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("NewExperiment.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Stage stage = new Stage();
+
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+
+        stage.show();
+
     }
 
 }

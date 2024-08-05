@@ -679,6 +679,8 @@ vasStage("Vas1","null","null","0","100","null","null","null","false","false")
 glmsStage("GLMS 1","null","null","null","false")
 vasStage("Vas 3","null","null","0","100","null","null","null","false","false")
 vasStage("Vas outside","null","null","0","100","null","null","null","false","false")
+vasStage("User input","null","null","0","100","null","null","null","false","false")
+glmsStage("User Input","null","null","null","false")
 endRatingsContainer()
 endExperiment()
 
@@ -686,6 +688,14 @@ ExperimentName: Experiment
 ExperimenterName: Qanh
 ExperimentID: 0
 Created on: 04.08.2024
+Version: 1
+startExperiment("null","","null")
+endExperiment()
+
+ExperimentName: Experiment
+ExperimenterName: HOHO
+ExperimentID: 0
+Created on: 05.08.2024
 Version: 1
 startExperiment("Description","","Note")
 endExperiment()

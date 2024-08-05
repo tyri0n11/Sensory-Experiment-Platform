@@ -14,15 +14,6 @@ public class Experiment {
         super();
         Random random = new Random();
         this.id = random.nextInt(999);
-//        Scanner sc = new Scanner(System.in);
-//        System.out.print("Enter the Creator: ");
-//        setCreatorName(sc.nextLine());
-//        System.out.print("Enter the Experiment Name: ");
-//        setExperimentName(sc.nextLine());
-//        System.out.print("Enter the Experiment Description: ");
-//        setDescription(sc.nextLine());
-//        System.out.print("Enter the Additional Notes: ");
-//        setNote(sc.nextLine());
         stages = new ArrayList<>();
         version = 1;
         elapsedTime= 0;
