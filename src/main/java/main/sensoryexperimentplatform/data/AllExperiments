@@ -22,8 +22,10 @@ ExperimentName: Experiment
 ExperimenterName: Creator
 ExperimentID: 0
 Created on: 30.07.2024
-Version: 1
+Version: 2
 startExperiment("null","","null")
+main.sensoryexperimentplatform.models.Start@ddf44ca
+noticeStage("Quyfnh ANH ","null","null","null","false")
 endExperiment()
 
 ExperimentName: Lab breakfast
@@ -682,14 +684,12 @@ vasStage("Vas outside","null","null","0","100","null","null","null","false","fal
 endRatingsContainer()
 endExperiment()
 
-ExperimentName: testing
+ExperimentName: Good morning
 ExperimenterName: Quỳnh Anh
 ExperimentID: 0
-Created on: 05.08.2024
+Created on: 06.08.2024
 Version: 1
 startExperiment("null","","null")
-audio("aloo","null","null","null")
-glmsStage("alo","null","null","null","false")
-audio("gufff","null","null","null")
+audio("xin chào ","null","null","null")
 endExperiment()
 

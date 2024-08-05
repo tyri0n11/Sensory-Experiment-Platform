@@ -2,6 +2,7 @@ package main.sensoryexperimentplatform.viewmodel;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
 import main.sensoryexperimentplatform.models.AudibleInstruction;
 
 public class RunAudible_VM {
@@ -37,5 +38,9 @@ public class RunAudible_VM {
     public StringProperty getHelpText(){ return helpText;
     }
 
-    public StringProperty getButton(){ return button; }
+    public StringProperty buttonProperty() {
+        return button;
+    }
+
+
 }
