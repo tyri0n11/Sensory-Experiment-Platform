@@ -2,15 +2,18 @@ package main.sensoryexperimentplatform.controllers;
 
 
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -30,7 +33,7 @@ import java.util.concurrent.ScheduledExecutorService;
 
 public class DashBoardController {
 
-    private static final int ITEMS_PER_PAGE = 10;
+    private static final int ITEMS_PER_PAGE = 6;
     private dashBoard_VM dashBoard_vm;
 
     private ScheduledExecutorService executorService;
@@ -57,6 +60,9 @@ public class DashBoardController {
 
     @FXML
     private TableColumn<Experiment, String> lbl_Option;
+
+    @FXML
+    private AnchorPane dashBoardPane;
     @FXML
     private Pagination pagination;
 
@@ -69,7 +75,7 @@ public class DashBoardController {
        dashBoard_vm = new dashBoard_VM();
        bindViewModel();
        bindColumnWidths();
-       //setupPagination();
+       setupPaginationListener();
     }
 
     private void bindColumnWidths() {
@@ -193,27 +199,40 @@ public class DashBoardController {
 
 
         // Bind the TableView items to the ViewModel items
+       // System.out.println(dashBoard_vm.getExperiments().size());
+      //contentTable.setItems(dashBoard_vm.getExperiments());
+     //   setupPagination();
 
-        contentTable.setItems(dashBoard_vm.getExperiments());
-
-
+    }
+    private void setupPaginationListener() {
+        dashBoard_vm.experimentsProperty().addListener((ListChangeListener<Experiment>) change -> {
+            setupPagination();
+        });
     }
 
     private void setupPagination() {
-        int totalItems = dashBoard_vm.getExperiments().size();
-        int totalPages = (int) Math.ceil((double) totalItems / ITEMS_PER_PAGE);
+        int totalPages = (int) Math.ceil((double) dashBoard_vm.getExperiments().size() / ITEMS_PER_PAGE);
+
         pagination.setPageCount(totalPages);
+        pagination.setLayoutX(dashBoardPane.getWidth() / 2.0 - pagination.getWidth() / 2.0);
+
         pagination.setPageFactory(this::createPage);
     }
 
-    private VBox createPage(int pageIndex) {
+    private TableView<Experiment> createPage(int pageIndex) {
         int start = pageIndex * ITEMS_PER_PAGE;
         int end = Math.min(start + ITEMS_PER_PAGE, dashBoard_vm.getExperiments().size());
-        ObservableList<Experiment> itemsForPage = FXCollections.observableArrayList(
-                dashBoard_vm.getExperiments().subList(start, end)
-        );
-        contentTable.setItems(itemsForPage);
-        return new VBox(contentTable);
+
+        if(start > end) {
+            contentTable.setItems(dashBoard_vm.getExperiments());
+        } else {
+            ObservableList<Experiment> itemsForPage = FXCollections.observableArrayList(
+                    dashBoard_vm.getExperiments().subList(start, end)
+            );
+            contentTable.setItems(itemsForPage);
+        }
+
+        return contentTable;
     }
 
     private void deleteEx(Experiment e) throws Exception {
@@ -222,7 +241,9 @@ public class DashBoardController {
     }
 
     public void redo() throws Exception {
-        listOfExperiment.addExperiment(deletedExp.pop());
+        if(!deletedExp.isEmpty()){
+            listOfExperiment.addExperiment(deletedExp.pop());
+        }
     }
 
 

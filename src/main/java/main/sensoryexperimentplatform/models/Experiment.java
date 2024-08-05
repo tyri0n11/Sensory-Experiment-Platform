@@ -41,7 +41,7 @@ public class Experiment {
         this.id = id;
         this.created_date = created_date;
         stages = new ArrayList<>();
-        elapsedTime= 0;
+        elapsedTime = 0;
         start = new Start("default","default","default",false,null, null,0,100,null);
     }
     public Experiment(Experiment selectedExperiment) {
@@ -99,6 +99,9 @@ public class Experiment {
     public void addTimerStage (Timer timer){
         stages.add(timer);
     }
+    public void addAudibleInstruction (AudibleInstruction audibleInstruction){
+        stages.add(audibleInstruction);
+    }
     public void addVasStage(String title, String lowAnchorText, String highAnchorText,
                             int lowAnchorValue, int highAnchorValue, String buttonText,
                             String content, String helpText, boolean isSwap, boolean alert){
@@ -142,8 +145,10 @@ public class Experiment {
          timeWait,  randomizeFood,  randomizeRatingVas,  randomizeRatingGLMS);
         stages.add(tasteTest);
     }
-    public void addAudibleInstruction(String title, String content, String buttonText, String helpText){
-        AudibleInstruction temp = new AudibleInstruction(title,content, buttonText,helpText);
+    // Audible instruction stage
+
+    public void addAudibleInstruction(String title, String content, String buttonText, String helpText) {
+        AudibleInstruction temp = new AudibleInstruction(title, content, buttonText, helpText);
         stages.add(temp);
     }
 
@@ -167,6 +172,7 @@ public class Experiment {
     public void addConditionalStatement(conditionalStatement ConditionalStatement){
         stages.add(ConditionalStatement);
     }
+
 
     public ArrayList<Object> getStages() {
         return stages;

@@ -12,9 +12,7 @@ public class Observable {
     }
 
     public static void detach(Observer observer) {
-        if (observers.contains(observer)) {
-            observers.remove(observer);
-        }
+        observers.remove(observer);
     }
 
     public static void notifyAllObservers(){

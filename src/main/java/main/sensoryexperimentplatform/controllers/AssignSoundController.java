@@ -15,13 +15,12 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 
 
-import main.sensoryexperimentplatform.models.AudibleInstruction;
-import main.sensoryexperimentplatform.viewmodel.addSoundVM;
-import main.sensoryexperimentplatform.viewmodel.assignSoundVM;
+import main.sensoryexperimentplatform.viewmodel.AddSoundVM;
+import main.sensoryexperimentplatform.viewmodel.AssignSoundVM;
 
 import java.io.IOException;
 
-public class  assignSoundController {
+public class AssignSoundController {
     @FXML
     private VBox ShowSound;
 
@@ -52,12 +51,13 @@ public class  assignSoundController {
     private ObservableList<String> SoundName;
     private ToggleGroup group = new ToggleGroup();
 
-    private assignSoundVM viewModel;
+    private AssignSoundVM viewModel;
     @FXML
     private ListView<String> SoundList;
-    private RadioButton selectedRadioButton;
+    private RadioButton selectedRadioButton;;
 
-    public void setViewModel(assignSoundVM viewModel){
+
+    public void setViewModel(AssignSoundVM viewModel){
         this.viewModel = viewModel;
         SoundName = FXCollections.observableArrayList(viewModel.getListNameshow());
         loadSoundRadioButtons();
@@ -71,9 +71,10 @@ public class  assignSoundController {
         Stage stage = new Stage();
         stage.setTitle("Add Sound");
         Scene scene = new Scene(root);
+        AddSoundVM addSoundVM = new AddSoundVM();
         stage.setScene(scene);
-        addSoundController addSoundController = fxmlLoader.getController();
-       addSoundController.setViewModel(viewModel,this);
+        AddSoundController addSoundController = fxmlLoader.getController();
+        addSoundController.setViewModel(addSoundVM,this);
         stage.show();
     }
 
@@ -93,15 +94,13 @@ public class  assignSoundController {
                 setGraphic(null);
             } else {
                 RadioButton radioButton = new RadioButton(obj);
-                radioButton.setOnAction(event -> selectedRadioButton = radioButton);
+                radioButton.setOnAction(event ->
+                        selectedRadioButton = radioButton
+                );
                 radioButton.setToggleGroup(group);
                 setGraphic(radioButton);
             }
         }
-    }
-    public void addNewSound(String name) {
-        viewModel.addListSoundshow(name);
-
     }
 
     @FXML
@@ -116,11 +115,19 @@ public class  assignSoundController {
 
     @FXML
     void btn_refesh(ActionEvent event) {
+        loadSoundRadioButtons();
 
     }
 
     @FXML
     void btn_remove(ActionEvent event) {
+        if (selectedRadioButton != null) {
+            String soundName = selectedRadioButton.getText();
+            viewModel.removeSound(soundName);
+            SoundName.remove(soundName);
+            loadSoundRadioButtons();
+
+        }
 
     }
 
@@ -128,7 +135,6 @@ public class  assignSoundController {
     void btn_save(ActionEvent event) {
         Stage currentStage = (Stage) btn_save2.getScene().getWindow();
         currentStage.close();
-
     }
 
     @FXML

@@ -13,7 +13,7 @@ public class AddCourseController {
     private TextField txt_content;
 
     @FXML
-    private TextField txt_help;
+    private TextArea txt_help;
 
     @FXML
     private TextField txt_quantity;

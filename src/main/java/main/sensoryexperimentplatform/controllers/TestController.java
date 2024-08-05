@@ -17,7 +17,10 @@ import main.sensoryexperimentplatform.models.*;
 import main.sensoryexperimentplatform.models.Timer;
 
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.*;
 
 public class TestController{
@@ -87,50 +90,7 @@ public class TestController{
     private Stack <AddCourseVM> addCourseVMS;
     private Experiment originalExperiment;
 
-    @FXML
-    void delete(ActionEvent event) {
-        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            TreeItem<String> parent = selectedItem.getParent();
-            if (parent != null) {
-                parent.getChildren().remove(selectedItem);
-            } else {
-                // If it's a root item, remove it from the TreeView directly
-                listObject.getRoot().getChildren().remove(selectedItem);
-            }
-        }
-    }
-    @FXML
-    void down(ActionEvent event) {
-        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            TreeItem<String> parent = selectedItem.getParent();
-            if (parent != null) {
-                int currentIndex = parent.getChildren().indexOf(selectedItem);
-                if (currentIndex < parent.getChildren().size() - 1) {
-                    TreeItem<String> nextItem = parent.getChildren().get(currentIndex + 1);
-                    // Select the next sibling item
-                    listObject.getSelectionModel().select(nextItem);
-                }
-            }
-        }
 
-    }
-    @FXML
-    void up(ActionEvent event) {
-        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
-        if (selectedItem != null) {
-            TreeItem<String> parent = selectedItem.getParent();
-            if (parent != null) {
-                int currentIndex = parent.getChildren().indexOf(selectedItem);
-                if (currentIndex > 0) {
-                    TreeItem<String> previousItem = parent.getChildren().get(currentIndex - 1);
-                    // Select the previous sibling item
-                    listObject.getSelectionModel().select(previousItem);
-                }
-            }
-        }
-    }
 
 
     public void initialize(){
@@ -138,28 +98,28 @@ public class TestController{
         addTasteVMS = new Stack<>();
         addCourseVMS = new Stack<>();
         index = 0;
-        displayedItems = new HashMap<>();
+        displayedItems = new LinkedHashMap<>();
         listObject.setRoot(start);
         btn_assignSound.setDisable(true);
         btn_AddPeriodicStage.setDisable(true);
         btn_addFoodAndTaste.setDisable(true);
         listObject.setPrefHeight(574);
         listObject.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
+            if (newValue != null && newValue !=oldValue) {
                 int index = getIndex(newValue);
-                // System.out.println(index);
+                System.out.println(index);
                 try {
                     addTasteVMS.clear();
                     addCourseVMS.clear();
                     btn_addFoodAndTaste.setDisable(true);
                     newValue.setValue(showDetailView(index));
-
-
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
         });
+
+        //THIS CODE IS TO MAKE THE TREE ITEM WHICH APPEAR DIFFER IN COLORS (ODD VS EVEN)
         listObject.setCellFactory(new Callback<TreeView<String>, TreeCell<String>>() {
             @Override
             public TreeCell<String> call(TreeView<String> param) {
@@ -185,11 +145,68 @@ public class TestController{
         });
     }
 
+    //THREE RIGHT-SIDE BUTTONS
+    @FXML
+    void delete(ActionEvent event) {
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            TreeItem<String> parent = selectedItem.getParent();
+            if (parent != null) {
+                parent.getChildren().remove(selectedItem);
+            } else {
+                // If it's a root item, remove it from the TreeView directly
+                listObject.getRoot().getChildren().remove(selectedItem);
+            }
+        }
+    }
+    @FXML
+    void down(ActionEvent event) {
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            TreeItem<String> parent = selectedItem.getParent();
+            if (parent != null) {
+                int currentIndex = parent.getChildren().indexOf(selectedItem);
+                System.out.println(currentIndex);
+                if (currentIndex < parent.getChildren().size() - 1 && currentIndex >= 0) {
+                    TreeItem<String> nextItem = parent.getChildren().get(currentIndex + 1);
+                    parent.getChildren().set(currentIndex + 1, parent.getChildren().get(currentIndex));
+                    parent.getChildren().set(currentIndex, nextItem);
+
+//                    Object next = experiment.getStages().get(currentIndex + 1);
+//                    System.out.println(next);
+//                    experiment.getStages().set(currentIndex + 1, experiment.getStages().get(currentIndex));
+//                    experiment.getStages().set(currentIndex, next);
+                }
+                // listObject.getSelectionModel().select(currentIndex - 1);
+            }
+        }
+    }
+    @FXML
+    void up(ActionEvent event) {
+        TreeItem<String> selectedItem = listObject.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            TreeItem<String> parent = selectedItem.getParent();
+            if (parent != null) {
+                int currentIndex = parent.getChildren().indexOf(selectedItem);
+                if (currentIndex < parent.getChildren().size() && currentIndex > 0) {
+                    TreeItem<String> lastItem = parent.getChildren().get(currentIndex - 1);
+                    parent.getChildren().set(currentIndex - 1, parent.getChildren().get(currentIndex));
+                    parent.getChildren().set(currentIndex, lastItem);
+//                    Object last = experiment.getStages().get(currentIndex - 1);
+//                    System.out.println(last);
+//                    experiment.getStages().set(currentIndex - 1, experiment.getStages().get(currentIndex));
+//                    experiment.getStages().set(currentIndex, last);
+                }
+                //listObject.getSelectionModel().select(currentIndex - 1);
+            }
+        }
+    }
+
     private int getIndex(TreeItem<String> item) {
         if (item.getParent() == null) {
             return 0; // Root item
         }
-        return listObject.getRow(item);
+        return listObject.getSelectionModel().getSelectedIndex();
     }
 
     private String showDetailView(int index) throws IOException {
@@ -205,7 +222,6 @@ public class TestController{
 
     }
     private void loadItems() {
-        Set<String> set = new LinkedHashSet<>();
         ArrayList<Object> stages = experiment.getStages();
         if (experiment.getStages().isEmpty()) {
             StartVM startVM = new StartVM(experiment);
@@ -228,7 +244,6 @@ public class TestController{
 
                 if (o instanceof Vas) {
                     String key = "[VAS]" + ((Vas) o).getTitle();
-                    start.getChildren().add(new TreeItem<>(key));
                     start.getChildren().add(new TreeItem<>(key));
                     vasStage_VM vasStageVm = new vasStage_VM((Vas) o);
                     Wrapper wrapper = new Wrapper(key, vasStageVm);
@@ -288,27 +303,6 @@ public class TestController{
 //                    //displayedItems.put(index, wrapper);
 //                    index++;
 //                }
-//                else if (o instanceof RatingContainer) {
-////                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
-////                       System.out.println(key);
-////                       displayedItems.put(key, o);
-////                       str.add(key);
-//                    for (Object subO : ((RatingContainer) o).container) {
-//                        if (subO instanceof Vas) {
-//                            String key = "[VAS]" + ((Vas) subO).getTitle();
-//                            System.out.println(key);
-//                            //    displayedScales.put(key, o);
-//                            set.add(key);
-//                        } else if (subO instanceof gLMS) {
-//                            String key = "[GLMS]" + ((gLMS) subO).getTitle();
-//                            System.out.println(key);
-//                            // displayedScales.put(key, o);
-//                            set.add(key);
-//                        }
-//                    }
-//
-//                    //scales.setAll(set);
-//                }
 //                else if (o instanceof Periodic){
 //                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
 //                    start.getChildren().add(new TreeItem<>(key));
@@ -318,34 +312,40 @@ public class TestController{
 //                    index++;
 //                }
                 else if (o instanceof RatingContainer) {
-//                       String key = "[" + o.getClass().getSimpleName() + "] " + ((Stage) o).getTitle();
-//                       System.out.println(key);
-//                       displayedItems.put(key, o);
-//                       str.add(key);
+                       String key = "Rating Container";
+                       TreeItem<String> itemRating = new TreeItem<>(key);
+                       start.getChildren().add(itemRating);
+                       ratingContainer_VM ratingContainerVm = new ratingContainer_VM((RatingContainer)o);
+                       Wrapper wrapper = new Wrapper(key, ratingContainerVm);
+                       displayedItems.put(index, wrapper);
+                       index++;
                     for (Object subO : ((RatingContainer) o).container) {
                         if (subO instanceof Vas) {
-                            String key = "[VAS]" + ((Vas) subO).getTitle();
-                            System.out.println(key);
-                            //    displayedScales.put(key, o);
-                            set.add(key);
+                            String subKey = "[VAS]" + ((Vas) subO).getTitle();
+                            itemRating.getChildren().add(new TreeItem<>(subKey));
+                            vasStage_VM vasStageVm = new vasStage_VM((Vas) subO);
+                            Wrapper subWrapper = new Wrapper(subKey, vasStageVm);
+                            displayedItems.put(index,  subWrapper);
+                            index++;
                         } else if (subO instanceof gLMS) {
-                            String key = "[GLMS]" + ((gLMS) subO).getTitle();
-                            System.out.println(key);
-                            // displayedScales.put(key, o);
-                            set.add(key);
+                            String subKey = "[GLMS]" + ((gLMS) subO).getTitle();
+                            itemRating.getChildren().add(new TreeItem<>(subKey));
+                            glmsStage_VM gLMSStageVm = new glmsStage_VM((gLMS) subO);
+                            Wrapper subWrapper = new Wrapper(subKey, gLMSStageVm);
+                            displayedItems.put(index, subWrapper);
+                            index++;
                         }
                     }
 
-                    //scales.setAll(set);
                 }
-//                else if (o instanceof conditionalStatement) {
-//                    String key = "If" +  ((conditionalStatement) o).getVariable1Choice();
-//                    start.getChildren().add( new TreeItem<>(key));
-//                    conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM((conditionalStatement) o);
-//                    Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
-//                    displayedItems.put(index, wrapper);
-//                    index++;
-//                }
+                else if (o instanceof conditionalStatement) {
+                    String key = "If" +  ((conditionalStatement) o).getVariable1Choice();
+                    start.getChildren().add( new TreeItem<>(key));
+                    conditionalStatementVM ConditionalStatementVM = new conditionalStatementVM((conditionalStatement) o);
+                    Wrapper wrapper = new Wrapper(key, ConditionalStatementVM);
+                    displayedItems.put(index, wrapper);
+                    index++;
+                }
             }
             listObject.setMaxHeight(311);
             propertiesPane.setVisible(true);
@@ -357,7 +357,7 @@ public class TestController{
         listObject.setMaxHeight(311);
         propertiesPane.setVisible(true);
         start.setExpanded(true);
-        audibleSound_VM audibleSound_vm = new audibleSound_VM(experiment);
+        AudibleSound_VM audibleSound_vm = new AudibleSound_VM(experiment);
         String key = "[Audio] " +audibleSound_vm.getAudibleInstruction().getTitle();
 
         Wrapper wrapper = new Wrapper(key, audibleSound_vm);
@@ -500,7 +500,7 @@ public class TestController{
         start.setExpanded(true);
         inputStage_VM inputStage_vm = new inputStage_VM(experiment);
         Input inputStage = inputStage_vm.getInput();
-        String key = "[User Input]" +  inputStage.getTitle();
+        String key = "[User Input] " +  inputStage.getTitle();
         Wrapper wrapper = new Wrapper(key, inputStage_vm);
         displayedItems.put(index, wrapper);
         index++;
@@ -529,7 +529,7 @@ public class TestController{
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         noticeStage_VM noticeStage_vm = new noticeStage_VM(experiment);
-        String key = "[Instruction]" + noticeStage_vm.getNotice().getTitle();
+        String key = "[Instruction] " + noticeStage_vm.getNotice().getTitle();
         System.out.println(index);
         Wrapper wrapper = new Wrapper(key, noticeStage_vm);
         displayedItems.put(index, wrapper);
@@ -579,7 +579,7 @@ public class TestController{
         start.setExpanded(true);
         questionStage_VM questionStage_vm = new questionStage_VM(experiment);
         Question question = questionStage_vm.getQuestionStage();
-        String key = "[Question]" + question.getQuestion();
+        String key = "[Question] " + question.getQuestion();
         Wrapper wrapper = new Wrapper(key, questionStage_vm);
         displayedItems.put(index, wrapper);
         index++;
@@ -660,7 +660,7 @@ public class TestController{
         propertiesPane.setVisible(true);
         start.setExpanded(true);
         timerStage_VM timerStageVm = new timerStage_VM(experiment);
-        String key = "[Waiting]" + timerStageVm.getTimer().getTitle();
+        String key = "[Waiting] " + timerStageVm.getTimer().getInstruction();
         Wrapper wrapper = new Wrapper(key, timerStageVm);
         displayedItems.put(index, wrapper);
         index++;
@@ -693,7 +693,7 @@ public class TestController{
         else {
             vasStageVm = new vasStage_VM(experiment);
         }
-        String key = "[VAS]" + vasStageVm.getVas().getTitle();
+        String key = "[VAS] " + vasStageVm.getVas().getTitle();
         Wrapper wrapper = new Wrapper(key, vasStageVm);
         displayedItems.put(index, wrapper);
         index++;
@@ -722,14 +722,15 @@ public class TestController{
     }
 
     @FXML
-    void assignSound(ActionEvent event) throws IOException {
+    void assignSound(ActionEvent event) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
         listObject.setMaxHeight(311);
-        audibleInstruction = AudibleInstructionSingleton.getInstance();
+        Sound sound = SoundSingleton.getInstance();
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AssignSound.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = new Stage();
-        assignSoundController controller = fxmlLoader.getController();
-        assignSoundVM viewModel = new assignSoundVM(audibleInstruction);
+        AssignSoundController controller = fxmlLoader.getController();
+        AssignSoundVM viewModel = new AssignSoundVM(experiment);
+
         controller.setViewModel(viewModel);
         stage.setTitle("Add Sound");
 

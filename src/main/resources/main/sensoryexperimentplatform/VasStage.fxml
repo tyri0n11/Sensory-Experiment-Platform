@@ -1,53 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="outterPane" maxHeight="253.0" maxWidth="540.0" minHeight="230.0" minWidth="489.0" prefHeight="230.0" prefWidth="535.0" stylesheets="@../../static/stylesheets/Notice_CSS.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.VasController">
+<AnchorPane maxHeight="253.0" maxWidth="540.0" minHeight="253.0" minWidth="540.0" prefHeight="253.0" prefWidth="540.0" stylesheets="@../../static/stylesheets/Properties.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.VasController">
     <children>
-        <ScrollPane fx:id="scrollPane" layoutX="8.0" layoutY="2.0" prefHeight="247.0" prefWidth="524.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="2.0">
-         <content>
-                <AnchorPane fx:id="innerPane" layoutX="8.0" layoutY="2.0" minWidth="0.0" prefHeight="686.0" prefWidth="524.0" style="-fx-background-color: white;">
+        <ScrollPane fitToWidth="true" layoutX="8.0" layoutY="2.0" prefHeight="247.0" prefWidth="524.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <AnchorPane layoutX="8.0" layoutY="2.0" minWidth="0.0" prefHeight="686.0" prefWidth="524.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <Label layoutX="14.0" layoutY="33.0" prefHeight="26.0" prefWidth="188.0" styleClass="normallabel" text="Question" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="322.0" />
-                        <Label id="propertiesLabel" fx:id="lbl_highAnchorText" layoutX="14.0" layoutY="74.0" prefHeight="26.0" prefWidth="188.0" styleClass="normallabel" text="Low Anchor Text" />
-                        <Label id="propertiesLabel" fx:id="lbl_highAnchortext" layoutX="14.0" layoutY="115.0" styleClass="normallabel" text="High Anchor Text" />
-                        <Label id="propertiesLabel" fx:id="lbl_lowAnchorValue" layoutX="14.0" layoutY="156.0" styleClass="normallabel" text="Low Anchor Value" />
-                        <Label id="propertiesLabel" fx:id="lbl_highAnchorValue" layoutX="14.0" layoutY="197.0" styleClass="normallabel" text="High Anchor Value" />
-                        <Label id="propertiesLabel" fx:id="lbl_buttonText" layoutX="14.0" layoutY="238.0" styleClass="normallabel" text="Button Text" />
-                        <Label id="propertiesLabel" fx:id="lbl_storeResponse" layoutX="14.0" layoutY="280.0" styleClass="normallabel" text="Store Response In A Variable?" />
-                        <RadioButton fx:id="radioBtn_available" layoutX="100.0" layoutY="318.0" mnemonicParsing="false" styleClass="propertiesText" text="Available" />
-                        <ChoiceBox fx:id="choiceB_avail" layoutX="222.0" layoutY="318.0" prefHeight="25.0" prefWidth="274.0" styleClass="propertiesTextField" />
-                        <RadioButton fx:id="radioBtn_Yes" layoutX="100.0" layoutY="359.0" mnemonicParsing="false" styleClass="propertiesText" text="Yes" />
-                        <TextField fx:id="txt_yes" layoutX="222.0" layoutY="359.0" maxWidth="410.0" minHeight="25.0" prefHeight="25.0" prefWidth="274.0" styleClass="propertiesTextField" />
-                        <Label fx:id="lbl_swapPole" layoutX="14.0" layoutY="402.0" styleClass="normallabel" text="Swap Poles (ticked for yes) " />
-                        <CheckBox fx:id="checkB_swap" layoutX="222.0" layoutY="402.0" mnemonicParsing="false" styleClass="propertiesTextField" />
-                        <Label fx:id="lbl_help" layoutX="14.0" layoutY="438.0" styleClass="normallabel" text="Help Text" />
-                        <Label fx:id="lbl_playSound" layoutX="14.0" layoutY="655.0" styleClass="normallabel" text="Play alert sound on screen display ?" />
-                        <CheckBox fx:id="checkB_sound" layoutX="280.0" layoutY="655.0" mnemonicParsing="false" styleClass="propertiesTextField" />
-                        <TextField fx:id="txt_question" layoutX="222.0" layoutY="33.0" prefHeight="25.0" prefWidth="274.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="28.0" />
-                        <TextField fx:id="txt_LowAncTxt" layoutX="222.0" layoutY="74.0" prefHeight="25.0" prefWidth="274.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="28.0" />
-                        <TextField fx:id="txt_HighAncTxt" layoutX="222.0" layoutY="115.0" prefHeight="25.0" prefWidth="274.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="28.0" />
-                        <TextField fx:id="txt_LowAncVal" layoutX="222.0" layoutY="156.0" prefHeight="25.0" prefWidth="274.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="28.0" />
-                        <TextField fx:id="txt_HighAncVal" layoutX="222.0" layoutY="197.0" prefHeight="25.0" prefWidth="274.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="28.0" />
-                        <TextField fx:id="txt_BtnTxt" layoutX="222.0" layoutY="235.0" prefHeight="25.0" prefWidth="274.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="28.0" />
-                  <Label layoutX="14.0" layoutY="-2.0" styleClass="property" stylesheets="@../../static/stylesheets/Notice_CSS.css" text="Properties" />
-                  <TextField fx:id="txt_help" layoutX="222.0" layoutY="438.0" minHeight="160.0" minWidth="274.0" prefHeight="160.0" prefWidth="274.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="28.0" />
+                        <Label layoutX="28.0" layoutY="64.0" prefHeight="26.0" prefWidth="188.0" text="Question" AnchorPane.leftAnchor="28.0" />
+                        <Label layoutX="28.0" layoutY="164.0" prefHeight="26.0" prefWidth="188.0" text="Low Anchor Text" AnchorPane.leftAnchor="28.0" />
+                        <Label layoutX="28.0" layoutY="114.0" text="High Anchor Text" AnchorPane.leftAnchor="28.0" />
+                        <Label layoutX="28.0" layoutY="214.0" text="Low Anchor Value" AnchorPane.leftAnchor="28.0" />
+                        <Label layoutX="28.0" layoutY="264.0" text="High Anchor Value" AnchorPane.leftAnchor="28.0" />
+                        <Label layoutX="28.0" layoutY="314.0" text="Button Text" AnchorPane.leftAnchor="28.0" />
+                        <Label layoutX="28.0" layoutY="364.0" text="Store Response In A Variable?" AnchorPane.leftAnchor="28.0" />
+                        <RadioButton fx:id="radioBtn_available" layoutX="100.0" layoutY="400.0" mnemonicParsing="false" text="Available" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="48.80000000000001" />
+                        <ChoiceBox fx:id="choiceB_avail" layoutX="222.0" layoutY="397.0" prefHeight="25.0" prefWidth="274.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="27.200000000000045" />
+                        <RadioButton fx:id="radioBtn_Yes" layoutX="100.0" layoutY="454.0" mnemonicParsing="false" text="New" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="48.80000000000001" />
+                        <TextField fx:id="txt_yes" layoutX="222.0" layoutY="450.0" maxWidth="410.0" minHeight="25.0" prefHeight="25.0" prefWidth="274.0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="27.200000000000045" />
+                        <Label fx:id="lbl_swapPole" layoutX="28.0" layoutY="504.0" text="Swap Poles (ticked for yes) " AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="120.80000000000001" />
+                        <CheckBox fx:id="checkB_swap" layoutX="285.0" layoutY="500.0" mnemonicParsing="false" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="276.0" />
+                        <Label fx:id="lbl_help" layoutX="28.0" layoutY="554.0" text="Help Text" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="120.80000000000001" />
+                        <Label fx:id="lbl_playSound" layoutX="28.0" layoutY="734.0" text="Play alert sound on screen display ?" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="120.80000000000001" />
+                        <CheckBox fx:id="checkB_sound" layoutX="285.0" layoutY="733.0" mnemonicParsing="false" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="213.6" />
+                        <TextField fx:id="txt_question" layoutX="222.0" layoutY="60.0" prefHeight="0.0" prefWidth="274.0" promptText="How hungry do you feel right now?" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="27.200000000000045" />
+                        <TextField fx:id="txt_LowAncTxt" layoutX="222.0" layoutY="160.0" prefHeight="25.0" prefWidth="274.0" promptText="Not at all hungry" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="27.200000000000045" />
+                        <TextField fx:id="txt_HighAncTxt" layoutX="222.0" layoutY="110.0" prefHeight="25.0" prefWidth="274.0" promptText="Not at all hungry" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="27.200000000000045" />
+                        <TextField fx:id="txt_LowAncVal" layoutX="222.0" layoutY="210.0" prefHeight="25.0" prefWidth="274.0" promptText="0" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="27.200000000000045" />
+                        <TextField fx:id="txt_HighAncVal" layoutX="222.0" layoutY="260.0" prefHeight="25.0" prefWidth="274.0" promptText="100" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="27.2" />
+                        <TextField fx:id="txt_BtnTxt" layoutX="222.0" layoutY="310.0" prefHeight="25.0" prefWidth="274.0" promptText="Continue" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="31.200000000000045" />
+                        <Label id="lblProperty" layoutX="28.0" layoutY="14.0" text="Properties" AnchorPane.leftAnchor="28.0" />
+                        <TextArea fx:id="txt_help" layoutX="222.0" layoutY="550.0" prefHeight="160.0" prefWidth="274.0" wrapText="true" AnchorPane.leftAnchor="222.0" AnchorPane.rightAnchor="27.200000000000045" />
                     </children>
-               <padding>
-                  <Insets right="8.0" />
-               </padding>
                 </AnchorPane>
-         </content>
+            </content>
         </ScrollPane>
     </children>
-   <padding>
-      <Insets right="8.0" />
-   </padding>
 </AnchorPane>
