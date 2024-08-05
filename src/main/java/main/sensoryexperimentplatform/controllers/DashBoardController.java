@@ -27,7 +27,10 @@ import main.sensoryexperimentplatform.viewmodel.dashBoard_VM;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.listOfExperiment;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Stack;
 import java.util.concurrent.ScheduledExecutorService;
 
@@ -157,7 +160,15 @@ public class DashBoardController {
                             });
                             edit.setOnAction((ActionEvent event) -> {
                                 selectedExperiment = getTableView().getItems().get(getIndex());
-                                editExperiment(selectedExperiment);
+                                try {
+                                    editExperiment(selectedExperiment);
+                                } catch (UnsupportedAudioFileException e) {
+                                    throw new RuntimeException(e);
+                                } catch (LineUnavailableException e) {
+                                    throw new RuntimeException(e);
+                                } catch (URISyntaxException e) {
+                                    throw new RuntimeException(e);
+                                }
                             });
                             run.setOnAction((ActionEvent) ->{
                                 Experiment selectedExperiment = getTableView().getItems().get(getIndex());
@@ -247,7 +258,7 @@ public class DashBoardController {
     }
 
 
-    private void editExperiment(Experiment c) {
+    private void editExperiment(Experiment c) throws UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
 //        c.updateVersion();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/Test.fxml"));

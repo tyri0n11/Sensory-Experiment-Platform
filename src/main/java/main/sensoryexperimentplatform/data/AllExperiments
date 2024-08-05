@@ -682,26 +682,14 @@ vasStage("Vas outside","null","null","0","100","null","null","null","false","fal
 endRatingsContainer()
 endExperiment()
 
-ExperimentName: Experiment
-ExperimenterName: Qanh
-ExperimentID: 0
-Created on: 04.08.2024
-Version: 2
-startExperiment("null","","null")
-inputStage("User input","null","null","false")
-vasStage("User input","null","null","0","100","null","null","null","false","false")
-audio("Default Notice Stage","null","null","null")
-endExperiment()
-
 ExperimentName: testing
 ExperimenterName: Quỳnh Anh
 ExperimentID: 0
 Created on: 05.08.2024
-Version: 3
+Version: 1
 startExperiment("null","","null")
 audio("Default Notice Stage","null","null","null")
 audio("Default Notice Stage","null","null","null")
-audio("dđ","tyoyoy","dđ","null")
 audio("Default Notice Stage","null","null","null")
 endExperiment()
 

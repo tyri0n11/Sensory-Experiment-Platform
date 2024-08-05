@@ -225,9 +225,9 @@ public class TestController{
         return o.getTitle();
 
     }
-    private void loadItems() {
+    private void loadItems() throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
         Set<String> set = new LinkedHashSet<>();
-        ArrayList<Object> stages = experiment.getStages();
+        ArrayList<Object> stages = new ArrayList<>(experiment.getStages());
         if (experiment.getStages().isEmpty()) {
             StartVM startVM = new StartVM(experiment);
             String key = startVM.getTitle();
@@ -301,6 +301,14 @@ public class TestController{
                     displayedItems.put(index, wrapper);
                     index++;
                 }
+                else if (o instanceof AudibleInstruction) {
+                    String key = "[Audio] " + ((AudibleInstruction) o).getTitle();
+                    start.getChildren().add(new TreeItem<>(key));
+                    AudibleSound_VM audibleSound_vm = new AudibleSound_VM(experiment);
+                    Wrapper wrapper = new Wrapper(key,audibleSound_vm);
+                    displayedItems.put(index, wrapper);
+                    index++;
+                }
 //                else if (o instanceof Periodic){
 //                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
 //                    start.getChildren().add(new TreeItem<>(key));
@@ -365,7 +373,7 @@ public class TestController{
         start.setExpanded(true);
         AudibleSound_VM audibleSound_vm = new AudibleSound_VM(experiment);
         selectAudibleSound_vm = audibleSound_vm;
-        String key = "[Audio] " +audibleSound_vm.getAudibleInstruction().getTitle();
+        String key = "[Audio] " +selectAudibleSound_vm.getAudibleInstruction().getTitle();
         Wrapper wrapper = new Wrapper(key,audibleSound_vm);
         displayedItems.put(index, wrapper);
         index++;
@@ -746,7 +754,7 @@ public class TestController{
 
     }
 
-    public void setExperiment(Experiment c) throws IOException {
+    public void setExperiment(Experiment c) throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
         this.experiment = c;
         this.originalExperiment = experiment;
         loadItems();
