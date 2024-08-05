@@ -90,9 +90,6 @@ public class Experiment {
     public void addTimerStage (Timer timer){
         stages.add(timer);
     }
-    public void addAudibleInstruction (AudibleInstruction audibleInstruction){
-        stages.add(audibleInstruction);
-    }
     public void addVasStage(String title, String lowAnchorText, String highAnchorText,
                             int lowAnchorValue, int highAnchorValue, String buttonText,
                             String content, String helpText, boolean isSwap, boolean alert){
@@ -156,6 +153,9 @@ public class Experiment {
     }
     public void addQuestion (Question question){
         stages.add(question);
+    }
+    public void addAudibleInstruction (AudibleInstruction audibleInstruction){
+        stages.add(audibleInstruction);
     }
     public void addInput(Input input){
         stages.add(input);

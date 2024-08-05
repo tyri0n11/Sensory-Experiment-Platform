@@ -23,7 +23,7 @@ public class inputStage_VM implements choose{
 
     public inputStage_VM(Experiment experiment){
         this.experiment = experiment;
-        this.input = new Input("User input", "This is question","this is button", false);
+        this.input = new Input("User input", null,null, false);
         title = new SimpleStringProperty(input.getTitle());
         content = new SimpleStringProperty(input.getContent());
         button = new SimpleStringProperty(input.getButtonText());

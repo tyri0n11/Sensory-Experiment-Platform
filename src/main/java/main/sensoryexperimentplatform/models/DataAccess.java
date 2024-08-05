@@ -178,7 +178,16 @@ public class DataAccess {
                                 Boolean.parseBoolean(matcher.group(4))
                         );
                     }
-                } else if (line.startsWith("ratingsContainer")) {
+                }
+                else if(line.startsWith("audio")){
+                    Pattern audioPattern = Pattern.compile("audio\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
+                    Matcher matcher = audioPattern.matcher(line);
+                    if (matcher.find()) {
+                        currentExperiment.addAudibleInstruction(matcher.group(1),matcher.group(2),matcher.group(3),matcher.group(4));
+                    }
+
+                }
+                else if (line.startsWith("ratingsContainer")) {
                     Pattern ratingsContainerPattern = Pattern.compile("ratingsContainer\\(\"(.*?)\",\"(.*?)\"\\)");
                     Matcher matcher = ratingsContainerPattern.matcher(line);
 
@@ -438,7 +447,7 @@ public class DataAccess {
         String line;
         Start currentStart = new Start("default","default","default",false,null, null,0,100,null);
         currentExperiment.addStart(currentStart);
-        //notice, input, timer, vas, glms, question, rating container, course
+        //notice, input, timer, vas, glms, question, rating container, course, audible instruction
 
         try(BufferedReader reader = new BufferedReader(new FileReader(loadFilePath))){
             while ((line = reader.readLine()) != null ){
@@ -495,7 +504,8 @@ public class DataAccess {
                                 Boolean.parseBoolean(matcher.group(3))
                         );
                     }
-                } else if(line.startsWith("audio")){
+                }
+                else if(line.startsWith("audio")){
                     Pattern audioPattern = Pattern.compile("audio\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
                     Matcher matcher = audioPattern.matcher(line);
                     if (matcher.find()) {
@@ -503,6 +513,7 @@ public class DataAccess {
                     }
 
                 }
+
                 else if (line.startsWith("vasStage")) {
                     Pattern vasPattern = Pattern.compile("vasStage\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
                     Matcher matcher = vasPattern.matcher(line);

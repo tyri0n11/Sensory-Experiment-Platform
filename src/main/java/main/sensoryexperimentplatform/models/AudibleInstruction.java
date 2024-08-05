@@ -17,6 +17,8 @@ public class AudibleInstruction extends Stage {
 
     private String buttonText;
     private String helpText;
+    private String soundName;
+    private Sound SoundManager;
 
 
 
@@ -26,6 +28,7 @@ public class AudibleInstruction extends Stage {
       this.title= title;
         this.buttonText= buttonText;
         this.helpText = helpText;
+        this.SoundManager = new Sound();
 
 
     }
@@ -61,6 +64,17 @@ public class AudibleInstruction extends Stage {
         this.helpText = helpText;
     }
 
+    public String getSoundName(){
+        return soundName;
+    }
+    public void setSoundName(String soundName){
+        this.soundName = soundName;
+    }
+
+
+    public void playSound(String name) {
+       SoundManager.playSound(name);
+    }
 
 
     public String toString() {
