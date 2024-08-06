@@ -15,7 +15,7 @@ import main.sensoryexperimentplatform.models.Question;
 import java.io.IOException;
 import java.util.Stack;
 
-public class questionStage_VM implements choose{
+public class questionStage_VM implements Stages {
     //Notice can chinh lai
     private StringProperty question ;
     private StringProperty leftText ;
@@ -101,7 +101,7 @@ public class questionStage_VM implements choose{
     }
 
     @Override
-    public void modify(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS) throws IOException {
+    public void loadInterface(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("QuestionStage.fxml"));
         AnchorPane newContent = fxmlLoader.load();
         anchorPane.getChildren().setAll(newContent);
@@ -111,11 +111,11 @@ public class questionStage_VM implements choose{
     }
 
     @Override
-    public void modifyWithButton(AnchorPane propertiesPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS, Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
-                                 Button btn_addFoodAndTaste, Button btn_addAudibleInstruction
+    public void handleMenuButtons(AnchorPane propertiesPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS, Button btn_AddPeriodicStage, Button btn_AddCourse, Button btn_assignSound,
+                                  Button btn_addFoodAndTaste, Button btn_addAudibleInstruction
             , Button btn_addInput, Button btn_noticeStage,
-                                 Button btn_addTimer, Button btn_AddQuestionStage,
-                                 Button btn_addRatingContainer, Button btn_addTasteTest, Button btn_AddConditionalStatement, Stack<ratingContainer_VM> ratingContainerVm) throws IOException {
+                                  Button btn_addTimer, Button btn_AddQuestionStage,
+                                  Button btn_addRatingContainer, Button btn_addTasteTest, Button btn_AddConditionalStatement, Stack<ratingContainer_VM> ratingContainerVm) throws IOException {
 
 
 //               AddNoticeStage controller = fxmlLoader.getController();
@@ -124,6 +124,11 @@ public class questionStage_VM implements choose{
     @Override
     public String getTitle() {
         return "[Question] "+ question.get();
+    }
+
+    @Override
+    public String getDisplayedTxt() {
+        return null;
     }
 }
 

@@ -7,7 +7,7 @@ import main.sensoryexperimentplatform.models.*;
 import java.io.IOException;
 import java.util.*;
 
-public class editEx_VM {
+public class EditEx_VM {
 
     private ObservableList<String> items = FXCollections.observableArrayList();
     private ObservableList<String> scales = FXCollections.observableArrayList();
@@ -32,7 +32,7 @@ public class editEx_VM {
         this.scales = scales;
     }
 
-    public editEx_VM() throws IOException {
+    public EditEx_VM() throws IOException {
         this.currentExperiment = DataAccess.getExperimentIndividually();
         loadItems();
     }
