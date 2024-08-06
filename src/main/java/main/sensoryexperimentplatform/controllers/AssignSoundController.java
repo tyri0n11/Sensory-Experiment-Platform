@@ -66,6 +66,7 @@ public class AssignSoundController {
         this.audibleSoundVM = audibleSoundVM;
         SoundName = FXCollections.observableArrayList(viewModel.getListNameshow());
         loadSoundRadioButtons();
+        selectSavedSound();
 
     }
 
@@ -87,16 +88,16 @@ public class AssignSoundController {
     //set the last choosen
     private void selectSavedSound() {
         String savedSoundName = audibleSoundVM.getSoundName();
+        if (savedSoundName == null) {
+            return; // No sound to select
+        }
+
         for (String item : SoundList.getItems()) {
             if (item.equals(savedSoundName)) {
-                for (int i = 0; i < SoundList.getItems().size(); i++) {
-                    RadioListCell cell = (RadioListCell) SoundList.getCellFactory().call(SoundList);
-                    if (cell.getItem().equals(savedSoundName)) {
-                        cell.getRadioButton().setSelected(true);
-                        selectedRadioButton = cell.getRadioButton();
-                        break;
-                    }
-                }
+                // Directly select the item in ListView
+                SoundList.getSelectionModel().select(item);
+                selectedRadioButton = (RadioButton) SoundList.lookup(".radio-button:selected");
+                break;
             }
         }
     }
@@ -109,13 +110,16 @@ public class AssignSoundController {
         SoundList.getItems().clear();
         SoundName.addAll(viewModel.getListNameshow());
         SoundList.getItems().addAll(SoundName);
+        selectSavedSound();
     }
     class RadioListCell extends ListCell<String> {
         private RadioButton radioButton;
+
         @Override
         public void updateItem(String obj, boolean empty) {
             super.updateItem(obj, empty);
-            if (empty) {
+            System.out.println("Updating cell: " + obj); // Debugging
+            if (empty || obj == null) {
                 setText(null);
                 setGraphic(null);
             } else {
@@ -137,6 +141,7 @@ public class AssignSoundController {
             return radioButton;
         }
     }
+
 
     @FXML
     void btn_play(ActionEvent event) {
@@ -171,7 +176,6 @@ public class AssignSoundController {
         if (selectedRadioButton != null) {
             String soundName = selectedRadioButton.getText();
             audibleSoundVM.setSoundName(soundName);
-            System.out.println("sound name" + soundName + audibleSoundVM.getTitle());
             Stage currentStage = (Stage) btn_save2.getScene().getWindow();
             currentStage.close();}
     }

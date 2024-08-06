@@ -673,7 +673,7 @@ ExperimentName: Experiment
 ExperimenterName: Thang Dy
 ExperimentID: 0
 Created on: 01.08.2024
-Version: 2
+Version: 3
 startExperiment("null","","null")
 ratingsContainer("false","0")
 vasStage("Vas1","null","null","0","100","null","null","null","false","false")
@@ -681,17 +681,20 @@ glmsStage("GLMS 1","null","null","null","false")
 vasStage("Vas 3","null","null","0","100","null","null","null","false","false")
 vasStage("Vas outside","null","null","0","100","null","null","null","false","false")
 endRatingsContainer()
+audio("Default Notice Stage","null","null","null")
+audio("đây nè","aloha ","tr ơi","đây nè")
 endExperiment()
 
 ExperimentName: Good morning
 ExperimenterName: Quỳnh Anh
 ExperimentID: 0
 Created on: 06.08.2024
-Version: 15
+Version: 19
 startExperiment("null","","null")
 audio("xin chào ","null","null","null")
 audio("ụa cái gì v","con vijt nef ","hello","null")
-noticeStage("coi chung nhaaaaaaaaaaaaa","alo alo ","tr oi ","null","false")
-audio("uaj","aloooooo","null","null")
+noticeStage("coi chung nhaaaaaaaaaaaaa","quynh anh ","tr oi ","null","false")
+audio("quynh anh ","quynh anh ","quynh anh ","quynh anh ")
+audio("Good morning ","hello","guf","nhin")
 endExperiment()
 

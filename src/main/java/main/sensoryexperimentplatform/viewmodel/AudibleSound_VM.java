@@ -32,7 +32,7 @@ public class AudibleSound_VM implements choose {
         this.title = new SimpleStringProperty(audibleInstruction.getTitle());
         this.content = new SimpleStringProperty(audibleInstruction.getContent());
         this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
-        this.helpText = new SimpleStringProperty(audibleInstruction.getButtonText());
+        this.helpText = new SimpleStringProperty(audibleInstruction.getHelpText());
         experiment.addAudibleInstruction(audibleInstruction);
         this.assignSoundVM = new AssignSoundVM();
 
@@ -49,7 +49,7 @@ public class AudibleSound_VM implements choose {
 
         });
         content.addListener((observable, oldValue, newValue) -> {
-            setTitle(newValue);
+            setContent(newValue);
         });
     }
     public AudibleSound_VM(AudibleInstruction audibleInstruction) throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
@@ -57,8 +57,12 @@ public class AudibleSound_VM implements choose {
         this.title = new SimpleStringProperty(audibleInstruction.getTitle());
         this.content = new SimpleStringProperty(audibleInstruction.getContent());
         this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
-        this.helpText = new SimpleStringProperty(audibleInstruction.getButtonText());
+        this.helpText = new SimpleStringProperty(audibleInstruction.getHelpText());
         this.assignSoundVM = new AssignSoundVM();
+        if(experiment != null){
+            experiment.addAudibleInstruction(audibleInstruction);
+        }
+
 
         buttonText.addListener((observable, oldValue, newValue) -> {
             setButtonText(newValue);
@@ -76,32 +80,7 @@ public class AudibleSound_VM implements choose {
             setTitle(newValue);
         });
     }
-//    public audibleSound_VM(Experiment experiment){
-//        this.experiment = experiment;
-//        this.audibleInstruction = new AudibleInstruction("Hello","hello","hello","hello");
-//        this.title = new SimpleStringProperty(audibleInstruction.getTitle());
-//        this.content = new SimpleStringProperty(audibleInstruction.getContent());
-//        this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
-//        this.helpText = new SimpleStringProperty(audibleInstruction.getButtonText());
-//
-//        buttonText.addListener((observable, oldValue, newValue) -> {
-//            setButtonText(newValue);
-//
-//        });
-//
-//        helpText.addListener((observable, oldValue, newValue) -> {
-//            setHelpText(newValue);
-//        });
-//        title.addListener((observable, oldValue, newValue) -> {
-//            setTitle(newValue);
-//
-//        });
-//        content.addListener((observable, oldValue, newValue) -> {
-//            setTitle(newValue);
-//        });
-//        experiment.addAudibleInstruction(audibleInstruction);
-//
-//    }
+
 
     public StringProperty titleProperty() {
         return title;
@@ -127,7 +106,7 @@ public class AudibleSound_VM implements choose {
     public String getHelpText(){
         return helpText.get();
     }
-    public void setHelpText(String newValue) {audibleInstruction.setContent(newValue);
+    public void setHelpText(String newValue) {audibleInstruction.setHelpText(newValue);
     }
 //    public void setQuestion(String newValue) {
 //        this.audibleInstruction.setTitle(newValue);
