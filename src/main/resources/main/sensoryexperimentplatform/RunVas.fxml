@@ -9,13 +9,13 @@
 
 <AnchorPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="550.0" prefWidth="1257.0" stylesheets="/static/stylesheets/RunVas_CSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.sensoryexperimentplatform.controllers.RunVasController">
    <children>
-      <Label fx:id="lowAnchor_label" layoutX="14.0" layoutY="242.0" maxWidth="200.0" prefHeight="94.0" prefWidth="135.0" stylesheets="@../../static/stylesheets/RunVas_CSS.css" text="Not at all" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="242.0">
+      <Label fx:id="lowAnchor_label" layoutX="14.0" layoutY="221.0" maxWidth="200.0" prefHeight="156.0" prefWidth="127.0" stylesheets="@../../static/stylesheets/RunVas_CSS.css" text="Not at all" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="221.0">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="questionlbl" layoutX="342.0" layoutY="14.0" prefHeight="61.0" prefWidth="535.0" stylesheets="@../../static/stylesheets/RunVas_CSS.css" wrapText="true" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="342.0" AnchorPane.topAnchor="50.0" />
-      <Label fx:id="highAnchor_label" layoutX="1149.0" layoutY="245.0" maxWidth="200" prefHeight="88.0" prefWidth="135.0" stylesheets="@../../static/stylesheets/RunVas_CSS.css" text="Extremely" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="245.0">
+      <Label fx:id="questionlbl" layoutX="342.0" layoutY="14.0" prefHeight="156.0" prefWidth="573.0" stylesheets="@../../static/stylesheets/RunVas_CSS.css" wrapText="true" AnchorPane.leftAnchor="342.0" AnchorPane.rightAnchor="342.0" AnchorPane.topAnchor="50.0" />
+      <Label fx:id="highAnchor_label" layoutX="1109.0" layoutY="221.0" maxWidth="200" prefHeight="156.0" prefWidth="135.0" stylesheets="@../../static/stylesheets/RunVas_CSS.css" text="Extremely" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="221.0">
          <font>
             <Font size="14.0" />
          </font>

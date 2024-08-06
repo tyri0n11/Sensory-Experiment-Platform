@@ -18,6 +18,14 @@ public class Notice extends Stage {
         this.alert = alert;
     }
 
+    public Notice(Notice o) {
+        super(o.title,o.content);
+        this.content = o.getContent();
+        this.buttonText = o.getButtonText();
+        this.helpText = o.getHelpText();
+        this.alert = o.isAlert();
+    }
+
     public boolean isAlert() {
         return alert;
     }

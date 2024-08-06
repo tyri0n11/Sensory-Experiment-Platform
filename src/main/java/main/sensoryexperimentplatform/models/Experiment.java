@@ -58,12 +58,16 @@ public class Experiment {
             if (o instanceof Vas) {
                 Vas temp = new Vas((Vas) o);
                 stages.add(temp);
-            }
-            if (o instanceof gLMS) {
+            }if (o instanceof gLMS) {
                 gLMS temp = new gLMS((gLMS) o);
                 stages.add(temp);
-            }
-            if (o instanceof RatingContainer) {
+            }if(o instanceof Notice) {
+                Notice temp = new Notice((Notice) o);
+                stages.add(temp);
+            }if(o instanceof Timer) {
+                Timer temp = new Timer((Timer) o);
+                stages.add(temp);
+            }if (o instanceof RatingContainer) {
                 RatingContainer ratingContainer = new RatingContainer((RatingContainer) o);
                 stages.add(ratingContainer);
             }
