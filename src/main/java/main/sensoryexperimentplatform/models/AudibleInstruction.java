@@ -33,6 +33,15 @@ public class AudibleInstruction extends Stage {
 
     }
 
+    public AudibleInstruction(AudibleInstruction o) {
+        super(o.title, o.content);
+        this.title= o.title;
+        this.content= o.content;
+        this.buttonText= o.buttonText;
+        this.helpText = o.helpText;
+        this.SoundManager = new Sound();
+    }
+
     public String getTitle() {
         return title;
     }
@@ -78,7 +87,6 @@ public class AudibleInstruction extends Stage {
 
 
     public String toString() {
-
             return "audio(\"" + title + "\",\"" + content +
                     "\",\"" + buttonText + "\",\"" + helpText + "\")";
         }
