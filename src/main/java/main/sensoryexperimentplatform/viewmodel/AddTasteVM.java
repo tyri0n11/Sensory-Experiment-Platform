@@ -295,12 +295,8 @@ public class AddTasteVM implements Stages {
     }
 
     @Override
-    public String getTitle() {
+    public String toString() {
         return "[Taste Test]";
     }
 
-    @Override
-    public String getDisplayedTxt() {
-        return null;
-    }
 }

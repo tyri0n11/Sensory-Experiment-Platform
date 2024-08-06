@@ -153,7 +153,7 @@ public class AssignSoundController {
         if (selectedRadioButton != null) {
             String soundName = selectedRadioButton.getText();
             audibleSoundVM.setSoundName(soundName);
-            System.out.println("sound name" + soundName + audibleSoundVM.getTitle());
+          //  System.out.println("sound name" + soundName + audibleSoundVM.getTitle());
             Stage currentStage = (Stage) btn_save2.getScene().getWindow();
             currentStage.close();}
     }

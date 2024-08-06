@@ -288,15 +288,6 @@ public class vasStage_VM implements Stages {
     }
 
     @Override
-    public String getTitle() {
-        return "[VAS]" +getQuestionText();
-    }
-
-    @Override
-    public String getDisplayedTxt() {
-        return null;
-    }
-    @Override
     public String toString(){
         return "[VAS] " + getQuestionText();
     }

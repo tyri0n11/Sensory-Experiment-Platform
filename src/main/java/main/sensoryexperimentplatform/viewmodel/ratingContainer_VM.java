@@ -112,13 +112,7 @@ public class ratingContainer_VM implements Stages {
 //               AddNoticeStage controller = fxmlLoader.getController();
     }
 
-    @Override
-    public String getTitle() {
-        if (isRandomize.get()){
-            return "Ratings container - Randomised";
-        }
-        return "Ratings container";
-    }
+
     @Override
     public String toString() {
         if (isRandomize.get()) {
@@ -126,8 +120,5 @@ public class ratingContainer_VM implements Stages {
         }
         return "Ratings container";
     }
-    @Override
-    public String getDisplayedTxt() {
-        return null;
-    }
+
 }

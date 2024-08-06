@@ -120,15 +120,12 @@ public class conditionalStatementVM implements Stages {
 
 
     @Override
-    public String getTitle() {
+    public String toString() {
         return  "If "+ ConditionalStatement.getVariable1Choice() + " " + ConditionalStatement.getCompare() + " Then " + ConditionalStatement.getVariable2Choice() ;
 
     }
 
-    @Override
-    public String getDisplayedTxt() {
-        return null;
-    }
+
 
     public String getTitle2(){
         return "Else";

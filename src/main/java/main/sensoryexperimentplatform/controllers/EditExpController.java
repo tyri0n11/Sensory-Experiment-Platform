@@ -10,6 +10,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
+import main.sensoryexperimentplatform.models.Timer;
 import main.sensoryexperimentplatform.viewmodel.noticeStage_VM;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.viewmodel.*;
@@ -262,140 +263,99 @@ public class EditExpController {
 
         if (experiment.getStages().isEmpty()) {
             Stages startVM = new StartVM(experiment);
-//            String key = startVM.getTitle();
-//            startStage = new TreeItem<>(key);
             TreeItem<Stages> startItem = new TreeItem<>(startVM);
             treeView.setRoot(startItem);
-            startStage.setExpanded(true);
-            Wrapper wrapper = new Wrapper(startVM.getDisplayedTxt(), startVM);
-            displayedItems.put(index, wrapper);
-            index++;
+         
         } else {
-            Start startNe = experiment.getStart();
-            String key1 = startNe.getTitle();
+            Start newStart = experiment.getStart();
 
-            StartVM startVM = new StartVM(startNe);
+            StartVM startVM = new StartVM(newStart);
             startStage = new TreeItem<>(startVM);
             treeView.setRoot(startStage);
-            startStage.setExpanded(true);
-            Wrapper wrapper1 = new Wrapper(key1, startVM);
-            displayedItems.put(index, wrapper1);
-            index++;
+
+
             for (Object o : stages) {
 
                 if (o instanceof Vas) {
-                    String key = "[VAS]" + ((Vas) o).getTitle();
                     vasStage_VM vasStageVm = new vasStage_VM((Vas) o);
                     startStage.getChildren().add(new TreeItem<>(vasStageVm));
-                    Wrapper subWrapper = new Wrapper(key, vasStageVm);
-                    displayedItems.put(index, subWrapper);
-                    index++;
 
                 } else if (o instanceof Notice) {
 
                     noticeStage_VM noticeStage_vm = new noticeStage_VM((Notice) o);
-                    String key = "[Instruction] " + ((Notice) o).getTitle();
                     startStage.getChildren().add(new TreeItem<>(noticeStage_vm));
-                    Wrapper wrapper = new Wrapper(key, noticeStage_vm);
-                    displayedItems.put(index, wrapper);
-                    index++;
+
                 } else if (o instanceof gLMS) {
-                    String key = "[GLMS] " + ((gLMS) o).getTitle();
                     GLMSStage_VM glmsStageVm = new GLMSStage_VM((gLMS) o);
                     startStage.getChildren().add(new TreeItem<>(glmsStageVm));
-                    Wrapper wrapper = new Wrapper(key, glmsStageVm);
-                    displayedItems.put(index, wrapper);
-                    index++;
+
                 } else if (o instanceof RatingContainer) {
-                    String key = "Rating Container";
                     ratingContainer_VM ratingContainerVm = new ratingContainer_VM((RatingContainer) o);
                     TreeItem<Stages> itemRating = new TreeItem<>(ratingContainerVm);
                     startStage.getChildren().add(itemRating);
-                    Wrapper wrapper = new Wrapper(key, ratingContainerVm);
-                    displayedItems.put(index, wrapper);
-                    index++;
+
                     for (Object subO : ((RatingContainer) o).container) {
                         if (subO instanceof Vas) {
-                            String subKey = "[VAS]" + ((Vas) subO).getTitle();
-
                             vasStage_VM vasStageVm = new vasStage_VM((Vas) subO);
                             itemRating.getChildren().add(new TreeItem<>(vasStageVm));
-                            Wrapper subWrapper = new Wrapper(subKey, vasStageVm);
-                            displayedItems.put(index, subWrapper);
-                            index++;
-                        } else if (subO instanceof gLMS) {
-                            String subKey = "[GLMS]" + ((gLMS) subO).getTitle();
 
+                        } else if (subO instanceof gLMS) {
                             GLMSStage_VM glmsStageVm = new GLMSStage_VM((gLMS) subO);
                             itemRating.getChildren().add(new TreeItem<>(glmsStageVm));
-                            Wrapper subWrapper = new Wrapper(subKey, glmsStageVm);
-
-                            displayedItems.put(index, subWrapper);
-                            index++;
                         }
                     }
+                } else if (o instanceof Input) {
+                    InputStage_VM inputStage_vm = new InputStage_VM(experiment,(Input) o);
+                    startStage.getChildren().add(new TreeItem<>(inputStage_vm));
+                } else if (o instanceof TasteTest) {
+                    AddTasteVM inputStage_vm = new AddTasteVM((TasteTest) o);
+                    startStage.getChildren().add(new TreeItem<>(inputStage_vm));
+                } else if (o instanceof Course) {
+
+                    AddCourseVM addCourseVM = new AddCourseVM((Course) o);
+                    startStage.getChildren().add(new TreeItem<>(addCourseVM));
+                } else if (o instanceof AudibleInstruction) {
+//                         selectAudibleSound_vm= new SelectAud((Timer) o);
+//                        startStage.getChildren().add(new TreeItem<>(selectAudibleSound_vm));
+
+                } else if (o instanceof Timer) {
+                    timerStage_VM timerStageVm = new timerStage_VM((Timer) o);
+                    startStage.getChildren().add(new TreeItem<>(timerStageVm));
                 }
-            }
 
-            }
+
+//            } else if (o instanceof AudibleInstruction) {
+//                String key = "[" + o.getClass().getSimpleName() + "] " + ((AudibleInstruction) o).getTitle();
+//                start.getChildren().add(new TreeItem<>(key));
+//                selectAudibleSound_vm= new timerStage_VM((Timer) o);
+//                Wrapper wrapper = new Wrapper(key, addCourseVM);
+//                displayedItems.put(index, wrapper);
+//                index++;
+//            }
+//                else if (o instanceof Periodic){
+//                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
+//                    start.getChildren().add(new TreeItem<>(key));
+//
+//                    // Wrapper wrapper = new Wrapper(key, addCourseVM);
+//                    //displayedItems.put(index, wrapper);
+//                    index++;
+//                }
+//                else if (o instanceof Periodic){
+//                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
+//                    start.getChildren().add(new TreeItem<>(key));
+//
+//                    // Wrapper wrapper = new Wrapper(key, addCourseVM);
+//                    //displayedItems.put(index, wrapper);
+//                    index++;
+//                }
+
         }
+            }
+        startStage.setExpanded(true);
+            }
 
-//                } else if (o instanceof Input) {
-//                    String key = "[User Input] " + ((Input) o).getTitle();
-//                    startStage.getChildren().add(new TreeItem<>(key));
-//                    inputStage_VM inputStage_vm = new inputStage_VM(experiment,(Input) o);
-//                    Wrapper wrapper = new Wrapper(key, inputStage_vm);
-//                    displayedItems.put(index, wrapper);
-//                    index++;
-//                } else if (o instanceof TasteTest) {
-//                    String key = "[User Input] " + ((Input) o).getTitle();
-//                    startStage.getChildren().add(new TreeItem<>(key));
-//                    AddTasteVM inputStage_vm = new AddTasteVM((TasteTest) o);
-//                    Wrapper wrapper = new Wrapper(key, inputStage_vm);
-//                    displayedItems.put(index, wrapper);
-//                    index++;
-//                } else if (o instanceof Course) {
-//                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Course) o).getTitle();
-//                    startStage.getChildren().add(new TreeItem<>(key));
-//                    AddCourseVM addCourseVM = new AddCourseVM((Course) o);
-//                    Wrapper wrapper = new Wrapper(key, addCourseVM);
-//                    displayedItems.put(index, wrapper);
-//                    index++;
-//                } else if (o instanceof Timer) {
-//                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Timer) o).getTitle();
-//                    startStage.getChildren().add(new TreeItem<>(key));
-//                    timerStage_VM addCourseVM = new timerStage_VM((Timer) o);
-//                    Wrapper wrapper = new Wrapper(key, addCourseVM);
-//                    displayedItems.put(index, wrapper);
-//                    index++;
-//                }
-//
-////            } else if (o instanceof AudibleInstruction) {
-////                String key = "[" + o.getClass().getSimpleName() + "] " + ((AudibleInstruction) o).getTitle();
-////                start.getChildren().add(new TreeItem<>(key));
-////                selectAudibleSound_vm= new timerStage_VM((Timer) o);
-////                Wrapper wrapper = new Wrapper(key, addCourseVM);
-////                displayedItems.put(index, wrapper);
-////                index++;
-////            }
-////                else if (o instanceof Periodic){
-////                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
-////                    start.getChildren().add(new TreeItem<>(key));
-////
-////                    // Wrapper wrapper = new Wrapper(key, addCourseVM);
-////                    //displayedItems.put(index, wrapper);
-////                    index++;
-////                }
-////                else if (o instanceof Periodic){
-////                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
-////                    start.getChildren().add(new TreeItem<>(key));
-////
-////                    // Wrapper wrapper = new Wrapper(key, addCourseVM);
-////                    //displayedItems.put(index, wrapper);
-////                    index++;
-////                }
-//
-//                }
+
+
 //                else if (o instanceof conditionalStatement) {
 //                    String key = "If" +  ((conditionalStatement) o).getVariable1Choice();
 //                    startStage.getChildren().add( new TreeItem<>(key));

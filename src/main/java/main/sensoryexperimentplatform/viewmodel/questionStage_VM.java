@@ -122,14 +122,10 @@ public class questionStage_VM implements Stages {
     }
 
     @Override
-    public String getTitle() {
+    public String toString() {
         return "[Question] "+ question.get();
     }
 
-    @Override
-    public String getDisplayedTxt() {
-        return null;
-    }
 }
 
 

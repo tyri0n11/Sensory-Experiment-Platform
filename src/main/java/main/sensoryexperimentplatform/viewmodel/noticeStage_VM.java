@@ -127,15 +127,6 @@ public class noticeStage_VM implements Stages {
     }
 
     @Override
-    public String getTitle() {
-        return "[Instruction] "+ titleText.get();
-    }
-
-    @Override
-    public String getDisplayedTxt() {
-        return null;
-    }
-    @Override
     public String toString() {
        return "[Instruction] "+ titleText.get();
     }

@@ -112,12 +112,8 @@ public class PeriodicVM implements Stages {
     }
 
     @Override
-    public String getTitle() {
+    public String toString() {
         return course.getPeriodic().getTime() +" "+ course.getPeriodic().getAmount() +" "+ course.getPeriodic().getDaiLuong();
     }
 
-    @Override
-    public String getDisplayedTxt() {
-        return null;
-    }
 }

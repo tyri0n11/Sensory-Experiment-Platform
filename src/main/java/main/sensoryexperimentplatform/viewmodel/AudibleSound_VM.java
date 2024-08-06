@@ -155,12 +155,8 @@ public class AudibleSound_VM implements Stages {
                btn_assignSound.setDisable(false);
     }
     @Override
-    public String getTitle(){
+    public String toString(){
         return "[Audio] "+ audibleInstruction.getTitle();
     }
 
-    @Override
-    public String getDisplayedTxt() {
-        return null;
-    }
 }

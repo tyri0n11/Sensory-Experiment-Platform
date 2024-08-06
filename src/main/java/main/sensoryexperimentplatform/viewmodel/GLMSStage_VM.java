@@ -160,15 +160,6 @@ public class GLMSStage_VM implements Stages {
     }
 
     @Override
-    public String getTitle() {
-        return "[GLMS] "+ txt_question.get();
-    }
-
-    @Override
-    public String getDisplayedTxt() {
-        return null;
-    }
-    @Override
     public String toString(){
             return "[GLMS] "+ txt_question.get();
     }

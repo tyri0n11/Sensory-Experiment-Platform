@@ -205,24 +205,6 @@ public class StartVM implements Stages {
     }
 
     @Override
-    public String getTitle() {
-        if (start.getTitle() == null){
-            return "Start experiment";
-        }
-        else
-            return start.getTitle();
-    }
-
-    @Override
-    public String getDisplayedTxt() {
-        if (start.getTitle() == null){
-            return "Start experiment";
-        }
-        else
-            return start.getTitle();
-    }
-
-    @Override
     public String toString(){
         if (start.getTitle() == null){
             return "Start experiment";

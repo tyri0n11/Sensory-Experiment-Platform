@@ -97,12 +97,8 @@ public class timerStage_VM implements Stages {
     }
 
     @Override
-    public String getTitle() {
+    public String toString() {
         return "[Waiting] "+txt_instruction.get();
     }
 
-    @Override
-    public String getDisplayedTxt() {
-        return null;
-    }
 }

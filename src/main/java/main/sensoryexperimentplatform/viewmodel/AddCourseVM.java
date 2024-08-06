@@ -169,12 +169,8 @@ public class AddCourseVM implements Stages {
     }
 
     @Override
-    public String getTitle() {
+    public String toString() {
         return txt_title.get();
     }
 
-    @Override
-    public String getDisplayedTxt() {
-        return null;
-    }
 }

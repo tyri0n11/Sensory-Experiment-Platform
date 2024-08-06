@@ -121,12 +121,8 @@ public class InputStage_VM implements Stages {
 
     }
     @Override
-    public String getTitle(){
-        return "[User Input] "+title.get();
+    public String toString(){
+        return "[User Input] "+ title.get();
     }
 
-    @Override
-    public String getDisplayedTxt() {
-        return null;
-    }
 }
