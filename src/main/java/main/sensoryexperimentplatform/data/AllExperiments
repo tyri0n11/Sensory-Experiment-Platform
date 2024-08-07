@@ -686,10 +686,9 @@ ExperimentName: Good morning
 ExperimenterName: Quỳnh Anh
 ExperimentID: 0
 Created on: 06.08.2024
-Version: 21
+Version: 22
 startExperiment("null","","null")
-audio("xin chào ","null","null","null","null")
-audio("hello quyfnh anh ","gif do ha","helo","null","null")
-audio("Default Notice Stage","null","null","null","null")
+noticeStage("xin chao nhe","day la quynh anh","goood guy ","null","false")
+audio("Default Notice Stage","helo","null","null","boop")
 endExperiment()
 

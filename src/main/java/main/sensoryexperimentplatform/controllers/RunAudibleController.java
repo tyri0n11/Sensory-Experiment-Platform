@@ -22,7 +22,7 @@ public class RunAudibleController {
     private void bindViewModel(){
         titleTxt.textProperty().bind(viewModel.getTitle());
         contentTxt.textProperty().bind(viewModel.getContent());
-
+        viewModel.playSound();
 
     }
 

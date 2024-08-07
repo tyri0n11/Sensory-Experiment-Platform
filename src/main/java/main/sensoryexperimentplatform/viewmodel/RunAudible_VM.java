@@ -10,6 +10,7 @@ import main.sensoryexperimentplatform.models.Sound;
 public class RunAudible_VM {
     private AudibleInstruction audibleInstruction;
     private StringProperty title, content, button,helpText;
+    private StringProperty soundName;
 
 
     public RunAudible_VM(AudibleInstruction audibleInstruction){
@@ -17,6 +18,7 @@ public class RunAudible_VM {
         button = new SimpleStringProperty(audibleInstruction.getButtonText());
         title = new SimpleStringProperty(audibleInstruction.getTitle());
         content = new SimpleStringProperty(audibleInstruction.getContent());
+        soundName = new SimpleStringProperty(audibleInstruction.getSoundName());
 
         helpText = new SimpleStringProperty(audibleInstruction.getHelpText());
 
@@ -26,6 +28,15 @@ public class RunAudible_VM {
     }
     public StringProperty getContent(){
         return content;
+    }
+    public StringProperty getHelpText(){
+        return helpText;
+    }
+    public StringProperty getSoundName(){
+        return soundName;
+    }
+    public  void playSound(){
+        audibleInstruction.playSound(audibleInstruction.getSoundName());
     }
 
     public StringProperty buttonProperty() {
