@@ -233,9 +233,6 @@ public class EditExpController {
         );
 
 
-
-        selectedItem.setValue(stages);
-
     }
 
     private void loadItems() {
