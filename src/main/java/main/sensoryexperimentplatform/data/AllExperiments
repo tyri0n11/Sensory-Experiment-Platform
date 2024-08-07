@@ -689,6 +689,10 @@ Created on: 06.08.2024
 Version: 22
 startExperiment("null","","null")
 noticeStage("xin chao nhe","day la quynh anh","goood guy ","null","false")
-audio("Default Notice Stage","helo","null","null","boop")
+audio("Default Notice Stage","null","null","null","stomp")
+audio("hello","null","null","null","boop")
+audio("nhign di","null","null","null","stomp")
+audio("1234","null","null","null","stomp")
+audio("loo","null","null","null","stomp")
 endExperiment()
 

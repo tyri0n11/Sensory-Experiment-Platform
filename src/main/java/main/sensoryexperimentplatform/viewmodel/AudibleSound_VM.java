@@ -38,7 +38,7 @@ public class AudibleSound_VM implements choose {
         this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
         this.helpText = new SimpleStringProperty(audibleInstruction.getHelpText());
         this.soundName = new SimpleStringProperty(audibleInstruction.getSoundName());
-        this.assignSoundVM = new AssignSoundVM();
+        this.sound = SoundSingleton.getInstance();
         experiment.addAudibleInstruction(audibleInstruction);
 
     }
@@ -49,7 +49,7 @@ public class AudibleSound_VM implements choose {
         this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
         this.helpText = new SimpleStringProperty(audibleInstruction.getHelpText());
         this.soundName = new SimpleStringProperty(audibleInstruction.getSoundName());
-        this.assignSoundVM = new AssignSoundVM();
+        this.sound = sound;
 
     }
 
