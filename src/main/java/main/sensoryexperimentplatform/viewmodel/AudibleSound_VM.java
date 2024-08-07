@@ -43,7 +43,7 @@ public class AudibleSound_VM implements choose {
 
     }
     public AudibleSound_VM(AudibleInstruction audibleInstruction) throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
-        this.audibleInstruction = new AudibleInstruction("Default Notice Stage", null, null,null);
+        this.audibleInstruction = audibleInstruction;
         this.title = new SimpleStringProperty(audibleInstruction.getTitle());
         this.content = new SimpleStringProperty(audibleInstruction.getContent());
         this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());

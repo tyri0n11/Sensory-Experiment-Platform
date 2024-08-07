@@ -158,6 +158,7 @@ public class Experiment {
     public void addAudibleInstruction(String title, String content, String buttonText, String helpText) {
         AudibleInstruction temp = new AudibleInstruction(title, content, buttonText, helpText);
         stages.add(temp);
+
     }
 
     //start eating stage

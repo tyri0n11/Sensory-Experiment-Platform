@@ -512,7 +512,7 @@ public class DataAccess {
                     Matcher matcher = audioPattern.matcher(line);
                     if (matcher.find()) {
                         currentExperiment.addAudibleInstruction(matcher.group(1),matcher.group(2),matcher.group(3),matcher.group(4));
-                        System.out.println(currentExperiment.getStages()+"2");
+
                     }
 
                 }
