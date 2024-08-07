@@ -20,7 +20,7 @@ public class Timer extends Stage{
 
 
     public void start(){
-        if (isRunning){
+        if(isRunning){
             System.out.println(instruction +" Please wait for"+ timeToWait);
             try {
                 Thread.sleep(durationInMillis);

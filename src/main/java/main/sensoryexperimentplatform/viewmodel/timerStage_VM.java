@@ -23,7 +23,7 @@ public class timerStage_VM implements Stages {
     private Experiment experiment;
     public timerStage_VM(Experiment experiment){
         this.experiment = experiment;
-        timer = new Timer(null, "Please Wait",false);
+        timer = new Timer("0", "Please Wait",false);
         txt_instruction = new SimpleStringProperty(timer.getInstruction());
         txt_timewait = new SimpleStringProperty(timer.getFormattedElapsed());
         cb_alertSound = new SimpleBooleanProperty(timer.isAlert());
@@ -98,7 +98,7 @@ public class timerStage_VM implements Stages {
 
     @Override
     public String toString() {
-        return "[Waiting] "+txt_instruction.get();
+        return "[Waiting] "+ txt_instruction.get();
     }
 
 }
