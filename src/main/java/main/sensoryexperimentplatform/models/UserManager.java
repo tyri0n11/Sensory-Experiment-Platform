@@ -216,10 +216,10 @@ public class UserManager {
 
                     }
                     else if(line.startsWith("audio")){
-                        Pattern audioPattern = Pattern.compile("audio\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
+                        Pattern audioPattern = Pattern.compile("audio\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
                         Matcher matcher = audioPattern.matcher(line);
                         if (matcher.find()) {
-                            currentExperiment.addAudibleInstruction(matcher.group(1),matcher.group(2),matcher.group(3),matcher.group(4));
+                            currentExperiment.addAudibleInstruction(matcher.group(1),matcher.group(2),matcher.group(3),matcher.group(4), matcher.group(5));
                         }
 
                     }else if (line.startsWith("ratingsContainer")) {

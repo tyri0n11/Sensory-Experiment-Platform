@@ -762,6 +762,7 @@ public class TestController{
     @FXML
     void save(ActionEvent event) throws Exception {
         DataAccess.updateFile();
+        System.out.println(experiment.stagesToString());
         this.experiment.version++;
     }
 
