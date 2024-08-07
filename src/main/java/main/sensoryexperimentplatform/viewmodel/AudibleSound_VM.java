@@ -10,6 +10,7 @@ import main.sensoryexperimentplatform.controllers.SoundSingleton;
 import main.sensoryexperimentplatform.controllers.AddAudibleSoundController;
 import main.sensoryexperimentplatform.models.AudibleInstruction;
 import main.sensoryexperimentplatform.models.Experiment;
+import main.sensoryexperimentplatform.models.Sound;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -22,35 +23,24 @@ public class AudibleSound_VM implements choose {
     private StringProperty content;
     private StringProperty helpText;
     private StringProperty buttonText;
+    private StringProperty soundName;
     private AudibleInstruction audibleInstruction;
+    private Sound sound;
     private AssignSoundVM assignSoundVM;
     private Experiment experiment;
 
     public AudibleSound_VM(Experiment experiment) throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
         this.experiment = experiment;
         this.audibleInstruction = new AudibleInstruction("Default Notice Stage", null, null,null);
+        this.sound = new Sound();
         this.title = new SimpleStringProperty(audibleInstruction.getTitle());
         this.content = new SimpleStringProperty(audibleInstruction.getContent());
         this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
         this.helpText = new SimpleStringProperty(audibleInstruction.getHelpText());
-        experiment.addAudibleInstruction(audibleInstruction);
+        this.soundName = new SimpleStringProperty(audibleInstruction.getSoundName());
         this.assignSoundVM = new AssignSoundVM();
+        experiment.addAudibleInstruction(audibleInstruction);
 
-        buttonText.addListener((observable, oldValue, newValue) -> {
-            setButtonText(newValue);
-
-        });
-
-        helpText.addListener((observable, oldValue, newValue) -> {
-            setHelpText(newValue);
-        });
-        title.addListener((observable, oldValue, newValue) -> {
-           setTitle(newValue);
-
-        });
-        content.addListener((observable, oldValue, newValue) -> {
-            setContent(newValue);
-        });
     }
     public AudibleSound_VM(AudibleInstruction audibleInstruction) throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
         this.audibleInstruction = new AudibleInstruction("Default Notice Stage", null, null,null);
@@ -58,27 +48,9 @@ public class AudibleSound_VM implements choose {
         this.content = new SimpleStringProperty(audibleInstruction.getContent());
         this.buttonText = new SimpleStringProperty(audibleInstruction.getButtonText());
         this.helpText = new SimpleStringProperty(audibleInstruction.getHelpText());
+        this.soundName = new SimpleStringProperty(audibleInstruction.getSoundName());
         this.assignSoundVM = new AssignSoundVM();
-        if(experiment != null){
-            experiment.addAudibleInstruction(audibleInstruction);
-        }
 
-
-        buttonText.addListener((observable, oldValue, newValue) -> {
-            setButtonText(newValue);
-
-        });
-
-        helpText.addListener((observable, oldValue, newValue) -> {
-            setHelpText(newValue);
-        });
-        title.addListener((observable, oldValue, newValue) -> {
-            setTitle(newValue);
-
-        });
-        content.addListener((observable, oldValue, newValue) -> {
-            setTitle(newValue);
-        });
     }
 
 
@@ -107,11 +79,11 @@ public class AudibleSound_VM implements choose {
         return helpText.get();
     }
     public void setHelpText(String newValue) {audibleInstruction.setHelpText(newValue);
+
     }
-//    public void setQuestion(String newValue) {
-//        this.audibleInstruction.setTitle(newValue);
-//    }
-    public void setButtonText(String newValue) {
+
+
+    public void setButtonText(String newValue) {;
         audibleInstruction.setButtonText(newValue);
     }
     public void setTitle(String newValue) {
@@ -120,19 +92,15 @@ public class AudibleSound_VM implements choose {
     public void setContent(String newValue) {
         audibleInstruction.setContent(newValue);
     }
-    public void playSound(String name, String filePath){
-        audibleInstruction.playSound(name);
-    }
-
-    public AssignSoundVM getAssignSoundVM() {
-        return assignSoundVM;
-    }
 
     public void setSoundName(String name) {
         audibleInstruction.setSoundName(name);
     }
     public String getSoundName(){
         return audibleInstruction.getSoundName();
+    }
+    public StringProperty soundNameProperty() {
+        return soundName;
     }
 
     public AudibleInstruction getAudibleInstruction(){

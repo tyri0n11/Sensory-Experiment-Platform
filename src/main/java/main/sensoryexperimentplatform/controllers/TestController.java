@@ -86,7 +86,6 @@ public class TestController{
     @FXML
     private AnchorPane mainPane;
     private TreeItem<String> start;
-    private AudibleInstruction audibleInstruction;
     private Stack <AddTasteVM> addTasteVMS;
     private Stack <AddCourseVM> addCourseVMS;
     private AudibleSound_VM selectAudibleSound_vm;
@@ -373,8 +372,7 @@ public class TestController{
         start.setExpanded(true);
         AudibleSound_VM audibleSound_vm = new AudibleSound_VM(experiment);
         selectAudibleSound_vm = audibleSound_vm;
-        String key = "[Audio] " +selectAudibleSound_vm.getAudibleInstruction().getTitle();
-        System.out.println(experiment + "hello");
+        String key = "[Audio] " +selectAudibleSound_vm.getTitle();
         Wrapper wrapper = new Wrapper(key,audibleSound_vm);
         displayedItems.put(index, wrapper);
         index++;
@@ -764,6 +762,7 @@ public class TestController{
     @FXML
     void save(ActionEvent event) throws Exception {
         DataAccess.updateFile();
+        System.out.println(experiment.stagesToString());
         this.experiment.version++;
     }
 

@@ -257,6 +257,7 @@ public class DataAccess {
                         );
                     }
                 } else if (line.startsWith("inputStage")) {
+
                     Pattern inputPattern = Pattern.compile("inputStage\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
                     Matcher matcher = inputPattern.matcher(line);
 
@@ -274,6 +275,7 @@ public class DataAccess {
                         );
                     }
                 }   else if(line.startsWith("audio")){
+                    System.out.println(currentExperiment.getStages()+ "1");
                     Pattern audiblePattern = Pattern.compile("audio\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
                     Matcher matcher = audiblePattern.matcher(line);
                     if (matcher.find()) {
@@ -510,6 +512,7 @@ public class DataAccess {
                     Matcher matcher = audioPattern.matcher(line);
                     if (matcher.find()) {
                         currentExperiment.addAudibleInstruction(matcher.group(1),matcher.group(2),matcher.group(3),matcher.group(4));
+                        System.out.println(currentExperiment.getStages()+"2");
                     }
 
                 }

@@ -85,8 +85,9 @@ public class AudibleInstruction extends Stage {
        SoundManager.playSound(name);
     }
 
-
+    @Override
     public String toString() {
+
             return "audio(\"" + title + "\",\"" + content +
                     "\",\"" + buttonText + "\",\"" + helpText + "\")";
         }

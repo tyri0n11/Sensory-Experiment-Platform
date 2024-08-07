@@ -66,8 +66,6 @@ public class AssignSoundController {
         this.audibleSoundVM = audibleSoundVM;
         SoundName = FXCollections.observableArrayList(viewModel.getListNameshow());
         loadSoundRadioButtons();
-        selectSavedSound();
-
     }
 
     @FXML
@@ -86,22 +84,22 @@ public class AssignSoundController {
     }
 
     //set the last choosen
-    private void selectSavedSound() {
-        String savedSoundName = audibleSoundVM.getSoundName();
-        if (savedSoundName == null) {
-            return; // No sound to select
-        }
-
-        for (String item : SoundList.getItems()) {
-            if (item.equals(savedSoundName)) {
-                // Directly select the item in ListView
-                SoundList.getSelectionModel().select(item);
-                selectedRadioButton = (RadioButton) SoundList.lookup(".radio-button:selected");
-                break;
-            }
-        }
-    }
-
+//    private void selectSavedSound() {
+//        String savedSoundName = audibleSoundVM.getSoundName();
+//        if (savedSoundName == null) {
+//            return; // No sound to select
+//        }
+//
+//        for (String item : SoundList.getItems()) {
+//            if (item.equals(savedSoundName)) {
+//                // Directly select the item in ListView
+//                SoundList.getSelectionModel().select(item);
+//                selectedRadioButton = (RadioButton) SoundList.lookup(".radio-button:selected");
+//                break;
+//            }
+//        }
+//    }
+//
 
 
     public void loadSoundRadioButtons() {
@@ -110,7 +108,7 @@ public class AssignSoundController {
         SoundList.getItems().clear();
         SoundName.addAll(viewModel.getListNameshow());
         SoundList.getItems().addAll(SoundName);
-        selectSavedSound();
+
     }
     class RadioListCell extends ListCell<String> {
         private RadioButton radioButton;
