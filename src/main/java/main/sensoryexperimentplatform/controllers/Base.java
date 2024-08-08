@@ -101,6 +101,7 @@ public class Base implements Initializable {
                 DataAccess.importExperiment(filePath);
             }
         }
+        DataAccess.updateFile();
     }
 
     @FXML
