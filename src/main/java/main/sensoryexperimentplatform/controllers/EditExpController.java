@@ -340,23 +340,22 @@ public class EditExpController {
         AudibleSound_VM audibleSound_vm = new AudibleSound_VM(experiment);
         selectAudibleSound_vm = audibleSound_vm;
 
-        // Add to ratingContainerItems if selected item matches ifConditional
-        if (ifConditional != null && treeView.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(new TreeItem<>(audibleSound_vm));
-            ifConditional.setExpanded(true);
-        }
-        // Add to ratingContainerItems if selected item matches elseConditional
-        else if (elseConditional != null && treeView.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(new TreeItem<>(audibleSound_vm));
-            elseConditional.setExpanded(true);
-        }
-        // Add to start if no conditions match
-        else {
-            startStage.getChildren().add(new TreeItem<>(audibleSound_vm));
-        }
+        addNewTreeItem(audibleSound_vm);
     }
-//
-//
+
+    void addNewTreeItem(Stages stages){
+        TreeItem<Stages> parent = treeView.getSelectionModel().getSelectedItem();
+        if(ifConditional != null && parent == ifConditional){
+            ifConditional.getChildren().add(new TreeItem<>(stages));
+        } else if(elseConditional != null && parent == elseConditional){
+            elseConditional.getChildren().add(new TreeItem<>(stages));
+        } else if (ratingContainerItems!= null && parent == ratingContainerItems){
+            ratingContainerItems.getChildren().add(new TreeItem<>(stages));
+        } else {
+            startStage.getChildren().add(new TreeItem<>(stages));
+        }
+        parent.setExpanded(true);
+    }
     @FXML
     void addConditionalStatement(ActionEvent event) {
 
@@ -371,23 +370,9 @@ public class EditExpController {
 //
    @FXML
     void addCourse(ActionEvent event) {
-
-
         AddCourseVM addCourseVM = new AddCourseVM(experiment);
 
-        if (ifConditional != null && treeView.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(new TreeItem<>(addCourseVM));
-            ifConditional.setExpanded(true);
-        }
-        // Add to ratingContainerItems if selected item matches elseConditional
-        else if (elseConditional != null && treeView.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(new TreeItem<>(addCourseVM));
-            elseConditional.setExpanded(true);
-        }
-        // Add to start if no conditions match
-        else {
-            startStage.getChildren().add(new TreeItem<>(addCourseVM));
-        }
+        addNewTreeItem(addCourseVM);
      }
 //
     @FXML
@@ -417,160 +402,55 @@ public class EditExpController {
             glmsStage_VM = new  GLMSStage_VM(experiment);
         }
 
-
-        // Add to ratingContainerItems if selected item matches ifConditional
-        if (ifConditional != null && treeView.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(new TreeItem<>(glmsStage_VM));
-            ifConditional.setExpanded(true);
-        }
-        // Add to ratingContainerItems if selected item matches elseConditional
-        else if (elseConditional != null && treeView.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(new TreeItem<>(glmsStage_VM));
-            elseConditional.setExpanded(true);
-        }
-        else if (ratingContainerItems != null && treeView.getSelectionModel().getSelectedItem() == ratingContainerItems){
-            ratingContainerItems.getChildren().add(new TreeItem<>(glmsStage_VM));
-            ratingContainerItems.setExpanded(true);}
-        // Add to start if no conditions match
-        else {
-            startStage.getChildren().add(new TreeItem<>(glmsStage_VM));
-        }
+        addNewTreeItem(glmsStage_VM);
     }
 
     @FXML
     void addInput(ActionEvent event) {
 
         InputStage_VM inputStage_vm = new InputStage_VM(experiment);
-        Input inputStage = inputStage_vm.getInput();
-
-        if (ifConditional != null && treeView.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(new TreeItem<>(inputStage_vm) );
-            ifConditional.setExpanded(true);
-        }
-        // Add to ratingContainerItems if selected item matches elseConditional
-        else if (elseConditional != null && treeView.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(new TreeItem<>(inputStage_vm) );
-            elseConditional.setExpanded(true);
-        }
-        // Add to start if no conditions match
-        else {
-            startStage.getChildren().add(new TreeItem<>(inputStage_vm));
-        }
-        
+        addNewTreeItem(inputStage_vm);
     }
 //
     @FXML
     void addNoticeStage(ActionEvent event) {
         noticeStage_VM noticeStage_vm = new noticeStage_VM(experiment);
-        //experiment.showStages();
-        if (ifConditional != null && treeView.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(new TreeItem<>(noticeStage_vm));
-            ifConditional.setExpanded(true);
-        }
-        // Add to ratingContainerItems if selected item matches elseConditional
-        else if (elseConditional != null && treeView.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(new TreeItem<>(noticeStage_vm));
-            elseConditional.setExpanded(true);
-        }
-        // Add to start if no conditions match
-        else {
-            startStage.getChildren().add(new TreeItem<>(noticeStage_vm));
-        }
+        addNewTreeItem(noticeStage_vm);
     }
 
 
     @FXML
     void addPeriodicStage(ActionEvent event) {
         Course course = addCourseVMS.get(0).getCourse();
-        TreeItem<Stages> selectedItem = treeView.getSelectionModel().getSelectedItem();
         //PeriodicVM periodicVM = new PeriodicVM();
         PeriodicVM periodicVM = new PeriodicVM(course);
      
-        TreeItem<Stages> periodicStage = new TreeItem<>(periodicVM);
-        selectedItem.getChildren().add(periodicStage);
-
-        
-        selectedItem.setExpanded(true);
+        addNewTreeItem(periodicVM);
       }
 
     @FXML
     void addQuestionStage(ActionEvent event) {
         questionStage_VM questionStage_vm = new questionStage_VM(experiment);
-        Question question = questionStage_vm.getQuestionStage();
-     
-        TreeItem<Stages> QuestionStage = new TreeItem<>(questionStage_vm);
-        if (ifConditional != null && treeView.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(QuestionStage);
-            ifConditional.setExpanded(true);
-        }
-        // Add to ratingContainerItems if selected item matches elseConditional
-        else if (elseConditional != null && treeView.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(QuestionStage);
-            elseConditional.setExpanded(true);
-        }
-        // Add to start if no conditions match
-        else {
-            startStage.getChildren().add(QuestionStage);
-        }
+        addNewTreeItem(questionStage_vm);
    }
 
     @FXML
     void addRatingContainer(ActionEvent event) throws IOException {
         ratingContainer_VM ratingContainer_vm = new ratingContainer_VM(experiment);
-        RatingContainer ratingContainer = ratingContainer_vm.getRatingContainer();
         ratingContainerItems = new TreeItem<>(ratingContainer_vm);
-
-        if (ifConditional != null && treeView.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(ratingContainerItems);
-            ifConditional.setExpanded(true);
-        }
-        // Add to ratingContainerItems if selected item matches elseConditional
-        else if (elseConditional != null && treeView.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(ratingContainerItems);
-            elseConditional.setExpanded(true);
-        }
-        // Add to start if no conditions match
-        else {
-            startStage.getChildren().add( ratingContainerItems);
-        }
+        startStage.getChildren().add(ratingContainerItems);
     }
 //
     @FXML
     void addTasteTest(ActionEvent event) {
         AddTasteVM addTasteVM = new AddTasteVM(experiment);
-        TasteTest tasteTest = addTasteVM.getTastetest();
-        if (ifConditional != null && treeView.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(new TreeItem<>(addTasteVM));
-            ifConditional.setExpanded(true);
-        }
-        // Add to ratingContainerItems if selected item matches elseConditional
-        else if (elseConditional != null && treeView.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(new TreeItem<>(addTasteVM));
-            elseConditional.setExpanded(true);
-        }
-        // Add to start if no conditions match
-        else {
-            startStage.getChildren().add(new TreeItem<>(addTasteVM));
-        }
+        addNewTreeItem(addTasteVM);
     }
 //
    @FXML
    void addTimer(ActionEvent event) {
         timerStage_VM timerStageVm = new timerStage_VM(experiment);
-        // experiment.showStages();
-        if (ifConditional != null && treeView.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(new TreeItem<>(timerStageVm));
-            ifConditional.setExpanded(true);
-        }
-        // Add to ratingContainerItems if selected item matches elseConditional
-        else if (elseConditional != null && treeView.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(new TreeItem<>(timerStageVm));
-            elseConditional.setExpanded(true);
-        }
-        // Add to start if no conditions match
-        else {
-            startStage.getChildren().add(new TreeItem<>(timerStageVm));
-        }
+        addNewTreeItem(timerStageVm);
 
    }
 
@@ -583,26 +463,7 @@ public class EditExpController {
         else {
             vasStageVm = new vasStage_VM(experiment);
         }
-        //  experiment.showStages();
-
-        // Add to ratingContainerItems if selected item matches ifConditional
-        if (ifConditional != null && treeView.getSelectionModel().getSelectedItem() == ifConditional) {
-            ifConditional.getChildren().add(new TreeItem<>(vasStageVm));
-            ifConditional.setExpanded(true);
-        }
-        // Add to ratingContainerItems if selected item matches elseConditional
-        else if (elseConditional != null && treeView.getSelectionModel().getSelectedItem() == elseConditional) {
-            elseConditional.getChildren().add(new TreeItem<>(vasStageVm));
-            elseConditional.setExpanded(true);
-        }
-        else if (ratingContainerItems != null && treeView.getSelectionModel().getSelectedItem() == ratingContainerItems){
-            ratingContainerItems.getChildren().add(new TreeItem<>(vasStageVm));
-            ratingContainerItems.setExpanded(true);
-        }
-        // Add to start if no conditions match
-        else {
-            startStage.getChildren().add(new TreeItem<>(vasStageVm));
-        }
+        addNewTreeItem(vasStageVm);
 
     }
 
