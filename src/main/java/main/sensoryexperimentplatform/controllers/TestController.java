@@ -372,23 +372,19 @@ public class TestController{
         start.setExpanded(true);
         AudibleSound_VM audibleSound_vm = new AudibleSound_VM(experiment);
         selectAudibleSound_vm = audibleSound_vm;
-        String key = "[Audio] " +selectAudibleSound_vm.getTitle();
+        String key = selectAudibleSound_vm.getTitle();
         Wrapper wrapper = new Wrapper(key,audibleSound_vm);
         displayedItems.put(index, wrapper);
         index++;
-        //experiment.showStages();
 
-        // Add to Randomnies if selected item matches ifConditional
         if (ifConditional != null && listObject.getSelectionModel().getSelectedItem() == ifConditional) {
             ifConditional.getChildren().add(new TreeItem<>(key));
             ifConditional.setExpanded(true);
         }
-        // Add to Randomnies if selected item matches elseConditional
         else if (elseConditional != null && listObject.getSelectionModel().getSelectedItem() == elseConditional) {
             elseConditional.getChildren().add(new TreeItem<>(key));
             elseConditional.setExpanded(true);
         }
-        // Add to start if no conditions match
         else {
             start.getChildren().add(new TreeItem<>(key));
         }

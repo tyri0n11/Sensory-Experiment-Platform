@@ -175,7 +175,8 @@ public class AssignSoundController {
             String soundName = selectedRadioButton.getText();
             audibleSoundVM.setSoundName(soundName);
             Stage currentStage = (Stage) btn_save2.getScene().getWindow();
-            currentStage.close();}
+            currentStage.close();
+        }
     }
 
     @FXML
