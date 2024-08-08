@@ -116,7 +116,6 @@ public class AssignSoundController {
         @Override
         public void updateItem(String obj, boolean empty) {
             super.updateItem(obj, empty);
-            System.out.println("Updating cell: " + obj); // Debugging
             if (empty || obj == null) {
                 setText(null);
                 setGraphic(null);

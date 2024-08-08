@@ -688,8 +688,8 @@ ExperimentID: 0
 Created on: 08.08.2024
 Version: 3
 startExperiment("null","","null")
-main.sensoryexperimentplatform.models.Start@2af8a2a1
 audio("ụa gì đây ","null","null","null","null")
+audio("Default Notice Stage","null","null","null","stomp")
 audio("Default Notice Stage","null","null","null","stomp")
 endExperiment()
 
