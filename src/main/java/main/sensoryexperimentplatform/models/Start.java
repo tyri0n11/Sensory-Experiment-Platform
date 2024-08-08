@@ -11,7 +11,7 @@ public class Start extends Stage{
 
 
 
-    public Start(String title, String content, String buttonText,Boolean requireBalance, Color backGroundColor, Color TextColor
+    public Start(String title, String content, String buttonText, Boolean requireBalance, Color backGroundColor, Color TextColor
     , long StartOfStageDelay, long EndOfStageDelay,Color disableButtonColor ) {
         super(title, content);
         this.backGroundColor = backGroundColor;

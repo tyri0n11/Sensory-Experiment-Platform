@@ -474,8 +474,10 @@ public class DataAccess {
                     Matcher matcher = patternExperiment.matcher(line);
 
                     if (matcher.find()) {
-                        currentStart.setTitle(matcher.group(0));
-                        currentStart.setContent(matcher.group(1));
+                        currentStart.setTitle(matcher.group(1));
+                        currentStart.setContent(matcher.group(2));
+                        currentStart.setButtonText(matcher.group(3));
+
                     }
                 } else if (line.startsWith("noticeStage")) {
                     Pattern noticePattern = Pattern.compile("noticeStage\\(\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\"\\)");
@@ -636,8 +638,9 @@ public class DataAccess {
                     Matcher matcher = patternExperiment.matcher(line);
 
                     if (matcher.find()) {
-                        currentExperiment.getStart().setTitle(matcher.group(0));
-                        currentExperiment.getStart().setContent(matcher.group(1));
+                        currentExperiment.getStart().setTitle(matcher.group(1));
+                        currentExperiment.getStart().setContent(matcher.group(2));
+                        currentExperiment.getStart().setContent(matcher.group(3));
                     }
                 } else if (line.startsWith("noticeStage")) {
                     Pattern noticePattern = Pattern.compile("noticeStage\\(\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\"\\)");

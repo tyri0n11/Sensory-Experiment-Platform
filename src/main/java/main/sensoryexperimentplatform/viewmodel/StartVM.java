@@ -209,8 +209,9 @@ public class StartVM implements Stages {
         if (start.getTitle() == null){
             return "Start experiment";
         }
-        else
+        else {
             return start.getTitle();
+        }
     }
 
 }
