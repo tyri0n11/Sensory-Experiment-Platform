@@ -38,7 +38,6 @@ public class InputStageController {
         // Add listeners for immediate update
         txt_buttonText.textProperty().addListener((observable, oldValue, newValue) -> {
             viewModel.setButtonText(newValue);
-            System.out.println(viewModel);
         });
 
         txt_helptext.textProperty().addListener((observable, oldValue, newValue) -> {

@@ -14,13 +14,15 @@ public class RunAudibleController {
     @FXML
     private Label titleTxt;
     private RunAudible_VM viewModel;
-    public void setViewModel(){
+
+    public void setViewModel(RunAudible_VM viewModel){
         this.viewModel = viewModel;
         bindViewModel();
     }
     private void bindViewModel(){
         titleTxt.textProperty().bind(viewModel.getTitle());
         contentTxt.textProperty().bind(viewModel.getContent());
+        viewModel.playSound();
 
     }
 

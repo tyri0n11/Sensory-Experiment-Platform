@@ -1,6 +1,7 @@
 package main.sensoryexperimentplatform.models;
 
 import javafx.scene.paint.Color;
+import org.controlsfx.control.Rating;
 
 import java.util.*;
 
@@ -58,6 +59,16 @@ public class Experiment {
                 RatingContainer ratingContainer = new RatingContainer((RatingContainer) o);
                 stages.add(ratingContainer);
             }
+            if (o instanceof AudibleInstruction) {
+                AudibleInstruction audibleInstruction = new AudibleInstruction((AudibleInstruction) o);
+                stages.add(audibleInstruction);
+            }
+            if(o instanceof Notice) {
+                Notice temp = new Notice((Notice) o);
+                stages.add(temp);
+            }if(o instanceof Timer) {
+                Timer temp = new Timer((Timer) o);
+                stages.add(temp);}
         }
     }
 
@@ -135,8 +146,8 @@ public class Experiment {
     }
     // Audible instruction stage
 
-    public void addAudibleInstruction(String title, String content, String buttonText, String helpText) {
-        AudibleInstruction temp = new AudibleInstruction(title, content, buttonText, helpText);
+    public void addAudibleInstruction(String title, String content, String buttonText, String helpText,String soundName) {
+        AudibleInstruction temp = new AudibleInstruction(title, content, buttonText, helpText,soundName);
         stages.add(temp);
     }
 

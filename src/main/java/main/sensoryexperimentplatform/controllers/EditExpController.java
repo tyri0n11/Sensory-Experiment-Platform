@@ -235,7 +235,7 @@ public class EditExpController {
 
     }
 
-    private void loadItems() {
+    private void loadItems() throws UnsupportedAudioFileException, LineUnavailableException, IOException, URISyntaxException {
         ArrayList<Object> stages = experiment.getStages();
 
         if (experiment.getStages().isEmpty()) {
@@ -287,17 +287,15 @@ public class EditExpController {
                     AddTasteVM inputStage_vm = new AddTasteVM((TasteTest) o);
                     startStage.getChildren().add(new TreeItem<>(inputStage_vm));
                 } else if (o instanceof Course) {
-
                     AddCourseVM addCourseVM = new AddCourseVM((Course) o);
                     startStage.getChildren().add(new TreeItem<>(addCourseVM));
                 } else if (o instanceof AudibleInstruction) {
-//                         selectAudibleSound_vm= new SelectAud((Timer) o);
-//                        startStage.getChildren().add(new TreeItem<>(selectAudibleSound_vm));
+                    AudibleSound_VM audibleSound_vm = new AudibleSound_VM((AudibleInstruction) o);
+                    startStage.getChildren().add(new TreeItem<>(audibleSound_vm));
                 } else if (o instanceof Timer) {
                     timerStage_VM timerStageVm = new timerStage_VM((Timer) o);
                     startStage.getChildren().add(new TreeItem<>(timerStageVm));
                 }
-
 //                else if (o instanceof Periodic){
 //                    String key = "[" + o.getClass().getSimpleName() + "] " + ((Periodic) o).getTitle();
 //                    start.getChildren().add(new TreeItem<>(key));
@@ -485,7 +483,7 @@ public class EditExpController {
 
     }
 
-    public void setExperiment(Experiment c) throws IOException {
+    public void setExperiment(Experiment c) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
         this.experiment = c;
         this.originalExperiment = experiment;
         loadItems();

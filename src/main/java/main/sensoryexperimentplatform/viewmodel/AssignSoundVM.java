@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 public class AssignSoundVM {
     private Sound sound;
+    private String selectedSoundName;
 
 
 
@@ -28,7 +29,7 @@ public class AssignSoundVM {
 
 
     public ArrayList<String> getListNameshow() {
-        return sound.getSoundNameshow();
+        return new ArrayList<>(sound.getSoundNameshow());
     }
 
     public void playSound(String name) {
@@ -48,7 +49,16 @@ public class AssignSoundVM {
     public void  addSoundFilePath(String soundPath){
        sound.getSoundFilePath().add(soundPath);
     }
+
+    public String getSelectedSoundName() {
+        return selectedSoundName;
+    }
+
+    public void setSelectedSoundName(String selectedSoundName) {
+        this.selectedSoundName = selectedSoundName;
+    }
     public Sound getSound(){
         return sound;
     }
+
 }

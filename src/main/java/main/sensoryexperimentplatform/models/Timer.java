@@ -18,6 +18,12 @@ public class Timer extends Stage{
         timeToWait = Long.parseLong(time);
     }
 
+    public Timer(Timer o) {
+
+        super(o.getInstruction(), o.getContent());
+        timeToWait = o.getTimeToWait();
+    }
+
 
     public void start(){
         if(isRunning){
