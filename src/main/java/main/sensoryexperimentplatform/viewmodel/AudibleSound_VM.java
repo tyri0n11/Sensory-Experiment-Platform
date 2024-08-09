@@ -6,8 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
-import main.sensoryexperimentplatform.controllers.SoundSingleton;
 import main.sensoryexperimentplatform.controllers.AddAudibleSoundController;
+import main.sensoryexperimentplatform.controllers.SoundSingleton;
 import main.sensoryexperimentplatform.models.AudibleInstruction;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.Sound;
@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Stack;
 
-public class AudibleSound_VM implements choose {
+public class AudibleSound_VM implements Stages {
     private StringProperty title;
     private StringProperty content;
     private StringProperty helpText;
@@ -113,12 +113,12 @@ public class AudibleSound_VM implements choose {
 
 
     @Override
-    public void modify(AnchorPane anchorPane,Stack<AddTasteVM> stack, Stack <AddCourseVM> add) throws IOException {
+    public void loadInterface(AnchorPane anchorPane,Stack<AddTasteVM> stack, Stack <AddCourseVM> add) throws IOException {
 
     }
 
     @Override
-    public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack <AddCourseVM> add, Button button1, Button button2, Button btn_assignSound, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Stack<ratingContainer_VM> ratingContainerVm) throws IOException {
+    public void handleMenuButtons(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack <AddCourseVM> add, Button button1, Button button2, Button btn_assignSound, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Stack<ratingContainer_VM> ratingContainerVm) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("AddAudibleSound.fxml"));
         AnchorPane newContent = fxmlLoader.load();
         anchorPane.getChildren().setAll(newContent);
@@ -127,7 +127,8 @@ public class AudibleSound_VM implements choose {
                btn_assignSound.setDisable(false);
     }
     @Override
-    public String getTitle(){
-        return "[Audio] "+ title.get();
+    public String toString() {
+        return "[Audio] " + audibleInstruction.getTitle();
     }
+
 }

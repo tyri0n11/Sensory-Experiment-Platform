@@ -6,7 +6,6 @@ import org.controlsfx.control.Rating;
 import java.util.*;
 
 public class Experiment {
-    private Start start;
     private String creatorName, experimentName, description, note, created_date;
     public int version, number_of_results, id, elapsedTime;
     ArrayList<Object> stages;
@@ -15,21 +14,12 @@ public class Experiment {
         super();
         Random random = new Random();
         this.id = random.nextInt(999);
-//        Scanner sc = new Scanner(System.in);
-//        System.out.print("Enter the Creator: ");
-//        setCreatorName(sc.nextLine());
-//        System.out.print("Enter the Experiment Name: ");
-//        setExperimentName(sc.nextLine());
-//        System.out.print("Enter the Experiment Description: ");
-//        setDescription(sc.nextLine());
-//        System.out.print("Enter the Additional Notes: ");
-//        setNote(sc.nextLine());
         stages = new ArrayList<>();
         version = 1;
         elapsedTime= 0;
-        start = new Start("default","default","default",
-                false,null, null,
-                0,100,null);
+//       // start = new Start("default","default","default",
+//                false,null, null,
+//                0,100,null);
         this.created_date = DataAccess.getCurrentFormattedDate();
     }
 
@@ -43,7 +33,7 @@ public class Experiment {
         this.created_date = created_date;
         stages = new ArrayList<>();
         elapsedTime = 0;
-        start = new Start("default","default","default",false,null, null,0,100,null);
+        //start = new Start("default","default","default",false,null, null,0,100,null);
     }
     public Experiment(Experiment selectedExperiment) {
         this.creatorName = selectedExperiment.getCreatorName();
@@ -56,6 +46,10 @@ public class Experiment {
         elapsedTime= 0;
         stages = new ArrayList<>();
         for (Object o : selectedExperiment.getStages()) {
+            if(o instanceof Start){
+                Start temp = new Start((Start) o);
+                stages.add(temp);
+            }
             if (o instanceof Vas) {
                 Vas temp = new Vas((Vas) o);
                 stages.add(temp);
@@ -246,14 +240,7 @@ public class Experiment {
     public void setNote(String note) {
         this.note = note;
     }
-    public String pairsToString(){
-        StringBuilder sb = new StringBuilder();
 
-        for(Object o: pairs){
-            sb.append(o.toString()).append("\n");
-        }
-        return sb.toString();
-    }
     public void setId(int id){
         this.id = id;
     }
@@ -282,7 +269,7 @@ public class Experiment {
     public String toString() {
         return "ExperimentName: " + experimentName + "\nExperimenterName: " + creatorName +
                 "\nExperimentID: "+ id + "\nCreated on: "+ created_date +
-                "\nVersion: "+ version + "\nstartExperiment(\"" + description + "\",\"" + "\",\"" + note + "\")\n"+
+                "\nVersion: "+ version + "\n"+
                 stagesToString() +"endExperiment()\n";
     }
 
@@ -295,16 +282,23 @@ public class Experiment {
                 backGroundColor,
                 TextColor,StartOfStageDelay,
                 EndOfStageDelay, disableButtonColor);
-        this.start = stage;
+        stages.add(stage);
+    }
+    public void addStartStage(String title, String content, String buttonText){
+        Start stage = new Start(title, content,  buttonText, false, null, null, 0, 0, null);
         stages.add(stage);
     }
 
     public Start getStart() {
-        return start;
+        if(stages.isEmpty()){
+            return null;
+        }
+        else {
+            return (Start)stages.get(0);
+        }
     }
 
     public void addStart(Start start) {
-        this.start = start;
         stages.add(start);
     }
 }
