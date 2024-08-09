@@ -10,8 +10,6 @@ public class Start extends Stage{
     private Color disableButtonColor;
     private String title, content;
 
-
-
     public Start(String title, String content, String buttonText, Boolean requireBalance, Color backGroundColor, Color TextColor
     , long StartOfStageDelay, long EndOfStageDelay,Color disableButtonColor ) {
         super(title, content);
@@ -104,7 +102,6 @@ public class Start extends Stage{
 
     @Override
     public String toString(){
-
         return "startExperiment(\"" + getTitle() + "\",\"" + getContent() + "\",\"" +
                 buttonText + "\")";
     }

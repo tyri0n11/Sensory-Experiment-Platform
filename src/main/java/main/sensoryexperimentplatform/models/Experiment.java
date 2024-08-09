@@ -6,7 +6,6 @@ import org.controlsfx.control.Rating;
 import java.util.*;
 
 public class Experiment {
-    private Start start;
     private String creatorName, experimentName, description, note, created_date;
     public int version, number_of_results, id, elapsedTime;
     ArrayList<Object> stages;
@@ -241,14 +240,7 @@ public class Experiment {
     public void setNote(String note) {
         this.note = note;
     }
-    public String pairsToString(){
-        StringBuilder sb = new StringBuilder();
 
-        for(Object o: pairs){
-            sb.append(o.toString()).append("\n");
-        }
-        return sb.toString();
-    }
     public void setId(int id){
         this.id = id;
     }
@@ -277,7 +269,7 @@ public class Experiment {
     public String toString() {
         return "ExperimentName: " + experimentName + "\nExperimenterName: " + creatorName +
                 "\nExperimentID: "+ id + "\nCreated on: "+ created_date +
-                "\nVersion: "+ version + "\nstartExperiment(\"" + description + "\",\"" + "\",\"" + note + "\")\n"+
+                "\nVersion: "+ version + "\n"+
                 stagesToString() +"endExperiment()\n";
     }
 
@@ -290,21 +282,23 @@ public class Experiment {
                 backGroundColor,
                 TextColor,StartOfStageDelay,
                 EndOfStageDelay, disableButtonColor);
-        this.start = stage;
         stages.add(stage);
     }
     public void addStartStage(String title, String content, String buttonText){
         Start stage = new Start(title, content,  buttonText, false, null, null, 0, 0, null);
-        this.start = stage;
         stages.add(stage);
     }
 
     public Start getStart() {
-        return start;
+        if(stages.isEmpty()){
+            return null;
+        }
+        else {
+            return (Start)stages.get(0);
+        }
     }
 
     public void addStart(Start start) {
-        this.start = start;
         stages.add(start);
     }
 }
