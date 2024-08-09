@@ -84,6 +84,8 @@ public class EditExpController {
     private Experiment originalExperiment;
     private Experiment experiment;
 
+
+
     public void initialize() {
         initializeStack();
 
@@ -92,15 +94,13 @@ public class EditExpController {
         setUpTreeViewListener();
 
         styleTreeView();
-
     }
 
 
     private void setUpTreeViewListener(){
         treeView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null && newValue != oldValue) {
-                // int index = getDisplayedIndex(newValue);
-                System.out.println(newValue);
+
                 try {
                     addTasteVMS.clear();
                     addCourseVMS.clear();
@@ -257,7 +257,6 @@ public class EditExpController {
                     startStage.getChildren().add(new TreeItem<>(vasStageVm));
 
                 } else if (o instanceof Notice) {
-
                     noticeStage_VM noticeStage_vm = new noticeStage_VM((Notice) o);
                     startStage.getChildren().add(new TreeItem<>(noticeStage_vm));
 
@@ -352,7 +351,10 @@ public class EditExpController {
         } else {
             startStage.getChildren().add(new TreeItem<>(stages));
         }
-        parent.setExpanded(true);
+        if(parent != null){
+            parent.setExpanded(true);
+        }
+
     }
     @FXML
     void addConditionalStatement(ActionEvent event) {
@@ -409,7 +411,7 @@ public class EditExpController {
         InputStage_VM inputStage_vm = new InputStage_VM(experiment);
         addNewTreeItem(inputStage_vm);
     }
-//
+
     @FXML
     void addNoticeStage(ActionEvent event) {
         noticeStage_VM noticeStage_vm = new noticeStage_VM(experiment);
@@ -438,13 +440,13 @@ public class EditExpController {
         ratingContainerItems = new TreeItem<>(ratingContainer_vm);
         startStage.getChildren().add(ratingContainerItems);
     }
-//
+
     @FXML
     void addTasteTest(ActionEvent event) {
         AddTasteVM addTasteVM = new AddTasteVM(experiment);
         addNewTreeItem(addTasteVM);
     }
-//
+
    @FXML
    void addTimer(ActionEvent event) {
         timerStage_VM timerStageVm = new timerStage_VM(experiment);

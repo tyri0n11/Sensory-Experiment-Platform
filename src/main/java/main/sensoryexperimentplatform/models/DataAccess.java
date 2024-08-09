@@ -641,6 +641,9 @@ public class DataAccess {
                         currentExperiment.getStart().setTitle(matcher.group(1));
                         currentExperiment.getStart().setContent(matcher.group(2));
                         currentExperiment.getStart().setContent(matcher.group(3));
+                        System.out.println(matcher.group(1));
+                        System.out.println(matcher.group(2));
+                        System.out.println(matcher.group(3));
                     }
                 } else if (line.startsWith("noticeStage")) {
                     Pattern noticePattern = Pattern.compile("noticeStage\\(\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\"\\)");

@@ -77,4 +77,9 @@ public class Start extends Stage{
     public void setDisableButtonColor(Color disableButtonColor) {
         this.disableButtonColor = disableButtonColor;
     }
+    @Override
+    public String toString(){
+        return "startExperiment(\"" + title + "\",\"" + content + "\",\"" +
+                buttonText + "\")";
+    }
 }
