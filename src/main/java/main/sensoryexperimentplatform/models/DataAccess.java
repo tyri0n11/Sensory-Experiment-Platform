@@ -178,7 +178,16 @@ public class DataAccess {
                                 Boolean.parseBoolean(matcher.group(4))
                         );
                     }
-                } else if (line.startsWith("ratingsContainer")) {
+                }
+                else if(line.startsWith("audio")){
+                    Pattern audioPattern = Pattern.compile("audio\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
+                    Matcher matcher = audioPattern.matcher(line);
+                    if (matcher.find()) {
+                        currentExperiment.addAudibleInstruction(matcher.group(1),matcher.group(2),matcher.group(3),matcher.group(4),matcher.group(5));
+                    }
+
+                }
+                else if (line.startsWith("ratingsContainer")) {
                     Pattern ratingsContainerPattern = Pattern.compile("ratingsContainer\\(\"(.*?)\",\"(.*?)\"\\)");
                     Matcher matcher = ratingsContainerPattern.matcher(line);
 
@@ -248,6 +257,7 @@ public class DataAccess {
                         );
                     }
                 } else if (line.startsWith("inputStage")) {
+
                     Pattern inputPattern = Pattern.compile("inputStage\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
                     Matcher matcher = inputPattern.matcher(line);
 
@@ -264,7 +274,16 @@ public class DataAccess {
                                 Boolean.parseBoolean(matcher.group(3))
                         );
                     }
-                } else if (line.startsWith("vasStage")) {
+                }   else if(line.startsWith("audio")){
+                    System.out.println(currentExperiment.getStages()+ "1");
+                    Pattern audiblePattern = Pattern.compile("audio\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
+                    Matcher matcher = audiblePattern.matcher(line);
+                    if (matcher.find()) {
+                        currentExperiment.addAudibleInstruction(matcher.group(1),matcher.group(2),matcher.group(3),matcher.group(4),matcher.group(5));
+                    }
+                }
+
+                else if (line.startsWith("vasStage")) {
                     Pattern vasPattern = Pattern.compile("vasStage\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
                     Matcher matcher = vasPattern.matcher(line);
 
@@ -430,7 +449,7 @@ public class DataAccess {
         String line;
         Start currentStart = new Start("default","default","default",false,null, null,0,100,null);
         currentExperiment.addStart(currentStart);
-        //notice, input, timer, vas, glms, question, rating container, course
+        //notice, input, timer, vas, glms, question, rating container, course, audible instruction
 
         try(BufferedReader reader = new BufferedReader(new FileReader(loadFilePath))){
             while ((line = reader.readLine()) != null ){
@@ -455,8 +474,10 @@ public class DataAccess {
                     Matcher matcher = patternExperiment.matcher(line);
 
                     if (matcher.find()) {
-                        currentStart.setTitle(matcher.group(0));
-                        currentStart.setContent(matcher.group(1));
+                        currentStart.setTitle(matcher.group(1));
+                        currentStart.setContent(matcher.group(2));
+                        currentStart.setButtonText(matcher.group(3));
+
                     }
                 } else if (line.startsWith("noticeStage")) {
                     Pattern noticePattern = Pattern.compile("noticeStage\\(\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\"\\)");
@@ -487,7 +508,18 @@ public class DataAccess {
                                 Boolean.parseBoolean(matcher.group(3))
                         );
                     }
-                } else if (line.startsWith("vasStage")) {
+                }
+                else if(line.startsWith("audio")){
+                    Pattern audioPattern = Pattern.compile("audio\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
+                    Matcher matcher = audioPattern.matcher(line);
+                    if (matcher.find()) {
+                        currentExperiment.addAudibleInstruction(matcher.group(1),matcher.group(2),matcher.group(3),matcher.group(4),matcher.group(5));
+                        System.out.println(currentExperiment.getStages()+"2");
+                    }
+
+                }
+
+                else if (line.startsWith("vasStage")) {
                     Pattern vasPattern = Pattern.compile("vasStage\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
                     Matcher matcher = vasPattern.matcher(line);
 
@@ -606,8 +638,12 @@ public class DataAccess {
                     Matcher matcher = patternExperiment.matcher(line);
 
                     if (matcher.find()) {
-                        currentExperiment.getStart().setTitle(matcher.group(0));
-                        currentExperiment.getStart().setContent(matcher.group(1));
+                        currentExperiment.getStart().setTitle(matcher.group(1));
+                        currentExperiment.getStart().setContent(matcher.group(2));
+                        currentExperiment.getStart().setContent(matcher.group(3));
+                        System.out.println(matcher.group(1));
+                        System.out.println(matcher.group(2));
+                        System.out.println(matcher.group(3));
                     }
                 } else if (line.startsWith("noticeStage")) {
                     Pattern noticePattern = Pattern.compile("noticeStage\\(\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\",\"([^\"]*?)\"\\)");
@@ -638,6 +674,14 @@ public class DataAccess {
                                 Boolean.parseBoolean(matcher.group(3))
                         );
                     }
+
+                } else if(line.startsWith("audio")){
+                    Pattern audiblePattern = Pattern.compile("audio\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
+                    Matcher matcher = audiblePattern.matcher(line);
+                    if (matcher.find()) {
+                        currentExperiment.addAudibleInstruction(matcher.group(1),matcher.group(2),matcher.group(3),matcher.group(4),matcher.group(5));
+                    }
+
                 } else if (line.startsWith("vasStage")) {
                     Pattern vasPattern = Pattern.compile("vasStage\\(\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\",\"(.*?)\"\\)");
                     Matcher matcher = vasPattern.matcher(line);

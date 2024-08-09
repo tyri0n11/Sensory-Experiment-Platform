@@ -9,6 +9,7 @@ public class RunNoticeController {
     @FXML
     private Label titleTxt, contentTxt;
     private RunNotice_VM viewModel;
+
     public void setViewModel(RunNotice_VM viewModel){
         this.viewModel = viewModel;
         bindViewModel();

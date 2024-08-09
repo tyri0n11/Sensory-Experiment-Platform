@@ -16,7 +16,7 @@ import main.sensoryexperimentplatform.models.Start;
 import java.io.IOException;
 import java.util.Stack;
 
-public class StartVM implements choose{
+public class StartVM implements Stages {
     private Experiment experiment;
     private Start start;
     private SimpleStringProperty title;
@@ -178,12 +178,12 @@ public class StartVM implements choose{
     }
 
     @Override
-    public void modify(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS) throws IOException {
+    public void loadInterface(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS) throws IOException {
 
     }
 
     @Override
-    public void modifyWithButton(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Stack<ratingContainer_VM> ratingContainerVm) throws IOException {
+    public void handleMenuButtons(AnchorPane anchorPane, Stack<AddTasteVM> stack, Stack<AddCourseVM> addCourseVMS, Button button1, Button button2, Button button3, Button button4, Button button5, Button button6, Button button7, Button button8, Button button9, Button button10, Button button11, Button button12, Stack<ratingContainer_VM> ratingContainerVm) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(SensoryExperimentPlatform.class.getResource("StartStage.fxml"));
         AnchorPane newContent = fxmlLoader.load();
         anchorPane.getChildren().setAll(newContent);
@@ -205,11 +205,13 @@ public class StartVM implements choose{
     }
 
     @Override
-    public String getTitle() {
+    public String toString(){
         if (start.getTitle() == null){
             return "Start experiment";
         }
-        else
+        else {
             return start.getTitle();
+        }
     }
+
 }

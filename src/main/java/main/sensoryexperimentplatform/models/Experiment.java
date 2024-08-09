@@ -1,12 +1,8 @@
 package main.sensoryexperimentplatform.models;
 
 import javafx.scene.paint.Color;
-import main.sensoryexperimentplatform.controllers.AudibleInstructionSingleton;
+import org.controlsfx.control.Rating;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.*;
 
 public class Experiment {
@@ -19,15 +15,6 @@ public class Experiment {
         super();
         Random random = new Random();
         this.id = random.nextInt(999);
-//        Scanner sc = new Scanner(System.in);
-//        System.out.print("Enter the Creator: ");
-//        setCreatorName(sc.nextLine());
-//        System.out.print("Enter the Experiment Name: ");
-//        setExperimentName(sc.nextLine());
-//        System.out.print("Enter the Experiment Description: ");
-//        setDescription(sc.nextLine());
-//        System.out.print("Enter the Additional Notes: ");
-//        setNote(sc.nextLine());
         stages = new ArrayList<>();
         version = 1;
         elapsedTime= 0;
@@ -46,7 +33,7 @@ public class Experiment {
         this.id = id;
         this.created_date = created_date;
         stages = new ArrayList<>();
-        elapsedTime= 0;
+        elapsedTime = 0;
         start = new Start("default","default","default",false,null, null,0,100,null);
     }
     public Experiment(Experiment selectedExperiment) {
@@ -72,6 +59,16 @@ public class Experiment {
                 RatingContainer ratingContainer = new RatingContainer((RatingContainer) o);
                 stages.add(ratingContainer);
             }
+            if (o instanceof AudibleInstruction) {
+                AudibleInstruction audibleInstruction = new AudibleInstruction((AudibleInstruction) o);
+                stages.add(audibleInstruction);
+            }
+            if(o instanceof Notice) {
+                Notice temp = new Notice((Notice) o);
+                stages.add(temp);
+            }if(o instanceof Timer) {
+                Timer temp = new Timer((Timer) o);
+                stages.add(temp);}
         }
     }
 
@@ -147,8 +144,10 @@ public class Experiment {
          timeWait,  randomizeFood,  randomizeRatingVas,  randomizeRatingGLMS);
         stages.add(tasteTest);
     }
-    public void addAudibleInstruction(String title, String content, String buttonText, String helpText) {
-        AudibleInstruction temp = AudibleInstructionSingleton.getInstance();
+    // Audible instruction stage
+
+    public void addAudibleInstruction(String title, String content, String buttonText, String helpText,String soundName) {
+        AudibleInstruction temp = new AudibleInstruction(title, content, buttonText, helpText,soundName);
         stages.add(temp);
     }
 
@@ -166,12 +165,16 @@ public class Experiment {
     public void addQuestion (Question question){
         stages.add(question);
     }
+    public void addAudibleInstruction (AudibleInstruction audibleInstruction){
+        stages.add(audibleInstruction);
+    }
     public void addInput(Input input){
         stages.add(input);
     }
     public void addConditionalStatement(conditionalStatement ConditionalStatement){
         stages.add(ConditionalStatement);
     }
+
 
     public ArrayList<Object> getStages() {
         return stages;

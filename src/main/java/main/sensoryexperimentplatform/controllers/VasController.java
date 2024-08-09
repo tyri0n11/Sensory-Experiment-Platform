@@ -14,15 +14,7 @@ public class VasController {
     @FXML
     private CheckBox checkB_swap;
 
-    @FXML
-    private ChoiceBox<?> choiceB_avail;
 
-
-    @FXML
-    private RadioButton radioBtn_Yes;
-
-    @FXML
-    private RadioButton radioBtn_available;
 
     @FXML
     private TextField txt_BtnTxt;
@@ -40,27 +32,15 @@ public class VasController {
     private TextField txt_LowAncVal;
 
     @FXML
-    private TextField txt_help;
+    private TextArea txt_help;
 
     @FXML
     private TextField txt_question;
 
     @FXML
     private TextField txt_yes;
-    @FXML
-    private ScrollPane scrollPane;
-    @FXML
-    private AnchorPane outterPane;
-    @FXML
-    private AnchorPane innerPane;
-    @FXML
-    private void initialize() {
-        scrollPane.prefWidthProperty().bind(outterPane.widthProperty());
-        scrollPane.prefHeightProperty().bind(outterPane.heightProperty());
-        // Bind the innerPane's size to the scrollPane's viewport size
-        innerPane.prefWidthProperty().bind(scrollPane.widthProperty());
-        innerPane.prefHeightProperty().bind(scrollPane.heightProperty());
-    }
+
+
 
 
 

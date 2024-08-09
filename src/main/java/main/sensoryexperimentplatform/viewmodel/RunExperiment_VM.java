@@ -64,6 +64,8 @@ public class RunExperiment_VM {
                         temp = "GLMS";
                     if (o instanceof Notice)
                         temp = "Notice";
+                    if (o instanceof AudibleInstruction)
+                        temp = "audio";
 
                     String key = index + " " + temp;
                     objectsMap.put(key, o);

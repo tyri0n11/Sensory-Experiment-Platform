@@ -5,13 +5,13 @@ import main.sensoryexperimentplatform.utilz.Observer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 public class listOfExperiment extends Observable {
     private static ArrayList<Experiment> experiments;
     private List<Observer> observers = new ArrayList<Observer>();
 
-
-    public static ArrayList<Experiment> getInstance() {
+    public static synchronized ArrayList<Experiment> getInstance() {
         if (experiments == null){
             experiments = new ArrayList<Experiment>();
         }
@@ -19,17 +19,23 @@ public class listOfExperiment extends Observable {
     }
 
     public static void addExperiment(Experiment experiment) throws Exception {
-        listOfExperiment.getInstance().add(experiment);
+        if(!getInstance().contains(experiment)){
+            getInstance().add(experiment);
+        }
         //DataAccess.saveNewExperiment(experiment);
         notifyAllObservers();
     }
 
     public static void deleteExperiment(Experiment experiment) throws Exception {
-        if (experiments.remove(experiment)) {
+        if (getInstance().remove(experiment)) {
             DataAccess.updateFile();
             notifyAllObservers();
         }
 
+    }
+
+    public static int getSize(){
+        return experiments.size();
     }
 
 

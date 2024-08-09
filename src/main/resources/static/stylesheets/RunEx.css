@@ -78,11 +78,9 @@
 }
 
 .button {
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
-    -fx-background-radius: 30px;
-    -fx-text-fill: #397E82;
     -fx-background-color: #F1F6FB;
+    -fx-background-radius: 30px;
+    -fx-padding: 18px 32px;
     -fx-effect: innershadow(three-pass-box, rgba(85, 91, 110, 0.15), 5, 0, 0, 5);
 }
 .button:hover{

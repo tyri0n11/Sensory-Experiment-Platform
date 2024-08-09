@@ -3,16 +3,25 @@
     -fx-background-color: transparent;
 
 }
-.button:hover, #btn_bind:hover{
+.button:hover, #btn_bind:hover, #btn_up:hover, #btn_down:hover, #btn_cross:hover{
     -fx-background-color: #D5E9EA;
     -fx-text-fill: black;
 }
+
 
 .button:disabled{
     -fx-background-color: #CCCCCC;
     -fx-text-fill: black;
 }
-
+.tooltip {
+    -fx-background-color: #e3e2e2;
+    -fx-text-fill: #397E82;
+    -fx-font-size: 18px;
+    -fx-padding: 8px;
+    -fx-border-color: transparent;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+}
 
 #lbl_SenseXP{
     -fx-font-family: "Baloo Bhaina 2";

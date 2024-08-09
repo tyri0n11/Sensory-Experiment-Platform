@@ -3,11 +3,11 @@ package main.sensoryexperimentplatform.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import main.sensoryexperimentplatform.viewmodel.glmsStage_VM;
+import main.sensoryexperimentplatform.viewmodel.GLMSStage_VM;
 
 public class GLMSController {
 
-    private glmsStage_VM glmsStageVm;
+    private GLMSStage_VM glmsStageVm;
     @FXML
     private CheckBox checkB_sound;
 
@@ -42,7 +42,7 @@ public class GLMSController {
     private TextField txt_LowAncTxt;
 
     @FXML
-    private TextField txt_help;
+    private TextArea txt_help;
 
     @FXML
     private TextField txt_question;
@@ -54,11 +54,7 @@ public class GLMSController {
     private AnchorPane innerPane;
     @FXML
     private ScrollPane scrollPane;
-    public void initialize() {
-        scrollPane.viewportBoundsProperty().addListener((observable, oldValue, newValue) -> {
-            innerPane.setPrefSize(newValue.getWidth(), newValue.getHeight());
-        });
-    }
+
 
     private void bind() {
         txt_LowAncTxt.textProperty().bindBidirectional(glmsStageVm.txt_LowAncTxtProperty());
@@ -69,7 +65,7 @@ public class GLMSController {
         checkB_swap.selectedProperty().bindBidirectional(glmsStageVm.checkB_swapProperty());
     }
 
-    public void setViewModel(glmsStage_VM glms) {
+    public void setViewModel(GLMSStage_VM glms) {
         this.glmsStageVm = glms;
         bind();
     }

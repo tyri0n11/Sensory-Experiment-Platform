@@ -1,18 +1,25 @@
 package main.sensoryexperimentplatform.viewmodel;
 
+import javafx.application.Platform;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import main.sensoryexperimentplatform.utilz.Observer;
-import main.sensoryexperimentplatform.models.DataAccess;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.listOfExperiment;
 
-public class dashBoard_VM implements Observer {
-    private ObservableList<Experiment> experiments;
+import java.util.List;
 
-    public dashBoard_VM() {
+public class DashBoard_VM implements Observer {
+    //private ObservableList<Experiment> experiments;
+    private ListProperty<Experiment> experiments;
+    private int size;
+
+    public DashBoard_VM() {
         listOfExperiment.attach(this);
-        experiments = FXCollections.observableArrayList();
+        experiments = new SimpleListProperty<>(FXCollections.observableArrayList());
+
         reload();
     }
 
@@ -38,7 +45,19 @@ public class dashBoard_VM implements Observer {
 //    }
 
     public void loadItems() throws Exception {
-        experiments.setAll(listOfExperiment.getInstance());
+        new Thread(() -> {
+            List<Experiment> experimentList = listOfExperiment.getInstance();
+            Platform.runLater(() -> {
+                experiments.setAll(experimentList);
+                size = experiments.size();
+               // System.out.println(size);
+            });
+        }).start();
+
+    }
+
+    public ListProperty<Experiment> experimentsProperty() {
+        return experiments;
     }
 
     public ObservableList<Experiment> getExperiments() {
@@ -52,5 +71,9 @@ public class dashBoard_VM implements Observer {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public int getExperimentsListSize() {
+        return size;
     }
 }

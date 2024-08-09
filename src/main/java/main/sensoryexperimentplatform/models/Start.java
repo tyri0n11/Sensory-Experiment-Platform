@@ -11,7 +11,7 @@ public class Start extends Stage{
 
 
 
-    public Start(String title, String content, String buttonText,Boolean requireBalance, Color backGroundColor, Color TextColor
+    public Start(String title, String content, String buttonText, Boolean requireBalance, Color backGroundColor, Color TextColor
     , long StartOfStageDelay, long EndOfStageDelay,Color disableButtonColor ) {
         super(title, content);
         this.backGroundColor = backGroundColor;
@@ -76,5 +76,10 @@ public class Start extends Stage{
 
     public void setDisableButtonColor(Color disableButtonColor) {
         this.disableButtonColor = disableButtonColor;
+    }
+    @Override
+    public String toString(){
+        return "startExperiment(\"" + title + "\",\"" + content + "\",\"" +
+                buttonText + "\")";
     }
 }

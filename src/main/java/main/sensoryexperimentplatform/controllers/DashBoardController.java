@@ -2,6 +2,7 @@ package main.sensoryexperimentplatform.controllers;
 
 
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,27 +12,29 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import main.sensoryexperimentplatform.SensoryExperimentPlatform;
 import main.sensoryexperimentplatform.viewmodel.FillName_VM;
-import main.sensoryexperimentplatform.viewmodel.RunExperiment_VM;
-import main.sensoryexperimentplatform.viewmodel.dashBoard_VM;
+import main.sensoryexperimentplatform.viewmodel.DashBoard_VM;
 import main.sensoryexperimentplatform.models.Experiment;
 import main.sensoryexperimentplatform.models.listOfExperiment;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Stack;
 import java.util.concurrent.ScheduledExecutorService;
 
 public class DashBoardController {
 
-    private static final int ITEMS_PER_PAGE = 10;
-    private dashBoard_VM dashBoard_vm;
+    private static final int ITEMS_PER_PAGE = 6;
+    private DashBoard_VM dashBoard_vm;
 
     private ScheduledExecutorService executorService;
     private long startTime, elapsedTime;
@@ -57,6 +60,9 @@ public class DashBoardController {
 
     @FXML
     private TableColumn<Experiment, String> lbl_Option;
+
+    @FXML
+    private AnchorPane dashBoardPane;
     @FXML
     private Pagination pagination;
 
@@ -66,10 +72,10 @@ public class DashBoardController {
 
     public void initialize() {
         //this.base = base;
-       dashBoard_vm = new dashBoard_VM();
+       dashBoard_vm = new DashBoard_VM();
        bindViewModel();
        bindColumnWidths();
-       //setupPagination();
+       setupPaginationListener();
     }
 
     private void bindColumnWidths() {
@@ -151,7 +157,15 @@ public class DashBoardController {
                             });
                             edit.setOnAction((ActionEvent event) -> {
                                 selectedExperiment = getTableView().getItems().get(getIndex());
-                                editExperiment(selectedExperiment);
+                                try {
+                                    editExperiment(selectedExperiment);
+                                } catch (UnsupportedAudioFileException e) {
+                                    throw new RuntimeException(e);
+                                } catch (LineUnavailableException e) {
+                                    throw new RuntimeException(e);
+                                } catch (URISyntaxException e) {
+                                    throw new RuntimeException(e);
+                                }
                             });
                             run.setOnAction((ActionEvent) ->{
                                 Experiment selectedExperiment = getTableView().getItems().get(getIndex());
@@ -193,27 +207,40 @@ public class DashBoardController {
 
 
         // Bind the TableView items to the ViewModel items
+       // System.out.println(dashBoard_vm.getExperiments().size());
+      //contentTable.setItems(dashBoard_vm.getExperiments());
+     //   setupPagination();
 
-        contentTable.setItems(dashBoard_vm.getExperiments());
-
-
+    }
+    private void setupPaginationListener() {
+        dashBoard_vm.experimentsProperty().addListener((ListChangeListener<Experiment>) change -> {
+            setupPagination();
+        });
     }
 
     private void setupPagination() {
-        int totalItems = dashBoard_vm.getExperiments().size();
-        int totalPages = (int) Math.ceil((double) totalItems / ITEMS_PER_PAGE);
+        int totalPages = (int) Math.ceil((double) dashBoard_vm.getExperiments().size() / ITEMS_PER_PAGE);
+
         pagination.setPageCount(totalPages);
+        pagination.setLayoutX(dashBoardPane.getWidth() / 2.0 - pagination.getWidth() / 2.0);
+
         pagination.setPageFactory(this::createPage);
     }
 
-    private VBox createPage(int pageIndex) {
+    private TableView<Experiment> createPage(int pageIndex) {
         int start = pageIndex * ITEMS_PER_PAGE;
         int end = Math.min(start + ITEMS_PER_PAGE, dashBoard_vm.getExperiments().size());
-        ObservableList<Experiment> itemsForPage = FXCollections.observableArrayList(
-                dashBoard_vm.getExperiments().subList(start, end)
-        );
-        contentTable.setItems(itemsForPage);
-        return new VBox(contentTable);
+
+        if(start > end) {
+            contentTable.setItems(dashBoard_vm.getExperiments());
+        } else {
+            ObservableList<Experiment> itemsForPage = FXCollections.observableArrayList(
+                    dashBoard_vm.getExperiments().subList(start, end)
+            );
+            contentTable.setItems(itemsForPage);
+        }
+
+        return contentTable;
     }
 
     private void deleteEx(Experiment e) throws Exception {
@@ -222,17 +249,19 @@ public class DashBoardController {
     }
 
     public void redo() throws Exception {
-        listOfExperiment.addExperiment(deletedExp.pop());
+        if(!deletedExp.isEmpty()){
+            listOfExperiment.addExperiment(deletedExp.pop());
+        }
     }
 
 
-    private void editExperiment(Experiment c) {
+    private void editExperiment(Experiment c) throws UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
 //        c.updateVersion();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/Test.fxml"));
+        loader.setLocation(getClass().getResource("/main/sensoryexperimentplatform/EditExperiment.fxml"));
         Parent root = null;
         try{
-            TestController controller = new TestController();
+            EditExpController controller = new EditExpController();
             root = loader.load();
             controller = loader.getController();
             controller.setExperiment(c);
@@ -258,9 +287,6 @@ public class DashBoardController {
         Parent root = fxmlLoader.load();
 
         Stage stage = new Stage();
-        stage.setTitle("New experiment");
-        newExController controller = fxmlLoader.getController();
-        controller.initialize();
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

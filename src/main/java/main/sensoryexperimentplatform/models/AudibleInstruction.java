@@ -17,32 +17,31 @@ public class AudibleInstruction extends Stage {
 
     private String buttonText;
     private String helpText;
-    //soundNameList
-    private ArrayList<String> soundNamesList;
-
-    private ArrayList<String> soundFilePaths;
+    private String soundName;
+    private Sound SoundManager;
 
 
-    private Map<String, Clip> soundMap;
-    //sound name for showing
-    private ArrayList<String> soundNameshow; // for the appearance of sound
 
-
-    public AudibleInstruction(String title, String content, String buttonText,String helpText){
+    public AudibleInstruction(String title, String content, String buttonText,String helpText,String soundName){
       super(title, content);
       this.content=content;
       this.title= title;
         this.buttonText= buttonText;
         this.helpText = helpText;
-        soundMap = new HashMap<>();
-        soundNameshow = new ArrayList<>();
-        soundNameshow.add("boop");
-        loadSound("boop","src/main/java/main/sensoryexperimentplatform/sound/boop-741-mhz-39314.wav");
-        loadSound("stomp","src/main/java/main/sensoryexperimentplatform/sound/stompwav-14753.wav");
-        soundNameshow.add("stomp");
+        this.soundName= soundName;
+        this.SoundManager = new Sound();
 
-        soundNamesList = new ArrayList<>();
 
+    }
+
+    public AudibleInstruction(AudibleInstruction o) {
+        super(o.title, o.content);
+        this.title= o.getTitle();
+        this.content= o.getContent();
+        this.buttonText= o.getButtonText();
+        this.helpText = o.getHelpText();
+        this.soundName= o.getSoundName();
+        this.SoundManager = new Sound();
     }
 
     public String getTitle() {
@@ -76,76 +75,23 @@ public class AudibleInstruction extends Stage {
         this.helpText = helpText;
     }
 
-
-    public ArrayList<String> getSoundNameshow() {
-        return soundNameshow;
+    public String getSoundName(){
+        return soundName;
     }
-    public void addSoundShow(String name){
-        soundNameshow.add(name);
-    }
-    public ArrayList<String>getSoundNameList(){
-        return soundNamesList;
-    }
-    public void addSoundNameList(String name){
-        soundNamesList.add(name);
-    }
-    public  ArrayList<String>getSoundFilePath(){
-        return soundFilePaths;
-    }
-    public void addSoundFilePath(String sound){
-        soundFilePaths.add(sound);
-    }
-    public Map<String, Clip> getSoundMap() {
-        return soundMap;
-    }
-
-    public void loadSound(String name, String filePath) {
-        try {
-            File soundFile = new File(filePath);
-
-            if (!soundFile.exists()) {
-                throw new IllegalArgumentException("Sound file not found: " + filePath);
-            }
-
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
-            Clip clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            soundMap.put(name, clip);
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            e.printStackTrace();
-        }
+    public void setSoundName(String soundName){
+        this.soundName = soundName;
     }
 
 
     public void playSound(String name) {
-        Clip clip = soundMap.get(name);
-        if (clip != null) {
-            stopAllSounds();
-            clip.start();
-        }
+       SoundManager.playSound(name);
     }
 
-    public void stopSound(String name) {
-        Clip clip = soundMap.get(name);
-        if (clip != null) {
-            clip.stop();
-            clip.setFramePosition(0);
-        }
-    }
-
-    public void stopAllSounds() {
-        for (Clip clip : soundMap.values()) {
-            if (clip.isRunning()) {
-                clip.stop();
-            }
-        }
-    }
-
-
+    @Override
     public String toString() {
 
-            return "Audio(\"" + title + "\",\"" + content +
-                    "\",\"" + buttonText + "\",\"" + helpText + "\")";
+            return "audio(\"" + title + "\",\"" + content +
+                    "\",\"" + buttonText + "\",\"" + helpText + "\",\""+ soundName + "\")";
         }
     }
 

@@ -1,6 +1,6 @@
 .label{
-    -fx-font-family: "Baloo2 SemiBold";
-    -fx-font-weight: Bold;
+    -fx-font-family: "Baloo2";
+    -fx-font-weight: normal;
     -fx-font-size: 40px;
     -fx-text-fill: #397E82;
 
@@ -8,7 +8,8 @@
 #questionlbl{
     -fx-text-alignment: center;
     -fx-alignment: Center;
-    -fx-font-size: 24px;
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
 }
 .tooltip {
     -fx-background-color: #e3e2e2;
@@ -19,19 +20,12 @@
     -fx-border-width: 1px;
     -fx-border-radius: 3px;
 }
-.slider .track{
-    -fx-background-color: #397E82;
-    -fx-pref-height: 28px;
-    -fx-border-radius: 3px;
-}
-.slider .track .filled{
-    -fx-background-color: BLUE;
-}
 
 .slider .thumb{
-    -fx-pref-height: 28px;
-    -fx-pref-width: 28px;
-    -fx-background-image: url("/static/images/slider_thumb.png");
+    -fx-pref-height: 48px;
+    -fx-pref-width: 48px;
+    -fx-background-image: url("/static/images/thumb.png");
+    -fx-background-color: transparent;
 }
 #result_label{
     -fx-background-image: url("/static/images/popup.png");
@@ -39,16 +33,23 @@
     -fx-font-size: 16px;
     -fx-text-alignment: center;
     -fx-alignment: center;
+
 }
 #lowAnchor_label, #highAnchor_label{
-    -fx-font-family: "Baloo2 SemiBold";
+    -fx-font-family: "Baloo2";
     -fx-font-size: 20px;
     -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-tile-alignment: center;
+    -fx-text-fill: #397E82;
+    -fx-font-weight: 700;
+
 }
 
 .slider .track{
-    -progress : 0.2;
+    -fx-progress : 0.2;
     -fx-background-radius: 14px;
     -fx-pref-height: 28px;
-    -fx-background-color: #F1F6FB;
+    -fx-background-color: #D5E9EA;
+
 }
