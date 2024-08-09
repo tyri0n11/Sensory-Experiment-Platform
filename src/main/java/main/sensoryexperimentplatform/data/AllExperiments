@@ -4,6 +4,7 @@ ExperimentID: 0
 Created on: null
 Version: 8
 startExperiment("null","","null")
+startExperiment("Welcome","This study is looking at the effects of food on cognitive ability. ____You will complete some mood ratings and will be served a carrot and spice soup DURING WHICH you will fill in some ratings about the soup. Please ensure that you eat all of the soup provided.____PLEASE ENSURE THAT YOU ANSWER THE QUESTIONS THAT FLASH UP ON SCREEN AS SOON AS THEY APPEAR____If you have any questions\, please call the experimenter now\, otherwise click 'Start' to continue.","Start")
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","As hungry as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.__","false","false")
 vasStage("How full do you feel right now?","Not at all full","As full as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.__","false","false")
@@ -43,6 +44,7 @@ ExperimentID: 0
 Created on: null
 Version: 6
 startExperiment("null","","null")
+startExperiment("Welcome","In this part of the study you will complete some mood ratings and will be served a pasta lunch. ____You are welcome to eat as much or as little as you like until you feel comfortably full.____While eating\, it is important that you do not leave your cutlery in the bowl at any time; if you wish to put it down\, please do so on the small plate provided. Also\, please do not lean on the place mat.____You may be asked to call your experimenter who will provide more food.____If you have any questions please call the experimenter otherwise click 'Start' to begin.","Start")
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","As hungry as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.","false","false")
 vasStage("How full do you feel right now?","Not at all full","As full as I have ever felt","0","100","Rating Completed","Session[]","Please use the mouse to move the rating bar to the point on the scale which best represents how you currently feel. ____Click on the 'Rating Completed' button once you have moved the bar to where you want on the scale.","false","false")
@@ -75,6 +77,7 @@ ExperimentID: 0
 Created on: null
 Version: 0
 startExperiment("null","","null")
+startExperiment("Please complete the mood ratings","You will be asked to complete a series of mood ratings. Please move the bar along the scale on the screen to the place that best represents how you feel right now.____Please press 'start ratings' when you are ready","Start ratings")
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","Extremely hungry","0","100","Rating completed","Session[]","","false","false")
 vasStage("How full do you feel right now?","Not at all full","Extremely full","0","100","Rating completed","Session[]","","false","false")
@@ -96,6 +99,7 @@ ExperimentID: 0
 Created on: null
 Version: 7
 startExperiment("null","","null")
+startExperiment("LAB BREAKFAST","","Click mouse to start")
 noticeStage("Good Morning!","Today\, we are preparing the breakfast for you! Note that you will be asked to complete some simple mood and appetite ratings both before and after this lab-based meal.____Subsequent to the first set of mood and appetite ratings and before you start enjoying your breakfast in full\, you are also required to rate different gustatory aspects of the breakfast items; detailed instructions follow.","Ready to start","","false")
 noticeStage("Mood and Appetite Ratings","Use the mouse to move the bar to the position that best describes how you feel\, and then click the box to register your rating.","Ready to start the ratings","_","false")
 ratingsContainer("true","0")
@@ -137,6 +141,7 @@ ExperimentID: 0
 Created on: null
 Version: 0
 startExperiment("null","","null")
+startExperiment("Please complete the mood ratings","You will be asked to complete a series of mood ratings. Please move the bar along the scale on the screen to the place that best represents how you feel right now.____Please press 'start ratings' when you are ready","Start ratings")
 ratingsContainer("true","0")
 vasStage("How hungry do you feel right now?","Not at all hungry","Extremely hungry","0","100","Rating completed","Session[]","","false","false")
 vasStage("How full do you feel right now?","Not at all full","Extremely full","0","100","Rating completed","Session[]","","false","false")
@@ -158,6 +163,7 @@ ExperimentID: 0
 Created on: null
 Version: 27
 startExperiment("null","","null")
+startExperiment("PORRIDGE TASTE TEST","","Click mouse to start")
 noticeStage("Porridge Taste Test","For the second taste test\, porridge samples are presented for you to evaluate. Note you will complete one set of ratings\, have a pause and then complete a second set of ratings.______When prompted by the computer please take the relevant sample and place the entire portion in your mouth. Chew the sample/Keep the sample in your mouth for approximately 10 seconds and then swallow it.______After you complete the ratings of each porridge sample\, a two-step rinsing process will follow. First\, you will be instructed to rinse your mouth  thoroughly with a single very small sip of water (10-15 mL) in order to remove all food particles; this small amount of risning water should eventually be swallowed. Subsequently\, you will be asked to re-rinse your mouth with fresh water (a minimum of one sip) but this time to spit it into the black cup provided.","Ready for the taste test","","false")
 noticeStage("Taste Test","Please place Sample 356 in your mouth\, chew it/keep it in your mouth for approximately 10 seconds\, and then swallow it.",">>","","false")
 vasStage("How much do you like Sample 356?","Dislike extremely","Like extremely","0","100","Continue","Session[]","__**REMINDER**____The left side of the line corresponds to different levels of disliking and the right side to different levels of liking. The middle of the line represents the neutral point\, in other words\, a stimulus that you ‘Neither Like or Dislike’.","false","false")
@@ -220,6 +226,7 @@ ExperimentID: 0
 Created on: null
 Version: 1
 startExperiment("null","","null")
+startExperiment("TASTE TEST","","Click mouse to start")
 noticeStage("Welcome!","Thank you for agreeing to take part. To start with\, we need you to complete some simple ratings\, which will be followed by a taste test.","Ready to start","","false")
 noticeStage("Liking ratings","The first type of rating you complete measures how much you like different things. It uses a horizontal line anchored as ‘Dislike Extremely’ and ‘Like Extremely’. In other words\, the left side of the line corresponds to different levels of disliking and the right side corresponds to different levels of liking. The middle of the line represents the neutral point\, that is something that you ‘Neither Like or Dislike'.____You can move the mouse and place your rating anywhere on the scale.____We will start with some simple examples as a practice.","Continue","","false")
 ratingsContainer("true","0")
@@ -280,16 +287,5 @@ glmsStage("How salty is Sample 720?","Next","Session[]","","false")
 endRatingsContainer()
 noticeStage("Rinsing","Please rinse your mouth with the water provided and then expectorate it into the black cup.","Continue","","false")
 noticeStage("Thank you!","That completes the taste test: please call your researcher.","X","","true")
-endExperiment()
-
-ExperimentName: Test
-ExperimenterName: TestSound
-ExperimentID: 0
-Created on: 09.08.2024
-Version: 1
-startExperiment("null","","null")
-startExperiment("Start Experiment","This is the first stage of the experiment","null")
-noticeStage("User input","null","null","null","false")
-audio("Default Notice Stage","null","null","null","boop")
 endExperiment()
 

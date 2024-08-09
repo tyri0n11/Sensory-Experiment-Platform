@@ -18,9 +18,9 @@ public class Experiment {
         stages = new ArrayList<>();
         version = 1;
         elapsedTime= 0;
-        start = new Start("default","default","default",
-                false,null, null,
-                0,100,null);
+//       // start = new Start("default","default","default",
+//                false,null, null,
+//                0,100,null);
         this.created_date = DataAccess.getCurrentFormattedDate();
     }
 
@@ -34,7 +34,7 @@ public class Experiment {
         this.created_date = created_date;
         stages = new ArrayList<>();
         elapsedTime = 0;
-        start = new Start("default","default","default",false,null, null,0,100,null);
+        //start = new Start("default","default","default",false,null, null,0,100,null);
     }
     public Experiment(Experiment selectedExperiment) {
         this.creatorName = selectedExperiment.getCreatorName();
@@ -47,6 +47,10 @@ public class Experiment {
         elapsedTime= 0;
         stages = new ArrayList<>();
         for (Object o : selectedExperiment.getStages()) {
+            if(o instanceof Start){
+                Start temp = new Start((Start) o);
+                stages.add(temp);
+            }
             if (o instanceof Vas) {
                 Vas temp = new Vas((Vas) o);
                 stages.add(temp);
@@ -286,6 +290,11 @@ public class Experiment {
                 backGroundColor,
                 TextColor,StartOfStageDelay,
                 EndOfStageDelay, disableButtonColor);
+        this.start = stage;
+        stages.add(stage);
+    }
+    public void addStartStage(String title, String content, String buttonText){
+        Start stage = new Start(title, content,  buttonText, false, null, null, 0, 0, null);
         this.start = stage;
         stages.add(stage);
     }

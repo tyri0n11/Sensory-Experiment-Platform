@@ -40,7 +40,10 @@ public class StartVM implements Stages {
         TextColor= new SimpleObjectProperty<>(start.getTextColor());
         StartOfStageDelay = new SimpleStringProperty(String.valueOf(start.getStartOfStageDelay()));
         EndOfStageDelay = new SimpleStringProperty(String.valueOf(start.getEndOfStageDelay()));
+
+
         experiment.addStart(start);
+
         buttonText.addListener((observableValue, oldValue, newValue) -> onButtonChange(newValue));
         balance.addListener((observableValue, oldValue, newValue) -> onBalanceChange(newValue));
         title.addListener((observableValue, oldValue, newValue) -> onTitleChange(newValue));
@@ -51,6 +54,8 @@ public class StartVM implements Stages {
         EndOfStageDelay.addListener((observableValue, oldValue, newValue) -> onEnd(newValue));
         colorDisable.addListener((observableValue, oldValue, newValue) -> onColorDisable(newValue));
     }
+
+
     public StartVM(Start start){
         this.start = start;
         title = new SimpleStringProperty(start.getTitle());
@@ -62,6 +67,8 @@ public class StartVM implements Stages {
         TextColor= new SimpleObjectProperty<>(start.getTextColor());
         StartOfStageDelay = new SimpleStringProperty(String.valueOf(start.getStartOfStageDelay()));
         EndOfStageDelay = new SimpleStringProperty(String.valueOf(start.getEndOfStageDelay()));
+
+
         buttonText.addListener((observableValue, oldValue, newValue) -> onButtonChange(newValue));
         balance.addListener((observableValue, oldValue, newValue) -> onBalanceChange(newValue));
         title.addListener((observableValue, oldValue, newValue) -> onTitleChange(newValue));
